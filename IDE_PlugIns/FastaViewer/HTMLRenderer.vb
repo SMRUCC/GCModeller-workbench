@@ -19,9 +19,9 @@ Public Module HTMLRenderer
 
         For Each r As Char In nt.SequenceData.ToUpper
             If HTMLRenderer.Nt.ContainsKey(r) Then
-                sb.AppendLine(HTMLRenderer.Nt(r))
+                sb.Append(HTMLRenderer.Nt(r))
             Else
-                sb.AppendLine(r)
+                sb.Append(r)
             End If
         Next
 
