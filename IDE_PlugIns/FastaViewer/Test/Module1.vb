@@ -2,6 +2,6 @@
 
     Sub Main()
 
+        Call New FastaViewer.FormViwer().ShowDialog()
     End Sub
-
 End Module
