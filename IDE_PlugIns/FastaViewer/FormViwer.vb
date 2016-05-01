@@ -1,6 +1,10 @@
-﻿Imports LANS.SystemsBiology.AnalysisTools.SequenceTools.SequencePatterns
+﻿Imports System.Text
+Imports LANS.SystemsBiology.AnalysisTools.SequenceTools.SequencePatterns
+Imports LANS.SystemsBiology.AnalysisTools.SequenceTools.SequencePatterns.Motif
 Imports LANS.SystemsBiology.SequenceModel.FASTA
 Imports Microsoft.VisualBasic.Windows.Forms
+Imports Microsoft.VisualBasic.Linq
+Imports Microsoft.VisualBasic.Imaging
 
 Public Class FormViwer
 
@@ -37,7 +41,7 @@ Public Class FormViwer
     End Sub
 
     Private Sub FormViwer_Load(sender As Object, e As EventArgs) Handles Me.Load
-
+        Call My.Resources.foundation.SaveTo($"{App.HOME}/assets/foundation.css")
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
@@ -54,7 +58,45 @@ Public Class FormViwer
             End If
         Next
 
-        Dim logo As Image = SequenceLogo.DrawingDevice.DrawFrequency(fa)
-        PictureBox1.BackgroundImage = logo
+        Dim model As MotifPWM = Nothing
+        Dim logo As Image =
+            SequenceLogo.DrawingDevice.DrawFrequency(fa, getModel:=model)
+        Dim tmp As String = App.GetAppSysTempFile(".png")
+        Dim hmtl As String = PWMHtml(model, fa.NumberOfFasta, tmp)
+        Call logo.SaveAs(tmp, ImageFormats.Png)
+        tmp = App.GetAppSysTempFile(".html")
+        Call hmtl.SaveTo(tmp)
+        Call WebBrowser2.Navigate(tmp)
+
+        MaterialTabControl1.SelectedIndex = 1
     End Sub
+
+    Private Function PWMHtml(model As MotifPWM, n As Integer, logo As String) As String
+        Dim sb As New StringBuilder(4096)
+
+        Call sb.AppendLine($"<html><head>
+<link rel=""stylesheet"" href=""{$"{App.HOME}/assets/foundation.css"}"">
+</head><body>
+")
+        Call sb.AppendLine($"<img src=""{logo}"" />")
+        Call sb.AppendLine($"<font face=""{FontFace.Consolas}"">")
+        Call sb.AppendLine("<p>")
+        Call sb.AppendLine($"Sequence logo model build from {n} sites.<br>")
+        Call sb.AppendLine("Motif: " & New String(model.PWM.ToArray(Function(x) x.AsChar)))
+        Call sb.AppendLine("<br></p>")
+
+        Call sb.AppendLine("<table class=""API"">")
+        Call sb.AppendLine($"<tr><strong><td>Bits</td>{String.Join("", model.PWM.ToArray(Function(x) $"<td>{Math.Round(x.Bits, 2)}</td>"))}</strong></tr>")
+
+        For i As Integer = 0 To model.Alphabets.Length - 1
+            n = i
+            Call sb.AppendLine($"<tr><td>{model.Alphabets(i)}</td>{String.Join("", model.PWM.ToArray(Function(x) $"<td>{Math.Round(x.PWM(n), 2)}</td>"))}</tr>")
+        Next
+
+        Call sb.AppendLine("</table>")
+        Call sb.AppendLine("</font>")
+        Call sb.AppendLine("</body></html>")
+
+        Return sb.ToString
+    End Function
 End Class

@@ -59,5 +59,34 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to meta.foundation-version {
+        '''  font-family: &quot;/5.4.5/&quot;; }
+        '''
+        '''meta.foundation-mq-small {
+        '''  font-family: &quot;/only screen/&quot;;
+        '''  width: 0em; }
+        '''
+        '''meta.foundation-mq-medium {
+        '''  font-family: &quot;/only screen and (min-width:40.063em)/&quot;;
+        '''  width: 40.063em; }
+        '''
+        '''meta.foundation-mq-large {
+        '''  font-family: &quot;/only screen and (min-width:64.063em)/&quot;;
+        '''  width: 64.063em; }
+        '''
+        '''meta.foundation-mq-xlarge {
+        '''  font-family: &quot;/only screen and (min-width:90.063em)/&quot;;
+        '''  width: 90.063em; }
+        '''
+        '''meta.foundation-mq-xxlarge {
+        '''  font-famil [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property foundation() As String
+            Get
+                Return ResourceManager.GetString("foundation", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

@@ -37,12 +37,11 @@ Partial Class FormViwer
         Me.MaterialTabControl1 = New Microsoft.VisualBasic.Windows.Forms.Controls.MaterialTabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.WebBrowser2 = New System.Windows.Forms.WebBrowser()
         Me.MenuStrip1.SuspendLayout()
         Me.MaterialTabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'WebBrowser1
@@ -54,7 +53,7 @@ Partial Class FormViwer
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.ScriptErrorsSuppressed = True
-        Me.WebBrowser1.Size = New System.Drawing.Size(921, 344)
+        Me.WebBrowser1.Size = New System.Drawing.Size(985, 500)
         Me.WebBrowser1.TabIndex = 0
         Me.WebBrowser1.WebBrowserShortcutsEnabled = False
         '
@@ -135,7 +134,7 @@ Partial Class FormViwer
         Me.MaterialTabSelector1.Location = New System.Drawing.Point(12, 93)
         Me.MaterialTabSelector1.MouseState = Microsoft.VisualBasic.Windows.Forms.MouseState.HOVER
         Me.MaterialTabSelector1.Name = "MaterialTabSelector1"
-        Me.MaterialTabSelector1.Size = New System.Drawing.Size(938, 37)
+        Me.MaterialTabSelector1.Size = New System.Drawing.Size(1002, 37)
         Me.MaterialTabSelector1.TabIndex = 2
         Me.MaterialTabSelector1.Text = "MaterialTabSelector1"
         '
@@ -151,7 +150,7 @@ Partial Class FormViwer
         Me.MaterialTabControl1.MouseState = Microsoft.VisualBasic.Windows.Forms.MouseState.HOVER
         Me.MaterialTabControl1.Name = "MaterialTabControl1"
         Me.MaterialTabControl1.SelectedIndex = 0
-        Me.MaterialTabControl1.Size = New System.Drawing.Size(935, 376)
+        Me.MaterialTabControl1.Size = New System.Drawing.Size(999, 532)
         Me.MaterialTabControl1.TabIndex = 3
         '
         'TabPage1
@@ -161,7 +160,7 @@ Partial Class FormViwer
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(927, 350)
+        Me.TabPage1.Size = New System.Drawing.Size(991, 506)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Fasta Viewer"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -169,28 +168,33 @@ Partial Class FormViwer
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.White
-        Me.TabPage2.Controls.Add(Me.PictureBox1)
+        Me.TabPage2.Controls.Add(Me.WebBrowser2)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(927, 350)
+        Me.TabPage2.Size = New System.Drawing.Size(991, 506)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Logo Viewer"
         '
-        'PictureBox1
+        'WebBrowser2
         '
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(19, 23)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(887, 215)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.WebBrowser2.AllowWebBrowserDrop = False
+        Me.WebBrowser2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.WebBrowser2.IsWebBrowserContextMenuEnabled = False
+        Me.WebBrowser2.Location = New System.Drawing.Point(37, 18)
+        Me.WebBrowser2.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser2.Name = "WebBrowser2"
+        Me.WebBrowser2.ScriptErrorsSuppressed = True
+        Me.WebBrowser2.Size = New System.Drawing.Size(918, 474)
+        Me.WebBrowser2.TabIndex = 1
         '
         'FormViwer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(959, 524)
+        Me.ClientSize = New System.Drawing.Size(1023, 680)
         Me.Controls.Add(Me.MaterialTabControl1)
         Me.Controls.Add(Me.MaterialTabSelector1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -203,7 +207,6 @@ Partial Class FormViwer
         Me.MaterialTabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -224,5 +227,5 @@ Partial Class FormViwer
     Friend WithEvents MaterialTabControl1 As Microsoft.VisualBasic.Windows.Forms.Controls.MaterialTabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents WebBrowser2 As WebBrowser
 End Class
