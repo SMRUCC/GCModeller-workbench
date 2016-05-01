@@ -39,11 +39,12 @@ Partial Class FormHEBViewer
         Me.WebBrowser1.Location = New System.Drawing.Point(12, 97)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(797, 576)
+        Me.WebBrowser1.Size = New System.Drawing.Size(868, 304)
         Me.WebBrowser1.TabIndex = 0
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(12, 70)
@@ -62,7 +63,7 @@ Partial Class FormHEBViewer
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.OpenToolStripMenuItem.Text = "Open"
         '
         'HelpToolStripMenuItem
@@ -82,10 +83,10 @@ Partial Class FormHEBViewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(821, 685)
+        Me.ClientSize = New System.Drawing.Size(892, 413)
         Me.Controls.Add(Me.WebBrowser1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Cursor = System.Windows.Forms.Cursors.SizeNWSE
+        Me.Cursor = System.Windows.Forms.Cursors.SizeWE
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FormHEBViewer"
         Me.MenuStrip1.ResumeLayout(False)

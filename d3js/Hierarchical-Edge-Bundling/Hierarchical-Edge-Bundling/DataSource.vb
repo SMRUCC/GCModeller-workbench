@@ -4,6 +4,7 @@ Imports Microsoft.VisualBasic.DocumentFormat.Csv.StorageProvider.Reflection
 Imports Microsoft.VisualBasic.Language
 Imports Microsoft.VisualBasic.Serialization
 Imports Microsoft.VisualBasic.Linq
+Imports System.Runtime.CompilerServices
 
 Module DataSource
 
@@ -36,12 +37,20 @@ Module DataSource
                 From g In GroupNodes
                 Let datas As Interacts() = g.Group.ToArray
                 Select New FlareImports With {
-                    .name = g.From,
-                    .size = datas.Sum(Function(x) x.size),
-                    .imports = datas.ToArray(Function(x) x.To)
+                    .name = g.From.AllTrims,
+                    .size = datas.Sum(Function(x) If(x.size = 0, 1, x.size)),
+                    .imports = datas.ToArray(Function(x) x.To.AllTrims)
                 }
 
         Return __imports
+    End Function
+
+    <Extension>
+    Private Function AllTrims(s As String) As String
+        Return "flare.vis.operator.label." &
+            s.Replace(".", "_") _
+             .Replace("[", "_") _
+             .Replace("]", "_")
     End Function
 End Module
 

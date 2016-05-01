@@ -59,5 +59,60 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to !function () {
+        '''    function n(n) {
+        '''        return n &amp;&amp; (n.ownerDocument || n.document || n).documentElement
+        '''    } function t(n) {
+        '''        return n &amp;&amp; (n.ownerDocument &amp;&amp; n.ownerDocument.defaultView || n.document &amp;&amp; n || n.defaultView)
+        '''    } function e(n, t) { 
+        '''        return t &gt; n ? -1 : n &gt; t ? 1 : n &gt;= t ? 0 : NaN 
+        '''    } function r(n) { 
+        '''        return null === n ? NaN : +n 
+        '''    } function u(n) { 
+        '''        return !isNaN(n) 
+        '''    } function i(n) { 
+        '''        return {
+        '''            left: function (t, [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property d3_v3_min() As String
+            Get
+                Return ResourceManager.GetString("d3_v3_min", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        '''&lt;html&gt;
+        '''&lt;head&gt;
+        '''    &lt;meta charset=&quot;utf-8&quot;&gt;
+        '''    &lt;style&gt;
+        '''        .node {
+        '''            font: 300 11px &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+        '''            fill: #bbb;
+        '''        }
+        '''
+        '''            .node:hover {
+        '''                fill: #000;
+        '''            }
+        '''
+        '''        .link {
+        '''            stroke: steelblue;
+        '''            stroke-opacity: .4;
+        '''            fill: none;
+        '''            pointer-events: none;
+        '''        }
+        '''
+        '''        .node:hover,
+        '''        .node--source,
+        '''        .node--target {
+        '''         [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property index() As String
+            Get
+                Return ResourceManager.GetString("index", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace
