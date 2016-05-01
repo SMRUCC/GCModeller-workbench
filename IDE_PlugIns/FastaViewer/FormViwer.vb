@@ -71,21 +71,40 @@ Public Class FormViwer
         MaterialTabControl1.SelectedIndex = 1
     End Sub
 
+    Const autoScaleCSS As String = ".Image {
+     max-width:800px;height:auto;cursor:pointer;
+     border:1px dashed #4E6973;padding: 3px;
+     zoom:expression( function(elm) {
+         if (elm.width>560) {
+             var oldVW = elm.width; elm.width=560;
+             elm.height = elm.height*(560 /oldVW);
+         }
+         elm.style.zoom = '1';
+     }(this));
+}"
+
     Private Function PWMHtml(model As MotifPWM, n As Integer, logo As String) As String
         Dim sb As New StringBuilder(4096)
 
         Call sb.AppendLine($"<html><head>
 <link rel=""stylesheet"" href=""{$"{App.HOME}/assets/foundation.css"}"">
-</head><body>
+<style type=""text/css"">
+{autoScaleCSS}
+</style>
+</head><body><br>
 ")
-        Call sb.AppendLine($"<img src=""{logo}"" />")
+        Call sb.AppendLine("<div style=""text-align:center;"">
+<span style=""display:inline-block;height:100%;vertical-align: middle;""></span>")
+        Call sb.AppendLine($"<img src=""{logo}"" class=""Image""/><br />")
+        Call sb.AppendLine("</div>")
         Call sb.AppendLine($"<font face=""{FontFace.Consolas}"">")
         Call sb.AppendLine("<p>")
         Call sb.AppendLine($"Sequence logo model build from {n} sites.<br>")
         Call sb.AppendLine("Motif: " & New String(model.PWM.ToArray(Function(x) x.AsChar)))
-        Call sb.AppendLine("<br></p>")
+        Call sb.AppendLine("<br /></p>")
 
         Call sb.AppendLine("<table class=""API"">")
+        Call sb.AppendLine($"<tr><td>Chars</td>{String.Join("", model.PWM.ToArray(Function(x) $"<td>{x.AsChar}</td>"))}</tr>")
         Call sb.AppendLine($"<tr><strong><td>Bits</td>{String.Join("", model.PWM.ToArray(Function(x) $"<td>{Math.Round(x.Bits, 2)}</td>"))}</strong></tr>")
 
         For i As Integer = 0 To model.Alphabets.Length - 1

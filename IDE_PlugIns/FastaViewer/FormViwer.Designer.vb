@@ -179,15 +179,13 @@ Partial Class FormViwer
         'WebBrowser2
         '
         Me.WebBrowser2.AllowWebBrowserDrop = False
-        Me.WebBrowser2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.WebBrowser2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebBrowser2.IsWebBrowserContextMenuEnabled = False
-        Me.WebBrowser2.Location = New System.Drawing.Point(37, 18)
+        Me.WebBrowser2.Location = New System.Drawing.Point(3, 3)
         Me.WebBrowser2.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser2.Name = "WebBrowser2"
         Me.WebBrowser2.ScriptErrorsSuppressed = True
-        Me.WebBrowser2.Size = New System.Drawing.Size(918, 474)
+        Me.WebBrowser2.Size = New System.Drawing.Size(985, 500)
         Me.WebBrowser2.TabIndex = 1
         '
         'FormViwer
