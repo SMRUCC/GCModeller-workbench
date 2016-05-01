@@ -1,5 +1,7 @@
-﻿Imports System.Text
+﻿Imports System.Runtime.CompilerServices
+Imports System.Text
 Imports LANS.SystemsBiology.SequenceModel.FASTA
+Imports Microsoft.VisualBasic.Imaging
 
 Public Module HTMLRenderer
 
@@ -14,9 +16,13 @@ Public Module HTMLRenderer
         {"A"c, A}, {"T"c, T}, {"G"c, G}, {"C"c, C}
     }
 
+    <Extension>
     Public Function VisualNT(nt As FastaToken) As String
         Dim sb As New StringBuilder(4096)
 
+        Call sb.Append($"<td>&gt;{nt.Title}</td>")
+        Call sb.Append($"<td>{nt.Length}</td>")
+        Call sb.Append("<td>")
         For Each r As Char In nt.SequenceData.ToUpper
             If HTMLRenderer.Nt.ContainsKey(r) Then
                 sb.Append(HTMLRenderer.Nt(r))
@@ -24,11 +30,25 @@ Public Module HTMLRenderer
                 sb.Append(r)
             End If
         Next
+        Call sb.Append("</td>")
 
         Return sb.ToString
     End Function
 
     Public Function VisualNts(file As FastaFile) As String
+        Dim sb As New StringBuilder
 
+        Call sb.AppendLine($"<font face=""{FontFace.Consolas}""><strong>")
+        Call sb.AppendLine("<table>")
+        Call sb.AppendLine("<tr><td>Title</td><td>Length</td><td>Sequence</td></tr>")
+
+        For Each Nt As FastaToken In file
+            Call sb.AppendLine($"<tr>{Nt.VisualNT}</tr>")
+        Next
+
+        Call sb.AppendLine("</table>")
+        Call sb.AppendLine("</strong></font>")
+
+        Return sb.ToString
     End Function
 End Module
