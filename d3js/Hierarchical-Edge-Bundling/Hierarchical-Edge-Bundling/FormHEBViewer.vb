@@ -28,7 +28,8 @@ Public Class FormHEBViewer
     Private Sub FormHEBViewer_Load(sender As Object, e As EventArgs) Handles Me.Load
         Call My.Resources.index.SaveTo(App.AppSystemTemp & "/index.html")
         Call My.Resources.d3_v3_min.SaveTo(App.AppSystemTemp & "/d3.v3.min.js")
-        Call RunTask(AddressOf __services.Run)
+        ' Call RunTask(AddressOf __services.Run)
+        Call WebBrowser1.Navigate("http://127.0.0.1")
     End Sub
 
     Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
