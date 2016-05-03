@@ -5,12 +5,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D2486075-10C9-4EF3-9D88-870D75DB95AD}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <StartupObject>Force_Collapsible.My.MyApplication</StartupObject>
+    <OutputType>Exe</OutputType>
+    <StartupObject>Force_Collapsible.Module1</StartupObject>
     <RootNamespace>Force_Collapsible</RootNamespace>
     <AssemblyName>Force-Collapsible</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -74,6 +74,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Module1.vb" />
     <Compile Include="NetworkGenerator.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>

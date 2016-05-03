@@ -41,7 +41,7 @@ Public Module NetworkGenerator
                                        In regs
                                        Select {x.ORF_ID, x.Regulator}
         Dim net As New FileStream.Network
-        net += nodes.ToArray(Function(x) New FileStream.Node(x))
+        net += nodes.Distinct.ToArray(Function(x) New FileStream.Node(x))
         net += regs.ToArray(Function(x) New NetworkEdge(x.Regulator, x.ORF_ID, 1))
 
         Return net.FromNetwork
