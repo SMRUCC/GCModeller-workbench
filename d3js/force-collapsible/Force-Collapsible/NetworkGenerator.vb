@@ -13,11 +13,13 @@ Public Module NetworkGenerator
 
     <Extension>
     Public Function FromNetwork(net As FileStream.Network) As String
+        Dim types As String() = net.Nodes.Select(Function(x) x.NodeType).Distinct.ToArray
         Dim nodes As node() =
             LinqAPI.Exec(Of node) <= From x As FileStream.Node
                                      In net.Nodes
                                      Select New node With {
-                                         .name = x.Identifier
+                                         .name = x.Identifier,
+                                         .group = Array.IndexOf(types, x.NodeType)
                                          }
         nodes = nodes.AddHandle
 
@@ -41,8 +43,32 @@ Public Module NetworkGenerator
                                        In regs
                                        Select {x.ORF_ID, x.Regulator}
         Dim net As New FileStream.Network
-        net += nodes.Distinct.ToArray(Function(x) New FileStream.Node(x))
-        net += regs.ToArray(Function(x) New NetworkEdge(x.Regulator, x.ORF_ID, 1))
+        Dim nodesHash = (From x As Regulation
+                         In regs
+                         Select x
+                         Group x By x.ORF_ID Into Group) _
+                              .ToDictionary(Function(x) x.ORF_ID,
+                                            Function(x) (From g As Regulation
+                                                         In x.Group
+                                                         Select g
+                                                         Group g By g.MotifFamily Into Count
+                                                         Order By Count Descending).First.MotifFamily)
+
+        For Each tf As String In regs.Select(Function(x) x.Regulator).Distinct
+            If nodesHash.ContainsKey(tf) Then
+                Call nodesHash.Remove(tf)
+            End If
+            Call nodesHash.Add(tf, NameOf(tf))
+        Next
+
+        net += nodes.Distinct.ToArray(Function(x) New FileStream.Node(x, nodesHash(x)))
+        net += From o In (From x As Regulation
+                          In regs
+                          Select x
+                          Group x By x.GetJson Into Group)
+               Let edge As Regulation = o.Group.First
+               Let n As Integer = o.Group.Count
+               Select New NetworkEdge(edge.Regulator, edge.ORF_ID, n)
 
         Return net.FromNetwork
     End Function
