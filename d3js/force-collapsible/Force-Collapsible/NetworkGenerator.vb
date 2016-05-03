@@ -4,9 +4,14 @@ Imports Microsoft.VisualBasic.DataVisualization.Network
 Imports Microsoft.VisualBasic.DataVisualization.Network.FileStream
 Imports Microsoft.VisualBasic.Language
 Imports Microsoft.VisualBasic.Serialization
+Imports Microsoft.VisualBasic.DocumentFormat.Csv.StorageProvider.Reflection
+Imports Microsoft.VisualBasic.Linq
+Imports System.Runtime.CompilerServices
+Imports Microsoft.VisualBasic.DocumentFormat.Csv
 
 Public Module NetworkGenerator
 
+    <Extension>
     Public Function FromNetwork(net As FileStream.Network) As String
         Dim nodes As node() =
             LinqAPI.Exec(Of node) <= From x As FileStream.Node
@@ -29,6 +34,25 @@ Public Module NetworkGenerator
         Return json
     End Function
 
+    <Extension>
+    Public Function FromRegulations(regs As IEnumerable(Of Regulation)) As String
+        Dim nodes As String() =
+            LinqAPI.Exec(Of String) <= From x As Regulation
+                                       In regs
+                                       Select {x.ORF_ID, x.Regulator}
+        Dim net As New FileStream.Network
+        net += nodes.ToArray(Function(x) New FileStream.Node(x))
+        net += regs.ToArray(Function(x) New NetworkEdge(x.Regulator, x.ORF_ID, 1))
+
+        Return net.FromNetwork
+    End Function
+
+    Public Function FromRegulations(regs As String) As String
+        Dim json As String =
+            regs.LoadCsv(Of Regulation).FromRegulations()
+        Return json
+    End Function
+
     Public Function LoadJson(netDIR As String) As String
         Dim net As FileStream.Network =
             FileStream.Network.Load(netDIR)
@@ -36,6 +60,16 @@ Public Module NetworkGenerator
         Return json
     End Function
 End Module
+
+Public Class Regulation
+    <Column("ORF ID")> Public Property ORF_ID As String
+    Public Property MotifFamily As String
+    Public Property Regulator As String
+
+    Public Overrides Function ToString() As String
+        Return Me.GetJson
+    End Function
+End Class
 
 Public Structure out
     Public Property nodes As node()
