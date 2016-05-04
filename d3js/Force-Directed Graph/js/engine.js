@@ -22,9 +22,7 @@ function d3Network(jsonFile, width, height) {
             .data(graph.links)
             .enter().append("line")
             .attr("class", "link")
-            .style("stroke-width", function (d) {
-                return Math.sqrt(d.value);
-            });
+            .style("stroke-width", 0.5);
 
         var node = svg.selectAll(".node")
             .data(graph.nodes)
