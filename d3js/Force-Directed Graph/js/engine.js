@@ -31,7 +31,7 @@ function d3Network(jsonFile, width, height) {
             .enter().append("circle")
             .attr("class", "node")
             .attr("r", function (d) {
-                return d.size;
+                return Math.sqrt(d.size)+1;
             })
             .style("fill", function (d) {
                 return color(d.group);
