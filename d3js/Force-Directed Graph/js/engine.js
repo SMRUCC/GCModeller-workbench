@@ -1,3 +1,5 @@
+function d3Network(jsonFile) {
+
 var color = d3.scale.category20();
 var width = 960,
     height = 500;
@@ -55,7 +57,7 @@ function displayPreview(e, preview) {
     .style("opacity", .9)
 }
 
-d3.json("./miserables.json", function(error, graph) {
+d3.json(jsonFile, function(error, graph) {
   if (error) throw error;
 
   force
@@ -90,7 +92,7 @@ d3.json("./miserables.json", function(error, graph) {
     node.append("title")
         .style("font-size", 16)
         .html(function (d) {
-            return "<i><strong>Name</strong><i>: \n" + d.name;
+            return "<i><strong>Name</strong><i>: \n" + d.name + "type: " + d.type + "Links: " + d.size;
         });
 
   force.on("tick", function() {
@@ -103,3 +105,5 @@ d3.json("./miserables.json", function(error, graph) {
         .attr("cy", function(d) { return d.y; });
   });
 });
+	
+}
