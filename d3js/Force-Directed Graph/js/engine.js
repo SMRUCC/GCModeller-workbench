@@ -1,9 +1,6 @@
-function d3Network(jsonFile) {
+function d3Network(jsonFile, width, height) {
 	
     var color = d3.scale.category20();
-    var width = 960,
-        height = 500;
-
     var force = d3.layout.force()
         .charge(-120)
         .linkDistance(30)
