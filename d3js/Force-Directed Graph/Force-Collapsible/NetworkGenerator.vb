@@ -1,4 +1,5 @@
-﻿Imports Microsoft.VisualBasic.ComponentModel
+﻿Imports System.Runtime.CompilerServices
+Imports Microsoft.VisualBasic.ComponentModel
 Imports Microsoft.VisualBasic.ComponentModel.Collection.Generic
 Imports Microsoft.VisualBasic.DataVisualization.Network
 Imports Microsoft.VisualBasic.DataVisualization.Network.FileStream
@@ -6,7 +7,6 @@ Imports Microsoft.VisualBasic.Language
 Imports Microsoft.VisualBasic.Serialization
 Imports Microsoft.VisualBasic.DocumentFormat.Csv.StorageProvider.Reflection
 Imports Microsoft.VisualBasic.Linq
-Imports System.Runtime.CompilerServices
 Imports Microsoft.VisualBasic.DocumentFormat.Csv
 
 ''' <summary>
@@ -124,7 +124,16 @@ End Class
 ''' helper class for json text generation 
 ''' </summary>
 Public Structure out
+
+    ''' <summary>
+    ''' 网络之中的节点对象
+    ''' </summary>
+    ''' <returns></returns>
     Public Property nodes As node()
+    ''' <summary>
+    ''' 节点之间的边链接
+    ''' </summary>
+    ''' <returns></returns>
     Public Property links As link()
 
     Public Overrides Function ToString() As String
