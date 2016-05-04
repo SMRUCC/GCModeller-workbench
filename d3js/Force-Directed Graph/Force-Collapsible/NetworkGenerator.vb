@@ -110,6 +110,8 @@ Public Class node : Implements IAddressHandle, sIdEnumerable
 
     Public Property name As String Implements sIdEnumerable.Identifier
     Public Property group As Integer
+    Public Property size As Integer
+    Public Property type As String
 
     Public Property Address As Integer Implements IAddressHandle.Address
 
