@@ -1,4 +1,5 @@
 function d3Network(jsonFile) {
+	
     var color = d3.scale.category20();
     var width = 960,
         height = 500;
@@ -33,7 +34,7 @@ function d3Network(jsonFile) {
             .enter().append("circle")
             .attr("class", "node")
             .attr("r", function (d) {
-                return d.group;
+                return d.size;
             })
             .style("fill", function (d) {
                 return color(d.group);
