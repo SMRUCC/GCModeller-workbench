@@ -19,7 +19,9 @@ Public Module NetworkGenerator
                                      In net.Nodes
                                      Select New node With {
                                          .name = x.Identifier,
-                                         .group = Array.IndexOf(types, x.NodeType)
+                                         .group = Array.IndexOf(types, x.NodeType),
+                                         .type = x.NodeType,
+                                         .size = net.Links(x.Identifier)
                                          }
         nodes = nodes.AddHandle
 
@@ -32,7 +34,10 @@ Public Module NetworkGenerator
                                          .target = nodeHash(edge.ToNode).Address,
                                          .value = edge.Confidence
                                      }
-        Dim json As String = New out With {.nodes = nodes, .links = links}.GetJson
+        Dim json As String = New out With {
+            .nodes = nodes,
+            .links = links
+        }.GetJson
         Return json
     End Function
 
