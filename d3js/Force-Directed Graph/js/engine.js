@@ -7,8 +7,10 @@ function d3Network(jsonFile, width, height) {
         .size([width, height]);
 
     var svg = d3.select("body").append("svg")
+		.attr("fill", "#DBF3FF")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+		.attr("class", "chart");
     
     d3.json(jsonFile, function (error, graph) {
         if (error) throw error;
@@ -38,9 +40,10 @@ function d3Network(jsonFile, width, height) {
             .call(force.drag);
 
         node.append("title")
+			.attr("class", "tooltip")
             .style("font-size", 16)
             .html(function (d) {
-                return "<i><strong>name</strong><i>:\t" + d.name + "\ntype:\t" + d.type + "\nlinks:\t" + d.size;
+                return "<span id='name' class='name'>name:\t" + d.name + "</span>\ntype:\t" + d.type + "\nlinks:\t" + d.size;
             });
 
         force.on("tick", function () {
