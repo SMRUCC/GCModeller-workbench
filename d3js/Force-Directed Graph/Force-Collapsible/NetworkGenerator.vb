@@ -9,8 +9,16 @@ Imports Microsoft.VisualBasic.Linq
 Imports System.Runtime.CompilerServices
 Imports Microsoft.VisualBasic.DocumentFormat.Csv
 
+''' <summary>
+''' Network visualization model json data generator.
+''' </summary>
 Public Module NetworkGenerator
 
+    ''' <summary>
+    ''' Creates network data from network model
+    ''' </summary>
+    ''' <param name="net"></param>
+    ''' <returns></returns>
     <Extension>
     Public Function FromNetwork(net As FileStream.Network) As String
         Dim types As String() = net.Nodes.Select(Function(x) x.NodeType).Distinct.ToArray
@@ -41,6 +49,11 @@ Public Module NetworkGenerator
         Return json
     End Function
 
+    ''' <summary>
+    ''' Build network json data from the bacterial transcription regulation network
+    ''' </summary>
+    ''' <param name="regs"></param>
+    ''' <returns></returns>
     <Extension>
     Public Function FromRegulations(regs As IEnumerable(Of Regulation)) As String
         Dim nodes As String() =
@@ -78,6 +91,11 @@ Public Module NetworkGenerator
         Return net.FromNetwork
     End Function
 
+    ''' <summary>
+    ''' Build network json data from the bacterial transcription regulation network
+    ''' </summary>
+    ''' <param name="regs">The raw csv document file path.</param>
+    ''' <returns></returns>
     Public Function FromRegulations(regs As String) As String
         Dim json As String =
             regs.LoadCsv(Of Regulation).FromRegulations()
@@ -102,6 +120,9 @@ Public Class Regulation
     End Function
 End Class
 
+''' <summary>
+''' helper class for json text generation 
+''' </summary>
 Public Structure out
     Public Property nodes As node()
     Public Property links As link()
