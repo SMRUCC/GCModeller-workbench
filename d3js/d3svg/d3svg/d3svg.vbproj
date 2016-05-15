@@ -102,11 +102,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\VisualBasic_AppFramework\DocumentFormats\VB_HTML\VB_HTML\DocumentFormat.HTML.vbproj">
+    <ProjectReference Include="..\..\..\..\asuka\VisualBasic_AppFramework\DocumentFormats\VB_HTML\VB_HTML\DocumentFormat.HTML.vbproj">
       <Project>{2dd4be80-ddc3-4767-94a7-10f1c3395716}</Project>
       <Name>DocumentFormat.HTML</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\VisualBasic_AppFramework\Microsoft.VisualBasic.Architecture.Framework\+Microsoft.VisualBasic.Architecture.Framework.vbproj">
+    <ProjectReference Include="..\..\..\..\asuka\VisualBasic_AppFramework\Microsoft.VisualBasic.Architecture.Framework\+Microsoft.VisualBasic.Architecture.Framework.vbproj">
       <Project>{fecce1fd-e1d4-49e3-a668-60bb5e7aed99}</Project>
       <Name>+Microsoft.VisualBasic.Architecture.Framework</Name>
     </ProjectReference>
