@@ -30,7 +30,7 @@ Public Module NetworkGenerator
                                          .group = Array.IndexOf(types, x.NodeType),
                                          .type = x.NodeType,
                                          .size = net.Links(x.Identifier)
-                                         }
+                                     }
         nodes = nodes.AddHandle
 
         Dim nodeHash = nodes.ToDictionary
