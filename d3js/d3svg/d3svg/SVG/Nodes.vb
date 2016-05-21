@@ -1,5 +1,7 @@
 ﻿Imports System.Drawing
+Imports System.Text
 Imports System.Xml.Serialization
+Imports Microsoft.VisualBasic.ComponentModel
 Imports Microsoft.VisualBasic.DocumentFormat.HTML
 Imports Microsoft.VisualBasic.Serialization
 
@@ -7,7 +9,7 @@ Namespace Nodes
 
     Public MustInherit Class node
         <XmlAttribute> Public Property style As String
-        <XmlAttribute> Public Property [Class] As String
+        <XmlAttribute> Public Property [class] As String
 
         Public Overrides Function ToString() As String
             Return MyClass.GetJson
@@ -33,41 +35,39 @@ Namespace Nodes
     End Class
 
     <XmlType("svg")>
-    Public Class SVG
+    Public Class SVG : Implements ISaveHandle
 
 #Region "xml root property"
 
         <XmlAttribute> Public Property width As String
-            Get
-                Return Size.Width & "px"
-            End Get
-            Set(value As String)
-                Dim size As New Size(Scripting.CTypeDynamic(Of Integer)(value), size.Height)
-                _Size = size
-            End Set
-        End Property
         <XmlAttribute> Public Property height As String
-            Get
-                Return Size.Height & "px"
-            End Get
-            Set(value As String)
-                Dim size As New Size(size.Width, Scripting.CTypeDynamic(Of Integer)(value))
-                _Size = size
-            End Set
-        End Property
         <XmlAttribute> Public Property version As String
 #End Region
 
-        Public ReadOnly Property Size As Size
-        Public Property defs As CSS
+        Public Property defs As CSSStyles
 
 #Region "SVG"
         <XmlElement("line")> Public Property lines As line()
         <XmlElement("circle")> Public Property circles As circle()
 #End Region
+
+        Public Sub SetSize(size As Size)
+            width = size.Width & "px"
+            height = size.Height & "px"
+        End Sub
+
+        Private Function SaveAsXml(Optional Path As String = "", Optional encoding As Encoding = Nothing) As Boolean Implements ISaveHandle.Save
+            Dim xml As String = Me.GetXml
+
+            Return xml.SaveTo(Path, encoding)
+        End Function
+
+        Public Function SaveAsXml(Optional Path As String = "", Optional encoding As Encodings = Encodings.UTF8) As Boolean Implements ISaveHandle.Save
+            Return SaveAsXml(Path, encoding.GetEncodings)
+        End Function
     End Class
 
-    Public Class CSS
+    Public Class CSSStyles
         <XmlElement("style")> Public Property styles As XmlMeta.CSS()
     End Class
 End Namespace

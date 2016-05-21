@@ -31,6 +31,7 @@ Public Module SVGBuilder
 ]]></style></defs>"
 
     Const SVGRoot As String = "<svg width=""{0}px"" height=""{1}px"" version=""1.1"" xmlns=""http://www.w3.org/2000/svg"" xmlns:xlink=""http://www.w3.org/1999/xlink"">"
+    Const SVGRootNoNamespace As String = "<svg width=""{0}px"" height=""{1}px"" version=""1.1"">"
 
     ''' <summary>
     ''' Generate svg document from the SVG data model.
@@ -39,9 +40,14 @@ Public Module SVGBuilder
     ''' <returns></returns>
     <Extension>
     Public Function Build(svg As SVG) As String
+        Return svg.__build(SVGRoot)
+    End Function
+
+    <Extension>
+    Private Function __build(svg As SVG, svgRoot As String) As String
         Dim sb As New StringBuilder(XmlHead)
 
-        Call sb.AppendLine(String.Format(SVGRoot, svg.Width, svg.Height))
+        Call sb.AppendLine(String.Format(svgRoot, svg.Width, svg.Height))
         Call sb.AppendLine(String.Format(SVGBuilder.CSS, svg.CSS))
         Call sb.AppendLine(svg.SVGContent)
         Call sb.AppendLine("</svg>")
@@ -51,7 +57,7 @@ Public Module SVGBuilder
 
     <Extension>
     Public Function BuildModel(svg As SVG) As Nodes.SVG
-        Dim doc As String = svg.Build
+        Dim doc As String = svg.__build(SVGRootNoNamespace)
         Dim build As Nodes.SVG = doc.CreateObjectFromXml(Of Nodes.SVG)
         Return build
     End Function
