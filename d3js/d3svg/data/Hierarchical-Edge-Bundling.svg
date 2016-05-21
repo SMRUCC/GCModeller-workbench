@@ -1,54 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <svg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" width="960px" height="960px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <style type="text/css">
-
-        .node {
-            font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
-            fill: #bbb;
-        }
-
-            .node:hover {
-                fill: #000;
-            }
-
-        .link {
-            stroke: steelblue;
-            stroke-opacity: .4;
-            fill: none;
-            pointer-events: none;
-        }
-
-        .node:hover,
-        .node--source,
-        .node--target {
-            font-weight: 700;
-        }
-
-        .node--source {
-            fill: #2ca02c;
-        }
-
-        .node--target {
-            fill: #d62728;
-        }
-
-        .link--source,
-        .link--target {
-            stroke-opacity: 1;
-            stroke-width: 2px;
-        }
-
-        .link--source {
-            stroke: #d62728;
-        }
-
-        .link--target {
-            stroke: #2ca02c;
-        }
-    
-</style>
-  </defs>
   <g transform="translate(480,480)">
     <g>
       <path class="link" d="M17.595684721560435,-359.56973159483186L17.704934641217005,-349.34778153099023C17.814184560873578,-339.1258314671487,18.032684400186717,-318.68193133946556,19.496800357503993,-318.59233226996923C20.96091631482126,-318.5027332004729,23.670648390142667,-338.76743518916345,25.025514427803365,-348.89978618350875L26.380380465464068,-359.032137177854" />
@@ -1039,4 +990,53 @@
       <text style="text-anchor: end;" class="node" transform="rotate(268.59922178988325)translate(368,0)rotate(180)" dy=".31em">Visualization</text>
     </g>
   </g>
+  <defs>
+    <style type="text/css">
+
+        .node {
+            font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            fill: #bbb;
+        }
+
+            .node:hover {
+                fill: #000;
+            }
+
+        .link {
+            stroke: steelblue;
+            stroke-opacity: .4;
+            fill: none;
+            pointer-events: none;
+        }
+
+        .node:hover,
+        .node--source,
+        .node--target {
+            font-weight: 700;
+        }
+
+        .node--source {
+            fill: #2ca02c;
+        }
+
+        .node--target {
+            fill: #d62728;
+        }
+
+        .link--source,
+        .link--target {
+            stroke-opacity: 1;
+            stroke-width: 2px;
+        }
+
+        .link--source {
+            stroke: #d62728;
+        }
+
+        .link--target {
+            stroke: #2ca02c;
+        }
+    
+</style>
+  </defs>
 </svg>

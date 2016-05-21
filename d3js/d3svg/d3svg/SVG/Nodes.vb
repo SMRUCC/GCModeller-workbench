@@ -28,11 +28,26 @@ Namespace Nodes
         Public Property title As title
     End Class
 
-    Public Class g
+    Public Class g : Inherits node
         <XmlAttribute> Public Property transform As String
         <XmlElement("text")> Public Property texts As text()
         <XmlElement("g")> Public Property gs As g()
         <XmlElement> Public Property path As path()
+        <XmlElement> Public Property rect As rect()
+        <XmlElement> Public Property polygon As polygon()
+        <XmlElement("line")> Public Property lines As line()
+        <XmlElement("circle")> Public Property circles As circle()
+    End Class
+
+    Public Class polygon : Inherits node
+        <XmlAttribute> Public Property points As String()
+    End Class
+
+    Public Class rect : Inherits node
+        Public Property height As String
+        Public Property width As String
+        Public Property y As String
+        Public Property x As String
     End Class
 
     Public Class path : Inherits node
@@ -50,10 +65,14 @@ Namespace Nodes
         <XmlAttribute> Public Property transform As String
         <XmlAttribute> Public Property dy As String
         <XmlText> Public Property value As String
+        <XmlAttribute("text-anchor")> Public Property anchor As String
+        <XmlAttribute> Public Property y As String
+        <XmlAttribute> Public Property x As String
     End Class
 
     <XmlType("svg")>
-    Public Class SVG : Implements ISaveHandle
+    Public Class SVG : Inherits g
+        Implements ISaveHandle
 
 #Region "xml root property"
 
@@ -63,13 +82,6 @@ Namespace Nodes
 #End Region
 
         Public Property defs As CSSStyles
-
-#Region "SVG"
-        <XmlElement("line")> Public Property lines As line()
-        <XmlElement("circle")> Public Property circles As circle()
-        <XmlElement> Public Property g As g()
-        <XmlElement> Public Property path As path()
-#End Region
 
         Public Sub SetSize(size As Size)
             width = size.Width & "px"
