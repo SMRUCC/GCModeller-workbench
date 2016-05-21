@@ -1,4 +1,5 @@
-﻿Imports d3svg
+﻿Imports System.Drawing
+Imports d3svg
 
 Module Program
 
@@ -11,7 +12,13 @@ Module Program
         Call model.SaveAsXml("F:\GCModeller.Workbench\d3js\d3svg\data\Hierarchical-Edge-Bundling.svg")
 
         Dim dev As New d3svg.DrawSVG("F:\GCModeller.Workbench\IDE_PlugIns\d3jsViewer")
-        Call dev.RasterizeSvg("F:\GCModeller.Workbench\d3js\d3svg\data\Hierarchical-Edge-Bundling.svg", "F:\GCModeller.Workbench\d3js\d3svg\data\Hierarchical-Edge-Bundling.png")
+        Call dev.RasterizeSvg("F:\GCModeller.Workbench\d3js\d3svg\data\Hierarchical-Edge-Bundling.svg",
+                              "F:\GCModeller.Workbench\d3js\d3svg\data\Hierarchical-Edge-Bundling.png",
+                              New Size(2000, 2000))
+        Call dev.RasterizeSvg("F:\GCModeller.Workbench\d3js\d3svg\data\example_svg2.svg",
+                              "F:\GCModeller.Workbench\d3js\d3svg\data\example_svg2.png")
 
+        Call dev.RasterizeSvg("F:\GCModeller.Workbench\d3js\d3svg\data\example_svg.svg",
+                              "F:\GCModeller.Workbench\d3js\d3svg\data\example_svg.png", format:=Microsoft.VisualBasic.Imaging.ImageFormats.Jpeg)
     End Sub
 End Module

@@ -1,4 +1,6 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Drawing
+Imports System.Runtime.InteropServices
+Imports Microsoft.VisualBasic.Imaging
 
 ''' <summary>
 ''' 
@@ -54,7 +56,7 @@ Public Class DrawSVG
     ''' </summary>
     ''' <param name="svg">SVG inputs file path</param>
     ''' <param name="png">PNG output path</param>
-    Public Sub RasterizeSvg(svg As String, png As String)
+    Public Sub RasterizeSvg(svg As String, png As String, Optional size As Size = Nothing, Optional format As ImageFormats = ImageFormats.Png)
         Dim callSuccessful As Boolean = SetDllDirectory(GIMP)
 
         If Not callSuccessful Then
@@ -63,14 +65,22 @@ Public Class DrawSVG
 
         Call GraphicsTypeInit()
 
+        Dim w As Integer = size.Width
+        Dim h As Integer = size.Height
+
+        w = If(w = 0, -1, w)
+        h = If(h = 0, -1, h)
+
         Dim [error] As IntPtr
-        Dim result As IntPtr = ReadsvgPixbufFromFileWithSize(svg, -1, -1, [error])
+        Dim result As IntPtr = ReadsvgPixbufFromFileWithSize(svg, w, h, [error])
 
         If [error] <> IntPtr.Zero Then
             Throw New Exception(Marshal.ReadInt32([error]).ToString())
         End If
 
-        callSuccessful = SaveGdkPixbuf(result, png, "png", [error], Nothing)
+        Dim type As String = format.ToString.ToLower
+
+        callSuccessful = SaveGdkPixbuf(result, png, type, [error], Nothing)
 
         If Not callSuccessful Then
             Throw New Exception([error].ToInt32().ToString())
