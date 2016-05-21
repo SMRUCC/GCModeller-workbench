@@ -28,11 +28,28 @@ Namespace Nodes
         Public Property title As title
     End Class
 
+    Public Class g
+        <XmlAttribute> Public Property transform As String
+        <XmlElement("text")> Public Property texts As text()
+        <XmlElement("g")> Public Property gs As g()
+        <XmlElement> Public Property path As path()
+    End Class
+
+    Public Class path : Inherits node
+        <XmlAttribute> Public Property d As String
+    End Class
+
     Public Class line : Inherits node
         <XmlAttribute> Public Property y2 As Double
         <XmlAttribute> Public Property x2 As Double
         <XmlAttribute> Public Property y1 As Double
         <XmlAttribute> Public Property x1 As Double
+    End Class
+
+    Public Class text : Inherits node
+        <XmlAttribute> Public Property transform As String
+        <XmlAttribute> Public Property dy As String
+        <XmlText> Public Property value As String
     End Class
 
     <XmlType("svg")>
@@ -50,6 +67,8 @@ Namespace Nodes
 #Region "SVG"
         <XmlElement("line")> Public Property lines As line()
         <XmlElement("circle")> Public Property circles As circle()
+        <XmlElement> Public Property g As g()
+        <XmlElement> Public Property path As path()
 #End Region
 
         Public Sub SetSize(size As Size)
