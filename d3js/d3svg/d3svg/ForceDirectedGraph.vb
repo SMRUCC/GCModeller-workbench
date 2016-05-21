@@ -11,11 +11,10 @@ Public Class ForceDirectedGraph : Inherits D3Parser
         Return style
     End Function
 
-    Protected Overrides Function __propParser(html As String) As Size
-
-    End Function
+    Const SVG As String = "<svg .+?</svg>"
 
     Protected Overrides Function __svgNode(html As String) As String
-
+        Dim svg As String = Regex.Match(html, ForceDirectedGraph.SVG, RegexICSng).Value
+        Return svg
     End Function
 End Class
