@@ -12,6 +12,10 @@ Public Class DrawSVG
         GIMP = bin
     End Sub
 
+    Public Overrides Function ToString() As String
+        Return GIMP
+    End Function
+
     <DllImport("kernel32.dll", SetLastError:=True)>
     Public Shared Function SetDllDirectory(DIR As String) As Boolean
     End Function
