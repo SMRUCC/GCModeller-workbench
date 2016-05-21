@@ -1,5 +1,9 @@
 ﻿Imports System.Runtime.InteropServices
 
+''' <summary>
+''' 
+''' </summary>
+''' <remarks>似乎只能够x86编译</remarks>
 Public Class DrawSVG
 
     ''' <summary>
@@ -24,11 +28,24 @@ Public Class DrawSVG
     Public Shared Sub GraphicsTypeInit()
     End Sub
 
-    <DllImport("librsvg-2-2.dll", EntryPoint:="rsvg_pixbuf_from_file_at_size", SetLastError:=True)>
+    ' http://stackoverflow.com/questions/2390407/pinvokestackimbalance-c-sharp-call-to-unmanaged-c-function
+
+    ' It's good.I update function define as follow:
+    ' [DllImport("mydll.dll", CallingConvention = CallingConvention.Cdecl)]
+    ' It works well.
+
+    <DllImport("librsvg-2-2.dll",
+               EntryPoint:="rsvg_pixbuf_from_file_at_size",
+               CallingConvention:=CallingConvention.Cdecl,
+               CharSet:=CharSet.Ansi,
+               SetLastError:=True)>
     Public Shared Function ReadsvgPixbufFromFileWithSize(path As String, width As Integer, height As Integer, <Out> ByRef [Error] As IntPtr) As IntPtr
     End Function
 
-    <DllImport("libgdk_pixbuf-2.0-0.dll", EntryPoint:="gdk_pixbuf_save", CallingConvention:=CallingConvention.Cdecl, CharSet:=CharSet.Ansi)>
+    <DllImport("libgdk_pixbuf-2.0-0.dll",
+               EntryPoint:="gdk_pixbuf_save",
+               CallingConvention:=CallingConvention.Cdecl,
+               CharSet:=CharSet.Ansi)>
     Public Shared Function SaveGdkPixbuf(pixbuf As IntPtr, filename As String, type As String, <Out> ByRef [Error] As IntPtr, __arglist As Object) As Boolean
     End Function
 
