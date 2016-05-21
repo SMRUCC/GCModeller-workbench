@@ -58,9 +58,11 @@ Namespace Nodes
         End Sub
 
         Private Function SaveAsXml(Optional Path As String = "", Optional encoding As Encoding = Nothing) As Boolean Implements ISaveHandle.Save
-            Dim xml As String = Me.GetXml
-            xml = xml.SetXmlEncoding(XmlEncodings.UTF8)
-            xml = xml.SetXmlStandalone(False)
+            Dim xml As New XmlDoc(Me.GetXml)
+            xml.encoding = XmlEncodings.UTF8
+            xml.standalone = False
+            xml.xmlns.xlink = "http://www.w3.org/1999/xlink"
+            xml.xmlns.xmlns = "http://www.w3.org/2000/svg"
 
             Return xml.SaveTo(Path, encoding)
         End Function
