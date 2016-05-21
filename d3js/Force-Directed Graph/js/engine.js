@@ -43,7 +43,7 @@ function d3Network(jsonFile, width, height) {
 			.attr("class", "tooltip")
             .style("font-size", 16)
             .html(function (d) {
-                return "<span id='name' class='name'>name:\t" + d.name + "</span>\ntype:\t" + d.type + "\nlinks:\t" + d.size;
+                return "name:\t" + d.name + "\ntype:\t" + d.type + "\nlinks:\t" + d.size;
             });
 
         force.on("tick", function () {

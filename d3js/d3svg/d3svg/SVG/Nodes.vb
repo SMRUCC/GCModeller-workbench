@@ -1,5 +1,6 @@
 ﻿Imports System.Drawing
 Imports System.Xml.Serialization
+Imports Microsoft.VisualBasic.DocumentFormat.HTML
 Imports Microsoft.VisualBasic.Serialization
 
 Namespace Nodes
@@ -58,10 +59,15 @@ Namespace Nodes
 #End Region
 
         Public ReadOnly Property Size As Size
+        Public Property defs As CSS
 
 #Region "SVG"
         <XmlElement("line")> Public Property lines As line()
         <XmlElement("circle")> Public Property circles As circle()
 #End Region
+    End Class
+
+    Public Class CSS
+        <XmlElement("style")> Public Property styles As XmlMeta.CSS()
     End Class
 End Namespace

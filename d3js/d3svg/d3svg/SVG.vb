@@ -49,6 +49,13 @@ Public Module SVGBuilder
         Return sb.ToString
     End Function
 
+    <Extension>
+    Public Function BuildModel(svg As SVG) As Nodes.SVG
+        Dim doc As String = svg.Build
+        Dim build As Nodes.SVG = doc.CreateObjectFromXml(Of Nodes.SVG)
+        Return build
+    End Function
+
     ''' <summary>
     ''' Save svg model as svg document.
     ''' </summary>
