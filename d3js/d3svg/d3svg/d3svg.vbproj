@@ -87,6 +87,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrawSVG.vb" />
     <Compile Include="ForceDirectedGraph.vb" />
     <Compile Include="D3Parser.vb" />
     <Compile Include="SVG.vb" />
