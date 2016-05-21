@@ -1,5 +1,7 @@
-﻿Imports System.Runtime.CompilerServices
+﻿Imports System.Drawing
+Imports System.Runtime.CompilerServices
 Imports System.Text
+Imports System.Web.Script.Serialization
 
 Public Class SVG
 
@@ -8,6 +10,15 @@ Public Class SVG
     Public Property Height As Integer
     Public Property SVGContent As String
 
+    <ScriptIgnore> Public Property Size As Size
+        Get
+            Return New Size(Width, Height)
+        End Get
+        Friend Set(value As Size)
+            Width = value.Width
+            Height = value.Height
+        End Set
+    End Property
 End Class
 
 Public Module SVGBuilder
@@ -19,11 +30,18 @@ Public Module SVGBuilder
 {0}
 ]]></style></defs>"
 
+    Const SVGRoot As String = "<svg width=""{0}px"" height=""{1}px"" version=""1.1"" xmlns=""http://www.w3.org/2000/svg"" xmlns:xlink=""http://www.w3.org/1999/xlink"">"
+
+    ''' <summary>
+    ''' Generate svg document from the SVG data model.
+    ''' </summary>
+    ''' <param name="svg"></param>
+    ''' <returns></returns>
     <Extension>
     Public Function Build(svg As SVG) As String
         Dim sb As New StringBuilder(XmlHead)
 
-        Call sb.AppendLine($"<svg width=""{svg.Width}px"" height=""{svg.Height}px"" version=""1.1"" xmlns=""http://www.w3.org/2000/svg"" xmlns:xlink=""http://www.w3.org/1999/xlink"">")
+        Call sb.AppendLine(String.Format(SVGRoot, svg.Width, svg.Height))
         Call sb.AppendLine(String.Format(SVGBuilder.CSS, svg.CSS))
         Call sb.AppendLine(svg.SVGContent)
         Call sb.AppendLine("</svg>")
@@ -31,6 +49,12 @@ Public Module SVGBuilder
         Return sb.ToString
     End Function
 
+    ''' <summary>
+    ''' Save svg model as svg document.
+    ''' </summary>
+    ''' <param name="svg"></param>
+    ''' <param name="path"></param>
+    ''' <returns></returns>
     <Extension>
     Public Function SaveSVG(svg As SVG, path As String) As Boolean
         Return svg.Build.SaveTo(path, Encoding.UTF8)
