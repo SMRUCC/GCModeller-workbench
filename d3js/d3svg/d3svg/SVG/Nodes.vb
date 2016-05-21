@@ -4,6 +4,7 @@ Imports System.Xml.Serialization
 Imports Microsoft.VisualBasic.ComponentModel
 Imports Microsoft.VisualBasic.DocumentFormat.HTML
 Imports Microsoft.VisualBasic.Serialization
+Imports Microsoft.VisualBasic.XmlDoc
 
 Namespace Nodes
 
@@ -58,7 +59,8 @@ Namespace Nodes
 
         Private Function SaveAsXml(Optional Path As String = "", Optional encoding As Encoding = Nothing) As Boolean Implements ISaveHandle.Save
             Dim xml As String = Me.GetXml
-            xml = xml.ModifyEncoding(XmlEncodings.UTF8)
+            xml = xml.SetXmlEncoding(XmlEncodings.UTF8)
+            xml = xml.SetXmlStandalone(False)
 
             Return xml.SaveTo(Path, encoding)
         End Function
