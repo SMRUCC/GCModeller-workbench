@@ -5,11 +5,15 @@ Public MustInherit Class D3Parser
 
     Public Function HtmlParser(html As String) As SVG
         Dim svg As New SVG With {
-            .CSS = __css(html.ReadAllText().ShadowCopy(html)),
+            .CSS = __css(html),
             .SVGContent = __svgNode(html)
         }
         svg.Size = __trimSVG(svg.SVGContent)
         Return svg
+    End Function
+
+    Public Function HtmlFileParser(path As String) As SVG
+        Return HtmlParser(path.GET)
     End Function
 
     Private Function __trimSVG(ByRef doc As String) As Size
