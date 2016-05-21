@@ -58,6 +58,7 @@ Namespace Nodes
 
         Private Function SaveAsXml(Optional Path As String = "", Optional encoding As Encoding = Nothing) As Boolean Implements ISaveHandle.Save
             Dim xml As String = Me.GetXml
+            xml = xml.ModifyEncoding(XmlEncodings.UTF8)
 
             Return xml.SaveTo(Path, encoding)
         End Function
