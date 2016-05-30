@@ -6,142 +6,154 @@ var query_pspm;
     
 //found this trick at http://talideon.com/weblog/2005/02/detecting-broken-images-js.cfm
 function image_ok(img) {
-  "use strict";
-  // During the onload event, IE correctly identifies any images that
-  // weren't downloaded as not complete. Others should too. Gecko-based
-  // browsers act like NS4 in that they report this incorrectly.
-  if (!img.complete) {
-    return false;
-  }
-  // However, they do have two very useful properties: naturalWidth and
-  // naturalHeight. These give the true size of the image. If it failed
-  // to load, either of these should be zero.
-  if (typeof img.naturalWidth !== "undefined" && img.naturalWidth === 0) {
-    return false;
-  }
-  // No other way of checking: assume it's ok.
-  return true;
+    "use strict";
+
+    // During the onload event, IE correctly identifies any images that
+    // weren't downloaded as not complete. Others should too. Gecko-based
+    // browsers act like NS4 in that they report this incorrectly.
+    if (!img.complete) {
+        return false;
+    }
+
+    // However, they do have two very useful properties: naturalWidth and
+    // naturalHeight. These give the true size of the image. If it failed
+    // to load, either of these should be zero.
+    if (typeof img.naturalWidth !== "undefined" && img.naturalWidth === 0) {
+        return false;
+    }
+
+    // No other way of checking: assume it's ok.
+    return true;
 }
   
 function supports_text(ctx) {
-  "use strict";
-  if (!ctx.fillText) {
-    return false;
-  }
-  if (!ctx.measureText) {
-    return false;
-  }
-  return true;
+    "use strict";
+
+    if (!ctx.fillText) {
+        return false;
+    }
+    if (!ctx.measureText) {
+        return false;
+    }
+    return true;
 }
 
 //draws the scale, returns the width
 function draw_scale(ctx, metrics, alphabet_ic) {
-  "use strict";
-  var tic_height, i;
-  tic_height = metrics.stack_height / alphabet_ic;
-  ctx.save();
-  ctx.lineWidth = 1.5;
-  ctx.translate(metrics.y_label_height, metrics.y_num_height/2);
-  //draw the axis label
-  ctx.save();
-  ctx.font = metrics.y_label_font;
-  ctx.translate(0, metrics.stack_height/2);
-  ctx.save();
-  ctx.rotate(-(Math.PI / 2));
-  ctx.textAlign = "center";
-  ctx.fillText("bits", 0, 0);
-  ctx.restore();
-  ctx.restore();
+    "use strict";
 
-  ctx.translate(metrics.y_label_spacer + metrics.y_num_width, 0);
+    var tic_height, i;
+    tic_height = metrics.stack_height / alphabet_ic;
+    ctx.save();
+    ctx.lineWidth = 1.5;
+    ctx.translate(metrics.y_label_height, metrics.y_num_height / 2);
 
-  //draw the axis tics
-  ctx.save();
-  ctx.translate(0, metrics.stack_height);
-  ctx.font = metrics.y_num_font;
-  ctx.textAlign = "right";
-  ctx.textBaseline = "middle";
-  for (i = 0; i <= alphabet_ic; i++) {
-    //draw the number
-    ctx.fillText("" + i, 0, 0);
-    //draw the tic
+    //draw the axis label
+    ctx.save();
+    ctx.font = metrics.y_label_font;
+    ctx.translate(0, metrics.stack_height / 2);
+    ctx.save();
+    ctx.rotate(-(Math.PI / 2));
+    ctx.textAlign = "center";
+    ctx.fillText("bits", 0, 0);
+    ctx.restore();
+    ctx.restore();
+
+    ctx.translate(metrics.y_label_spacer + metrics.y_num_width, 0);
+
+    //draw the axis tics
+    ctx.save();
+    ctx.translate(0, metrics.stack_height);
+    ctx.font = metrics.y_num_font;
+    ctx.textAlign = "right";
+    ctx.textBaseline = "middle";
+
+    for (i = 0; i <= alphabet_ic; i++) {
+        //draw the number
+        ctx.fillText("" + i, 0, 0);
+        //draw the tic
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(metrics.y_tic_width, 0);
+        ctx.stroke();
+        //prepare for next tic
+        ctx.translate(0, -tic_height);
+    }
+
+    ctx.restore();
+    ctx.translate(metrics.y_tic_width, 0);
     ctx.beginPath();
     ctx.moveTo(0, 0);
-    ctx.lineTo(metrics.y_tic_width, 0);
+    ctx.lineTo(0, metrics.stack_height);
     ctx.stroke();
-    //prepare for next tic
-    ctx.translate(0, -tic_height);
-  }
-  ctx.restore();
-
-  ctx.translate(metrics.y_tic_width, 0);
-
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.lineTo(0, metrics.stack_height);
-  ctx.stroke();
-
-  ctx.restore();
+    ctx.restore();
 }
 
 function draw_stack_num(ctx, metrics, row_index) {
-  "use strict";
-  ctx.save();
-  ctx.font = metrics.x_num_font;
-  ctx.translate(metrics.stack_width / 2, metrics.stack_height + metrics.x_num_above);
-  ctx.save();
-  ctx.rotate(-(Math.PI / 2));
-  ctx.textBaseline = "middle";
-  ctx.textAlign = "right";
-  ctx.fillText("" + (row_index + 1), 0, 0);
-  ctx.restore();
-  ctx.restore();
+    "use strict";
+
+    ctx.save();
+    ctx.font = metrics.x_num_font;
+    ctx.translate(metrics.stack_width / 2, metrics.stack_height + metrics.x_num_above);
+    ctx.save();
+    ctx.rotate(-(Math.PI / 2));
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "right";
+    ctx.fillText("" + (row_index + 1), 0, 0);
+    ctx.restore();
+    ctx.restore();
 }
 
 function draw_stack(ctx, metrics, symbols, raster) {
-  "use strict";
-  var preferred_pad, sym_min, i, sym, sym_height, pad;
-  preferred_pad = 0;
-  sym_min = 5;
+    "use strict";
 
-  ctx.save();//1
-  ctx.translate(0, metrics.stack_height);
-  for (i = 0; i < symbols.length; i++) {
-    sym = symbols[i];
-    sym_height = metrics.stack_height * sym.get_scale();
-    
-    pad = preferred_pad;
-    if (sym_height - pad < sym_min) {
-      pad = Math.min(pad, Math.max(0, sym_height - sym_min));
+    var preferred_pad, sym_min, i, sym, sym_height, pad;
+    preferred_pad = 0;
+    sym_min = 5;
+
+    ctx.save();//1
+    ctx.translate(0, metrics.stack_height);
+    for (i = 0; i < symbols.length; i++) {
+        sym = symbols[i];
+        sym_height = metrics.stack_height * sym.get_scale();
+
+        pad = preferred_pad;
+
+        if (sym_height - pad < sym_min) {
+            pad = Math.min(pad, Math.max(0, sym_height - sym_min));
+        }
+
+        sym_height -= pad;
+
+        //translate to the correct position
+        ctx.translate(0, -(pad / 2 + sym_height));
+        //draw
+        raster.draw(ctx, sym.get_symbol(), 0, 0, metrics.stack_width, sym_height);
+        //translate past the padding
+        ctx.translate(0, -(pad / 2));
     }
-    sym_height -= pad;
-
-    //translate to the correct position
-    ctx.translate(0, -(pad/2 + sym_height));
-    //draw
-    raster.draw(ctx, sym.get_symbol(), 0, 0, metrics.stack_width, sym_height);
-    //translate past the padding
-    ctx.translate(0, -(pad/2));
-  }
-  ctx.restore();//1
+    ctx.restore();//1
 }
 
 function draw_dashed_line(ctx, pattern, start, x1, y1, x2, y2) {
-  "use strict";
-  var x, y, len, i, dx, dy, tlen, theta, mulx, muly, lx, ly;
-  dx = x2 - x1;
-  dy = y2 - y1;
-  tlen = Math.pow(dx*dx + dy*dy, 0.5);
-  theta = Math.atan2(dy,dx);
-  mulx = Math.cos(theta);
-  muly = Math.sin(theta);
-  lx = [];
-  ly = [];
-  for (i = 0; i < pattern; ++i) {
-    lx.push(pattern[i] * mulx);
-    ly.push(pattern[i] * muly);
-  }
-  i = start;
+    "use strict";
+
+    var x, y, len, i, dx, dy, tlen, theta, mulx, muly, lx, ly;
+    dx = x2 - x1;
+    dy = y2 - y1;
+    tlen = Math.pow(dx * dx + dy * dy, 0.5);
+    theta = Math.atan2(dy, dx);
+    mulx = Math.cos(theta);
+    muly = Math.sin(theta);
+    lx = [];
+    ly = [];
+
+    for (i = 0; i < pattern; ++i) {
+        lx.push(pattern[i] * mulx);
+        ly.push(pattern[i] * muly);
+    }
+
+    i = start;
   x = x1;
   y = y1;
   len = 0;
@@ -331,75 +343,35 @@ function draw_logo_on_canvas(logo, canvas, show_names, scale) {
 }
 
 function create_canvas(c_width, c_height, c_id, c_title, c_display) {
-  "use strict";
-  var canvas = document.createElement("canvas");
-  //check for canvas support before attempting anything
-  if (!canvas.getContext) {
-    return null;
-  }
-  var ctx = canvas.getContext('2d');
-  //check for html5 text drawing support
-  if (!supports_text(ctx)) {
-    return null;
-  }
-  //size the canvas
-  canvas.width = c_width;
-  canvas.height = c_height;
-  canvas.id = c_id;
-  canvas.title = c_title;
-  canvas.style.display = c_display;
-  return canvas;
+    "use strict";
+
+    var canvas = document.createElement("canvas");
+
+    //check for canvas support before attempting anything
+    if (!canvas.getContext) {
+        return null;
+    }
+    var ctx = canvas.getContext('2d');
+    //check for html5 text drawing support
+    if (!supports_text(ctx)) {
+        return null;
+    }
+
+    //size the canvas
+    canvas.width = c_width;
+    canvas.height = c_height;
+    canvas.id = c_id;
+    canvas.title = c_title;
+    canvas.style.display = c_display;
+    return canvas;
 }
 
 function logo_1(alphabet, fine_text, pspm) {
-  "use strict";
-  var logo = new Logo(alphabet, fine_text);
-  logo.add_pspm(pspm);
-  return logo;
-}
+    "use strict";
 
-function logo_2(alphabet, fine_text, target, query, query_offset) {
-  "use strict";
-  var logo = new Logo(alphabet, fine_text);
-  if (query_offset < 0) {
-    logo.add_pspm(target, -query_offset);
-    logo.add_pspm(query);
-  } else {
-    logo.add_pspm(target);
-    logo.add_pspm(query, query_offset);
-  }      
-  return logo;
-}
-
-/*
- * Specifies an alternate source for an image.
- * If the image with the image_id specified has
- * not loaded then a generated logo will be used 
- * to replace it.
- *
- * Note that the image must either have dimensions
- * or a scale must be set.
- */
-function alternate_logo(logo, image_id, scale) {
-  "use strict";
-  var image = document.getElementById(image_id);
-  if (!image) {
-    alert("Can't find specified image id (" +  image_id + ")");
-    return;
-  }
-  //if the image has loaded then there is no reason to use the canvas
-  if (image_ok(image)) {
-    return;
-  }
-  //the image has failed to load so replace it with a canvas if we can.
-  var canvas = create_canvas(image.width, image.height, image_id, image.title, image.style.display);
-  if (canvas === null) {
-    return;
-  }
-  //draw the logo on the canvas
-  draw_logo_on_canvas(logo, canvas, null, scale);
-  //replace the image with the canvas
-  image.parentNode.replaceChild(canvas, image);
+    var logo = new Logo(alphabet, fine_text);
+    logo.add_pspm(pspm);
+    return logo;
 }
 
 /*
@@ -407,21 +379,24 @@ function alternate_logo(logo, image_id, scale) {
  * should be replaced with a generated logo.
  */
 function replace_logo(logo, replace_id, scale, title_txt, display_style) {
-  "use strict";
-  var element = document.getElementById(replace_id);
-  if (!replace_id) {
-    alert("Can't find specified id (" + replace_id + ")");
-    return;
-  }
-  //found the element!
-  var canvas = create_canvas(50, 120, replace_id, title_txt, display_style);
-  if (canvas === null) {
-    return;
-  }
-  //draw the logo on the canvas
-  draw_logo_on_canvas(logo, canvas, null, scale);
-  //replace the element with the canvas
-  element.parentNode.replaceChild(canvas, element);
+    "use strict";
+
+    var element = document.getElementById(replace_id);
+    if (!replace_id) {
+        alert("Can't find specified id (" + replace_id + ")");
+        return;
+    }
+
+    //found the element!
+    var canvas = create_canvas(500, 1200, replace_id, title_txt, display_style);
+    if (canvas === null) {
+        return;
+    }
+
+    //draw the logo on the canvas
+    draw_logo_on_canvas(logo, canvas, null, scale);
+    //replace the element with the canvas
+    element.parentNode.replaceChild(canvas, element);
 }
 
 /*
@@ -432,197 +407,46 @@ function replace_logo(logo, replace_id, scale, title_txt, display_style) {
  * bad at removing trailing space as it has to first go through
  * the whole string.
  */
-function trim (str) {
-  "use strict";
-  var ws, i;
-  str = str.replace(/^\s\s*/, '');
-  ws = /\s/; i = str.length;
-  while (ws.test(str.charAt(--i)));
-  return str.slice(0, i + 1);
-}
-    /* END INCLUDED FILE "motif_logo.js" */
-    
-  
-      function LoadQueryTask(target_id, query_name) {
-        this.target_id = target_id;
-        this.query_name = query_name;
-        this.run = LoadQueryTask_run;
-      }
-      function LoadQueryTask_run() {
-        var alpha = new Alphabet("ACGT");
-        var query_pspm = new Pspm(document.getElementById('q_' + this.query_name).value, this.query_name);
-        replace_logo(logo_1(alpha, "Tomtom", query_pspm), this.target_id, 0.5, "Preview of " + this.query_name, "block");
-      }
-      function FixLogoTask(image_id, query_name, target_db_id, target_name, target_rc, target_offset) {
-        this.image_id = image_id;
-        this.query_name = query_name;
-        this.target_db_id = target_db_id;
-        this.target_name = target_name;
-        this.target_rc = target_rc;
-        this.target_offset = target_offset;
-        this.run = FixLogoTask_run;
-      }
-      function FixLogoTask_run() {
-        var image = document.getElementById(this.image_id);
-        var canvas = create_canvas(image.width, image.height, image.id, image.title, image.style.display);
-        if (canvas == null) return;
-        var alpha = new Alphabet("ACGT");
-        var query_pspm = new Pspm(document.getElementById('q_' + this.query_name).value, this.query_name);
-        var target_pspm = new Pspm(document.getElementById('t_' + this.target_db_id + '_' + this.target_name).value, this.target_name);
-        if (this.target_rc) target_pspm.reverse_complement(alpha);
-        var logo = logo_2(alpha, "Tomtom", target_pspm, query_pspm, this.target_offset);
-        draw_logo_on_canvas(logo, canvas, true, 1);
-        image.parentNode.replaceChild(canvas, image);
-      }
-      function push_task(task) {
-        task_queue.push(task);
-        if (task_queue.length == 1) {
-          window.setTimeout("process_tasks()", task_delay);
-        }
-      }
-      function process_tasks() {
-        if (task_queue.length == 0) return; //no more tasks
-        //get next task
-        var task = task_queue.shift();
-        task.run();
-        //allow UI updates between tasks
-        window.setTimeout("process_tasks()", task_delay);
-      }
-      function showHidden(prefix) {
-        document.getElementById(prefix + '_activator').style.display = 'none';
-        document.getElementById(prefix + '_deactivator').style.display = 'block';
-        document.getElementById(prefix + '_data').style.display = 'block';
-      }
-      function hideShown(prefix) {
-        document.getElementById(prefix + '_activator').style.display = 'block';
-        document.getElementById(prefix + '_deactivator').style.display = 'none';
-        document.getElementById(prefix + '_data').style.display = 'none';
-      }
-      function show_more(query_index, match_index, query_id, target_id, offset, rc) {
-        var link = document.getElementById("show_" + query_index + "_" + match_index);
-        var match_table = document.getElementById("table_" + query_index);
-        var match_row = document.getElementById("tr_" + query_index + "_" + match_index);
-        var query_pspm = document.getElementById(query_id).value;
-        var query_length = (new Pspm(query_pspm)).get_motif_length();
-        var target_pspm = document.getElementById(target_id).value;
-        var target_length = (new Pspm(target_pspm)).get_motif_length();
-        var total_length = (offset < 0 ? Math.max(query_length, target_length - offset) : Math.max(query_length + offset, target_length));
-        var download_row = document.getElementById("tr_download");
-        if (download_row) {
-          //remove existing
-          match_table.deleteRow(download_row.rowIndex);
-          show_opts_link.style.visibility = "visible";
-        }
-        show_opts_link = link;
-        show_opts_link.style.visibility = "hidden";
-        download_row = match_table.insertRow(match_row.rowIndex + 1);
-        download_row.id = "tr_download";
-        var cell = download_row.insertCell(0);
-        cell.colSpan = 2;
-        cell.style.verticalAlign = "top";
-        //create the download options
-        var box = document.createElement("div");
-        box.appendChild(create_title("Create custom LOGO", "#download_logo_doc"));
-        var form = create_form("http://xieguigang-ubuntu-vbox/meme/cgi-bin/tomtom_request.cgi", "post");
-        add_hfield(form, "mode", "logo");
-        add_hfield(form, "version", "4.9.1");
-        add_hfield(form, "background", "0.173 0.327 0.327 0.173");
-        add_hfield(form, "target_id", target_id);
-        add_hfield(form, "target_length", target_length);
-        add_hfield(form, "target_pspm", target_pspm);
-        add_hfield(form, "target_rc", rc);
-        add_hfield(form, "query_id", query_id);
-        add_hfield(form, "query_length", query_length);
-        add_hfield(form, "query_pspm", query_pspm);
-        add_hfield(form, "query_offset", offset);
-        var tbl = document.createElement("table");
-        var row = tbl.insertRow(tbl.rows.length);
-        add_label(row.insertCell(-1),"Image Type");
-        add_label(row.insertCell(-1), "Error bars");
-        add_label(row.insertCell(-1), "SSC");
-        add_label(row.insertCell(-1), "Flip");
-        add_label(row.insertCell(-1), "Width");
-        add_label(row.insertCell(-1), "Height");
-        row.insertCell(-1).appendChild(document.createTextNode(" "));
-        row = tbl.insertRow(tbl.rows.length);
-        add_combo(row.insertCell(-1), "image_type", {"png" : "PNG (for web)", "eps" : "EPS (for publication)"}, "png");
-        add_combo(row.insertCell(-1), "error_bars", {"1" : "yes", "0" : "no"}, "1");
-        add_combo(row.insertCell(-1), "small_sample_correction", {"0" : "no", "1" : "yes"}, "0");
-        add_combo(row.insertCell(-1), "flip", {"0" : "no", "1" : "yes"}, "0");
-        add_tfield(row.insertCell(-1), "image_width", total_length, 2);
-        add_tfield(row.insertCell(-1), "image_height", 10, 2);
-        add_submit(row.insertCell(-1), "Download");
-        form.appendChild(tbl);
-        box.appendChild(form);
-        cell.appendChild(box);
-      }
-      function create_title(title, help_link) {
-        var title_ele = document.createElement("h4");
-        var words = document.createTextNode(title + " ");
-        title_ele.appendChild(words);
-        if (help_link) {
-          var link = document.createElement("a");
-          link.className = "help"
-          link.href = help_link;
-          var helpdiv = document.createElement("div");
-          helpdiv.className = "help";
-          link.appendChild(helpdiv);
-          title_ele.appendChild(link);
-        }
-        return title_ele;
-      }
-      function add_hfield(form, name, value) {
-        var hidden = document.createElement("input");
-        hidden.type = "hidden";
-        hidden.name = name;
-        hidden.value = value;
-        form.appendChild(hidden);
-      }
-      function add_label(ele,label) {
-        ele.className = "downloadTd";
-        var label_b = document.createElement("b");
-        label_b.appendChild(document.createTextNode(label));
-        ele.appendChild(label_b);
-      }
-      function add_tfield(ele, name, value, size) {
-        ele.className = "downloadTd";
-        var field = document.createElement("input");
-        field.type = "text";
-        field.style.marginLeft = "5px";
-        field.name = name;
-        field.value = value;
-        field.size = size;
-        ele.appendChild(field);
-      }
-      function add_combo(ele, name, options, selected) {
-        ele.className = "downloadTd";
-        var combo = document.createElement("select");
-        combo.name = name;
-        for (var value in options) {
-          combo.style.marginLeft = "5px";
-          //exclude inherited properties and undefined properties
-          if (!options.hasOwnProperty(value) || options[value] === undefined) continue;
-          var display = options[value];
-          var option = document.createElement("option");
-          option.value = value;
-          if (value == selected) option.selected = true;
-          option.appendChild(document.createTextNode(display));
-          combo.appendChild(option);
-        }
-        ele.appendChild(combo);
-      }
-      function add_submit(ele, value) {
-        ele.className = "downloadTd";
-        var submit = document.createElement("input");
-        submit.type = "submit";
-        submit.value = value;
-        ele.appendChild(submit);
-      }
-      function create_form(path,method) {
-        method = method || "post";
+function trim(str) {
+    "use strict";
 
-        var form = document.createElement("form");
-        form.method = method;
-        form.action = path;
-        return form;
-      }
+    var ws, i;
+    str = str.replace(/^\s\s*/, '');
+    ws = /\s/; i = str.length;
+    while (ws.test(str.charAt(--i)));
+    return str.slice(0, i + 1);
+}
+
+var scaleLogo;
+
+/* Draw motif logo from this function */
+function LoadQueryTask(target_id, query_name, scale) {
+    this.target_id = target_id;
+    this.query_name = query_name;
+    this.run = LoadQueryTask_run;
+
+    scaleLogo = scale;
+}
+
+function LoadQueryTask_run() {
+    var alpha = new Alphabet("ACGT");
+    var query_pspm = new Pspm(document.getElementById('q_' + this.query_name).value, this.query_name);
+    replace_logo(logo_1(alpha, "MEME Suite", query_pspm), this.target_id, scaleLogo, "Preview of " + this.query_name, "block");
+}
+
+function push_task(task) {
+    task_queue.push(task);
+    if (task_queue.length == 1) {
+        window.setTimeout("process_tasks()", task_delay);
+    }
+}
+
+function process_tasks() {
+    if (task_queue.length == 0) return; //no more tasks
+
+    //get next task
+    var task = task_queue.shift();
+    task.run();
+    //allow UI updates between tasks
+    window.setTimeout("process_tasks()", task_delay);
+}
