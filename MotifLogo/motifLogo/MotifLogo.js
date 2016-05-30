@@ -4,6 +4,10 @@ var task_delay = 100;
 var my_alphabet;
 var query_pspm;
     
+function drawLogo(div_id, pwm, scale) {
+	push_task(new LoadQueryTask(div_id, pwm, scale));
+}
+	
 //found this trick at http://talideon.com/weblog/2005/02/detecting-broken-images-js.cfm
 function image_ok(img) {
     "use strict";
@@ -418,11 +422,12 @@ function trim(str) {
 }
 
 var scaleLogo;
+var motifPWM;
 
 /* Draw motif logo from this function */
-function LoadQueryTask(target_id, query_name, scale) {
+function LoadQueryTask(target_id, pwm, scale) {
     this.target_id = target_id;
-    this.query_name = query_name;
+    this.motifPWM = pwm;
     this.run = LoadQueryTask_run;
 
     scaleLogo = scale;
@@ -430,8 +435,8 @@ function LoadQueryTask(target_id, query_name, scale) {
 
 function LoadQueryTask_run() {
     var alpha = new Alphabet("ACGT");
-    var query_pspm = new Pspm(document.getElementById('q_' + this.query_name).value, this.query_name);
-    replace_logo(logo_1(alpha, "MEME Suite", query_pspm), this.target_id, scaleLogo, "Preview of " + this.query_name, "block");
+    var query_pspm = new Pspm(motifPWM, null);
+    replace_logo(logo_1(alpha, "MEME Suite", query_pspm), this.target_id, scaleLogo, "Preview Logo", "block");
 }
 
 function push_task(task) {
