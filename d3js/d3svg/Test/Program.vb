@@ -4,6 +4,9 @@ Imports d3svg
 Module Program
 
     Sub Main()
+        Dim dev As New d3svg.DrawSVG("F:\GCModeller.Workbench\IDE_PlugIns\d3jsViewer")
+
+
         Dim parser As D3Parser = New ForceDirectedGraph
         Call parser.HtmlFileParser("F:\GCModeller.Workbench\d3js\d3svg\data\NPashaP.htm").Build.SaveTo("F:\GCModeller.Workbench\d3js\d3svg\data\NPashaP.svg")
         Call parser.HtmlFileParser("F:\GCModeller.Workbench\d3js\d3svg\data\NPashaP.htm").BuildModel.SaveAsXml("F:\GCModeller.Workbench\d3js\d3svg\data\NPashaP2.svg")
@@ -14,7 +17,7 @@ Module Program
         Dim model = svg.BuildModel
         Call model.SaveAsXml("F:\GCModeller.Workbench\d3js\d3svg\data\Hierarchical-Edge-Bundling.svg")
 
-        Dim dev As New d3svg.DrawSVG("F:\GCModeller.Workbench\IDE_PlugIns\d3jsViewer")
+
         Call dev.RasterizeSvg("F:\GCModeller.Workbench\d3js\d3svg\data\Hierarchical-Edge-Bundling.svg",
                               "F:\GCModeller.Workbench\d3js\d3svg\data\Hierarchical-Edge-Bundling.png",
                               New Size(2000, 2000))
