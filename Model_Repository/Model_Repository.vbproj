@@ -204,6 +204,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="RepositoryServer.Designer.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -235,10 +236,6 @@
     <ProjectReference Include="..\..\runtime\visualbasic.DBI\SQLite_Interface\SQLite_Interface.vbproj">
       <Project>{67eafc15-2237-494e-85d9-206e5bf71ef4}</Project>
       <Name>SQLite_Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\runtime\visualbasic_App\DocumentFormats\VB_DataFrame\VB_DataFrame\+VB_DataFrame.vbproj">
-      <Project>{7283c179-f852-4ead-8d8f-b82ef2cbd7db}</Project>
-      <Name>+VB_DataFrame</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\runtime\visualbasic_App\Microsoft.VisualBasic.Architecture.Framework\+Microsoft.VisualBasic.Architecture.Framework.vbproj">
       <Project>{fecce1fd-e1d4-49e3-a668-60bb5e7aed99}</Project>
