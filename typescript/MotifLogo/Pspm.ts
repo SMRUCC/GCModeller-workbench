@@ -194,7 +194,7 @@
                     continue;
                 }
                 sym = new Symbol(i, row[i] * stack_ic / alphabet_ic, alphabet);
-                if (sym.get_scale() <= 0) {
+                if (sym.scale <= 0) {
                     continue;
                 }
                 stack.push(sym);

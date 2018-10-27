@@ -2,14 +2,14 @@
 
     export class Symbol {
 
-        public symbol;
-        public scale;
-        public colour;
+        public symbol: string;
+        public scale: number;
+        public colour: string;
 
-        public constructor(alph_index, scale, alphabet) {
-            this.symbol = alphabet.get_letter(alph_index);
+        public constructor(index: number, scale: number, alphabet: Alphabet) {
+            this.symbol = alphabet.getLetter(index);
             this.scale = scale;
-            this.colour = alphabet.get_colour(alph_index);
+            this.colour = alphabet.getColour(index);
         }
 
         public toString(): string {
