@@ -1,8 +1,19 @@
+/// <reference path="linq.d.ts" />
 declare namespace GCModeller.Workbench {
-    function supports_text(ctx: any): boolean;
+    /**
+     * Fast string trimming implementation found at
+     * http://blog.stevenlevithan.com/archives/faster-trim-javascript
+     *
+     * Note that regex is good at removing leading space but
+     * bad at removing trailing space as it has to first go through
+     * the whole string.
+    */
     function trim(str: string): string;
 }
 declare namespace GCModeller.Workbench {
+    /**
+     * Draw motif logo from this function
+    */
     class LoadQueryTask {
         target_id: any;
         motifPWM: any;
@@ -21,7 +32,6 @@ declare namespace GCModeller.Workbench {
         scaleLogo: any;
         motifPWM: any;
         drawLogo(div_id: any, pwm: any, scale: any): void;
-        image_ok(img: any): boolean;
         draw_scale(ctx: any, metrics: any, alphabet_ic: any): void;
         draw_stack_num(ctx: any, metrics: any, row_index: any): void;
         draw_stack(ctx: any, metrics: any, symbols: any, raster: any): void;
@@ -29,7 +39,6 @@ declare namespace GCModeller.Workbench {
         draw_trim_background(ctx: any, metrics: any, pspm: any, offset: any): void;
         size_logo_on_canvas(logo: any, canvas: any, show_names: any, scale: any): void;
         draw_logo_on_canvas(logo: any, canvas: any, show_names: any, scale: any): void;
-        create_canvas(c_width: any, c_height: any, c_id: any, c_title: any, c_display: any): HTMLCanvasElement;
         logo_1(alphabet: any, fine_text: any, pspm: any): Logo;
         replace_logo(logo: any, replace_id: any, scale: any, title_txt: any, display_style: any): void;
         push_task(task: any): void;

@@ -1,25 +1,16 @@
+/// <reference path="../build/linq.d.ts" />
 var GCModeller;
 (function (GCModeller) {
     var Workbench;
     (function (Workbench) {
-        function supports_text(ctx) {
-            if (!ctx.fillText) {
-                return false;
-            }
-            if (!ctx.measureText) {
-                return false;
-            }
-            return true;
-        }
-        Workbench.supports_text = supports_text;
-        /*
-     * Fast string trimming implementation found at
-     * http://blog.stevenlevithan.com/archives/faster-trim-javascript
-     *
-     * Note that regex is good at removing leading space but
-     * bad at removing trailing space as it has to first go through
-     * the whole string.
-     */
+        /**
+         * Fast string trimming implementation found at
+         * http://blog.stevenlevithan.com/archives/faster-trim-javascript
+         *
+         * Note that regex is good at removing leading space but
+         * bad at removing trailing space as it has to first go through
+         * the whole string.
+        */
         function trim(str) {
             "use strict";
             var ws, i;
@@ -37,8 +28,10 @@ var GCModeller;
 (function (GCModeller) {
     var Workbench;
     (function (Workbench) {
+        /**
+         * Draw motif logo from this function
+        */
         var LoadQueryTask = /** @class */ (function () {
-            /* Draw motif logo from this function */
             function LoadQueryTask(target_id, pwm, scale) {
                 this.target_id = target_id;
                 this.motifPWM = pwm;
@@ -65,24 +58,6 @@ var GCModeller;
             }
             MotifLogo.prototype.drawLogo = function (div_id, pwm, scale) {
                 this.push_task(new Workbench.LoadQueryTask(div_id, pwm, scale));
-            };
-            //found this trick at http://talideon.com/weblog/2005/02/detecting-broken-images-js.cfm
-            MotifLogo.prototype.image_ok = function (img) {
-                "use strict";
-                // During the onload event, IE correctly identifies any images that
-                // weren't downloaded as not complete. Others should too. Gecko-based
-                // browsers act like NS4 in that they report this incorrectly.
-                if (!img.complete) {
-                    return false;
-                }
-                // However, they do have two very useful properties: naturalWidth and
-                // naturalHeight. These give the true size of the image. If it failed
-                // to load, either of these should be zero.
-                if (typeof img.naturalWidth !== "undefined" && img.naturalWidth === 0) {
-                    return false;
-                }
-                // No other way of checking: assume it's ok.
-                return true;
             };
             //draws the scale, returns the width
             MotifLogo.prototype.draw_scale = function (ctx, metrics, alphabet_ic) {
@@ -370,26 +345,6 @@ var GCModeller;
                 ctx.fillText(logo.fine_text, 0, 0);
                 ctx.restore(); //s2
                 ctx.restore(); //s1
-            };
-            MotifLogo.prototype.create_canvas = function (c_width, c_height, c_id, c_title, c_display) {
-                "use strict";
-                var canvas = document.createElement("canvas");
-                //check for canvas support before attempting anything
-                if (!canvas.getContext) {
-                    return null;
-                }
-                var ctx = canvas.getContext('2d');
-                //check for html5 text drawing support
-                if (!Workbench.supports_text(ctx)) {
-                    return null;
-                }
-                //size the canvas
-                canvas.width = c_width;
-                canvas.height = c_height;
-                canvas.id = c_id;
-                canvas.title = c_title;
-                canvas.style.display = c_display;
-                return canvas;
             };
             MotifLogo.prototype.logo_1 = function (alphabet, fine_text, pspm) {
                 "use strict";
@@ -1298,7 +1253,7 @@ var GCModeller;
                 }
                 ctx = canvas.getContext('2d');
                 // check for html5 text drawing support
-                if (!Workbench.supports_text(ctx)) {
+                if (!supports_text(ctx)) {
                     throw new Error("NO_CANVAS_TEXT_SUPPORT");
                 }
                 // calculate the middle
