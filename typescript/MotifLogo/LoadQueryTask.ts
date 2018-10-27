@@ -8,11 +8,13 @@
         public target_id: string;
         public motifPWM;
         public scaleLogo: number;
+        public render: MotifLogo;
 
-        public constructor(target_id: string, pwm, scale: number) {
+        public constructor(target_id: string, pwm, scale: number, render: MotifLogo) {
             this.target_id = target_id;
             this.motifPWM = pwm;
             this.scaleLogo = scale;
+            this.render = render;
         }
 
         public run() {
@@ -49,7 +51,7 @@
             }
 
             //draw the logo on the canvas
-            this.draw_logo_on_canvas(logo, canvas, null, scale);
+            this.render.draw_logo_on_canvas(logo, canvas, null, scale);
 
             //replace the element with the canvas
             element.parentNode.replaceChild(canvas, element);

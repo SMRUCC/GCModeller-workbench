@@ -32,15 +32,41 @@ var GCModeller;
          * Draw motif logo from this function
         */
         var LoadQueryTask = /** @class */ (function () {
-            function LoadQueryTask(target_id, pwm, scale) {
+            function LoadQueryTask(target_id, pwm, scale, render) {
                 this.target_id = target_id;
                 this.motifPWM = pwm;
                 this.scaleLogo = scale;
+                this.render = render;
             }
             LoadQueryTask.prototype.run = function () {
                 var alpha = new Workbench.Alphabet("ACGT");
                 var query_pspm = new Workbench.Pspm(this.motifPWM, null);
-                this.replace_logo(logo_1(alpha, "MEME Suite", query_pspm), this.target_id, this.scaleLogo, "Preview Logo", "block");
+                this.replace_logo(this.logo_1(alpha, "MEME Suite", query_pspm), this.target_id, this.scaleLogo, "Preview Logo", "block");
+            };
+            LoadQueryTask.prototype.logo_1 = function (alphabet, fine_text, pspm) {
+                "use strict";
+                return new Workbench.Logo(alphabet, fine_text).addPspm(pspm);
+            };
+            /**
+             * Specifes that the element with the specified id
+             * should be replaced with a generated logo.
+            */
+            LoadQueryTask.prototype.replace_logo = function (logo, replace_id, scale, title_txt, display_style) {
+                "use strict";
+                var element = document.getElementById(replace_id);
+                if (!replace_id) {
+                    alert("Can't find specified id (" + replace_id + ")");
+                    return;
+                }
+                //found the element!
+                var canvas = CanvasHelper.createCanvas([500, 1200], replace_id, title_txt, display_style);
+                if (canvas === null) {
+                    return;
+                }
+                //draw the logo on the canvas
+                this.render.draw_logo_on_canvas(logo, canvas, null, scale);
+                //replace the element with the canvas
+                element.parentNode.replaceChild(canvas, element);
             };
             return LoadQueryTask;
         }());
@@ -235,11 +261,12 @@ var GCModeller;
             };
             MotifLogo.prototype.draw_logo_on_canvas = function (logo, canvas, show_names, scale) {
                 "use strict";
-                var draw_name, ctx, metrics, raster, pspm_i, pspm, offset, col_index, motif_position;
-                draw_name = (typeof show_names === "boolean" ? show_names : (logo.get_rows() > 1));
+                var draw_name;
+                var ctx, metrics, raster, pspm_i, pspm, offset, col_index, motif_position;
+                draw_name = (typeof show_names === "boolean" ? show_names : (logo.rows > 1));
                 ctx = canvas.getContext('2d');
                 //assume that the user wants the canvas scaled equally so calculate what the best width for this image should be
-                metrics = new Workbench.LogoMetrics(ctx, logo.get_columns(), logo.get_rows(), draw_name);
+                metrics = new Workbench.LogoMetrics(ctx, logo.columns, logo.rows, draw_name);
                 if (typeof scale == "number") {
                     //resize the canvas to fit the scaled logo
                     canvas.width = metrics.summed_width * scale;
@@ -347,33 +374,6 @@ var GCModeller;
                 ctx.fillText(logo.fine_text, 0, 0);
                 ctx.restore(); //s2
                 ctx.restore(); //s1
-            };
-            MotifLogo.prototype.logo_1 = function (alphabet, fine_text, pspm) {
-                "use strict";
-                var logo = new Workbench.Logo(alphabet, fine_text);
-                logo.addPspm(pspm);
-                return logo;
-            };
-            /*
-             * Specifes that the element with the specified id
-             * should be replaced with a generated logo.
-             */
-            MotifLogo.prototype.replace_logo = function (logo, replace_id, scale, title_txt, display_style) {
-                "use strict";
-                var element = document.getElementById(replace_id);
-                if (!replace_id) {
-                    alert("Can't find specified id (" + replace_id + ")");
-                    return;
-                }
-                //found the element!
-                var canvas = CanvasHelper.createCanvas([500, 1200], replace_id, title_txt, display_style);
-                if (canvas === null) {
-                    return;
-                }
-                //draw the logo on the canvas
-                this.draw_logo_on_canvas(logo, canvas, null, scale);
-                //replace the element with the canvas
-                element.parentNode.replaceChild(canvas, element);
             };
             MotifLogo.prototype.push_task = function (task) {
                 this.task_queue.push(task);
@@ -633,6 +633,7 @@ var GCModeller;
                 if (col > this.columns) {
                     this.columns = col;
                 }
+                return this;
             };
             Logo.prototype.getPspm = function (rowIndex) {
                 if (rowIndex < 0 || rowIndex >= this.rows) {
@@ -756,7 +757,6 @@ var GCModeller;
     (function (Workbench) {
         var Pspm = /** @class */ (function () {
             function Pspm(matrix, name, ltrim, rtrim, nsites, evalue) {
-                // construct
                 if (name === void 0) { name = null; }
                 if (ltrim === void 0) { ltrim = null; }
                 if (rtrim === void 0) { rtrim = null; }

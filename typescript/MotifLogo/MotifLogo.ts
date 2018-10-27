@@ -189,7 +189,7 @@
                 return;
             } else {
                 metrics = new LogoMetrics(canvas.getContext('2d'), logo.get_columns(), logo.get_rows(), draw_name);
-            }                      
+            }
 
             if (typeof scale == "number") {
                 //resize the canvas to fit the scaled logo
@@ -207,14 +207,15 @@
             }
         }
 
-        public draw_logo_on_canvas(logo, canvas, show_names, scale) {
+        public draw_logo_on_canvas(logo: Logo, canvas: HTMLCanvasElement, show_names: boolean, scale: number) {
             "use strict";
-            var draw_name, ctx, metrics, raster, pspm_i, pspm,
+            var draw_name: boolean
+            var ctx: CanvasRenderingContext2D, metrics: LogoMetrics, raster, pspm_i, pspm,
                 offset, col_index, motif_position;
-            draw_name = (typeof show_names === "boolean" ? show_names : (logo.get_rows() > 1));
+            draw_name = (typeof show_names === "boolean" ? show_names : (logo.rows > 1));
             ctx = canvas.getContext('2d');
             //assume that the user wants the canvas scaled equally so calculate what the best width for this image should be
-            metrics = new LogoMetrics(ctx, logo.get_columns(), logo.get_rows(), draw_name);
+            metrics = new LogoMetrics(ctx, logo.columns, logo.rows, draw_name);
             if (typeof scale == "number") {
                 //resize the canvas to fit the scaled logo
                 canvas.width = metrics.summed_width * scale;

@@ -15,11 +15,18 @@ declare namespace GCModeller.Workbench {
      * Draw motif logo from this function
     */
     class LoadQueryTask {
-        target_id: any;
+        target_id: string;
         motifPWM: any;
-        scaleLogo: any;
-        constructor(target_id: string, pwm: any, scale: number);
+        scaleLogo: number;
+        render: MotifLogo;
+        constructor(target_id: string, pwm: any, scale: number, render: MotifLogo);
         run(): void;
+        logo_1(alphabet: Alphabet, fine_text: string, pspm: Pspm): Logo;
+        /**
+         * Specifes that the element with the specified id
+         * should be replaced with a generated logo.
+        */
+        replace_logo(logo: Logo, replace_id: string, scale: number, title_txt: string, display_style: string): void;
     }
 }
 declare namespace GCModeller.Workbench {
@@ -36,9 +43,7 @@ declare namespace GCModeller.Workbench {
         draw_dashed_line(ctx: CanvasRenderingContext2D, pattern: any, start: any, x1: any, y1: any, x2: any, y2: any): void;
         draw_trim_background(ctx: CanvasRenderingContext2D, metrics: any, pspm: any, offset: any): void;
         size_logo_on_canvas(logo: any, canvas: HTMLCanvasElement, show_names: boolean, scale: number): void;
-        draw_logo_on_canvas(logo: any, canvas: any, show_names: any, scale: any): void;
-        logo_1(alphabet: any, fine_text: any, pspm: any): Logo;
-        replace_logo(logo: any, replace_id: any, scale: any, title_txt: any, display_style: any): void;
+        draw_logo_on_canvas(logo: Logo, canvas: HTMLCanvasElement, show_names: boolean, scale: number): void;
         push_task(task: LoadQueryTask): void;
         process_tasks(): void;
     }
@@ -78,14 +83,14 @@ declare namespace GCModeller.Workbench.AlphabetColors {
 }
 declare namespace GCModeller.Workbench {
     class Logo {
-        alphabet: any;
-        fine_text: any;
+        alphabet: Alphabet;
+        fine_text: string;
         pspm_list: any;
         pspm_column: any;
         rows: number;
         columns: number;
-        constructor(alphabet: any, fine_text: any);
-        addPspm(pspm: any, column?: number): void;
+        constructor(alphabet: Alphabet, fine_text: string);
+        addPspm(pspm: Pspm, column?: number): Logo;
         getPspm(rowIndex: number): any;
         getOffset(rowIndex: any): any;
     }
@@ -106,7 +111,7 @@ declare namespace GCModeller.Workbench {
         y_label_spacer: number;
         y_num_height: number;
         y_num_width: number;
-        y_num_font: any;
+        y_num_font: string;
         y_tic_width: number;
         stack_pad_left: number;
         stack_font: string;
@@ -123,7 +128,7 @@ declare namespace GCModeller.Workbench {
         letter_metrics: any[];
         summed_width: number;
         summed_height: number;
-        constructor(ctx: any, logo_columns: any, logo_rows: any, allow_space_for_names: boolean);
+        constructor(ctx: CanvasRenderingContext2D, logo_columns: number, logo_rows: number, allow_space_for_names: boolean);
     }
 }
 declare namespace GCModeller.Workbench {
@@ -136,7 +141,7 @@ declare namespace GCModeller.Workbench {
         ltrim: any;
         rtrim: any;
         pspm: any[];
-        constructor(matrix: any, name?: string, ltrim?: any, rtrim?: any, nsites?: any, evalue?: any);
+        constructor(matrix: Pspm | string, name?: string, ltrim?: any, rtrim?: any, nsites?: any, evalue?: any);
         private parseInternal;
         private copyInternal;
         copy(): Pspm;
