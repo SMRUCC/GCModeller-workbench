@@ -14,7 +14,7 @@
         public drawLogo(div_id, pwm, scale) {
             this.push_task(new LoadQueryTask(div_id, pwm, scale));
         }
-                     
+
         //draws the scale, returns the width
         public draw_scale(ctx, metrics, alphabet_ic) {
             "use strict";
@@ -174,10 +174,10 @@
             }
             ctx.fillStyle = "rgb(51, 51, 51)";
             if (pspm.get_left_trim() > 0) {
-                this. draw_dashed_line(ctx, [3], 0, lwidth - 0.5, 0, lwidth - 0.5, metrics.stack_height);
+                this.draw_dashed_line(ctx, [3], 0, lwidth - 0.5, 0, lwidth - 0.5, metrics.stack_height);
             }
             if (pspm.get_right_trim() > 0) {
-                this.  draw_dashed_line(ctx, [3], 0, rstart + 0.5, 0, rstart + 0.5, metrics.stack_height);
+                this.draw_dashed_line(ctx, [3], 0, rstart + 0.5, 0, rstart + 0.5, metrics.stack_height);
             }
             ctx.restore();//s8
         }
@@ -238,11 +238,11 @@
             // of logos the same size
             if (typeof this.draw_logo_on_canvas.raster_scale === "number" &&
                 Math.abs(this.draw_logo_on_canvas.raster_scale - scale) < 0.1) {
-                raster = this. draw_logo_on_canvas.raster_cache;
+                raster = this.draw_logo_on_canvas.raster_cache;
             } else {
                 raster = new RasterizedAlphabet(logo.alphabet, metrics.stack_font, metrics.stack_width * scale * 2);
-                this.   draw_logo_on_canvas.raster_cache = raster;
-                this.     draw_logo_on_canvas.raster_scale = scale;
+                this.draw_logo_on_canvas.raster_cache = raster;
+                this.draw_logo_on_canvas.raster_scale = scale;
             }
             ctx = canvas.getContext('2d');
             ctx.save();//s1
@@ -266,14 +266,14 @@
                         Math.min(0, metrics.name_spacer - metrics.y_num_height / 2));
                 }
                 //draw scale
-                this.  draw_scale(ctx, metrics, logo.alphabet.get_ic());
+                this.draw_scale(ctx, metrics, logo.alphabet.get_ic());
                 ctx.save();//s5
                 //translate across past the scale
                 ctx.translate(metrics.y_label_height + metrics.y_label_spacer +
                     metrics.y_num_width + metrics.y_tic_width, 0);
                 //draw the trimming background
                 if (pspm.get_left_trim() > 0 || pspm.get_right_trim() > 0) {
-                    this. draw_trim_background(ctx, metrics, pspm, offset);
+                    this.draw_trim_background(ctx, metrics, pspm, offset);
                 }
                 //draw letters
                 ctx.translate(0, metrics.y_num_height / 2);
@@ -281,8 +281,8 @@
                     ctx.translate(metrics.stack_pad_left, 0);
                     if (col_index >= offset && col_index < (offset + pspm.get_motif_length())) {
                         motif_position = col_index - offset;
-                        this.   draw_stack_num(ctx, metrics, motif_position);
-                        this.  draw_stack(ctx, metrics, pspm.get_stack(motif_position, logo.alphabet), raster);
+                        this.draw_stack_num(ctx, metrics, motif_position);
+                        this.draw_stack(ctx, metrics, pspm.get_stack(motif_position, logo.alphabet), raster);
                     }
                     ctx.translate(metrics.stack_width, 0);
                 }
@@ -318,12 +318,12 @@
             ctx.restore();//s2
             ctx.restore();//s1
         }
-               
+
         public logo_1(alphabet, fine_text, pspm) {
             "use strict";
 
             var logo = new Logo(alphabet, fine_text);
-            logo.add_pspm(pspm);
+            logo.addPspm(pspm);
             return logo;
         }
 
@@ -341,34 +341,35 @@
             }
 
             //found the element!
-            var canvas = this. create_canvas(500, 1200, replace_id, title_txt, display_style);
+            var canvas = CanvasHelper.createCanvas([500, 1200], replace_id, title_txt, display_style);
+
             if (canvas === null) {
                 return;
             }
 
             //draw the logo on the canvas
-            this.   draw_logo_on_canvas(logo, canvas, null, scale);
+            this.draw_logo_on_canvas(logo, canvas, null, scale);
             //replace the element with the canvas
             element.parentNode.replaceChild(canvas, element);
-        }          
-
-
-  public  push_task(task) {
-      this.task_queue.push(task);
-      if (this.task_queue.length == 1) {
-            window.setTimeout("process_tasks()", this. task_delay);
         }
+
+
+        public push_task(task) {
+            this.task_queue.push(task);
+            if (this.task_queue.length == 1) {
+                window.setTimeout("process_tasks()", this.task_delay);
+            }
+        }
+
+        public process_tasks() {
+            if (this.task_queue.length == 0) return; //no more tasks
+
+            //get next task
+            var task = this.task_queue.shift();
+            task.run();
+            //allow UI updates between tasks
+            window.setTimeout("process_tasks()", this.task_delay);
+        }
+
     }
-
-  public  process_tasks() {
-        if ( this.task_queue.length == 0) return; //no more tasks
-
-        //get next task
-      var task = this.task_queue.shift();
-        task.run();
-        //allow UI updates between tasks
-      window.setTimeout("process_tasks()", this. task_delay);
-    }
-
-}
 }

@@ -16,7 +16,7 @@
             this.pspm_column = [];
         }
 
-        public addPspm(pspm, column) {
+        public addPspm(pspm, column: number = null) {
             var col;
 
             if (typeof column === "undefined") {
