@@ -2990,6 +2990,62 @@ var CanvasHelper;
         return metrics.width;
     }
     CanvasHelper.getTextWidth = getTextWidth;
+    /**
+     * found this trick at http://talideon.com/weblog/2005/02/detecting-broken-images-js.cfm
+    */
+    function imageOk(img) {
+        "use strict";
+        // During the onload event, IE correctly identifies any images that
+        // weren't downloaded as not complete. Others should too. Gecko-based
+        // browsers act like NS4 in that they report this incorrectly.
+        if (!img.complete) {
+            return false;
+        }
+        // However, they do have two very useful properties: naturalWidth and
+        // naturalHeight. These give the true size of the image. If it failed
+        // to load, either of these should be zero.
+        if (typeof img.naturalWidth !== "undefined" && img.naturalWidth === 0) {
+            return false;
+        }
+        // No other way of checking: assume it's ok.
+        return true;
+    }
+    CanvasHelper.imageOk = imageOk;
+    /**
+     * @param size [width, height]
+    */
+    function createCanvas(size, id, title, display) {
+        "use strict";
+        if (display === void 0) { display = "block"; }
+        var canvas = document.createElement("canvas");
+        //check for canvas support before attempting anything
+        if (!canvas.getContext) {
+            return null;
+        }
+        var ctx = canvas.getContext('2d');
+        //check for html5 text drawing support
+        if (!supportsText(ctx)) {
+            return null;
+        }
+        //size the canvas
+        canvas.width = size[0];
+        canvas.height = size[1];
+        canvas.id = id;
+        canvas.title = title;
+        canvas.style.display = display;
+        return canvas;
+    }
+    CanvasHelper.createCanvas = createCanvas;
+    function supportsText(ctx) {
+        if (!ctx.fillText) {
+            return false;
+        }
+        if (!ctx.measureText) {
+            return false;
+        }
+        return true;
+    }
+    CanvasHelper.supportsText = supportsText;
     var fontSize = /** @class */ (function () {
         function fontSize() {
             this.sizes = [];

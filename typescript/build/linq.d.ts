@@ -1129,6 +1129,15 @@ declare namespace CanvasHelper {
      *
      */
     function getTextWidth(text: string, font: string): number;
+    /**
+     * found this trick at http://talideon.com/weblog/2005/02/detecting-broken-images-js.cfm
+    */
+    function imageOk(img: HTMLImageElement): boolean;
+    /**
+     * @param size [width, height]
+    */
+    function createCanvas(size: [number, number], id: string, title: string, display?: string): HTMLCanvasElement;
+    function supportsText(ctx: CanvasRenderingContext2D): boolean;
     class fontSize {
         point: number;
         pixel: number;
