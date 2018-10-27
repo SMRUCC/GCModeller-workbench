@@ -1,6 +1,0 @@
-[submodule "runtime/sciBASIC"]
-	path = runtime/sciBASIC
-	url = https://github.com/xieguigang/sciBASIC.git
-[submodule "runtime/httpd"]
-	path = runtime/httpd
-	url = https://github.com/SMRUCC/SMRUCC.WebCloud.git
