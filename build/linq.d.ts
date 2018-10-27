@@ -1,4 +1,42 @@
 declare namespace GCModeller.Workbench {
+    function supports_text(ctx: any): boolean;
+    function trim(str: string): string;
+}
+declare namespace GCModeller.Workbench {
+    class LoadQueryTask {
+        target_id: any;
+        motifPWM: any;
+        scaleLogo: any;
+        constructor(target_id: any, pwm: any, scale: any);
+        run(): void;
+    }
+}
+declare namespace GCModeller.Workbench {
+    class MotifLogo {
+        show_opts_link: any;
+        task_queue: any[];
+        task_delay: number;
+        my_alphabet: any;
+        query_pspm: any;
+        scaleLogo: any;
+        motifPWM: any;
+        drawLogo(div_id: any, pwm: any, scale: any): void;
+        image_ok(img: any): boolean;
+        draw_scale(ctx: any, metrics: any, alphabet_ic: any): void;
+        draw_stack_num(ctx: any, metrics: any, row_index: any): void;
+        draw_stack(ctx: any, metrics: any, symbols: any, raster: any): void;
+        draw_dashed_line(ctx: any, pattern: any, start: any, x1: any, y1: any, x2: any, y2: any): void;
+        draw_trim_background(ctx: any, metrics: any, pspm: any, offset: any): void;
+        size_logo_on_canvas(logo: any, canvas: any, show_names: any, scale: any): void;
+        draw_logo_on_canvas(logo: any, canvas: any, show_names: any, scale: any): void;
+        create_canvas(c_width: any, c_height: any, c_id: any, c_title: any, c_display: any): HTMLCanvasElement;
+        logo_1(alphabet: any, fine_text: any, pspm: any): Logo;
+        replace_logo(logo: any, replace_id: any, scale: any, title_txt: any, display_style: any): void;
+        push_task(task: any): void;
+        process_tasks(): void;
+    }
+}
+declare namespace GCModeller.Workbench {
     class Alphabet {
         static readonly is_letter: RegExp;
         static readonly is_prob: RegExp;
@@ -8,7 +46,7 @@ declare namespace GCModeller.Workbench {
         readonly ic: number;
         readonly size: number;
         readonly isNucleotide: boolean;
-        constructor(alphabet: string, bg: string);
+        constructor(alphabet: string, bg?: string);
         private parseBackground;
         toString(): string;
         getLetter(index: number): string;
@@ -82,6 +120,43 @@ declare namespace GCModeller.Workbench {
     }
 }
 declare namespace GCModeller.Workbench {
+    class Pspm {
+        name: string;
+        alph_length: any;
+        motif_length: any;
+        nsites: any;
+        evalue: any;
+        ltrim: any;
+        rtrim: any;
+        pspm: any[];
+        constructor(matrix: any, name?: string, ltrim?: any, rtrim?: any, nsites?: any, evalue?: any);
+        private parseInternal;
+        private copyInternal;
+        copy(): Pspm;
+        reverse_complement(alphabet: any): this;
+        get_stack(position: any, alphabet: any): any;
+        get_stack_ic(position: any, alphabet: any): number;
+        get_error(alphabet: any): number;
+        get_motif_length(): any;
+        get_alph_length(): any;
+        get_left_trim(): any;
+        get_right_trim(): any;
+        as_pspm(): any;
+        as_pssm(alphabet: any, pseudo: any): any;
+        toString(): string;
+    }
+}
+declare namespace GCModeller.Workbench {
+    function static(): any;
+    function parse_pspm_string(pspm_string: string): {
+        "pspm": any;
+        "motif_length": any;
+        "alph_length": any;
+        "nsites": any;
+        "evalue": any;
+    };
+}
+declare namespace GCModeller.Workbench {
     class RasterizedAlphabet {
         lookup: any;
         rasters: any;
@@ -100,10 +175,10 @@ declare namespace GCModeller.Workbench {
 }
 declare namespace GCModeller.Workbench {
     class Symbol {
-        symbol: any;
-        scale: any;
-        colour: any;
-        constructor(alph_index: any, scale: any, alphabet: any);
+        symbol: string;
+        scale: number;
+        colour: string;
+        constructor(index: number, scale: number, alphabet: Alphabet);
         toString(): string;
         static compareSymbol(sym1: Symbol, sym2: Symbol): number;
     }
