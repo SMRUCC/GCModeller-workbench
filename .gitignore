@@ -11,3 +11,5 @@ App
 
 
 node_modules
+*.lock
+*.ide
