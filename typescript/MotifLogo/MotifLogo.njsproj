@@ -13,7 +13,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>240ce448-d70a-4311-9535-add9fadda65d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Alphabet.ts</StartupFile>
+    <StartupFile>Models\Alphabet.ts</StartupFile>
     <StartWebBrowser>True</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -35,31 +35,34 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Alphabet.ts" />
+    <TypeScriptCompile Include="Models\Alphabet.ts" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <TypeScriptCompile Include="AlphabetColors.ts">
+    <TypeScriptCompile Include="Models\AlphabetColors.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Logo.ts">
+    <TypeScriptCompile Include="Models\Logo.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="LogoMetrics.ts">
+    <TypeScriptCompile Include="Models\LogoMetrics.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Symbol.ts">
+    <TypeScriptCompile Include="Models\Symbol.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="RasterizedAlphabet.ts">
+    <TypeScriptCompile Include="Models\RasterizedAlphabet.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Pspm.ts">
+    <TypeScriptCompile Include="Models\Pspm.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="PspmParser.ts">
+    <TypeScriptCompile Include="Models\PspmParser.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
