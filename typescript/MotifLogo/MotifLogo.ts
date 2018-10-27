@@ -319,41 +319,6 @@
             ctx.restore();//s1
         }
 
-        public logo_1(alphabet, fine_text, pspm) {
-            "use strict";
-
-            var logo = new Logo(alphabet, fine_text);
-            logo.addPspm(pspm);
-            return logo;
-        }
-
-        /*
-         * Specifes that the element with the specified id
-         * should be replaced with a generated logo.
-         */
-        public replace_logo(logo, replace_id, scale, title_txt, display_style) {
-            "use strict";
-
-            var element = document.getElementById(replace_id);
-            if (!replace_id) {
-                alert("Can't find specified id (" + replace_id + ")");
-                return;
-            }
-
-            //found the element!
-            var canvas = CanvasHelper.createCanvas([500, 1200], replace_id, title_txt, display_style);
-
-            if (canvas === null) {
-                return;
-            }
-
-            //draw the logo on the canvas
-            this.draw_logo_on_canvas(logo, canvas, null, scale);
-            //replace the element with the canvas
-            element.parentNode.replaceChild(canvas, element);
-        }
-
-
         public push_task(task: LoadQueryTask) {
             this.task_queue.push(task);
 
