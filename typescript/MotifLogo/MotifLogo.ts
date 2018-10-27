@@ -278,7 +278,7 @@
                 }
                 //draw letters
                 ctx.translate(0, metrics.y_num_height / 2);
-                for (col_index = 0; col_index < logo.get_columns(); col_index++) {
+                for (col_index = 0; col_index < logo.columns; col_index++) {
                     ctx.translate(metrics.stack_pad_left, 0);
                     if (col_index >= offset && col_index < (offset + pspm.get_motif_length())) {
                         motif_position = col_index - offset;
@@ -289,7 +289,7 @@
                 }
                 ctx.restore();//s5
                 ////optionally draw name if this is the last row but isn't the only row 
-                if (draw_name && (logo.get_rows() != 1 && pspm_i == (logo.get_rows() - 1))) {
+                if (draw_name && (logo.rows != 1 && pspm_i == (logo.rows - 1))) {
                     //translate vertically past the stack and axis's        
                     ctx.translate(0, metrics.y_num_height / 2 + metrics.stack_height +
                         Math.max(metrics.y_num_height / 2, metrics.x_num_above + metrics.x_num_width + metrics.name_spacer));
@@ -307,7 +307,7 @@
                         Math.max(metrics.y_num_height / 2, metrics.x_num_above + metrics.x_num_width));
                 }
                 //if not the last row then add middle padding
-                if (pspm_i != (logo.get_rows() - 1)) {
+                if (pspm_i != (logo.rows - 1)) {
                     ctx.translate(0, metrics.pad_middle);
                 }
             }
