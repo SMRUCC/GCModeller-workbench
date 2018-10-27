@@ -91,6 +91,7 @@
             if (index < 0 || index >= this.letter_count) {
                 throw new Error("BAD_ALPHABET_INDEX");
             }
+
             return this.alphabet[index];
         }
 
@@ -101,69 +102,18 @@
             if (this.freqs[index] == -1) {
                 throw new Error("BG_FREQ_NOT_SET");
             }
+
             return this.freqs[index];
         }
 
         public getColour(index: number): string {
-            var red, blue, orange, green, yellow, purple, magenta, pink, turquoise;
-            red = "rgb(204,0,0)";
-            blue = "rgb(0,0,204)";
-            orange = "rgb(255,179,0)";
-            green = "rgb(0,128,0)";
-            yellow = "rgb(255,255,0)";
-            purple = "rgb(204,0,204)";
-            magenta = "rgb(255,0,255)";
-            pink = "rgb(255,204,204)";
-            turquoise = "rgb(51,230,204)";
             if (index < 0 || index >= this.letter_count) {
                 throw new Error("BAD_ALPHABET_INDEX");
             }
             if (this.isNucleotide) {
-                switch (this.alphabet[index]) {
-                    case "A":
-                        return red;
-                    case "C":
-                        return blue;
-                    case "G":
-                        return orange;
-                    case "T":
-                        return green;
-                    default:
-                        throw new Error("Invalid nucleotide letter");
-                }
+                return AlphabetColors.nucleotideColor(this.alphabet[index]);
             } else {
-                switch (this.alphabet[index]) {
-                    case "A":
-                    case "C":
-                    case "F":
-                    case "I":
-                    case "L":
-                    case "V":
-                    case "W":
-                    case "M":
-                        return blue;
-                    case "N":
-                    case "Q":
-                    case "S":
-                    case "T":
-                        return green;
-                    case "D":
-                    case "E":
-                        return magenta;
-                    case "K":
-                    case "R":
-                        return red;
-                    case "H":
-                        return pink;
-                    case "G":
-                        return orange;
-                    case "P":
-                        return yellow;
-                    case "Y":
-                        return turquoise;
-                    default:
-                        throw new Error("Invalid protein letter");
-                }
+                return AlphabetColors.proteinColor(this.alphabet[index]);
             }
 
             return "black";
@@ -186,6 +136,7 @@
                     return i;
                 }
             }
+
             throw new Error("UNKNOWN_LETTER");
         }
     }
