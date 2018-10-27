@@ -1,5 +1,14 @@
 /// <reference path="linq.d.ts" />
 declare namespace GCModeller.Workbench {
+    class CanvasRender {
+        raster_scale: number;
+        raster_cache: RasterizedAlphabet;
+        host: MotifLogo;
+        constructor(host: MotifLogo);
+        doRender(logo: Logo, canvas: HTMLCanvasElement, show_names: boolean, scale: number): void;
+    }
+}
+declare namespace GCModeller.Workbench {
     /**
      * Fast string trimming implementation found at
      * http://blog.stevenlevithan.com/archives/faster-trim-javascript
@@ -36,6 +45,8 @@ declare namespace GCModeller.Workbench {
         task_delay: number;
         my_alphabet: any;
         query_pspm: any;
+        draw_logo_on_canvas: CanvasRender;
+        constructor();
         drawLogo(div_id: string, pwm: any, scale: number): void;
         draw_scale(ctx: CanvasRenderingContext2D, metrics: any, alphabet_ic: any): void;
         draw_stack_num(ctx: CanvasRenderingContext2D, metrics: any, row_index: any): void;
@@ -43,7 +54,6 @@ declare namespace GCModeller.Workbench {
         draw_dashed_line(ctx: CanvasRenderingContext2D, pattern: any, start: any, x1: any, y1: any, x2: any, y2: any): void;
         draw_trim_background(ctx: CanvasRenderingContext2D, metrics: any, pspm: any, offset: any): void;
         size_logo_on_canvas(logo: any, canvas: HTMLCanvasElement, show_names: boolean, scale: number): void;
-        draw_logo_on_canvas(logo: Logo, canvas: HTMLCanvasElement, show_names: boolean, scale: number): void;
         push_task(task: LoadQueryTask): void;
         process_tasks(): void;
     }
@@ -85,14 +95,14 @@ declare namespace GCModeller.Workbench {
     class Logo {
         alphabet: Alphabet;
         fine_text: string;
-        pspm_list: any;
-        pspm_column: any;
+        pspm_list: Pspm[];
+        pspm_column: number[];
         rows: number;
         columns: number;
         constructor(alphabet: Alphabet, fine_text: string);
         addPspm(pspm: Pspm, column?: number): Logo;
-        getPspm(rowIndex: number): any;
-        getOffset(rowIndex: any): any;
+        getPspm(rowIndex: number): Pspm;
+        getOffset(rowIndex: any): number;
     }
 }
 declare namespace GCModeller.Workbench {
@@ -173,7 +183,7 @@ declare namespace GCModeller.Workbench {
         lookup: any;
         rasters: any;
         dimensions: any;
-        constructor(alphabet: any, font: any, target_width: any);
+        constructor(alphabet: Alphabet, font: string, target_width: number);
         draw(ctx: any, letter: any, dx: any, dy: any, dWidth: any, dHeight: any): void;
         static canvas_bounds(ctx: CanvasRenderingContext2D, cwidth: number, cheight: number): {
             bound_top: number;
