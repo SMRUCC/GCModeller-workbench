@@ -87,7 +87,7 @@ declare namespace GCModeller.Workbench {
         rows: number;
         columns: number;
         constructor(alphabet: any, fine_text: any);
-        addPspm(pspm: any, column: any): void;
+        addPspm(pspm: any, column?: number): void;
         getPspm(rowIndex: number): any;
         getOffset(rowIndex: any): any;
     }
@@ -172,13 +172,13 @@ declare namespace GCModeller.Workbench {
         dimensions: any;
         constructor(alphabet: any, font: any, target_width: any);
         draw(ctx: any, letter: any, dx: any, dy: any, dWidth: any, dHeight: any): void;
-        static canvas_bounds(ctx: any, cwidth: any, cheight: any): {
-            bound_top: any;
-            bound_bottom: any;
-            bound_left: any;
-            bound_right: any;
-            width: any;
-            height: any;
+        static canvas_bounds(ctx: CanvasRenderingContext2D, cwidth: number, cheight: number): {
+            bound_top: number;
+            bound_bottom: number;
+            bound_left: number;
+            bound_right: number;
+            width: number;
+            height: number;
         };
     }
 }
