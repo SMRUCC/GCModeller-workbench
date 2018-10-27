@@ -14,30 +14,7 @@
         public drawLogo(div_id, pwm, scale) {
             this.push_task(new LoadQueryTask(div_id, pwm, scale));
         }
-
-        //found this trick at http://talideon.com/weblog/2005/02/detecting-broken-images-js.cfm
-        public image_ok(img) {
-            "use strict";
-
-            // During the onload event, IE correctly identifies any images that
-            // weren't downloaded as not complete. Others should too. Gecko-based
-            // browsers act like NS4 in that they report this incorrectly.
-            if (!img.complete) {
-                return false;
-            }
-
-            // However, they do have two very useful properties: naturalWidth and
-            // naturalHeight. These give the true size of the image. If it failed
-            // to load, either of these should be zero.
-            if (typeof img.naturalWidth !== "undefined" && img.naturalWidth === 0) {
-                return false;
-            }
-
-            // No other way of checking: assume it's ok.
-            return true;
-        }
-
-
+                     
         //draws the scale, returns the width
         public draw_scale(ctx, metrics, alphabet_ic) {
             "use strict";
@@ -341,31 +318,7 @@
             ctx.restore();//s2
             ctx.restore();//s1
         }
-
-        public create_canvas(c_width, c_height, c_id, c_title, c_display) {
-            "use strict";
-
-            var canvas = document.createElement("canvas");
-
-            //check for canvas support before attempting anything
-            if (!canvas.getContext) {
-                return null;
-            }
-            var ctx = canvas.getContext('2d');
-            //check for html5 text drawing support
-            if (!supports_text(ctx)) {
-                return null;
-            }
-
-            //size the canvas
-            canvas.width = c_width;
-            canvas.height = c_height;
-            canvas.id = c_id;
-            canvas.title = c_title;
-            canvas.style.display = c_display;
-            return canvas;
-        }
-
+               
         public logo_1(alphabet, fine_text, pspm) {
             "use strict";
 

@@ -1,12 +1,14 @@
 ﻿namespace GCModeller.Workbench {
 
+    /**
+     * Draw motif logo from this function
+    */
     export class LoadQueryTask {
 
         public target_id;
         public motifPWM;
         public scaleLogo;
 
-        /* Draw motif logo from this function */
         public constructor(target_id, pwm, scale) {
             this.target_id = target_id;
             this.motifPWM = pwm;

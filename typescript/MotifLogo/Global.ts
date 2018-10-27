@@ -1,15 +1,5 @@
 ﻿namespace GCModeller.Workbench {
 
-    export function supports_text(ctx): boolean {
-        if (!ctx.fillText) {
-            return false;
-        }
-        if (!ctx.measureText) {
-            return false;
-        }
-        return true;
-    }
-
     /*
  * Fast string trimming implementation found at
  * http://blog.stevenlevithan.com/archives/faster-trim-javascript
