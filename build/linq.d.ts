@@ -1,0 +1,110 @@
+declare namespace GCModeller.Workbench {
+    class Alphabet {
+        static readonly is_letter: RegExp;
+        static readonly is_prob: RegExp;
+        freqs: number[];
+        alphabet: string[];
+        private letter_count;
+        readonly ic: number;
+        readonly size: number;
+        readonly isNucleotide: boolean;
+        constructor(alphabet: string, bg: string);
+        private parseBackground;
+        toString(): string;
+        getLetter(index: number): string;
+        getBgfreq(index: number): number;
+        getColour(index: number): string;
+        isAmbig(index: number): boolean;
+        getIndex(letter: string): number;
+    }
+}
+declare namespace GCModeller.Workbench.AlphabetColors {
+    const red: string;
+    const blue: string;
+    const orange: string;
+    const green: string;
+    const yellow: string;
+    const purple: string;
+    const magenta: string;
+    const pink: string;
+    const turquoise: string;
+    function nucleotideColor(alphabet: string): string;
+    function proteinColor(alphabet: string): string;
+}
+declare namespace GCModeller.Workbench {
+    class Logo {
+        alphabet: any;
+        fine_text: any;
+        pspm_list: any;
+        pspm_column: any;
+        rows: number;
+        columns: number;
+        constructor(alphabet: any, fine_text: any);
+        addPspm(pspm: any, column: any): void;
+        getPspm(rowIndex: number): any;
+        getOffset(rowIndex: any): any;
+    }
+}
+declare namespace GCModeller.Workbench {
+    class LogoMetrics {
+        pad_top: number;
+        pad_left: number;
+        pad_right: number;
+        pad_bottom: number;
+        pad_middle: number;
+        name_height: number;
+        name_font: any;
+        name_spacer: number;
+        y_label: any;
+        y_label_height: number;
+        y_label_font: any;
+        y_label_spacer: number;
+        y_num_height: number;
+        y_num_width: number;
+        y_num_font: any;
+        y_tic_width: number;
+        stack_pad_left: number;
+        stack_font: string;
+        stack_height: number;
+        stack_width: number;
+        stacks_pad_right: number;
+        x_num_above: number;
+        x_num_height: number;
+        x_num_width: number;
+        x_num_font: any;
+        fine_txt_height: number;
+        fine_txt_above: number;
+        fine_txt_font: any;
+        letter_metrics: any[];
+        summed_width: number;
+        summed_height: number;
+        constructor(ctx: any, logo_columns: any, logo_rows: any, allow_space_for_names: any);
+    }
+}
+declare namespace GCModeller.Workbench {
+    class RasterizedAlphabet {
+        lookup: any;
+        rasters: any;
+        dimensions: any;
+        constructor(alphabet: any, font: any, target_width: any);
+        draw(ctx: any, letter: any, dx: any, dy: any, dWidth: any, dHeight: any): void;
+        static canvas_bounds(ctx: any, cwidth: any, cheight: any): {
+            bound_top: any;
+            bound_bottom: any;
+            bound_left: any;
+            bound_right: any;
+            width: any;
+            height: any;
+        };
+    }
+}
+declare namespace GCModeller.Workbench {
+    class Symbol {
+        symbol: any;
+        scale: any;
+        colour: any;
+        constructor(alph_index: any, scale: any, alphabet: any);
+        toString(): string;
+        static compareSymbol(sym1: Symbol, sym2: Symbol): number;
+    }
+}
