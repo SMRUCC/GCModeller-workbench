@@ -397,22 +397,8 @@
             this.   draw_logo_on_canvas(logo, canvas, null, scale);
             //replace the element with the canvas
             element.parentNode.replaceChild(canvas, element);
-        }
+        }          
 
-    /* Draw motif logo from this function */
-  public  LoadQueryTask(target_id, pwm, scale) {
-        this.target_id = target_id;
-        this.motifPWM = pwm;
-        this.run = LoadQueryTask_run;
-
-      this.scaleLogo = scale;
-    }
-
-    public  LoadQueryTask_run() {
-        var alpha = new Alphabet("ACGT");
-        var query_pspm = new Pspm(motifPWM, null);
-        this.replace_logo(logo_1(alpha, "MEME Suite", query_pspm), this.target_id, this.scaleLogo, "Preview Logo", "block");
-    }
 
   public  push_task(task) {
       this.task_queue.push(task);

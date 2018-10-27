@@ -30,7 +30,7 @@
             return false;
         }
 
-        public constructor(alphabet: string, bg: string) {
+        public constructor(alphabet: string, bg: string = null) {
             var letter: string;
 
             for (var pos: number = 0; pos < alphabet.length; pos++) {
