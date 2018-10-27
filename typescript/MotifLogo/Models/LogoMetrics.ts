@@ -35,7 +35,7 @@
         public summed_width = 0;
         public summed_height = 0;
 
-        public constructor(ctx, logo_columns, logo_rows, allow_space_for_names) {
+        public constructor(ctx, logo_columns, logo_rows, allow_space_for_names: boolean) {
             var i, row_height;
             if (typeof allow_space_for_names === "undefined") {
                 allow_space_for_names = false;

@@ -1,22 +1,19 @@
 ﻿namespace GCModeller.Workbench {
 
     export class MotifLogo {
+
         public show_opts_link;
-        public task_queue = new Array();
-        public task_delay = 100;
+        public task_queue: LoadQueryTask[] = [];
+        public task_delay: number = 100;
         public my_alphabet;
         public query_pspm;
 
-
-        public scaleLogo;
-        public motifPWM;
-
-        public drawLogo(div_id, pwm, scale) {
+        public drawLogo(div_id: string, pwm, scale: number) {
             this.push_task(new LoadQueryTask(div_id, pwm, scale));
         }
 
         //draws the scale, returns the width
-        public draw_scale(ctx, metrics, alphabet_ic) {
+        public draw_scale(ctx: CanvasRenderingContext2D, metrics, alphabet_ic) {
             "use strict";
 
             var tic_height, i;
@@ -66,7 +63,7 @@
             ctx.restore();
         }
 
-        public draw_stack_num(ctx, metrics, row_index) {
+        public draw_stack_num(ctx: CanvasRenderingContext2D, metrics, row_index) {
             "use strict";
 
             ctx.save();
@@ -81,7 +78,7 @@
             ctx.restore();
         }
 
-        public draw_stack(ctx, metrics, symbols, raster) {
+        public draw_stack(ctx: CanvasRenderingContext2D, metrics, symbols, raster) {
             "use strict";
 
             var preferred_pad, sym_min, i, sym, sym_height, pad;
@@ -112,7 +109,7 @@
             ctx.restore();//1
         }
 
-        public draw_dashed_line(ctx, pattern, start, x1, y1, x2, y2) {
+        public draw_dashed_line(ctx: CanvasRenderingContext2D, pattern, start, x1, y1, x2, y2) {
             "use strict";
 
             var x, y, len, i, dx, dy, tlen, theta, mulx, muly, lx, ly;
@@ -156,7 +153,7 @@
             ctx.stroke();
         }
 
-        public draw_trim_background(ctx, metrics, pspm, offset) {
+        public draw_trim_background(ctx: CanvasRenderingContext2D, metrics, pspm, offset) {
             "use strict";
             var lwidth, rwidth, mwidth, rstart;
             lwidth = metrics.stack_width * pspm.get_left_trim();
@@ -182,15 +179,18 @@
             ctx.restore();//s8
         }
 
-        public size_logo_on_canvas(logo, canvas, show_names, scale) {
+        public size_logo_on_canvas(logo, canvas: HTMLCanvasElement, show_names: boolean, scale: number) {
             "use strict";
-            var draw_name, metrics;
-            draw_name = (typeof show_names === "boolean" ? show_names : (logo.get_rows() > 1));
+
+            var metrics: LogoMetrics;
+            var draw_name = (typeof show_names === "boolean" ? show_names : (logo.get_rows() > 1));
+
             if (canvas.width !== 0 && canvas.height !== 0) {
                 return;
-            }
-            metrics = new LogoMetrics(canvas.getContext('2d'),
-                logo.get_columns(), logo.get_rows(), draw_name);
+            } else {
+                metrics = new LogoMetrics(canvas.getContext('2d'), logo.get_columns(), logo.get_rows(), draw_name);
+            }                      
+
             if (typeof scale == "number") {
                 //resize the canvas to fit the scaled logo
                 canvas.width = metrics.summed_width * scale;
@@ -354,15 +354,19 @@
         }
 
 
-        public push_task(task) {
+        public push_task(task: LoadQueryTask) {
             this.task_queue.push(task);
+
             if (this.task_queue.length == 1) {
                 window.setTimeout("process_tasks()", this.task_delay);
             }
         }
 
         public process_tasks() {
-            if (this.task_queue.length == 0) return; //no more tasks
+            if (this.task_queue.length == 0) {
+                // no more tasks
+                return;
+            }
 
             //get next task
             var task = this.task_queue.shift();
