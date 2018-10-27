@@ -1493,4 +1493,4 @@ var GCModeller;
         Workbench.Symbol = Symbol;
     })(Workbench = GCModeller.Workbench || (GCModeller.Workbench = {}));
 })(GCModeller || (GCModeller = {}));
-//# sourceMappingURL=linq.js.map
+//# sourceMappingURL=motifLogo.js.map
