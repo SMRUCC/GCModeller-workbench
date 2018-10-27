@@ -9,7 +9,7 @@
         public query_pspm;
 
         public drawLogo(div_id: string, pwm, scale: number) {
-            this.push_task(new LoadQueryTask(div_id, pwm, scale));
+            this.push_task(new LoadQueryTask(div_id, pwm, scale, this));
         }
 
         //draws the scale, returns the width
@@ -252,11 +252,11 @@
             ctx.save();//s7
             //create margin
             ctx.translate(metrics.pad_left, metrics.pad_top);
-            for (pspm_i = 0; pspm_i < logo.get_rows(); ++pspm_i) {
-                pspm = logo.get_pspm(pspm_i);
-                offset = logo.get_offset(pspm_i);
+            for (pspm_i = 0; pspm_i < logo.rows; ++pspm_i) {
+                pspm = logo.getPspm(pspm_i);
+                offset = logo.getOffset(pspm_i);
                 //optionally draw name if this isn't the last row or is the only row 
-                if (draw_name && (logo.get_rows() == 1 || pspm_i != (logo.get_rows() - 1))) {
+                if (draw_name && (logo.rows == 1 || pspm_i != (logo.rows - 1))) {
                     ctx.save();//s4
                     ctx.translate(metrics.summed_width / 2, metrics.name_height);
                     ctx.font = metrics.name_font;
@@ -267,7 +267,7 @@
                         Math.min(0, metrics.name_spacer - metrics.y_num_height / 2));
                 }
                 //draw scale
-                this.draw_scale(ctx, metrics, logo.alphabet.get_ic());
+                this.draw_scale(ctx, metrics, logo.alphabet.ic);
                 ctx.save();//s5
                 //translate across past the scale
                 ctx.translate(metrics.y_label_height + metrics.y_label_spacer +
