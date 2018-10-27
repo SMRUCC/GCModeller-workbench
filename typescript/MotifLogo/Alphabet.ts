@@ -7,7 +7,28 @@
 
         public freqs: number[] = [];
         public alphabet: string[] = [];
-        public letter_count: number = 0;
+
+        private letter_count: number = 0;
+
+        public get ic(): number {
+            if (this.isNucleotide) {
+                return 2;
+            } else {
+                return Math.log(20) / Math.LN2;
+            }
+        }
+
+        public get size(): number {
+            return this.letter_count;
+        }
+
+        public get isNucleotide(): boolean {
+            //TODO basic method, make better
+            if (this.letter_count < 20) {
+                return true;
+            }
+            return false;
+        }
 
         public constructor(alphabet: string, bg: string) {
             var letter: string;
@@ -60,6 +81,112 @@
                     this.freqs[pos] = parseFloat(freq);
                 }
             }
+        }
+
+        public toString(): string {
+            return (this.isNucleotide ? "Nucleotide" : "Protein") + " Alphabet " + (this.alphabet.join(""));
+        }
+
+        public getLetter(index: number): string {
+            if (index < 0 || index >= this.letter_count) {
+                throw new Error("BAD_ALPHABET_INDEX");
+            }
+            return this.alphabet[index];
+        }
+
+        public getBgfreq(index: number): number {
+            if (index < 0 || index >= this.letter_count) {
+                throw new Error("BAD_ALPHABET_INDEX");
+            }
+            if (this.freqs[index] == -1) {
+                throw new Error("BG_FREQ_NOT_SET");
+            }
+            return this.freqs[index];
+        }
+
+        public getColour(index: number): string {
+            var red, blue, orange, green, yellow, purple, magenta, pink, turquoise;
+            red = "rgb(204,0,0)";
+            blue = "rgb(0,0,204)";
+            orange = "rgb(255,179,0)";
+            green = "rgb(0,128,0)";
+            yellow = "rgb(255,255,0)";
+            purple = "rgb(204,0,204)";
+            magenta = "rgb(255,0,255)";
+            pink = "rgb(255,204,204)";
+            turquoise = "rgb(51,230,204)";
+            if (index < 0 || index >= this.letter_count) {
+                throw new Error("BAD_ALPHABET_INDEX");
+            }
+            if (this.isNucleotide) {
+                switch (this.alphabet[index]) {
+                    case "A":
+                        return red;
+                    case "C":
+                        return blue;
+                    case "G":
+                        return orange;
+                    case "T":
+                        return green;
+                    default:
+                        throw new Error("Invalid nucleotide letter");
+                }
+            } else {
+                switch (this.alphabet[index]) {
+                    case "A":
+                    case "C":
+                    case "F":
+                    case "I":
+                    case "L":
+                    case "V":
+                    case "W":
+                    case "M":
+                        return blue;
+                    case "N":
+                    case "Q":
+                    case "S":
+                    case "T":
+                        return green;
+                    case "D":
+                    case "E":
+                        return magenta;
+                    case "K":
+                    case "R":
+                        return red;
+                    case "H":
+                        return pink;
+                    case "G":
+                        return orange;
+                    case "P":
+                        return yellow;
+                    case "Y":
+                        return turquoise;
+                    default:
+                        throw new Error("Invalid protein letter");
+                }
+            }
+
+            return "black";
+        }
+
+        public isAmbig(index: number): boolean {
+            if (index < 0 || index >= this.letter_count) {
+                throw new Error("BAD_ALPHABET_INDEX");
+            }
+            if (this.isNucleotide) {
+                return ("ACGT".indexOf(this.alphabet[index]) == -1);
+            } else {
+                return ("ACDEFGHIKLMNPQRSTVWY".indexOf(this.alphabet[index]) == -1);
+            }
+        }
+
+        public getIndex(letter: string): number {
+            for (var i: number = 0; i < this.letter_count; i++) {
+                if (this.alphabet[i] == letter.toUpperCase()) {
+                    return i;
+                }
+            }
+            throw new Error("UNKNOWN_LETTER");
         }
     }
 }
