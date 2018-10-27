@@ -18,30 +18,28 @@ declare namespace GCModeller.Workbench {
         target_id: any;
         motifPWM: any;
         scaleLogo: any;
-        constructor(target_id: any, pwm: any, scale: any);
+        constructor(target_id: string, pwm: any, scale: number);
         run(): void;
     }
 }
 declare namespace GCModeller.Workbench {
     class MotifLogo {
         show_opts_link: any;
-        task_queue: any[];
+        task_queue: LoadQueryTask[];
         task_delay: number;
         my_alphabet: any;
         query_pspm: any;
-        scaleLogo: any;
-        motifPWM: any;
-        drawLogo(div_id: any, pwm: any, scale: any): void;
-        draw_scale(ctx: any, metrics: any, alphabet_ic: any): void;
-        draw_stack_num(ctx: any, metrics: any, row_index: any): void;
-        draw_stack(ctx: any, metrics: any, symbols: any, raster: any): void;
-        draw_dashed_line(ctx: any, pattern: any, start: any, x1: any, y1: any, x2: any, y2: any): void;
-        draw_trim_background(ctx: any, metrics: any, pspm: any, offset: any): void;
-        size_logo_on_canvas(logo: any, canvas: any, show_names: any, scale: any): void;
+        drawLogo(div_id: string, pwm: any, scale: number): void;
+        draw_scale(ctx: CanvasRenderingContext2D, metrics: any, alphabet_ic: any): void;
+        draw_stack_num(ctx: CanvasRenderingContext2D, metrics: any, row_index: any): void;
+        draw_stack(ctx: CanvasRenderingContext2D, metrics: any, symbols: any, raster: any): void;
+        draw_dashed_line(ctx: CanvasRenderingContext2D, pattern: any, start: any, x1: any, y1: any, x2: any, y2: any): void;
+        draw_trim_background(ctx: CanvasRenderingContext2D, metrics: any, pspm: any, offset: any): void;
+        size_logo_on_canvas(logo: any, canvas: HTMLCanvasElement, show_names: boolean, scale: number): void;
         draw_logo_on_canvas(logo: any, canvas: any, show_names: any, scale: any): void;
         logo_1(alphabet: any, fine_text: any, pspm: any): Logo;
         replace_logo(logo: any, replace_id: any, scale: any, title_txt: any, display_style: any): void;
-        push_task(task: any): void;
+        push_task(task: LoadQueryTask): void;
         process_tasks(): void;
     }
 }
@@ -125,7 +123,7 @@ declare namespace GCModeller.Workbench {
         letter_metrics: any[];
         summed_width: number;
         summed_height: number;
-        constructor(ctx: any, logo_columns: any, logo_rows: any, allow_space_for_names: any);
+        constructor(ctx: any, logo_columns: any, logo_rows: any, allow_space_for_names: boolean);
     }
 }
 declare namespace GCModeller.Workbench {
@@ -156,7 +154,7 @@ declare namespace GCModeller.Workbench {
     }
 }
 declare namespace GCModeller.Workbench {
-    function static(): any;
+    function parse_pspm_properties(str: string): any;
     function parse_pspm_string(pspm_string: string): {
         "pspm": any;
         "motif_length": any;

@@ -53,7 +53,7 @@ var GCModeller;
     (function (Workbench) {
         var MotifLogo = /** @class */ (function () {
             function MotifLogo() {
-                this.task_queue = new Array();
+                this.task_queue = [];
                 this.task_delay = 100;
             }
             MotifLogo.prototype.drawLogo = function (div_id, pwm, scale) {
@@ -207,12 +207,14 @@ var GCModeller;
             };
             MotifLogo.prototype.size_logo_on_canvas = function (logo, canvas, show_names, scale) {
                 "use strict";
-                var draw_name, metrics;
-                draw_name = (typeof show_names === "boolean" ? show_names : (logo.get_rows() > 1));
+                var metrics;
+                var draw_name = (typeof show_names === "boolean" ? show_names : (logo.get_rows() > 1));
                 if (canvas.width !== 0 && canvas.height !== 0) {
                     return;
                 }
-                metrics = new Workbench.LogoMetrics(canvas.getContext('2d'), logo.get_columns(), logo.get_rows(), draw_name);
+                else {
+                    metrics = new Workbench.LogoMetrics(canvas.getContext('2d'), logo.get_columns(), logo.get_rows(), draw_name);
+                }
                 if (typeof scale == "number") {
                     //resize the canvas to fit the scaled logo
                     canvas.width = metrics.summed_width * scale;
@@ -380,8 +382,10 @@ var GCModeller;
                 }
             };
             MotifLogo.prototype.process_tasks = function () {
-                if (this.task_queue.length == 0)
-                    return; //no more tasks
+                if (this.task_queue.length == 0) {
+                    // no more tasks
+                    return;
+                }
                 //get next task
                 var task = this.task_queue.shift();
                 task.run();
@@ -1078,8 +1082,7 @@ var GCModeller;
 (function (GCModeller) {
     var Workbench;
     (function (Workbench) {
-        parse_pspm_properties(str, string);
-        {
+        function parse_pspm_properties(str) {
             "use strict";
             var parts, i, eqpos, before, after, properties, prop, num, num_re;
             num_re = /^((?:[+]?[0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)|inf)$/;
@@ -1131,6 +1134,7 @@ var GCModeller;
             }
             return properties;
         }
+        Workbench.parse_pspm_properties = parse_pspm_properties;
         function parse_pspm_string(pspm_string) {
             "use strict";
             var header_re, lines, first_line, line_num, col_num, alph_length, motif_length, nsites, evalue, pspm, i, line, match, props, parts, j, prob;
