@@ -1,12 +1,17 @@
-const { renderAppMenu } = require("./menu");
+const { template } = require("./menu");
 
 const { app, BrowserWindow } = require('electron');
 
-console.log(renderAppMenu);
+console.log(template);
 
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
 let win
+
+function renderAppMenu() {
+    const menu = Menu.buildFromTemplate(template)
+    Menu.setApplicationMenu(menu)
+}
 
 function createWindow() {
     // 创建浏览器窗口。
