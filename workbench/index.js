@@ -1,14 +1,22 @@
-const  template  = require("./menu");
+var  template  = require("./menu");
 
 const { app, BrowserWindow,Menu } = require('electron');
 
-console.log(template);
+
 
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
 let win
 
 function renderAppMenu() {
+
+     template.filter(m => m.role == "help").forEach(m => m.submenu.filter(sm => "click" in sm).forEach(sm => {
+        var url = sm.click + "";
+        sm.click =function(){ require('electron').shell.openExternal(url);};
+    }));
+
+    console.log(template);
+
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
 }
