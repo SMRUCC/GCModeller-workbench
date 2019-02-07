@@ -1,5 +1,5 @@
 // load framework
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, Notification } = require('electron');
 
 // load internal app components
 var template = require("./menu");
@@ -41,6 +41,9 @@ function createWindow() {
     });
 
     renderAppMenu();
+
+    var msg = new Notification({title:"Task Finish", body:"test task finished!"});
+    msg.show();
 }
 
 // Electron 会在初始化后并准备
