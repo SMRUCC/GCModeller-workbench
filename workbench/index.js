@@ -1,6 +1,6 @@
-const { template } = require("./menu");
+const  template  = require("./menu");
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow,Menu } = require('electron');
 
 console.log(template);
 
