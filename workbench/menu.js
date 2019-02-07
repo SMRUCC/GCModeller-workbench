@@ -40,8 +40,8 @@ const template = [
         role: 'help',
         submenu: [
             {
-                label: 'Learn More',
-                click() { require('electron').shell.openExternal('https://electronjs.org') }
+                label: 'GCModeller',
+                click() { require('electron').shell.openExternal('https://gcmodeller.org') }
             }
         ]
     }
@@ -52,3 +52,4 @@ var renderAppMenu = function() {
     Menu.setApplicationMenu(menu)
 }
 
+exports.renderAppMenu = renderAppMenu;
