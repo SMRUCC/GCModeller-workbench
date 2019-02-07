@@ -1,8 +1,8 @@
-var  template  = require("./menu");
+// load framework
+const { app, BrowserWindow, Menu } = require('electron');
 
-const { app, BrowserWindow,Menu } = require('electron');
-
-
+// load internal app components
+var template = require("./menu");
 
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
@@ -10,9 +10,10 @@ let win
 
 function renderAppMenu() {
 
-     template.filter(m => m.role == "help").forEach(m => m.submenu.filter(sm => "click" in sm).forEach(sm => {
+    // replace all url as menu click
+    template.forEach(m => m.submenu.filter(sm => "click" in sm).forEach(sm => {
         var url = sm.click + "";
-        sm.click =function(){ require('electron').shell.openExternal(url);};
+        sm.click = function () { require('electron').shell.openExternal(url); };
     }));
 
     console.log(template);
@@ -26,7 +27,7 @@ function createWindow() {
     win = new BrowserWindow({ width: 800, height: 600 })
 
     // 然后加载应用的 index.html。
-    win.loadFile('index.html')
+    win.loadFile('./views/index.html')
 
     // 打开开发者工具
     win.webContents.openDevTools()
