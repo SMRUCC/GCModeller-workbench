@@ -165,7 +165,7 @@ declare namespace GCModeller.Workbench {
         private copyInternal;
         copy(): Pspm;
         reverse_complement(alphabet: Alphabet): Pspm;
-        get_stack(position: any, alphabet: any): any;
+        get_stack(position: number, alphabet: Alphabet): Symbol[];
         get_stack_ic(position: number, alphabet: Alphabet): number;
         getError(alphabet: Alphabet): number;
         readonly leftTrim: number;

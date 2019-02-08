@@ -441,7 +441,7 @@ var GCModeller;
                         this.letter_count++;
                     }
                 }
-                if (typeof bg !== "undefined") {
+                if ((typeof bg !== "undefined") && !Strings.Empty(bg, true)) {
                     this.parseBackground(bg.split(/\s+/));
                 }
                 else {
@@ -787,10 +787,10 @@ var GCModeller;
         var Pspm = /** @class */ (function () {
             function Pspm(matrix, name, ltrim, rtrim, nsites, evalue) {
                 if (name === void 0) { name = null; }
-                if (ltrim === void 0) { ltrim = null; }
-                if (rtrim === void 0) { rtrim = null; }
-                if (nsites === void 0) { nsites = null; }
-                if (evalue === void 0) { evalue = null; }
+                if (ltrim === void 0) { ltrim = 0; }
+                if (rtrim === void 0) { rtrim = 0; }
+                if (nsites === void 0) { nsites = 20; }
+                if (evalue === void 0) { evalue = 0; }
                 this.pspm = [];
                 if (matrix instanceof Pspm) {
                     this.copyInternal(matrix);
@@ -974,17 +974,18 @@ var GCModeller;
             };
             Pspm.prototype.get_stack = function (position, alphabet) {
                 "use strict";
-                var row, stack_ic, alphabet_ic, stack, i;
+                var row;
+                var stack_ic, alphabet_ic, stack;
                 var sym;
-                if (this.alph_length != alphabet.get_size()) {
+                if (this.alph_length != alphabet.size) {
                     throw new Error("ALPHABET_MISMATCH");
                 }
                 row = this.pspm[position];
                 stack_ic = this.get_stack_ic(position, alphabet);
-                alphabet_ic = alphabet.get_ic();
+                alphabet_ic = alphabet.ic;
                 stack = [];
-                for (i = 0; i < this.alph_length; i++) {
-                    if (alphabet.is_ambig(i)) {
+                for (var i = 0; i < this.alph_length; i++) {
+                    if (alphabet.isAmbig(i)) {
                         continue;
                     }
                     sym = new Workbench.Symbol(i, row[i] * stack_ic / alphabet_ic, alphabet);
