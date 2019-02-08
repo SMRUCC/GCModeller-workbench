@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "target": "es6",
+    "lib": [ "dom", "es6", "dom.iterable", "scripthost" ],
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./",
+    "outFile": "index.js",
+    "declaration": true
+  },
+  "exclude": [
+    "node_modules",
+    "index.d.ts"
+  ]
+}
