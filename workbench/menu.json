@@ -1,5 +1,19 @@
 [
     {
+        "label": "File",
+        "submenu": [
+            {
+                "label": "Open"
+            },
+            {
+                "type": "separator"
+            },
+            {
+                "label": "Quit"
+            }
+        ]
+    },
+    {
         "label": "Edit",
         "submenu": [
             {

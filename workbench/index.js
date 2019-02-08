@@ -12,6 +12,13 @@ var helpers;
                         require('electron').shell.openExternal(url);
                     };
                 });
+                m.submenu
+                    .filter(sm => sm.label == "Quit")
+                    .forEach(sm => {
+                    sm.click = function () {
+                        app.quit();
+                    };
+                });
             }
         });
         console.log(template);

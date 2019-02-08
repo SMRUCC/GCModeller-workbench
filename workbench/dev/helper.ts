@@ -13,6 +13,13 @@ module helpers {
                         sm.click = function () {
                             require('electron').shell.openExternal(url);
                         };
+                    });
+                m.submenu
+                    .filter(sm => sm.label == "Quit")
+                    .forEach(sm => {
+                        sm.click = function () {
+                            app.quit();
+                        }
                     })
             }
         });
