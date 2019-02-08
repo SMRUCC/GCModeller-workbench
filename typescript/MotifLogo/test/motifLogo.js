@@ -214,10 +214,14 @@ var GCModeller;
                 this.task_delay = 100;
                 this.draw_logo_on_canvas = new Workbench.CanvasRender(this);
             }
+            /**
+             * @param div_id 需要进行显示的div的id编号字符串，不带``#``符号前缀
+             * @param pwm Motif数据文本
+             * @param scale 缩放倍数
+            */
             MotifLogo.prototype.drawLogo = function (div_id, pwm, scale) {
-                var vm = this;
-                var task = new Workbench.LoadQueryTask(div_id, pwm, scale, vm);
-                vm.push_task(task);
+                if (scale === void 0) { scale = 2; }
+                new Workbench.LoadQueryTask(div_id, pwm, scale, this).run();
             };
             /**
              * draws the scale, returns the width
@@ -395,27 +399,6 @@ var GCModeller;
                         canvas.height = metrics.summed_height * (canvas.width / metrics.summed_width);
                     }
                 }
-            };
-            MotifLogo.prototype.push_task = function (task) {
-                var vm = this;
-                vm.task_queue.push(task);
-                vm.process_tasks();
-                //  if (vm.task_queue.length == 1) {
-                //  window.setTimeout(vm.process_tasks, vm.task_delay);
-                // }
-            };
-            MotifLogo.prototype.process_tasks = function () {
-                if (IsNullOrEmpty(this.task_queue)) {
-                    // no more tasks
-                    return;
-                }
-                //get next task
-                var task = this.task_queue.shift();
-                var vm = this;
-                task.run();
-                //allow UI updates between tasks
-                //window.setTimeout(vm.process_tasks, vm.task_delay);
-                vm.process_tasks();
             };
             return MotifLogo;
         }());
