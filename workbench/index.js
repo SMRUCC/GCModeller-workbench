@@ -1,4 +1,28 @@
+var helpers;
+(function (helpers) {
+    function renderAppMenu(template) {
+        // replace all url as menu click
+        template.forEach(function (m) {
+            if (!(m.submenu instanceof Electron.Menu)) {
+                m.submenu
+                    .filter(sm => "click" in sm)
+                    .forEach(sm => {
+                    var url = sm.click + "";
+                    sm.click = function () {
+                        require('electron').shell.openExternal(url);
+                    };
+                });
+            }
+        });
+        console.log(template);
+        const menu = Menu.buildFromTemplate(template);
+        Menu.setApplicationMenu(menu);
+        return menu;
+    }
+    helpers.renderAppMenu = renderAppMenu;
+})(helpers || (helpers = {}));
 /// <reference path="node_modules/electron/electron.d.ts" />
+/// <reference path="dev/helper.ts" />
 // load framework
 const { app, BrowserWindow, Menu, Notification } = require('electron');
 // load internal app components
@@ -6,16 +30,7 @@ var template = require("./menu.json");
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
 let win = null;
-function renderAppMenu() {
-    // replace all url as menu click
-    template.forEach(m => m.submenu.filter(sm => "click" in sm).forEach(sm => {
-        var url = sm.click + "";
-        sm.click = function () { require('electron').shell.openExternal(url); };
-    }));
-    console.log(template);
-    const menu = Menu.buildFromTemplate(template);
-    Menu.setApplicationMenu(menu);
-}
+let menu = null;
 function createWindow() {
     // 创建浏览器窗口。
     win = new BrowserWindow({ width: 800, height: 600 });
@@ -30,8 +45,8 @@ function createWindow() {
         // 与此同时，你应该删除相应的元素。
         win = null;
     });
-    renderAppMenu();
-    var msg = new Electron.Notification({ title: "Task Finish", body: "test task finished!" });
+    menu = helpers.renderAppMenu(template);
+    var msg = new Notification({ title: "Task Finish", body: "test task finished!" });
     msg.show();
 }
 // Electron 会在初始化后并准备

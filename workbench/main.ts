@@ -1,28 +1,17 @@
 /// <reference path="node_modules/electron/electron.d.ts" />
+/// <reference path="dev/helper.ts" />
 
 // load framework
 const { app, BrowserWindow, Menu, Notification } = require('electron');
 
 // load internal app components
-var template = require("./menu.json");
+var template: Electron.MenuItemConstructorOptions[] = require("./menu.json");
 
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
 let win: Electron.BrowserWindow = null;
+let menu: Electron.Menu = null;
 
-function renderAppMenu() {
-
-    // replace all url as menu click
-    template.forEach(m => m.submenu.filter(sm => "click" in sm).forEach(sm => {
-        var url = sm.click + "";
-        sm.click = function () { require('electron').shell.openExternal(url); };
-    }));
-
-    console.log(template);
-
-    const menu = Menu.buildFromTemplate(template)
-    Menu.setApplicationMenu(menu)
-}
 
 function createWindow() {
     // 创建浏览器窗口。
@@ -42,9 +31,9 @@ function createWindow() {
         win = null
     });
 
-    renderAppMenu();
+    menu = helpers.renderAppMenu(template);
 
-    var msg = new Electron.Notification({ title: "Task Finish", body: "test task finished!" });
+    var msg: Electron.Notification = <any>new Notification(<any>{ title: "Task Finish", body: "test task finished!" });
     msg.show();
 }
 
