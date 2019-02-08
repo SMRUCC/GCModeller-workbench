@@ -4,7 +4,7 @@ module helpers {
 
         // replace all url as menu click
         template.forEach(function (m) {
-            if (!(m.submenu instanceof Electron.Menu)) {
+            if (!(m.submenu instanceof Menu)) {
                 m.submenu
                     .filter(sm => "click" in sm)
                     .forEach(sm => {
