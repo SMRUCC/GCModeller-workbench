@@ -397,7 +397,7 @@ var GCModeller;
             MotifLogo.prototype.push_task = function (task) {
                 this.task_queue.push(task);
                 if (this.task_queue.length == 1) {
-                    window.setTimeout("process_tasks()", this.task_delay);
+                    window.setTimeout(this.process_tasks, this.task_delay);
                 }
             };
             MotifLogo.prototype.process_tasks = function () {
@@ -409,7 +409,7 @@ var GCModeller;
                 var task = this.task_queue.shift();
                 task.run();
                 //allow UI updates between tasks
-                window.setTimeout("process_tasks()", this.task_delay);
+                window.setTimeout(this.process_tasks, this.task_delay);
             };
             return MotifLogo;
         }());

@@ -229,7 +229,7 @@
             this.task_queue.push(task);
 
             if (this.task_queue.length == 1) {
-                window.setTimeout("process_tasks()", this.task_delay);
+                window.setTimeout(this.process_tasks, this.task_delay);
             }
         }
 
@@ -243,7 +243,7 @@
             var task = this.task_queue.shift();
             task.run();
             //allow UI updates between tasks
-            window.setTimeout("process_tasks()", this.task_delay);
+            window.setTimeout(this.process_tasks, this.task_delay);
         }
 
     }
