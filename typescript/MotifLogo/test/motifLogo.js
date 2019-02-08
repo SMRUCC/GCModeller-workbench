@@ -215,7 +215,9 @@ var GCModeller;
                 this.draw_logo_on_canvas = new Workbench.CanvasRender(this);
             }
             MotifLogo.prototype.drawLogo = function (div_id, pwm, scale) {
-                this.push_task(new Workbench.LoadQueryTask(div_id, pwm, scale, this));
+                var vm = this;
+                var task = new Workbench.LoadQueryTask(div_id, pwm, scale, vm);
+                vm.push_task(task);
             };
             /**
              * draws the scale, returns the width
@@ -395,21 +397,25 @@ var GCModeller;
                 }
             };
             MotifLogo.prototype.push_task = function (task) {
-                this.task_queue.push(task);
-                if (this.task_queue.length == 1) {
-                    window.setTimeout(this.process_tasks, this.task_delay);
-                }
+                var vm = this;
+                vm.task_queue.push(task);
+                vm.process_tasks();
+                //  if (vm.task_queue.length == 1) {
+                //  window.setTimeout(vm.process_tasks, vm.task_delay);
+                // }
             };
             MotifLogo.prototype.process_tasks = function () {
-                if (this.task_queue.length == 0) {
+                if (IsNullOrEmpty(this.task_queue)) {
                     // no more tasks
                     return;
                 }
                 //get next task
                 var task = this.task_queue.shift();
+                var vm = this;
                 task.run();
                 //allow UI updates between tasks
-                window.setTimeout(this.process_tasks, this.task_delay);
+                //window.setTimeout(vm.process_tasks, vm.task_delay);
+                vm.process_tasks();
             };
             return MotifLogo;
         }());

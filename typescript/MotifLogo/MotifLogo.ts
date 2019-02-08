@@ -11,7 +11,10 @@
         }
 
         public drawLogo(div_id: string, pwm: Pspm, scale: number) {
-            this.push_task(new LoadQueryTask(div_id, pwm, scale, this));
+            var vm = this;
+            var task = new LoadQueryTask(div_id, pwm, scale, vm); 
+
+            vm.push_task(task);
         }
 
         /**
@@ -226,24 +229,29 @@
         }
 
         public push_task(task: LoadQueryTask) {
-            this.task_queue.push(task);
+            var vm = this;
 
-            if (this.task_queue.length == 1) {
-                window.setTimeout(this.process_tasks, this.task_delay);
-            }
+            vm.task_queue.push(task);
+            vm.process_tasks();
+          //  if (vm.task_queue.length == 1) {
+              //  window.setTimeout(vm.process_tasks, vm.task_delay);
+           // }
         }
 
         public process_tasks() {
-            if (this.task_queue.length == 0) {
+            if (IsNullOrEmpty(this.task_queue)) {
                 // no more tasks
                 return;
             }
 
             //get next task
             var task = this.task_queue.shift();
+            var vm = this;
+
             task.run();
             //allow UI updates between tasks
-            window.setTimeout(this.process_tasks, this.task_delay);
+            //window.setTimeout(vm.process_tasks, vm.task_delay);
+            vm.process_tasks();
         }
 
     }
