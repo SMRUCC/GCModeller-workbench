@@ -2,7 +2,9 @@
   "compilerOptions": {
     "module": "amd",
     "target": "es6",
-    "lib": [ "dom", "es6", "dom.iterable", "scripthost" ],
+    "lib": [
+      "es6"
+    ],
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "./",

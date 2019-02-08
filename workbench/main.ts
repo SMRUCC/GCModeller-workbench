@@ -33,7 +33,7 @@ function createWindow() {
 
     menu = helpers.renderAppMenu(template);
 
-    var msg: Electron.Notification = <any>new Notification(<any>{ title: "Task Finish", body: "test task finished!" });
+    var msg: Electron.Notification = new Notification({ title: "Task Finish", body: "test task finished!" });
     msg.show();
 }
 
