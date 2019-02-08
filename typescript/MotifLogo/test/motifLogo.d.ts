@@ -1,4 +1,4 @@
-/// <reference path="linq.d.ts" />
+/// <reference path="../../build/linq.d.ts" />
 declare namespace GCModeller.Workbench {
     class CanvasRender {
         raster_scale: number;
