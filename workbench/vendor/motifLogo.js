@@ -214,8 +214,14 @@ var GCModeller;
                 this.task_delay = 100;
                 this.draw_logo_on_canvas = new Workbench.CanvasRender(this);
             }
+            /**
+             * @param div_id 需要进行显示的div的id编号字符串，不带``#``符号前缀
+             * @param pwm Motif数据文本
+             * @param scale 缩放倍数
+            */
             MotifLogo.prototype.drawLogo = function (div_id, pwm, scale) {
-                this.push_task(new Workbench.LoadQueryTask(div_id, pwm, scale, this));
+                if (scale === void 0) { scale = 2; }
+                new Workbench.LoadQueryTask(div_id, pwm, scale, this).run();
             };
             /**
              * draws the scale, returns the width
@@ -394,23 +400,6 @@ var GCModeller;
                     }
                 }
             };
-            MotifLogo.prototype.push_task = function (task) {
-                this.task_queue.push(task);
-                if (this.task_queue.length == 1) {
-                    window.setTimeout("process_tasks()", this.task_delay);
-                }
-            };
-            MotifLogo.prototype.process_tasks = function () {
-                if (this.task_queue.length == 0) {
-                    // no more tasks
-                    return;
-                }
-                //get next task
-                var task = this.task_queue.shift();
-                task.run();
-                //allow UI updates between tasks
-                window.setTimeout("process_tasks()", this.task_delay);
-            };
             return MotifLogo;
         }());
         Workbench.MotifLogo = MotifLogo;
@@ -435,7 +424,7 @@ var GCModeller;
                         this.letter_count++;
                     }
                 }
-                if (typeof bg !== "undefined") {
+                if ((typeof bg !== "undefined") && !Strings.Empty(bg, true)) {
                     this.parseBackground(bg.split(/\s+/));
                 }
                 else {
@@ -781,10 +770,10 @@ var GCModeller;
         var Pspm = /** @class */ (function () {
             function Pspm(matrix, name, ltrim, rtrim, nsites, evalue) {
                 if (name === void 0) { name = null; }
-                if (ltrim === void 0) { ltrim = null; }
-                if (rtrim === void 0) { rtrim = null; }
-                if (nsites === void 0) { nsites = null; }
-                if (evalue === void 0) { evalue = null; }
+                if (ltrim === void 0) { ltrim = 0; }
+                if (rtrim === void 0) { rtrim = 0; }
+                if (nsites === void 0) { nsites = 20; }
+                if (evalue === void 0) { evalue = 0; }
                 this.pspm = [];
                 if (matrix instanceof Pspm) {
                     this.copyInternal(matrix);
@@ -968,17 +957,18 @@ var GCModeller;
             };
             Pspm.prototype.get_stack = function (position, alphabet) {
                 "use strict";
-                var row, stack_ic, alphabet_ic, stack, i;
+                var row;
+                var stack_ic, alphabet_ic, stack;
                 var sym;
-                if (this.alph_length != alphabet.get_size()) {
+                if (this.alph_length != alphabet.size) {
                     throw new Error("ALPHABET_MISMATCH");
                 }
                 row = this.pspm[position];
                 stack_ic = this.get_stack_ic(position, alphabet);
-                alphabet_ic = alphabet.get_ic();
+                alphabet_ic = alphabet.ic;
                 stack = [];
-                for (i = 0; i < this.alph_length; i++) {
-                    if (alphabet.is_ambig(i)) {
+                for (var i = 0; i < this.alph_length; i++) {
+                    if (alphabet.isAmbig(i)) {
                         continue;
                     }
                     sym = new Workbench.Symbol(i, row[i] * stack_ic / alphabet_ic, alphabet);

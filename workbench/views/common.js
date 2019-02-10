@@ -4,4 +4,5 @@ function openView(view) {
 
     var win = new BrowserWindow({ width: 800, height: 600 });
     win.loadFile(view);
+    win.webContents.openDevTools();
 }
