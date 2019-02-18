@@ -1,4 +1,4 @@
-/// <reference path="linq.d.ts" />
+/// <reference path="../../build/linq.d.ts" />
 declare namespace GCModeller.Workbench {
     class CanvasRender {
         raster_scale: number;
@@ -44,7 +44,12 @@ declare namespace GCModeller.Workbench {
         task_delay: number;
         draw_logo_on_canvas: CanvasRender;
         constructor();
-        drawLogo(div_id: string, pwm: Pspm, scale: number): void;
+        /**
+         * @param div_id 需要进行显示的div的id编号字符串，不带``#``符号前缀
+         * @param pwm Motif数据文本
+         * @param scale 缩放倍数
+        */
+        drawLogo(div_id: string, pwm: Pspm, scale?: number): void;
         /**
          * draws the scale, returns the width
         */
@@ -54,8 +59,6 @@ declare namespace GCModeller.Workbench {
         draw_dashed_line(ctx: CanvasRenderingContext2D, pattern: number[], start: number, x1: number, y1: number, x2: number, y2: number): void;
         draw_trim_background(ctx: CanvasRenderingContext2D, metrics: LogoMetrics, pspm: Pspm, offset: number): void;
         size_logo_on_canvas(logo: Logo, canvas: HTMLCanvasElement, show_names: boolean, scale: number): void;
-        push_task(task: LoadQueryTask): void;
-        process_tasks(): void;
     }
 }
 declare namespace GCModeller.Workbench {
@@ -165,7 +168,7 @@ declare namespace GCModeller.Workbench {
         private copyInternal;
         copy(): Pspm;
         reverse_complement(alphabet: Alphabet): Pspm;
-        get_stack(position: any, alphabet: any): any;
+        get_stack(position: number, alphabet: Alphabet): Symbol[];
         get_stack_ic(position: number, alphabet: Alphabet): number;
         getError(alphabet: Alphabet): number;
         readonly leftTrim: number;
