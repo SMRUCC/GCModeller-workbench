@@ -6,7 +6,7 @@ imports "bioseq.fasta" from "seqtoolkit.dll";
 
 # script cli usage
 #
-# R# sequenceLogo.R --seq input.fasta --save output.png 
+# R# sequenceLogo.R --seq input.fasta [--save output.png] 
 #
 
 let seq.fasta as string = ?"--seq";
@@ -20,4 +20,4 @@ seq.fasta
   :> read.fasta
   :> MSA.of
   :> plot.seqLogo
-  :> save.image( logo.png );
+  :> save.graphics( file = logo.png );
