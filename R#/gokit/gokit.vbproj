@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9FD46785-0AD8-427D-919A-5A308A1566E3}</ProjectGuid>
+    <ProjectGuid>{523F8DB6-64F3-4626-89ED-1AA85A0C0FC3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>gseakit</RootNamespace>
-    <AssemblyName>gseakit</AssemblyName>
+    <RootNamespace>gokit</RootNamespace>
+    <AssemblyName>gokit</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
@@ -19,7 +19,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>gseakit.xml</DocumentationFile>
+    <DocumentationFile>gokit.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -28,7 +28,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>gseakit.xml</DocumentationFile>
+    <DocumentationFile>gokit.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -48,7 +48,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <DocumentationFile>gseakit.xml</DocumentationFile>
+    <DocumentationFile>gokit.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -57,7 +57,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x64\Release\</OutputPath>
-    <DocumentationFile>gseakit.xml</DocumentationFile>
+    <DocumentationFile>gokit.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>pdbonly</DebugType>
@@ -67,7 +67,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GCModeller%28Release_X64%29|AnyCPU'">
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\GCModeller%28Release_X64%29\</OutputPath>
-    <DocumentationFile>gseakit.xml</DocumentationFile>
+    <DocumentationFile>gokit.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>pdbonly</DebugType>
@@ -77,7 +77,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GCModeller%28Release_X64%29|x64'">
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\..\..\..\GCModeller\bin\Library\</OutputPath>
-    <DocumentationFile>gseakit.xml</DocumentationFile>
+    <DocumentationFile>gokit.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>pdbonly</DebugType>
@@ -105,9 +105,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GSEABackground.vb" />
-    <Compile Include="DEGSample.vb" />
-    <Compile Include="GSEA.vb" />
+    <Compile Include="file.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -144,61 +142,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\GCModeller\analysis\Microarray\Microarray.vbproj">
-      <Project>{64384E97-D1C6-410C-BFF7-43392D994050}</Project>
-      <Name>Microarray</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\GCModeller\annotations\GSEA\GSEA.KnowledgeBase.Extensions\GSEA.KnowledgeBase.Extensions.vbproj">
-      <Project>{77da02ce-97fc-44e2-9df7-a36cf3f1e741}</Project>
-      <Name>GSEA.KnowledgeBase.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\GCModeller\annotations\GSEA\GSEA\GSEA.vbproj">
-      <Project>{db374d72-08f4-4b27-8168-b90785f71bdc}</Project>
-      <Name>GSEA</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\GCModeller\core\Bio.Assembly\Bio.Assembly.vbproj">
-      <Project>{c699d311-9923-4c19-bf70-5048d0e2cf5d}</Project>
-      <Name>Bio.Assembly</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\GCModeller\data\GO_gene-ontology\GeneOntology\GO_OWL.vbproj">
       <Project>{755078C9-F421-4ED0-A64B-161A69E86BCB}</Project>
       <Name>GO_OWL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\GCModeller\data\GO_gene-ontology\obographs\obographs\obographs.vbproj">
-      <Project>{109ad379-4dc2-4931-9440-b35c62ae1343}</Project>
-      <Name>obographs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\R-sharp\R#\R.vbproj">
-      <Project>{0C2EB77C-39F2-460D-A3F8-CE905F867637}</Project>
-      <Name>R</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\runtime\sciBASIC#\Data\DataFrame\47_dotnet_ms-vb_data.framework.vbproj">
-      <Project>{7283c179-f852-4ead-8d8f-b82ef2cbd7db}</Project>
-      <Name>47_dotnet_ms-vb_data.framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\runtime\sciBASIC#\Data_science\Graph\GraphTheory.vbproj">
-      <Project>{203BC68F-A0CD-443A-AB62-4AF4110F752F}</Project>
-      <Name>GraphTheory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\runtime\sciBASIC#\gr\Microsoft.VisualBasic.Imaging\Microsoft.VisualBasic.Imaging.vbproj">
-      <Project>{85E71B4B-9276-4EC8-AADC-C849205F1EA8}</Project>
-      <Name>Microsoft.VisualBasic.Imaging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\runtime\sciBASIC#\gr\network-visualization\Datavisualization.Network\Network.GraphTheory.vbproj">
-      <Project>{076315EE-B598-40DC-9280-C71CDF9B6A48}</Project>
-      <Name>Network.GraphTheory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\runtime\sciBASIC#\gr\network-visualization\Network.IO.Extensions\Network.IO.Extensions.vbproj">
-      <Project>{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}</Project>
-      <Name>Network.IO.Extensions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\runtime\sciBASIC#\Microsoft.VisualBasic.Core\47-dotnet_Microsoft.VisualBasic.vbproj">
-      <Project>{fecce1fd-e1d4-49e3-a668-60bb5e7aed99}</Project>
+      <Project>{FECCE1FD-E1D4-49E3-A668-60BB5E7AED99}</Project>
       <Name>47-dotnet_Microsoft.VisualBasic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\modules\ExperimentDesigner\ExperimentDesigner.vbproj">
-      <Project>{fce39d85-b8c5-490c-b330-79ff3a5bfa27}</Project>
-      <Name>ExperimentDesigner</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
