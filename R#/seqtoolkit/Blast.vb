@@ -1,9 +1,12 @@
 ﻿
+Imports System.IO
 Imports Microsoft.VisualBasic.CommandLine.Reflection
 Imports Microsoft.VisualBasic.ComponentModel.TagData
 Imports Microsoft.VisualBasic.DataMining.DynamicProgramming.NeedlemanWunsch
+Imports Microsoft.VisualBasic.Linq
 Imports Microsoft.VisualBasic.Scripting.MetaData
 Imports SMRUCC.genomics.Analysis.SequenceTools
+Imports SMRUCC.genomics.Analysis.SequenceTools.DNA_Comparative
 Imports SMRUCC.genomics.SequenceModel.FASTA
 
 <Package("bioseq.blast")>
@@ -23,8 +26,12 @@ Module Blast
     End Function
 
     <ExportAPI("align.gwANI")>
-    Public Function gwANI(multipleSeq As FastaFile)
-
-    End Function
+    Public Sub gwANIMultipleAlignment(multipleSeq As FastaFile, Optional output As TextWriter = Nothing)
+        Call gwANI _
+            .calculate_and_output_gwani(multipleSeq) _
+            .DoCall(Sub(data)
+                        Call gwANI.print(data, output)
+                    End Sub)
+    End Sub
 End Module
 
