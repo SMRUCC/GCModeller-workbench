@@ -31,26 +31,21 @@ let seed as function(w) {
 		detail <- detail << v;
 	}
 	
-	if (score > min.score) {
+	if (score >= min.score) {
 		detail <- paste(detail, "+");
 		a[[neighbor]] <- list(
 			neighbor = neighbor,
 			score = score,
 			detail = detail
 		);
-	}
-	
+	}	
    }
-   
-   let neighbors <- sapply(a, x -> x$neighbor);
-   let scores <- sapply(a, x -> x$score);
-   let details <- sapply(a, x -> x$detail);
    
    data.frame(
     word = w,
-	neighbor = neighbors, 
-	score = scores, 
-	detail = details
+	neighbor = sapply(a, x -> x$neighbor), 
+	score = sapply(a, x -> x$score), 
+	detail = sapply(a, x -> x$detail)
    );
 }
 
@@ -63,17 +58,20 @@ let word as string = [];
 let neighbor as string = [];
 let score as string = [];
 let detail as string = [];
+let max_score as string = [];
 
 for(w in res) {
 	word <- word << w[, "word"];
 	neighbor <- neighbor << w[, "neighbor"];
 	score <- score << w[, "score"];
 	detail <- detail << w[, "detail"];
+	max_score <- max_score << rep( max(w[, "score"]) , nrow(w) );
 }
 
 write.csv( data.frame(
    word = word, 
    neighbor = neighbor, 
+   max_score = max_score,
    score = score, 
    detail = detail
 ), file = "./blast-seeds.csv");
