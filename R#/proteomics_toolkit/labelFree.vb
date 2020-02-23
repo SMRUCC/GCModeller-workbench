@@ -27,13 +27,22 @@ Module labelFree
                               Dim md As Double() = rownames.Select(Function(id) medianNor(id)(name)).ToArray
                               Dim pvalue1 As Double = 0
                               Dim pvalue2 As Double = 0
-                              Dim corVal = Correlations.GetPearson(ts, md, pvalue1, pvalue2)
+                              Dim corVal As Double
+
+                              Try
+                                  corVal = Correlations.GetPearson(ts, md, pvalue1, pvalue2)
+                              Catch ex As Exception
+                                  corVal = 0
+                                  pvalue1 = 1
+                                  pvalue2 = 1
+                              End Try
 
                               Return (corVal, pvalue1, pvalue2)
                           End Function)
         Dim output As New List(Of DataSet)
         Dim aggregate As New DataSet With {.ID = "*Aggregate"}
         Dim vector As Double()
+        Dim rawMatrix = data.ToDictionary(Function(r) r.ID)
 
         For Each sample As String In sampleNames
             vector = data.Vector(sample)
