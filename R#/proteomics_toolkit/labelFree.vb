@@ -20,13 +20,16 @@ Module labelFree
         Dim medianNor = data.TotalSumNormalize(byMedianQuantile:=True, samples:=samples).ToDictionary(Function(r) r.ID)
         Dim rownames As String() = totalSum.Keys.ToArray
         Dim sampleNames As String() = totalSum.PropertyNames
-        Dim cor As Dictionary(Of String, Double) = sampleNames _
+        Dim cor As Dictionary(Of String, (pcc#, pvalue1#, pvalue2#)) = sampleNames _
             .ToDictionary(Function(name) name,
                           Function(name)
                               Dim ts As Double() = rownames.Select(Function(id) totalSum(id)(name)).ToArray
                               Dim md As Double() = rownames.Select(Function(id) medianNor(id)(name)).ToArray
+                              Dim pvalue1 As Double = 0
+                              Dim pvalue2 As Double = 0
+                              Dim corVal = Correlations.GetPearson(ts, md, pvalue1, pvalue2)
 
-                              Return Correlations.GetPearson(ts, md)
+                              Return (corVal, pvalue1, pvalue2)
                           End Function)
         Dim output As New List(Of DataSet)
         Dim aggregate As New DataSet With {.ID = "*Aggregate"}
@@ -42,8 +45,26 @@ Module labelFree
         aggregate = New DataSet With {.ID = "*Correlation"}
 
         For Each sample As String In sampleNames
-            aggregate.Add($"{sample}.sum", cor(sample))
-            aggregate.Add($"{sample}.median", cor(sample))
+            aggregate.Add($"{sample}.sum", cor(sample).pcc)
+            aggregate.Add($"{sample}.median", 0.0)
+        Next
+
+        output.Add(aggregate)
+
+        aggregate = New DataSet With {.ID = "*p-value1"}
+
+        For Each sample As String In sampleNames
+            aggregate.Add($"{sample}.sum", cor(sample).pvalue1)
+            aggregate.Add($"{sample}.median", 0.0)
+        Next
+
+        output.Add(aggregate)
+
+        aggregate = New DataSet With {.ID = "*p-value2"}
+
+        For Each sample As String In sampleNames
+            aggregate.Add($"{sample}.sum", cor(sample).pvalue2)
+            aggregate.Add($"{sample}.median", 0.0)
         Next
 
         output.Add(aggregate)
