@@ -14,8 +14,8 @@ let menu: Electron.Menu = null;
 // Electron 会在初始化后并准备
 // 创建浏览器窗口时，调用这个函数。
 // 部分 API 在 ready 事件触发后才能使用。
-app.on('ready', helpers.createWindow(mainView, [800, 600], function () {
-    menu = helpers.renderAppMenu(template);
+app.on('ready', workbench.helpers.createWindow(mainView, [800, 600], function () {
+    menu = workbench.helpers.renderAppMenu(template);
 
     var msg: Electron.Notification = new Notification({ title: "Task Finish", body: "test task finished!" });
     msg.show();
@@ -33,8 +33,8 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
     // 在macOS上，当单击dock图标并且没有其他窗口打开时，
     // 通常在应用程序中重新创建一个窗口。
-    if (helpers.getMainWindow() === null) {
-        helpers.createWindow(mainView);
+    if (workbench.helpers.getMainWindow() === null) {
+        workbench.helpers.createWindow(mainView);
     }
 })
 

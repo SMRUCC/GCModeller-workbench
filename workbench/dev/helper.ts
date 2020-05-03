@@ -1,30 +1,12 @@
-module helpers {
+module workbench.helpers {
+
+    // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
+    // 垃圾回收的时候，window对象将会自动的关闭
+    var windows: Electron.BrowserWindow[] = <any>{};
 
     export function renderAppMenu(template: Electron.MenuItemConstructorOptions[]): Electron.Menu {
-
         // replace all url as menu click
-        template.forEach(function (m) {
-            if (!(m.submenu instanceof Menu)) {
-                m.submenu
-                    .filter(sm => "click" in sm)
-                    .forEach(sm => {
-                        var url: string = sm.click + "";
-
-                        sm.click = function () {
-                            require('electron').shell.openExternal(url);
-                        };
-                    });
-                m.submenu
-                    .filter(sm => sm.label == "Quit")
-                    .forEach(sm => {
-                        sm.click = function () {
-                            app.quit();
-                        }
-                    })
-            }
-        });
-
-        console.log(template);
+        template.forEach(renderMenuTemplate);
 
         const menu = Menu.buildFromTemplate(template);
         Menu.setApplicationMenu(menu);
@@ -32,9 +14,26 @@ module helpers {
         return menu;
     }
 
-    // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
-    // 垃圾回收的时候，window对象将会自动的关闭
-    var windows: Electron.BrowserWindow[] = <any>{};
+    function renderMenuTemplate(templ: Electron.MenuItemConstructorOptions) {
+        if (!(templ.submenu instanceof Menu)) {
+            templ.submenu
+                .filter(sm => "click" in sm)
+                .forEach(sm => {
+                    var url: string = sm.click + "";
+
+                    sm.click = function () {
+                        require('electron').shell.openExternal(url);
+                    };
+                });
+            templ.submenu
+                .filter(sm => sm.label == "Quit")
+                .forEach(sm => {
+                    sm.click = function () {
+                        app.quit();
+                    }
+                })
+        }
+    }
 
     export interface Sub {
         (): void;
