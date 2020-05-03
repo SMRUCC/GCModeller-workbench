@@ -60,10 +60,10 @@ module workbench.helpers {
             // 然后加载应用的 index.html。
             win.loadFile(view);
 
-            //if (debug) {
+            if (debug) {
                 // 打开开发者工具
                 win.webContents.openDevTools();
-            //}
+            }
 
             // 当 window 被关闭，这个事件会被触发。
             win.on('closed', () => {

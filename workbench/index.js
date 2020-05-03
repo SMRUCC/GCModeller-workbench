@@ -53,10 +53,10 @@ var workbench;
                 let win = new BrowserWindow({ width: size[0], height: size[1] });
                 // 然后加载应用的 index.html。
                 win.loadFile(view);
-                //if (debug) {
-                // 打开开发者工具
-                win.webContents.openDevTools();
-                //}
+                if (debug) {
+                    // 打开开发者工具
+                    win.webContents.openDevTools();
+                }
                 // 当 window 被关闭，这个事件会被触发。
                 win.on('closed', () => {
                     // 取消引用 window 对象，如果你的应用支持多窗口的话，
