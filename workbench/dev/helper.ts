@@ -35,10 +35,6 @@ module workbench.helpers {
         return templ;
     }
 
-    export interface Sub {
-        (): void;
-    }
-
     export function getMainWindow() {
         if (mainView in windows) {
             return windows[mainView];
@@ -47,8 +43,8 @@ module workbench.helpers {
         }
     }
 
-    export function createWindow(view: string, size: number[] = [800, 600], callback: Sub = null, lambda: boolean = false, debug = false): Sub {
-        let invoke: Sub = function (): Sub {
+    export function createWindow(view: string, size: number[] = [800, 600], callback: Delegate.Action = null, lambda: boolean = false, debug = false): Delegate.Action {
+        let invoke: Delegate.Action = function (): Delegate.Action {
             // 创建浏览器窗口。
             let win = new BrowserWindow({ width: size[0], height: size[1] })
 
@@ -72,7 +68,7 @@ module workbench.helpers {
                 callback();
             }
 
-            return <Sub>function () {
+            return <Delegate.Action>function () {
 
             }
         }
