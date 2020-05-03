@@ -1,6 +1,6 @@
-var shell;
-(function (shell) {
-    function handle_command(command) {
+namespace shell {
+
+    export function handle_command(command: string) {
         // Conversational trivialities
         var log_emoticon = function (face, rotate_direction) {
             // top notch emotional mirroring (*basically* artificial general intelligence :P)
@@ -14,49 +14,29 @@ var shell;
         };
         if (command.match(/^((Well|So|Um|Uh),? )?(Hi|Hello|Hey|Greetings|Hola)/i)) {
             con.log((command.match(/^[A-Z]/) ? "Hello" : "hello") + (command.match(/\.|!/) ? "." : ""));
-        }
-        else if (command.match(/^((Well|So|Um|Uh),? )?(What'?s up|Sup)/i)) {
+        } else if (command.match(/^((Well|So|Um|Uh),? )?(What'?s up|Sup)/i)) {
             con.log((command.match(/^[A-Z]/) ? "Not much" : "not much") + (command.match(/\?|!/) ? "." : ""));
-        }
-        else if (command.match(/^(>?[:;8X][-o ]?[O03PCDS\\/|()[\]{}])$/i)) {
+        } else if (command.match(/^(>?[:;8X][-o ]?[O03PCDS\\/|()[\]{}])$/i)) {
             log_emoticon(command, +1);
-        }
-        else if (command.match(/^([O03PCDS\\/|()[\]{}][-o ]?[:;8X]<?)$/i)) {
+        } else if (command.match(/^([O03PCDS\\/|()[\]{}][-o ]?[:;8X]<?)$/i)) {
             log_emoticon(command, -1);
-        }
-        else if (command.match(/^<3$/i)) {
+        } else if (command.match(/^<3$/i)) {
             con.log("?");
             // Unhelp
-        }
-        else if (command.match(/^(!*\?+!*|(please |plz )?(((I )?(want|need)[sz]?|display|show( me)?|view) )?(the |some )?help|^(gimme|give me|lend me) ((the |some )?)help| a hand( here)?)/i)) { // overly comprehensive, much?
+        } else if (command.match(/^(!*\?+!*|(please |plz )?(((I )?(want|need)[sz]?|display|show( me)?|view) )?(the |some )?help|^(gimme|give me|lend me) ((the |some )?)help| a hand( here)?)/i)) { // overly comprehensive, much?
             con.log("I could definitely help you if I wanted to.");
-        }
-        else {
+        } else {
             var err;
             try {
                 var result = eval(command);
-            }
-            catch (error) {
+            } catch (error) {
                 err = error;
             }
             if (err) {
                 con.error(err);
-            }
-            else {
+            } else {
                 con.log(result).classList.add("result");
             }
         }
-    }
-    shell.handle_command = handle_command;
-    ;
-})(shell || (shell = {}));
-/// <reference path="shell.ts" />
-var con = new SimpleConsole({
-    handleCommand: shell.handle_command,
-    placeholder: "Enter JavaScript, or ASCII emoticons :)",
-    storageID: "simple-console demo"
-});
-document.getElementById("Rconsole").append(con.element);
-con.logHTML("<h1>Welcome to <a href='https://github.com/SMRUCC/GCModeller-workbench'>R# Workbench!</a></h1>" +
-    "<p>Try entering <code>5 + 5</code> below. Or some faces (ASCII emoticons like <code>:-P</code>).</p>");
-//# sourceMappingURL=Rconsole.js.map
+    };
+}
