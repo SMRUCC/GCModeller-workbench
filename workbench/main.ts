@@ -7,8 +7,7 @@ const { app, BrowserWindow, Menu, Notification } = require('electron');
 const mainView: string = "./views/index.html";
 
 // load internal app components
-var template: Electron.MenuItemConstructorOptions[] = require("./menu.json");
-
+let template: Electron.MenuItemConstructorOptions[] = require("./menu.json");
 let menu: Electron.Menu = null;
 
 // Electron 会在初始化后并准备
@@ -22,15 +21,15 @@ app.on('ready', workbench.helpers.createWindow(mainView, [800, 600], function ()
 }, true));
 
 // 当全部窗口关闭时退出。
-app.on('window-all-closed', () => {
+app.on('window-all-closed', function() {
     // 在 macOS 上，除非用户用 Cmd + Q 确定地退出，
     // 否则绝大部分应用及其菜单栏会保持激活。
     if (process.platform !== 'darwin') {
         app.quit()
     }
-})
+});
 
-app.on('activate', () => {
+app.on('activate', function () {
     // 在macOS上，当单击dock图标并且没有其他窗口打开时，
     // 通常在应用程序中重新创建一个窗口。
     if (workbench.helpers.getMainWindow() === null) {
