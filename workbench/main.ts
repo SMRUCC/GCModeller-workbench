@@ -1,11 +1,13 @@
 /// <reference path="node_modules/electron/electron.d.ts" />
 /// <reference path="dev/helper.ts" />
+/// <reference path="dev/shell.ts" />
 //// <reference path="vendor/linq.d.ts" />
 
 // load framework
 const { app, BrowserWindow, Menu, Notification } = require('electron');
 
 const mainView: string = "./views/index.html";
+const backend = workbench.Shell.Rweb();
 
 // load internal app components
 let template: Electron.MenuItemConstructorOptions[] = require("./menu.json");

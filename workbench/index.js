@@ -75,12 +75,41 @@ var workbench;
         helpers.createWindow = createWindow;
     })(helpers = workbench.helpers || (workbench.helpers = {}));
 })(workbench || (workbench = {}));
+var workbench;
+(function (workbench) {
+    var Shell;
+    (function (Shell) {
+        function Rweb() {
+            let spawn = require("child_process").spawn;
+            let bat = spawn("Rweb.exe", [
+                "--start",
+                "--port", "7452",
+                "--Rweb", "./Rweb",
+                "--show_error",
+                "--n_threads", "2"
+            ]);
+            bat.stdout.on("data", (data) => {
+                // Handle data...
+            });
+            bat.stderr.on("data", (err) => {
+                // Handle error...
+            });
+            bat.on("exit", (code) => {
+                // Handle exit
+            });
+            return bat;
+        }
+        Shell.Rweb = Rweb;
+    })(Shell = workbench.Shell || (workbench.Shell = {}));
+})(workbench || (workbench = {}));
 /// <reference path="node_modules/electron/electron.d.ts" />
 /// <reference path="dev/helper.ts" />
+/// <reference path="dev/shell.ts" />
 //// <reference path="vendor/linq.d.ts" />
 // load framework
 const { app, BrowserWindow, Menu, Notification } = require('electron');
 const mainView = "./views/index.html";
+const backend = workbench.Shell.Rweb();
 // load internal app components
 let template = require("./menu.json");
 let menu = null;

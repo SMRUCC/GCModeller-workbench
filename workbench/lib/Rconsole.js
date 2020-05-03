@@ -51,6 +51,7 @@ var shell;
     ;
 })(shell || (shell = {}));
 /// <reference path="shell.ts" />
+/// <reference path="../build/linq.d.ts" />
 var con = new SimpleConsole({
     handleCommand: shell.handle_command,
     placeholder: "Enter JavaScript, or ASCII emoticons :)",
