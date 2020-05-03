@@ -1,23 +1,22 @@
 var workbench;
 (function (workbench) {
-    var helpers;
-    (function (helpers) {
-        // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
-        // 垃圾回收的时候，window对象将会自动的关闭
-        let windows = {};
+    var view;
+    (function (view) {
         function renderAppMenu(template) {
-            // replace all url as menu click
             const menu = Menu.buildFromTemplate(runRender(template));
             Menu.setApplicationMenu(menu);
             return menu;
         }
-        helpers.renderAppMenu = renderAppMenu;
+        view.renderAppMenu = renderAppMenu;
         function runRender(template) {
             for (let item of template) {
                 renderMenuTemplate(item);
             }
             return template;
         }
+        /**
+         * replace all url as menu click
+        */
         function renderMenuTemplate(templ) {
             if (!(templ.submenu instanceof Menu)) {
                 templ.submenu
@@ -38,6 +37,15 @@ var workbench;
             }
             return templ;
         }
+    })(view = workbench.view || (workbench.view = {}));
+})(workbench || (workbench = {}));
+var workbench;
+(function (workbench) {
+    var view;
+    (function (view_1) {
+        // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
+        // 垃圾回收的时候，window对象将会自动的关闭
+        let windows = {};
         function getMainWindow() {
             if (mainView in windows) {
                 return windows[mainView];
@@ -46,7 +54,7 @@ var workbench;
                 return null;
             }
         }
-        helpers.getMainWindow = getMainWindow;
+        view_1.getMainWindow = getMainWindow;
         function createWindow(view, size = [800, 600], callback = null, lambda = false, debug = false) {
             let invoke = function () {
                 // 创建浏览器窗口。
@@ -72,8 +80,8 @@ var workbench;
             };
             return lambda ? invoke : invoke();
         }
-        helpers.createWindow = createWindow;
-    })(helpers = workbench.helpers || (workbench.helpers = {}));
+        view_1.createWindow = createWindow;
+    })(view = workbench.view || (workbench.view = {}));
 })(workbench || (workbench = {}));
 var workbench;
 (function (workbench) {
@@ -102,24 +110,37 @@ var workbench;
         Shell.Rweb = Rweb;
     })(Shell = workbench.Shell || (workbench.Shell = {}));
 })(workbench || (workbench = {}));
+var workbench;
+(function (workbench) {
+    function osd() {
+        let msg = new Notification({
+            title: "Task Finish",
+            body: "test task finished!"
+        });
+        msg.show();
+        return msg;
+    }
+    workbench.osd = osd;
+})(workbench || (workbench = {}));
 /// <reference path="node_modules/electron/electron.d.ts" />
-/// <reference path="dev/helper.ts" />
+/// <reference path="dev/renderMenu.ts" />
+/// <reference path="dev/view.ts" />
 /// <reference path="dev/shell.ts" />
+/// <reference path="dev/osd.ts" />
 //// <reference path="vendor/linq.d.ts" />
 // load framework
 const { app, BrowserWindow, Menu, Notification } = require('electron');
 const mainView = "./views/index.html";
 const backend = workbench.Shell.Rweb();
+const defaultViewSize = [1440, 900];
 // load internal app components
 let template = require("./menu.json");
 let menu = null;
 // Electron 会在初始化后并准备
 // 创建浏览器窗口时，调用这个函数。
 // 部分 API 在 ready 事件触发后才能使用。
-app.on('ready', workbench.helpers.createWindow(mainView, [800, 600], function () {
-    menu = workbench.helpers.renderAppMenu(template);
-    var msg = new Notification({ title: "Task Finish", body: "test task finished!" });
-    msg.show();
+app.on('ready', workbench.view.createWindow(mainView, defaultViewSize, function () {
+    menu = workbench.view.renderAppMenu(template);
 }, true));
 // 当全部窗口关闭时退出。
 app.on('window-all-closed', function () {
@@ -132,8 +153,8 @@ app.on('window-all-closed', function () {
 app.on('activate', function () {
     // 在macOS上，当单击dock图标并且没有其他窗口打开时，
     // 通常在应用程序中重新创建一个窗口。
-    if (workbench.helpers.getMainWindow() === null) {
-        workbench.helpers.createWindow(mainView, [1024, 768], null, false, true);
+    if (workbench.view.getMainWindow() === null) {
+        workbench.view.createWindow(mainView, defaultViewSize);
     }
 });
 // 在这个文件中，你可以续写应用剩下主进程代码。
