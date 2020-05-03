@@ -1,48 +1,8 @@
-module workbench.helpers {
+module workbench.view {
 
     // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
     // 垃圾回收的时候，window对象将会自动的关闭
     let windows: Electron.BrowserWindow[] = <any>{};
-
-    export function renderAppMenu(template: Electron.MenuItemConstructorOptions[]): Electron.Menu {
-        // replace all url as menu click
-        const menu = Menu.buildFromTemplate(runRender(template));
-
-        Menu.setApplicationMenu(menu);
-
-        return menu;
-    }
-
-    function runRender(template: Electron.MenuItemConstructorOptions[]): Electron.MenuItemConstructorOptions[] {
-        for (let item of template) {
-            renderMenuTemplate(item);
-        }
-
-        return template;
-    }
-
-    function renderMenuTemplate(templ: Electron.MenuItemConstructorOptions): Electron.MenuItemConstructorOptions {
-        if (!(templ.submenu instanceof Menu)) {
-            templ.submenu
-                .filter(sm => "click" in sm)
-                .forEach(sm => {
-                    var url: string = sm.click + "";
-
-                    sm.click = function () {
-                        require('electron').shell.openExternal(url);
-                    };
-                });
-            templ.submenu
-                .filter(sm => sm.label == "Quit")
-                .forEach(sm => {
-                    sm.click = function () {
-                        app.quit();
-                    }
-                })
-        }
-
-        return templ;
-    }
 
     export function getMainWindow() {
         if (mainView in windows) {
