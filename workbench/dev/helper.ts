@@ -2,19 +2,17 @@ module workbench.helpers {
 
     // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
     // 垃圾回收的时候，window对象将会自动的关闭
-    var windows: Electron.BrowserWindow[] = <any>{};
+    let windows: Electron.BrowserWindow[] = <any>{};
 
     export function renderAppMenu(template: Electron.MenuItemConstructorOptions[]): Electron.Menu {
         // replace all url as menu click
-        template.forEach(renderMenuTemplate);
-
-        const menu = Menu.buildFromTemplate(template);
+        const menu = Menu.buildFromTemplate($from(template).Select(renderMenuTemplate).ToArray(false));
         Menu.setApplicationMenu(menu);
 
         return menu;
     }
 
-    function renderMenuTemplate(templ: Electron.MenuItemConstructorOptions) {
+    function renderMenuTemplate(templ: Electron.MenuItemConstructorOptions): Electron.MenuItemConstructorOptions {
         if (!(templ.submenu instanceof Menu)) {
             templ.submenu
                 .filter(sm => "click" in sm)
@@ -33,6 +31,8 @@ module workbench.helpers {
                     }
                 })
         }
+
+        return templ;
     }
 
     export interface Sub {
@@ -48,7 +48,7 @@ module workbench.helpers {
     }
 
     export function createWindow(view: string, size: number[] = [800, 600], callback: Sub = null, lambda: boolean = false, debug = false): Sub {
-        var invoke: Sub = function (): Sub {
+        let invoke: Sub = function (): Sub {
             // 创建浏览器窗口。
             let win = new BrowserWindow({ width: size[0], height: size[1] })
 
