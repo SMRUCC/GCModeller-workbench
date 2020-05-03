@@ -5,14 +5,19 @@ var workbench;
         // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
         // 垃圾回收的时候，window对象将会自动的关闭
         let windows = {};
-        const { global } = require("./vendor/linq.js");
         function renderAppMenu(template) {
             // replace all url as menu click
-            const menu = Menu.buildFromTemplate(global.$from(template).Select(renderMenuTemplate).ToArray(false));
+            const menu = Menu.buildFromTemplate(runRender(template));
             Menu.setApplicationMenu(menu);
             return menu;
         }
         helpers.renderAppMenu = renderAppMenu;
+        function runRender(template) {
+            for (let item of template) {
+                renderMenuTemplate(item);
+            }
+            return template;
+        }
         function renderMenuTemplate(templ) {
             if (!(templ.submenu instanceof Menu)) {
                 templ.submenu
