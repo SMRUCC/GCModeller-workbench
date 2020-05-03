@@ -53,10 +53,10 @@ var workbench;
                 let win = new BrowserWindow({ width: size[0], height: size[1] });
                 // 然后加载应用的 index.html。
                 win.loadFile(view);
-                if (debug) {
-                    // 打开开发者工具
-                    win.webContents.openDevTools();
-                }
+                //if (debug) {
+                // 打开开发者工具
+                win.webContents.openDevTools();
+                //}
                 // 当 window 被关闭，这个事件会被触发。
                 win.on('closed', () => {
                     // 取消引用 window 对象，如果你的应用支持多窗口的话，
@@ -104,7 +104,7 @@ app.on('activate', function () {
     // 在macOS上，当单击dock图标并且没有其他窗口打开时，
     // 通常在应用程序中重新创建一个窗口。
     if (workbench.helpers.getMainWindow() === null) {
-        workbench.helpers.createWindow(mainView);
+        workbench.helpers.createWindow(mainView, [1024, 768], null, false, true);
     }
 });
 // 在这个文件中，你可以续写应用剩下主进程代码。
