@@ -71,9 +71,10 @@ var workbench;
 })(workbench || (workbench = {}));
 /// <reference path="node_modules/electron/electron.d.ts" />
 /// <reference path="dev/helper.ts" />
-/// <reference path="vendor/linq.d.ts" />
+//// <reference path="vendor/linq.d.ts" />
 // load framework
 const { app, BrowserWindow, Menu, Notification } = require('electron');
+const { $from } = require("./vendor/linq.js");
 const mainView = "./views/index.html";
 // load internal app components
 let template = require("./menu.json");
