@@ -4,7 +4,6 @@
 
 // load framework
 const { app, BrowserWindow, Menu, Notification } = require('electron');
-const { $from } = require("./vendor/linq.js");
 
 const mainView: string = "./views/index.html";
 

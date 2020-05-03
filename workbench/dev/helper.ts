@@ -4,9 +4,11 @@ module workbench.helpers {
     // 垃圾回收的时候，window对象将会自动的关闭
     let windows: Electron.BrowserWindow[] = <any>{};
 
+    const { global } = require("./vendor/linq.js");
+
     export function renderAppMenu(template: Electron.MenuItemConstructorOptions[]): Electron.Menu {
         // replace all url as menu click
-        const menu = Menu.buildFromTemplate($from(template).Select(renderMenuTemplate).ToArray(false));
+        const menu = Menu.buildFromTemplate(global.$from(template).Select(renderMenuTemplate).ToArray(false));
         Menu.setApplicationMenu(menu);
 
         return menu;

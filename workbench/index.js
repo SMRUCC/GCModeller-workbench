@@ -5,9 +5,10 @@ var workbench;
         // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
         // 垃圾回收的时候，window对象将会自动的关闭
         let windows = {};
+        const { global } = require("./vendor/linq.js");
         function renderAppMenu(template) {
             // replace all url as menu click
-            const menu = Menu.buildFromTemplate($from(template).Select(renderMenuTemplate).ToArray(false));
+            const menu = Menu.buildFromTemplate(global.$from(template).Select(renderMenuTemplate).ToArray(false));
             Menu.setApplicationMenu(menu);
             return menu;
         }
@@ -74,7 +75,6 @@ var workbench;
 //// <reference path="vendor/linq.d.ts" />
 // load framework
 const { app, BrowserWindow, Menu, Notification } = require('electron');
-const { $from } = require("./vendor/linq.js");
 const mainView = "./views/index.html";
 // load internal app components
 let template = require("./menu.json");

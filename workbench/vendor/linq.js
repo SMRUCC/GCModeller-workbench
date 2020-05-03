@@ -4665,6 +4665,20 @@ var $link = function (query, args) {
 var $iframe = function (query, args) {
     return Internal.typeGenericElement(query, args);
 };
+var RequireGlobal;
+(function (RequireGlobal) {
+    /**
+     * Linq???????????
+     *
+     * ``$ts``????????????????????????????
+     *
+     * @param source ?????????????
+    */
+    function $from(source) {
+        return new IEnumerator(source);
+    }
+    RequireGlobal.$from = $from;
+})(RequireGlobal || (RequireGlobal = {}));
 /// <reference path="./Collections/Map.ts" />
 var TypeExtensions;
 (function (TypeExtensions) {
@@ -7503,7 +7517,7 @@ var Router;
     /**
      * meta标签中的app值
     */
-    Router.appName = DOM.InputValueGetter.metaValue("app");
+    Router.appName = typeof document == "undefined" ? null : DOM.InputValueGetter.metaValue("app");
     function isCaseSensitive() {
         return caseSensitive;
     }
@@ -7953,7 +7967,7 @@ var TypeScript;
         */
         garbageCollect.handler = getHandler();
         function getHandler() {
-            if (typeof window.require === "function") {
+            if (typeof window != "undefined" && typeof window.require === "function") {
                 var require_1 = window.require;
                 try {
                     require_1("v8").setFlagsFromString('--expose_gc');
@@ -7997,7 +8011,7 @@ var TypeScript;
             //        return ProfilerAgent.collectGarbage;
             //    }
             //}
-            if (typeof window.global !== 'undefined') {
+            if (typeof window !== 'undefined' && typeof window.global !== 'undefined') {
                 var global_2 = window.global;
                 if (global_2.gc) {
                     return global_2.gc;
@@ -8068,7 +8082,7 @@ var Internal;
                 caseInSensitive: false,
                 nativeModel: true,
                 defaultValue: "",
-                context: window
+                context: typeof window == "undefined" ? null : window
             };
         };
         //#endregion
