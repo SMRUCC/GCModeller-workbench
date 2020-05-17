@@ -17,6 +17,11 @@ Imports IContext = SMRUCC.genomics.ContextModel.Context
 Module context
 
     Sub New()
+        Call Main()
+    End Sub
+
+    <RInitialize>
+    Private Sub Main()
         Call generic.add("summary", GetType(IContext), AddressOf contextSummary)
 
         Call printer.AttachConsoleFormatter(Of NucleotideLocation)(Function(o) o.ToString)
