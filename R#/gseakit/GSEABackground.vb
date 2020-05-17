@@ -47,15 +47,15 @@ Imports Microsoft.VisualBasic.ComponentModel.DataSourceModel
 Imports Microsoft.VisualBasic.Data.csv.IO
 Imports Microsoft.VisualBasic.Linq
 Imports Microsoft.VisualBasic.Scripting.MetaData
+Imports Microsoft.VisualBasic.Text.Xml.Models
 Imports SMRUCC.genomics.Analysis.HTS.GSEA
 Imports SMRUCC.genomics.Assembly.KEGG.WebServices
 Imports SMRUCC.Rsharp.Runtime
 Imports SMRUCC.Rsharp.Runtime.Internal.Object
 Imports SMRUCC.Rsharp.Runtime.Interop
+Imports GSEATools = SMRUCC.genomics.Analysis.HTS.GSEA
 Imports Rdataframe = SMRUCC.Rsharp.Runtime.Internal.Object.dataframe
 Imports REnv = SMRUCC.Rsharp.Runtime.Internal.ConsolePrinter
-Imports GSEATools = SMRUCC.genomics.Analysis.HTS.GSEA
-Imports Microsoft.VisualBasic.Text.Xml.Models
 
 <Package("gseakit.background", Category:=APICategories.ResearchTools)>
 Public Module GSEABackground
@@ -191,7 +191,9 @@ Public Module GSEABackground
         End If
 
         Dim model As Background = GSEATools.CreateBackground(
-            db:=mapping,
+            db:=mapping _
+                .Where(Function(gene) Not gene.Value.StringEmpty) _
+                .ToArray,
             createGene:=Function(gene, terms)
                             Return New BackgroundGene With {
                                 .accessionID = gene.Name,
