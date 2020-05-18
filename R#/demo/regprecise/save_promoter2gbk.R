@@ -64,10 +64,12 @@ for(a in genes) {
 	} else {
 		promoter = regions[[id]];
 	
-		if (is.null(promoter) || (as.object(promoter)$numOfPromoters == 0)) {
+		if (is.null(promoter)) {
 			next;
 		} else {
-			writeData(location, id, db_xref, promoter);
+			if ((as.object(promoter)$numOfPromoters > 0)) {
+				writeData(location, id, db_xref, promoter);
+			}		
 		}
 	}
 	
