@@ -80,7 +80,7 @@ for (name in cols) {
 		x[[name]];
 	});
 	
-	print(col_vals);
+	# print(col_vals);
 	out = rbind(out, col_vals);
 }
 
