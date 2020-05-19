@@ -15,28 +15,34 @@ namespace RWeb.shell {
                     console.log($ts("<img>", { src: result.info })).classList.add("result");
                 }
             } else {
-                console.error(result.info);
+                console.error($ts("<h5>").display(" Error in:"));
+                console.error(messageText(result.err));
             }
 
             if (!isNullOrEmpty(result.warnings)) {
-                console.warn($ts("<h5>").display("run with additional warning message:"));
+                console.warn($ts("<h5>").display("with additional warning message:"));
 
                 for (let warn of result.warnings) {
-                    let str: string = $from(warn.environmentStack)
-                        .Select(a => a.Method.Method)
-                        .JoinBy(" -> ") + "~:br/>";
-
-                    for (let i = 0; i < warn.message.length; i++) {
-                        str += `${i}. ${warn.message[i]}` + "~:br/>";
-                    }
-
-                    str = str
-                        .replace(/\s/g, "&nbsp;")
-                        .replace(/[<]/g, "&lt;")
-                        .replace(/[~:]{2}/g, "<");
-                    console.warn($ts("<span>").display(str));
+                    console.warn(messageText(warn));
                 }
             }
         });
     };
+
+    function messageText(msg: RMessage): HTMLElement {
+        let str: string = $from(msg.environmentStack)
+            .Select(a => a.Method.Method)
+            .JoinBy(" -> ") + "~:br/>";
+
+        for (let i = 0; i < msg.message.length; i++) {
+            str += `${i}. ${msg.message[i]}` + "~:br/>";
+        }
+
+        str = str
+            .replace(/\s/g, "&nbsp;")
+            .replace(/[<]/g, "&lt;")
+            .replace(/[~:]{2}/g, "<");
+
+        return $ts("<span>").display(str);
+    }
 }
