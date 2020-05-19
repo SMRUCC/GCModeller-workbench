@@ -9,10 +9,12 @@ namespace RWeb.shell {
             let result: RInvoke = data;
 
             if (result.code == 0) {
-                if (result.content_type.startsWith("text/html")) {
-                    console.log($ts("<pre>").display(base64_decode(result.info))).classList.add("result");
-                } else {
-                    console.log($ts("<img>", { src: result.info })).classList.add("result");
+                if (!Strings.Empty(result.info)) {
+                    if (result.content_type.startsWith("text/html")) {
+                        console.log($ts("<pre>").display(base64_decode(result.info))).classList.add("result");
+                    } else {
+                        console.log($ts("<img>", { src: result.info })).classList.add("result");
+                    }
                 }
             } else {
                 console.error($ts("<h5>").display(" Error in:"));
@@ -32,16 +34,15 @@ namespace RWeb.shell {
     function messageText(msg: RMessage): HTMLElement {
         let str: string = $from(msg.environmentStack)
             .Select(a => a.Method.Method)
-            .JoinBy(" -> ") + "~:br/>";
+            .Reverse()
+            .JoinBy(" -> ")
+            .replace(/[<]/g, "&lt;") + "<br/>";
 
         for (let i = 0; i < msg.message.length; i++) {
-            str += `${i}. ${msg.message[i]}` + "~:br/>";
+            str += `${i}. ${msg.message[i]}`.replace(/[<]/g, "&lt;") + "<br/>";
         }
 
-        str = str
-            .replace(/\s/g, "&nbsp;")
-            .replace(/[<]/g, "&lt;")
-            .replace(/[~:]{2}/g, "<");
+        str = str.replace(/\s/g, "&nbsp;");
 
         return $ts("<span>").display(str);
     }

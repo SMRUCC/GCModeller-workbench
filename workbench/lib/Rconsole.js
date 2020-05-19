@@ -8,11 +8,13 @@ var RWeb;
             $ts.post(url, { script: command }, function (data) {
                 var result = data;
                 if (result.code == 0) {
-                    if (result.content_type.startsWith("text/html")) {
-                        RWeb.console.log($ts("<pre>").display(base64_decode(result.info))).classList.add("result");
-                    }
-                    else {
-                        RWeb.console.log($ts("<img>", { src: result.info })).classList.add("result");
+                    if (!Strings.Empty(result.info)) {
+                        if (result.content_type.startsWith("text/html")) {
+                            RWeb.console.log($ts("<pre>").display(base64_decode(result.info))).classList.add("result");
+                        }
+                        else {
+                            RWeb.console.log($ts("<img>", { src: result.info })).classList.add("result");
+                        }
                     }
                 }
                 else {
@@ -33,14 +35,13 @@ var RWeb;
         function messageText(msg) {
             var str = $from(msg.environmentStack)
                 .Select(function (a) { return a.Method.Method; })
-                .JoinBy(" -> ") + "~:br/>";
+                .Reverse()
+                .JoinBy(" -> ")
+                .replace(/[<]/g, "&lt;") + "<br/>";
             for (var i = 0; i < msg.message.length; i++) {
-                str += i + ". " + msg.message[i] + "~:br/>";
+                str += (i + ". " + msg.message[i]).replace(/[<]/g, "&lt;") + "<br/>";
             }
-            str = str
-                .replace(/\s/g, "&nbsp;")
-                .replace(/[<]/g, "&lt;")
-                .replace(/[~:]{2}/g, "<");
+            str = str.replace(/\s/g, "&nbsp;");
             return $ts("<span>").display(str);
         }
     })(shell = RWeb.shell || (RWeb.shell = {}));
