@@ -297,6 +297,7 @@ declare class IEnumerator<T> extends LINQIterator<T> {
      * Split a sequence by elements count
     */
     Split(size: number): IEnumerator<T[]>;
+    subset(indexer: number[] | boolean[]): IEnumerator<T>;
     /**
      * 取出序列之中的前n个元素
     */
@@ -435,6 +436,7 @@ declare class DOMEnumerator<T extends HTMLElement> extends IEnumerator<T> {
      * @returns 函数总是会返回所设置的或者读取得到的属性值的字符串集合
     */
     attr(attrName: string, val?: string | IEnumerator<string> | string[] | ((x: T) => string)): IEnumerator<string>;
+    style(styleVal: string): DOMEnumerator<T>;
     addClass(className: string): DOMEnumerator<T>;
     addEvent(eventName: string, handler: (sender: T, event: Event) => void): void;
     onChange(handler: (sender: T, event: Event) => void): void;
@@ -594,10 +596,12 @@ declare module Strings {
     const A: number;
     const Z: number;
     const numericPattern: RegExp;
+    const integerPattern: RegExp;
     /**
      * 判断所给定的字符串文本是否是任意实数的正则表达式模式
     */
     function isNumericPattern(text: string): boolean;
+    function isIntegerPattern(text: string): boolean;
     /**
      * 尝试将任意类型的目标对象转换为数值类型
      *
@@ -886,6 +890,7 @@ declare namespace Internal {
          * ##### 20191030 在这里为了重载的兼容性，nodes参数就从原来的T泛型变更为现在Element基本类型
         */
         <T extends HTMLElement>(nodes: NodeListOf<Element>): DOMEnumerator<T>;
+        <T extends HTMLElement>(nodes: HTMLCollectionOf<T>): DOMEnumerator<T>;
         <T extends HTMLElement & Node & ChildNode>(nodes: NodeListOf<T>): DOMEnumerator<T>;
         /**
          * Extends the properties and methods of the given original html element node.
@@ -1544,6 +1549,18 @@ declare namespace data {
         toString(): string;
     }
 }
+declare namespace csv {
+    /**
+     * 将对象序列转换为``dataframe``对象
+     *
+     * 这个函数只能够转换object类型的数据，对于基础类型将不保证能够正常工作
+     *
+     * @param data 因为这个对象序列对象是具有类型约束的，所以可以直接从第一个
+     *    元素对象之中得到所有的属性名称作为csv文件头的数据
+    */
+    function toDataFrame<T extends object>(data: IEnumerator<T> | T[]): dataframe;
+    function isTsvFile(content: string): boolean;
+}
 /**
  * The internal implementation of the ``$ts`` object.
 */
@@ -1677,16 +1694,6 @@ declare const $iframe: (query: string | HTMLElement, args?: Internal.TypeScriptA
 interface IProperty {
     get: () => any;
     set: (value: any) => void;
-}
-declare namespace RequireGlobal {
-    /**
-     * Linq???????????
-     *
-     * ``$ts``????????????????????????????
-     *
-     * @param source ?????????????
-    */
-    function $from<T>(source: T[] | IEnumerator<T>): IEnumerator<T>;
 }
 declare namespace TypeExtensions {
     /**
@@ -2848,7 +2855,11 @@ declare namespace Internal {
         getSelects(id: string): HTMLSelectElement;
     }
     interface IcsvHelperApi {
+        /**
+         * parse the given text into dataframe object.
+        */
         (data: string, isTsv?: boolean | ((data: string) => boolean)): csv.dataframe;
+        isTsvFile(data: string): boolean;
         /**
          * 将csv文档文本进行解析，然后反序列化为js对象的集合
         */
@@ -2857,6 +2868,9 @@ declare namespace Internal {
          * 将js的对象序列进行序列化，构建出csv格式的文本文档字符串数据
         */
         toText<T>(data: IEnumerator<T> | T[], outTsv?: boolean): string;
+        /**
+         * build csv or tsv from target object sequence and then encode as base64 uri
+        */
         toUri<T>(data: IEnumerator<T> | T[], outTsv?: boolean): DataURI;
     }
 }
@@ -2886,6 +2900,8 @@ declare namespace Internal {
         alt?: string;
         checked?: boolean;
         selected?: boolean;
+        autofocus?: boolean;
+        placeholder?: string;
         /**
          * 应用于``<a>``标签进行文件下载重命名文件所使用的
         */
@@ -2905,14 +2921,33 @@ declare namespace Internal {
         */
         value?: string | number | boolean;
         for?: string;
+        role?: string;
+        tabindex?: number;
+        "max-width"?: string;
+        frameborder?: string;
+        border?: string;
+        marginwidth?: string;
+        marginheight?: string;
+        scrolling?: string;
+        allowtransparency?: string;
         /**
          * 处理HTML节点对象的点击事件，这个属性值应该是一个无参数的函数来的
         */
         onclick?: Delegate.Sub | string;
         onmouseover?: Delegate.Sub | string;
+        /**
+         * 主要是应用于输入控件
+        */
+        onchange?: Delegate.Sub | string;
         "data-toggle"?: string;
         "data-target"?: string;
         "aria-hidden"?: boolean;
+        "aria-label"?: string;
+        "aria-live"?: string;
+        "aria-haspopup"?: boolean;
+        "aria-owns"?: string;
+        "aria-expanded"?: boolean;
+        "aria-labelledby"?: string;
         usemap?: string;
         shape?: string;
         coords?: string;
@@ -3380,16 +3415,4 @@ declare namespace csv {
      *
     */
     function CharsParser(s: string, delimiter?: string, quot?: string): string[];
-}
-declare namespace csv {
-    /**
-     * 将对象序列转换为``dataframe``对象
-     *
-     * 这个函数只能够转换object类型的数据，对于基础类型将不保证能够正常工作
-     *
-     * @param data 因为这个对象序列对象是具有类型约束的，所以可以直接从第一个
-     *    元素对象之中得到所有的属性名称作为csv文件头的数据
-    */
-    function toDataFrame<T extends object>(data: IEnumerator<T> | T[]): dataframe;
-    function isTsvFile(content: string): boolean;
 }
