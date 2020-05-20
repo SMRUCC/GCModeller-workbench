@@ -12,6 +12,7 @@ namespace RWeb {
 
     export function run_app() {
         $ts("#Rconsole").appendElement(console.element);
+        window.console.log(workbench.view.getMainWindow())
     }
 }
 

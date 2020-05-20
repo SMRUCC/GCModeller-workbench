@@ -1,4 +1,5 @@
 /// <reference path="../../../R-sharp/studio/RMessage.ts" />
+/// <reference path="../../workbench/vendor/common.d.ts" />
 
 namespace RWeb.shell {
 
@@ -14,6 +15,7 @@ namespace RWeb.shell {
                         console.log($ts("<pre>").display(base64_decode(result.info))).classList.add("result");
                     } else if (result.content_type == "inspector/json") {
                         openView("./inspector.html");
+                        // ipc_sendData("inspect_json", result.info, )
                     } else if (result.content_type == "text/csv") {
                         let csv = base64_decode(result.info);
                         openView("./inspector.table.html");
