@@ -47,6 +47,11 @@ Imports RDotNET.Extensions.GCModeller
 Imports SMRUCC.genomics.Assembly.KEGG
 Imports SMRUCC.genomics.Data
 Imports SMRUCC.genomics.Model.Network.KEGG.ReactionNetwork
+Imports SMRUCC.Rsharp.Runtime.Internal.Object
+Imports SMRUCC.Rsharp.Runtime
+Imports SMRUCC.genomics.Assembly.KEGG.WebServices
+Imports SMRUCC.genomics.Annotation.Ptf
+Imports SMRUCC.genomics.Analysis.KEGG
 
 ''' <summary>
 ''' The kegg metabolism model toolkit
@@ -100,6 +105,50 @@ Module metabolism
                        Return id.IsPattern(KEGGCompoundIDPatterns)
                    End Function) _
             .ToArray
+    End Function
+
+    ''' <summary>
+    ''' do kegg pathway reconstruction by given protein annotation data
+    ''' </summary>
+    ''' <param name="reference"></param>
+    ''' <param name="reactions"></param>
+    ''' <param name="annotations"></param>
+    ''' <param name="min_cov"></param>
+    ''' <param name="env"></param>
+    ''' <returns></returns>
+    <ExportAPI("kegg.reconstruction")>
+    Public Function KEGGReconstruction(reference As Object, reactions As Object, annotations As Object,
+                                       Optional min_cov As Double = 0.3,
+                                       Optional env As Environment = Nothing) As pipeline
+
+        Dim rxnList As pipeline = pipeline.TryCreatePipeline(Of ReactionTable)(reactions, env)
+
+        If rxnList.isError Then
+            Return rxnList
+        End If
+
+        Dim maps As pipeline = pipeline.TryCreatePipeline(Of Map)(reference, env)
+
+        If maps.isError Then
+            Return maps
+        End If
+
+        Dim proteins As pipeline = pipeline.TryCreatePipeline(Of ProteinAnnotation)(annotations, env)
+
+        If proteins.isError Then
+            Return proteins
+        End If
+
+        Dim rxnIndex = rxnList.populates(Of ReactionTable).CreateIndex
+        Dim genes As ProteinAnnotation() = proteins.populates(Of ProteinAnnotation).ToArray
+
+        Return maps _
+            .populates(Of Map) _
+            .KEGGReconstruction(genes, min_cov) _
+            .Select(Function(pathway)
+                        Return pathway.AssignCompounds(rxnIndex)
+                    End Function) _
+            .DoCall(AddressOf pipeline.CreateFromPopulator)
     End Function
 End Module
 
