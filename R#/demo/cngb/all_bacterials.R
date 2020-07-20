@@ -5,6 +5,7 @@ setwd(!script$dir);
 
 let prokaryote = fetch.kegg_organism(NULL, type = "prokaryote");
 let cngb = new ftp(server = "ftp.cngb.org");
+let save_gz = "K:\bacterials";
 
 print(cngb);
 
@@ -29,13 +30,19 @@ let downloadGbff as function(genome) {
 		# print(files);
 		print(gbff);
 		
+		if (length(gbff) > 0) {
+			let gzfile = `${subdir}/${gbff[1]}`;
+			let saveas = `${save_gz}/${gbff[1]}`;
+			
+			cngb :> ftp.get(gzfile, saveas);
+		}
 	}
 }
 
 downloadGbff(as.object(prokaryote[1]));
 
-for(genome in prokaryote :> projectAs(as.object)) {
+# for(genome in prokaryote :> projectAs(as.object)) {
 	
 	
-	break;
-}
+	# break;
+# }
