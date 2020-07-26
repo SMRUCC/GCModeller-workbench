@@ -83,7 +83,11 @@ Module TrackPlots
             .label_snuggle = label_snuggle
         }
 
-        Return labels
+        If labels.tracksData.GetEnumerator.Count = 0 Then
+            Return Internal.debug.stop("the text track data can not be empty!", env)
+        Else
+            Return labels
+        End If
     End Function
 
     <ExportAPI("track.heatmapping")>
@@ -98,7 +102,11 @@ Module TrackPlots
         Dim model As New GradientMappings(valuePoints.populates(Of ValueTrackData)(env), mapName:=colors)
         Dim hTrack As New HighLight(model)
 
-        Return hTrack
+        If hTrack.tracksData.GetEnumerator.Count = 0 Then
+            Return Internal.debug.stop("the value points in the track data can not be empty!", env)
+        Else
+            Return hTrack
+        End If
     End Function
 
     <ExportAPI("track.histogram")>
@@ -109,6 +117,12 @@ Module TrackPlots
             Return valuePoints.getError
         End If
 
-        Return New Histogram(New NtProps.GCSkew(valuePoints.populates(Of ValueTrackData)(env)))
+        Dim hist As New Histogram(New NtProps.GCSkew(valuePoints.populates(Of ValueTrackData)(env)))
+
+        If hist.tracksData.GetEnumerator.Count = 0 Then
+            Return Internal.debug.stop("the value points in the track data can not be empty!", env)
+        Else
+            Return hist
+        End If
     End Function
 End Module
