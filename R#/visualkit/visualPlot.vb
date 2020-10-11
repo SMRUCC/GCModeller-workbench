@@ -69,10 +69,6 @@ Imports REnv = SMRUCC.Rsharp.Runtime
 <Package("visualkit.plots")>
 Module visualPlot
 
-    Sub New()
-        REnv.Internal.ConsolePrinter.AttachConsoleFormatter(Of ExpressionPattern)(Function(a) DirectCast(a, ExpressionPattern).ToSummaryText)
-    End Sub
-
     ''' <summary>
     ''' Create catalog profiles data for GO enrichment result its data visualization.
     ''' </summary>
@@ -234,6 +230,15 @@ Module visualPlot
         }
     End Function
 
+    ''' <summary>
+    ''' Visualize of the gene expression patterns across different sample groups. 
+    ''' </summary>
+    ''' <param name="matrix"></param>
+    ''' <param name="size"></param>
+    ''' <param name="padding"></param>
+    ''' <param name="bg"></param>
+    ''' <param name="colorSet">color set for visualize the cmeans membership</param>
+    ''' <returns></returns>
     <ExportAPI("plot.expression_patterns")>
     Public Function PlotExpressionPatterns(matrix As ExpressionPattern,
                                            <RRawVectorArgument>
