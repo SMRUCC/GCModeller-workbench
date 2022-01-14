@@ -1,27 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-
-	<PropertyGroup>
+  <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
-    <StartupObject>Sub Main</StartupObject>
+    <StartupObject>GCModeller.FormMain</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
-    <Platforms>AnyCPU;x64</Platforms>
-    <DocumentationFile>GCModeller.xml</DocumentationFile>
-		<CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
-		<CefSharpBuildAction>Content</CefSharpBuildAction>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Prefer32Bit>true</Prefer32Bit>
-    <RemoveIntegerChecks>true</RemoveIntegerChecks>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,8 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.Common.NETCore" Version="96.0.180" />
-    <PackageReference Include="CefSharp.WinForms.NETCore" Version="96.0.180" />
+    <PackageReference Include="CefSharp.WinForms.NETCore" Version="97.1.10-pre" />
   </ItemGroup>
 
   <ItemGroup>

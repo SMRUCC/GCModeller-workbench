@@ -20,10 +20,6 @@ Public Class FormMain
         Controls.Add(browser)
     End Sub
 
-    Private Sub FormMain_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-
-    End Sub
-
     Private Sub FormMain_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Call Cef.Shutdown()
     End Sub
