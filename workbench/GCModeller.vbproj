@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
+
+	<PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <StartupObject>GCModeller.FormMain</StartupObject>
@@ -8,6 +9,8 @@
     <MyType>WindowsForms</MyType>
     <Platforms>AnyCPU;x64</Platforms>
     <DocumentationFile>GCModeller.xml</DocumentationFile>
+		<CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+		<CefSharpBuildAction>Content</CefSharpBuildAction>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
