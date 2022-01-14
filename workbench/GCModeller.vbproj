@@ -4,7 +4,7 @@
 	<PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
-    <StartupObject>GCModeller.FormMain</StartupObject>
+    <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Platforms>AnyCPU;x64</Platforms>
@@ -31,8 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.Common.NETCore" Version="97.1.10-pre" />
-    <PackageReference Include="CefSharp.WinForms.NETCore" Version="97.1.10-pre" />
+    <PackageReference Include="CefSharp.Common.NETCore" Version="96.0.180" />
+    <PackageReference Include="CefSharp.WinForms.NETCore" Version="96.0.180" />
   </ItemGroup>
 
   <ItemGroup>
