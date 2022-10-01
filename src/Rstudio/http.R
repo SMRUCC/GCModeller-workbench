@@ -28,7 +28,7 @@ const router = function(url) {
   } else {
     let file = `${webContext}/${relpath}.R`;
 
-    if (file.ext(relpath) in ["html", "js", "css", "json", "txt"]) {
+    if (file.ext(relpath) != "R") {
       list(file = `${webContext}/${relpath}`, is_script = FALSE);
     } else {
       if (file.exists(file)) {
@@ -58,7 +58,9 @@ const handleHttpGet = function(req, response) {
     writeLines(source(local$file), con = response);
   } else {
     if (!local$is_script) {
-      writeLines(readText(local$file), con = response);
+      response 
+      |> pushDownload(local$file)
+      ;
     } else {
       response
       |> httpError(404, `the required Rscript file is not found on filesystem location: '${ normalizePath(local$file) }'!`)
