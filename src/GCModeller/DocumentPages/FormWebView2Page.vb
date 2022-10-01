@@ -1,4 +1,5 @@
-﻿Imports WeifenLuo.WinFormsUI.Docking
+﻿Imports Microsoft.Web.WebView2.Core
+Imports WeifenLuo.WinFormsUI.Docking
 
 Public Class FormWebView2Page
 
@@ -13,6 +14,19 @@ Public Class FormWebView2Page
     End Sub
 
     Private Sub FormWebView2Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Init()
+        Wait()
+    End Sub
+
+    Private Async Sub Init()
+        Await WebView21.EnsureCoreWebView2Async
+    End Sub
+
+    Private Sub Wait()
+
+    End Sub
+
+    Private Sub WebView21_CoreWebView2InitializationCompleted(sender As Object, e As CoreWebView2InitializationCompletedEventArgs) Handles WebView21.CoreWebView2InitializationCompleted
         WebView21.CoreWebView2.Navigate("https://gcmodeller.org/")
     End Sub
 End Class
