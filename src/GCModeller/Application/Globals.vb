@@ -21,7 +21,7 @@ Public Class Globals
         Dim http_server As String = $"{App.HOME}/../src\Rstudio\http.R".GetFullPath
         Dim webView As String = $"{App.HOME}/../web/".GetDirectoryFullPath
         Dim rpkg As String = $"{App.HOME}/Rstudio/packages/Rserver.zip".GetFullPath
-        Dim commandLine As String = $"{http_server.CLIPath} --listen {webView} --wwwroot {webView.CLIPath} --attach {rpkg.CLIPath}"
+        Dim commandLine As String = $"{http_server.CLIPath} --listen {Globals.webview} --wwwroot {webView.CLIPath} --attach {rpkg.CLIPath}"
 
         wwwroot = host.CreateSlave(commandLine)
 

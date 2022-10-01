@@ -1,4 +1,6 @@
-imports "http" from "Rhttp";
+require(Rserver);
+
+imports "http" from "RwebHost";
 
 # title: R# web http server
 # author: xieguigang
