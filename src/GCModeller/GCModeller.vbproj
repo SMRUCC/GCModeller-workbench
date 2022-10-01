@@ -92,6 +92,9 @@
     <DocumentationFile>GCModeller.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.Windows.Form">
+      <HintPath>..\..\dist\Microsoft.VisualStudio.Windows.Form.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.1369.0, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1369-prerelease\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
     </Reference>
@@ -101,16 +104,43 @@
     <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.1369.0, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1369-prerelease\lib\net45\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Windows.FeatureAPI">
+      <HintPath>..\..\dist\Microsoft.Windows.FeatureAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Ribbon">
+      <HintPath>..\..\dist\Microsoft.Windows.Ribbon.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.InteropServices.APIs">
+      <HintPath>..\..\dist\System.Runtime.InteropServices.APIs.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataGridView">
+      <HintPath>..\..\dist\System.Windows.Forms.DataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.TabControl">
+      <HintPath>..\..\dist\System.Windows.Forms.TabControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.ThemeColorPicker">
+      <HintPath>..\..\dist\System.Windows.Forms.ThemeColorPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.TreeListView">
+      <HintPath>..\..\dist\System.Windows.Forms.TreeListView.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Notification">
+      <HintPath>..\..\dist\System.Windows.Notification.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="ThemeVS2015">
+      <HintPath>..\..\dist\ThemeVS2015.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
