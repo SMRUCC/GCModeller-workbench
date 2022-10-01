@@ -9,7 +9,7 @@ obj
 bin
 App
 
-
+packages/
 node_modules
 *.lock
 *.ide
