@@ -1,0 +1,3 @@
+[submodule "src/Rstudio/Rserver"]
+	path = src/Rstudio/Rserver
+	url = https://github.com/rsharp-lang/Rserver.git
