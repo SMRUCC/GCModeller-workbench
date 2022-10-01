@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{23A9D8B5-F961-43CA-959A-3F570FF94296}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>GCModeller.My.MyApplication</StartupObject>
-    <RootNamespace>GCModeller</RootNamespace>
-    <AssemblyName>GCModeller</AssemblyName>
+    <StartupObject>GCModeller_win32Desktop.My.MyApplication</StartupObject>
+    <RootNamespace>GCModeller_win32Desktop</RootNamespace>
+    <AssemblyName>GCModeller_win32Desktop</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -39,7 +39,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>GCModeller.xml</DocumentationFile>
+    <DocumentationFile>GCModeller_win32Desktop.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>GCModeller.xml</DocumentationFile>
+    <DocumentationFile>GCModeller_win32Desktop.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -70,7 +70,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\..\Apps\</OutputPath>
-    <DocumentationFile>GCModeller.xml</DocumentationFile>
+    <DocumentationFile>GCModeller_win32Desktop.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -78,7 +78,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x64\Release\</OutputPath>
-    <DocumentationFile>GCModeller.xml</DocumentationFile>
+    <DocumentationFile>GCModeller_win32Desktop.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>pdbonly</DebugType>
@@ -86,10 +86,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
-    <DocumentationFile>GCModeller.xml</DocumentationFile>
+    <DocumentationFile>GCModeller_win32Desktop.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
-    <DocumentationFile>GCModeller.xml</DocumentationFile>
+    <DocumentationFile>GCModeller_win32Desktop.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.Windows.Form">
@@ -218,6 +218,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RibbonItems.Designer.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DocumentPages\FormWebView2Page.resx">
@@ -248,6 +249,7 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="RibbonMarkup.ribbon" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

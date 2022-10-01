@@ -1,4 +1,4 @@
-﻿Imports WeifenLuo.WinFormsUI.Docking
+﻿Imports RibbonLib
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormMainHost
@@ -33,6 +33,7 @@ Partial Class FormMainHost
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
+        Me.Ribbon1 = New Ribbon()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -45,11 +46,11 @@ Partial Class FormMainHost
         Me.dockPanel.DockRightPortion = 200.0R
         Me.dockPanel.DockTopPortion = 150.0R
         Me.dockPanel.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, CType(0, Byte))
-        Me.dockPanel.Location = New System.Drawing.Point(0, 0)
+        Me.dockPanel.Location = New System.Drawing.Point(0, 23)
         Me.dockPanel.Name = "dockPanel"
         Me.dockPanel.RightToLeftLayout = True
         Me.dockPanel.ShowAutoHideContentOnHover = False
-        Me.dockPanel.Size = New System.Drawing.Size(800, 428)
+        Me.dockPanel.Size = New System.Drawing.Size(800, 405)
         Me.dockPanel.TabIndex = 0
         '
         'vsToolStripExtender1
@@ -76,12 +77,23 @@ Partial Class FormMainHost
         Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
         Me.ToolStripProgressBar1.Size = New System.Drawing.Size(100, 16)
         '
+        'Ribbon1
+        '
+        Me.Ribbon1.Location = New System.Drawing.Point(0, 0)
+        Me.Ribbon1.Name = "Ribbon1"
+        Me.Ribbon1.ResourceIdentifier = Nothing
+        Me.Ribbon1.ResourceName = "GCModeller_win32Desktop.RibbonMarkup.ribbon"
+        Me.Ribbon1.ShortcutTableResourceName = Nothing
+        Me.Ribbon1.Size = New System.Drawing.Size(800, 23)
+        Me.Ribbon1.TabIndex = 4
+        '
         'FormMainHost
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.dockPanel)
+        Me.Controls.Add(Me.Ribbon1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.IsMdiContainer = True
         Me.Name = "FormMainHost"
@@ -102,4 +114,5 @@ Partial Class FormMainHost
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents ToolStripProgressBar1 As ToolStripProgressBar
+    Friend WithEvents Ribbon1 As Global.RibbonLib.Ribbon
 End Class
