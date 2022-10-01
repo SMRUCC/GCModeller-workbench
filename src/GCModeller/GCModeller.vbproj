@@ -156,6 +156,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Application\Workbench.vb" />
     <Compile Include="Application\Globals.vb" />
     <Compile Include="DocumentPages\DocumentWindow.Designer.vb">

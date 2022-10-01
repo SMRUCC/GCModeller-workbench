@@ -19,7 +19,7 @@ Public Class FormWebView2Page
     End Sub
 
     Private Async Sub Init()
-        Dim userDataFolder = (App.ProductProgramData & "/WebView2_cache/").GetDirectoryFullPath
+        Dim userDataFolder = (App.ProductProgramData & "/.webView2_cache/").GetDirectoryFullPath
         Dim env = Await CoreWebView2Environment.CreateAsync(Nothing, userDataFolder)
 
         Call Workbench.ShowStatusMessage($"set webview2 cache at '{userDataFolder}'.")
