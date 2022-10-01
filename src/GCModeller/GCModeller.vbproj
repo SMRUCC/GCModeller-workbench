@@ -156,6 +156,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Workbench.vb" />
+    <Compile Include="Application\Globals.vb" />
     <Compile Include="DocumentPages\DocumentWindow.Designer.vb">
       <DependentUpon>DocumentWindow.vb</DependentUpon>
     </Compile>
@@ -210,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMainHost.resx">
       <DependentUpon>FormMainHost.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSplashScreen.resx">
+      <DependentUpon>FormSplashScreen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

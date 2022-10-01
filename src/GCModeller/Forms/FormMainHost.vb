@@ -16,7 +16,9 @@ Public Class FormMainHost
 
     Private Sub FormMainHost_Load(sender As Object, e As EventArgs) Handles Me.Load
         dockPanel.Theme = vS2015LightTheme1
-        Me.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
+        Globals.host = Me
+
+        EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
         OpenDocument()
     End Sub
 
