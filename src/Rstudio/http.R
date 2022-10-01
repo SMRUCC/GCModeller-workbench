@@ -17,14 +17,33 @@ const webContext as string = ?"--wwwroot" || `${dirname(@script)}/../web.R`;
 #' @param url the url object that parsed from the
 #'     http request.
 #' 
-const router as function(url) {
-  `${webContext}/${ trim(url$path, ".") }.R`;
+const router = function(url) {
+  const relpath as string = trim(url$path, ".");
+
+  if (relpath == "") {
+    list(
+      file = `${webContext}/index.html`,
+      is_script = FALSE
+    );
+  } else {
+    let file = `${webContext}/${relpath}.R`;
+
+    if (file.ext(relpath) == "html") {
+      list(file = `${webContext}/${relpath}`, is_script = FALSE);
+    } else {
+      if (file.exists(file)) {
+        list(file = file, is_script = TRUE);
+      } else {
+        list(file = `${webContext}/${relpath}/index.html`, is_script = FALSE);
+      }
+    }
+  }  
 }
 
 #' Handle http GET request
 #' 
-const handleHttpGet as function(req, response) {
-  const R as string = router(getUrl(req));
+const handleHttpGet = function(req, response) {
+  const local = router(getUrl(req));
 
   print("request from the browser client:");
   str(getUrl(req));
@@ -35,12 +54,16 @@ const handleHttpGet as function(req, response) {
   print("this is the unparsed raw text of the http header message:");
   print(getHttpRaw(req));
 
-  if (file.exists(R)) {
-    writeLines(source(R), con = response);
+  if ([local$is_script] && file.exists(local$file)) {
+    writeLines(source(local$file), con = response);
   } else {
-    response
-    |> httpError(404, `the required Rscript file is not found on filesystem location: '${ normalizePath(R) }'!`)
-    ;
+    if (!local$is_script) {
+      writeLines(readText(local$file), con = response);
+    } else {
+      response
+      |> httpError(404, `the required Rscript file is not found on filesystem location: '${ normalizePath(local$file) }'!`)
+      ;
+    }
   }
 }
 
