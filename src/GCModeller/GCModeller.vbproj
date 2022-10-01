@@ -250,11 +250,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\GCModeller\src\GCModeller\core\Bio.Assembly\biocore-netcore5.vbproj">
+    <ProjectReference Include="..\..\..\..\GCModeller\core\Bio.Assembly\biocore-netcore5.vbproj">
       <Project>{cd07a55c-2513-4a44-a3fb-46b58408baca}</Project>
       <Name>biocore-netcore5</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\GCModeller\src\runtime\sciBASIC#\Microsoft.VisualBasic.Core\src\Core.vbproj">
+    <ProjectReference Include="..\..\..\..\runtime\sciBASIC#\Microsoft.VisualBasic.Core\src\Core.vbproj">
       <Project>{cb2e7a97-f2bb-42bd-b178-c1d5ad6d45ec}</Project>
       <Name>Core</Name>
     </ProjectReference>

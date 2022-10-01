@@ -11,25 +11,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "runtime", "runtime", "{FEF8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gcmodeller", "gcmodeller", "{1EBDD0F8-F696-49DC-B4BC-3897AA0CBA6A}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Core", "..\..\GCModeller\src\runtime\sciBASIC#\Microsoft.VisualBasic.Core\src\Core.vbproj", "{CB2E7A97-F2BB-42BD-B178-C1D5AD6D45EC}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Core", "..\..\..\runtime\sciBASIC#\Microsoft.VisualBasic.Core\src\Core.vbproj", "{CB2E7A97-F2BB-42BD-B178-C1D5AD6D45EC}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "biocore-netcore5", "..\..\GCModeller\src\GCModeller\core\Bio.Assembly\biocore-netcore5.vbproj", "{CD07A55C-2513-4A44-A3FB-46B58408BACA}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "biocore-netcore5", "..\..\..\GCModeller\core\Bio.Assembly\biocore-netcore5.vbproj", "{CD07A55C-2513-4A44-A3FB-46B58408BACA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "renv", "renv", "{04E06F48-11E6-4C1F-9783-05EA2538C632}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Rsharp-netcore5", "..\..\GCModeller\src\R-sharp\R#\Rsharp-netcore5.vbproj", "{6DB93FBD-8D99-443B-B5AB-6CDB5B6A83AF}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Rsharp-netcore5", "..\..\..\R-sharp\R#\Rsharp-netcore5.vbproj", "{6DB93FBD-8D99-443B-B5AB-6CDB5B6A83AF}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Rscript.NET5", "..\..\GCModeller\src\R-sharp\Rscript\Rscript.NET5.vbproj", "{21FFB2BC-FA86-48FA-8B26-A0E5ED9A4E1B}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Rscript.NET5", "..\..\..\R-sharp\Rscript\Rscript.NET5.vbproj", "{21FFB2BC-FA86-48FA-8B26-A0E5ED9A4E1B}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Rserve.NET5", "..\..\GCModeller\src\R-sharp\studio\Rserve\Rserve.NET5.vbproj", "{1E2183F7-84E2-48D8-A540-0C6EEE74E6D5}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Rserve.NET5", "..\..\..\R-sharp\studio\Rserve\Rserve.NET5.vbproj", "{1E2183F7-84E2-48D8-A540-0C6EEE74E6D5}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Rserver.NET5", "..\..\GCModeller\src\R-sharp\studio\Rserver\Rserver.NET5.vbproj", "{7BB43106-D512-4368-AD9E-ED7723F0FACD}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Rserver.NET5", "..\..\..\R-sharp\studio\Rserver\Rserver.NET5.vbproj", "{7BB43106-D512-4368-AD9E-ED7723F0FACD}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Flute.NET5", "..\..\GCModeller\src\runtime\httpd\Flute\Flute.NET5.vbproj", "{764199C5-BA4D-4150-8CA1-767C7A5C57DB}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Flute.NET5", "..\..\..\runtime\httpd\Flute\Flute.NET5.vbproj", "{764199C5-BA4D-4150-8CA1-767C7A5C57DB}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "JSON-netcore5", "..\..\GCModeller\src\runtime\sciBASIC#\mime\application%json\JSON-netcore5.vbproj", "{33552ED1-DD4C-4386-9BE8-DA5A4D401A84}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "JSON-netcore5", "..\..\..\runtime\sciBASIC#\mime\application%json\JSON-netcore5.vbproj", "{33552ED1-DD4C-4386-9BE8-DA5A4D401A84}"
 EndProject
-Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "network-netcore5", "..\..\GCModeller\src\runtime\sciBASIC#\www\Microsoft.VisualBasic.NETProtocol\network-netcore5.vbproj", "{15378292-CE77-45DE-A8BF-70142BABA753}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "network-netcore5", "..\..\..\runtime\sciBASIC#\www\Microsoft.VisualBasic.NETProtocol\network-netcore5.vbproj", "{15378292-CE77-45DE-A8BF-70142BABA753}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -561,7 +561,7 @@ Global
 		SolutionGuid = {1E8C171E-597A-438B-A8F6-0972EBCE4EFB}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\..\GCModeller\src\R-sharp\studio\Rstudio.common\Rstudio.common.projitems*{21ffb2bc-fa86-48fa-8b26-a0e5ed9a4e1b}*SharedItemsImports = 5
-		..\..\GCModeller\src\runtime\sciBASIC#\www\Microsoft.VisualBasic.NETProtocol\TcpRequest\TcpRequest.projitems*{21ffb2bc-fa86-48fa-8b26-a0e5ed9a4e1b}*SharedItemsImports = 5
+		..\..\..\R-sharp\studio\Rstudio.common\Rstudio.common.projitems*{21ffb2bc-fa86-48fa-8b26-a0e5ed9a4e1b}*SharedItemsImports = 5
+		..\..\..\runtime\sciBASIC#\www\Microsoft.VisualBasic.NETProtocol\TcpRequest\TcpRequest.projitems*{21ffb2bc-fa86-48fa-8b26-a0e5ed9a4e1b}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
