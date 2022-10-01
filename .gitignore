@@ -27,5 +27,5 @@ R#/demo/cngb/bacterials.csv
 GCModeller/GCModeller.vbproj.user
 src/GCModeller/GCModeller.vbproj.user
 
-Apps/
+/Apps/
 *.bin
