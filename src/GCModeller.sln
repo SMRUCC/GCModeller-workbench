@@ -2587,8 +2587,8 @@ Global
 		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.gcmodeller_desktop|Any CPU.Build.0 = Debug|Any CPU
 		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.gcmodeller_desktop|ARM32.ActiveCfg = Debug|Any CPU
 		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.gcmodeller_desktop|ARM32.Build.0 = Debug|Any CPU
-		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.gcmodeller_desktop|x64.ActiveCfg = Debug|x64
-		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.gcmodeller_desktop|x64.Build.0 = Debug|x64
+		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.gcmodeller_desktop|x64.ActiveCfg = gcmodeller_desktop|x64
+		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.gcmodeller_desktop|x64.Build.0 = gcmodeller_desktop|x64
 		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.gcmodeller_desktop|x86.ActiveCfg = Debug|Any CPU
 		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.gcmodeller_desktop|x86.Build.0 = Debug|Any CPU
 		{C9D53AE3-E513-45B1-AFC8-38A70D24E889}.installer_x64|Any CPU.ActiveCfg = Debug|Any CPU
@@ -2755,8 +2755,8 @@ Global
 		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.gcmodeller_desktop|Any CPU.Build.0 = Debug|Any CPU
 		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.gcmodeller_desktop|ARM32.ActiveCfg = Debug|Any CPU
 		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.gcmodeller_desktop|ARM32.Build.0 = Debug|Any CPU
-		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.gcmodeller_desktop|x64.ActiveCfg = Debug|x64
-		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.gcmodeller_desktop|x64.Build.0 = Debug|x64
+		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.gcmodeller_desktop|x64.ActiveCfg = gcmodeller_desktop|x64
+		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.gcmodeller_desktop|x64.Build.0 = gcmodeller_desktop|x64
 		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.gcmodeller_desktop|x86.ActiveCfg = Debug|Any CPU
 		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.gcmodeller_desktop|x86.Build.0 = Debug|Any CPU
 		{07E37768-1BC9-4CC9-A64C-07446919D5B8}.installer_x64|Any CPU.ActiveCfg = Debug|Any CPU
@@ -2923,8 +2923,8 @@ Global
 		{CA0C110D-12CC-4D34-9447-3E05825D6213}.gcmodeller_desktop|Any CPU.Build.0 = Debug|Any CPU
 		{CA0C110D-12CC-4D34-9447-3E05825D6213}.gcmodeller_desktop|ARM32.ActiveCfg = Debug|Any CPU
 		{CA0C110D-12CC-4D34-9447-3E05825D6213}.gcmodeller_desktop|ARM32.Build.0 = Debug|Any CPU
-		{CA0C110D-12CC-4D34-9447-3E05825D6213}.gcmodeller_desktop|x64.ActiveCfg = Debug|x64
-		{CA0C110D-12CC-4D34-9447-3E05825D6213}.gcmodeller_desktop|x64.Build.0 = Debug|x64
+		{CA0C110D-12CC-4D34-9447-3E05825D6213}.gcmodeller_desktop|x64.ActiveCfg = gcmodeller_desktop|x64
+		{CA0C110D-12CC-4D34-9447-3E05825D6213}.gcmodeller_desktop|x64.Build.0 = gcmodeller_desktop|x64
 		{CA0C110D-12CC-4D34-9447-3E05825D6213}.gcmodeller_desktop|x86.ActiveCfg = Debug|Any CPU
 		{CA0C110D-12CC-4D34-9447-3E05825D6213}.gcmodeller_desktop|x86.Build.0 = Debug|Any CPU
 		{CA0C110D-12CC-4D34-9447-3E05825D6213}.installer_x64|Any CPU.ActiveCfg = Debug|Any CPU
@@ -3091,8 +3091,8 @@ Global
 		{777E18CA-C6F3-4B71-AA8A-257F45941027}.gcmodeller_desktop|Any CPU.Build.0 = Debug|Any CPU
 		{777E18CA-C6F3-4B71-AA8A-257F45941027}.gcmodeller_desktop|ARM32.ActiveCfg = Debug|Any CPU
 		{777E18CA-C6F3-4B71-AA8A-257F45941027}.gcmodeller_desktop|ARM32.Build.0 = Debug|Any CPU
-		{777E18CA-C6F3-4B71-AA8A-257F45941027}.gcmodeller_desktop|x64.ActiveCfg = Debug|x64
-		{777E18CA-C6F3-4B71-AA8A-257F45941027}.gcmodeller_desktop|x64.Build.0 = Debug|x64
+		{777E18CA-C6F3-4B71-AA8A-257F45941027}.gcmodeller_desktop|x64.ActiveCfg = gcmodeller_desktop|x64
+		{777E18CA-C6F3-4B71-AA8A-257F45941027}.gcmodeller_desktop|x64.Build.0 = gcmodeller_desktop|x64
 		{777E18CA-C6F3-4B71-AA8A-257F45941027}.gcmodeller_desktop|x86.ActiveCfg = Debug|Any CPU
 		{777E18CA-C6F3-4B71-AA8A-257F45941027}.gcmodeller_desktop|x86.Build.0 = Debug|Any CPU
 		{777E18CA-C6F3-4B71-AA8A-257F45941027}.installer_x64|Any CPU.ActiveCfg = Debug|Any CPU
@@ -3259,8 +3259,8 @@ Global
 		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.gcmodeller_desktop|Any CPU.Build.0 = Debug|Any CPU
 		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.gcmodeller_desktop|ARM32.ActiveCfg = Debug|Any CPU
 		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.gcmodeller_desktop|ARM32.Build.0 = Debug|Any CPU
-		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.gcmodeller_desktop|x64.ActiveCfg = Debug|x64
-		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.gcmodeller_desktop|x64.Build.0 = Debug|x64
+		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.gcmodeller_desktop|x64.ActiveCfg = gcmodeller_desktop|x64
+		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.gcmodeller_desktop|x64.Build.0 = gcmodeller_desktop|x64
 		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.gcmodeller_desktop|x86.ActiveCfg = Debug|Any CPU
 		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.gcmodeller_desktop|x86.Build.0 = Debug|Any CPU
 		{A7A6DB20-48E3-4046-8014-F0ABC6458FB1}.installer_x64|Any CPU.ActiveCfg = Debug|Any CPU
@@ -4603,8 +4603,8 @@ Global
 		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.gcmodeller_desktop|Any CPU.Build.0 = Debug|Any CPU
 		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.gcmodeller_desktop|ARM32.ActiveCfg = Debug|Any CPU
 		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.gcmodeller_desktop|ARM32.Build.0 = Debug|Any CPU
-		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.gcmodeller_desktop|x64.ActiveCfg = Debug|x64
-		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.gcmodeller_desktop|x64.Build.0 = Debug|x64
+		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.gcmodeller_desktop|x64.ActiveCfg = gcmodeller_desktop|x64
+		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.gcmodeller_desktop|x64.Build.0 = gcmodeller_desktop|x64
 		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.gcmodeller_desktop|x86.ActiveCfg = Debug|Any CPU
 		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.gcmodeller_desktop|x86.Build.0 = Debug|Any CPU
 		{33B7EC34-0DAC-4627-BC73-7D4DDFA48287}.installer_x64|Any CPU.ActiveCfg = Debug|Any CPU
