@@ -156,10 +156,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DocumentPages\DocumentWindow.Designer.vb">
+      <DependentUpon>DocumentWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentPages\DocumentWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DocumentPages\FormWebView2Page.Designer.vb">
       <DependentUpon>FormWebView2Page.vb</DependentUpon>
     </Compile>
     <Compile Include="DocumentPages\FormWebView2Page.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Explorer\ExplorerWindow.Designer.vb">
+      <DependentUpon>ExplorerWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Explorer\ExplorerWindow.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormSplashScreen.Designer.vb">
@@ -241,6 +253,7 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1369-prerelease\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1369-prerelease\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
