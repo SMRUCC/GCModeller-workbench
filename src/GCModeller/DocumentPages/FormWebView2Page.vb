@@ -18,6 +18,16 @@ Public Class FormWebView2Page
         Wait()
     End Sub
 
+    Public Sub DeveloperOptions(enable As Boolean)
+        WebView21.CoreWebView2.Settings.AreDevToolsEnabled = enable
+        WebView21.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = enable
+        WebView21.CoreWebView2.Settings.AreDefaultContextMenusEnabled = enable
+
+        If enable Then
+            Call Workbench.ShowStatusMessage($"[{TabText}] WebView2 developer tools has been enable!")
+        End If
+    End Sub
+
     Private Async Sub Init()
         Dim userDataFolder = (App.ProductProgramData & "/.webView2_cache/").GetDirectoryFullPath
         Dim env = Await CoreWebView2Environment.CreateAsync(Nothing, userDataFolder)
@@ -33,5 +43,6 @@ Public Class FormWebView2Page
 
     Private Sub WebView21_CoreWebView2InitializationCompleted(sender As Object, e As CoreWebView2InitializationCompletedEventArgs) Handles WebView21.CoreWebView2InitializationCompleted
         WebView21.CoreWebView2.Navigate("https://gcmodeller.org/")
+        DeveloperOptions(enable:=False)
     End Sub
 End Class
