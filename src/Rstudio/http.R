@@ -28,7 +28,7 @@ const router = function(url) {
   } else {
     let file = `${webContext}/${relpath}.R`;
 
-    if (file.ext(relpath) == "html") {
+    if (file.ext(relpath) in ["html", "js", "css", "json", "txt"]) {
       list(file = `${webContext}/${relpath}`, is_script = FALSE);
     } else {
       if (file.exists(file)) {
