@@ -19,7 +19,9 @@ Public Class FormMainHost
         dockPanel.Theme = vS2015LightTheme1
         Globals.host = Me
         Me.Text = "GCModeller Workbench"
+
         Call New FormSplashScreen() With {.splash = True}.ShowDialog()
+        Call Workbench.LogTextOutput.Show(Globals.host.dockPanel)
 
         EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
     End Sub

@@ -3,6 +3,7 @@
 Public Class Workbench
 
     Friend Shared ReadOnly Property Ribbon As RibbonItems
+    Friend Shared ReadOnly LogTextOutput As New LoggingOutputWindow
 
     Public Shared Sub Load()
         _Ribbon = New RibbonItems(Globals.host.Ribbon1)

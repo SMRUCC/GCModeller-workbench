@@ -105,8 +105,8 @@ Partial Class FormMainHost
 
     End Sub
 
-    Private WithEvents dockPanel As WeifenLuo.WinFormsUI.Docking.DockPanel
-    Private WithEvents vsToolStripExtender1 As WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender
+    Friend WithEvents dockPanel As WeifenLuo.WinFormsUI.Docking.DockPanel
+    Friend WithEvents vsToolStripExtender1 As WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender
 
     Private vS2015LightTheme1 As WeifenLuo.WinFormsUI.Docking.VS2015LightTheme
     Private vS2015BlueTheme1 As WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme

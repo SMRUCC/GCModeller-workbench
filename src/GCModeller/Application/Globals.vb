@@ -1,4 +1,5 @@
-﻿Imports Microsoft.VisualBasic.ApplicationServices
+﻿Imports System.Threading
+Imports Microsoft.VisualBasic.ApplicationServices
 Imports Microsoft.VisualBasic.CommandLine.InteropService.Pipeline
 Imports Microsoft.VisualBasic.Parallel
 
@@ -11,20 +12,25 @@ Public Class Globals
     Public Shared ReadOnly webview As Integer = 19612
 
     Public Shared Sub Load()
-        Call Globals.startWebServices()
         Call Workbench.Load()
+        Call Globals.startWebServices()
     End Sub
 
     Private Shared Sub startWebServices()
         Dim host = Rserver.RscriptCommandLine.Rscript.FromEnvironment($"{App.HOME}/Rstudio/bin")
-        Dim http_server As String = $"{App.HOME}/../src\Rstudio\http.R"
-        Dim webView As String = $"{App.HOME}/../web/"
-        Dim rpkg As String = $"{App.HOME}/Rstudio/packages/Rserver.zip"
+        Dim http_server As String = $"{App.HOME}/../src\Rstudio\http.R".GetFullPath
+        Dim webView As String = $"{App.HOME}/../web/".GetDirectoryFullPath
+        Dim rpkg As String = $"{App.HOME}/Rstudio/packages/Rserver.zip".GetFullPath
         Dim commandLine As String = $"{http_server.CLIPath} --listen {webView} --wwwroot {webView.CLIPath} --attach {rpkg.CLIPath}"
 
         wwwroot = host.CreateSlave(commandLine)
 
         Call RunTask(AddressOf wwwroot.Run)
+        Call New Thread(
+            Sub()
+                Call Thread.Sleep(3000)
+                Call Workbench.LogTextOutput.WriteLine(wwwroot.ToString)
+            End Sub).Start()
     End Sub
 
 End Class
