@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="19.0" version="19.0" Modules="professional" RootPath="." Language="en" Id="{17156F04-3593-4479-85C9-C33FDE0D087E}">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_CURRENT_YEAR" Value="2022" ValueLocId="-"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="Manufacturer" Value="SMRUCC genomics institute"/>
+    <ROW Property="ProductCode" Value="1033:{7702DE1D-66A3-4D07-93BD-493A8BA46381} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="gcmodeller_win32_desktop"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{2BF9E5FE-5AA9-4120-B330-C02B95AF707F}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="Rstudio_Dir" Directory_Parent="APPDIR" DefaultDir="Rstudio"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="apps_Dir" Directory_Parent="web_Dir" DefaultDir="apps"/>
+    <ROW Directory="bin_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="bin"/>
+    <ROW Directory="bootstrap5.0.2dist_Dir" Directory_Parent="styles_Dir" DefaultDir="BOOTST~1.2-D|bootstrap-5.0.2-dist"/>
+    <ROW Directory="css_Dir" Directory_Parent="bootstrap5.0.2dist_Dir" DefaultDir="css"/>
+    <ROW Directory="fastRWeb_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="fastRWeb"/>
+    <ROW Directory="js_Dir" Directory_Parent="bootstrap5.0.2dist_Dir" DefaultDir="js"/>
+    <ROW Directory="lib_1_Dir" Directory_Parent="win_Dir" DefaultDir="lib"/>
+    <ROW Directory="lib_Dir" Directory_Parent="unix_Dir" DefaultDir="lib"/>
+    <ROW Directory="native_Dir" Directory_Parent="winx64_Dir" DefaultDir="native"/>
+    <ROW Directory="net6.0_1_Dir" Directory_Parent="lib_1_Dir" DefaultDir="net6.0"/>
+    <ROW Directory="net6.0_Dir" Directory_Parent="lib_Dir" DefaultDir="net6.0"/>
+    <ROW Directory="packages_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="packages"/>
+    <ROW Directory="runtimes_1_Dir" Directory_Parent="bin_Dir" DefaultDir="runtimes"/>
+    <ROW Directory="runtimes_Dir" Directory_Parent="APPDIR" DefaultDir="runtimes"/>
+    <ROW Directory="services_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="services"/>
+    <ROW Directory="styles_Dir" Directory_Parent="web_Dir" DefaultDir="styles"/>
+    <ROW Directory="unix_Dir" Directory_Parent="runtimes_1_Dir" DefaultDir="unix"/>
+    <ROW Directory="web_Dir" Directory_Parent="APPDIR" DefaultDir="webview"/>
+    <ROW Directory="win_Dir" Directory_Parent="runtimes_1_Dir" DefaultDir="win"/>
+    <ROW Directory="winx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win-x64"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="APPDIR" ComponentId="{586FF7A5-1099-4B16-9848-797D35FAD65E}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="Flute.Http.dll" ComponentId="{108A2BEC-9B17-4899-9866-00FC4232F844}" Directory_="bin_Dir" Attributes="256" KeyPath="Flute.Http.dll"/>
+    <ROW Component="Flute.Http.dll_1" ComponentId="{4A3D70F4-3D42-4F16-9387-FCD3CE0D5D2A}" Directory_="APPDIR" Attributes="256" KeyPath="Flute.Http.dll_1"/>
+    <ROW Component="Flute.Http.xml" ComponentId="{C2850C1A-9335-4BF3-A4C2-3B3AE83B7EC2}" Directory_="bin_Dir" Attributes="0" KeyPath="Microsoft.VisualBasic.Runtime.dll.config" Type="0"/>
+    <ROW Component="GCModeller_win32Desktop.exe" ComponentId="{79C9FD20-22B5-4632-8D97-24DCF529EE90}" Directory_="APPDIR" Attributes="256" KeyPath="GCModeller_win32Desktop.exe"/>
+    <ROW Component="GCModeller_win32Desktop.exe.config" ComponentId="{4356FEB7-E4F5-4C06-9A2D-25BB894DB7CD}" Directory_="APPDIR" Attributes="0" KeyPath="GCModeller_win32Desktop.exe.config" Type="0"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.json.dll" ComponentId="{744E98AF-4FD2-4FA2-BF7A-75788CFB4128}" Directory_="bin_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.json.dll"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.json.dll_1" ComponentId="{F9EBC1A0-30FB-4775-93DB-3BA87500493D}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.json.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.Network.dll" ComponentId="{FC82F2FE-6CAA-4A8E-B23B-5F8C53B2F6C2}" Directory_="bin_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Network.dll"/>
+    <ROW Component="Microsoft.VisualBasic.Network.dll_1" ComponentId="{7A4B7683-4C63-484E-96AF-336F90B4A102}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Network.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.Runtime.dll" ComponentId="{BB0EE1B3-5D21-4F9E-8512-AFF2D7860D93}" Directory_="bin_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Runtime.dll"/>
+    <ROW Component="Microsoft.VisualBasic.Runtime.dll_1" ComponentId="{5C681AB5-158A-4256-A69B-5C54F5F8D1D8}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Runtime.dll_1"/>
+    <ROW Component="Microsoft.VisualStudio.Windows.Form.dll" ComponentId="{4B623B5F-A5EB-4148-9C7A-89435AF2A7E6}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Windows.Form.dll"/>
+    <ROW Component="Microsoft.Web.WebView2.Core.dll" ComponentId="{7C0037D2-2BEE-4F0C-8C8D-7197BC8026EE}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.Core.dll"/>
+    <ROW Component="Microsoft.Web.WebView2.WinForms.dll" ComponentId="{A9FD0D95-3CA3-4ADF-82BC-A1CDC5C1067A}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.WinForms.dll"/>
+    <ROW Component="Microsoft.Web.WebView2.Wpf.dll" ComponentId="{DC1A2AC1-B077-457D-877C-5CE59EC1C6C7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.Wpf.dll"/>
+    <ROW Component="Microsoft.Win32.SystemEvents.dll" ComponentId="{195CBC85-563D-42B4-B0BC-A1898896303B}" Directory_="bin_Dir" Attributes="0" KeyPath="Microsoft.Win32.SystemEvents.dll"/>
+    <ROW Component="Microsoft.Win32.SystemEvents.dll_1" ComponentId="{7394A492-C376-4BD8-8BF0-ADF70CF2FC89}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="Microsoft.Win32.SystemEvents.dll_1"/>
+    <ROW Component="Microsoft.Windows.FeatureAPI.dll" ComponentId="{0DA94794-FF84-4362-802B-BE2D171527E7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Windows.FeatureAPI.dll"/>
+    <ROW Component="Microsoft.Windows.Ribbon.dll" ComponentId="{A0D9AE82-0034-49AE-BB07-F88519A805F7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Windows.Ribbon.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{1D221E6E-1160-4C0E-A212-EE419A654BC4}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="README.md" ComponentId="{486553F9-F42E-4B67-84F6-88E362020A8B}" Directory_="fastRWeb_Dir" Attributes="0" KeyPath="README.md_1" Type="0"/>
+    <ROW Component="REnv.dll" ComponentId="{304CE16A-3BA3-46AD-9D8F-1B597F647913}" Directory_="bin_Dir" Attributes="256" KeyPath="REnv.dll"/>
+    <ROW Component="REnv.dll_1" ComponentId="{56511540-5746-4AE2-9788-8EF74D9087F4}" Directory_="APPDIR" Attributes="256" KeyPath="REnv.dll_1"/>
+    <ROW Component="Rscript.dll" ComponentId="{11075C92-8B95-4AE3-B33F-3DF5E13F30A6}" Directory_="bin_Dir" Attributes="256" KeyPath="Rscript.dll"/>
+    <ROW Component="Rscript.exe" ComponentId="{A5EF31DA-6DA6-4E34-B6B6-1C8310DD2E78}" Directory_="bin_Dir" Attributes="256" KeyPath="Rscript.exe"/>
+    <ROW Component="Rserve.dll" ComponentId="{973CA79A-4861-422A-AF6A-279B6A127308}" Directory_="bin_Dir" Attributes="256" KeyPath="Rserve.dll"/>
+    <ROW Component="Rserve.exe" ComponentId="{47D98200-A459-4592-9E67-B18CC802142C}" Directory_="bin_Dir" Attributes="256" KeyPath="Rserve.exe"/>
+    <ROW Component="Rserver.dll" ComponentId="{09935196-EB89-4701-ABDF-D50774F75CE7}" Directory_="bin_Dir" Attributes="256" KeyPath="Rserver.dll"/>
+    <ROW Component="Rserver.dll_1" ComponentId="{612950EF-A7C7-40BC-B198-FA103E675A48}" Directory_="APPDIR" Attributes="256" KeyPath="Rserver.dll_1"/>
+    <ROW Component="Rserver.zip" ComponentId="{8AA7C4DD-9D17-431B-96BF-937B62544724}" Directory_="packages_Dir" Attributes="0" KeyPath="Rserver.zip" Type="0"/>
+    <ROW Component="SMRUCC.genomics.Core.dll" ComponentId="{57DD5ED3-82BA-43ED-B02F-8BAA34824B94}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Core.dll"/>
+    <ROW Component="System.Buffers.dll" ComponentId="{DC788B8A-CE5F-4CCA-AC6C-CCCECDC9F56A}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
+    <ROW Component="System.Composition.AttributedModel.dll" ComponentId="{F9FB9B9B-9DA5-44CE-AFCE-64E146D00F33}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.AttributedModel.dll"/>
+    <ROW Component="System.Composition.AttributedModel.dll_1" ComponentId="{9324E751-4288-44E3-8ECD-793B6CEE393A}" Directory_="APPDIR" Attributes="0" KeyPath="System.Composition.AttributedModel.dll_1"/>
+    <ROW Component="System.Composition.Convention.dll" ComponentId="{81069B58-9B30-4D25-9F33-B9E9FF94B5CD}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.Convention.dll"/>
+    <ROW Component="System.Composition.Hosting.dll" ComponentId="{10E50C71-D1DB-4086-A261-7FD750D4AC11}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.Hosting.dll"/>
+    <ROW Component="System.Composition.Runtime.dll" ComponentId="{BF4C675F-342C-4C73-AB05-65A063846E5B}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.Runtime.dll"/>
+    <ROW Component="System.Composition.TypedParts.dll" ComponentId="{78D96DDB-41DD-48E4-A27D-3C90A3CBD8A8}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.TypedParts.dll"/>
+    <ROW Component="System.Drawing.Common.dll" ComponentId="{564A94EC-2B2E-4F78-BA8B-40DB12B63E75}" Directory_="net6.0_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll"/>
+    <ROW Component="System.Drawing.Common.dll_1" ComponentId="{D931F0C9-B193-461B-8332-B327DE4E94B6}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll_1"/>
+    <ROW Component="System.Drawing.Common.dll_2" ComponentId="{ECD1A83E-151D-4ACD-807A-B059DF912056}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll_2"/>
+    <ROW Component="System.Memory.dll" ComponentId="{CF380900-F9AD-47A5-8702-B7BCBA2D581B}" Directory_="APPDIR" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Numerics.Vectors.dll" ComponentId="{E28B0D13-B510-444B-8D68-A36EB986F778}" Directory_="APPDIR" Attributes="0" KeyPath="System.Numerics.Vectors.dll"/>
+    <ROW Component="System.Resources.Extensions.dll" ComponentId="{A50E908B-0DB6-4399-81CE-3C52CD358CE4}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Resources.Extensions.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{7160B3E9-EC66-4DB3-99E5-0F733B77D7B5}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Component="System.Runtime.InteropServices.APIs.dll" ComponentId="{9D97F75C-1198-4AE5-8A2B-EC6E70F9FCD8}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.InteropServices.APIs.dll"/>
+    <ROW Component="System.Text.Encoding.CodePages.dll" ComponentId="{7B96C91A-E91C-4B70-A024-7DF73F0014FC}" Directory_="APPDIR" Attributes="0" KeyPath="System.Text.Encoding.CodePages.dll"/>
+    <ROW Component="System.Windows.Forms.DataGridView.dll" ComponentId="{F6775744-B556-40D1-9C7E-FCA1857CF4C4}" Directory_="APPDIR" Attributes="256" KeyPath="System.Windows.Forms.DataGridView.dll"/>
+    <ROW Component="System.Windows.Forms.TabControl.dll" ComponentId="{F34CDC20-532A-4B31-B61F-8ACDDCEF0C98}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Forms.TabControl.dll"/>
+    <ROW Component="System.Windows.Forms.ThemeColorPicker.dll" ComponentId="{3ABF454B-D442-4555-B334-155C2D00A942}" Directory_="APPDIR" Attributes="256" KeyPath="System.Windows.Forms.ThemeColorPicker.dll"/>
+    <ROW Component="System.Windows.Forms.TreeListView.dll" ComponentId="{D8ABDF3C-370D-4C79-B1CE-22C3C36ADB28}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Forms.TreeListView.dll"/>
+    <ROW Component="System.Windows.Notification.dll" ComponentId="{CE61FAD3-4A41-4BE4-B69F-C4B95080B646}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Notification.dll"/>
+    <ROW Component="ThemeVS2015.dll" ComponentId="{E43AEA2B-1695-49C9-9D02-E1F46B438C33}" Directory_="APPDIR" Attributes="0" KeyPath="ThemeVS2015.dll"/>
+    <ROW Component="WebView2Loader.dll" ComponentId="{9ECE4B5C-7B9F-4C5D-A75A-324365A0CF04}" Directory_="native_Dir" Attributes="256" KeyPath="WebView2Loader.dll"/>
+    <ROW Component="app.css" ComponentId="{9C375376-16A2-4710-8A8A-A6E312FDCBE2}" Directory_="styles_Dir" Attributes="0" KeyPath="app.css" Type="0"/>
+    <ROW Component="bootstrap.bundle.js" ComponentId="{B65AA785-278E-4462-AFDF-CB6426727ED1}" Directory_="js_Dir" Attributes="0" KeyPath="bootstrap.bundle.js" Type="0"/>
+    <ROW Component="bootstrapgrid.css" ComponentId="{F42515B4-4A94-4B80-B0A5-D724E08D7521}" Directory_="css_Dir" Attributes="0" KeyPath="bootstrapgrid.css" Type="0"/>
+    <ROW Component="enrichment.html" ComponentId="{A2763594-BF07-4B89-9C87-C9E3DE3739F7}" Directory_="apps_Dir" Attributes="0" KeyPath="enrichment.html" Type="0"/>
+    <ROW Component="http.R" ComponentId="{A9F499DD-E457-4105-907A-23A7F8A41B4C}" Directory_="services_Dir" Attributes="0" KeyPath="http.R" Type="0"/>
+    <ROW Component="index.html" ComponentId="{87838FD2-8223-4157-B39F-1F4BB56FB8E1}" Directory_="web_Dir" Attributes="0" KeyPath="index.html" Type="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="WebView2Loader.dll" Component_="WebView2Loader.dll" FileName="WEBVIE~1.DLL|WebView2Loader.dll" Attributes="0" SourcePath="..\Apps\runtimes\win-x64\native\WebView2Loader.dll" SelfReg="false"/>
+    <ROW File="Flute.Http.dll" Component_="Flute.Http.dll" FileName="FLUTEH~1.DLL|Flute.Http.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Flute.Http.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.json.dll" Component_="Microsoft.VisualBasic.MIME.application.json.dll" FileName="MICROS~1.DLL|Microsoft.VisualBasic.MIME.application.json.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Microsoft.VisualBasic.MIME.application.json.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Network.dll" Component_="Microsoft.VisualBasic.Network.dll" FileName="MICROS~2.DLL|Microsoft.VisualBasic.Network.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Microsoft.VisualBasic.Network.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll" Component_="Microsoft.VisualBasic.Runtime.dll" FileName="MICROS~3.DLL|Microsoft.VisualBasic.Runtime.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Microsoft.VisualBasic.Runtime.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll.config" Component_="Flute.Http.xml" FileName="MICROS~1.CON|Microsoft.VisualBasic.Runtime.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Microsoft.VisualBasic.Runtime.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.Win32.SystemEvents.dll" Component_="Microsoft.Win32.SystemEvents.dll" FileName="MICROS~4.DLL|Microsoft.Win32.SystemEvents.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Microsoft.Win32.SystemEvents.dll" SelfReg="false"/>
+    <ROW File="REnv.dll" Component_="REnv.dll" FileName="REnv.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\REnv.dll" SelfReg="false"/>
+    <ROW File="REnv.dll.config" Component_="Flute.Http.xml" FileName="RENVDL~1.CON|REnv.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\bin\REnv.dll.config" SelfReg="false"/>
+    <ROW File="Rscript.deps.json" Component_="Flute.Http.xml" FileName="RSCRIP~1.JSO|Rscript.deps.json" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rscript.deps.json" SelfReg="false"/>
+    <ROW File="Rscript.dll" Component_="Rscript.dll" FileName="Rscript.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rscript.dll" SelfReg="false"/>
+    <ROW File="Rscript.dll.config" Component_="Flute.Http.xml" FileName="RSCRIP~1.CON|Rscript.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rscript.dll.config" SelfReg="false"/>
+    <ROW File="Rscript.exe" Component_="Rscript.exe" FileName="Rscript.exe" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rscript.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="Rscript.runtimeconfig.json" Component_="Flute.Http.xml" FileName="RSCRIP~2.JSO|Rscript.runtimeconfig.json" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rscript.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="Rserve.deps.json" Component_="Flute.Http.xml" FileName="RSERVE~1.JSO|Rserve.deps.json" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rserve.deps.json" SelfReg="false"/>
+    <ROW File="Rserve.dll" Component_="Rserve.dll" FileName="Rserve.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rserve.dll" SelfReg="false"/>
+    <ROW File="Rserve.dll.config" Component_="Flute.Http.xml" FileName="RSERVE~1.CON|Rserve.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rserve.dll.config" SelfReg="false"/>
+    <ROW File="Rserve.exe" Component_="Rserve.exe" FileName="Rserve.exe" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rserve.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="Rserve.runtimeconfig.json" Component_="Flute.Http.xml" FileName="RSERVE~2.JSO|Rserve.runtimeconfig.json" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rserve.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="Rserver.dll" Component_="Rserver.dll" FileName="Rserver.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Rserver.dll" SelfReg="false"/>
+    <ROW File="System.Drawing.Common.dll" Component_="System.Drawing.Common.dll" FileName="SYSTEM~1.DLL|System.Drawing.Common.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\runtimes\unix\lib\net6.0\System.Drawing.Common.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Win32.SystemEvents.dll_1" Component_="Microsoft.Win32.SystemEvents.dll_1" FileName="MICROS~1.DLL|Microsoft.Win32.SystemEvents.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll" SelfReg="false"/>
+    <ROW File="System.Drawing.Common.dll_1" Component_="System.Drawing.Common.dll_1" FileName="SYSTEM~1.DLL|System.Drawing.Common.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\runtimes\win\lib\net6.0\System.Drawing.Common.dll" SelfReg="false"/>
+    <ROW File="System.Composition.AttributedModel.dll" Component_="System.Composition.AttributedModel.dll" FileName="SYSTEM~1.DLL|System.Composition.AttributedModel.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Composition.AttributedModel.dll" SelfReg="false"/>
+    <ROW File="System.Composition.Convention.dll" Component_="System.Composition.Convention.dll" FileName="SYSTEM~2.DLL|System.Composition.Convention.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Composition.Convention.dll" SelfReg="false"/>
+    <ROW File="System.Composition.Hosting.dll" Component_="System.Composition.Hosting.dll" FileName="SYSTEM~3.DLL|System.Composition.Hosting.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Composition.Hosting.dll" SelfReg="false"/>
+    <ROW File="System.Composition.Runtime.dll" Component_="System.Composition.Runtime.dll" FileName="SYSTEM~4.DLL|System.Composition.Runtime.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Composition.Runtime.dll" SelfReg="false"/>
+    <ROW File="System.Composition.TypedParts.dll" Component_="System.Composition.TypedParts.dll" FileName="SYSTEM~5.DLL|System.Composition.TypedParts.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Composition.TypedParts.dll" SelfReg="false"/>
+    <ROW File="System.Drawing.Common.dll_2" Component_="System.Drawing.Common.dll_2" FileName="SYSTEM~6.DLL|System.Drawing.Common.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Drawing.Common.dll" SelfReg="false"/>
+    <ROW File="System.Resources.Extensions.dll" Component_="System.Resources.Extensions.dll" FileName="SYSTEM~7.DLL|System.Resources.Extensions.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Resources.Extensions.dll" SelfReg="false"/>
+    <ROW File="Rserver.zip" Component_="Rserver.zip" FileName="Rserver.zip" Attributes="0" SourcePath="..\Apps\Rstudio\packages\Rserver.zip" SelfReg="false"/>
+    <ROW File="GCModeller_win32Desktop.exe" Component_="GCModeller_win32Desktop.exe" FileName="GCMODE~1.EXE|GCModeller_win32Desktop.exe" Attributes="0" SourcePath="..\Apps\GCModeller_win32Desktop.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="Flute.Http.dll_1" Component_="Flute.Http.dll_1" FileName="FLUTEH~1.DLL|Flute.Http.dll" Attributes="0" SourcePath="..\Apps\Flute.Http.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.json.dll_1" Component_="Microsoft.VisualBasic.MIME.application.json.dll_1" FileName="MICROS~1.DLL|Microsoft.VisualBasic.MIME.application.json.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.MIME.application.json.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Network.dll_1" Component_="Microsoft.VisualBasic.Network.dll_1" FileName="MICROS~2.DLL|Microsoft.VisualBasic.Network.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Network.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll_1" Component_="Microsoft.VisualBasic.Runtime.dll_1" FileName="MICROS~3.DLL|Microsoft.VisualBasic.Runtime.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Runtime.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualStudio.Windows.Form.dll" Component_="Microsoft.VisualStudio.Windows.Form.dll" FileName="MICROS~4.DLL|Microsoft.VisualStudio.Windows.Form.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualStudio.Windows.Form.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Web.WebView2.Core.dll" Component_="Microsoft.Web.WebView2.Core.dll" FileName="MICROS~5.DLL|Microsoft.Web.WebView2.Core.dll" Attributes="0" SourcePath="..\Apps\Microsoft.Web.WebView2.Core.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Web.WebView2.WinForms.dll" Component_="Microsoft.Web.WebView2.WinForms.dll" FileName="MICROS~6.DLL|Microsoft.Web.WebView2.WinForms.dll" Attributes="0" SourcePath="..\Apps\Microsoft.Web.WebView2.WinForms.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Web.WebView2.Wpf.dll" Component_="Microsoft.Web.WebView2.Wpf.dll" FileName="MICROS~7.DLL|Microsoft.Web.WebView2.Wpf.dll" Attributes="0" SourcePath="..\Apps\Microsoft.Web.WebView2.Wpf.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Windows.FeatureAPI.dll" Component_="Microsoft.Windows.FeatureAPI.dll" FileName="MICROS~8.DLL|Microsoft.Windows.FeatureAPI.dll" Attributes="0" SourcePath="..\Apps\Microsoft.Windows.FeatureAPI.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Windows.Ribbon.dll" Component_="Microsoft.Windows.Ribbon.dll" FileName="MICROS~9.DLL|Microsoft.Windows.Ribbon.dll" Attributes="0" SourcePath="..\Apps\Microsoft.Windows.Ribbon.dll" SelfReg="false"/>
+    <ROW File="REnv.dll_1" Component_="REnv.dll_1" FileName="REnv.dll" Attributes="0" SourcePath="..\Apps\REnv.dll" SelfReg="false"/>
+    <ROW File="Rserver.dll_1" Component_="Rserver.dll_1" FileName="Rserver.dll" Attributes="0" SourcePath="..\Apps\Rserver.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Core.dll" Component_="SMRUCC.genomics.Core.dll" FileName="SMRUCC~1.DLL|SMRUCC.genomics.Core.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Core.dll" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\Apps\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.Composition.AttributedModel.dll_1" Component_="System.Composition.AttributedModel.dll_1" FileName="SYSTEM~2.DLL|System.Composition.AttributedModel.dll" Attributes="0" SourcePath="..\Apps\System.Composition.AttributedModel.dll" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~3.DLL|System.Memory.dll" Attributes="0" SourcePath="..\Apps\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTEM~4.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="..\Apps\System.Numerics.Vectors.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTEM~5.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\Apps\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.InteropServices.APIs.dll" Component_="System.Runtime.InteropServices.APIs.dll" FileName="SYSTEM~6.DLL|System.Runtime.InteropServices.APIs.dll" Attributes="0" SourcePath="..\Apps\System.Runtime.InteropServices.APIs.dll" SelfReg="false"/>
+    <ROW File="System.Text.Encoding.CodePages.dll" Component_="System.Text.Encoding.CodePages.dll" FileName="SYSTEM~7.DLL|System.Text.Encoding.CodePages.dll" Attributes="0" SourcePath="..\Apps\System.Text.Encoding.CodePages.dll" SelfReg="false"/>
+    <ROW File="System.Windows.Forms.DataGridView.dll" Component_="System.Windows.Forms.DataGridView.dll" FileName="SYSTEM~8.DLL|System.Windows.Forms.DataGridView.dll" Attributes="0" SourcePath="..\Apps\System.Windows.Forms.DataGridView.dll" SelfReg="false"/>
+    <ROW File="System.Windows.Forms.TabControl.dll" Component_="System.Windows.Forms.TabControl.dll" FileName="SYSTEM~9.DLL|System.Windows.Forms.TabControl.dll" Attributes="0" SourcePath="..\Apps\System.Windows.Forms.TabControl.dll" SelfReg="false"/>
+    <ROW File="System.Windows.Forms.ThemeColorPicker.dll" Component_="System.Windows.Forms.ThemeColorPicker.dll" FileName="SYSTE~10.DLL|System.Windows.Forms.ThemeColorPicker.dll" Attributes="0" SourcePath="..\Apps\System.Windows.Forms.ThemeColorPicker.dll" SelfReg="false"/>
+    <ROW File="System.Windows.Forms.TreeListView.dll" Component_="System.Windows.Forms.TreeListView.dll" FileName="SYSTE~11.DLL|System.Windows.Forms.TreeListView.dll" Attributes="0" SourcePath="..\Apps\System.Windows.Forms.TreeListView.dll" SelfReg="false"/>
+    <ROW File="System.Windows.Notification.dll" Component_="System.Windows.Notification.dll" FileName="SYSTE~12.DLL|System.Windows.Notification.dll" Attributes="0" SourcePath="..\Apps\System.Windows.Notification.dll" SelfReg="false"/>
+    <ROW File="ThemeVS2015.dll" Component_="ThemeVS2015.dll" FileName="THEMEV~1.DLL|ThemeVS2015.dll" Attributes="0" SourcePath="..\Apps\ThemeVS2015.dll" SelfReg="false"/>
+    <ROW File="GCModeller_win32Desktop.exe.config" Component_="GCModeller_win32Desktop.exe.config" FileName="GCMODE~1.CON|GCModeller_win32Desktop.exe.config" Attributes="0" SourcePath="..\Apps\GCModeller_win32Desktop.exe.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll.config_1" Component_="GCModeller_win32Desktop.exe.config" FileName="MICROS~1.CON|Microsoft.VisualBasic.Runtime.dll.config" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Runtime.dll.config" SelfReg="false"/>
+    <ROW File="REnv.dll.config_1" Component_="GCModeller_win32Desktop.exe.config" FileName="RENVDL~1.CON|REnv.dll.config" Attributes="0" SourcePath="..\Apps\REnv.dll.config" SelfReg="false"/>
+    <ROW File="enrichment.html" Component_="enrichment.html" FileName="ENRICH~1.HTM|enrichment.html" Attributes="0" SourcePath="..\web\apps\enrichment.html" SelfReg="false"/>
+    <ROW File="index.html" Component_="index.html" FileName="INDEX~1.HTM|index.html" Attributes="0" SourcePath="..\web\index.html" SelfReg="false"/>
+    <ROW File="README.md" Component_="index.html" FileName="README.md" Attributes="0" SourcePath="..\web\README.md" SelfReg="false"/>
+    <ROW File="app.css" Component_="app.css" FileName="app.css" Attributes="0" SourcePath="..\web\styles\app.css" SelfReg="false"/>
+    <ROW File="bootstrapgrid.css" Component_="bootstrapgrid.css" FileName="BOOTST~1.CSS|bootstrap-grid.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-grid.css" SelfReg="false"/>
+    <ROW File="bootstrapgrid.css.map" Component_="bootstrapgrid.css" FileName="BOOTST~1.MAP|bootstrap-grid.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-grid.css.map" SelfReg="false"/>
+    <ROW File="bootstrapgrid.min.css" Component_="bootstrapgrid.css" FileName="BOOTST~2.CSS|bootstrap-grid.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css" SelfReg="false"/>
+    <ROW File="bootstrapgrid.min.css.map" Component_="bootstrapgrid.css" FileName="BOOTST~2.MAP|bootstrap-grid.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css.map" SelfReg="false"/>
+    <ROW File="bootstrapgrid.rtl.css" Component_="bootstrapgrid.css" FileName="BOOTST~3.CSS|bootstrap-grid.rtl.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css" SelfReg="false"/>
+    <ROW File="bootstrapgrid.rtl.css.map" Component_="bootstrapgrid.css" FileName="BOOTST~3.MAP|bootstrap-grid.rtl.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css.map" SelfReg="false"/>
+    <ROW File="bootstrapgrid.rtl.min.css" Component_="bootstrapgrid.css" FileName="BOOTST~4.CSS|bootstrap-grid.rtl.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.min.css" SelfReg="false"/>
+    <ROW File="bootstrapgrid.rtl.min.css.map" Component_="bootstrapgrid.css" FileName="BOOTST~4.MAP|bootstrap-grid.rtl.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.min.css.map" SelfReg="false"/>
+    <ROW File="bootstrapreboot.css" Component_="bootstrapgrid.css" FileName="BOOTST~5.CSS|bootstrap-reboot.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.css" SelfReg="false"/>
+    <ROW File="bootstrapreboot.css.map" Component_="bootstrapgrid.css" FileName="BOOTST~5.MAP|bootstrap-reboot.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.css.map" SelfReg="false"/>
+    <ROW File="bootstrapreboot.min.css" Component_="bootstrapgrid.css" FileName="BOOTST~6.CSS|bootstrap-reboot.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.min.css" SelfReg="false"/>
+    <ROW File="bootstrapreboot.min.css.map" Component_="bootstrapgrid.css" FileName="BOOTST~6.MAP|bootstrap-reboot.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.min.css.map" SelfReg="false"/>
+    <ROW File="bootstrapreboot.rtl.css" Component_="bootstrapgrid.css" FileName="BOOTST~7.CSS|bootstrap-reboot.rtl.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.css" SelfReg="false"/>
+    <ROW File="bootstrapreboot.rtl.css.map" Component_="bootstrapgrid.css" FileName="BOOTST~7.MAP|bootstrap-reboot.rtl.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.css.map" SelfReg="false"/>
+    <ROW File="bootstrapreboot.rtl.min.css" Component_="bootstrapgrid.css" FileName="BOOTST~8.CSS|bootstrap-reboot.rtl.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.min.css" SelfReg="false"/>
+    <ROW File="bootstrapreboot.rtl.min.css.map" Component_="bootstrapgrid.css" FileName="BOOTST~8.MAP|bootstrap-reboot.rtl.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.min.css.map" SelfReg="false"/>
+    <ROW File="bootstraputilities.css" Component_="bootstrapgrid.css" FileName="BOOTST~9.CSS|bootstrap-utilities.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.css" SelfReg="false"/>
+    <ROW File="bootstraputilities.css.map" Component_="bootstrapgrid.css" FileName="BOOTST~9.MAP|bootstrap-utilities.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.css.map" SelfReg="false"/>
+    <ROW File="bootstraputilities.min.css" Component_="bootstrapgrid.css" FileName="BOOTS~10.CSS|bootstrap-utilities.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.min.css" SelfReg="false"/>
+    <ROW File="bootstraputilities.min.css.map" Component_="bootstrapgrid.css" FileName="BOOTS~10.MAP|bootstrap-utilities.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.min.css.map" SelfReg="false"/>
+    <ROW File="bootstraputilities.rtl.css" Component_="bootstrapgrid.css" FileName="BOOTS~11.CSS|bootstrap-utilities.rtl.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.css" SelfReg="false"/>
+    <ROW File="bootstraputilities.rtl.css.map" Component_="bootstrapgrid.css" FileName="BOOTS~11.MAP|bootstrap-utilities.rtl.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.css.map" SelfReg="false"/>
+    <ROW File="bootstraputilities.rtl.min.css" Component_="bootstrapgrid.css" FileName="BOOTS~12.CSS|bootstrap-utilities.rtl.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.min.css" SelfReg="false"/>
+    <ROW File="bootstraputilities.rtl.min.css.map" Component_="bootstrapgrid.css" FileName="BOOTS~12.MAP|bootstrap-utilities.rtl.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.min.css.map" SelfReg="false"/>
+    <ROW File="bootstrap.css" Component_="bootstrapgrid.css" FileName="BOOTS~13.CSS|bootstrap.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap.css" SelfReg="false"/>
+    <ROW File="bootstrap.css.map" Component_="bootstrapgrid.css" FileName="BOOTS~13.MAP|bootstrap.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap.css.map" SelfReg="false"/>
+    <ROW File="bootstrap.min.css" Component_="bootstrapgrid.css" FileName="BOOTS~14.CSS|bootstrap.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap.min.css" SelfReg="false"/>
+    <ROW File="bootstrap.min.css.map" Component_="bootstrapgrid.css" FileName="BOOTS~14.MAP|bootstrap.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap.min.css.map" SelfReg="false"/>
+    <ROW File="bootstrap.rtl.css" Component_="bootstrapgrid.css" FileName="BOOTS~15.CSS|bootstrap.rtl.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap.rtl.css" SelfReg="false"/>
+    <ROW File="bootstrap.rtl.css.map" Component_="bootstrapgrid.css" FileName="BOOTS~15.MAP|bootstrap.rtl.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap.rtl.css.map" SelfReg="false"/>
+    <ROW File="bootstrap.rtl.min.css" Component_="bootstrapgrid.css" FileName="BOOTS~16.CSS|bootstrap.rtl.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap.rtl.min.css" SelfReg="false"/>
+    <ROW File="bootstrap.rtl.min.css.map" Component_="bootstrapgrid.css" FileName="BOOTS~16.MAP|bootstrap.rtl.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\css\bootstrap.rtl.min.css.map" SelfReg="false"/>
+    <ROW File="bootstrap.bundle.js" Component_="bootstrap.bundle.js" FileName="BOOTST~1.JS|bootstrap.bundle.js" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.bundle.js" SelfReg="false"/>
+    <ROW File="bootstrap.bundle.js.map" Component_="bootstrap.bundle.js" FileName="BOOTST~1.MAP|bootstrap.bundle.js.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.bundle.js.map" SelfReg="false"/>
+    <ROW File="bootstrap.bundle.min.js" Component_="bootstrap.bundle.js" FileName="BOOTST~2.JS|bootstrap.bundle.min.js" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js" SelfReg="false"/>
+    <ROW File="bootstrap.bundle.min.js.map" Component_="bootstrap.bundle.js" FileName="BOOTST~2.MAP|bootstrap.bundle.min.js.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js.map" SelfReg="false"/>
+    <ROW File="bootstrap.esm.js" Component_="bootstrap.bundle.js" FileName="BOOTST~3.JS|bootstrap.esm.js" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.esm.js" SelfReg="false"/>
+    <ROW File="bootstrap.esm.js.map" Component_="bootstrap.bundle.js" FileName="BOOTST~3.MAP|bootstrap.esm.js.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.esm.js.map" SelfReg="false"/>
+    <ROW File="bootstrap.esm.min.js" Component_="bootstrap.bundle.js" FileName="BOOTST~4.JS|bootstrap.esm.min.js" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js" SelfReg="false"/>
+    <ROW File="bootstrap.esm.min.js.map" Component_="bootstrap.bundle.js" FileName="BOOTST~4.MAP|bootstrap.esm.min.js.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js.map" SelfReg="false"/>
+    <ROW File="bootstrap.js" Component_="bootstrap.bundle.js" FileName="BOOTST~5.JS|bootstrap.js" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.js" SelfReg="false"/>
+    <ROW File="bootstrap.js.map" Component_="bootstrap.bundle.js" FileName="BOOTST~5.MAP|bootstrap.js.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.js.map" SelfReg="false"/>
+    <ROW File="bootstrap.min.js" Component_="bootstrap.bundle.js" FileName="BOOTST~6.JS|bootstrap.min.js" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.min.js" SelfReg="false"/>
+    <ROW File="bootstrap.min.js.map" Component_="bootstrap.bundle.js" FileName="BOOTST~6.MAP|bootstrap.min.js.map" Attributes="0" SourcePath="..\web\styles\bootstrap-5.0.2-dist\js\bootstrap.min.js.map" SelfReg="false"/>
+    <ROW File="README.md_1" Component_="README.md" FileName="README.md" Attributes="0" SourcePath="..\fastRWeb\README.md" SelfReg="false"/>
+    <ROW File="http.R" Component_="http.R" FileName="http.R" Attributes="0" SourcePath="..\src\Rstudio\http.R" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Setup Files" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="WebView2Loader.dll"/>
+    <ROW Feature_="MainFeature" Component_="Flute.Http.dll"/>
+    <ROW Feature_="MainFeature" Component_="Flute.Http.xml"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.json.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Network.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Runtime.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Win32.SystemEvents.dll"/>
+    <ROW Feature_="MainFeature" Component_="REnv.dll"/>
+    <ROW Feature_="MainFeature" Component_="Rscript.dll"/>
+    <ROW Feature_="MainFeature" Component_="Rscript.exe"/>
+    <ROW Feature_="MainFeature" Component_="Rserve.dll"/>
+    <ROW Feature_="MainFeature" Component_="Rserve.exe"/>
+    <ROW Feature_="MainFeature" Component_="Rserver.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Drawing.Common.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Win32.SystemEvents.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Drawing.Common.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.AttributedModel.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.Convention.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.Hosting.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.Runtime.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.TypedParts.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Drawing.Common.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="System.Resources.Extensions.dll"/>
+    <ROW Feature_="MainFeature" Component_="Rserver.zip"/>
+    <ROW Feature_="MainFeature" Component_="GCModeller_win32Desktop.exe"/>
+    <ROW Feature_="MainFeature" Component_="Flute.Http.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.json.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Network.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Runtime.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.Windows.Form.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Web.WebView2.Core.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Web.WebView2.WinForms.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Web.WebView2.Wpf.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Windows.FeatureAPI.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Windows.Ribbon.dll"/>
+    <ROW Feature_="MainFeature" Component_="REnv.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Rserver.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Core.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.AttributedModel.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Numerics.Vectors.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.InteropServices.APIs.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Text.Encoding.CodePages.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Windows.Forms.DataGridView.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Windows.Forms.TabControl.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Windows.Forms.ThemeColorPicker.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Windows.Forms.TreeListView.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Windows.Notification.dll"/>
+    <ROW Feature_="MainFeature" Component_="ThemeVS2015.dll"/>
+    <ROW Feature_="MainFeature" Component_="GCModeller_win32Desktop.exe.config"/>
+    <ROW Feature_="MainFeature" Component_="enrichment.html"/>
+    <ROW Feature_="MainFeature" Component_="index.html"/>
+    <ROW Feature_="MainFeature" Component_="app.css"/>
+    <ROW Feature_="MainFeature" Component_="bootstrapgrid.css"/>
+    <ROW Feature_="MainFeature" Component_="bootstrap.bundle.js"/>
+    <ROW Feature_="MainFeature" Component_="README.md"/>
+    <ROW Feature_="MainFeature" Component_="http.R"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
+    <ROW Directory_="bin_Dir" SourcePath="..\Apps\Rstudio\bin" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store|/*.pdb|/*.xml" ExcludeFlags="6" FileAddOptions="4"/>
+  </COMPONENT>
+</DOCUMENT>
