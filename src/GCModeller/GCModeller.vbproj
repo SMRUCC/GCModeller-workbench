@@ -159,10 +159,16 @@
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Application\Workbench.vb" />
     <Compile Include="Application\Globals.vb" />
-    <Compile Include="DocumentPages\DocumentWindow.Designer.vb">
+    <Compile Include="Explorer\FormDatabaseExplorer.Designer.vb">
+      <DependentUpon>FormDatabaseExplorer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Explorer\FormDatabaseExplorer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\DocumentWindow.Designer.vb">
       <DependentUpon>DocumentWindow.vb</DependentUpon>
     </Compile>
-    <Compile Include="DocumentPages\DocumentWindow.vb">
+    <Compile Include="Forms\Base\DocumentWindow.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DocumentPages\FormWebView2Page.Designer.vb">
@@ -171,10 +177,16 @@
     <Compile Include="DocumentPages\FormWebView2Page.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Explorer\ExplorerWindow.Designer.vb">
+    <Compile Include="Forms\Base\ExplorerWindow.Designer.vb">
       <DependentUpon>ExplorerWindow.vb</DependentUpon>
     </Compile>
-    <Compile Include="Explorer\ExplorerWindow.vb">
+    <Compile Include="Forms\Base\ExplorerWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\DockWindow.Designer.vb">
+      <DependentUpon>DockWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\DockWindow.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormSplashScreen.Designer.vb">

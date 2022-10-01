@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class DocumentWindow
-    Inherits System.Windows.Forms.Form
+Partial Class FormDatabaseExplorer
+    Inherits ExplorerWindow
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
