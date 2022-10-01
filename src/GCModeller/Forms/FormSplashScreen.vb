@@ -17,4 +17,14 @@ Public Class FormSplashScreen
         Call Thread.Sleep(1500)
         Call Me.Invoke(Sub() Close())
     End Sub
+
+    Private Sub FormSplashScreen_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
+
+    End Sub
+
+    Private Sub FormSplashScreen_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
+        If Not splash Then
+            Call Me.Close()
+        End If
+    End Sub
 End Class

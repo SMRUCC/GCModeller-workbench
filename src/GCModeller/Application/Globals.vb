@@ -11,11 +11,12 @@ Public Class Globals
     Public Shared ReadOnly webview As Integer = 19612
 
     Public Shared Sub Load()
-        Call startWebServices()
+        Call Globals.startWebServices()
+        Call Workbench.Load()
     End Sub
 
     Private Shared Sub startWebServices()
-        Dim host = Rserver.RscriptCommandLine.Rscript.FromEnvironment($"{App.HOME}/")
+        Dim host = Rserver.RscriptCommandLine.Rscript.FromEnvironment($"{App.HOME}/Rstudio/bin")
         Dim http_server As String = $"{App.HOME}/../src\Rstudio\http.R"
         Dim webView As String = $"{App.HOME}/../web/"
         Dim rpkg As String = $"{App.HOME}/Rstudio/packages/Rserver.zip"

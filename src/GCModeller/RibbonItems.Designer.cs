@@ -21,7 +21,7 @@ namespace RibbonLib.Controls
         {
             public const uint CmdApplicationMenu = 56;
             public const uint CmdRecentItems = 57;
-            public const uint CmdNew = 58;
+            public const uint CmdNew1 = 58;
             public const uint CmdOpen = 59;
             public const uint CmdSave = 60;
             public const uint CmdSaveAsMore = 62;
@@ -40,7 +40,7 @@ namespace RibbonLib.Controls
             public const uint CmdPageSetup = 74;
             public const uint CmdEmail = 75;
             public const uint CmdAbout = 76;
-            public const uint CmdExit = 77;
+            public const uint CmdExit1 = 77;
             public const uint CmdHelp = 90;
             public const uint CmdQuickAccessToolbar = 87;
             public const uint CmdUndo = 88;
@@ -124,7 +124,7 @@ namespace RibbonLib.Controls
         public Ribbon Ribbon { get; private set; }
         public RibbonApplicationMenu ApplicationMenu { get; private set; }
         public RibbonRecentItems RecentItems { get; private set; }
-        public RibbonButton New { get; private set; }
+        public RibbonButton New1 { get; private set; }
         public RibbonButton Open { get; private set; }
         public RibbonButton Save { get; private set; }
         public RibbonSplitButton SaveAsMore { get; private set; }
@@ -143,7 +143,7 @@ namespace RibbonLib.Controls
         public RibbonButton PageSetup { get; private set; }
         public RibbonButton Email { get; private set; }
         public RibbonButton About { get; private set; }
-        public RibbonButton Exit { get; private set; }
+        public RibbonButton Exit1 { get; private set; }
         public RibbonHelpButton Help { get; private set; }
         public RibbonQuickAccessToolbar QuickAccessToolbar { get; private set; }
         public RibbonButton Undo { get; private set; }
@@ -222,7 +222,7 @@ namespace RibbonLib.Controls
             this.Ribbon = ribbon;
             ApplicationMenu = new RibbonApplicationMenu(ribbon, Cmd.CmdApplicationMenu);
             RecentItems = new RibbonRecentItems(ribbon, Cmd.CmdRecentItems);
-            New = new RibbonButton(ribbon, Cmd.CmdNew);
+            New1 = new RibbonButton(ribbon, Cmd.CmdNew1);
             Open = new RibbonButton(ribbon, Cmd.CmdOpen);
             Save = new RibbonButton(ribbon, Cmd.CmdSave);
             SaveAsMore = new RibbonSplitButton(ribbon, Cmd.CmdSaveAsMore);
@@ -241,7 +241,7 @@ namespace RibbonLib.Controls
             PageSetup = new RibbonButton(ribbon, Cmd.CmdPageSetup);
             Email = new RibbonButton(ribbon, Cmd.CmdEmail);
             About = new RibbonButton(ribbon, Cmd.CmdAbout);
-            Exit = new RibbonButton(ribbon, Cmd.CmdExit);
+            Exit1 = new RibbonButton(ribbon, Cmd.CmdExit1);
             Help = new RibbonHelpButton(ribbon, Cmd.CmdHelp);
             QuickAccessToolbar = new RibbonQuickAccessToolbar(ribbon, Cmd.CmdQuickAccessToolbar);
             Undo = new RibbonButton(ribbon, Cmd.CmdUndo);

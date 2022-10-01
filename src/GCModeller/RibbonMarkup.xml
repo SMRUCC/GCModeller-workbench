@@ -363,7 +363,7 @@
     <Command Name="CmdPicas" LabelTitle="Picas" />
     <Command Name="CmdApplicationMenu" />
     <Command Name="CmdRecentItems" LabelTitle="Recent documents" />
-    <Command Name="CmdNew" LabelTitle="&amp;New" TooltipTitle="New (Ctrl+N)" TooltipDescription="Create a new document.">
+    <Command Name="CmdNew1" LabelTitle="&amp;New" TooltipTitle="New (Ctrl+N)" TooltipDescription="Create a new document.">
       <Command.SmallImages>
         <Image>Res/New_S096.bmp</Image>
         <Image MinDPI="120">Res/New_S120.bmp</Image>
@@ -563,7 +563,7 @@
         <Image MinDPI="192">Res/E-mail_L192.bmp</Image>
       </Command.LargeImages>
     </Command>
-    <Command Name="CmdAbout" LabelTitle="Abou&amp;t WordPad">
+    <Command Name="CmdAbout" LabelTitle="Abou&amp;t GCModeller Workbench">
       <Command.SmallImages>
         <Image>Res/About_S096.bmp</Image>
         <Image MinDPI="120">Res/About_S120.bmp</Image>
@@ -577,7 +577,7 @@
         <Image MinDPI="192">Res/About_L192.bmp</Image>
       </Command.LargeImages>
     </Command>
-    <Command Name="CmdExit" LabelTitle="E&amp;xit" TooltipDescription="Exit WordPad">
+    <Command Name="CmdExit1" LabelTitle="E&amp;xit" TooltipDescription="Exit WordPad">
       <Command.SmallImages>
         <Image>Res/Exit_S096.bmp</Image>
         <Image MinDPI="120">Res/Exit_S120.bmp</Image>
@@ -792,7 +792,7 @@
             <RecentItems CommandName="CmdRecentItems" EnablePinning="false" />
           </ApplicationMenu.RecentItems>
           <MenuGroup>
-            <Button CommandName="CmdNew" ApplicationModes="0,1" />
+            <Button CommandName="CmdNew1" ApplicationModes="0,1" />
             <Button CommandName="CmdOpen" ApplicationModes="0,1" />
             <Button CommandName="CmdSave" ApplicationModes="0,1" />
             <SplitButton CommandName="CmdSaveAsMore" ApplicationModes="0,1">
@@ -828,7 +828,7 @@
           </MenuGroup>
           <MenuGroup>
             <Button CommandName="CmdAbout" ApplicationModes="0,1" />
-            <Button CommandName="CmdExit" ApplicationModes="0,1" />
+            <Button CommandName="CmdExit1" ApplicationModes="0,1" />
           </MenuGroup>
         </ApplicationMenu>
       </Ribbon.ApplicationMenu>
@@ -838,7 +838,7 @@
       <Ribbon.QuickAccessToolbar>
         <QuickAccessToolbar CommandName="CmdQuickAccessToolbar">
           <QuickAccessToolbar.ApplicationDefaults>
-            <Button CommandName="CmdNew" ApplicationDefaults.IsChecked="false" />
+            <Button CommandName="CmdNew1" ApplicationDefaults.IsChecked="false" />
             <Button CommandName="CmdOpen" ApplicationDefaults.IsChecked="false" />
             <Button CommandName="CmdSave" ApplicationDefaults.IsChecked="true" />
             <Button CommandName="CmdEmail" ApplicationDefaults.IsChecked="false" />

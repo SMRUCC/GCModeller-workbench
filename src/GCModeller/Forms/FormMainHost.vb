@@ -1,4 +1,5 @@
-﻿Imports WeifenLuo.WinFormsUI.Docking
+﻿Imports GCModeller_win32Desktop.RibbonLib.Controls
+Imports WeifenLuo.WinFormsUI.Docking
 
 Public Class FormMainHost
 
@@ -21,7 +22,6 @@ Public Class FormMainHost
         Call New FormSplashScreen() With {.splash = True}.ShowDialog()
 
         EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
-        ' OpenDocument()
     End Sub
 
     Public Sub ShowMainPage()

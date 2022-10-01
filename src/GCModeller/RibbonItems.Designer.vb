@@ -18,7 +18,7 @@ Namespace RibbonLib.Controls
         Private Class Cmd
             Public Const CmdApplicationMenu As UInteger = 56
             Public Const CmdRecentItems As UInteger = 57
-            Public Const CmdNew As UInteger = 58
+            Public Const CmdNew1 As UInteger = 58
             Public Const CmdOpen As UInteger = 59
             Public Const CmdSave As UInteger = 60
             Public Const CmdSaveAsMore As UInteger = 62
@@ -37,7 +37,7 @@ Namespace RibbonLib.Controls
             Public Const CmdPageSetup As UInteger = 74
             Public Const CmdEmail As UInteger = 75
             Public Const CmdAbout As UInteger = 76
-            Public Const CmdExit As UInteger = 77
+            Public Const CmdExit1 As UInteger = 77
             Public Const CmdHelp As UInteger = 90
             Public Const CmdQuickAccessToolbar As UInteger = 87
             Public Const CmdUndo As UInteger = 88
@@ -136,10 +136,10 @@ Namespace RibbonLib.Controls
                 Return _RecentItems
             End Get
         End Property
-        Private _New As RibbonButton
-        Public ReadOnly Property [New] As RibbonButton
+        Private _New1 As RibbonButton
+        Public ReadOnly Property New1 As RibbonButton
             Get
-                Return _New
+                Return _New1
             End Get
         End Property
         Private _Open As RibbonButton
@@ -250,10 +250,10 @@ Namespace RibbonLib.Controls
                 Return _About
             End Get
         End Property
-        Private _Exit As RibbonButton
-        Public ReadOnly Property [Exit] As RibbonButton
+        Private _Exit1 As RibbonButton
+        Public ReadOnly Property Exit1 As RibbonButton
             Get
-                Return _Exit
+                Return _Exit1
             End Get
         End Property
         Private _Help As RibbonHelpButton
@@ -684,7 +684,7 @@ Namespace RibbonLib.Controls
             _ribbon = ribbon
             _ApplicationMenu = New RibbonApplicationMenu(_ribbon, Cmd.CmdApplicationMenu)
             _RecentItems = New RibbonRecentItems(_ribbon, Cmd.CmdRecentItems)
-            _New = New RibbonButton(_ribbon, Cmd.CmdNew)
+            _New1 = New RibbonButton(_ribbon, Cmd.CmdNew1)
             _Open = New RibbonButton(_ribbon, Cmd.CmdOpen)
             _Save = New RibbonButton(_ribbon, Cmd.CmdSave)
             _SaveAsMore = New RibbonSplitButton(_ribbon, Cmd.CmdSaveAsMore)
@@ -703,7 +703,7 @@ Namespace RibbonLib.Controls
             _PageSetup = New RibbonButton(_ribbon, Cmd.CmdPageSetup)
             _Email = New RibbonButton(_ribbon, Cmd.CmdEmail)
             _About = New RibbonButton(_ribbon, Cmd.CmdAbout)
-            _Exit = New RibbonButton(_ribbon, Cmd.CmdExit)
+            _Exit1 = New RibbonButton(_ribbon, Cmd.CmdExit1)
             _Help = New RibbonHelpButton(_ribbon, Cmd.CmdHelp)
             _QuickAccessToolbar = New RibbonQuickAccessToolbar(_ribbon, Cmd.CmdQuickAccessToolbar)
             _Undo = New RibbonButton(_ribbon, Cmd.CmdUndo)
