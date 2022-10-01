@@ -24,14 +24,11 @@ Public Class FormMainHost
         Call Workbench.LogTextOutput.Show(Globals.host.dockPanel)
 
         EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
+
+        Call WebApps.OpenApp("/apps/enrichment.html")
     End Sub
 
     Public Sub ShowMainPage()
-        Dim doc As New FormWebView2Page
-        doc.Show(dockPanel)
-    End Sub
-
-    Public Sub OpenDocument()
         Dim doc As New FormWebView2Page
         doc.Show(dockPanel)
     End Sub

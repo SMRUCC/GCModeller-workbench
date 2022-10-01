@@ -9,7 +9,12 @@ Public Class Globals
 
     Shared wwwroot As RunSlavePipeline
 
-    Public Shared ReadOnly webview As Integer = 19612
+    Public Shared ReadOnly webViewSvrPort As Integer = 19612
+    Public Shared ReadOnly webView As String
+
+    Shared Sub New()
+        webView = $"{App.HOME}/../web/".GetDirectoryFullPath
+    End Sub
 
     Public Shared Sub Load()
         Call Workbench.Load()
@@ -19,9 +24,8 @@ Public Class Globals
     Private Shared Sub startWebServices()
         Dim host = Rserver.RscriptCommandLine.Rscript.FromEnvironment($"{App.HOME}/Rstudio/bin")
         Dim http_server As String = $"{App.HOME}/../src\Rstudio\http.R".GetFullPath
-        Dim webView As String = $"{App.HOME}/../web/".GetDirectoryFullPath
         Dim rpkg As String = $"{App.HOME}/Rstudio/packages/Rserver.zip".GetFullPath
-        Dim commandLine As String = $"{http_server.CLIPath} --listen {Globals.webview} --wwwroot {webView.CLIPath} --attach {rpkg.CLIPath}"
+        Dim commandLine As String = $"{http_server.CLIPath} --listen {webViewSvrPort} --wwwroot {webView.CLIPath} --attach {rpkg.CLIPath}"
 
         wwwroot = host.CreateSlave(commandLine)
 

@@ -3,6 +3,8 @@ Imports WeifenLuo.WinFormsUI.Docking
 
 Public Class FormWebView2Page
 
+    Public Property sourceURL As String = "https://gcmodeller.org/"
+
     Sub New()
 
         ' This call is required by the designer.
@@ -42,10 +44,15 @@ Public Class FormWebView2Page
     End Sub
 
     Private Sub WebView21_CoreWebView2InitializationCompleted(sender As Object, e As CoreWebView2InitializationCompletedEventArgs) Handles WebView21.CoreWebView2InitializationCompleted
-        WebView21.CoreWebView2.Navigate("https://gcmodeller.org/")
+        WebView21.CoreWebView2.Navigate(sourceURL)
 
 #If Not DEBUG Then
         Call DeveloperOptions(enable:=False)
 #End If
+    End Sub
+
+    Private Sub WebView21_NavigationCompleted(sender As Object, e As CoreWebView2NavigationCompletedEventArgs) Handles WebView21.NavigationCompleted
+        Me.Text = WebView21.CoreWebView2.DocumentTitle
+        Me.TabText = Me.Text
     End Sub
 End Class
