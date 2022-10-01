@@ -17,9 +17,15 @@ Public Class FormMainHost
     Private Sub FormMainHost_Load(sender As Object, e As EventArgs) Handles Me.Load
         dockPanel.Theme = vS2015LightTheme1
         Globals.host = Me
+        Call New FormSplashScreen().ShowDialog()
 
         EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
-        OpenDocument()
+        ' OpenDocument()
+    End Sub
+
+    Public Sub ShowMainPage()
+        Dim doc As New FormWebView2Page
+        doc.Show(dockPanel)
     End Sub
 
     Public Sub OpenDocument()
