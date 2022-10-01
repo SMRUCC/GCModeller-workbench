@@ -58,9 +58,13 @@ const handleHttpGet = function(req, response) {
     writeLines(source(local$file), con = response);
   } else {
     if (!local$is_script) {
-      response 
-      |> pushDownload(local$file)
-      ;
+      if (file.ext(local$file) in ["html","htm","txt"]) {
+        writeLines(readText(local$file), con = response);
+      } else {
+        response 
+        |> pushDownload(local$file)
+        ;
+      }
     } else {
       response
       |> httpError(404, `the required Rscript file is not found on filesystem location: '${ normalizePath(local$file) }'!`)
