@@ -17,6 +17,12 @@ Public Class FormMainHost
     Private Sub FormMainHost_Load(sender As Object, e As EventArgs) Handles Me.Load
         dockPanel.Theme = vS2015LightTheme1
         Me.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
+        OpenDocument()
+    End Sub
+
+    Public Sub OpenDocument()
+        Dim doc As New FormWebView2Page
+        doc.Show(dockPanel)
     End Sub
 
     Private Function FindDocument(ByVal text As String) As IDockContent
