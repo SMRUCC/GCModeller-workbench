@@ -43,6 +43,9 @@ Public Class FormWebView2Page
 
     Private Sub WebView21_CoreWebView2InitializationCompleted(sender As Object, e As CoreWebView2InitializationCompletedEventArgs) Handles WebView21.CoreWebView2InitializationCompleted
         WebView21.CoreWebView2.Navigate("https://gcmodeller.org/")
-        DeveloperOptions(enable:=False)
+
+#If Not DEBUG Then
+        Call DeveloperOptions(enable:=False)
+#End If
     End Sub
 End Class
