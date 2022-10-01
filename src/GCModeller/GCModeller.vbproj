@@ -196,6 +196,9 @@
     <EmbeddedResource Include="DocumentPages\FormWebView2Page.resx">
       <DependentUpon>FormWebView2Page.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMainHost.resx">
+      <DependentUpon>FormMainHost.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
