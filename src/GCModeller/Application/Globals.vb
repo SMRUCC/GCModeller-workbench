@@ -9,6 +9,7 @@ Public Class Globals
     Friend Shared host As FormMainHost
 
     Shared wwwroot As RunSlavePipeline
+    Shared fastRweb As RunSlavePipeline
 
     Public Shared ReadOnly webViewSvrPort As Integer = 19612
     Public Shared ReadOnly webView As String
@@ -20,6 +21,32 @@ Public Class Globals
     Public Shared Sub Load()
         Call Workbench.Load()
         Call Globals.startWebServices()
+        Call Globals.launchFastRweb()
+    End Sub
+
+    Private Shared Sub launchFastRweb()
+        Dim host = Rserver.RscriptCommandLine.Rserve.FromEnvironment($"{App.HOME}/Rstudio/bin")
+        Dim rweb As String = $"{App.HOME}/../fastRWeb/".GetDirectoryFullPath
+        Dim commandLine As String = host.GetstartCommandLine(,, rweb:=rweb)
+
+        fastRweb = host.CreateSlave(commandLine, workdir:=host.Path.ParentPath)
+        fastRweb.Shell = True
+
+        Call RunTask(AddressOf fastRweb.Run) _
+            .DoCall(Sub(task)
+                        Call App.AddExitCleanHook(
+                            Sub()
+                                Try
+                                    Call task.Abort()
+                                Catch ex As Exception
+                                End Try
+                            End Sub)
+                    End Sub)
+        Call New Thread(
+            Sub()
+                Call Thread.Sleep(3000)
+                Call Workbench.LogTextOutput.WriteLine(fastRweb.ToString)
+            End Sub).Start()
     End Sub
 
     Private Shared Sub startWebServices()
