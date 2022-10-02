@@ -45,6 +45,10 @@ Public Class FormWebView2Page
     End Sub
 
     Private Sub WebView21_CoreWebView2InitializationCompleted(sender As Object, e As CoreWebView2InitializationCompletedEventArgs) Handles WebView21.CoreWebView2InitializationCompleted
+        If Not backend Is Nothing Then
+            WebView21.CoreWebView2.AddHostObjectToScript("gcmodeller", backend)
+        End If
+
         WebView21.CoreWebView2.Navigate(sourceURL)
 
 #If Not DEBUG Then

@@ -14,9 +14,11 @@ var __extends = (this && this.__extends) || (function () {
 /// <reference path="../build/linq.d.ts" />
 var apps;
 (function (apps) {
+    apps.gcmodeller = window.chrome.webview.hostObjects.sync.gcmodeller;
     function run() {
         Router.AddAppHandler(new pages.enrichment_database());
         Router.RunApp();
+        console.log(apps.gcmodeller);
     }
     apps.run = run;
 })(apps || (apps = {}));
@@ -39,10 +41,11 @@ var pages;
         enrichment_database.prototype.init = function () {
             // throw new Error("Method not implemented.");
         };
+        /**
+         * method execute on native host side, not R server backend
+        */
         enrichment_database.prototype.open_uniprot_onclick = function () {
-            $ts.get("@web_invoke_openfile", function (result) {
-                $ts("#formFile").CType().value = result.info;
-            });
+            $ts("#formFile").CType().value = apps.gcmodeller.getUniprotXmlDatabase();
         };
         enrichment_database.prototype.imports_onclick = function () {
             var data = {

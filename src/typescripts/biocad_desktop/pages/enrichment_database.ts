@@ -14,7 +14,7 @@ namespace pages {
          * method execute on native host side, not R server backend
         */
         public open_uniprot_onclick() {
-            
+            $ts("#formFile").CType<HTMLInputElement>().value = apps.gcmodeller.getUniprotXmlDatabase();
         }
 
         public imports_onclick() {
