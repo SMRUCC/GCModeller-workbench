@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports GCModeller_win32Desktop.RibbonLib.Controls
+Imports RibbonLib
+Imports RibbonLib.Interop
 Imports WeifenLuo.WinFormsUI.Docking
 
 Public Class FormMainHost
@@ -28,7 +30,7 @@ Public Class FormMainHost
 
         Call WebApps.OpenApp("/apps/enrichment.html")
 
-
+        Workbench.Ribbon.GroupDatabase.ContextAvailable = ContextAvailability.Active
     End Sub
 
     Public Sub ShowMainPage()

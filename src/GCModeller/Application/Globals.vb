@@ -1,6 +1,7 @@
 ﻿Imports System.Threading
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports Microsoft.VisualBasic.CommandLine.InteropService.Pipeline
+Imports Microsoft.VisualBasic.Linq
 Imports Microsoft.VisualBasic.Parallel
 
 Public Class Globals
@@ -30,7 +31,16 @@ Public Class Globals
         wwwroot = host.CreateSlave(commandLine, workdir:=host.Path.ParentPath)
         wwwroot.Shell = True
 
-        Call RunTask(AddressOf wwwroot.Run)
+        Call RunTask(AddressOf wwwroot.Run) _
+            .DoCall(Sub(task)
+                        Call App.AddExitCleanHook(
+                            Sub()
+                                Try
+                                    Call task.Abort()
+                                Catch ex As Exception
+                                End Try
+                            End Sub)
+                    End Sub)
         Call New Thread(
             Sub()
                 Call Thread.Sleep(3000)

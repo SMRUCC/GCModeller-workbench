@@ -14,8 +14,6 @@ Public Class Workbench
 
     Private Shared Sub addRibbonEvents()
         AddHandler Ribbon.About.ExecuteEvent, Sub() Call New FormSplashScreen().Show()
-
-        Ribbon.GroupDatabase.ContextAvailable = ContextAvailability.Available
     End Sub
 
     Public Shared Sub ShowStatusMessage(msg As String)
