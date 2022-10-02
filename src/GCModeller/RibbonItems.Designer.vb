@@ -46,6 +46,7 @@ Namespace RibbonLib.Controls
             Public Const cmdTabDatabase As UInteger = 98
             Public Const cmdTabGroupDatabase As UInteger = 100
             Public Const cmdButtonEnrichmentDatabase As UInteger = 99
+            Public Const cmdButtonNCBITaxonomy As UInteger = 101
             Public Const CmdTabHome As UInteger = 2
             Public Const CmdGroupClipboard As UInteger = 3
             Public Const CmdPasteMore As UInteger = 6
@@ -306,6 +307,12 @@ Namespace RibbonLib.Controls
         Public ReadOnly Property ButtonEnrichmentDatabase As RibbonButton
             Get
                 Return _ButtonEnrichmentDatabase
+            End Get
+        End Property
+        Private _ButtonNCBITaxonomy As RibbonButton
+        Public ReadOnly Property ButtonNCBITaxonomy As RibbonButton
+            Get
+                Return _ButtonNCBITaxonomy
             End Get
         End Property
         Private _TabHome As RibbonTab
@@ -740,6 +747,7 @@ Namespace RibbonLib.Controls
             _TabDatabase = New RibbonTab(_ribbon, Cmd.cmdTabDatabase)
             _TabGroupDatabase = New RibbonGroup(_ribbon, Cmd.cmdTabGroupDatabase)
             _ButtonEnrichmentDatabase = New RibbonButton(_ribbon, Cmd.cmdButtonEnrichmentDatabase)
+            _ButtonNCBITaxonomy = New RibbonButton(_ribbon, Cmd.cmdButtonNCBITaxonomy)
             _TabHome = New RibbonTab(_ribbon, Cmd.CmdTabHome)
             _GroupClipboard = New RibbonGroup(_ribbon, Cmd.CmdGroupClipboard)
             _PasteMore = New RibbonSplitButton(_ribbon, Cmd.CmdPasteMore)

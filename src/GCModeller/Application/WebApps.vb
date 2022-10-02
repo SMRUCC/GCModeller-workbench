@@ -24,4 +24,34 @@ Public Class WebApps
         End If
     End Function
 
+    Public Shared Sub RemoveZoomFactor()
+        Dim page = getCurrentPage()
+
+        If page Is Nothing Then
+            Call Workbench.ShowStatusMessage("No app page is opened!", My.Resources.dialog_warning)
+        Else
+            page.WebView21.ZoomFactor = 100
+        End If
+    End Sub
+
+    Public Shared Sub SetZoomFactor(delta As Double)
+        Dim page = getCurrentPage()
+
+        If page Is Nothing Then
+            Call Workbench.ShowStatusMessage("No app page is opened!", My.Resources.dialog_warning)
+        Else
+            page.WebView21.ZoomFactor += delta
+        End If
+    End Sub
+
+    Private Shared Function getCurrentPage() As FormWebView2Page
+        Dim active As DockContent = Globals.host.dockPanel.ActiveContent
+
+        If TypeOf active Is FormWebView2Page Then
+            Return active
+        Else
+            Return Nothing
+        End If
+    End Function
+
 End Class

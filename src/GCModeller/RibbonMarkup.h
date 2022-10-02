@@ -654,3 +654,10 @@
 #define cmdTabGroupDatabase_LabelDescription_RESID 60548
 #define cmdTabGroupDatabase_TooltipTitle_RESID 60549
 #define cmdTabGroupDatabase_TooltipDescription_RESID 60550
+#define cmdButtonNCBITaxonomy 101 
+#define cmdButtonNCBITaxonomy_LabelTitle_RESID 60551
+#define cmdButtonNCBITaxonomy_LabelDescription_RESID 60552
+#define cmdButtonNCBITaxonomy_TooltipTitle_RESID 60553
+#define cmdButtonNCBITaxonomy_TooltipDescription_RESID 60554
+#define cmdButtonNCBITaxonomy_SmallImages_192__RESID 60555
+#define cmdButtonNCBITaxonomy_LargeImages_192__RESID 60556

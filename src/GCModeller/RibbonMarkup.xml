@@ -704,6 +704,14 @@
       </Command.LargeImages>
     </Command>
     <Command Name="cmdTabGroupDatabase" Id="100" LabelTitle="Database" LabelDescription="Database" TooltipTitle="Database" TooltipDescription="Database" />
+    <Command Name="cmdButtonNCBITaxonomy" Id="101" LabelTitle="NCBI Taxonomy Database" LabelDescription="NCBI Taxonomy Database" TooltipTitle="NCBI Taxonomy Database" TooltipDescription="NCBI Taxonomy Database">
+      <Command.SmallImages>
+        <Image MinDPI="192">Res/devices/drive-multidisk.png</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image MinDPI="192">Res/devices/drive-multidisk.png</Image>
+      </Command.LargeImages>
+    </Command>
   </Application.Commands>
   <Application.Views>
     <Ribbon Name="Ribbon">
@@ -863,8 +871,9 @@
       <Ribbon.ContextualTabs>
         <TabGroup CommandName="cmdGroupDatabase">
           <Tab CommandName="cmdTabDatabase">
-            <Group CommandName="cmdTabGroupDatabase" SizeDefinition="OneButton">
+            <Group CommandName="cmdTabGroupDatabase" SizeDefinition="TwoButtons">
               <Button CommandName="cmdButtonEnrichmentDatabase" />
+              <Button CommandName="cmdButtonNCBITaxonomy" />
             </Group>
           </Tab>
         </TabGroup>

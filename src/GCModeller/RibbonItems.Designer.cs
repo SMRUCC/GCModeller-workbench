@@ -49,6 +49,7 @@ namespace RibbonLib.Controls
             public const uint cmdTabDatabase = 98;
             public const uint cmdTabGroupDatabase = 100;
             public const uint cmdButtonEnrichmentDatabase = 99;
+            public const uint cmdButtonNCBITaxonomy = 101;
             public const uint CmdTabHome = 2;
             public const uint CmdGroupClipboard = 3;
             public const uint CmdPasteMore = 6;
@@ -156,6 +157,7 @@ namespace RibbonLib.Controls
         public RibbonTab TabDatabase { get; private set; }
         public RibbonGroup TabGroupDatabase { get; private set; }
         public RibbonButton ButtonEnrichmentDatabase { get; private set; }
+        public RibbonButton ButtonNCBITaxonomy { get; private set; }
         public RibbonTab TabHome { get; private set; }
         public RibbonGroup GroupClipboard { get; private set; }
         public RibbonSplitButton PasteMore { get; private set; }
@@ -258,6 +260,7 @@ namespace RibbonLib.Controls
             TabDatabase = new RibbonTab(ribbon, Cmd.cmdTabDatabase);
             TabGroupDatabase = new RibbonGroup(ribbon, Cmd.cmdTabGroupDatabase);
             ButtonEnrichmentDatabase = new RibbonButton(ribbon, Cmd.cmdButtonEnrichmentDatabase);
+            ButtonNCBITaxonomy = new RibbonButton(ribbon, Cmd.cmdButtonNCBITaxonomy);
             TabHome = new RibbonTab(ribbon, Cmd.CmdTabHome);
             GroupClipboard = new RibbonGroup(ribbon, Cmd.CmdGroupClipboard);
             PasteMore = new RibbonSplitButton(ribbon, Cmd.CmdPasteMore);
