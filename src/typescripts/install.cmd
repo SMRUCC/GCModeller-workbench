@@ -53,6 +53,13 @@ SET jump=linq_end
 CALL :exec_gcc linq
 :linq_end
 
+
+:biocad_desktop_js
+
+SET jump=biocad_desktop_end
+CALL :exec_gcc biocad_desktop
+:biocad_desktop_end
+
 echo "all done!"
 pause
 
