@@ -14,6 +14,7 @@ Public Class Workbench
 
     Private Shared Sub addRibbonEvents()
         AddHandler Ribbon.About.ExecuteEvent, Sub() Call New FormSplashScreen().Show()
+        AddHandler Ribbon.ButtonEnrichmentDatabase.ExecuteEvent, Sub() Call WebApps.OpenApp("/toolkit/enrichment_database.html")
     End Sub
 
     Public Shared Sub ShowStatusMessage(msg As String)
