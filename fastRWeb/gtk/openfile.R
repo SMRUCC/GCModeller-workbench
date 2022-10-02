@@ -1,5 +1,11 @@
 imports "gtk" from "Rstudio";
 
-files = gtk::selectFiles(filter = "UniProt database(*.xml)|*.xml", multiple = FALSE);
+const run = function() {
+    let files = gtk::selectFiles(filter = "UniProt database(*.xml)|*.xml", multiple = FALSE);
 
-writeLines(files, con = buffer("text"));
+    print("file open:");
+    print(files);
+
+    writeLines(files, con = buffer("text"));
+}
+
