@@ -1,4 +1,5 @@
-﻿Imports GCModeller_win32Desktop.RibbonLib.Controls
+﻿Imports System.ComponentModel
+Imports GCModeller_win32Desktop.RibbonLib.Controls
 Imports WeifenLuo.WinFormsUI.Docking
 
 Public Class FormMainHost
@@ -69,5 +70,13 @@ Public Class FormMainHost
 
     Private Sub EnableVSRenderer(version As VisualStudioToolStripExtender.VsVersion, theme As ThemeBase)
         vsToolStripExtender1.SetStyle(StatusStrip1, version, theme)
+    End Sub
+
+    Private Sub FormMainHost_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+
+    End Sub
+
+    Private Sub FormMainHost_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Call App.Exit()
     End Sub
 End Class
