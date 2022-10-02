@@ -49,10 +49,13 @@ Public Class FormWebView2Page
             WebView21.CoreWebView2.AddHostObjectToScript("gcmodeller", backend)
         End If
 
+        WebView21.CoreWebView2.OpenDevToolsWindow()
         WebView21.CoreWebView2.Navigate(sourceURL)
 
 #If Not DEBUG Then
         Call DeveloperOptions(enable:=False)
+#Else
+      
 #End If
     End Sub
 
