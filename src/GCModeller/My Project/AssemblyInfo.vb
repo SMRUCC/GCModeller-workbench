@@ -15,7 +15,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCopyright("Copyright © genomics@SMRUCC.org 2022")>
 <Assembly: AssemblyTrademark("GCModeller")>
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(True)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("41f3f14a-dbd7-4d72-9666-4976ccd85204")>
