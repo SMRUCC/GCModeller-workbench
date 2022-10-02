@@ -6,11 +6,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="shortcut icon" href="/logo.png" />
   <!-- Bootstrap CSS -->
   <link href="/styles/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <title>Enrichment Database Toolkit</title>
+
 </head>
 
 <body>
@@ -18,11 +20,12 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <div class="mb-3">
-            <label for="formFile" class="form-label">Imports UniProt database assembly as background model:</label>
-            <input class="form-control" type="file" id="formFile" accept="application/xml" >
-          </div>
+
+        <label for="formFile" class="form-label">Imports UniProt database assembly as background model:</label>
+        <button type="button" class="btn btn-primary mb-3">Open</button>
+        <input class="form-control" type="text" id="formFile">
       </div>
+
     </div>
     <div class="row">
       <div class="col-auto">
