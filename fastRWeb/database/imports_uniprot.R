@@ -4,14 +4,22 @@ require(GCModeller);
 imports "ptf" from "annotationKit";
 imports "uniprot" from "seqtoolkit";
 
-const run = function(file) {
-    const savedb as string = `/etc/repository/ptf/${md5(basename(file))}.db`;
+const run = function(file, name, note = "") {
+    const savedb as string = `/etc/repository/ptf/${md5(name)}.db`;
+    const metafile as string = `/etc/repository/ptf/${md5(name)}.json`;
     const result as string = 
-    
+
     try({
         file 
         |> open.uniprot(file)
         |> cache.ptf(file = savedb, hds.stream = TRUE)
+        ;
+
+        json_encode({
+            name: name,
+            note: note
+        })
+        |> writeLines(con = metafile)
         ;
 
         "success";

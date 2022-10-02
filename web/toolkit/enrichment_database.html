@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="app" content="enrichment_database" />
   <meta name="web_invoke_openfile" content="http://localhost:7452/gtk/openfile">
+  <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
 
   <link rel="shortcut icon" href="/logo.png" />
   <!-- Bootstrap CSS -->
@@ -29,9 +30,20 @@
       </div>
 
     </div>
+
     <div class="row">
       <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Imports</button>
+        <label for="title" class="form-label">Database Name:</label>
+        <input class="form-control" type="text" id="title">
+        <label for="description" class="form-label">Notes:</label>
+        <textarea class="form-control" id="description" rows="5"></textarea>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-auto">
+        <button id="imports" type="button" class="btn btn-primary mb-3">Imports</button>
       </div>
     </div>
   </div>

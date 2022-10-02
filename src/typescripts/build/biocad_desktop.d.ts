@@ -7,5 +7,6 @@ declare namespace pages {
         readonly appName: string;
         protected init(): void;
         open_uniprot_onclick(): void;
+        imports_onclick(): void;
     }
 }

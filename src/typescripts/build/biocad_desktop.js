@@ -44,6 +44,20 @@ var pages;
                 $ts("#formFile").CType().value = result.info;
             });
         };
+        enrichment_database.prototype.imports_onclick = function () {
+            var data = {
+                file: $ts.value("#formFile"),
+                name: $ts.value("#title"),
+                note: $ts.value("#description")
+            };
+            $ts.post("@web_invoke_imports", data, function (result) {
+                if (result.code != 0) {
+                }
+                else {
+                    // location.reload();
+                }
+            });
+        };
         return enrichment_database;
     }(Bootstrap));
     pages.enrichment_database = enrichment_database;

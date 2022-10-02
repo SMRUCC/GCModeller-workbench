@@ -15,5 +15,21 @@ namespace pages {
                 $ts("#formFile").CType<HTMLInputElement>().value = result.info;
             });
         }
+
+        public imports_onclick() {
+            const data = {
+                file: $ts.value("#formFile"),
+                name: $ts.value("#title"),
+                note: $ts.value("#description")
+            };
+
+            $ts.post("@web_invoke_imports", data, function (result: IMsg<string>) {
+                if (result.code != 0) {
+
+                } else {
+                    // location.reload();
+                }
+            });
+        }
     }
 }
