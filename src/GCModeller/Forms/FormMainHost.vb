@@ -28,7 +28,7 @@ Public Class FormMainHost
 
         EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
 
-        Call WebApps.OpenApp("/apps/enrichment.html")
+        Call WebApp.Open(Of RunEnrichment)()
 
         Workbench.Ribbon.GroupDatabase.ContextAvailable = ContextAvailability.Active
     End Sub

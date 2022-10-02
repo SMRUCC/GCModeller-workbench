@@ -10,10 +10,11 @@ namespace pages {
             // throw new Error("Method not implemented.");
         }
 
+        /**
+         * method execute on native host side, not R server backend
+        */
         public open_uniprot_onclick() {
-            $ts.get("@web_invoke_openfile", function (result: IMsg<string>) {
-                $ts("#formFile").CType<HTMLInputElement>().value = result.info;
-            });
+            
         }
 
         public imports_onclick() {

@@ -13,12 +13,12 @@ Public Class Workbench
 
     Private Shared Sub addRibbonEvents()
         AddHandler Ribbon.About.ExecuteEvent, Sub() Call New FormSplashScreen().Show()
-        AddHandler Ribbon.ButtonEnrichmentDatabase.ExecuteEvent, Sub() Call WebApps.OpenApp("/toolkit/enrichment_database.html")
-        AddHandler Ribbon.ButtonNCBITaxonomy.ExecuteEvent, Sub() Call WebApps.OpenApp("/toolkit/ncbi_taxonomy.html")
+        AddHandler Ribbon.ButtonEnrichmentDatabase.ExecuteEvent, Sub() Call WebApp.Open(Of ImportsUniprot)()
+        AddHandler Ribbon.ButtonNCBITaxonomy.ExecuteEvent, Sub() Call WebApp.Open(Of ImportsNCBITaxonomy)()
 
-        AddHandler Ribbon.ZoomIn.ExecuteEvent, Sub() Call WebApps.SetZoomFactor(5)
-        AddHandler Ribbon.ZoomOut.ExecuteEvent, Sub() Call WebApps.SetZoomFactor(-5)
-        AddHandler Ribbon.Zoom100Percent.ExecuteEvent, Sub() Call WebApps.RemoveZoomFactor()
+        AddHandler Ribbon.ZoomIn.ExecuteEvent, Sub() Call WebApp.SetZoomFactor(5)
+        AddHandler Ribbon.ZoomOut.ExecuteEvent, Sub() Call WebApp.SetZoomFactor(-5)
+        AddHandler Ribbon.Zoom100Percent.ExecuteEvent, Sub() Call WebApp.RemoveZoomFactor()
     End Sub
 
     Public Shared Sub ShowStatusMessage(msg As String, Optional icon As Image = Nothing)

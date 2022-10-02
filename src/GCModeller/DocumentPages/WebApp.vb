@@ -1,27 +1,36 @@
 ﻿Imports WeifenLuo.WinFormsUI.Docking
 
-Public Class WebApps
+Public MustInherit Class WebApp
 
-    Public ReadOnly Property url As String
+    Public Overridable ReadOnly Property url As String
         Get
-            Return $"http://localhost:{Globals.webViewSvrPort}/{page}"
+            Return $"http://localhost:{Globals.webViewSvrPort}/{page.TrimStart("/"c)}"
         End Get
     End Property
 
-    Dim page As String
+    Protected ReadOnly page As String
 
-    Public Shared Function OpenApp(page As String) As Boolean
-        Return New WebApps() With {.page = page}.Open
-    End Function
+    Sub New(page As String)
+        Me.page = page
+    End Sub
 
     Public Function Open() As Boolean
         If $"{Globals.webView}/{page}".FileExists Then
-            Dim doc As New FormWebView2Page With {.sourceURL = url}
-            doc.Show(Globals.host.dockPanel)
+            Dim doc As New FormWebView2Page With {
+                .sourceURL = url,
+                .backend = Me
+            }
+
+            Call doc.Show(Globals.host.dockPanel)
+
             Return True
         Else
             Return False
         End If
+    End Function
+
+    Public Shared Function Open(Of app As {New, WebApp})() As Boolean
+        Return New app().Open
     End Function
 
     Public Shared Sub RemoveZoomFactor()

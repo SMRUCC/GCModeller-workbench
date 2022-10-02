@@ -4,6 +4,7 @@ Imports WeifenLuo.WinFormsUI.Docking
 Public Class FormWebView2Page
 
     Public Property sourceURL As String = "https://gcmodeller.org/"
+    Public Property backend As WebApp
 
     Sub New()
 
