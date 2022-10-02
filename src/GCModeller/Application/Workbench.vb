@@ -27,7 +27,7 @@ Public Class Workbench
                 If Not icon Is Nothing Then
                     Globals.host.ToolStripStatusLabel1.Image = icon
                 Else
-                    Globals.host.ToolStripStatusLabel1.Image = My.Resources.dialog_information
+                    Globals.host.ToolStripStatusLabel1.Image = My.Resources.user_invisible
                 End If
 
                 Globals.host.ToolStripStatusLabel1.Text = msg
