@@ -3,7 +3,11 @@ imports "gtk" from "Rstudio";
 require(JSON);
 
 const run = function() {
-    let files = gtk::selectFiles(filter = "UniProt database(*.xml)|*.xml", multiple = FALSE);
+    let files = gtk::selectFiles(
+        filter      = "UniProt database(*.xml)|*.xml", 
+        multiple    = FALSE, 
+        throwCancel = FALSE
+    );
 
     print("file open:");
     print(files);
