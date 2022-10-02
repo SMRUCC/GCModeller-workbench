@@ -37,7 +37,11 @@ var pages;
             configurable: true
         });
         enrichment_database.prototype.init = function () {
-            throw new Error("Method not implemented.");
+            // throw new Error("Method not implemented.");
+        };
+        enrichment_database.prototype.open_uniprot_onclick = function () {
+            $ts.get("@web_invoke_openfile", function (result) {
+            });
         };
         return enrichment_database;
     }(Bootstrap));
