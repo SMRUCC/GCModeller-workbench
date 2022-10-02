@@ -28,14 +28,14 @@ Public Class FormMainHost
 
         EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
 
-        Call WebApp.Open(Of RunEnrichment)()
+        ' Call WebApp.Open(Of RunEnrichment)()
 
         Workbench.Ribbon.GroupDatabase.ContextAvailable = ContextAvailability.Active
     End Sub
 
     Public Sub ShowMainPage()
-        Dim doc As New FormWebView2Page
-        doc.Show(dockPanel)
+        'Dim doc As New FormWebView2Page
+        'doc.Show(dockPanel)
     End Sub
 
     Private Function FindDocument(ByVal text As String) As IDockContent
