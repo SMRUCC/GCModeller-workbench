@@ -26,6 +26,8 @@ Public Class FormMainHost
         EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
 
         Call WebApps.OpenApp("/apps/enrichment.html")
+
+
     End Sub
 
     Public Sub ShowMainPage()

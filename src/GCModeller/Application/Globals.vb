@@ -27,7 +27,8 @@ Public Class Globals
         Dim rpkg As String = $"{App.HOME}/Rstudio/packages/Rserver.zip".GetFullPath
         Dim commandLine As String = $"{http_server.CLIPath} --listen {webViewSvrPort} --wwwroot {webView.CLIPath} --attach {rpkg.CLIPath}"
 
-        wwwroot = host.CreateSlave(commandLine)
+        wwwroot = host.CreateSlave(commandLine, workdir:=host.Path.ParentPath)
+        wwwroot.Shell = True
 
         Call RunTask(AddressOf wwwroot.Run)
         Call New Thread(
