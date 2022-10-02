@@ -26,6 +26,8 @@ Public Class Workbench
             Sub()
                 If Not icon Is Nothing Then
                     Globals.host.ToolStripStatusLabel1.Image = icon
+                Else
+                    Globals.host.ToolStripStatusLabel1.Image = My.Resources.dialog_information
                 End If
 
                 Globals.host.ToolStripStatusLabel1.Text = msg

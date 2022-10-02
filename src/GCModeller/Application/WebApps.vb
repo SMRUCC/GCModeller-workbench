@@ -30,7 +30,7 @@ Public Class WebApps
         If page Is Nothing Then
             Call Workbench.ShowStatusMessage("No app page is opened!", My.Resources.dialog_warning)
         Else
-            page.WebView21.ZoomFactor = 100
+            page.WebView21.ZoomFactor = 1
         End If
     End Sub
 
@@ -40,7 +40,11 @@ Public Class WebApps
         If page Is Nothing Then
             Call Workbench.ShowStatusMessage("No app page is opened!", My.Resources.dialog_warning)
         Else
-            page.WebView21.ZoomFactor += delta
+            Try
+                page.WebView21.ZoomFactor += delta / 100
+            Catch ex As Exception
+                Call Workbench.ShowStatusMessage(ex.Message, My.Resources.dialog_warning)
+            End Try
         End If
     End Sub
 
