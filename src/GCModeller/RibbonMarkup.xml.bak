@@ -563,7 +563,7 @@
         <Image MinDPI="192">Res/E-mail_L192.bmp</Image>
       </Command.LargeImages>
     </Command>
-    <Command Name="CmdAbout" LabelTitle="Abou&amp;t WordPad">
+    <Command Name="CmdAbout" LabelTitle="Abou&amp;t GCModeller Workbench">
       <Command.SmallImages>
         <Image>Res/About_S096.bmp</Image>
         <Image MinDPI="120">Res/About_S120.bmp</Image>
@@ -693,6 +693,16 @@
     <Command Name="CmdOpenObject" LabelTitle="Open object" />
     <Command Name="CmdLinks" LabelTitle="Links" />
     <Command Name="CmdContextPopupObject" />
+    <Command Name="cmdGroupDatabase" Id="97" LabelTitle="Database Manager" LabelDescription="Database Manager" TooltipTitle="Database Manager" TooltipDescription="Database Manager" />
+    <Command Name="cmdTabDatabase" Id="98" LabelTitle="Database" LabelDescription="Database" TooltipTitle="Database" TooltipDescription="Database" />
+    <Command Name="cmdButtonEnrichmentDatabase" Id="99" LabelTitle="Enrichment Database" LabelDescription="Enrichment Database" TooltipTitle="Enrichment Database" TooltipDescription="Enrichment Database">
+      <Command.SmallImages>
+        <Image MinDPI="192">Res/devices/drive-multidisk.png</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image MinDPI="192">Res/devices/drive-multidisk.png</Image>
+      </Command.LargeImages>
+    </Command>
   </Application.Commands>
   <Application.Views>
     <Ribbon Name="Ribbon">

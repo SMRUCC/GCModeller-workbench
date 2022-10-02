@@ -42,6 +42,10 @@ Namespace RibbonLib.Controls
             Public Const CmdQuickAccessToolbar As UInteger = 87
             Public Const CmdUndo As UInteger = 88
             Public Const CmdRedo As UInteger = 89
+            Public Const cmdGroupDatabase As UInteger = 97
+            Public Const cmdTabDatabase As UInteger = 98
+            Public Const cmdTabGroupDatabase As UInteger = 100
+            Public Const cmdButtonEnrichmentDatabase As UInteger = 99
             Public Const CmdTabHome As UInteger = 2
             Public Const CmdGroupClipboard As UInteger = 3
             Public Const CmdPasteMore As UInteger = 6
@@ -278,6 +282,30 @@ Namespace RibbonLib.Controls
         Public ReadOnly Property Redo As RibbonButton
             Get
                 Return _Redo
+            End Get
+        End Property
+        Private _GroupDatabase As RibbonTabGroup
+        Public ReadOnly Property GroupDatabase As RibbonTabGroup
+            Get
+                Return _GroupDatabase
+            End Get
+        End Property
+        Private _TabDatabase As RibbonTab
+        Public ReadOnly Property TabDatabase As RibbonTab
+            Get
+                Return _TabDatabase
+            End Get
+        End Property
+        Private _TabGroupDatabase As RibbonGroup
+        Public ReadOnly Property TabGroupDatabase As RibbonGroup
+            Get
+                Return _TabGroupDatabase
+            End Get
+        End Property
+        Private _ButtonEnrichmentDatabase As RibbonButton
+        Public ReadOnly Property ButtonEnrichmentDatabase As RibbonButton
+            Get
+                Return _ButtonEnrichmentDatabase
             End Get
         End Property
         Private _TabHome As RibbonTab
@@ -708,6 +736,10 @@ Namespace RibbonLib.Controls
             _QuickAccessToolbar = New RibbonQuickAccessToolbar(_ribbon, Cmd.CmdQuickAccessToolbar)
             _Undo = New RibbonButton(_ribbon, Cmd.CmdUndo)
             _Redo = New RibbonButton(_ribbon, Cmd.CmdRedo)
+            _GroupDatabase = New RibbonTabGroup(_ribbon, Cmd.cmdGroupDatabase)
+            _TabDatabase = New RibbonTab(_ribbon, Cmd.cmdTabDatabase)
+            _TabGroupDatabase = New RibbonGroup(_ribbon, Cmd.cmdTabGroupDatabase)
+            _ButtonEnrichmentDatabase = New RibbonButton(_ribbon, Cmd.cmdButtonEnrichmentDatabase)
             _TabHome = New RibbonTab(_ribbon, Cmd.CmdTabHome)
             _GroupClipboard = New RibbonGroup(_ribbon, Cmd.CmdGroupClipboard)
             _PasteMore = New RibbonSplitButton(_ribbon, Cmd.CmdPasteMore)

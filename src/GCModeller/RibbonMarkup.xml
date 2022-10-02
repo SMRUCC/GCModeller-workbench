@@ -693,6 +693,17 @@
     <Command Name="CmdOpenObject" LabelTitle="Open object" />
     <Command Name="CmdLinks" LabelTitle="Links" />
     <Command Name="CmdContextPopupObject" />
+    <Command Name="cmdGroupDatabase" Id="97" LabelTitle="Database Manager" LabelDescription="Database Manager" TooltipTitle="Database Manager" TooltipDescription="Database Manager" />
+    <Command Name="cmdTabDatabase" Id="98" LabelTitle="Database" LabelDescription="Database" TooltipTitle="Database" TooltipDescription="Database" />
+    <Command Name="cmdButtonEnrichmentDatabase" Id="99" LabelTitle="Enrichment Database" LabelDescription="Enrichment Database" TooltipTitle="Enrichment Database" TooltipDescription="Enrichment Database">
+      <Command.SmallImages>
+        <Image MinDPI="192">Res/devices/drive-multidisk.png</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image MinDPI="192">Res/devices/drive-multidisk.png</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="cmdTabGroupDatabase" Id="100" LabelTitle="Database" LabelDescription="Database" TooltipTitle="Database" TooltipDescription="Database" />
   </Application.Commands>
   <Application.Views>
     <Ribbon Name="Ribbon">
@@ -849,6 +860,15 @@
           </QuickAccessToolbar.ApplicationDefaults>
         </QuickAccessToolbar>
       </Ribbon.QuickAccessToolbar>
+      <Ribbon.ContextualTabs>
+        <TabGroup CommandName="cmdGroupDatabase">
+          <Tab CommandName="cmdTabDatabase">
+            <Group CommandName="cmdTabGroupDatabase" SizeDefinition="OneButton">
+              <Button CommandName="cmdButtonEnrichmentDatabase" />
+            </Group>
+          </Tab>
+        </TabGroup>
+      </Ribbon.ContextualTabs>
       <Ribbon.Tabs>
         <Tab CommandName="CmdTabHome" ApplicationModes="0">
           <Tab.ScalingPolicy>

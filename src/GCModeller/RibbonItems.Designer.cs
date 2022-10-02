@@ -45,6 +45,10 @@ namespace RibbonLib.Controls
             public const uint CmdQuickAccessToolbar = 87;
             public const uint CmdUndo = 88;
             public const uint CmdRedo = 89;
+            public const uint cmdGroupDatabase = 97;
+            public const uint cmdTabDatabase = 98;
+            public const uint cmdTabGroupDatabase = 100;
+            public const uint cmdButtonEnrichmentDatabase = 99;
             public const uint CmdTabHome = 2;
             public const uint CmdGroupClipboard = 3;
             public const uint CmdPasteMore = 6;
@@ -148,6 +152,10 @@ namespace RibbonLib.Controls
         public RibbonQuickAccessToolbar QuickAccessToolbar { get; private set; }
         public RibbonButton Undo { get; private set; }
         public RibbonButton Redo { get; private set; }
+        public RibbonTabGroup GroupDatabase { get; private set; }
+        public RibbonTab TabDatabase { get; private set; }
+        public RibbonGroup TabGroupDatabase { get; private set; }
+        public RibbonButton ButtonEnrichmentDatabase { get; private set; }
         public RibbonTab TabHome { get; private set; }
         public RibbonGroup GroupClipboard { get; private set; }
         public RibbonSplitButton PasteMore { get; private set; }
@@ -246,6 +254,10 @@ namespace RibbonLib.Controls
             QuickAccessToolbar = new RibbonQuickAccessToolbar(ribbon, Cmd.CmdQuickAccessToolbar);
             Undo = new RibbonButton(ribbon, Cmd.CmdUndo);
             Redo = new RibbonButton(ribbon, Cmd.CmdRedo);
+            GroupDatabase = new RibbonTabGroup(ribbon, Cmd.cmdGroupDatabase);
+            TabDatabase = new RibbonTab(ribbon, Cmd.cmdTabDatabase);
+            TabGroupDatabase = new RibbonGroup(ribbon, Cmd.cmdTabGroupDatabase);
+            ButtonEnrichmentDatabase = new RibbonButton(ribbon, Cmd.cmdButtonEnrichmentDatabase);
             TabHome = new RibbonTab(ribbon, Cmd.CmdTabHome);
             GroupClipboard = new RibbonGroup(ribbon, Cmd.CmdGroupClipboard);
             PasteMore = new RibbonSplitButton(ribbon, Cmd.CmdPasteMore);
