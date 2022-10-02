@@ -11,8 +11,8 @@ namespace pages {
         }
 
         public open_uniprot_onclick() {
-            $ts.get("@web_invoke_openfile", function (result) {
-                $ts("#formFile").CType<HTMLInputElement>().value = <any>result;
+            $ts.get("@web_invoke_openfile", function (result: IMsg<string>) {
+                $ts("#formFile").CType<HTMLInputElement>().value = result.info;
             });
         }
     }

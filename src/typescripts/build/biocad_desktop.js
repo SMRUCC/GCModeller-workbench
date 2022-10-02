@@ -41,7 +41,7 @@ var pages;
         };
         enrichment_database.prototype.open_uniprot_onclick = function () {
             $ts.get("@web_invoke_openfile", function (result) {
-                $ts("#formFile").CType().value = result;
+                $ts("#formFile").CType().value = result.info;
             });
         };
         return enrichment_database;

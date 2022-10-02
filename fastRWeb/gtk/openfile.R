@@ -1,11 +1,18 @@
 imports "gtk" from "Rstudio";
 
+require(JSON);
+
 const run = function() {
     let files = gtk::selectFiles(filter = "UniProt database(*.xml)|*.xml", multiple = FALSE);
 
     print("file open:");
     print(files);
 
-    writeLines(files, con = buffer("text"));
+    json_encode({
+        code: ifelse(is.null(files) || [length(files) == 0], 500, 0), 
+        info: files
+    }) 
+    |> writeLines(con = buffer("text"))
+    ;
 }
 
