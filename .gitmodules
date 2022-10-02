@@ -1,3 +1,6 @@
 [submodule "src/Rstudio/Rserver"]
 	path = src/Rstudio/Rserver
 	url = https://github.com/rsharp-lang/Rserver.git
+[submodule "src/typescripts/Linq.js"]
+	path = src/typescripts/Linq.js
+	url = https://github.com/biocad-cloud/data.ts.git
