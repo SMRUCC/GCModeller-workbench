@@ -1,5 +1,10 @@
-﻿Imports WeifenLuo.WinFormsUI.Docking
+﻿Imports System.Runtime.InteropServices
+Imports WeifenLuo.WinFormsUI.Docking
 
+' 所有需要在JavaScript环境中暴露的对象
+' 都需要标记上下面的两个自定义属性
+<ClassInterface(ClassInterfaceType.AutoDual)>
+<ComVisible(True)>
 Public MustInherit Class WebApp
 
     Public Overridable ReadOnly Property url As String
@@ -13,6 +18,10 @@ Public MustInherit Class WebApp
     Sub New(page As String)
         Me.page = page
     End Sub
+
+    Public Overrides Function ToString() As String
+        Return url
+    End Function
 
     Public Function Open() As Boolean
         If $"{Globals.webView}/{page}".FileExists Then
