@@ -62,23 +62,12 @@ namespace desktop {
         if (typeof text == "string") {
             text = text.replace(/[<]/ig, "&lt;");
             text = Strings.lineTokens(<string>text).join("<br />");
-        } else if (isRSharpError(<any>text)) {
-            text = RSharpErrorMessage(<any>text);
+        } else if (RSharp.isRSharpError(<any>text)) {
+            text = RSharp.RSharpErrorMessage(<any>text);
         } else {
             text = "Unhandle error!";
         }
 
         return <string>text;
-    }
-
-    function RSharpErrorMessage(obj: RSharpError): string {
-
-    }
-
-    function isRSharpError(obj: {}): boolean {
-        const type = TypeScript.Reflection.$typeof(obj);
-        const checks = ["Message", "Source", "TypeFullName", "StackTrace"];
-
-        return $ts(checks).All(name => type.property.indexOf(name) > -1);
     }
 }
