@@ -283,6 +283,9 @@
     <EmbeddedResource Include="DocumentPages\FormWebView2Page.resx">
       <DependentUpon>FormWebView2Page.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\DockWindow.resx">
+      <DependentUpon>DockWindow.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMainHost.resx">
       <DependentUpon>FormMainHost.vb</DependentUpon>
     </EmbeddedResource>
