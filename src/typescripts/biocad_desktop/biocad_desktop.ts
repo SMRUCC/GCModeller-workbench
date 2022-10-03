@@ -10,6 +10,20 @@ interface hostMsg {
 
 namespace desktop {
 
+    export async function parseResultFlag(msg: hostMsg, message: IMsg<string>) {
+        const flag = await msg.result;
+        const result = flag || (message.code == 0);
+
+        return flag;
+    }
+
+    export async function parseMessage(msg: hostMsg) {
+        const dataString = await msg.data;
+        const json = <IMsg<string>>JSON.parse(dataString);
+
+        return json;
+    }
+
     export function showToastMessage(msg: string,
         title: string = "Task Error",
         subtitle: string = "",

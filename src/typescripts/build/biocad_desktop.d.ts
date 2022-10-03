@@ -15,6 +15,8 @@ interface hostMsg {
     data: string;
 }
 declare namespace desktop {
+    function parseResultFlag(msg: hostMsg, message: IMsg<string>): Promise<boolean>;
+    function parseMessage(msg: hostMsg): Promise<IMsg<string>>;
     function showToastMessage(msg: string, title?: string, subtitle?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
 }
 declare namespace pages {

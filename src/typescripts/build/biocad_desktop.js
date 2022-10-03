@@ -38,6 +38,22 @@ $ts.mode = Modes.debug;
 $ts(apps.run);
 var desktop;
 (function (desktop) {
+    function parseResultFlag(msg, message) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const flag = yield msg.result;
+            const result = flag || (message.code == 0);
+            return flag;
+        });
+    }
+    desktop.parseResultFlag = parseResultFlag;
+    function parseMessage(msg) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const dataString = yield msg.data;
+            const json = JSON.parse(dataString);
+            return json;
+        });
+    }
+    desktop.parseMessage = parseMessage;
     function showToastMessage(msg, title = "Task Error", subtitle = "", level = "info", autohide = true) {
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
@@ -108,18 +124,20 @@ var pages;
                 .sendPost($ts.url("@web_invoke_imports"), json)
                 .then(function (msg) {
                 return __awaiter(this, void 0, void 0, function* () {
-                    const flag = yield msg.result;
-                    const message = yield msg.data;
-                    const title = flag ? "Imports Task Success" : "Imports Task Error";
-                    if (flag) {
-                        // success
-                        desktop.showToastMessage(message, title, null, "success");
-                    }
-                    else {
-                        // error
-                        desktop.showToastMessage(message, title, null, "danger");
-                    }
-                    $ts("#busy-indicator").hide();
+                    desktop.parseMessage(msg).then(function (message) {
+                        desktop.parseResultFlag(msg, message).then(function (flag) {
+                            const title = flag ? "Imports Task Success" : "Imports Task Error";
+                            if (flag) {
+                                // success
+                                desktop.showToastMessage(message.info, title, null, "success");
+                            }
+                            else {
+                                // error
+                                desktop.showToastMessage(message.info, title, null, "danger");
+                            }
+                            $ts("#busy-indicator").hide();
+                        });
+                    });
                 });
             });
         }

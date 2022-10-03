@@ -37,21 +37,22 @@ namespace pages {
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_imports"), json)
                 .then(async function (msg) {
-                    const flag = await msg.result;
-                    const message = await msg.data;
-                    const title = flag ? "Imports Task Success" : "Imports Task Error";
+                    desktop.parseMessage(msg).then(function (message) {
+                        desktop.parseResultFlag(msg, message).then(function (flag) {
+                            const title = flag ? "Imports Task Success" : "Imports Task Error";
 
-                    if (flag) {
-                        // success
-                        desktop.showToastMessage(message, title, null, "success");
-                    } else {
-                        // error
-                        desktop.showToastMessage(message, title, null, "danger");
-                    }
+                            if (flag) {
+                                // success
+                                desktop.showToastMessage(message.info, title, null, "success");
+                            } else {
+                                // error
+                                desktop.showToastMessage(message.info, title, null, "danger");
+                            }
 
-                    $ts("#busy-indicator").hide();
-                })
-                ;
+                            $ts("#busy-indicator").hide();
+                        });
+                    });
+                });
         }
     }
 }
