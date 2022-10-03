@@ -63,4 +63,16 @@ Public Class FormWebView2Page
         Me.Text = WebView21.CoreWebView2.DocumentTitle
         Me.TabText = Me.Text
     End Sub
+
+    Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
+        If MessageBox.Show("Close current app page?", "Workbench WebView", buttons:=MessageBoxButtons.OKCancel, icon:=MessageBoxIcon.Information) = DialogResult.OK Then
+            Call Me.Close()
+        End If
+    End Sub
+
+    Private Sub ReloadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReloadToolStripMenuItem.Click
+        If MessageBox.Show("Reload of current app page will lost all of the session information.", "Workbench WebView", buttons:=MessageBoxButtons.OKCancel, icon:=MessageBoxIcon.Information) = DialogResult.OK Then
+            Call WebView21.Reload()
+        End If
+    End Sub
 End Class
