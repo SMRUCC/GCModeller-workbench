@@ -56,6 +56,8 @@ namespace pages {
 
                                         $ts("#enrichment-result-table").clear();
                                         $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
+                                        $ts("#ex-with-icons-tabs-1").removeClass("show").removeClass("active");
+                                        $ts("#ex-with-icons-tabs-2").addClass("show").addClass("active");
 
                                         desktop.showToastMessage("Success!", title, null, "success");
                                     } else {
