@@ -14,7 +14,20 @@ var __extends = (this && this.__extends) || (function () {
 /// <reference path="../build/linq.d.ts" />
 var apps;
 (function (apps) {
-    apps.gcmodeller = window.chrome.webview.hostObjects.sync.gcmodeller;
+    apps.gcmodeller = getWebview2HostObject();
+    function getWebview2HostObject() {
+        try {
+            return window.chrome.webview.hostObjects.sync.gcmodeller;
+        }
+        catch (Error) {
+            return {
+                getUniprotXmlDatabase: warningMsg
+            };
+        }
+    }
+    function warningMsg() {
+        throw new Error("Please run from webview2 application!");
+    }
     function run() {
         Router.AddAppHandler(new pages.enrichment_database());
         Router.RunApp();

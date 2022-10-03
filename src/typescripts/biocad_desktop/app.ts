@@ -2,7 +2,21 @@
 
 namespace apps {
 
-    export const gcmodeller: biocad_desktop = (<any>window).chrome.webview.hostObjects.sync.gcmodeller;
+    export const gcmodeller: biocad_desktop = getWebview2HostObject();
+
+    function getWebview2HostObject() {
+        try {
+            return (<any>window).chrome.webview.hostObjects.sync.gcmodeller;
+        } catch (Error) {
+            return {
+                getUniprotXmlDatabase: warningMsg
+            };
+        }
+    }
+
+    function warningMsg() {
+        throw new Error("Please run from webview2 application!");
+    }
 
     export function run() {
         Router.AddAppHandler(new pages.enrichment_database());
