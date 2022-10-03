@@ -1,6 +1,11 @@
 interface biocad_desktop {
     getUniprotXmlDatabase(): string;
-    sendPost(url: string, json: string): boolean;
+    sendPost(url: string, json: string): hostMsg;
+}
+
+interface hostMsg {
+    result: boolean;
+    data: string;
 }
 
 namespace desktop {

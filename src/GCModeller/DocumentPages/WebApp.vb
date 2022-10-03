@@ -1,5 +1,24 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Net.Http
+Imports System.Net.Http.Headers
+Imports System.Runtime.InteropServices
+Imports Microsoft.VisualBasic.Text
 Imports WeifenLuo.WinFormsUI.Docking
+
+Public Class JSONContent : Inherits StringContent
+
+    Public Sub New(json As String)
+        MyBase.New(json, Encodings.UTF8WithoutBOM.CodePage, "application/json")
+    End Sub
+End Class
+
+<ClassInterface(ClassInterfaceType.AutoDual)>
+<ComVisible(True)>
+Public Class Message
+
+    Public Property result As Boolean
+    Public Property data As String
+
+End Class
 
 ' 所有需要在JavaScript环境中暴露的对象
 ' 都需要标记上下面的两个自定义属性
@@ -19,8 +38,21 @@ Public MustInherit Class WebApp
         Me.page = page
     End Sub
 
-    Public Function sendPost(url As String, json As String) As Boolean
+    Public Function sendPost(url As String, json As String) As Message
+        Dim httpClient As New HttpClient
 
+        httpClient.DefaultRequestHeaders.Accept.Clear()
+        httpClient.DefaultRequestHeaders.Accept.Add(New MediaTypeWithQualityHeaderValue("application/json"))
+
+        Dim httpContent As New JSONContent(json)
+        Dim response = httpClient.PostAsync(url, httpContent).Result
+        Dim t As Task(Of String) = response.Content.ReadAsStringAsync
+        Dim msg As New Message With {
+            .data = t.Result,
+            .result = response.IsSuccessStatusCode
+        }
+
+        Return msg
     End Function
 
     Public Overrides Function ToString() As String
