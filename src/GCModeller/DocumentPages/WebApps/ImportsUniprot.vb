@@ -34,4 +34,8 @@ Public Class ImportsUniprot : Inherits WebApp
 
         Return metadata.GetJson
     End Function
+
+    Public Function openEnrichmentPage(database As String, name As String, note As String) As Boolean
+
+    End Function
 End Class

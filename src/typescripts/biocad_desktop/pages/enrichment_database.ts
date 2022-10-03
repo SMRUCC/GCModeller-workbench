@@ -28,6 +28,10 @@ namespace pages {
                         cardList.appendElement(card);
                         console.log(key);
 
+                        $ts(`#${key}`).onclick = function () {
+                            apps.gcmodeller.openEnrichmentPage(key, metadata.name, metadata.note);
+                        }
+
                         $ts(`#${key}-meta`).onclick = function () {
                             let sb = "";
                             let json: string = JSON.stringify({

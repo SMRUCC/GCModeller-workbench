@@ -1,6 +1,7 @@
 interface biocad_desktop {
     getUniprotXmlDatabase(): Promise<string>;
     scanDatabase(): Promise<string>;
+    openEnrichmentPage(database: string, name: string, note: string): boolean;
 
     sendPost(url: string, json: string): Promise<hostMsg>;
 }
