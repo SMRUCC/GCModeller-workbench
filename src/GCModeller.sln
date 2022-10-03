@@ -5605,6 +5605,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\..\..\R-sharp\Library\shares\JsonHelper\JsonHelper.projitems*{2a6f4804-3e8a-4a6d-9c23-f05ddc6d945e}*SharedItemsImports = 5
+		..\..\..\R-sharp\Library\shares\dataframeHelper\dataframeHelper.projitems*{7bb43106-d512-4368-ad9e-ed7723f0facd}*SharedItemsImports = 5
+		..\..\..\R-sharp\Library\shares\dataframeHelper\dataframeHelper.projitems*{c9d53ae3-e513-45b1-afc8-38a70d24e889}*SharedItemsImports = 5
 		..\..\..\R-sharp\Library\shares\JsonHelper\JsonHelper.projitems*{c9d53ae3-e513-45b1-afc8-38a70d24e889}*SharedItemsImports = 5
 		..\..\..\R-sharp\studio\Rstudio.common\Rstudio.common.projitems*{fc3ae9f1-b355-4c19-bcb3-c72998764b8a}*SharedItemsImports = 5
 		..\..\..\runtime\sciBASIC#\www\Microsoft.VisualBasic.NETProtocol\TcpRequest\TcpRequest.projitems*{fc3ae9f1-b355-4c19-bcb3-c72998764b8a}*SharedItemsImports = 5

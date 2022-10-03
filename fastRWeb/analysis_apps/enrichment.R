@@ -27,10 +27,5 @@ const run = function(id, background, symbols) {
 
     print(result, max.print = 6);
 
-    json_encode({
-        code: 0, 
-        info: "success"
-    }) 
-    |> writeLines(con = buffer("text"))
-    ;
+    write.csv(result, file = buffer("dataframe"));
 }
