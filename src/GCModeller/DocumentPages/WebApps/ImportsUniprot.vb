@@ -1,5 +1,6 @@
 ﻿
 Imports System.Runtime.InteropServices
+Imports Microsoft.VisualBasic.Serialization.JSON
 
 <ClassInterface(ClassInterfaceType.AutoDual)>
 <ComVisible(True)>
@@ -21,6 +22,17 @@ Public Class ImportsUniprot : Inherits WebApp
         Catch ex As Exception
             Return Nothing
         End Try
+    End Function
+
+    Public Function scanDatabase() As String
+        Dim list = "/etc/repository/".ListFiles("*.json").Where(Function(json) json.ChangeSuffix("db").FileExists()).ToArray
+        Dim metadata = list _
+            .ToDictionary(Function(path) path.BaseName,
+                          Function(path)
+                              Return path.LoadJsonFile(Of Dictionary(Of String, String))
+                          End Function)
+
+        Return metadata.GetJson
     End Function
 
 End Class
