@@ -204,6 +204,11 @@ var pages;
                                     console.log(data);
                                     if (flag) {
                                         // success
+                                        const table = $ts.csv(data, true)
+                                            .Objects()
+                                            .Where(a => a["pvalue"] < 0.05);
+                                        $ts("#enrichment-result-table").clear();
+                                        $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
                                         desktop.showToastMessage("Success!", title, null, "success");
                                     }
                                     else {
