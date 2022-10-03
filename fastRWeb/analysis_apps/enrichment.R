@@ -25,6 +25,8 @@ const run = function(id, background, symbols) {
     |> as.data.frame()
     ;
 
+    print(result, max.print = 6);
+
     json_encode({
         code: 0, 
         info: "success"
