@@ -42,7 +42,11 @@ const run = function(file, name, note = "") {
 const run_imports = function(file, savedb, name, note, metafile) {
     file 
     |> open.uniprot()
-    |> cache.ptf(file = savedb, hds.stream = TRUE)
+    |> cache.ptf(
+        file = savedb, 
+        hds.stream = TRUE, 
+        cacheTaxonomy = TRUE
+    )
     ;
 
     json_encode({
