@@ -38,6 +38,43 @@ $ts.mode = Modes.debug;
 $ts(apps.run);
 var desktop;
 (function (desktop) {
+    var RSharp;
+    (function (RSharp) {
+        function RSharpErrorMessage(obj) {
+            let sb = "R# Error:";
+            let i = 1;
+            let method;
+            if (typeof obj.Message == "string") {
+                sb = sb + "&nbsp;" + obj.Message.replace(/[<]/ig, "&lt;");
+            }
+            else {
+                sb = sb + "<br/><br/>";
+                for (let line of obj.Message) {
+                    sb = sb + `&nbsp;&nbsp;${i++}.${line.replace(/[<]/ig, "&lt;")}<br/>`;
+                }
+            }
+            sb = sb + "<br/>";
+            sb = sb + `&nbsp;&nbsp;&nbsp;${obj.Source.replace(/[<]/ig, "&lt;")}<br/>`;
+            sb = sb + `&nbsp;&nbsp;&nbsp;${"~".repeat(obj.Source.length)}<br/>`;
+            sb = sb + "<br/>";
+            for (let frame of obj.StackTrace) {
+                method = `${frame.Method.Namespace}.${frame.Method.Module}.${frame.Method.Method}`;
+                method = `${method} at ${frame.File} line ${frame.Line}`;
+                sb = sb + `${method.replace(/[<]/ig, "&lt;")}<br />`;
+            }
+            return sb;
+        }
+        RSharp.RSharpErrorMessage = RSharpErrorMessage;
+        function isRSharpError(obj) {
+            const type = TypeScript.Reflection.$typeof(obj);
+            const checks = ["Message", "Source", "TypeFullName", "StackTrace"];
+            return $ts(checks).All(name => type.property.indexOf(name) > -1);
+        }
+        RSharp.isRSharpError = isRSharpError;
+    })(RSharp = desktop.RSharp || (desktop.RSharp = {}));
+})(desktop || (desktop = {}));
+var desktop;
+(function (desktop) {
     function parseResultFlag(msg, message) {
         return __awaiter(this, void 0, void 0, function* () {
             const flag = yield msg.result;
@@ -85,8 +122,16 @@ var desktop;
         return box;
     }
     function processHtmlMsg(text) {
-        text = text.replace(/[<]/ig, "&lt;");
-        text = Strings.lineTokens(text).join("<br />");
+        if (typeof text == "string") {
+            text = text.replace(/[<]/ig, "&lt;");
+            text = Strings.lineTokens(text).join("<br />");
+        }
+        else if (desktop.RSharp.isRSharpError(text)) {
+            text = desktop.RSharp.RSharpErrorMessage(text);
+        }
+        else {
+            text = "Unhandle error!";
+        }
         return text;
     }
 })(desktop || (desktop = {}));

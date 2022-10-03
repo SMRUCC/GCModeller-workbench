@@ -6,6 +6,26 @@ declare namespace apps {
     const gcmodeller: biocad_desktop;
     function run(): void;
 }
+declare namespace desktop {
+    interface RSharpError {
+        Message: string | string[];
+        Source: string;
+        TypeFullName: string;
+        StackTrace: {
+            File: string;
+            Line: string;
+            Method: {
+                Method: string;
+                Module: string;
+                Namespace: string;
+            };
+        }[];
+    }
+}
+declare namespace desktop.RSharp {
+    function RSharpErrorMessage(obj: RSharpError): string;
+    function isRSharpError(obj: {}): boolean;
+}
 interface biocad_desktop {
     getUniprotXmlDatabase(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
