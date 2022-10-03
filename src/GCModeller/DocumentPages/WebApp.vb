@@ -26,9 +26,20 @@ End Class
 <ComVisible(True)>
 Public MustInherit Class WebApp
 
+    Public Property arguments As Dictionary(Of String, String)
+
     Public Overridable ReadOnly Property url As String
         Get
-            Return $"http://localhost:{Globals.webViewSvrPort}/{page.TrimStart("/"c)}"
+            Dim baseURL As String = $"http://localhost:{Globals.webViewSvrPort}/{page.TrimStart("/"c)}"
+            Dim query As String = ""
+
+            If Not arguments.IsNullOrEmpty Then
+                query = arguments _
+                    .Select(Function(arg) $"{arg.Key}={arg.Value.UrlEncode(jswhitespace:=True)}") _
+                    .JoinBy("&")
+            End If
+
+            Return baseURL & $"?{query}"
         End Get
     End Property
 

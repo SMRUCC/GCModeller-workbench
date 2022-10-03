@@ -37,5 +37,7 @@ Public Class ImportsUniprot : Inherits WebApp
 
     Public Function openEnrichmentPage(database As String, name As String, note As String) As Boolean
 
+
+        Return True
     End Function
 End Class
