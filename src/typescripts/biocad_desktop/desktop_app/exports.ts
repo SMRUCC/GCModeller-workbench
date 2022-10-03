@@ -1,20 +1,11 @@
-interface biocad_desktop {
-    getUniprotXmlDatabase(): Promise<string>;
-    sendPost(url: string, json: string): Promise<hostMsg>;
-}
-
-interface hostMsg {
-    result: boolean;
-    data: string;
-}
 
 namespace desktop {
 
     export async function parseResultFlag(msg: hostMsg, message: IMsg<string>) {
         const flag = await msg.result;
-        const result = flag || (message.code == 0);
+        const result = flag && (message.code == 0);
 
-        return flag;
+        return result;
     }
 
     export async function parseMessage(msg: hostMsg) {
@@ -40,7 +31,7 @@ namespace desktop {
         "info": "fas fa-info-circle fa-lg me-2"
     }
 
-    function toastHtml(msg: string,
+    function toastHtml(msg: string | Object,
         title: string = "Task Error",
         subtitle: string = "",
         level: string = "danger",
@@ -67,10 +58,27 @@ namespace desktop {
         return box;
     }
 
-    function processHtmlMsg(text: string): string {
-        text = text.replace(/[<]/ig, "&lt;");
-        text = Strings.lineTokens(text).join("<br />");
+    function processHtmlMsg(text: string | Object): string {
+        if (typeof text == "string") {
+            text = text.replace(/[<]/ig, "&lt;");
+            text = Strings.lineTokens(<string>text).join("<br />");
+        } else if (isRSharpError(<any>text)) {
+            text = RSharpErrorMessage(<any>text);
+        } else {
+            text = "Unhandle error!";
+        }
 
-        return text;
+        return <string>text;
+    }
+
+    function RSharpErrorMessage(obj: RSharpError): string {
+
+    }
+
+    function isRSharpError(obj: {}): boolean {
+        const type = TypeScript.Reflection.$typeof(obj);
+        const checks = ["Message", "Source", "TypeFullName", "StackTrace"];
+
+        return $ts(checks).All(name => type.property.indexOf(name) > -1);
     }
 }

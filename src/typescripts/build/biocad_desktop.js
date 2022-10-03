@@ -41,8 +41,8 @@ var desktop;
     function parseResultFlag(msg, message) {
         return __awaiter(this, void 0, void 0, function* () {
             const flag = yield msg.result;
-            const result = flag || (message.code == 0);
-            return flag;
+            const result = flag && (message.code == 0);
+            return result;
         });
     }
     desktop.parseResultFlag = parseResultFlag;
