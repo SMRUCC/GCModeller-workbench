@@ -1,6 +1,6 @@
 interface biocad_desktop {
-    getUniprotXmlDatabase(): string;
-    sendPost(url: string, json: string): hostMsg;
+    getUniprotXmlDatabase(): Promise<string>;
+    sendPost(url: string, json: string): Promise<hostMsg>;
 }
 
 interface hostMsg {

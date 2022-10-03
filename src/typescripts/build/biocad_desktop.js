@@ -17,7 +17,7 @@ var apps;
     apps.gcmodeller = getWebview2HostObject();
     function getWebview2HostObject() {
         try {
-            return window.chrome.webview.hostObjects.sync.gcmodeller;
+            return window.chrome.webview.hostObjects.gcmodeller;
         }
         catch (Error) {
             return {
@@ -95,25 +95,32 @@ var pages;
          * method execute on native host side, not R server backend
         */
         enrichment_database.prototype.open_uniprot_onclick = function () {
-            $ts("#formFile").CType().value = apps.gcmodeller.getUniprotXmlDatabase();
+            var textbox = $ts("#formFile").CType();
+            apps.gcmodeller
+                .getUniprotXmlDatabase()
+                .then(function (path) { return textbox.value = path; });
         };
         enrichment_database.prototype.imports_onclick = function () {
+            $ts("#busy-indicator").show();
             var data = {
                 file: $ts.value("#formFile"),
                 name: $ts.value("#title"),
                 note: $ts.value("#description")
             };
-            $ts("#busy-indicator").show();
-            var msg = apps.gcmodeller.sendPost($ts.url("@web_invoke_imports"), JSON.stringify(data));
-            if (msg.result) {
-                // success
-                desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
-            }
-            else {
-                // error
-                desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
-            }
-            $ts("#busy-indicator").hide();
+            var json = JSON.stringify(data);
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_imports"), json)
+                .then(function (msg) {
+                if (msg.result) {
+                    // success
+                    desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
+                }
+                else {
+                    // error
+                    desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
+                }
+                $ts("#busy-indicator").hide();
+            });
         };
         return enrichment_database;
     }(Bootstrap));

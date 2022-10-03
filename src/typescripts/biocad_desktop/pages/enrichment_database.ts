@@ -14,29 +14,38 @@ namespace pages {
          * method execute on native host side, not R server backend
         */
         public open_uniprot_onclick() {
-            $ts("#formFile").CType<HTMLInputElement>().value = apps.gcmodeller.getUniprotXmlDatabase();
+            const textbox = $ts("#formFile").CType<HTMLInputElement>();
+
+            apps.gcmodeller
+                .getUniprotXmlDatabase()
+                .then(path => textbox.value = path)
+                ;
         }
 
         public imports_onclick() {
+            $ts("#busy-indicator").show();
+
             const data = {
                 file: $ts.value("#formFile"),
                 name: $ts.value("#title"),
                 note: $ts.value("#description")
             };
+            const json = JSON.stringify(data);
 
-            $ts("#busy-indicator").show();
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_imports"), json)
+                .then(function (msg) {
+                    if (msg.result) {
+                        // success
+                        desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
+                    } else {
+                        // error
+                        desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
+                    }
 
-            const msg = apps.gcmodeller.sendPost($ts.url("@web_invoke_imports"), JSON.stringify(data));
-
-            if (msg.result) {
-                // success
-                desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
-            } else {
-                // error
-                desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
-            }
-
-            $ts("#busy-indicator").hide();
+                    $ts("#busy-indicator").hide();
+                })
+                ;
         }
     }
 }

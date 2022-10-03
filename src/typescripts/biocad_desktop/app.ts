@@ -6,7 +6,7 @@ namespace apps {
 
     function getWebview2HostObject() {
         try {
-            return (<any>window).chrome.webview.hostObjects.sync.gcmodeller;
+            return (<any>window).chrome.webview.hostObjects.gcmodeller;
         } catch (Error) {
             return {
                 getUniprotXmlDatabase: warningMsg
