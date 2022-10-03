@@ -70,6 +70,10 @@ Public MustInherit Class WebApp
         Return url
     End Function
 
+    ''' <summary>
+    ''' open current web app page on the workbench form
+    ''' </summary>
+    ''' <returns></returns>
     Public Function Open() As Boolean
         If $"{Globals.webView}/{page}".FileExists Then
             Dim doc As New FormWebView2Page With {

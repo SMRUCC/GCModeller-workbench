@@ -36,8 +36,14 @@ Public Class ImportsUniprot : Inherits WebApp
     End Function
 
     Public Function openEnrichmentPage(database As String, name As String, note As String) As Boolean
+        Dim app As New RunEnrichment With {
+            .arguments = New Dictionary(Of String, String) From {
+                {"id", database},
+                {"name", name},
+                {"note", note}
+            }
+        }
 
-
-        Return True
+        Return app.Open
     End Function
 End Class
