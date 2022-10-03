@@ -23,6 +23,25 @@
   <!-- Start your project here-->
   <div class="container">
     <div class="row">
+
+      <section class="pb-4">
+        <div class="bg-white rounded-5">
+
+          <section class="w-100 p-4 pb-4 d-flex justify-content-center">
+            <div style="width: 22rem;">
+              <label for="enrichment_background" class="form-label">Select an enrichment background:</label>
+              <select id="enrichment_background" class="select form-select" data-mdb-option-height="44">
+                <option value="GO" data-mdb-secondary-text="Secondary text">Gene Ontology</option>
+                <option value="keyword" data-mdb-secondary-text="Secondary text">UniProt Keyword Ontology</option>
+                <option value="Pfam" data-mdb-secondary-text="Secondary text">Pfam</option>
+              </select>
+            </div>
+          </section>
+        </div>
+      </section>
+
+    </div>
+    <div class="row">
       <div class="col">
         <label for="input_idlist" class="form-label">Input Gene Symbols:</label>
         <textarea class="form-control" id="input_idlist" rows="3"></textarea>
