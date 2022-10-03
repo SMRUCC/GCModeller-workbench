@@ -9,6 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 /// <reference path="../build/linq.d.ts" />
 var apps;
 (function (apps) {
+    /**
+     * async proxy
+    */
     apps.gcmodeller = getWebview2HostObject();
     function getWebview2HostObject() {
         try {
@@ -21,12 +24,13 @@ var apps;
         }
     }
     function warningMsg() {
-        throw new Error("Please run from webview2 application!");
+        return __awaiter(this, void 0, void 0, function* () {
+            throw new Error("Please run from webview2 application!");
+        });
     }
     function run() {
         Router.AddAppHandler(new pages.enrichment_database());
         Router.RunApp();
-        console.log(apps.gcmodeller);
     }
     apps.run = run;
 })(apps || (apps = {}));
@@ -86,7 +90,11 @@ var pages;
             const textbox = $ts("#formFile").CType();
             apps.gcmodeller
                 .getUniprotXmlDatabase()
-                .then(path => textbox.value = path);
+                .then(function (path) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    textbox.value = yield path;
+                });
+            });
         }
         imports_onclick() {
             $ts("#busy-indicator").show();

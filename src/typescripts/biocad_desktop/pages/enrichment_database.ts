@@ -18,7 +18,9 @@ namespace pages {
 
             apps.gcmodeller
                 .getUniprotXmlDatabase()
-                .then(path => textbox.value = path)
+                .then(async function (path) {
+                    textbox.value = await path;
+                })
                 ;
         }
 

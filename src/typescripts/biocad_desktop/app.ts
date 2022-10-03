@@ -2,6 +2,9 @@
 
 namespace apps {
 
+    /**
+     * async proxy
+    */
     export const gcmodeller: biocad_desktop = getWebview2HostObject();
 
     function getWebview2HostObject() {
@@ -14,15 +17,13 @@ namespace apps {
         }
     }
 
-    function warningMsg() {
+    async function warningMsg() {
         throw new Error("Please run from webview2 application!");
     }
 
     export function run() {
         Router.AddAppHandler(new pages.enrichment_database());
         Router.RunApp();
-
-        console.log(gcmodeller);
     }
 }
 

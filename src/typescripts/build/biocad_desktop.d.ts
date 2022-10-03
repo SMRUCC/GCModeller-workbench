@@ -1,5 +1,8 @@
 /// <reference path="linq.d.ts" />
 declare namespace apps {
+    /**
+     * async proxy
+    */
     const gcmodeller: biocad_desktop;
     function run(): void;
 }
