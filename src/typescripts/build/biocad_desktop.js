@@ -88,14 +88,22 @@ var desktop;
         return __awaiter(this, void 0, void 0, function* () {
             let dataString = yield msg.data;
             let json;
-            try {
-                json = JSON.parse(dataString);
-            }
-            catch (_a) {
+            if ($ts.csv.isTsvFile(dataString)) {
                 json = {
-                    code: 500,
+                    code: 0,
                     info: dataString
                 };
+            }
+            else {
+                try {
+                    json = JSON.parse(dataString);
+                }
+                catch (_a) {
+                    json = {
+                        code: 500,
+                        info: dataString
+                    };
+                }
             }
             return json;
         });

@@ -27,5 +27,5 @@ const run = function(id, background, symbols) {
 
     print(result, max.print = 6);
 
-    write.csv(result, file = buffer("dataframe"));
+    write.csv(result, file = buffer("dataframe"), tsv = TRUE);
 }

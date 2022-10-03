@@ -12,13 +12,20 @@ namespace desktop {
         let dataString = await msg.data;
         let json: IMsg<string>
 
-        try {
-            json = <IMsg<string>>JSON.parse(dataString);
-        } catch {
+        if ($ts.csv.isTsvFile(dataString)) {
             json = <IMsg<string>>{
-                code: 500,
+                code: 0,
                 info: dataString
-            };
+            }
+        } else {
+            try {
+                json = <IMsg<string>>JSON.parse(dataString);
+            } catch {
+                json = <IMsg<string>>{
+                    code: 500,
+                    info: dataString
+                };
+            }
         }
 
         return json;
