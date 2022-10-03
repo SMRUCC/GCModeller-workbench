@@ -34,7 +34,10 @@ namespace pages {
 
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_imports"), json)
-                .then(function (msg) {
+                .then(async function (msg) {
+                    msg = await msg;
+                    console.log(msg);
+
                     if (msg.result) {
                         // success
                         desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");

@@ -1,16 +1,11 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 /// <reference path="../build/linq.d.ts" />
 var apps;
 (function (apps) {
@@ -39,33 +34,34 @@ $ts.mode = Modes.debug;
 $ts(apps.run);
 var desktop;
 (function (desktop) {
-    function showToastMessage(msg, title, subtitle, level, autohide) {
-        if (title === void 0) { title = "Task Error"; }
-        if (subtitle === void 0) { subtitle = ""; }
-        if (level === void 0) { level = "info"; }
-        if (autohide === void 0) { autohide = true; }
+    function showToastMessage(msg, title = "Task Error", subtitle = "", level = "info", autohide = true) {
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
     desktop.showToastMessage = showToastMessage;
-    var toastIconsMD = {
+    const toastIconsMD = {
         "success": "fas fa-check fa-lg me-2",
         "danger": "fas fa-exclamation-circle fa-lg me-2",
         "warning": "fas fa-exclamation-triangle fa-lg me-2",
         "info": "fas fa-info-circle fa-lg me-2"
     };
-    function toastHtml(msg, title, subtitle, level, autohide) {
-        if (title === void 0) { title = "Task Error"; }
-        if (subtitle === void 0) { subtitle = ""; }
-        if (level === void 0) { level = "danger"; }
-        if (autohide === void 0) { autohide = true; }
-        var box = $ts("<div>", {
-            class: ["toast", "show", "fade", "toast-" + level],
+    function toastHtml(msg, title = "Task Error", subtitle = "", level = "danger", autohide = true) {
+        const box = $ts("<div>", {
+            class: ["toast", "show", "fade", `toast-${level}`],
             role: "alert",
             "aria-live": "assertive",
             "aria-atomic": "true",
             "data-mdb-color": level,
             "data-mdb-autohide": autohide.toString()
-        }).display("        \n            <div class=\"toast-header toast-" + level + "\">\n                <i class=\"" + toastIconsMD[level] + "\"></i>\n                <strong class=\"me-auto\">" + title + "</strong>\n                <small>" + ((!subtitle) || (subtitle.toLowerCase() == "null") ? "" : subtitle) + "</small>\n                <button type=\"button\" class=\"btn-close\" data-mdb-dismiss=\"toast\" aria-label=\"Close\">\n                </button>\n            </div>\n            <div class=\"toast-body\">" + processHtmlMsg(msg) + "</div>\n        ");
+        }).display(`        
+            <div class="toast-header toast-${level}">
+                <i class="${toastIconsMD[level]}"></i>
+                <strong class="me-auto">${title}</strong>
+                <small>${(!subtitle) || (subtitle.toLowerCase() == "null") ? "" : subtitle}</small>
+                <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close">
+                </button>
+            </div>
+            <div class="toast-body">${processHtmlMsg(msg)}</div>
+        `);
         return box;
     }
     function processHtmlMsg(text) {
@@ -76,54 +72,49 @@ var desktop;
 })(desktop || (desktop = {}));
 var pages;
 (function (pages) {
-    var enrichment_database = /** @class */ (function (_super) {
-        __extends(enrichment_database, _super);
-        function enrichment_database() {
-            return _super !== null && _super.apply(this, arguments) || this;
+    class enrichment_database extends Bootstrap {
+        get appName() {
+            return "enrichment_database";
         }
-        Object.defineProperty(enrichment_database.prototype, "appName", {
-            get: function () {
-                return "enrichment_database";
-            },
-            enumerable: true,
-            configurable: true
-        });
-        enrichment_database.prototype.init = function () {
+        init() {
             $ts("#busy-indicator").hide();
-        };
+        }
         /**
          * method execute on native host side, not R server backend
         */
-        enrichment_database.prototype.open_uniprot_onclick = function () {
-            var textbox = $ts("#formFile").CType();
+        open_uniprot_onclick() {
+            const textbox = $ts("#formFile").CType();
             apps.gcmodeller
                 .getUniprotXmlDatabase()
-                .then(function (path) { return textbox.value = path; });
-        };
-        enrichment_database.prototype.imports_onclick = function () {
+                .then(path => textbox.value = path);
+        }
+        imports_onclick() {
             $ts("#busy-indicator").show();
-            var data = {
+            const data = {
                 file: $ts.value("#formFile"),
                 name: $ts.value("#title"),
                 note: $ts.value("#description")
             };
-            var json = JSON.stringify(data);
+            const json = JSON.stringify(data);
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_imports"), json)
                 .then(function (msg) {
-                if (msg.result) {
-                    // success
-                    desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
-                }
-                else {
-                    // error
-                    desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
-                }
-                $ts("#busy-indicator").hide();
+                return __awaiter(this, void 0, void 0, function* () {
+                    msg = yield msg;
+                    console.log(msg);
+                    if (msg.result) {
+                        // success
+                        desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
+                    }
+                    else {
+                        // error
+                        desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
+                    }
+                    $ts("#busy-indicator").hide();
+                });
             });
-        };
-        return enrichment_database;
-    }(Bootstrap));
+        }
+    }
     pages.enrichment_database = enrichment_database;
 })(pages || (pages = {}));
 //# sourceMappingURL=biocad_desktop.js.map
