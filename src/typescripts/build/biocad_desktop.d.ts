@@ -39,12 +39,17 @@ interface hostMsg {
 declare namespace desktop {
     function parseResultFlag(msg: hostMsg, message: IMsg<string>): Promise<boolean>;
     function parseMessage(msg: hostMsg): Promise<IMsg<string>>;
+    function processHtmlMsg(text: string | Object): string;
+}
+declare namespace desktop {
     function showToastMessage(msg: string, title?: string, subtitle?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
 }
 declare namespace pages {
     class enrichment_analysis extends Bootstrap {
+        private database;
         readonly appName: string;
         protected init(): void;
+        run_onclick(): void;
     }
 }
 declare namespace pages {

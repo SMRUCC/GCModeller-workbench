@@ -92,6 +92,23 @@ var desktop;
         });
     }
     desktop.parseMessage = parseMessage;
+    function processHtmlMsg(text) {
+        if (typeof text == "string") {
+            text = text.replace(/[<]/ig, "&lt;");
+            text = Strings.lineTokens(text).join("<br />");
+        }
+        else if (desktop.RSharp.isRSharpError(text)) {
+            text = desktop.RSharp.RSharpErrorMessage(text);
+        }
+        else {
+            text = "Unhandle error!";
+        }
+        return text;
+    }
+    desktop.processHtmlMsg = processHtmlMsg;
+})(desktop || (desktop = {}));
+var desktop;
+(function (desktop) {
     function showToastMessage(msg, title = "Task Error", subtitle = "", level = "info", autohide = true) {
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
@@ -119,22 +136,9 @@ var desktop;
                 <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close">
                 </button>
             </div>
-            <div class="toast-body">${processHtmlMsg(msg)}</div>
+            <div class="toast-body">${desktop.processHtmlMsg(msg)}</div>
         `);
         return box;
-    }
-    function processHtmlMsg(text) {
-        if (typeof text == "string") {
-            text = text.replace(/[<]/ig, "&lt;");
-            text = Strings.lineTokens(text).join("<br />");
-        }
-        else if (desktop.RSharp.isRSharpError(text)) {
-            text = desktop.RSharp.RSharpErrorMessage(text);
-        }
-        else {
-            text = "Unhandle error!";
-        }
-        return text;
     }
 })(desktop || (desktop = {}));
 var pages;
@@ -145,7 +149,19 @@ var pages;
         }
         ;
         init() {
+            if ($ts.location.hasQueryArguments) {
+                this.database = $ts.location("id");
+            }
             console.log($ts.location);
+            $ts("#busy-indicator").hide();
+        }
+        run_onclick() {
+            if (Strings.Empty(this.database)) {
+                desktop.showToastMessage("Please select a database at first!", "Enrichment Analysis", null, "danger");
+            }
+            else {
+                $ts("#busy-indicator").show();
+            }
         }
     }
     pages.enrichment_analysis = enrichment_analysis;
