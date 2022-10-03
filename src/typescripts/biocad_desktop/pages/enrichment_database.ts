@@ -17,9 +17,15 @@ namespace pages {
                 .scanDatabase()
                 .then(async function (json) {
                     const jsonString = await json;
-                    const dbList = JSON.parse(jsonString);
+                    const dbList: {} = JSON.parse(jsonString);
+                    const dbSize = Object.keys(dbList).length;
 
                     console.log(dbList);
+
+                    $ts("#busy-indicator").hide();
+
+                    // show database summary information
+                    desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", null, "info");
                 });
         }
 

@@ -153,7 +153,11 @@ var pages;
                 return __awaiter(this, void 0, void 0, function* () {
                     const jsonString = yield json;
                     const dbList = JSON.parse(jsonString);
+                    const dbSize = Object.keys(dbList).length;
                     console.log(dbList);
+                    $ts("#busy-indicator").hide();
+                    // show database summary information
+                    desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", null, "info");
                 });
             });
         }
