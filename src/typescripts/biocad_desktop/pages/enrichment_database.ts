@@ -26,7 +26,7 @@ namespace pages {
 
             $ts("#busy-indicator").show();
 
-            if (apps.gcmodeller.sendPost($ts.url("@web_invoke_imports"), data)) {
+            if (apps.gcmodeller.sendPost($ts.url("@web_invoke_imports"), JSON.stringify(data))) {
                 // success
                 console.log("success");
             } else {
