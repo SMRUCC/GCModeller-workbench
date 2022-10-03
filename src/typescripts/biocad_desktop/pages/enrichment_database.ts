@@ -35,15 +35,16 @@ namespace pages {
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_imports"), json)
                 .then(async function (msg) {
-                    msg = await msg;
-                    console.log(msg);
+                    const flag = await msg.result;
+                    const message = await msg.data;
+                    const title = flag ? "Imports Task Success" : "Imports Task Error";
 
-                    if (msg.result) {
+                    if (flag) {
                         // success
-                        desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
+                        desktop.showToastMessage(message, title, null, "success");
                     } else {
                         // error
-                        desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
+                        desktop.showToastMessage(message, title, null, "danger");
                     }
 
                     $ts("#busy-indicator").hide();

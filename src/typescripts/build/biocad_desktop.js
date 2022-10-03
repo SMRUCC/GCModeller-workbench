@@ -100,15 +100,16 @@ var pages;
                 .sendPost($ts.url("@web_invoke_imports"), json)
                 .then(function (msg) {
                 return __awaiter(this, void 0, void 0, function* () {
-                    msg = yield msg;
-                    console.log(msg);
-                    if (msg.result) {
+                    const flag = yield msg.result;
+                    const message = yield msg.data;
+                    const title = flag ? "Imports Task Success" : "Imports Task Error";
+                    if (flag) {
                         // success
-                        desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
+                        desktop.showToastMessage(message, title, null, "success");
                     }
                     else {
                         // error
-                        desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
+                        desktop.showToastMessage(message, title, null, "danger");
                     }
                     $ts("#busy-indicator").hide();
                 });
