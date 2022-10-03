@@ -43,7 +43,8 @@ namespace desktop {
             "aria-live": "assertive",
             "aria-atomic": "true",
             "data-mdb-color": level,
-            "data-mdb-autohide": autohide.toString()
+            "data-mdb-autohide": autohide.toString(),
+            style: "width: 500px;"
         }).display(`        
             <div class="toast-header toast-${level}">
                 <i class="${toastIconsMD[level]}"></i>
