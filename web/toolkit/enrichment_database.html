@@ -41,18 +41,32 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-center">
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
-
       <div class="row">
         <div class="col-auto">
           <button id="imports" type="button" class="btn btn-primary mb-3">Imports</button>
         </div>
       </div>
+
+
     </div>
+
+    <div id="busy-indicator" style="z-index:999999; position: absolute; left: 0; top: 0; float: left; width: 100%; height: 100%; 
+      background-color: rgba(0, 0, 0, 0.555); display: none;">
+      <div class="d-flex justify-content-center"
+        style="position: absolute; left: 50%; top: 50%; transform: translate(0, -50%); color: white;">
+
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+
+        <div>
+          &nbsp;&nbsp;&nbsp; Loading...
+        </div>
+
+      </div>
+    </div>
+
+
   </div>
   <!-- End your project here-->
 

@@ -52,7 +52,7 @@ var pages;
             configurable: true
         });
         enrichment_database.prototype.init = function () {
-            // throw new Error("Method not implemented.");
+            $ts("#busy-indicator").hide();
         };
         /**
          * method execute on native host side, not R server backend
@@ -66,6 +66,7 @@ var pages;
                 name: $ts.value("#title"),
                 note: $ts.value("#description")
             };
+            $ts("#busy-indicator").show();
             $ts.post("@web_invoke_imports", data, function (result) {
                 if (result.code != 0) {
                 }

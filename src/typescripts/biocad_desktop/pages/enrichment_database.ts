@@ -7,7 +7,7 @@ namespace pages {
         }
 
         protected init(): void {
-            // throw new Error("Method not implemented.");
+            $ts("#busy-indicator").hide();
         }
 
         /**
@@ -24,6 +24,7 @@ namespace pages {
                 note: $ts.value("#description")
             };
 
+            $ts("#busy-indicator").show();
             $ts.post("@web_invoke_imports", data, function (result: IMsg<string>) {
                 if (result.code != 0) {
 
