@@ -1,5 +1,9 @@
 require(JSON);
 require(GCModeller);
+require(HDS);
+
+imports "ptf" from "annotationKit";
+imports "GSEA" from "gseakit";
 
 const run = function(id, background, symbols) {
     const databaseUrl as string = `/etc/repository/ptf/${id}.db`;
@@ -14,6 +18,12 @@ const run = function(id, background, symbols) {
     if(!file.exists(databaseUrl)) {
         stop(`Protein annotation database '${id}' is not found on your file system!`);
     } 
+
+    const model = ptf::loadBackgroundModel(HDS::openStream(databaseUrl), background);
+    const result = model 
+    |> enrichment(symbols, outputAll = FALSE) 
+    |> as.data.frame()
+    ;
 
     json_encode({
         code: 0, 
