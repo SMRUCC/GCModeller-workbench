@@ -19,6 +19,10 @@ Public MustInherit Class WebApp
         Me.page = page
     End Sub
 
+    Public Function sendPost(url As String, args As Object) As Boolean
+
+    End Function
+
     Public Overrides Function ToString() As String
         Return url
     End Function

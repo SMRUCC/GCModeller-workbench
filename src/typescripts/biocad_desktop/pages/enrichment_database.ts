@@ -25,13 +25,16 @@ namespace pages {
             };
 
             $ts("#busy-indicator").show();
-            $ts.post("@web_invoke_imports", data, function (result: IMsg<string>) {
-                if (result.code != 0) {
 
-                } else {
-                    // location.reload();
-                }
-            });
+            if (apps.gcmodeller.sendPost($ts.url("@web_invoke_imports"), data)) {
+                // success
+                console.log("success");
+            } else {
+                // error
+                console.log("error");
+            }
+
+            $ts("#busy-indicator").hide();
         }
     }
 }

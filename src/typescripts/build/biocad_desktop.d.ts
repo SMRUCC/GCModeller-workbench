@@ -5,6 +5,7 @@ declare namespace apps {
 }
 interface biocad_desktop {
     getUniprotXmlDatabase(): string;
+    sendPost(url: string, args: any): boolean;
 }
 declare namespace pages {
     class enrichment_database extends Bootstrap {

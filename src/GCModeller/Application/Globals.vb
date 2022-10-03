@@ -20,8 +20,8 @@ Public Class Globals
 
     Public Shared Sub Load()
         Call Workbench.Load()
-        Call Globals.startWebServices()
-        Call Globals.launchFastRweb()
+        ' Call Globals.startWebServices()
+        ' Call Globals.launchFastRweb()
     End Sub
 
     Private Shared Sub launchFastRweb()
@@ -29,6 +29,7 @@ Public Class Globals
         Dim rweb As String = $"{App.HOME}/../fastRWeb/".GetDirectoryFullPath
         Dim commandLine As String = host.GetstartCommandLine(,, rweb:=rweb)
 
+        ' Rserve --start --port "7452" --tcp "3838" --rweb "E:/GCModeller/src/workbench/win32_desktop/fastRWeb/" --n_threads "8" /@set --internal_pipeline=TRUE
         fastRweb = host.CreateSlave(commandLine, workdir:=host.Path.ParentPath)
         fastRweb.Shell = True
 
@@ -55,6 +56,7 @@ Public Class Globals
         Dim rpkg As String = $"{App.HOME}/Rstudio/packages/Rserver.zip".GetFullPath
         Dim commandLine As String = $"{http_server.CLIPath} --listen {webViewSvrPort} --wwwroot {webView.CLIPath} --attach {rpkg.CLIPath}"
 
+        ' Rscript E:/GCModeller/src/workbench/win32_desktop/src/Rstudio/http.R --listen 19612 --wwwroot E:/GCModeller/src/workbench/win32_desktop/web/ --attach E:/GCModeller/src/workbench/win32_desktop/Apps/Rstudio/packages/Rserver.zip
         wwwroot = host.CreateSlave(commandLine, workdir:=host.Path.ParentPath)
         wwwroot.Shell = True
 
