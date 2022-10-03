@@ -24,29 +24,39 @@
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
       <div class="row">
         <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Select Database File</h5>
+              <p class="card-text">
 
-          <label for="formFile" class="form-label">Imports UniProt database assembly as background model:</label>
-          <button id="open_uniprot" type="button" class="btn btn-primary mb-3">Open</button>
-          <input class="form-control" type="text" id="formFile">
+                Imports UniProt database assembly as background model:
+                <br />
+                <label for="formFile" class="form-label">Local File</label>
+                <input class="form-control" type="text" id="formFile" required>
+              </p>
+              <button id="open_uniprot" type="button" class="btn btn-primary mb-3">Open</button>
+            </div>
+          </div>
         </div>
 
-      </div>
-
-      <div class="row">
         <div class="col-auto">
-          <label for="title" class="form-label">Database Name:</label>
-          <input class="form-control" type="text" id="title">
-          <label for="description" class="form-label">Notes:</label>
-          <textarea class="form-control" id="description" rows="5"></textarea>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Task Configuration</h5>
+              <p class="card-text">
+                <label for="title" class="form-label">Database Name:</label>
+                <input class="form-control" type="text" id="title">
+                <label for="description" class="form-label">Notes:</label>
+                <textarea class="form-control" id="description" rows="5"></textarea>
+              </p>
+              <button id="imports" type="submit" class="btn btn-primary mb-3">Imports</button>
+            </div>
+          </div>
+
+
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-auto">
-          <button id="imports" type="button" class="btn btn-primary mb-3">Imports</button>
-        </div>
-      </div>
-
 
     </div>
 
@@ -68,7 +78,7 @@
 
 
     <div id="toast-message" class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-      
+
 
     </div>
 
