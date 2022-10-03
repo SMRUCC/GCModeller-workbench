@@ -5,10 +5,14 @@ declare namespace apps {
 }
 interface biocad_desktop {
     getUniprotXmlDatabase(): string;
-    sendPost(url: string, json: string): boolean;
+    sendPost(url: string, json: string): hostMsg;
+}
+interface hostMsg {
+    result: boolean;
+    data: string;
 }
 declare namespace desktop {
-    function showToastMessage(msg: string, title?: string, subtitle?: string, level?: string, autohide?: boolean): void;
+    function showToastMessage(msg: string, title?: string, subtitle?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
 }
 declare namespace pages {
     class enrichment_database extends Bootstrap {

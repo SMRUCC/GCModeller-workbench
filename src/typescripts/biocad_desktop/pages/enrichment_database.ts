@@ -26,12 +26,14 @@ namespace pages {
 
             $ts("#busy-indicator").show();
 
-            if (apps.gcmodeller.sendPost($ts.url("@web_invoke_imports"), JSON.stringify(data))) {
+            const msg = apps.gcmodeller.sendPost($ts.url("@web_invoke_imports"), JSON.stringify(data));
+
+            if (msg.result) {
                 // success
-                console.log("success");
+                desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
             } else {
                 // error
-                desktop.showToastMessage("Task error while calling of the uniprot database imports!");
+                desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
             }
 
             $ts("#busy-indicator").hide();

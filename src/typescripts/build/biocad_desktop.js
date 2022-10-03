@@ -42,7 +42,7 @@ var desktop;
     function showToastMessage(msg, title, subtitle, level, autohide) {
         if (title === void 0) { title = "Task Error"; }
         if (subtitle === void 0) { subtitle = ""; }
-        if (level === void 0) { level = "danger"; }
+        if (level === void 0) { level = "info"; }
         if (autohide === void 0) { autohide = true; }
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
@@ -65,8 +65,13 @@ var desktop;
             "aria-atomic": "true",
             "data-mdb-color": level,
             "data-mdb-autohide": autohide.toString()
-        }).display("        \n            <div class=\"toast-header toast-" + level + "\">\n                <i class=\"" + toastIconsMD[level] + "\"></i>\n                <strong class=\"me-auto\">" + title + "</strong>\n                <small>" + subtitle + "</small>\n                <button type=\"button\" class=\"btn-close\" data-mdb-dismiss=\"toast\" aria-label=\"Close\">\n                </button>\n            </div>\n            <div class=\"toast-body\">" + msg + "</div>\n          ");
+        }).display("        \n            <div class=\"toast-header toast-" + level + "\">\n                <i class=\"" + toastIconsMD[level] + "\"></i>\n                <strong class=\"me-auto\">" + title + "</strong>\n                <small>" + subtitle + "</small>\n                <button type=\"button\" class=\"btn-close\" data-mdb-dismiss=\"toast\" aria-label=\"Close\">\n                </button>\n            </div>\n            <div class=\"toast-body\">" + processHtmlMsg(msg) + "</div>\n        ");
         return box;
+    }
+    function processHtmlMsg(text) {
+        text = text.replace("<", "&lt;");
+        text = Strings.lineTokens(text).join("<br />");
+        return text;
     }
 })(desktop || (desktop = {}));
 var pages;
@@ -99,13 +104,14 @@ var pages;
                 note: $ts.value("#description")
             };
             $ts("#busy-indicator").show();
-            if (apps.gcmodeller.sendPost($ts.url("@web_invoke_imports"), JSON.stringify(data))) {
+            var msg = apps.gcmodeller.sendPost($ts.url("@web_invoke_imports"), JSON.stringify(data));
+            if (msg.result) {
                 // success
-                console.log("success");
+                desktop.showToastMessage(msg.data, "Imports Task Success", null, "success");
             }
             else {
                 // error
-                desktop.showToastMessage("Task error while calling of the uniprot database imports!");
+                desktop.showToastMessage(msg.data, "Imports Task Error", null, "danger");
             }
             $ts("#busy-indicator").hide();
         };

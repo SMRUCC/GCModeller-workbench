@@ -13,7 +13,7 @@ namespace desktop {
     export function showToastMessage(msg: string,
         title: string = "Task Error",
         subtitle: string = "",
-        level: string = "danger",
+        level: "danger" | "success" | "warning" | "info" = "info",
         autohide: boolean = true) {
 
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
@@ -47,9 +47,16 @@ namespace desktop {
                 <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close">
                 </button>
             </div>
-            <div class="toast-body">${msg}</div>
-          `);
+            <div class="toast-body">${processHtmlMsg(msg)}</div>
+        `);
 
         return box;
+    }
+
+    function processHtmlMsg(text: string): string {
+        text = text.replace("<", "&lt;");
+        text = Strings.lineTokens(text).join("<br />");
+
+        return text;
     }
 }
