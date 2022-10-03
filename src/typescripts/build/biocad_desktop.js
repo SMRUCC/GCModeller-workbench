@@ -37,6 +37,32 @@ var apps;
 })(apps || (apps = {}));
 $ts.mode = Modes.debug;
 $ts(apps.run);
+var desktop;
+(function (desktop) {
+    function showToastMessage(msg, title, subtitle, level, autohide) {
+        if (title === void 0) { title = "Task Error"; }
+        if (subtitle === void 0) { subtitle = ""; }
+        if (level === void 0) { level = "danger"; }
+        if (autohide === void 0) { autohide = true; }
+        $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
+    }
+    desktop.showToastMessage = showToastMessage;
+    function toastHtml(msg, title, subtitle, level, autohide) {
+        if (title === void 0) { title = "Task Error"; }
+        if (subtitle === void 0) { subtitle = ""; }
+        if (level === void 0) { level = "danger"; }
+        if (autohide === void 0) { autohide = true; }
+        var box = $ts("<div>", {
+            class: ["toast", "show", "fade", "toast-" + level],
+            role: "alert",
+            "aria-live": "assertive",
+            "aria-atomic": "true",
+            "data-mdb-color": level,
+            "data-mdb-autohide": autohide.toString()
+        }).display("        \n            <div class=\"toast-header toast-" + level + "\">\n                <i class=\"fas fa-exclamation-circle fa-lg me-2\"></i>\n                <strong class=\"me-auto\">" + title + "</strong>\n                <small>" + subtitle + "</small>\n                <button type=\"button\" class=\"btn-close\" data-mdb-dismiss=\"toast\" aria-label=\"Close\">\n                </button>\n            </div>\n            <div class=\"toast-body\">" + msg + "</div>\n          ");
+        return box;
+    }
+})(desktop || (desktop = {}));
 var pages;
 (function (pages) {
     var enrichment_database = /** @class */ (function (_super) {
@@ -73,7 +99,7 @@ var pages;
             }
             else {
                 // error
-                console.log("error");
+                desktop.showToastMessage("Task error while calling of the uniprot database imports!");
             }
             $ts("#busy-indicator").hide();
         };

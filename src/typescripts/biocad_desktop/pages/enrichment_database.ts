@@ -31,7 +31,7 @@ namespace pages {
                 console.log("success");
             } else {
                 // error
-                console.log("error");
+                desktop.showToastMessage("Task error while calling of the uniprot database imports!");
             }
 
             $ts("#busy-indicator").hide();

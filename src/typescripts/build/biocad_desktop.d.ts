@@ -7,6 +7,9 @@ interface biocad_desktop {
     getUniprotXmlDatabase(): string;
     sendPost(url: string, json: string): boolean;
 }
+declare namespace desktop {
+    function showToastMessage(msg: string, title?: string, subtitle?: string, level?: string, autohide?: boolean): void;
+}
 declare namespace pages {
     class enrichment_database extends Bootstrap {
         readonly appName: string;

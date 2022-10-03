@@ -2,3 +2,42 @@ interface biocad_desktop {
     getUniprotXmlDatabase(): string;
     sendPost(url: string, json: string): boolean;
 }
+
+namespace desktop {
+
+    export function showToastMessage(msg: string,
+        title: string = "Task Error",
+        subtitle: string = "",
+        level: string = "danger",
+        autohide: boolean = true) {
+
+        $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
+    }
+
+    function toastHtml(msg: string,
+        title: string = "Task Error",
+        subtitle: string = "",
+        level: string = "danger",
+        autohide: boolean = true): HTMLElement {
+
+        const box = $ts("<div>", {
+            class: ["toast", "show", "fade", `toast-${level}`],
+            role: "alert",
+            "aria-live": "assertive",
+            "aria-atomic": "true",
+            "data-mdb-color": level,
+            "data-mdb-autohide": autohide.toString()
+        }).display(`        
+            <div class="toast-header toast-${level}">
+                <i class="fas fa-exclamation-circle fa-lg me-2"></i>
+                <strong class="me-auto">${title}</strong>
+                <small>${subtitle}</small>
+                <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close">
+                </button>
+            </div>
+            <div class="toast-body">${msg}</div>
+          `);
+
+        return box;
+    }
+}
