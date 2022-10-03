@@ -45,6 +45,7 @@ declare namespace pages {
         readonly appName: string;
         protected init(): void;
         private scanDatabaseList;
+        private static buildDbCard;
         /**
          * method execute on native host side, not R server backend
         */

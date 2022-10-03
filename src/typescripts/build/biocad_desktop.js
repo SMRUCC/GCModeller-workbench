@@ -154,12 +154,38 @@ var pages;
                     const jsonString = yield json;
                     const dbList = JSON.parse(jsonString);
                     const dbSize = Object.keys(dbList).length;
-                    console.log(dbList);
+                    const cardList = $ts("#ex-with-icons-tabs-1");
+                    for (let key in dbList) {
+                        const metadata = dbList[key];
+                        const card = enrichment_database.buildDbCard(key, metadata);
+                        cardList.appendElement(card);
+                        console.log(key);
+                        $ts(`#${key}`).onclick = function () {
+                            console.log("show metadata:");
+                            console.log(metadata);
+                            console.log(key);
+                        };
+                    }
                     $ts("#busy-indicator").hide();
                     // show database summary information
                     desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", null, "info");
                 });
             });
+        }
+        static buildDbCard(key, metadata) {
+            return $ts("<div>", { class: "card" }).display(` 
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="/assets/images/background.jpg" class="img-fluid"/>
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">${metadata.name}</h5>
+                    <p class="card-text">${metadata.note}</p>
+                    <a id="${key}" href="javascript:void(0);" class="btn btn-primary">View</a>
+                </div>
+            `);
         }
         /**
          * method execute on native host side, not R server backend
