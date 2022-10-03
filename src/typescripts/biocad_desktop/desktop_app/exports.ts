@@ -9,8 +9,17 @@ namespace desktop {
     }
 
     export async function parseMessage(msg: hostMsg) {
-        const dataString = await msg.data;
-        const json = <IMsg<string>>JSON.parse(dataString);
+        let dataString = await msg.data;
+        let json: IMsg<string>
+
+        try {
+            json = <IMsg<string>>JSON.parse(dataString);
+        } catch {
+            json = <IMsg<string>>{
+                code: 500,
+                info: dataString
+            };
+        }
 
         return json;
     }

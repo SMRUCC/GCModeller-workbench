@@ -86,8 +86,17 @@ var desktop;
     desktop.parseResultFlag = parseResultFlag;
     function parseMessage(msg) {
         return __awaiter(this, void 0, void 0, function* () {
-            const dataString = yield msg.data;
-            const json = JSON.parse(dataString);
+            let dataString = yield msg.data;
+            let json;
+            try {
+                json = JSON.parse(dataString);
+            }
+            catch (_a) {
+                json = {
+                    code: 500,
+                    info: dataString
+                };
+            }
             return json;
         });
     }
