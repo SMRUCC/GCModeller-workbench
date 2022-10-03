@@ -34,5 +34,4 @@ Public Class ImportsUniprot : Inherits WebApp
 
         Return metadata.GetJson
     End Function
-
 End Class

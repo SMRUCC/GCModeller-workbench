@@ -154,16 +154,43 @@ var pages;
                     const jsonString = yield json;
                     const dbList = JSON.parse(jsonString);
                     const dbSize = Object.keys(dbList).length;
-                    const cardList = $ts("#ex-with-icons-tabs-1");
+                    const cardList = $ts("#repository");
                     for (let key in dbList) {
                         const metadata = dbList[key];
                         const card = enrichment_database.buildDbCard(key, metadata);
                         cardList.appendElement(card);
                         console.log(key);
-                        $ts(`#${key}`).onclick = function () {
-                            console.log("show metadata:");
-                            console.log(metadata);
-                            console.log(key);
+                        $ts(`#${key}-meta`).onclick = function () {
+                            let sb = "";
+                            let json = JSON.stringify({
+                                guid: key
+                            });
+                            sb = sb + `Database Name: ${metadata.name}(${key})<br />`;
+                            sb = sb + `Note: <p>${metadata.note}</p><br />`;
+                            apps.gcmodeller
+                                .sendPost($ts.url("@web_invoke_inspector"), json)
+                                .then(function (result) {
+                                return __awaiter(this, void 0, void 0, function* () {
+                                    desktop.parseMessage(result).then(function (message) {
+                                        desktop.parseResultFlag(result, message).then(function (flag) {
+                                            const title = flag ? "Load Database Success" : "Load Database Error";
+                                            const data = message.info;
+                                            const protein_ids = Strings.lineTokens(data.proteins).join("<br />");
+                                            if (flag) {
+                                                // success
+                                                desktop.showToastMessage("Success!", title, null, "success");
+                                                sb = sb + `Protein Counts: ${data.counts}<br />`;
+                                                sb = sb + `Protein ID: ${protein_ids}<br />`;
+                                            }
+                                            else {
+                                                // error
+                                                desktop.showToastMessage(message.info, title, null, "danger");
+                                            }
+                                            $ts("#summary-info").display(sb);
+                                        });
+                                    });
+                                });
+                            });
                         };
                     }
                     $ts("#busy-indicator").hide();
@@ -173,17 +200,17 @@ var pages;
             });
         }
         static buildDbCard(key, metadata) {
-            return $ts("<div>", { class: "card" }).display(` 
+            return $ts("<div>", { class: ["card", "shadow-5"], style: "width: 300px;" }).display(` 
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src="/assets/images/background.jpg" class="img-fluid"/>
-                    <a href="#!">
+                    <a href="javascript:void(0);" id="${key}-meta">
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                     </a>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${metadata.name}</h5>
                     <p class="card-text">${metadata.note}</p>
-                    <a id="${key}" href="javascript:void(0);" class="btn btn-primary">View</a>
+                    <a id="${key}" href="javascript:void(0);" class="btn btn-primary">Run</a>
                 </div>
             `);
         }
