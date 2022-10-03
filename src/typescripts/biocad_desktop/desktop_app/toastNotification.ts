@@ -6,6 +6,7 @@ namespace desktop {
         level: "danger" | "success" | "warning" | "info" = "info",
         autohide: boolean = true) {
 
+        $ts("#busy-indicator").hide();
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
 

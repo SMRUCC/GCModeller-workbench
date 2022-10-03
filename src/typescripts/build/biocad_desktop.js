@@ -110,6 +110,7 @@ var desktop;
 var desktop;
 (function (desktop) {
     function showToastMessage(msg, title = "Task Error", subtitle = "", level = "info", autohide = true) {
+        $ts("#busy-indicator").hide();
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
     desktop.showToastMessage = showToastMessage;
@@ -161,6 +162,42 @@ var pages;
             }
             else {
                 $ts("#busy-indicator").show();
+                const type = $ts.select.getOption("#enrichment_background");
+                const symbols = $ts.value("#input_idlist");
+                if (Strings.Empty(type)) {
+                    desktop.showToastMessage("Please select a background for enrichment analysis at first!", "Enrichment Analysis", null, "danger");
+                }
+                else if (Strings.Empty(symbols)) {
+                    desktop.showToastMessage("No gene/protein id list to run enrichment analysis!", "Enrichment Analysis", null, "danger");
+                }
+                else {
+                    const json = JSON.stringify({
+                        id: this.database,
+                        background: type,
+                        symbols: Strings.lineTokens(symbols)
+                    });
+                    apps.gcmodeller
+                        .sendPost($ts.url("@web_invoke_enrichment"), json)
+                        .then(function (result) {
+                        return __awaiter(this, void 0, void 0, function* () {
+                            desktop.parseMessage(result).then(function (message) {
+                                desktop.parseResultFlag(result, message).then(function (flag) {
+                                    const title = flag ? "Run Enrichment Success" : "Analysis Error";
+                                    const data = message.info;
+                                    console.log(data);
+                                    if (flag) {
+                                        // success
+                                        desktop.showToastMessage("Success!", title, null, "success");
+                                    }
+                                    else {
+                                        // error
+                                        desktop.showToastMessage(message.info, title, null, "danger");
+                                    }
+                                });
+                            });
+                        });
+                    });
+                }
             }
         }
     }
