@@ -43,7 +43,7 @@ namespace desktop {
             <div class="toast-header toast-${level}">
                 <i class="${toastIconsMD[level]}"></i>
                 <strong class="me-auto">${title}</strong>
-                <small>${subtitle}</small>
+                <small>${(!subtitle) || (subtitle.toLowerCase() == "null") ? "" : subtitle}</small>
                 <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close">
                 </button>
             </div>
@@ -54,7 +54,7 @@ namespace desktop {
     }
 
     function processHtmlMsg(text: string): string {
-        text = text.replace("<", "&lt;");
+        text = text.replace(/[<]/ig, "&lt;");
         text = Strings.lineTokens(text).join("<br />");
 
         return text;
