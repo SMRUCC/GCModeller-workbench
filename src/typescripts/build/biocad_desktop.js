@@ -143,7 +143,19 @@ var pages;
             return "enrichment_database";
         }
         init() {
-            $ts("#busy-indicator").hide();
+            $ts("#busy-indicator").show();
+            this.scanDatabaseList();
+        }
+        scanDatabaseList() {
+            apps.gcmodeller
+                .scanDatabase()
+                .then(function (json) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    const jsonString = yield json;
+                    const dbList = JSON.parse(jsonString);
+                    console.log(dbList);
+                });
+            });
         }
         /**
          * method execute on native host side, not R server backend

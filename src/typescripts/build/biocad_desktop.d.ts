@@ -28,6 +28,7 @@ declare namespace desktop.RSharp {
 }
 interface biocad_desktop {
     getUniprotXmlDatabase(): Promise<string>;
+    scanDatabase(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
 }
 interface hostMsg {
@@ -43,6 +44,7 @@ declare namespace pages {
     class enrichment_database extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        private scanDatabaseList;
         /**
          * method execute on native host side, not R server backend
         */

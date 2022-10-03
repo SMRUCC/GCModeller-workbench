@@ -7,7 +7,20 @@ namespace pages {
         }
 
         protected init(): void {
-            $ts("#busy-indicator").hide();
+            $ts("#busy-indicator").show();
+
+            this.scanDatabaseList();
+        }
+
+        private scanDatabaseList() {
+            apps.gcmodeller
+                .scanDatabase()
+                .then(async function (json) {
+                    const jsonString = await json;
+                    const dbList = JSON.parse(jsonString);
+
+                    console.log(dbList);
+                });
         }
 
         /**
