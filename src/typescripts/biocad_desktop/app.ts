@@ -23,6 +23,7 @@ namespace apps {
 
     export function run() {
         Router.AddAppHandler(new pages.enrichment_database());
+        Router.AddAppHandler(new pages.enrichment_analysis());
         Router.RunApp();
     }
 }

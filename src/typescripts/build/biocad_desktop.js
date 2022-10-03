@@ -30,6 +30,7 @@ var apps;
     }
     function run() {
         Router.AddAppHandler(new pages.enrichment_database());
+        Router.AddAppHandler(new pages.enrichment_analysis());
         Router.RunApp();
     }
     apps.run = run;
@@ -136,6 +137,19 @@ var desktop;
         return text;
     }
 })(desktop || (desktop = {}));
+var pages;
+(function (pages) {
+    class enrichment_analysis extends Bootstrap {
+        get appName() {
+            return "enrichment_analysis";
+        }
+        ;
+        init() {
+            console.log($ts.location);
+        }
+    }
+    pages.enrichment_analysis = enrichment_analysis;
+})(pages || (pages = {}));
 var pages;
 (function (pages) {
     class enrichment_database extends Bootstrap {
