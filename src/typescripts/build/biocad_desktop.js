@@ -47,6 +47,12 @@ var desktop;
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
     desktop.showToastMessage = showToastMessage;
+    var toastIconsMD = {
+        "success": "fas fa-check fa-lg me-2",
+        "danger": "fas fa-exclamation-circle fa-lg me-2",
+        "warning": "fas fa-exclamation-triangle fa-lg me-2",
+        "info": "fas fa-info-circle fa-lg me-2"
+    };
     function toastHtml(msg, title, subtitle, level, autohide) {
         if (title === void 0) { title = "Task Error"; }
         if (subtitle === void 0) { subtitle = ""; }
@@ -59,7 +65,7 @@ var desktop;
             "aria-atomic": "true",
             "data-mdb-color": level,
             "data-mdb-autohide": autohide.toString()
-        }).display("        \n            <div class=\"toast-header toast-" + level + "\">\n                <i class=\"fas fa-exclamation-circle fa-lg me-2\"></i>\n                <strong class=\"me-auto\">" + title + "</strong>\n                <small>" + subtitle + "</small>\n                <button type=\"button\" class=\"btn-close\" data-mdb-dismiss=\"toast\" aria-label=\"Close\">\n                </button>\n            </div>\n            <div class=\"toast-body\">" + msg + "</div>\n          ");
+        }).display("        \n            <div class=\"toast-header toast-" + level + "\">\n                <i class=\"" + toastIconsMD[level] + "\"></i>\n                <strong class=\"me-auto\">" + title + "</strong>\n                <small>" + subtitle + "</small>\n                <button type=\"button\" class=\"btn-close\" data-mdb-dismiss=\"toast\" aria-label=\"Close\">\n                </button>\n            </div>\n            <div class=\"toast-body\">" + msg + "</div>\n          ");
         return box;
     }
 })(desktop || (desktop = {}));

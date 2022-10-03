@@ -14,13 +14,20 @@ namespace desktop {
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
 
+    const toastIconsMD = {
+        "success": "fas fa-check fa-lg me-2",
+        "danger": "fas fa-exclamation-circle fa-lg me-2",
+        "warning": "fas fa-exclamation-triangle fa-lg me-2",
+        "info": "fas fa-info-circle fa-lg me-2"
+    }
+
     function toastHtml(msg: string,
         title: string = "Task Error",
         subtitle: string = "",
         level: string = "danger",
         autohide: boolean = true): HTMLElement {
 
-        const box = $ts("<div>", {
+        const box = $ts("<div>", <any>{
             class: ["toast", "show", "fade", `toast-${level}`],
             role: "alert",
             "aria-live": "assertive",
@@ -29,7 +36,7 @@ namespace desktop {
             "data-mdb-autohide": autohide.toString()
         }).display(`        
             <div class="toast-header toast-${level}">
-                <i class="fas fa-exclamation-circle fa-lg me-2"></i>
+                <i class="${toastIconsMD[level]}"></i>
                 <strong class="me-auto">${title}</strong>
                 <small>${subtitle}</small>
                 <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close">
