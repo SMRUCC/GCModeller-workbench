@@ -94,6 +94,13 @@ var desktop;
                     info: dataString
                 };
             }
+            else if (dataString.startsWith("data:")) {
+                // is a dataURI string
+                json = {
+                    code: 0,
+                    info: dataString
+                };
+            }
             else {
                 try {
                     json = JSON.parse(dataString);

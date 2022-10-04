@@ -17,6 +17,12 @@ namespace desktop {
                 code: 0,
                 info: dataString
             }
+        } else if (dataString.startsWith("data:")) {
+            // is a dataURI string
+            json = <IMsg<string>>{
+                code: 0,
+                info: dataString
+            }
         } else {
             try {
                 json = <IMsg<string>>JSON.parse(dataString);
