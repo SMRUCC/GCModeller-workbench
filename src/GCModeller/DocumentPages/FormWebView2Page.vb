@@ -1,4 +1,5 @@
-﻿Imports Microsoft.Web.WebView2.Core
+﻿Imports Microsoft.VisualBasic.Net.Http
+Imports Microsoft.Web.WebView2.Core
 Imports WeifenLuo.WinFormsUI.Docking
 
 Public Class FormWebView2Page
@@ -76,8 +77,17 @@ Public Class FormWebView2Page
         End If
     End Sub
 
+    ''' <summary>
+    ''' open external link in default webbrowser
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub WebView21_NavigationStarting(sender As Object, e As CoreWebView2NavigationStartingEventArgs) Handles WebView21.NavigationStarting
-        e.Cancel = True
-        Process.Start(e.Uri)
+        Dim url As New URL(e.Uri)
+
+        If url.hostName <> "127.0.0.1" AndAlso url.hostName <> "localhost" Then
+            e.Cancel = True
+            Process.Start(e.Uri)
+        End If
     End Sub
 End Class
