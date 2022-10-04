@@ -111,7 +111,7 @@
               <div class="bg-white border rounded-5">
 
                 <section class="p-4 d-flex justify-content-center text-center w-100">
-                  <div class="lightbox" data-id="lightbox-bm48lj2vb">
+                  <div class="lightbox" data-id="lightbox-bm48lj2vb" id="lightbox">
                     <div class="row">
                       <div class="col-lg-4">
                         <img data-mdb-caption="Enrichment Plot" src="/assets/images/empty.jpg"
@@ -180,8 +180,8 @@
   <script>
     var lightbox = document.getElementById('lightbox');
     var lightboxInstance = mdb.Lightbox.getInstance(lightbox);
-    var lightboxToggler = document.getElementById('lightboxToggler');
-    
+    var lightboxToggler = document.getElementById('Rplot');
+
     lightboxToggler.addEventListener('click', function () {
       lightboxInstance.open(1);
     });
