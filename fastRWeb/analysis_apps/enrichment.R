@@ -18,7 +18,10 @@ const run = function(id, background, symbols, ssid = md5(`enrichment-${toString(
 
     if(!file.exists(databaseUrl)) {
         stop(`Protein annotation database '${id}' is not found on your file system!`);
-    } 
+    } else {
+        print("the session result file will be saved at file location:");
+        print(session_file);
+    }
 
     const model = ptf::loadBackgroundModel(HDS::openStream(databaseUrl), background);
     const result = model 
