@@ -67,7 +67,7 @@ namespace pages {
 
             if (type == "keyword") {
                 url = function (term) {
-                    return `<a href="https://www.uniprot.org/keywords/${term[""]}">${term["name"]}</a>`;
+                    return `<a target="__blank" href="https://www.uniprot.org/keywords/${term[""]}">${term["name"]}</a>`;
                 }
             }
 

@@ -75,4 +75,9 @@ Public Class FormWebView2Page
             Call WebView21.Reload()
         End If
     End Sub
+
+    Private Sub WebView21_NavigationStarting(sender As Object, e As CoreWebView2NavigationStartingEventArgs) Handles WebView21.NavigationStarting
+        e.Cancel = True
+        Process.Start(e.Uri)
+    End Sub
 End Class
