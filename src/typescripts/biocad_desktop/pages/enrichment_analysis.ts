@@ -100,10 +100,37 @@ namespace pages {
                                 $ts("#ex-with-icons-tab-2").addClass("active");
 
                                 vm.session_id = ssid;
+                                // do data plot
+                                vm.plot_onclick();
 
                                 desktop.showToastMessage("Success!", title, null, "success");
                             } else {
                                 // error
+                                desktop.showToastMessage(message.info, title, null, "danger");
+                            }
+                        });
+                    });
+                });
+        }
+
+        public plot_onclick() {
+            const json: string = JSON.stringify({
+                session_id: this.session_id
+            });
+
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_Rplot"), json)
+                .then(async function (result) {
+                    desktop.parseMessage(result).then(function (message) {
+                        desktop.parseResultFlag(result, message).then(function (flag) {
+                            const title = flag ? "Run Enrichment Success" : "Analysis Error";
+                            const data: string = message.info;
+
+                            console.log(data);
+
+                            if (flag) {
+
+                            } else {
                                 desktop.showToastMessage(message.info, title, null, "danger");
                             }
                         });
