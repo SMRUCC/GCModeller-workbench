@@ -31,16 +31,16 @@ const run = function(session_id, type = ["bar", "bubble"], background = "", top 
     }
 
     if (type == "bar") {
-        bitmap(file = buffer("bitmap")) {
-            category_profiles.plot(
-                profiles ,
-                colors = "paper",
-                title = "UniProt Keywords",
-                axis.title = "-log10(p-value)",
-                size = [1200,1600],
-                dpi = 100
-            );
-        }
+        profiles 
+        |> category_profiles.plot(            
+            colors = "paper",
+            title = "UniProt Keywords",
+            axis.title = "-log10(p-value)",
+            size = [1200,1600],
+            dpi = 100
+        )
+        |> graphics(file = buffer("bitmap"))
+        ;        
     } else {
         stop("not implemented");
     }
