@@ -260,6 +260,7 @@ var pages;
             });
         }
         plot_onclick() {
+            $ts("#busy-indicator").show();
             const json = JSON.stringify({
                 session_id: this.session_id,
                 type: "bar",
@@ -277,6 +278,8 @@ var pages;
                             console.log(data);
                             if (flag) {
                                 $ts("#Rplot").CType().src = data;
+                                $ts("#Rplot-box").CType().href = data;
+                                $ts("#busy-indicator").hide();
                             }
                             else {
                                 desktop.showToastMessage(message.info, title, null, "danger");

@@ -8,6 +8,10 @@ Partial Public Class LoggingOutputWindow
         InitializeComponent()
     End Sub
 
+    ''' <summary>
+    ''' 这个方法是线程安全的进行日志记录
+    ''' </summary>
+    ''' <param name="line"></param>
     <MethodImpl(MethodImplOptions.AggressiveInlining)>
     Public Sub WriteLine(line As String)
         Call Invoke(Sub() textBox1.AppendText(line & vbCrLf))

@@ -55,6 +55,9 @@ Public MustInherit Class WebApp
         httpClient.DefaultRequestHeaders.Accept.Clear()
         httpClient.DefaultRequestHeaders.Accept.Add(New MediaTypeWithQualityHeaderValue("application/json"))
 
+        Call Workbench.LogTextOutput.WriteLine($"POST {url}")
+        Call Workbench.LogTextOutput.WriteLine($"  -> payload: {json}")
+
         Dim httpContent As New JSONContent(json)
         Dim response = httpClient.PostAsync(url, httpContent).Result
         Dim t As Task(Of String) = response.Content.ReadAsStringAsync
@@ -62,6 +65,8 @@ Public MustInherit Class WebApp
             .data = t.Result,
             .result = response.IsSuccessStatusCode
         }
+
+        Call Workbench.LogTextOutput.WriteLine($"  <- {response.Content.ToString}")
 
         Return msg
     End Function

@@ -114,6 +114,8 @@ namespace pages {
         }
 
         public plot_onclick() {
+            $ts("#busy-indicator").show();
+
             const json: string = JSON.stringify({
                 session_id: this.session_id,
                 type: "bar",
@@ -133,6 +135,9 @@ namespace pages {
 
                             if (flag) {
                                 $ts("#Rplot").CType<HTMLImageElement>().src = data;
+                                $ts("#Rplot-box").CType<HTMLAnchorElement>().href = data;
+
+                                $ts("#busy-indicator").hide();
                             } else {
                                 desktop.showToastMessage(message.info, title, null, "danger");
                             }
