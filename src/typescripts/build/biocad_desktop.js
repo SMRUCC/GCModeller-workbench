@@ -195,41 +195,58 @@ var pages;
                     desktop.showToastMessage("No gene/protein id list to run enrichment analysis!", "Enrichment Analysis", null, "danger");
                 }
                 else {
-                    const json = JSON.stringify({
-                        id: this.database,
-                        background: type,
-                        symbols: Strings.lineTokens(symbols)
-                    });
-                    apps.gcmodeller
-                        .sendPost($ts.url("@web_invoke_enrichment"), json)
-                        .then(function (result) {
-                        return __awaiter(this, void 0, void 0, function* () {
-                            desktop.parseMessage(result).then(function (message) {
-                                desktop.parseResultFlag(result, message).then(function (flag) {
-                                    const title = flag ? "Run Enrichment Success" : "Analysis Error";
-                                    const data = message.info;
-                                    console.log(data);
-                                    if (flag) {
-                                        // success
-                                        const table = $ts.csv(data, true)
-                                            .Objects()
-                                            .Where(a => a["pvalue"] < 0.05);
-                                        $ts("#enrichment-result-table").clear();
-                                        $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
-                                        $ts("#ex-with-icons-tabs-1").removeClass("show").removeClass("active");
-                                        $ts("#ex-with-icons-tabs-2").addClass("show").addClass("active");
-                                        desktop.showToastMessage("Success!", title, null, "success");
-                                    }
-                                    else {
-                                        // error
-                                        desktop.showToastMessage(message.info, title, null, "danger");
-                                    }
-                                });
-                            });
-                        });
-                    });
+                    this.runInternal(type, symbols);
                 }
             }
+        }
+        runInternal(type, symbols) {
+            const ssid = md5(`enrichment-${(new Date()).toLocaleTimeString("en-US")}`);
+            const vm = this;
+            const json = JSON.stringify({
+                id: this.database,
+                background: type,
+                symbols: Strings.lineTokens(symbols),
+                ssid: ssid
+            });
+            let url = function (any) { return any["name"]; };
+            if (type == "keyword") {
+                url = function (term) {
+                    return `<a href="https://www.uniprot.org/keywords/${term[""]}">${term["name"]}</a>`;
+                };
+            }
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_enrichment"), json)
+                .then(function (result) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    desktop.parseMessage(result).then(function (message) {
+                        desktop.parseResultFlag(result, message).then(function (flag) {
+                            const title = flag ? "Run Enrichment Success" : "Analysis Error";
+                            const data = message.info;
+                            console.log(data);
+                            if (flag) {
+                                // success
+                                const table = $ts.csv(data, true)
+                                    .Objects()
+                                    .Where(a => a["pvalue"] < 0.05)
+                                    .Select(function (a) {
+                                    a["name"] = url(a);
+                                    return a;
+                                });
+                                $ts("#enrichment-result-table").clear();
+                                $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
+                                $ts("#ex-with-icons-tabs-1").removeClass("show").removeClass("active");
+                                $ts("#ex-with-icons-tabs-2").addClass("show").addClass("active");
+                                vm.session_id = ssid;
+                                desktop.showToastMessage("Success!", title, null, "success");
+                            }
+                            else {
+                                // error
+                                desktop.showToastMessage(message.info, title, null, "danger");
+                            }
+                        });
+                    });
+                });
+            });
         }
     }
     enrichment_analysis.note_mapping = {
