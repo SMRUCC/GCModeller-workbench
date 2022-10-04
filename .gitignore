@@ -32,3 +32,5 @@ src/GCModeller/GCModeller.vbproj.user
 install_pkg/Setup Files/win32_desktop.exe
 install_pkg/Setup Files/win32_desktop.msi
 *.cab
+*.exe
+*.msi
