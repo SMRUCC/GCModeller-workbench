@@ -33,7 +33,7 @@ Partial Class FormMainHost
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
-        Me.Ribbon1 = New Ribbon()
+        Me.Ribbon1 = New Global.RibbonLib.Ribbon()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -69,8 +69,8 @@ Partial Class FormMainHost
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(119, 17)
-        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(42, 17)
+        Me.ToolStripStatusLabel1.Text = "Ready!"
         '
         'ToolStripProgressBar1
         '

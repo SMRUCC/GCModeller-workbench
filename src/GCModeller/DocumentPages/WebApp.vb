@@ -66,7 +66,7 @@ Public MustInherit Class WebApp
             .result = response.IsSuccessStatusCode
         }
 
-        Call Workbench.LogTextOutput.WriteLine($"  <- {response.Content.ToString}")
+        Call Workbench.LogTextOutput.WriteLine($"  <- {response.Content.Headers.ToString}")
 
         Return msg
     End Function
