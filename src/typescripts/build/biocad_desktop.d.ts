@@ -54,6 +54,7 @@ declare namespace pages {
         background_onchange(value: string): void;
         run_onclick(): void;
         private runInternal;
+        plot_onclick(): void;
     }
 }
 declare namespace pages {

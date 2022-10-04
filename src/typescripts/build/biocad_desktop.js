@@ -239,10 +239,35 @@ var pages;
                                 $ts("#ex-with-icons-tab-1").removeClass("active");
                                 $ts("#ex-with-icons-tab-2").addClass("active");
                                 vm.session_id = ssid;
+                                // do data plot
+                                vm.plot_onclick();
                                 desktop.showToastMessage("Success!", title, null, "success");
                             }
                             else {
                                 // error
+                                desktop.showToastMessage(message.info, title, null, "danger");
+                            }
+                        });
+                    });
+                });
+            });
+        }
+        plot_onclick() {
+            const json = JSON.stringify({
+                session_id: this.session_id
+            });
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_Rplot"), json)
+                .then(function (result) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    desktop.parseMessage(result).then(function (message) {
+                        desktop.parseResultFlag(result, message).then(function (flag) {
+                            const title = flag ? "Run Enrichment Success" : "Analysis Error";
+                            const data = message.info;
+                            console.log(data);
+                            if (flag) {
+                            }
+                            else {
                                 desktop.showToastMessage(message.info, title, null, "danger");
                             }
                         });
