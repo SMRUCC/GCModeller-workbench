@@ -114,9 +114,13 @@
                   <div class="lightbox" data-id="lightbox-bm48lj2vb" id="lightbox">
                     <div class="row">
                       <div class="col-lg-4">
-                        <img data-mdb-caption="Enrichment Plot" src="/assets/images/empty.jpg"
-                          data-mdb-img="/assets/images/empty.jpg" alt="Table Full of Spices" class="w-100"
-                          style="width: 50%;" id="Rplot">
+                        <a href="/assets/images/empty.jpg" data-toggle="lightbox"
+                          data-caption="This describes the image">
+                          <img src="/assets/images/empty.jpg" data-mdb-caption="Enrichment Plot"
+                            src="/assets/images/empty.jpg" data-mdb-img="/assets/images/empty.jpg"
+                            alt="Table Full of Spices" class="img-fluid w-100 my-lightbox-toggle" style="width: 50%;"
+                            id="Rplot">
+                        </a>
                       </div>
 
                     </div>
@@ -176,15 +180,21 @@
   <!-- Custom scripts -->
   <script src="/javascript/linq.min.js" type="text/javascript"></script>
   <script src="/javascript/biocad_desktop.min.js" type="text/javascript"></script>
+  <script src="/javascript/bs5-lightbox.bundle.min.js" type="text/javascript"></script>
 
   <script>
-    var lightbox = document.getElementById('lightbox');
-    var lightboxInstance = mdb.Lightbox.getInstance(lightbox);
-    var lightboxToggler = document.getElementById('Rplot');
+    import Lightbox from 'bs5-lightbox';
 
-    lightboxToggler.addEventListener('click', function () {
-      lightboxInstance.open(1);
-    });
+    const options = {
+      keyboard: true,
+      size: 'fullscreen'
+    };
+
+    document.querySelectorAll('.my-lightbox-toggle').forEach((el) => el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lightbox = new Lightbox(el, options);
+      lightbox.show();
+    }));
   </script>
 </body>
 
