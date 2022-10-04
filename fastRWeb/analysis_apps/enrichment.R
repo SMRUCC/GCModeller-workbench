@@ -5,8 +5,9 @@ require(HDS);
 imports "ptf" from "annotationKit";
 imports "GSEA" from "gseakit";
 
-const run = function(id, background, symbols) {
+const run = function(id, background, symbols, ssid = md5(`enrichment-${toString(now())}`)) {
     const databaseUrl as string = `/etc/repository/ptf/${id}.db`;
+    const session_file as string = `${getOption("system_tempdir")}/${ssid}/enrichment.dat`;
 
     print("gene symbols that user input:");
     print(symbols);
@@ -25,7 +26,7 @@ const run = function(id, background, symbols) {
     |> as.data.frame()
     ;
 
+    saveRDS(result, file = session_file);
     print(result, max.print = 6);
-
     write.csv(result, file = buffer("dataframe"), tsv = TRUE);
 }
