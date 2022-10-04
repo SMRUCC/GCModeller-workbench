@@ -260,7 +260,7 @@ var pages;
                 top: 5
             });
             apps.gcmodeller
-                .sendPost($ts.url("@web_invoke_Rplot"), json)
+                .sendPost($ts.url("@web_invoke_Rplot?base64=true"), json)
                 .then(function (result) {
                 return __awaiter(this, void 0, void 0, function* () {
                     desktop.parseMessage(result).then(function (message) {
