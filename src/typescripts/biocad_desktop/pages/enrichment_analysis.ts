@@ -54,7 +54,7 @@ namespace pages {
         }
 
         private runInternal(type: string, symbols: string) {
-            const ssid: string = md5(`enrichment-${(new Date()).toLocaleTimeString("en-US")}`);
+            const ssid: string = md5(`enrichment-${(new Date()).toLocaleTimeString("en-US")}-${type}-${symbols}`);
             const vm = this;
             const json: string = JSON.stringify({
                 id: this.database,
@@ -115,7 +115,10 @@ namespace pages {
 
         public plot_onclick() {
             const json: string = JSON.stringify({
-                session_id: this.session_id
+                session_id: this.session_id,
+                type: "bar",
+                background: $ts.select.getOption("#background"),
+                top: 5
             });
 
             apps.gcmodeller

@@ -200,7 +200,7 @@ var pages;
             }
         }
         runInternal(type, symbols) {
-            const ssid = md5(`enrichment-${(new Date()).toLocaleTimeString("en-US")}`);
+            const ssid = md5(`enrichment-${(new Date()).toLocaleTimeString("en-US")}-${type}-${symbols}`);
             const vm = this;
             const json = JSON.stringify({
                 id: this.database,
@@ -254,7 +254,10 @@ var pages;
         }
         plot_onclick() {
             const json = JSON.stringify({
-                session_id: this.session_id
+                session_id: this.session_id,
+                type: "bar",
+                background: $ts.select.getOption("#background"),
+                top: 5
             });
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_Rplot"), json)
