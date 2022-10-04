@@ -132,7 +132,7 @@ namespace pages {
                             console.log(data);
 
                             if (flag) {
-
+                                $ts("#Rplot").CType<HTMLImageElement>().src = data;
                             } else {
                                 desktop.showToastMessage(message.info, title, null, "danger");
                             }

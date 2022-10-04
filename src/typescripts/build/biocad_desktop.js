@@ -276,6 +276,7 @@ var pages;
                             const data = message.info;
                             console.log(data);
                             if (flag) {
+                                $ts("#Rplot").CType().src = data;
                             }
                             else {
                                 desktop.showToastMessage(message.info, title, null, "danger");
