@@ -1,0 +1,1202 @@
+Keyword ID	Name	Category	Gene Ontologies
+KW-0001	2Fe-2S	Ligand	GO:0051537:2 iron, 2 sulfur cluster binding
+KW-0002	3D-structure	Technical term	
+KW-0003	3Fe-4S	Ligand	GO:0051538:3 iron, 4 sulfur cluster binding
+KW-0004	4Fe-4S	Ligand	GO:0051539:4 iron, 4 sulfur cluster binding
+KW-0005	Acetoin biosynthesis	Biological process	GO:0045151:acetoin biosynthetic process
+KW-0006	Acetoin catabolism	Biological process	GO:0045150:acetoin catabolic process
+KW-0007	Acetylation	PTM	
+KW-0008	Acetylcholine receptor inhibiting toxin	Molecular function	GO:0030550:acetylcholine receptor inhibitor activity
+KW-0009	Actin-binding	Molecular function	GO:0003779:actin binding
+KW-0010	Activator	Molecular function	
+KW-0011	Acute phase	Biological process	GO:0006953:acute-phase response
+KW-0012	Acyltransferase	Molecular function	GO:0016746:acyltransferase activity
+KW-0013	ADP-ribosylation	PTM	
+KW-0014	AIDS	Disease	
+KW-0015	Albinism	Disease	
+KW-0016	Alginate biosynthesis	Biological process	GO:0042121:alginic acid biosynthetic process
+KW-0017	Alkaloid metabolism	Biological process	GO:0009820:alkaloid metabolic process
+KW-0019	Alkylphosphonate uptake	Biological process	GO:0015716:organic phosphonate transport
+KW-0020	Allergen	Disease	
+KW-0021	Allosteric enzyme	Molecular function	GO:0003824:catalytic activity, GO:0008152:metabolic process
+KW-0022	Alpha-amylase inhibitor	Molecular function	GO:0015066:alpha-amylase inhibitor activity
+KW-0023	Alport syndrome	Disease	
+KW-0024	Alternative initiation	Coding sequence diversity	
+KW-0025	Alternative splicing	Coding sequence diversity	
+KW-0026	Alzheimer disease	Disease	
+KW-0027	Amidation	PTM	
+KW-0028	Amino-acid biosynthesis	Biological process	GO:0008652:cellular amino acid biosynthetic process
+KW-0029	Amino-acid transport	Biological process	GO:0006865:amino acid transport
+KW-0030	Aminoacyl-tRNA synthetase	Molecular function	GO:0004812:aminoacyl-tRNA ligase activity
+KW-0031	Aminopeptidase	Molecular function	GO:0004177:aminopeptidase activity
+KW-0032	Aminotransferase	Molecular function	GO:0008483:transaminase activity
+KW-0034	Amyloid	Cellular component	
+KW-0035	Amyloplast	Cellular component	GO:0009501:amyloplast
+KW-0036	Amyotrophic lateral sclerosis	Disease	
+KW-0037	Angiogenesis	Biological process	GO:0001525:angiogenesis
+KW-0038	Ectodermal dysplasia	Disease	
+KW-0039	Anion exchange	Biological process	GO:0015301:anion:anion antiporter activity
+KW-0040	ANK repeat	Domain	
+KW-0041	Annexin	Domain	
+KW-0042	Antenna complex	Cellular component	GO:0030076:light-harvesting complex
+KW-0043	Tumor suppressor	Disease	
+KW-0044	Antibiotic	Molecular function	GO:0042742:defense response to bacterium
+KW-0045	Antibiotic biosynthesis	Biological process	GO:0017000:antibiotic biosynthetic process
+KW-0046	Antibiotic resistance	Biological process	GO:0046677:response to antibiotic
+KW-0047	Antifreeze protein	Molecular function	
+KW-0049	Antioxidant	Molecular function	GO:0016209:antioxidant activity
+KW-0050	Antiport	Biological process	GO:0015297:antiporter activity
+KW-0051	Antiviral defense	Biological process	GO:0051607:defense response to virus
+KW-0052	Apoplast	Cellular component	GO:0048046:apoplast
+KW-0053	Apoptosis	Biological process	GO:0006915:apoptotic process
+KW-0054	Arabinose catabolism	Biological process	GO:0019568:arabinose catabolic process
+KW-0055	Arginine biosynthesis	Biological process	GO:0006526:arginine biosynthetic process
+KW-0056	Arginine metabolism	Biological process	GO:0006525:arginine metabolic process
+KW-0057	Aromatic amino acid biosynthesis	Biological process	GO:0009073:aromatic amino acid family biosynthetic process
+KW-0058	Aromatic hydrocarbons catabolism	Biological process	GO:0019439:aromatic compound catabolic process
+KW-0059	Arsenical resistance	Biological process	GO:0046685:response to arsenic-containing substance
+KW-0060	Ascorbate biosynthesis	Biological process	GO:0019853:L-ascorbic acid biosynthetic process
+KW-0061	Asparagine biosynthesis	Biological process	GO:0006529:asparagine biosynthetic process
+KW-0062	Aspartic protease inhibitor	Molecular function	GO:0019828:aspartic-type endopeptidase inhibitor activity
+KW-0063	Aspartyl esterase	Molecular function	GO:0045330:aspartyl esterase activity
+KW-0064	Aspartyl protease	Molecular function	GO:0004190:aspartic-type endopeptidase activity
+KW-0065	Atherosclerosis	Disease	
+KW-0066	ATP synthesis	Biological process	GO:0006754:ATP biosynthetic process
+KW-0067	ATP-binding	Ligand	GO:0005524:ATP binding
+KW-0068	Autocatalytic cleavage	PTM	
+KW-0069	Autoimmune encephalomyelitis	Disease	
+KW-0070	Autoimmune uveitis	Disease	
+KW-0071	Autoinducer synthesis	Biological process	
+KW-0072	Autophagy	Biological process	GO:0006914:autophagy
+KW-0073	Auxin biosynthesis	Biological process	GO:0009851:auxin biosynthetic process
+KW-0075	B-cell activation	Biological process	GO:0042113:B cell activation
+KW-0076	Bacteriochlorophyll	Ligand	GO:0042314:bacteriochlorophyll binding
+KW-0077	Bacteriochlorophyll biosynthesis	Biological process	GO:0030494:bacteriochlorophyll biosynthetic process
+KW-0078	Bacteriocin	Molecular function	GO:0019835:cytolysis
+KW-0079	Bacteriocin immunity	Biological process	GO:0030153:bacteriocin immunity
+KW-0080	Bacteriocin transport	Biological process	GO:0043213:bacteriocin transport
+KW-0081	Bacteriolytic enzyme	Molecular function	GO:0003824:catalytic activity, GO:0008152:metabolic process, GO:0019835:cytolysis, GO:0042742:defense response to bacterium
+KW-0082	Bait region	Domain	GO:0010466:negative regulation of peptidase activity, GO:0030414:peptidase inhibitor activity
+KW-0083	Bardet-Biedl syndrome	Disease	
+KW-0084	Basement membrane	Cellular component	GO:0005604:basement membrane
+KW-0085	Behavior	Biological process	GO:0007610:behavior
+KW-0086	Bence-Jones protein	Molecular function	
+KW-0087	Bernard Soulier syndrome	Disease	
+KW-0088	Bile acid catabolism	Biological process	GO:0030573:bile acid catabolic process
+KW-0089	Bile pigment	Ligand	
+KW-0090	Biological rhythms	Biological process	GO:0048511:rhythmic process
+KW-0091	Biomineralization	Biological process	GO:0031214:biomineral tissue development
+KW-0092	Biotin	Ligand	
+KW-0093	Biotin biosynthesis	Biological process	GO:0009102:biotin biosynthetic process
+KW-0094	Blood coagulation	Biological process	GO:0007596:blood coagulation
+KW-0095	Blood group antigen	Molecular function	
+KW-0100	Branched-chain amino acid biosynthesis	Biological process	GO:0009082:branched-chain amino acid biosynthetic process
+KW-0101	Branched-chain amino acid catabolism	Biological process	GO:0009083:branched-chain amino acid catabolic process
+KW-0102	Bromination	PTM	
+KW-0103	Bromodomain	Domain	
+KW-0104	Cadmium	Ligand	
+KW-0105	Cadmium resistance	Biological process	GO:0046686:response to cadmium ion
+KW-0106	Calcium	Ligand	
+KW-0107	Calcium channel	Molecular function	GO:0005262:calcium channel activity, GO:0070588:calcium ion transmembrane transport
+KW-0108	Calcium channel impairing toxin	Molecular function	GO:0005246:calcium channel regulator activity
+KW-0109	Calcium transport	Biological process	GO:0006816:calcium ion transport
+KW-0111	Calcium/phospholipid-binding	Ligand	GO:0005544:calcium-dependent phospholipid binding
+KW-0112	Calmodulin-binding	Molecular function	GO:0005516:calmodulin binding
+KW-0113	Calvin cycle	Biological process	GO:0019253:reductive pentose-phosphate cycle
+KW-0114	cAMP	Ligand	
+KW-0115	cAMP biosynthesis	Biological process	GO:0006171:cAMP biosynthetic process
+KW-0116	cAMP-binding	Ligand	GO:0030552:cAMP binding
+KW-0117	Actin capping	Molecular function	GO:0051693:actin filament capping
+KW-0118	Viral capsid assembly	Biological process	GO:0019069:viral capsid assembly
+KW-0119	Carbohydrate metabolism	Biological process	GO:0005975:carbohydrate metabolic process
+KW-0120	Carbon dioxide fixation	Biological process	GO:0015977:carbon fixation
+KW-0121	Carboxypeptidase	Molecular function	GO:0004180:carboxypeptidase activity
+KW-0122	Cardiomyopathy	Disease	
+KW-0123	Cardiotoxin	Molecular function	
+KW-0124	Carnitine biosynthesis	Biological process	GO:0045329:carnitine biosynthetic process
+KW-0125	Carotenoid biosynthesis	Biological process	GO:0016117:carotenoid biosynthetic process
+KW-0127	Catecholamine biosynthesis	Biological process	GO:0042423:catecholamine biosynthetic process
+KW-0128	Catecholamine metabolism	Biological process	GO:0006584:catecholamine metabolic process
+KW-0129	CBS domain	Domain	
+KW-0130	Cell adhesion	Biological process	GO:0007155:cell adhesion
+KW-0131	Cell cycle	Biological process	GO:0007049:cell cycle
+KW-0132	Cell division	Biological process	GO:0051301:cell division
+KW-0133	Cell shape	Biological process	GO:0008360:regulation of cell shape
+KW-0134	Cell wall	Cellular component	GO:0005618:cell wall
+KW-0135	Cellulose biosynthesis	Biological process	GO:0030244:cellulose biosynthetic process
+KW-0136	Cellulose degradation	Biological process	GO:0030245:cellulose catabolic process
+KW-0137	Centromere	Cellular component	GO:0000775:chromosome, centromeric region
+KW-0138	CF(0)	Cellular component	GO:0045263:proton-transporting ATP synthase complex, coupling factor F(o)
+KW-0139	CF(1)	Cellular component	GO:0045261:proton-transporting ATP synthase complex, catalytic core F(1)
+KW-0140	cGMP	Ligand	
+KW-0141	cGMP biosynthesis	Biological process	GO:0006182:cGMP biosynthetic process
+KW-0142	cGMP-binding	Ligand	GO:0030553:cGMP binding
+KW-0143	Chaperone	Molecular function	
+KW-0144	Charcot-Marie-Tooth disease	Disease	
+KW-0145	Chemotaxis	Biological process	GO:0006935:chemotaxis
+KW-0146	Chitin degradation	Biological process	GO:0006032:chitin catabolic process
+KW-0147	Chitin-binding	Ligand	GO:0008061:chitin binding
+KW-0148	Chlorophyll	Ligand	GO:0016168:chlorophyll binding
+KW-0149	Chlorophyll biosynthesis	Biological process	GO:0015995:chlorophyll biosynthetic process
+KW-0150	Chloroplast	Cellular component	GO:0009507:chloroplast
+KW-0151	Chlorosome	Cellular component	GO:0046858:chlorosome
+KW-0152	Cholesterol biosynthesis	Biological process	GO:0006695:cholesterol biosynthetic process
+KW-0153	Cholesterol metabolism	Biological process	GO:0008203:cholesterol metabolic process
+KW-0155	Chromate resistance	Biological process	GO:0046687:response to chromate
+KW-0156	Chromatin regulator	Molecular function	GO:0006325:chromatin organization
+KW-0157	Chromophore	Ligand	GO:0018298:protein-chromophore linkage
+KW-0158	Chromosome	Cellular component	GO:0005694:chromosome
+KW-0159	Chromosome partition	Biological process	GO:0007059:chromosome segregation
+KW-0160	Chromosomal rearrangement	Coding sequence diversity	
+KW-0161	Chronic granulomatous disease	Disease	
+KW-0162	Chylomicron	Cellular component	GO:0042627:chylomicron
+KW-0163	Citrate utilization	Biological process	GO:0006101:citrate metabolic process
+KW-0164	Citrullination	PTM	
+KW-0165	Cleavage on pair of basic residues	PTM	
+KW-0166	Nematocyst	Cellular component	GO:0042151:nematocyst
+KW-0167	Capsid protein	Cellular component	GO:0019028:viral capsid
+KW-0168	Coated pit	Cellular component	GO:0005905:clathrin-coated pit
+KW-0169	Cobalamin biosynthesis	Biological process	GO:0009236:cobalamin biosynthetic process
+KW-0170	Cobalt	Ligand	
+KW-0171	Cobalt transport	Biological process	GO:0006824:cobalt ion transport
+KW-0172	Cockayne syndrome	Disease	
+KW-0173	Coenzyme A biosynthesis	Biological process	GO:0015937:coenzyme A biosynthetic process
+KW-0174	Coenzyme M biosynthesis	Biological process	GO:0019295:coenzyme M biosynthetic process
+KW-0175	Coiled coil	Domain	
+KW-0176	Collagen	Domain	GO:0005581:collagen trimer
+KW-0177	Collagen degradation	Biological process	GO:0030574:collagen catabolic process
+KW-0178	Competence	Biological process	GO:0030420:establishment of competence for transformation
+KW-0179	Complement alternate pathway	Biological process	GO:0006957:complement activation, alternative pathway
+KW-0180	Complement pathway	Biological process	GO:0006958:complement activation, classical pathway
+KW-0182	Cone-rod dystrophy	Disease	
+KW-0183	Conidiation	Biological process	GO:0048315:conidium formation
+KW-0184	Conjugation	Biological process	GO:0000746:conjugation
+KW-0186	Copper	Ligand	
+KW-0187	Copper transport	Biological process	GO:0006825:copper ion transport
+KW-0188	Copulatory plug	Cellular component	GO:0042628:mating plug formation
+KW-0190	Covalent protein-DNA linkage	PTM	
+KW-0191	Covalent protein-RNA linkage	PTM	GO:0018144:RNA-protein covalent cross-linking
+KW-0192	Crown gall tumor	Disease	
+KW-0193	Cuticle	Cellular component	GO:0042302:structural constituent of cuticle
+KW-0194	Cyanelle	Cellular component	GO:0009842:cyanelle
+KW-0195	Cyclin	Molecular function	
+KW-0196	Cycloheximide resistance	Biological process	GO:0046898:response to cycloheximide
+KW-0198	Cysteine biosynthesis	Biological process	GO:0019344:cysteine biosynthetic process
+KW-0199	Cystinuria	Disease	
+KW-0200	Cytadherence	Biological process	GO:0020035:cytoadherence to microvasculature, mediated by symbiont protein
+KW-0201	Cytochrome c-type biogenesis	Biological process	GO:0017004:cytochrome complex assembly
+KW-0202	Cytokine	Molecular function	GO:0005125:cytokine activity, GO:0005615:extracellular space
+KW-0203	Cytokinin biosynthesis	Biological process	GO:0009691:cytokinin biosynthetic process
+KW-0204	Cytolysis	Biological process	GO:0019835:cytolysis
+KW-0205	Cytosine metabolism	Biological process	GO:0019858:cytosine metabolic process
+KW-0206	Cytoskeleton	Cellular component	GO:0005856:cytoskeleton
+KW-0208	D-amino acid	PTM	
+KW-0209	Deafness	Disease	
+KW-0210	Decarboxylase	Molecular function	GO:0016831:carboxy-lyase activity
+KW-0211	Defensin	Molecular function	GO:0006952:defense response
+KW-0213	Dejerine-Sottas syndrome	Disease	
+KW-0214	Dental caries	Disease	
+KW-0215	Deoxyribonucleotide synthesis	Biological process	GO:0009263:deoxyribonucleotide biosynthetic process
+KW-0216	Detoxification	Biological process	GO:0009636:response to toxic substance
+KW-0217	Developmental protein	Molecular function	GO:0007275:multicellular organism development
+KW-0218	Diabetes insipidus	Disease	
+KW-0219	Diabetes mellitus	Disease	
+KW-0220	Diaminopimelate biosynthesis	Biological process	GO:0019877:diaminopimelate biosynthetic process
+KW-0221	Differentiation	Biological process	GO:0030154:cell differentiation
+KW-0222	Digestion	Biological process	GO:0007586:digestion
+KW-0223	Dioxygenase	Molecular function	GO:0051213:dioxygenase activity
+KW-0224	Dipeptidase	Molecular function	GO:0016805:dipeptidase activity
+KW-0225	Disease variant	Disease	
+KW-0226	DNA condensation	Biological process	GO:0030261:chromosome condensation
+KW-0227	DNA damage	Biological process	GO:0006974:cellular response to DNA damage stimulus
+KW-0228	DNA excision	Biological process	GO:0006281:DNA repair
+KW-0229	DNA integration	Biological process	GO:0015074:DNA integration
+KW-0230	DNA invertase	Molecular function	GO:0000150:DNA strand exchange activity, GO:0003677:DNA binding, GO:0006310:DNA recombination
+KW-0231	Viral genome packaging	Biological process	GO:0019072:viral genome packaging
+KW-0233	DNA recombination	Biological process	GO:0006310:DNA recombination
+KW-0234	DNA repair	Biological process	GO:0006281:DNA repair
+KW-0235	DNA replication	Biological process	GO:0006260:DNA replication
+KW-0236	DNA replication inhibitor	Molecular function	GO:0008156:negative regulation of DNA replication
+KW-0237	DNA synthesis	Biological process	GO:0071897:DNA biosynthetic process
+KW-0238	DNA-binding	Molecular function	GO:0003677:DNA binding
+KW-0239	DNA-directed DNA polymerase	Molecular function	GO:0003887:DNA-directed DNA polymerase activity
+KW-0240	DNA-directed RNA polymerase	Cellular component	GO:0000428:DNA-directed RNA polymerase complex
+KW-0241	Down syndrome	Disease	
+KW-0242	Dwarfism	Disease	
+KW-0243	Dynein	Cellular component	GO:0030286:dynein complex
+KW-0244	Early protein	Developmental stage	
+KW-0245	EGF-like domain	Domain	
+KW-0248	Ehlers-Danlos syndrome	Disease	
+KW-0249	Electron transport	Biological process	
+KW-0250	Elliptocytosis	Disease	
+KW-0251	Elongation factor	Molecular function	GO:0003746:translation elongation factor activity, GO:0006414:translational elongation
+KW-0254	Endocytosis	Biological process	GO:0006897:endocytosis
+KW-0255	Endonuclease	Molecular function	GO:0004519:endonuclease activity
+KW-0256	Endoplasmic reticulum	Cellular component	GO:0005783:endoplasmic reticulum
+KW-0257	Endorphin	Molecular function	GO:0007218:neuropeptide signaling pathway
+KW-0259	Enterobactin biosynthesis	Biological process	GO:0009239:enterobactin biosynthetic process
+KW-0260	Enterotoxin	Molecular function	
+KW-0261	Viral envelope protein	Cellular component	GO:0019031:viral envelope
+KW-0263	Epidermolysis bullosa	Disease	
+KW-0265	Erythrocyte maturation	Biological process	GO:0043249:erythrocyte maturation
+KW-0266	Ethylene biosynthesis	Biological process	GO:0009693:ethylene biosynthetic process
+KW-0267	Excision nuclease	Molecular function	GO:0004518:nuclease activity
+KW-0268	Exocytosis	Biological process	GO:0006887:exocytosis
+KW-0269	Exonuclease	Molecular function	GO:0004527:exonuclease activity
+KW-0270	Exopolysaccharide synthesis	Biological process	GO:0000271:polysaccharide biosynthetic process
+KW-0271	Exosome	Cellular component	GO:0000178:exosome (RNase complex)
+KW-0272	Extracellular matrix	Cellular component	GO:0031012:extracellular matrix
+KW-0273	Eye lens protein	Molecular function	GO:0005212:structural constituent of eye lens
+KW-0274	FAD	Ligand	
+KW-0275	Fatty acid biosynthesis	Biological process	GO:0006633:fatty acid biosynthetic process
+KW-0276	Fatty acid metabolism	Biological process	GO:0006631:fatty acid metabolic process
+KW-0278	Fertilization	Biological process	GO:0007338:single fertilization
+KW-0280	Fibrinolysis	Biological process	GO:0042730:fibrinolysis
+KW-0281	Fimbrium	Cellular component	GO:0009289:pilus
+KW-0282	Flagellum	Cellular component	GO:0031514:motile cilium
+KW-0283	Flagellar rotation	Biological process	GO:0097588:archaeal or bacterial-type flagellum-dependent cell motility
+KW-0284	Flavonoid biosynthesis	Biological process	GO:0009813:flavonoid biosynthetic process
+KW-0285	Flavoprotein	Ligand	
+KW-0286	Flight	Biological process	GO:0007629:flight behavior
+KW-0287	Flowering	Biological process	GO:0009908:flower development
+KW-0288	FMN	Ligand	
+KW-0289	Folate biosynthesis	Biological process	GO:0046656:folic acid biosynthetic process
+KW-0290	Folate-binding	Ligand	GO:0005542:folic acid binding
+KW-0291	Formylation	PTM	
+KW-0292	Fruit ripening	Biological process	GO:0009835:fruit ripening
+KW-0293	Fruiting body	Developmental stage	
+KW-0294	Fucose metabolism	Biological process	GO:0006004:fucose metabolic process
+KW-0295	Fungicide	Molecular function	GO:0031640:killing of cells of another organism, GO:0050832:defense response to fungus
+KW-0297	G-protein coupled receptor	Molecular function	GO:0004930:G protein-coupled receptor activity, GO:0007186:G protein-coupled receptor signaling pathway
+KW-0298	Galactitol metabolism	Biological process	GO:0019402:galactitol metabolic process
+KW-0299	Galactose metabolism	Biological process	GO:0006012:galactose metabolic process
+KW-0301	Gamma-carboxyglutamic acid	PTM	
+KW-0302	Gap protein	Molecular function	GO:0035282:segmentation
+KW-0303	Gap junction	Cellular component	GO:0005921:gap junction
+KW-0304	Gas vesicle	Cellular component	GO:0031411:gas vesicle
+KW-0305	Gaseous exchange	Biological process	GO:0007585:respiratory gaseous exchange by respiratory system
+KW-0306	Gastrulation	Biological process	GO:0007369:gastrulation
+KW-0307	Gaucher disease	Disease	
+KW-0308	Genetically modified food	Technical term	
+KW-0309	Germination	Biological process	
+KW-0311	Gluconate utilization	Biological process	GO:0019521:D-gluconate metabolic process
+KW-0312	Gluconeogenesis	Biological process	GO:0006094:gluconeogenesis
+KW-0313	Glucose metabolism	Biological process	GO:0006006:glucose metabolic process
+KW-0314	Glutamate biosynthesis	Biological process	GO:0006537:glutamate biosynthetic process
+KW-0315	Glutamine amidotransferase	Domain	GO:0006541:glutamine metabolic process
+KW-0316	Glutaricaciduria	Disease	
+KW-0317	Glutathione biosynthesis	Biological process	GO:0006750:glutathione biosynthetic process
+KW-0318	Glutathionylation	PTM	
+KW-0319	Glycerol metabolism	Biological process	GO:0006071:glycerol metabolic process
+KW-0320	Glycogen biosynthesis	Biological process	GO:0005978:glycogen biosynthetic process
+KW-0321	Glycogen metabolism	Biological process	GO:0005977:glycogen metabolic process
+KW-0322	Glycogen storage disease	Disease	
+KW-0323	Glycolate pathway	Biological process	GO:0009854:oxidative photosynthetic carbon pathway
+KW-0324	Glycolysis	Biological process	GO:0006096:glycolytic process
+KW-0325	Glycoprotein	PTM	
+KW-0326	Glycosidase	Molecular function	GO:0008152:metabolic process, GO:0016798:hydrolase activity, acting on glycosyl bonds
+KW-0327	Glycosome	Cellular component	GO:0020015:glycosome
+KW-0328	Glycosyltransferase	Molecular function	GO:0016757:glycosyltransferase activity
+KW-0329	Glyoxylate bypass	Biological process	GO:0006097:glyoxylate cycle
+KW-0330	Glyoxysome	Cellular component	GO:0009514:glyoxysome
+KW-0331	Gangliosidosis	Disease	
+KW-0332	GMP biosynthesis	Biological process	GO:0006177:GMP biosynthetic process
+KW-0333	Golgi apparatus	Cellular component	GO:0005794:Golgi apparatus
+KW-0334	Gonadal differentiation	Biological process	GO:0007506:gonadal mesoderm development
+KW-0335	Gout	Disease	
+KW-0336	GPI-anchor	PTM	GO:0031225:anchored component of membrane
+KW-0337	GPI-anchor biosynthesis	Biological process	GO:0006506:GPI anchor biosynthetic process
+KW-0338	Growth arrest	Biological process	
+KW-0339	Growth factor	Molecular function	GO:0008083:growth factor activity
+KW-0340	Growth factor binding	Molecular function	GO:0019838:growth factor binding
+KW-0341	Growth regulation	Biological process	GO:0040008:regulation of growth
+KW-0342	GTP-binding	Ligand	GO:0005525:GTP binding
+KW-0343	GTPase activation	Molecular function	GO:0005096:GTPase activator activity
+KW-0344	Guanine-nucleotide releasing factor	Molecular function	GO:0005085:guanyl-nucleotide exchange factor activity
+KW-0345	HDL	Cellular component	GO:0034364:high-density lipoprotein particle
+KW-0346	Stress response	Biological process	
+KW-0347	Helicase	Molecular function	GO:0004386:helicase activity
+KW-0348	Hemagglutinin	Molecular function	
+KW-0349	Heme	Ligand	
+KW-0350	Heme biosynthesis	Biological process	GO:0006783:heme biosynthetic process
+KW-0351	Hemoglobin-binding	Ligand	GO:0030492:hemoglobin binding
+KW-0353	Hemolymph clotting	Biological process	GO:0042381:hemolymph coagulation
+KW-0354	Hemolysis	Biological process	GO:0044179:hemolysis in another organism
+KW-0355	Hemophilia	Disease	
+KW-0356	Hemostasis	Biological process	GO:0007599:hemostasis
+KW-0357	Heparan sulfate	PTM	
+KW-0358	Heparin-binding	Molecular function	GO:0008201:heparin binding
+KW-0359	Herbicide resistance	Biological process	GO:0009635:response to herbicide
+KW-0360	Hereditary hemolytic anemia	Disease	
+KW-0361	Hereditary multiple exostoses	Disease	
+KW-0362	Hereditary nonpolyposis colorectal cancer	Disease	
+KW-0363	Hermansky-Pudlak syndrome	Disease	
+KW-0364	Heterocyst	Developmental stage	GO:0043158:heterocyst differentiation
+KW-0367	Hirschsprung disease	Disease	
+KW-0368	Histidine biosynthesis	Biological process	GO:0000105:histidine biosynthetic process
+KW-0369	Histidine metabolism	Biological process	GO:0006547:histidine metabolic process
+KW-0370	Holoprosencephaly	Disease	
+KW-0371	Homeobox	Domain	GO:0003677:DNA binding
+KW-0372	Hormone	Molecular function	GO:0005179:hormone activity
+KW-0373	Hyaluronic acid	Ligand	GO:0005540:hyaluronic acid binding
+KW-0374	Hybridoma	Technical term	
+KW-0375	Hydrogen ion transport	Biological process	
+KW-0376	Hydrogen peroxide	Biological process	GO:0042744:hydrogen peroxide catabolic process
+KW-0377	Hydrogenosome	Cellular component	GO:0042566:hydrogenosome
+KW-0378	Hydrolase	Molecular function	GO:0016787:hydrolase activity
+KW-0379	Hydroxylation	PTM	
+KW-0380	Hyperlipidemia	Disease	
+KW-0381	Hypersensitive response	Biological process	GO:0009626:plant-type hypersensitive response
+KW-0382	Hypotensive agent	Molecular function	GO:0008217:regulation of blood pressure
+KW-0385	Hypusine	PTM	
+KW-0386	Hypusine biosynthesis	Biological process	GO:0008612:peptidyl-lysine modification to peptidyl-hypusine
+KW-0387	Ice nucleation	Molecular function	GO:0050825:ice binding
+KW-0388	IgA-binding protein	Molecular function	GO:0019862:IgA binding
+KW-0389	IgE-binding protein	Molecular function	GO:0019863:IgE binding
+KW-0390	IgG-binding protein	Molecular function	GO:0019864:IgG binding
+KW-0391	Immunity	Biological process	GO:0002376:immune system process
+KW-0393	Immunoglobulin domain	Domain	
+KW-0395	Inflammatory response	Biological process	GO:0006954:inflammatory response
+KW-0396	Initiation factor	Molecular function	GO:0003743:translation initiation factor activity, GO:0006413:translational initiation
+KW-0398	Inositol biosynthesis	Biological process	GO:0006021:inositol biosynthetic process
+KW-0399	Innate immunity	Biological process	GO:0045087:innate immune response
+KW-0401	Integrin	Molecular function	GO:0007229:integrin-mediated signaling pathway
+KW-0403	Intermediate filament	Cellular component	GO:0005882:intermediate filament
+KW-0404	Intron homing	Biological process	GO:0006314:intron homing
+KW-0405	Iodination	PTM	
+KW-0406	Ion transport	Biological process	GO:0006811:ion transport
+KW-0407	Ion channel	Molecular function	GO:0005216:ion channel activity
+KW-0408	Iron	Ligand	
+KW-0409	Iron storage	Biological process	GO:0006879:cellular iron ion homeostasis
+KW-0410	Iron transport	Biological process	GO:0055072:iron ion homeostasis
+KW-0411	Iron-sulfur	Ligand	GO:0051536:iron-sulfur cluster binding
+KW-0412	Isoleucine biosynthesis	Biological process	GO:0009097:isoleucine biosynthetic process
+KW-0413	Isomerase	Molecular function	GO:0016853:isomerase activity
+KW-0414	Isoprene biosynthesis	Biological process	GO:0008299:isoprenoid biosynthetic process
+KW-0415	Karyogamy	Biological process	GO:0000741:karyogamy
+KW-0416	Keratin	Cellular component	GO:0005882:intermediate filament
+KW-0417	Keratinization	Biological process	GO:0031424:keratinization
+KW-0418	Kinase	Molecular function	GO:0016301:kinase activity, GO:0016310:phosphorylation
+KW-0419	Kinetoplast	Cellular component	GO:0020023:kinetoplast
+KW-0420	Kringle	Domain	
+KW-0421	Lactation	Biological process	GO:0007595:lactation
+KW-0422	Lactose biosynthesis	Biological process	GO:0005989:lactose biosynthetic process
+KW-0423	Lactose metabolism	Biological process	GO:0005988:lactose metabolic process
+KW-0424	Laminin EGF-like domain	Domain	
+KW-0425	Lantibiotic	Molecular function	GO:0005102:signaling receptor binding, GO:0019835:cytolysis
+KW-0426	Late protein	Developmental stage	
+KW-0427	LDL	Cellular component	GO:0034362:low-density lipoprotein particle
+KW-0428	Leader peptide	Molecular function	
+KW-0429	Leber hereditary optic neuropathy	Disease	
+KW-0430	Lectin	Ligand	GO:0030246:carbohydrate binding
+KW-0431	Leigh syndrome	Disease	
+KW-0432	Leucine biosynthesis	Biological process	GO:0009098:leucine biosynthetic process
+KW-0433	Leucine-rich repeat	Domain	
+KW-0434	Leukotriene biosynthesis	Biological process	GO:0019370:leukotriene biosynthetic process
+KW-0435	Li-Fraumeni syndrome	Disease	
+KW-0436	Ligase	Molecular function	GO:0016874:ligase activity
+KW-0437	Light-harvesting polypeptide	Molecular function	GO:0030076:light-harvesting complex
+KW-0438	Lignin biosynthesis	Biological process	GO:0009809:lignin biosynthetic process
+KW-0439	Lignin degradation	Biological process	GO:0046274:lignin catabolic process
+KW-0440	LIM domain	Domain	
+KW-0441	Lipid A biosynthesis	Biological process	GO:0009245:lipid A biosynthetic process
+KW-0442	Lipid degradation	Biological process	GO:0016042:lipid catabolic process
+KW-0443	Lipid metabolism	Biological process	GO:0006629:lipid metabolic process
+KW-0444	Lipid biosynthesis	Biological process	GO:0008610:lipid biosynthetic process
+KW-0445	Lipid transport	Biological process	GO:0006869:lipid transport
+KW-0446	Lipid-binding	Ligand	GO:0008289:lipid binding
+KW-0448	Lipopolysaccharide biosynthesis	Biological process	GO:0009103:lipopolysaccharide biosynthetic process
+KW-0449	Lipoprotein	PTM	
+KW-0450	Lipoyl	Domain	
+KW-0451	Lissencephaly	Disease	
+KW-0452	Lithium	Ligand	
+KW-0454	Long QT syndrome	Disease	
+KW-0455	Luminescence	Biological process	GO:0008218:bioluminescence
+KW-0456	Lyase	Molecular function	GO:0016829:lyase activity
+KW-0457	Lysine biosynthesis	Biological process	GO:0009085:lysine biosynthetic process
+KW-0458	Lysosome	Cellular component	GO:0005764:lysosome
+KW-0460	Magnesium	Ligand	
+KW-0461	Malaria	Disease	
+KW-0462	Maltose metabolism	Biological process	GO:0000023:maltose metabolic process
+KW-0463	Mandelate pathway	Biological process	GO:0018924:mandelate metabolic process
+KW-0464	Manganese	Ligand	
+KW-0465	Mannose-binding	Ligand	GO:0005537:mannose binding
+KW-0466	Maple syrup urine disease	Disease	
+KW-0467	Mast cell degranulation	Biological process	GO:0043303:mast cell degranulation
+KW-0468	Viral matrix protein	Cellular component	GO:0039660:structural constituent of virion
+KW-0469	Meiosis	Biological process	GO:0051321:meiotic cell cycle
+KW-0470	Melanin biosynthesis	Biological process	GO:0042438:melanin biosynthetic process
+KW-0471	Melatonin biosynthesis	Biological process	GO:0030187:melatonin biosynthetic process
+KW-0472	Membrane	Cellular component	GO:0016020:membrane
+KW-0473	Membrane attack complex	Cellular component	GO:0005579:membrane attack complex
+KW-0474	Menaquinone biosynthesis	Biological process	GO:0009234:menaquinone biosynthetic process
+KW-0475	Mercuric resistance	Biological process	GO:0046689:response to mercury ion
+KW-0476	Mercury	Ligand	
+KW-0477	Merozoite	Developmental stage	
+KW-0478	Metachromatic leukodystrophy	Disease	
+KW-0479	Metal-binding	Ligand	GO:0046872:metal ion binding
+KW-0480	Metal-thiolate cluster	Ligand	GO:0046872:metal ion binding
+KW-0481	Metalloenzyme inhibitor	Molecular function	GO:0004857:enzyme inhibitor activity
+KW-0482	Metalloprotease	Molecular function	GO:0008237:metallopeptidase activity
+KW-0483	Metalloprotease inhibitor	Molecular function	GO:0008191:metalloendopeptidase inhibitor activity
+KW-0484	Methanogenesis	Biological process	GO:0015948:methanogenesis
+KW-0485	Methanol utilization	Biological process	GO:0015945:methanol metabolic process
+KW-0486	Methionine biosynthesis	Biological process	GO:0009086:methionine biosynthetic process
+KW-0487	Methotrexate resistance	Biological process	GO:0031427:response to methotrexate
+KW-0488	Methylation	PTM	
+KW-0489	Methyltransferase	Molecular function	GO:0008168:methyltransferase activity, GO:0032259:methylation
+KW-0490	MHC I	Cellular component	GO:0002474:antigen processing and presentation of peptide antigen via MHC class I, GO:0042612:MHC class I protein complex
+KW-0491	MHC II	Cellular component	GO:0002504:antigen processing and presentation of peptide or polysaccharide antigen via MHC class II, GO:0042613:MHC class II protein complex
+KW-0492	Microsome	Cellular component	GO:0043231:intracellular membrane-bounded organelle
+KW-0493	Microtubule	Cellular component	GO:0005874:microtubule
+KW-0494	Milk protein	Molecular function	
+KW-0495	Mineral balance	Biological process	GO:0030500:regulation of bone mineralization
+KW-0496	Mitochondrion	Cellular component	GO:0005739:mitochondrion
+KW-0497	Mitogen	Molecular function	GO:0051781:positive regulation of cell division
+KW-0498	Mitosis	Biological process	
+KW-0499	Mobility protein	Molecular function	
+KW-0500	Molybdenum	Ligand	
+KW-0501	Molybdenum cofactor biosynthesis	Biological process	GO:0006777:Mo-molybdopterin cofactor biosynthetic process
+KW-0502	Monoclonal antibody	Molecular function	GO:0003823:antigen binding
+KW-0503	Monooxygenase	Molecular function	GO:0004497:monooxygenase activity
+KW-0504	Morphogen	Molecular function	GO:0009653:anatomical structure morphogenesis, GO:0016015:morphogen activity
+KW-0505	Motor protein	Molecular function	
+KW-0506	mRNA capping	Biological process	GO:0006370:7-methylguanosine mRNA capping
+KW-0507	mRNA processing	Biological process	GO:0006397:mRNA processing
+KW-0508	mRNA splicing	Biological process	GO:0008380:RNA splicing
+KW-0509	mRNA transport	Biological process	GO:0051028:mRNA transport
+KW-0510	Mucopolysaccharidosis	Disease	
+KW-0511	Multifunctional enzyme	Molecular function	GO:0003824:catalytic activity, GO:0008152:metabolic process
+KW-0514	Muscle protein	Molecular function	
+KW-0515	Mutator protein	Molecular function	
+KW-0517	Myogenesis	Biological process	GO:0007517:muscle organ development
+KW-0518	Myosin	Molecular function	GO:0016459:myosin complex
+KW-0519	Myristate	PTM	
+KW-0520	NAD	Ligand	
+KW-0521	NADP	Ligand	
+KW-0523	Neurodegeneration	Disease	
+KW-0524	Neurogenesis	Biological process	GO:0007399:nervous system development
+KW-0525	Neuronal ceroid lipofuscinosis	Disease	
+KW-0527	Neuropeptide	Molecular function	GO:0007218:neuropeptide signaling pathway
+KW-0528	Neurotoxin	Molecular function	
+KW-0529	Neurotransmitter	Molecular function	GO:0007268:chemical synaptic transmission
+KW-0530	Neurotransmitter biosynthesis	Biological process	GO:0042136:neurotransmitter biosynthetic process
+KW-0531	Neurotransmitter degradation	Biological process	GO:0042135:neurotransmitter catabolic process
+KW-0532	Neurotransmitter transport	Biological process	GO:0006836:neurotransmitter transport
+KW-0533	Nickel	Ligand	
+KW-0534	Nitrate assimilation	Biological process	GO:0042128:nitrate assimilation
+KW-0535	Nitrogen fixation	Biological process	GO:0009399:nitrogen fixation
+KW-0536	Nodulation	Biological process	GO:0009877:nodulation
+KW-0539	Nucleus	Cellular component	GO:0005634:nucleus
+KW-0540	Nuclease	Molecular function	GO:0004518:nuclease activity
+KW-0542	Nucleomorph	Cellular component	GO:0033009:nucleomorph
+KW-0543	Viral nucleoprotein	Molecular function	GO:0019013:viral nucleocapsid
+KW-0544	Nucleosome core	Cellular component	GO:0000786:nucleosome
+KW-0545	Nucleotide biosynthesis	Biological process	GO:0009165:nucleotide biosynthetic process
+KW-0546	Nucleotide metabolism	Biological process	GO:0009117:nucleotide metabolic process
+KW-0547	Nucleotide-binding	Ligand	GO:0000166:nucleotide binding
+KW-0548	Nucleotidyltransferase	Molecular function	GO:0016779:nucleotidyltransferase activity
+KW-0549	Nylon degradation	Biological process	GO:0019876:nylon catabolic process
+KW-0550	Obesity	Disease	
+KW-0551	Lipid droplet	Cellular component	GO:0005811:lipid droplet
+KW-0552	Olfaction	Biological process	GO:0007608:sensory perception of smell
+KW-0553	Oncogene	Disease	
+KW-0554	One-carbon metabolism	Biological process	GO:0006730:one-carbon metabolic process
+KW-0555	Opioid peptide	Molecular function	GO:0001515:opioid peptide activity
+KW-0556	Organic radical	PTM	
+KW-0558	Oxidation	PTM	
+KW-0560	Oxidoreductase	Molecular function	GO:0016491:oxidoreductase activity
+KW-0561	Oxygen transport	Biological process	GO:0005344:oxygen carrier activity, GO:0015671:oxygen transport
+KW-0562	Pair-rule protein	Molecular function	GO:0007275:multicellular organism development, GO:0007366:periodic partitioning by pair rule gene
+KW-0563	Paired box	Domain	
+KW-0564	Palmitate	PTM	
+KW-0566	Pantothenate biosynthesis	Biological process	GO:0015940:pantothenate biosynthetic process
+KW-0568	Pathogenesis-related protein	Molecular function	GO:0009607:response to biotic stimulus
+KW-0570	Pentose shunt	Biological process	GO:0006098:pentose-phosphate shunt
+KW-0571	Peptide transport	Biological process	GO:0015833:peptide transport
+KW-0572	Peptidoglycan-anchor	PTM	
+KW-0573	Peptidoglycan synthesis	Biological process	GO:0009252:peptidoglycan biosynthetic process
+KW-0574	Periplasm	Cellular component	GO:0042597:periplasmic space
+KW-0575	Peroxidase	Molecular function	GO:0004601:peroxidase activity
+KW-0576	Peroxisome	Cellular component	GO:0005777:peroxisome
+KW-0577	PHA biosynthesis	Biological process	GO:0042621:poly(3-hydroxyalkanoate) biosynthetic process
+KW-0578	Host cell lysis by virus	Biological process	GO:0044659:viral release from host cell by cytolysis
+KW-0581	Phagocytosis	Biological process	GO:0006909:phagocytosis
+KW-0582	Pharmaceutical	Technical term	
+KW-0583	PHB biosynthesis	Biological process	GO:0042619:poly-hydroxybutyrate biosynthetic process
+KW-0584	Phenylalanine biosynthesis	Biological process	GO:0009094:L-phenylalanine biosynthetic process
+KW-0585	Phenylalanine catabolism	Biological process	GO:0006559:L-phenylalanine catabolic process
+KW-0586	Phenylketonuria	Disease	
+KW-0587	Phenylpropanoid metabolism	Biological process	GO:0009698:phenylpropanoid metabolic process
+KW-0588	Pheromone	Molecular function	GO:0005186:pheromone activity
+KW-0589	Pheromone response	Biological process	GO:0019236:response to pheromone
+KW-0590	Pheromone-binding	Ligand	GO:0005550:pheromone binding
+KW-0592	Phosphate transport	Biological process	GO:0006817:phosphate ion transport
+KW-0593	Phospholipase A2 inhibitor	Molecular function	GO:0019834:phospholipase A2 inhibitor activity
+KW-0594	Phospholipid biosynthesis	Biological process	GO:0008654:phospholipid biosynthetic process
+KW-0595	Phospholipid degradation	Biological process	GO:0009395:phospholipid catabolic process
+KW-0596	Phosphopantetheine	PTM	
+KW-0597	Phosphoprotein	PTM	
+KW-0598	Phosphotransferase system	Biological process	GO:0009401:phosphoenolpyruvate-dependent sugar phosphotransferase system
+KW-0599	Photoprotein	Molecular function	GO:0008218:bioluminescence
+KW-0600	Photoreceptor protein	Molecular function	GO:0009881:photoreceptor activity
+KW-0601	Photorespiration	Biological process	GO:0009853:photorespiration
+KW-0602	Photosynthesis	Biological process	GO:0015979:photosynthesis
+KW-0603	Photosystem I	Cellular component	GO:0009522:photosystem I
+KW-0604	Photosystem II	Cellular component	GO:0009523:photosystem II
+KW-0605	Phycobilisome	Cellular component	GO:0030089:phycobilisome
+KW-0607	Phytochrome signaling pathway	Biological process	GO:0009585:red, far-red light phototransduction, GO:0010017:red or far-red light signaling pathway
+KW-0608	Pigment	Ligand	GO:0031409:pigment binding
+KW-0611	Plant defense	Biological process	GO:0006952:defense response
+KW-0614	Plasmid	Technical term	
+KW-0615	Plasmid copy control	Biological process	GO:0006276:plasmid maintenance
+KW-0616	Plasmid partition	Biological process	GO:0030541:plasmid partitioning
+KW-0617	Plasminogen activation	Biological process	
+KW-0618	Plastoquinone	Ligand	
+KW-0620	Polyamine biosynthesis	Biological process	GO:0006596:polyamine biosynthetic process
+KW-0622	Neuropathy	Disease	
+KW-0624	Polysaccharide degradation	Biological process	GO:0000272:polysaccharide catabolic process
+KW-0625	Polysaccharide transport	Biological process	GO:0015774:polysaccharide transport
+KW-0626	Porin	Molecular function	GO:0015288:porin activity, GO:0046930:pore complex
+KW-0627	Porphyrin biosynthesis	Biological process	GO:0006779:porphyrin-containing compound biosynthetic process
+KW-0628	Postsynaptic cell membrane	Cellular component	GO:0045211:postsynaptic membrane
+KW-0629	Postsynaptic neurotoxin	Molecular function	GO:0035792:host cell postsynaptic membrane
+KW-0630	Potassium	Ligand	
+KW-0631	Potassium channel	Molecular function	GO:0005267:potassium channel activity, GO:0071805:potassium ion transmembrane transport
+KW-0632	Potassium channel impairing toxin	Molecular function	GO:0015459:potassium channel regulator activity
+KW-0633	Potassium transport	Biological process	GO:0006813:potassium ion transport
+KW-0634	PQQ	Ligand	
+KW-0635	Pregnancy	Biological process	GO:0007565:female pregnancy
+KW-0636	Prenylation	PTM	
+KW-0637	Prenyltransferase	Molecular function	GO:0004659:prenyltransferase activity
+KW-0638	Presynaptic neurotoxin	Molecular function	
+KW-0639	Primosome	Cellular component	GO:0006269:DNA replication, synthesis of RNA primer, GO:1990077:primosome complex
+KW-0640	Prion	Molecular function	
+KW-0641	Proline biosynthesis	Biological process	GO:0006561:proline biosynthetic process
+KW-0642	Proline metabolism	Biological process	GO:0006560:proline metabolic process
+KW-0643	Prostaglandin biosynthesis	Biological process	GO:0001516:prostaglandin biosynthetic process
+KW-0644	Prostaglandin metabolism	Biological process	GO:0006693:prostaglandin metabolic process
+KW-0645	Protease	Molecular function	GO:0006508:proteolysis, GO:0008233:peptidase activity
+KW-0646	Protease inhibitor	Molecular function	GO:0010466:negative regulation of peptidase activity, GO:0030414:peptidase inhibitor activity
+KW-0647	Proteasome	Cellular component	GO:0000502:proteasome complex
+KW-0648	Protein biosynthesis	Biological process	GO:0006412:translation
+KW-0649	Protein kinase inhibitor	Molecular function	GO:0004860:protein kinase inhibitor activity
+KW-0650	Protein phosphatase inhibitor	Molecular function	GO:0004864:protein phosphatase inhibitor activity
+KW-0651	Protein splicing	PTM	
+KW-0652	Protein synthesis inhibitor	Molecular function	GO:0017148:negative regulation of translation
+KW-0653	Protein transport	Biological process	GO:0015031:protein transport
+KW-0654	Proteoglycan	PTM	
+KW-0655	Prothrombin activator	Molecular function	GO:0010952:positive regulation of peptidase activity, GO:0016504:peptidase activator activity
+KW-0656	Proto-oncogene	Disease	
+KW-0657	Pseudohermaphroditism	Disease	
+KW-0658	Purine biosynthesis	Biological process	GO:0006164:purine nucleotide biosynthetic process
+KW-0659	Purine metabolism	Biological process	GO:0006144:purine nucleobase metabolic process
+KW-0660	Purine salvage	Biological process	GO:0006166:purine ribonucleoside salvage
+KW-0661	Putrescine biosynthesis	Biological process	GO:0009446:putrescine biosynthetic process
+KW-0662	Pyridine nucleotide biosynthesis	Biological process	GO:0019363:pyridine nucleotide biosynthetic process
+KW-0663	Pyridoxal phosphate	Ligand	
+KW-0664	Pyridoxine biosynthesis	Biological process	GO:0008615:pyridoxine biosynthetic process
+KW-0665	Pyrimidine biosynthesis	Biological process	GO:0006221:pyrimidine nucleotide biosynthetic process
+KW-0666	Pyrogen	Molecular function	GO:0001660:fever generation
+KW-0668	Pyropoikilocytosis	Disease	
+KW-0669	Pyrrolysine	Coding sequence diversity	
+KW-0670	Pyruvate	Ligand	
+KW-0671	Queuosine biosynthesis	Biological process	GO:0008616:queuosine biosynthetic process
+KW-0672	Quinate metabolism	Biological process	GO:0019630:quinate metabolic process
+KW-0673	Quorum sensing	Biological process	GO:0009372:quorum sensing
+KW-0674	Reaction center	Cellular component	
+KW-0675	Receptor	Molecular function	
+KW-0676	Redox-active center	Domain	
+KW-0677	Repeat	Domain	
+KW-0678	Repressor	Molecular function	
+KW-0679	Respiratory chain	Biological process	GO:0070469:respirasome
+KW-0680	Restriction system	Biological process	GO:0009307:DNA restriction-modification system
+KW-0681	Retinal protein	Molecular function	GO:0007602:phototransduction
+KW-0682	Retinitis pigmentosa	Disease	
+KW-0683	Retinol-binding	Ligand	GO:0019841:retinol binding
+KW-0684	Rhamnose metabolism	Biological process	GO:0019299:rhamnose metabolic process
+KW-0685	Rhizomelic chondrodysplasia punctata	Disease	
+KW-0686	Riboflavin biosynthesis	Biological process	GO:0009231:riboflavin biosynthetic process
+KW-0687	Ribonucleoprotein	Molecular function	
+KW-0688	Ribosomal frameshifting	Coding sequence diversity	
+KW-0689	Ribosomal protein	Molecular function	GO:0005840:ribosome
+KW-0690	Ribosome biogenesis	Biological process	GO:0042254:ribosome biogenesis
+KW-0691	RNA editing	Coding sequence diversity	
+KW-0692	RNA repair	Biological process	GO:0042245:RNA repair
+KW-0693	Viral RNA replication	Biological process	GO:0039694:viral RNA genome replication
+KW-0694	RNA-binding	Molecular function	GO:0003723:RNA binding
+KW-0695	RNA-directed DNA polymerase	Molecular function	GO:0003964:RNA-directed DNA polymerase activity
+KW-0696	RNA-directed RNA polymerase	Molecular function	GO:0003968:RNA-directed 5'-3' RNA polymerase activity
+KW-0697	Rotamase	Molecular function	GO:0003755:peptidyl-prolyl cis-trans isomerase activity
+KW-0698	rRNA processing	Biological process	GO:0006364:rRNA processing
+KW-0699	rRNA-binding	Molecular function	GO:0019843:rRNA binding
+KW-0701	S-layer	Cellular component	GO:0030115:S-layer
+KW-0702	S-nitrosylation	PTM	
+KW-0703	Sarcoplasmic reticulum	Cellular component	GO:0016529:sarcoplasmic reticulum
+KW-0704	Schiff base	Ligand	
+KW-0705	SCID	Disease	
+KW-0708	Seed storage protein	Molecular function	GO:0045735:nutrient reservoir activity
+KW-0709	Segmentation polarity protein	Molecular function	GO:0007367:segment polarity determination
+KW-0711	Selenium	Ligand	
+KW-0712	Selenocysteine	Coding sequence diversity	
+KW-0713	Self-incompatibility	Biological process	GO:0060320:rejection of self pollen
+KW-0716	Sensory transduction	Biological process	GO:0050896:response to stimulus
+KW-0717	Septation	Biological process	GO:0000917:division septum assembly
+KW-0718	Serine biosynthesis	Biological process	GO:0006564:L-serine biosynthetic process
+KW-0719	Serine esterase	Molecular function	GO:0052689:carboxylic ester hydrolase activity
+KW-0720	Serine protease	Molecular function	GO:0008236:serine-type peptidase activity
+KW-0721	Serine protease homolog	Molecular function	
+KW-0722	Serine protease inhibitor	Molecular function	GO:0004867:serine-type endopeptidase inhibitor activity
+KW-0723	Serine/threonine-protein kinase	Molecular function	GO:0004674:protein serine/threonine kinase activity
+KW-0724	Serotonin biosynthesis	Biological process	GO:0042427:serotonin biosynthetic process
+KW-0726	Sexual differentiation	Biological process	GO:0007548:sex differentiation
+KW-0727	SH2 domain	Domain	
+KW-0728	SH3 domain	Domain	
+KW-0729	SH3-binding	Domain	GO:0017124:SH3 domain binding
+KW-0730	Sialic acid	Ligand	
+KW-0731	Sigma factor	Molecular function	GO:0006355:regulation of transcription, DNA-templated, GO:0016987:sigma factor activity
+KW-0732	Signal	Domain	
+KW-0733	Signal recognition particle	Cellular component	GO:0005786:signal recognition particle, endoplasmic reticulum targeting
+KW-0734	Signal transduction inhibitor	Molecular function	GO:0009968:negative regulation of signal transduction
+KW-0735	Signal-anchor	Domain	
+KW-0736	Signalosome	Cellular component	GO:0008180:COP9 signalosome
+KW-0737	Silk protein	Molecular function	
+KW-0738	Voltage-gated sodium channel impairing toxin	Molecular function	GO:0017080:sodium channel regulator activity
+KW-0739	Sodium transport	Biological process	GO:0006814:sodium ion transport
+KW-0740	Sodium/potassium transport	Biological process	GO:0006813:potassium ion transport, GO:0006814:sodium ion transport
+KW-0741	SOS mutagenesis	Biological process	
+KW-0742	SOS response	Biological process	GO:0009432:SOS response
+KW-0744	Spermatogenesis	Biological process	GO:0007283:spermatogenesis
+KW-0745	Spermidine biosynthesis	Biological process	GO:0008295:spermidine biosynthetic process
+KW-0746	Sphingolipid metabolism	Biological process	GO:0006665:sphingolipid metabolic process
+KW-0747	Spliceosome	Cellular component	GO:0005681:spliceosomal complex
+KW-0748	Sporozoite	Developmental stage	
+KW-0749	Sporulation	Biological process	GO:0030435:sporulation resulting in formation of a cellular spore
+KW-0750	Starch biosynthesis	Biological process	GO:0019252:starch biosynthetic process
+KW-0751	Stargardt disease	Disease	
+KW-0752	Steroid biosynthesis	Biological process	GO:0006694:steroid biosynthetic process
+KW-0753	Steroid metabolism	Biological process	GO:0008202:steroid metabolic process
+KW-0754	Steroid-binding	Ligand	GO:0005496:steroid binding
+KW-0755	Steroidogenesis	Biological process	GO:0006694:steroid biosynthetic process
+KW-0756	Sterol biosynthesis	Biological process	GO:0016126:sterol biosynthetic process
+KW-0757	Stickler syndrome	Disease	
+KW-0758	Storage protein	Molecular function	GO:0045735:nutrient reservoir activity
+KW-0759	Streptomycin biosynthesis	Biological process	GO:0019872:streptomycin biosynthetic process
+KW-0762	Sugar transport	Biological process	GO:0008643:carbohydrate transport
+KW-0763	Sulfate respiration	Biological process	GO:0009061:anaerobic respiration
+KW-0764	Sulfate transport	Biological process	GO:0008272:sulfate transport
+KW-0765	Sulfation	PTM	
+KW-0766	Superantigen	Molecular function	
+KW-0767	Surface film	Cellular component	GO:0005576:extracellular region
+KW-0768	Sushi	Domain	
+KW-0769	Symport	Biological process	GO:0015293:symporter activity
+KW-0770	Synapse	Cellular component	GO:0045202:synapse
+KW-0771	Synaptosome	Cellular component	GO:0043005:neuron projection
+KW-0772	Systemic lupus erythematosus	Disease	
+KW-0776	Taste-modifying protein	Molecular function	
+KW-0777	Teichoic acid biosynthesis	Biological process	GO:0019350:teichoic acid biosynthetic process
+KW-0778	Tellurium resistance	Biological process	GO:0046690:response to tellurium ion
+KW-0779	Telomere	Cellular component	GO:0000781:chromosome, telomeric region
+KW-0780	Terminal addition	Biological process	GO:0003912:DNA nucleotidylexotransferase activity, GO:0006304:DNA modification
+KW-0783	Tetrahydrobiopterin biosynthesis	Biological process	GO:0006729:tetrahydrobiopterin biosynthetic process
+KW-0784	Thiamine biosynthesis	Biological process	GO:0009228:thiamine biosynthetic process
+KW-0785	Thiamine catabolism	Biological process	GO:0009230:thiamine catabolic process
+KW-0786	Thiamine pyrophosphate	Ligand	
+KW-0787	Thick filament	Cellular component	GO:0032982:myosin filament
+KW-0788	Thiol protease	Molecular function	GO:0008234:cysteine-type peptidase activity
+KW-0789	Thiol protease inhibitor	Molecular function	GO:0004869:cysteine-type endopeptidase inhibitor activity
+KW-0791	Threonine biosynthesis	Biological process	GO:0009088:threonine biosynthetic process
+KW-0792	Thrombophilia	Disease	
+KW-0793	Thylakoid	Cellular component	GO:0009579:thylakoid
+KW-0795	Thyroid hormone	Molecular function	
+KW-0796	Tight junction	Cellular component	GO:0005923:bicellular tight junction
+KW-0797	Tissue remodeling	Biological process	GO:0048771:tissue remodeling
+KW-0798	TonB box	Domain	
+KW-0799	Topoisomerase	Molecular function	GO:0003916:DNA topoisomerase activity
+KW-0800	Toxin	Molecular function	GO:0090729:toxin activity
+KW-0801	TPQ	PTM	
+KW-0802	TPR repeat	Domain	
+KW-0804	Transcription	Biological process	
+KW-0805	Transcription regulation	Biological process	
+KW-0806	Transcription termination	Biological process	GO:0006353:DNA-templated transcription, termination
+KW-0807	Transducer	Molecular function	GO:0007165:signal transduction
+KW-0808	Transferase	Molecular function	GO:0016740:transferase activity
+KW-0809	Transit peptide	Domain	
+KW-0810	Translation regulation	Biological process	GO:0006417:regulation of translation
+KW-0811	Translocation	Biological process	GO:0015031:protein transport
+KW-0812	Transmembrane	Domain	GO:0016021:integral component of membrane
+KW-0813	Transport	Biological process	
+KW-0814	Transposable element	Technical term	
+KW-0815	Transposition	Biological process	GO:0032196:transposition
+KW-0816	Tricarboxylic acid cycle	Biological process	GO:0006099:tricarboxylic acid cycle
+KW-0817	Trimethoprim resistance	Biological process	GO:0046677:response to antibiotic
+KW-0818	Triplet repeat expansion	Coding sequence diversity	
+KW-0819	tRNA processing	Biological process	GO:0008033:tRNA processing
+KW-0820	tRNA-binding	Molecular function	GO:0000049:tRNA binding
+KW-0821	Trypanosomiasis	Disease	
+KW-0822	Tryptophan biosynthesis	Biological process	GO:0000162:tryptophan biosynthetic process
+KW-0823	Tryptophan catabolism	Biological process	GO:0006569:tryptophan catabolic process
+KW-0824	TTQ	PTM	
+KW-0825	Tumor antigen	Molecular function	
+KW-0826	Tungsten	Ligand	
+KW-0827	Tyrosine biosynthesis	Biological process	GO:0006571:tyrosine biosynthetic process
+KW-0828	Tyrosine catabolism	Biological process	GO:0006572:tyrosine catabolic process
+KW-0829	Tyrosine-protein kinase	Molecular function	GO:0004713:protein tyrosine kinase activity
+KW-0830	Ubiquinone	Ligand	
+KW-0831	Ubiquinone biosynthesis	Biological process	GO:0006744:ubiquinone biosynthetic process
+KW-0832	Ubl conjugation	PTM	
+KW-0833	Ubl conjugation pathway	Biological process	
+KW-0834	Unfolded protein response	Biological process	GO:0006986:response to unfolded protein
+KW-0835	Urea cycle	Biological process	GO:0000050:urea cycle
+KW-0836	Usher syndrome	Disease	
+KW-0837	Vanadium	Ligand	
+KW-0838	Vasoactive	Molecular function	
+KW-0839	Vasoconstrictor	Molecular function	GO:0042310:vasoconstriction
+KW-0840	Vasodilator	Molecular function	GO:0042311:vasodilation
+KW-0842	Viral occlusion body	Cellular component	GO:0039679:viral occlusion body
+KW-0843	Virulence	Biological process	
+KW-0844	Vision	Biological process	GO:0007601:visual perception
+KW-0845	Vitamin A	Ligand	GO:0016918:retinal binding
+KW-0846	Cobalamin	Ligand	GO:0031419:cobalamin binding
+KW-0847	Vitamin C	Ligand	GO:0031418:L-ascorbic acid binding
+KW-0848	Vitamin D	Ligand	GO:0005499:vitamin D binding
+KW-0850	VLDL	Cellular component	GO:0034361:very-low-density lipoprotein particle
+KW-0851	Voltage-gated channel	Molecular function	GO:0005244:voltage-gated ion channel activity, GO:0034765:regulation of ion transmembrane transport
+KW-0852	von Willebrand disease	Disease	
+KW-0853	WD repeat	Domain	
+KW-0855	Whooping cough	Disease	
+KW-0856	Williams-Beuren syndrome	Disease	
+KW-0857	Xeroderma pigmentosum	Disease	
+KW-0858	Xylan degradation	Biological process	GO:0045493:xylan catabolic process
+KW-0859	Xylose metabolism	Biological process	GO:0042732:D-xylose metabolic process
+KW-0861	Zellweger syndrome	Disease	
+KW-0862	Zinc	Ligand	
+KW-0863	Zinc-finger	Domain	
+KW-0864	Zinc transport	Biological process	GO:0006829:zinc ion transport
+KW-0865	Zymogen	PTM	
+KW-0866	Nonsense-mediated mRNA decay	Biological process	GO:0000184:nuclear-transcribed mRNA catabolic process, nonsense-mediated decay
+KW-0867	MELAS syndrome	Disease	
+KW-0868	Chloride	Ligand	
+KW-0869	Chloride channel	Molecular function	GO:0005254:chloride channel activity, GO:0006821:chloride transport, GO:0034707:chloride channel complex
+KW-0870	Voltage-gated chloride channel impairing toxin	Molecular function	GO:0017081:chloride channel regulator activity
+KW-0871	Bacteriocin biosynthesis	Biological process	GO:0030152:bacteriocin biosynthetic process
+KW-0872	Ion channel impairing toxin	Molecular function	GO:0099106:ion channel regulator activity
+KW-0873	Pyrrolidone carboxylic acid	PTM	
+KW-0874	Quinone	PTM	GO:0048038:quinone binding
+KW-0875	Capsule	Cellular component	GO:0042603:capsule
+KW-0876	Taxol biosynthesis	Biological process	GO:0042617:paclitaxel biosynthetic process
+KW-0877	Alternative promoter usage	Coding sequence diversity	
+KW-0878	Amphibian defense peptide	Molecular function	GO:0006952:defense response
+KW-0879	Wnt signaling pathway	Biological process	GO:0016055:Wnt signaling pathway
+KW-0880	Kelch repeat	Domain	
+KW-0881	Chlorophyll catabolism	Biological process	GO:0015996:chlorophyll catabolic process
+KW-0882	Thioester bond	PTM	
+KW-0883	Thioether bond	PTM	
+KW-0884	PQQ biosynthesis	Biological process	GO:0018189:pyrroloquinoline quinone biosynthetic process
+KW-0885	CTQ	PTM	
+KW-0886	LTQ	PTM	
+KW-0887	Epilepsy	Disease	
+KW-0888	Threonine protease	Molecular function	GO:0004298:threonine-type endopeptidase activity
+KW-0889	Transcription antitermination	Biological process	GO:0031564:transcription antitermination
+KW-0890	Hereditary spastic paraplegia	Disease	
+KW-0891	Chondrogenesis	Biological process	GO:0051216:cartilage development
+KW-0892	Osteogenesis	Biological process	GO:0001503:ossification
+KW-0893	Thyroid hormones biosynthesis	Biological process	GO:0042446:hormone biosynthetic process
+KW-0894	Sodium channel	Molecular function	GO:0005272:sodium channel activity
+KW-0895	ERV	Technical term	
+KW-0896	Oogenesis	Biological process	GO:0048477:oogenesis
+KW-0897	Waardenburg syndrome	Disease	
+KW-0898	Cataract	Disease	
+KW-0899	Viral immunoevasion	Biological process	GO:0030683:mitigation of host immune response by virus
+KW-0900	Congenital disorder of glycosylation	Disease	
+KW-0901	Leber congenital amaurosis	Disease	
+KW-0902	Two-component regulatory system	Biological process	GO:0000160:phosphorelay signal transduction system
+KW-0903	Direct protein sequencing	Technical term	
+KW-0904	Protein phosphatase	Molecular function	GO:0004721:phosphoprotein phosphatase activity
+KW-0905	Primary microcephaly	Disease	
+KW-0906	Nuclear pore complex	Cellular component	GO:0005643:nuclear pore
+KW-0907	Parkinson disease	Disease	
+KW-0908	Parkinsonism	Disease	
+KW-0909	Hibernation	Biological process	GO:0042750:hibernation
+KW-0910	Bartter syndrome	Disease	
+KW-0911	Desmin-related myopathy	Disease	
+KW-0912	Congenital muscular dystrophy	Disease	
+KW-0913	Age-related macular degeneration	Disease	
+KW-0914	Notch signaling pathway	Biological process	GO:0007219:Notch signaling pathway
+KW-0915	Sodium	Ligand	
+KW-0916	Viral movement protein	Molecular function	GO:0046740:transport of virus in host, cell to cell
+KW-0917	Virion maturation	Biological process	GO:0019075:virus maturation
+KW-0918	Phosphonate transport	Biological process	GO:0015716:organic phosphonate transport
+KW-0919	Taste	Biological process	GO:0050909:sensory perception of taste
+KW-0920	Virion tegument	Cellular component	GO:0019033:viral tegument
+KW-0921	Nickel transport	Biological process	GO:0015675:nickel cation transport
+KW-0922	Interferon antiviral system evasion	Biological process	GO:0030683:mitigation of host immune response by virus
+KW-0923	Fanconi anemia	Disease	
+KW-0924	Ammonia transport	Biological process	
+KW-0925	Oxylipin biosynthesis	Biological process	GO:0031408:oxylipin biosynthetic process
+KW-0926	Vacuole	Cellular component	GO:0005773:vacuole
+KW-0927	Auxin signaling pathway	Biological process	GO:0009734:auxin-activated signaling pathway
+KW-0928	Hypersensitive response elicitation	Biological process	GO:0034053:modulation by symbiont of host defense-related programmed cell death
+KW-0929	Antimicrobial	Molecular function	
+KW-0930	Antiviral protein	Molecular function	GO:0050688:regulation of defense response to virus
+KW-0931	ER-Golgi transport	Biological process	GO:0016192:vesicle-mediated transport
+KW-0932	Cytokinin signaling pathway	Biological process	GO:0009736:cytokinin-activated signaling pathway
+KW-0933	Apicoplast	Cellular component	GO:0020011:apicoplast
+KW-0934	Plastid	Cellular component	GO:0009536:plastid
+KW-0935	Progressive external ophthalmoplegia	Disease	
+KW-0936	Ethylene signaling pathway	Biological process	GO:0009873:ethylene-activated signaling pathway
+KW-0937	Abscisic acid biosynthesis	Biological process	GO:0009688:abscisic acid biosynthetic process
+KW-0938	Abscisic acid signaling pathway	Biological process	GO:0009738:abscisic acid-activated signaling pathway
+KW-0939	Gibberellin signaling pathway	Biological process	GO:0009740:gibberellic acid mediated signaling pathway
+KW-0940	Short QT syndrome	Disease	
+KW-0941	Suppressor of RNA silencing	Molecular function	
+KW-0942	Mucolipidosis	Disease	
+KW-0943	RNA-mediated gene silencing	Biological process	GO:0031047:gene silencing by RNA
+KW-0944	Nitration	PTM	
+KW-0945	Host-virus interaction	Biological process	
+KW-0946	Virion	Cellular component	
+KW-0947	Limb-girdle muscular dystrophy	Disease	
+KW-0948	Aicardi-Goutieres syndrome	Disease	
+KW-0949	S-adenosyl-L-methionine	Ligand	
+KW-0950	Spinocerebellar ataxia	Disease	
+KW-0951	Familial hemophagocytic lymphohistiocytosis	Disease	
+KW-0952	Extinct organism protein	Technical term	
+KW-0953	Lacrimo-auriculo-dento-digital syndrome	Disease	
+KW-0954	Congenital adrenal hyperplasia	Disease	
+KW-0955	Glaucoma	Disease	
+KW-0956	Kallmann syndrome	Disease	
+KW-0957	Chromoplast	Cellular component	GO:0009509:chromoplast
+KW-0958	Peroxisome biogenesis disorder	Disease	
+KW-0959	Myotoxin	Molecular function	
+KW-0960	Knottin	Domain	
+KW-0961	Cell wall biogenesis/degradation	Biological process	GO:0071555:cell wall organization
+KW-0962	Peroxisome biogenesis	Biological process	GO:0007031:peroxisome organization
+KW-0963	Cytoplasm	Cellular component	GO:0005737:cytoplasm
+KW-0964	Secreted	Cellular component	GO:0005576:extracellular region
+KW-0965	Cell junction	Cellular component	GO:0030054:cell junction
+KW-0966	Cell projection	Cellular component	GO:0042995:cell projection
+KW-0967	Endosome	Cellular component	GO:0005768:endosome
+KW-0968	Cytoplasmic vesicle	Cellular component	GO:0031410:cytoplasmic vesicle
+KW-0969	Cilium	Cellular component	GO:0005929:cilium
+KW-0970	Cilium biogenesis/degradation	Biological process	GO:0030030:cell projection organization
+KW-0971	Glycation	PTM	
+KW-0972	Capsule biogenesis/degradation	Biological process	
+KW-0973	c-di-GMP	Ligand	
+KW-0974	Archaeal flagellum	Cellular component	GO:0097589:archaeal-type flagellum
+KW-0975	Bacterial flagellum	Cellular component	GO:0009288:bacterial-type flagellum
+KW-0976	Atrial septal defect	Disease	
+KW-0977	Ichthyosis	Disease	
+KW-0978	Insecticide resistance	Biological process	
+KW-0979	Joubert syndrome	Disease	
+KW-0980	Senior-Loken syndrome	Disease	
+KW-0981	Meckel syndrome	Disease	
+KW-0982	Primary hypomagnesemia	Disease	
+KW-0983	Nephronophthisis	Disease	
+KW-0984	Congenital hypothyroidism	Disease	
+KW-0985	Congenital erythrocytosis	Disease	
+KW-0986	Amelogenesis imperfecta	Disease	
+KW-0987	Osteopetrosis	Disease	
+KW-0988	Intrahepatic cholestasis	Disease	
+KW-0989	Craniosynostosis	Disease	
+KW-0990	Primary ciliary dyskinesia	Disease	
+KW-0991	Intellectual disability	Disease	
+KW-0992	Brugada syndrome	Disease	
+KW-0993	Aortic aneurysm	Disease	
+KW-0994	Organellar chromatophore	Cellular component	GO:0070111:organellar chromatophore
+KW-0995	Kinetochore	Cellular component	GO:0000776:kinetochore
+KW-0996	Nickel insertion	Biological process	
+KW-0997	Cell inner membrane	Cellular component	GO:0005886:plasma membrane
+KW-0998	Cell outer membrane	Cellular component	GO:0009279:cell outer membrane
+KW-0999	Mitochondrion inner membrane	Cellular component	GO:0005743:mitochondrial inner membrane
+KW-1000	Mitochondrion outer membrane	Cellular component	GO:0005741:mitochondrial outer membrane
+KW-1001	Plastid inner membrane	Cellular component	GO:0009528:plastid inner membrane
+KW-1002	Plastid outer membrane	Cellular component	GO:0009527:plastid outer membrane
+KW-1003	Cell membrane	Cellular component	GO:0005886:plasma membrane
+KW-1004	Congenital myasthenic syndrome	Disease	
+KW-1005	Bacterial flagellum biogenesis	Biological process	GO:0044781:bacterial-type flagellum organization
+KW-1006	Bacterial flagellum protein export	Biological process	
+KW-1007	Palmoplantar keratoderma	Disease	
+KW-1008	Amyloidosis	Disease	
+KW-1009	Hearing	Biological process	GO:0007605:sensory perception of sound
+KW-1010	Non-syndromic deafness	Disease	
+KW-1011	Dyskeratosis congenita	Disease	
+KW-1012	Kartagener syndrome	Disease	
+KW-1013	Microphthalmia	Disease	
+KW-1014	Congenital stationary night blindness	Disease	
+KW-1015	Disulfide bond	PTM	
+KW-1016	Hypogonadotropic hypogonadism	Disease	
+KW-1017	Isopeptide bond	PTM	
+KW-1018	Complement activation lectin pathway	Biological process	GO:0001867:complement activation, lectin pathway
+KW-1020	Atrial fibrillation	Disease	
+KW-1021	Pontocerebellar hypoplasia	Disease	
+KW-1022	Congenital generalized lipodystrophy	Disease	
+KW-1023	Dystonia	Disease	
+KW-1024	Diamond-Blackfan anemia	Disease	
+KW-1025	Mitosome	Cellular component	GO:0032047:mitosome
+KW-1026	Leukodystrophy	Disease	
+KW-1027	Lead	Ligand	
+KW-1028	Ionotropic glutamate receptor inhibitor	Molecular function	
+KW-1029	Fimbrium biogenesis	Biological process	
+KW-1030	Host cell inner membrane	Cellular component	GO:0020002:host cell plasma membrane
+KW-1031	Host cell junction	Cellular component	GO:0044156:host cell junction
+KW-1032	Host cell membrane	Cellular component	GO:0020002:host cell plasma membrane
+KW-1033	Host cell outer membrane	Cellular component	GO:0020002:host cell plasma membrane
+KW-1034	Host cell projection	Cellular component	GO:0044157:host cell projection
+KW-1035	Host cytoplasm	Cellular component	GO:0030430:host cell cytoplasm
+KW-1036	Host cytoplasmic vesicle	Cellular component	GO:0044161:host cell cytoplasmic vesicle
+KW-1037	Host cytoskeleton	Cellular component	GO:0044163:host cytoskeleton
+KW-1038	Host endoplasmic reticulum	Cellular component	GO:0044165:host cell endoplasmic reticulum
+KW-1039	Host endosome	Cellular component	GO:0044174:host cell endosome
+KW-1040	Host Golgi apparatus	Cellular component	GO:0044177:host cell Golgi apparatus
+KW-1041	Host lipid droplet	Cellular component	GO:0044186:host cell lipid droplet
+KW-1042	Host lysosome	Cellular component	GO:0044187:host cell lysosome
+KW-1043	Host membrane	Cellular component	GO:0033644:host cell membrane
+KW-1044	Host microsome	Cellular component	GO:0033648:host intracellular membrane-bounded organelle
+KW-1045	Host mitochondrion	Cellular component	GO:0033650:host cell mitochondrion
+KW-1046	Host mitochondrion inner membrane	Cellular component	GO:0044192:host cell mitochondrial inner membrane
+KW-1047	Host mitochondrion outer membrane	Cellular component	GO:0044193:host cell mitochondrial outer membrane
+KW-1048	Host nucleus	Cellular component	GO:0042025:host cell nucleus
+KW-1049	Host periplasm	Cellular component	GO:0044229:host cell periplasmic space
+KW-1050	Host thylakoid	Cellular component	GO:0044159:host thylakoid
+KW-1051	Host synapse	Cellular component	GO:0044221:host cell synapse
+KW-1052	Target cell membrane	Cellular component	
+KW-1053	Target membrane	Cellular component	
+KW-1054	Niemann-Pick disease	Disease	
+KW-1055	Congenital dyserythropoietic anemia	Disease	
+KW-1056	Heterotaxy	Disease	
+KW-1057	Nemaline myopathy	Disease	
+KW-1058	Asthma	Disease	
+KW-1059	Peters anomaly	Disease	
+KW-1060	Myofibrillar myopathy	Disease	
+KW-1061	Dermonecrotic toxin	Molecular function	
+KW-1062	Cushing syndrome	Disease	
+KW-1063	Hypotrichosis	Disease	
+KW-1064	Adaptive immunity	Biological process	GO:0002250:adaptive immune response
+KW-1065	Osteogenesis imperfecta	Disease	
+KW-1066	Premature ovarian failure	Disease	
+KW-1067	Emery-Dreifuss muscular dystrophy	Disease	
+KW-1068	Hemolytic uremic syndrome	Disease	
+KW-1069	Brassinosteroid biosynthesis	Biological process	GO:0016132:brassinosteroid biosynthetic process
+KW-1070	Brassinosteroid signaling pathway	Biological process	GO:0009742:brassinosteroid mediated signaling pathway
+KW-1071	Ligand-gated ion channel	Molecular function	
+KW-1072	Activation of host autophagy by virus	Biological process	GO:0039520:induction by virus of host autophagy
+KW-1073	Activation of host caspases by virus	Biological process	GO:0039651:induction by virus of host cysteine-type endopeptidase activity involved in apoptotic process
+KW-1074	Activation of host NF-kappa-B by virus	Biological process	GO:0039652:induction by virus of host NF-kappaB cascade
+KW-1075	Inhibition of eukaryotic host translation factors by virus	Biological process	GO:0039611:suppression by virus of host translation initiation factor activity
+KW-1077	G0/G1 host cell cycle checkpoint dysregulation by virus	Biological process	GO:0039646:modulation by virus of host G0/G1 transition checkpoint
+KW-1078	G1/S host cell cycle checkpoint dysregulation by virus	Biological process	GO:0039645:modulation by virus of host G1/S transition checkpoint
+KW-1079	Host G2/M cell cycle arrest by virus	Biological process	GO:0039592:suppression by virus of G2/M transition of host mitotic cell cycle
+KW-1080	Inhibition of host adaptive immune response by virus	Biological process	GO:0039504:suppression by virus of host adaptive immune response
+KW-1081	Inhibition of host apoptosis by viral BCL2-like protein	Biological process	GO:0019050:suppression by virus of host apoptotic process
+KW-1082	Inhibition of host apoptosis by viral FLIP-like protein	Biological process	GO:0019050:suppression by virus of host apoptotic process
+KW-1083	Inhibition of host autophagy by virus	Biological process	GO:0039521:suppression by virus of host autophagy
+KW-1084	Inhibition of host tetherin by virus	Biological process	GO:0039587:suppression by virus of host tetherin activity
+KW-1085	Inhibition of host caspases by virus	Biological process	GO:0039650:suppression by virus of host cysteine-type endopeptidase activity involved in apoptotic process
+KW-1086	Inhibition of host chemokines by virus	Biological process	GO:0039553:suppression by virus of host chemokine activity
+KW-1087	Inhibition of host complement factors by virus	Biological process	GO:0039573:suppression by virus of host complement activation
+KW-1088	Inhibition of host RIG-I by virus	Biological process	GO:0039540:suppression by virus of host viral-induced cytoplasmic pattern recognition receptor signaling pathway via inhibition of host RIG-I activity
+KW-1089	Inhibition of host MDA5 by virus	Biological process	GO:0039554:suppression by virus of host viral-induced cytoplasmic pattern recognition receptor signaling pathway via inhibition of host MDA-5 activity
+KW-1090	Inhibition of host innate immune response by virus	Biological process	GO:0039503:suppression by virus of host innate immune response
+KW-1091	Inhibition of host interferon receptors by virus	Biological process	GO:0039511:suppression by virus of host interferon receptor activity
+KW-1092	Inhibition of host IRF3 by virus	Biological process	GO:0039548:suppression by virus of host viral-induced cytoplasmic pattern recognition receptor signaling pathway via inhibition of IRF3 activity
+KW-1093	Inhibition of host IRF7 by virus	Biological process	GO:0039557:suppression by virus of host viral-induced cytoplasmic pattern recognition receptor signaling pathway via inhibition of IRF7 activity
+KW-1094	Inhibition of host IRF9 by virus	Biological process	GO:0039560:suppression by virus of host JAK-STAT cascade via inhibition of host IRF9 activity
+KW-1095	Inhibition of host ISG15 by virus	Biological process	GO:0039579:suppression by virus of host ISG15-protein conjugation
+KW-1096	Inhibition of host JAK1 by virus	Biological process	GO:0039576:suppression by virus of host JAK-STAT cascade via inhibition of JAK1 activity
+KW-1097	Inhibition of host MAVS by virus	Biological process	GO:0039545:suppression by virus of host viral-induced cytoplasmic pattern recognition receptor signaling pathway via inhibition of MAVS activity
+KW-1098	Inhibition of host mitotic exit by virus	Biological process	GO:0039593:suppression by virus of host exit from mitosis
+KW-1099	Inhibition of host mRNA nuclear export by virus	Biological process	GO:0039522:suppression by virus of host mRNA export from nucleus
+KW-1100	Inhibition of host NF-kappa-B by virus	Biological process	GO:0039644:suppression by virus of host NF-kappaB cascade
+KW-1101	Inhibition of host poly(A)-binding protein by virus	Biological process	GO:0039604:suppression by virus of host translation
+KW-1102	Inhibition of host PKR by virus	Biological process	GO:0030291:protein serine/threonine kinase inhibitor activity, GO:0039580:suppression by virus of host PKR signaling
+KW-1103	Inhibition of host pre-mRNA processing by virus	Biological process	GO:0039524:suppression by virus of host mRNA processing
+KW-1104	Inhibition of host RNA polymerase II by virus	Biological process	GO:0039523:suppression by virus of host mRNA transcription via inhibition of RNA polymerase II activity
+KW-1105	Inhibition of host STAT1 by virus	Biological process	GO:0039563:suppression by virus of host JAK-STAT cascade via inhibition of STAT1 activity
+KW-1106	Inhibition of host STAT2 by virus	Biological process	GO:0039564:suppression by virus of host JAK-STAT cascade via inhibition of STAT2 activity
+KW-1107	Inhibition of host TAP by virus	Biological process	GO:0039588:suppression by virus of host antigen processing and presentation
+KW-1108	Inhibition of host tapasin by virus	Biological process	GO:0046776:suppression by virus of host antigen processing and presentation of peptide antigen via MHC class I
+KW-1110	Inhibition of host TRAFs by virus	Biological process	GO:0039547:suppression by virus of host TRAF activity
+KW-1111	Inhibition of eukaryotic host transcription initiation by virus	Biological process	GO:0039602:suppression by virus of host transcription initiation from RNA polymerase II promoter
+KW-1112	Inhibition of host TYK2 by virus	Biological process	GO:0039574:suppression by virus of host JAK-STAT cascade via inhibition of host TYK2 activity
+KW-1113	Inhibition of host RLR pathway by virus	Biological process	GO:0039532:negative regulation of viral-induced cytoplasmic pattern recognition receptor signaling pathway
+KW-1114	Inhibition of host interferon signaling pathway by virus	Biological process	GO:0039502:suppression by virus of host type I interferon-mediated signaling pathway
+KW-1115	Inhibition of host MHC class I molecule presentation by virus	Biological process	GO:0046776:suppression by virus of host antigen processing and presentation of peptide antigen via MHC class I
+KW-1116	Inhibition of host MHC class II molecule presentation by virus	Biological process	GO:0039505:suppression by virus of host antigen processing and presentation of peptide antigen via MHC class II
+KW-1117	Inhibition of host proteasome antigen processing by virus	Biological process	GO:0039588:suppression by virus of host antigen processing and presentation
+KW-1118	Modulation of host dendritic cell activity by virus	Biological process	GO:0039673:evasion by virus of host dendritic cell activity
+KW-1119	Modulation of host cell apoptosis by virus	Biological process	GO:0039526:modulation by virus of host apoptotic process
+KW-1120	Modulation of host cell cycle by viral cyclin-like protein	Biological process	GO:0060153:modulation by virus of host cell cycle
+KW-1121	Modulation of host cell cycle by virus	Biological process	GO:0060153:modulation by virus of host cell cycle
+KW-1122	Modulation of host chromatin by virus	Biological process	GO:0039525:modulation by virus of host chromatin organization
+KW-1123	Modulation of host E3 ubiquitin ligases by virus	Biological process	GO:0039649:modulation by virus of host ubiquitin-protein ligase activity
+KW-1124	Modulation of host immunity by viral IgG Fc receptor-like protein	Biological process	GO:0075528:modulation by virus of host immune response
+KW-1125	Evasion of host immunity by viral interleukin-like protein	Biological process	GO:0030683:mitigation of host immune response by virus
+KW-1126	Modulation of host PP1 activity by virus	Biological process	GO:0039586:modulation by virus of host PP1 activity
+KW-1127	Modulation of host ubiquitin pathway by viral deubiquitinase	Biological process	GO:0039648:modulation by virus of host protein ubiquitination
+KW-1128	Modulation of host ubiquitin pathway by viral E3 ligase	Biological process	GO:0039648:modulation by virus of host protein ubiquitination
+KW-1129	Modulation of host ubiquitin pathway by viral ubl	Biological process	GO:0039648:modulation by virus of host protein ubiquitination
+KW-1130	Modulation of host ubiquitin pathway by virus	Biological process	GO:0039648:modulation by virus of host protein ubiquitination
+KW-1131	Modulation of host NK-cell activity by virus	Biological process	GO:0039671:evasion by virus of host natural killer cell activity
+KW-1132	Decay of host mRNAs by virus	Biological process	GO:0039595:induction by virus of catabolism of host mRNA
+KW-1133	Transmembrane helix	Domain	
+KW-1134	Transmembrane beta strand	Domain	
+KW-1135	Mitochondrion nucleoid	Cellular component	GO:0042645:mitochondrial nucleoid
+KW-1136	Bradyzoite	Developmental stage	
+KW-1137	Tachyzoite	Developmental stage	
+KW-1138	Trophozoite	Developmental stage	
+KW-1139	Helical capsid protein	Cellular component	GO:0019029:helical viral capsid
+KW-1140	T=1 icosahedral capsid protein	Cellular component	GO:0039615:T=1 icosahedral viral capsid
+KW-1141	T=2 icosahedral capsid protein	Cellular component	GO:0039616:T=2 icosahedral viral capsid
+KW-1142	T=3 icosahedral capsid protein	Cellular component	GO:0039617:T=3 icosahedral viral capsid
+KW-1143	T=pseudo3 icosahedral capsid protein	Cellular component	GO:0039618:T=pseudo3 icosahedral viral capsid
+KW-1144	T=4 icosahedral capsid protein	Cellular component	GO:0039619:T=4 icosahedral viral capsid
+KW-1145	T=7 icosahedral capsid protein	Cellular component	GO:0039620:T=7 icosahedral viral capsid
+KW-1146	T=13 icosahedral capsid protein	Cellular component	GO:0039621:T=13 icosahedral viral capsid
+KW-1147	T=16 icosahedral capsid protein	Cellular component	GO:0039622:T=16 icosahedral viral capsid
+KW-1148	T=25 icosahedral capsid protein	Cellular component	GO:0039623:T=25 icosahedral viral capsid
+KW-1149	T=147 icosahedral capsid protein	Cellular component	GO:0039627:T=147 icosahedral capsid
+KW-1150	T=169 icosahedral capsid protein	Cellular component	GO:0039628:T=169 icosahedral viral capsid
+KW-1151	T=219 icosahedral capsid protein	Cellular component	GO:0039629:T=219 icosahedral capsid
+KW-1152	Outer capsid protein	Cellular component	GO:0039624:viral outer capsid
+KW-1153	Inner capsid protein	Cellular component	GO:0039625:viral inner capsid
+KW-1154	Intermediate capsid protein	Cellular component	GO:0039626:viral intermediate capsid
+KW-1155	Translational shunt	Molecular function	
+KW-1156	RNA translational shunting	Coding sequence diversity	
+KW-1157	Cap snatching	Biological process	GO:0075526:cap snatching
+KW-1158	RNA termination-reinitiation	Coding sequence diversity	
+KW-1159	RNA suppression of termination	Coding sequence diversity	
+KW-1160	Virus entry into host cell	Biological process	GO:0046718:viral entry into host cell
+KW-1161	Viral attachment to host cell	Biological process	GO:0019062:virion attachment to host cell
+KW-1162	Viral penetration into host cytoplasm	Biological process	GO:0046718:viral entry into host cell
+KW-1163	Viral penetration into host nucleus	Biological process	GO:0075732:viral penetration into host nucleus
+KW-1164	Virus endocytosis by host	Biological process	GO:0075509:endocytosis involved in viral entry into host cell
+KW-1165	Clathrin-mediated endocytosis of virus by host	Biological process	GO:0075512:clathrin-dependent endocytosis of virus by host cell
+KW-1166	Caveolin-mediated endocytosis of virus by host	Biological process	GO:0075513:caveolin-mediated endocytosis of virus by host cell
+KW-1167	Clathrin- and caveolin-independent endocytosis of virus by host	Biological process	GO:0019065:receptor-mediated endocytosis of virus by host cell
+KW-1168	Fusion of virus membrane with host membrane	Biological process	GO:0039663:membrane fusion involved in viral entry into host cell
+KW-1169	Fusion of virus membrane with host cell membrane	Biological process	GO:0019064:fusion of virus membrane with host plasma membrane
+KW-1170	Fusion of virus membrane with host endosomal membrane	Biological process	GO:0039654:fusion of virus membrane with host endosome membrane
+KW-1171	Viral genome ejection through host cell envelope	Biological process	GO:0039678:viral genome ejection through host cell envelope
+KW-1172	Pore-mediated penetration of viral genome into host cell	Biological process	GO:0044694:pore-mediated entry of viral genome into host cell
+KW-1173	Viral penetration via permeabilization of host membrane	Biological process	GO:0039665:permeabilization of host organelle membrane involved in viral entry into host cell, GO:0099008:viral entry via permeabilization of inner membrane
+KW-1174	Viral penetration via lysis of host organellar membrane	Biological process	GO:0039664:lysis of host organelle involved in viral entry into host cell
+KW-1175	Viral attachment to host cell pilus	Biological process	GO:0039666:virion attachment to host cell pilus
+KW-1176	Cytoplasmic inwards viral transport	Biological process	GO:0075606:transport of viral material towards nucleus
+KW-1177	Microtubular inwards viral transport	Biological process	GO:0075521:microtubule-dependent intracellular transport of viral material towards nucleus
+KW-1178	Actin-dependent inwards viral transport	Biological process	GO:0039680:actin-dependent intracellular transport of virus towards nucleus
+KW-1179	Viral genome integration	Biological process	GO:0044826:viral genome integration into host DNA, GO:0075713:establishment of integrated proviral latency
+KW-1180	Syncytium formation induced by viral infection	Biological process	GO:0060141:positive regulation of syncytium formation by virus
+KW-1181	Viral primary envelope fusion with host outer nuclear membrane	Biological process	GO:0039700:fusion of viral membrane with host outer nuclear membrane
+KW-1182	Viral ion channel	Molecular function	GO:0005216:ion channel activity, GO:0039707:pore formation by virus in membrane of host cell, GO:0044385:integral to membrane of host cell, GO:0051259:protein complex oligomerization
+KW-1183	Host cell receptor for virus entry	Molecular function	GO:0001618:virus receptor activity
+KW-1184	Jasmonic acid signaling pathway	Biological process	
+KW-1185	Reference proteome	Technical term	
+KW-1186	Ciliopathy	Disease	
+KW-1187	Viral budding via the host ESCRT complexes	Biological process	GO:0039702:viral budding via host ESCRT complex
+KW-1188	Viral release from host cell	Biological process	GO:0019076:viral release from host cell
+KW-1189	Microtubular outwards viral transport	Biological process	GO:0039701:microtubule-dependent intracellular transport of viral material towards cell periphery
+KW-1190	Host gene expression shutoff by virus	Biological process	GO:0039657:suppression by virus of host gene expression
+KW-1191	Eukaryotic host transcription shutoff by virus	Biological process	GO:0039653:suppression by virus of host transcription
+KW-1192	Host mRNA suppression by virus	Biological process	
+KW-1193	Eukaryotic host translation shutoff by virus	Biological process	GO:0039604:suppression by virus of host translation
+KW-1194	Viral DNA replication	Biological process	GO:0039693:viral DNA genome replication
+KW-1195	Viral transcription	Biological process	GO:0019083:viral transcription
+KW-1196	IFIT mRNA restriction evasion by virus	Biological process	GO:0039699:viral mRNA cap methylation
+KW-1197	Ribosomal skipping	Coding sequence diversity	
+KW-1198	Viral budding	Biological process	GO:0046755:viral budding
+KW-1199	Hemostasis impairing toxin	Molecular function	
+KW-1200	Hemorrhagic toxin	Molecular function	
+KW-1201	Platelet aggregation inhibiting toxin	Molecular function	
+KW-1202	Platelet aggregation activating toxin	Molecular function	
+KW-1203	Blood coagulation cascade inhibiting toxin	Molecular function	
+KW-1204	Blood coagulation cascade activating toxin	Molecular function	
+KW-1205	Fibrinolytic toxin	Molecular function	
+KW-1206	Fibrinogenolytic toxin	Molecular function	
+KW-1207	Sterol metabolism	Biological process	
+KW-1208	Phospholipid metabolism	Biological process	
+KW-1209	Archaeal flagellum biogenesis	Biological process	
+KW-1210	Necrosis	Biological process	GO:0012501:programmed cell death
+KW-1211	Schizophrenia	Disease	
+KW-1212	Corneal dystrophy	Disease	
+KW-1213	G-protein coupled receptor impairing toxin	Molecular function	
+KW-1214	G-protein coupled acetylcholine receptor impairing toxin	Molecular function	
+KW-1215	Dystroglycanopathy	Disease	
+KW-1216	Complement system impairing toxin	Molecular function	
+KW-1217	Cell adhesion impairing toxin	Molecular function	
+KW-1218	Voltage-gated calcium channel impairing toxin	Molecular function	
+KW-1219	Ryanodine-sensitive calcium-release channel impairing toxin	Molecular function	
+KW-1220	Voltage-gated potassium channel impairing toxin	Molecular function	
+KW-1221	Calcium-activated potassium channel impairing toxin	Molecular function	
+KW-1222	Bradykinin receptor impairing toxin	Molecular function	
+KW-1223	Inhibition of host TBK1 by virus	Biological process	GO:0039723:suppression by virus of host viral-induced cytoplasmic pattern recognition receptor signaling pathway via inhibition of TBK1 activity
+KW-1224	Inhibition of host IKBKE by virus	Biological process	GO:0039724:suppression by virus of host viral-induced cytoplasmic pattern recognition receptor signaling pathway via inhibition of IKBKE activity
+KW-1225	Inhibition of host TLR pathway by virus	Biological process	GO:0039722:suppression by virus of host toll-like receptor signaling pathway
+KW-1226	Viral baseplate protein	Cellular component	GO:0098025:virus tail, baseplate
+KW-1227	Viral tail protein	Cellular component	GO:0098015:virus tail
+KW-1228	Viral tail tube protein	Cellular component	GO:0098026:virus tail, tube
+KW-1229	Viral tail sheath protein	Cellular component	GO:0098027:virus tail, sheath
+KW-1230	Viral tail fiber protein	Cellular component	GO:0098024:virus tail, fiber
+KW-1231	Capsid inner membrane protein	Cellular component	GO:0039641:viral inner membrane
+KW-1232	Capsid decoration protein	Cellular component	GO:0098021:viral capsid, decoration
+KW-1233	Viral attachment to host adhesion receptor	Biological process	GO:0098671:adhesion receptor-mediated virion attachment to host cell
+KW-1234	Viral attachment to host entry receptor	Biological process	GO:0098670:entry receptor-mediated virion attachment to host cell
+KW-1235	Degradation of host cell envelope components during virus entry	Biological process	GO:0098994:disruption of host cell envelope during viral entry
+KW-1236	Degradation of host peptidoglycans during virus entry	Biological process	GO:0098932:disruption by virus of host cell wall peptidoglycan during virus entry
+KW-1237	Degradation of host lipopolysaccharides during virus entry	Biological process	GO:0098995:disruption by virus of host envelope lipopolysaccharide during virus entry
+KW-1238	Degradation of host capsule during virus entry	Biological process	GO:0098996:disruption of host cell glycocalyx during viral entry
+KW-1239	Fusion of virus membrane with host outer membrane	Biological process	GO:0098997:fusion of virus membrane with host outer membrane
+KW-1240	Viral attachment to host cell flagellum	Biological process	GO:0098931:virion attachment to host cell flagellum
+KW-1241	Viral penetration into host cytoplasm via pilus retraction	Biological process	GO:0039667:viral entry into host cell via pilus retraction
+KW-1242	Viral contractile tail ejection system	Molecular function	GO:0099000:viral genome ejection through host cell envelope, contractile tail mechanism
+KW-1243	Viral long flexible tail ejection system	Molecular function	GO:0099001:viral genome ejection through host cell envelope, long flexible tail mechanism
+KW-1244	Viral short tail ejection system	Molecular function	GO:0099002:viral genome ejection through host cell envelope, short tail mechanism
+KW-1245	Viral tail assembly	Biological process	GO:0098003:viral tail assembly
+KW-1246	Viral tail fiber assembly	Biological process	GO:0098004:virus tail fiber assembly
+KW-1247	Degradation of host chromosome by virus	Biological process	GO:0099015:degradation of host chromosome by virus
+KW-1248	Inhibition of host DNA replication by virus	Biological process	GO:0098673:inhibition of host DNA replication by virus
+KW-1249	Viral extrusion	Biological process	GO:0099045:viral extrusion
+KW-1250	Viral genome excision	Biological process	GO:0032359:provirus excision
+KW-1251	Viral latency	Biological process	GO:0019042:viral latency
+KW-1252	Latency-replication decision	Biological process	GO:0098689:latency-replication decision
+KW-1253	Viral genome circularization	Biological process	GO:0099009:viral genome circularization
+KW-1254	Modulation of host virulence by virus	Biological process	GO:0098676:modulation of host virulence by virus
+KW-1255	Viral exotoxin	Molecular function	
+KW-1256	DNA end degradation evasion by virus	Biological process	GO:0099016:DNA end degradation evasion by virus
+KW-1257	CRISPR-cas system evasion by virus	Biological process	GO:0098672:inhibition of host CRISPR-cas system by virus
+KW-1258	Restriction-modification system evasion by virus	Biological process	GO:0099018:restriction-modification system evasion by virus
+KW-1259	Evasion of bacteria-mediated translation shutoff by virus	Biological process	
+KW-1260	Superinfection exclusion	Biological process	GO:0098669:superinfection exclusion
+KW-1261	Bacterial host gene expression shutoff by virus	Biological process	
+KW-1262	Eukaryotic host gene expression shutoff by virus	Biological process	
+KW-1263	Bacterial host transcription shutoff by virus	Biological process	
+KW-1264	Viral receptor tropism switching	Biological process	GO:0098678:viral tropism switching
+KW-1265	Chloride channel impairing toxin	Molecular function	
+KW-1266	Target cell cytoplasm	Cellular component	
+KW-1267	Proteomics identification	Technical term	
+KW-1268	Autism spectrum disorder	Disease	
+KW-1269	Autism	Disease	
+KW-1270	Asperger syndrome	Disease	
+KW-1271	Inflammasome	Cellular component	GO:0061702:inflammasome complex
+KW-1272	Viral reactivation from latency	Biological process	GO:0019046:release from viral latency
+KW-1273	Viral capsid maturation	Biological process	GO:0046797:viral procapsid maturation
+KW-1274	Primary mitochondrial disease	Disease	
+KW-1275	Proton-gated sodium channel impairing toxin	Molecular function	
+KW-1276	Viral latency initiation and maintenance	Biological process	
+KW-1277	Toxin-antitoxin system	Biological process	
+KW-1278	Translocase	Molecular function	
+KW-1279	T cell receptor	Cellular component	GO:0042101:T cell receptor complex
+KW-1280	Immunoglobulin	Cellular component	GO:0019814:immunoglobulin complex
+KW-1281	Magnetosome	Cellular component	GO:0110143:magnetosome
+KW-1282	Carboxysome	Cellular component	GO:0031470:carboxysome
+KW-1283	Bacterial microcompartment	Cellular component	
+KW-1284	Encapsulin nanocompartment	Cellular component	
+KW-9990	Technical term		
+KW-9991	PTM		
+KW-9992	Molecular function		
+KW-9993	Ligand		
+KW-9994	Domain		
+KW-9995	Disease		
+KW-9996	Developmental stage		
+KW-9997	Coding sequence diversity		
+KW-9998	Cellular component		
+KW-9999	Biological process		
