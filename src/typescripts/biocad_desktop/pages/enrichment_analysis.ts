@@ -96,6 +96,8 @@ namespace pages {
                                 $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
                                 $ts("#ex-with-icons-tabs-1").removeClass("show").removeClass("active");
                                 $ts("#ex-with-icons-tabs-2").addClass("show").addClass("active");
+                                $ts("#ex-with-icons-tab-1").removeClass("active");
+                                $ts("#ex-with-icons-tab-2").addClass("active");
 
                                 vm.session_id = ssid;
 
