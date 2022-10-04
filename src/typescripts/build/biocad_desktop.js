@@ -173,13 +173,20 @@ var pages;
             console.log($ts.location);
             $ts("#busy-indicator").hide();
         }
+        background_onchange(value) {
+            const note_id = enrichment_analysis.note_mapping[value];
+            for (let name in enrichment_analysis.note_mapping) {
+                $ts(`#${enrichment_analysis.note_mapping[name]}`).hide();
+            }
+            $ts(`#${note_id}`).show();
+        }
         run_onclick() {
             if (Strings.Empty(this.database)) {
                 desktop.showToastMessage("Please select a database at first!", "Enrichment Analysis", null, "danger");
             }
             else {
                 $ts("#busy-indicator").show();
-                const type = $ts.select.getOption("#enrichment_background");
+                const type = $ts.select.getOption("#background");
                 const symbols = $ts.value("#input_idlist");
                 if (Strings.Empty(type)) {
                     desktop.showToastMessage("Please select a background for enrichment analysis at first!", "Enrichment Analysis", null, "danger");
@@ -225,6 +232,12 @@ var pages;
             }
         }
     }
+    enrichment_analysis.note_mapping = {
+        "GO": "go_note",
+        "keyword": "uniprot_note",
+        "Pfam": "pfam_note",
+        "InterPro": "interpro_note"
+    };
     pages.enrichment_analysis = enrichment_analysis;
 })(pages || (pages = {}));
 var pages;

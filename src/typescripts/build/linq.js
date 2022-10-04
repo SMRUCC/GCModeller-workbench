@@ -8687,7 +8687,10 @@ var Internal;
                 var id = publicMethodName.replace(onchangeToken, "");
                 var a = document.getElementById(id);
                 var tag = a.tagName.toLowerCase();
-                if (arguments_2.length == 1 && arguments_2[0] == "value") {
+                // 20221004 parameter name rule:
+                // 1. value, raw js script
+                // 2. a, compressed via gcc, resulted min js
+                if (arguments_2.length == 1 && ((arguments_2[0] == "value") || (arguments_2[0] == "a"))) {
                     if (tag == "input" || tag == "textarea") {
                         var type_1 = a.getAttribute("type");
                         if (!isNullOrUndefined(type_1) && type_1.toLowerCase() == "file") {

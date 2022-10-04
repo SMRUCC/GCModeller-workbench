@@ -3,6 +3,12 @@ namespace pages {
     export class enrichment_analysis extends Bootstrap {
 
         private database: string;
+        private static note_mapping = {
+            "GO": "go_note",
+            "keyword": "uniprot_note",
+            "Pfam": "pfam_note",
+            "InterPro": "interpro_note"
+        };
 
         public get appName(): string {
             return "enrichment_analysis";
@@ -17,13 +23,23 @@ namespace pages {
             $ts("#busy-indicator").hide();
         }
 
+        public background_onchange(value: string) {
+            const note_id: string = enrichment_analysis.note_mapping[value];
+
+            for (let name in enrichment_analysis.note_mapping) {
+                $ts(`#${enrichment_analysis.note_mapping[name]}`).hide();
+            }
+
+            $ts(`#${note_id}`).show();
+        }
+
         public run_onclick() {
             if (Strings.Empty(this.database)) {
                 desktop.showToastMessage("Please select a database at first!", "Enrichment Analysis", null, "danger");
             } else {
                 $ts("#busy-indicator").show();
 
-                const type: string = $ts.select.getOption("#enrichment_background");
+                const type: string = $ts.select.getOption("#background");
                 const symbols: string = $ts.value("#input_idlist");
 
                 if (Strings.Empty(type)) {

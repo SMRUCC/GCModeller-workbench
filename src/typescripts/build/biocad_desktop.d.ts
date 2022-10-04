@@ -47,8 +47,10 @@ declare namespace desktop {
 declare namespace pages {
     class enrichment_analysis extends Bootstrap {
         private database;
+        private static note_mapping;
         readonly appName: string;
         protected init(): void;
+        background_onchange(value: string): void;
         run_onclick(): void;
     }
 }
