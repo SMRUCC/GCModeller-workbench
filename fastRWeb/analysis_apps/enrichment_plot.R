@@ -31,7 +31,7 @@ const run = function(session_id, type = ["bar", "bubble"], background = "", top 
     }
 
     if (type == "bar") {
-        profiles 
+        enrich_profiles
         |> category_profiles.plot(            
             colors = "paper",
             title = "UniProt Keywords",
