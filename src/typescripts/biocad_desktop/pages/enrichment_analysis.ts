@@ -122,7 +122,7 @@ namespace pages {
             });
 
             apps.gcmodeller
-                .sendPost($ts.url("@web_invoke_Rplot"), json)
+                .sendPost($ts.url("@web_invoke_Rplot?base64=true"), json)
                 .then(async function (result) {
                     desktop.parseMessage(result).then(function (message) {
                         desktop.parseResultFlag(result, message).then(function (flag) {
