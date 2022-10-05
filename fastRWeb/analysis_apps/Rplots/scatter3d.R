@@ -23,7 +23,7 @@ const run = function(ssid) {
     + view_camera(angle = [31.5,65,125], fov = 100000)
     ;
 
-    plot(plt)
+    plot(plt, size = [2400, 2000])
     |> graphics(file = buffer("bitmap"))
     ;  
 }
