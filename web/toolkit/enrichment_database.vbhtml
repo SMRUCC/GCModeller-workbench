@@ -9,6 +9,7 @@
 
     <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
     <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
+    <meta name="web_invoke_loadModel" content="http://localhost:7452/database/loadModel">
 </head>
 
 <body>
@@ -97,6 +98,28 @@
 
     </div>
     <!-- Tabs content -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="view-background" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">View Background Cluster</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div id="background-content" class="modal-body">
+            
+
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <%= ../assets/includes/webapp.vbhtml %>
 

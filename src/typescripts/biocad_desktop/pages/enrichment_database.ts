@@ -91,11 +91,16 @@ namespace pages {
                                 desktop.showToastMessage("Success!", title, null, "success");
 
                                 hookLinks = function () {
-                                    for (let name of backgrounds.Select(a => a.name).ToArray()) {
+                                    for (let model of backgrounds.ToArray()) {
+                                        const name: string = model.name;
                                         const id: string = `#model-${name}`;
+
                                         console.log(id);
+
                                         $ts(id).onclick = function () {
+                                            $ts("#busy-indicator").show();
                                             console.log(`view background model: ${name}...`);
+                                            enrichment_database.viewModel(key, name, model.info);
                                         }
                                     }
                                 }
@@ -120,6 +125,13 @@ namespace pages {
                         });
                     });
                 });
+        }
+
+        /**
+         * @param key a unique database hash name for query in the repository
+        */
+        private static viewModel(key: string, name: string, info: { clusters: number, unique_size: number }) {
+
         }
 
         private static summaryLine(name: string, info: { clusters: number, unique_size: number }): string {
