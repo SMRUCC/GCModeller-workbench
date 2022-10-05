@@ -5,7 +5,7 @@ imports ["dataset", "umap", "t-SNE"] from "MLkit";
 #' Do data embedding with different algorithm
 #' 
 const run = function(file, ssid, dims = 3, algorithm = ["PCA", "t-SNE", "UMAP"]) {
-    const session_file = `${getOption("system_tempdir")}/${session_id}/dataEmbedding.dat`;
+    const session_file = `${getOption("system_tempdir")}/${ssid}/dataEmbedding.dat`;
     const matrix = read.csv(file, row.names = 1, check.names = FALSE);
     const embedding = {
         "PCA": run_pca, 
