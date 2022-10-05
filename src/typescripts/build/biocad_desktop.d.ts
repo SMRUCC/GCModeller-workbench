@@ -66,6 +66,7 @@ declare namespace js_plot {
             symbolSize: number;
         };
         private load;
+        private onchange;
         /**
          * @param _data a array of js array to set as scatter plot data:
          *

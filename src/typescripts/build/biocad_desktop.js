@@ -233,7 +233,9 @@ var js_plot;
             var groupColors = [];
             var fieldNames = schema.map(item => item.name);
             var vm = this;
-            fieldNames = fieldNames.slice(1, fieldNames.length - 1);
+            fieldNames = $from(fieldNames).Skip(1).ToArray();
+            console.log("data field names:");
+            console.log(fieldNames);
             this.config = (app.config = {
                 xAxis3D: 'dim1',
                 yAxis3D: 'dim2',
@@ -241,47 +243,7 @@ var js_plot;
                 color: 'dim1',
                 symbolSize: 'dim2',
                 onChange: function () {
-                    var max = vm.getMaxOnExtent();
-                    if (vm.data) {
-                        vm.myChart.setOption({
-                            visualMap: [
-                                {
-                                    max: max.color / 2
-                                },
-                                {
-                                    max: max.symbolSize / 2
-                                }
-                            ],
-                            xAxis3D: {
-                                name: vm.config.xAxis3D
-                            },
-                            yAxis3D: {
-                                name: vm.config.yAxis3D
-                            },
-                            zAxis3D: {
-                                name: vm.config.zAxis3D
-                            },
-                            series: {
-                                dimensions: [
-                                    vm.config.xAxis3D,
-                                    vm.config.yAxis3D,
-                                    vm.config.yAxis3D,
-                                    vm.config.color,
-                                    vm.config.symbolSize
-                                ],
-                                data: vm.data.map(function (item, idx) {
-                                    return [
-                                        item[vm.fieldIndices[vm.config.xAxis3D]],
-                                        item[vm.fieldIndices[vm.config.yAxis3D]],
-                                        item[vm.fieldIndices[vm.config.zAxis3D]],
-                                        item[vm.fieldIndices[vm.config.color]],
-                                        item[vm.fieldIndices[vm.config.symbolSize]],
-                                        idx
-                                    ];
-                                })
-                            }
-                        });
-                    }
+                    vm.onchange();
                 }
             });
             app.configParameters = {};
@@ -291,6 +253,50 @@ var js_plot;
                 };
             });
             option && vm.myChart.setOption(option);
+        }
+        onchange() {
+            var vm = this;
+            var max = vm.getMaxOnExtent();
+            if (vm.data) {
+                vm.myChart.setOption({
+                    visualMap: [
+                        {
+                            max: max.color / 2
+                        },
+                        {
+                            max: max.symbolSize / 2
+                        }
+                    ],
+                    xAxis3D: {
+                        name: vm.config.xAxis3D
+                    },
+                    yAxis3D: {
+                        name: vm.config.yAxis3D
+                    },
+                    zAxis3D: {
+                        name: vm.config.zAxis3D
+                    },
+                    series: {
+                        dimensions: [
+                            vm.config.xAxis3D,
+                            vm.config.yAxis3D,
+                            vm.config.yAxis3D,
+                            vm.config.color,
+                            vm.config.symbolSize
+                        ],
+                        data: vm.data.map(function (item, idx) {
+                            return [
+                                item[vm.fieldIndices[vm.config.xAxis3D]],
+                                item[vm.fieldIndices[vm.config.yAxis3D]],
+                                item[vm.fieldIndices[vm.config.zAxis3D]],
+                                item[vm.fieldIndices[vm.config.color]],
+                                item[vm.fieldIndices[vm.config.symbolSize]],
+                                idx
+                            ];
+                        })
+                    }
+                });
+            }
         }
         /**
          * @param _data a array of js array to set as scatter plot data:
