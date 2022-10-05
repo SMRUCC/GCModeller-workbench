@@ -248,6 +248,7 @@
 
     </div>
 
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/jquery"></script>
     <script type="text/javascript" src="/javascript/echarts-5.4.0/echarts.min.js"></script>
 
     <!-- End your project here-->
