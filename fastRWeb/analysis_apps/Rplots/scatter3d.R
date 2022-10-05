@@ -31,7 +31,7 @@ const run = function(ssid) {
 
     json_encode({
         code: 0,
-        info: "success!"
+        info: `/@temp/${ssid}/dataEmbedding.png`
     })
     |> writeLines(con = buffer("text"))
     ;
