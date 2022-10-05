@@ -1,6 +1,6 @@
 require(Rserver);
 
-imports "http" from "RwebHost";
+imports ["http", "vbhtml"] from "RwebHost";
 
 # title: R# web http server
 # author: xieguigang
@@ -58,8 +58,17 @@ const handleHttpGet = function(req, response) {
     writeLines(source(local$file), con = response);
   } else {
     if (!local$is_script) {
-      if (file.ext(local$file) in ["html","htm","txt"]) {
-        writeLines(readText(local$file), con = response);
+      if (file.ext(local$file) in ["html","htm","txt", "vbhtml"]) {
+        if (file.ext(local$file) == "vbhtml") {
+          [local$file] 
+          |> vbhtml::rendering(
+            wwwroot = webContext
+          )
+          |> writeLines(con = response)
+          ;
+        } else {
+          writeLines(readText(local$file), con = response);
+        }        
       } else {
         response 
         |> pushDownload(local$file)
@@ -75,7 +84,7 @@ const handleHttpGet = function(req, response) {
 
 #' Handle http POST request
 #' 
-const handleHttpPost as function(req, response) {
+const handleHttpPost = function(req, response) {
   const R as string = router(getUrl(req));
 
   str(getUrl(req));
