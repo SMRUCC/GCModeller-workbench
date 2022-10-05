@@ -427,12 +427,16 @@ var pages;
                                 const cluster_id = Object.keys(clusters);
                                 const data = $from(cluster_id)
                                     .Select(function (cid) {
-                                    return `<a 
-                                    href="#" 
-                                    onclick="pages.enrichment_database.showProteins('${clusters[cid].join(",")}')"
-                                    class="list-group-item list-group-item-action px-3 border-0 active ripple">
-                                        ${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]
-                                    </a>`;
+                                    return `
+                                    <li>                                   
+                                            <a 
+                                            href="#" 
+                                            onclick="pages.enrichment_database.showProteins('${clusters[cid].join(",")}')">
+                                            <i class="far fa-file-code"></i>&nbsp;&nbsp;${cid.replace(/[<]/ig, "&lt;")}
+                                            [${clusters[cid].length} proteins]
+                                        </a>                                     
+                                    </li>                              
+                                    `;
                                 });
                                 // console.log(clusters);
                                 // console.log(cluster_id);

@@ -113,9 +113,9 @@
 
 
             <div id="scrollArea" class="clusterize-scroll">
-              <div id="contentArea" class="clusterize-content list-group list-group-light list-group-small">
+              <ul id="contentArea" class="clusterize-content list-group list-group-light list-group-small">
 
-              </div>
+              </ul>
             </div>
 
             <div class="row">
