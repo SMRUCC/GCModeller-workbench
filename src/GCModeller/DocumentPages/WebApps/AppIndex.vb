@@ -10,6 +10,6 @@ Public Class AppIndex : Inherits WebApp
     End Sub
 
     Public Sub openDataEmbedding()
-
+        Call WebApp.Open(Of DataEmbedding)()
     End Sub
 End Class
