@@ -5,7 +5,7 @@
 <?vb $app = "enrichment_analysis" ?>
 
 <head>
-    <%= ../assets/includes/head.vbhtml %>
+  <%= ../assets/includes/head.vbhtml %>
 
     <meta name="web_invoke_enrichment" content="http://localhost:7452/analysis_apps/enrichment">
     <meta name="web_invoke_Rplot" content="http://localhost:7452/analysis_apps/enrichment_plot">
@@ -50,6 +50,8 @@
                     <optgroup label="Annotation Ontology Information">
                       <option value="GO" data-mdb-secondary-text="Secondary text">Gene Ontology</option>
                       <option value="keyword" data-mdb-secondary-text="Secondary text">UniProt Keyword Ontology</option>
+                      <option value="EC">Enzyme Class Tree</option>
+                      <option value="eggNOG">eggNOG Clusters</option>
                     </optgroup>
                     <optgroup label="Protein Structures">
                       <option value="Pfam" data-mdb-secondary-text="Secondary text">Pfam</option>
@@ -76,6 +78,16 @@
                     domains and important sites. To classify proteins in this way, InterPro uses predictive models,
                     known as signatures, provided by several different databases (referred to as member databases) that
                     make up the InterPro consortium.
+                  </p>
+                  <p id="ec_note" style="display: none;">
+                    The Enzyme Commission number (EC number) is a numerical classification scheme for enzymes, based on
+                    the chemical reactions they catalyze. As a system of enzyme nomenclature, every EC number is
+                    associated with a recommended name for the respective enzyme.
+                  </p>
+                  <p id="eggnog_note" style="display: none;">
+                    The eggNOG database is a database of biological information hosted by the EMBL. It is based on the
+                    original idea of COGs (clusters of orthologous groups) and expands that idea to non-supervised
+                    orthologous groups constructed from numerous organisms.
                   </p>
                 </div>
               </section>

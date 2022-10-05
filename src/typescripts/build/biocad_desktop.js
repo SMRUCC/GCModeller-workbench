@@ -300,7 +300,9 @@ var pages;
         "GO": "go_note",
         "keyword": "uniprot_note",
         "Pfam": "pfam_note",
-        "InterPro": "interpro_note"
+        "InterPro": "interpro_note",
+        "EC": "ec_note",
+        "eggNOG": "eggnog_note"
     };
     pages.enrichment_analysis = enrichment_analysis;
 })(pages || (pages = {}));
