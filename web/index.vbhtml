@@ -11,7 +11,7 @@
         <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
 </head>
 
-<body style="font-size: 0.9em;">
+<body>
     <!-- Start your project here-->
     <div class="container">
         <br />
@@ -50,7 +50,7 @@
 
         <div class="row">
             <div class="col-2 hover-zoom">
-                <a href="#" class="card h-100">
+                <a href="#" class="card h-100" onclick="apps.gcmodeller.openApplets();">
                     <img src="/assets/icons/applications.png" class="card-img-top" alt="Palm Springs Road" />
                     <div class="card-body">
                         <h5 class="card-title">Apps</h5>
@@ -61,7 +61,7 @@
                 </a>
             </div>
             <div class="col-2 hover-zoom">
-                <a href="#" class="card h-100">
+                <a href="#" class="card h-100" onclick="apps.gcmodeller.openDatabaseRepository();">
                     <img src="/assets/icons/drive-multidisk.png" class="card-img-top" alt="Los Angeles Skyscrapers" />
                     <div class="card-body">
                         <h5 class="card-title">Repository</h5>
@@ -72,7 +72,7 @@
                 </a>
             </div>
             <div class="col-2 hover-zoom">
-                <a href="#" class="card h-100">
+                <a href="#" class="card h-100" onclick="apps.gcmodeller.openTaskManager();">
                     <img src="/assets/icons/task-manager.png" class="card-img-top" alt="Skyscrapers" />
                     <div class="card-body">
                         <h5 class="card-title">Task Manager</h5>
@@ -86,7 +86,7 @@
 
 
         <!-- Footer -->
-        <footer class="text-center text-lg-start text-muted">
+        <footer class="text-center text-lg-start text-muted" style="font-size: 0.8em;">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                 <!-- Left -->
