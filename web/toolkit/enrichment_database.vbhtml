@@ -7,8 +7,6 @@
 <head>
   <%= ../assets/includes/head.vbhtml %>
 
-    <link rel="stylesheet" href="/javascript/Clusterize/clusterize.css" />
-
     <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
     <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
     <meta name="web_invoke_loadModel" content="http://localhost:7452/database/loadModel">
@@ -134,10 +132,7 @@
       </div>
     </div>
 
-
     <%= ../assets/includes/webapp.vbhtml %>
-
-      <script type="text/javascript" src="/javascript/Clusterize/clusterize.min.js"></script>
 
   </div>
   <!-- End your project here-->
