@@ -53,19 +53,12 @@ Public Class FormMainHost
         End If
     End Function
 
-    Private Sub CloseAllDocuments()
-        If dockPanel.DocumentStyle = DocumentStyle.SystemMdi Then
-            For Each form In MdiChildren
-                form.Close()
-            Next
-        Else
-
-            For Each document In dockPanel.DocumentsToArray()
-                ' IMPORANT: dispose all panes.
-                document.DockHandler.DockPanel = Nothing
-                document.DockHandler.Close()
-            Next
-        End If
+    Public Sub CloseAllDocuments()
+        For Each form As DockContent In dockPanel.Documents
+            If TypeOf form Is FormWebView2Page AndAlso form.DockState = DockState.Document Then
+                Call form.Close()
+            End If
+        Next
     End Sub
 
     Private Sub EnableVSRenderer(version As VisualStudioToolStripExtender.VsVersion, theme As ThemeBase)

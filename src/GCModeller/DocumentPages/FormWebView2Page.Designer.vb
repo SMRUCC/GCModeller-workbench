@@ -31,6 +31,7 @@ Partial Class FormWebView2Page
         Me.ReloadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CloseAllDocumentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -49,36 +50,43 @@ Partial Class FormWebView2Page
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReloadToolStripMenuItem, Me.ToolStripMenuItem1, Me.CloseToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReloadToolStripMenuItem, Me.ToolStripMenuItem1, Me.CloseAllDocumentsToolStripMenuItem, Me.CloseToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(181, 76)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(185, 98)
         '
         'ReloadToolStripMenuItem
         '
         Me.ReloadToolStripMenuItem.Image = CType(resources.GetObject("ReloadToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReloadToolStripMenuItem.Name = "ReloadToolStripMenuItem"
-        Me.ReloadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReloadToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
         Me.ReloadToolStripMenuItem.Text = "Reload"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(181, 6)
         '
         'CloseToolStripMenuItem
         '
+        Me.CloseToolStripMenuItem.Image = CType(resources.GetObject("CloseToolStripMenuItem.Image"), System.Drawing.Image)
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
+        '
+        'CloseAllDocumentsToolStripMenuItem
+        '
+        Me.CloseAllDocumentsToolStripMenuItem.Name = "CloseAllDocumentsToolStripMenuItem"
+        Me.CloseAllDocumentsToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.CloseAllDocumentsToolStripMenuItem.Text = "Close All Documents"
         '
         'FormWebView2Page
         '
-        Me.TabPageContextMenuStrip = ContextMenuStrip1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1042, 643)
         Me.Controls.Add(Me.WebView21)
         Me.Name = "FormWebView2Page"
+        Me.TabPageContextMenuStrip = Me.ContextMenuStrip1
         CType(Me.WebView21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -90,4 +98,5 @@ Partial Class FormWebView2Page
     Friend WithEvents ReloadToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
     Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CloseAllDocumentsToolStripMenuItem As ToolStripMenuItem
 End Class

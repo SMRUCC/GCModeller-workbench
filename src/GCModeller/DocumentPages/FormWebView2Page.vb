@@ -1,4 +1,5 @@
-﻿Imports Microsoft.VisualBasic.Net.Http
+﻿Imports System.ComponentModel
+Imports Microsoft.VisualBasic.Net.Http
 Imports Microsoft.Web.WebView2.Core
 Imports WeifenLuo.WinFormsUI.Docking
 
@@ -6,6 +7,8 @@ Public Class FormWebView2Page
 
     Public Property sourceURL As String = "https://gcmodeller.org/"
     Public Property backend As WebApp
+
+    Dim closeDialog As Boolean = False
 
     Sub New()
 
@@ -67,9 +70,8 @@ Public Class FormWebView2Page
     End Sub
 
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
-        If MessageBox.Show("Close current app page?", "Workbench WebView", buttons:=MessageBoxButtons.OKCancel, icon:=MessageBoxIcon.Information) = DialogResult.OK Then
-            Call Me.Close()
-        End If
+        closeDialog = True
+        Me.Close()
     End Sub
 
     Private Sub ReloadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReloadToolStripMenuItem.Click
@@ -89,6 +91,19 @@ Public Class FormWebView2Page
         If url.hostName <> "127.0.0.1" AndAlso url.hostName <> "localhost" Then
             e.Cancel = True
             Process.Start(e.Uri)
+        End If
+    End Sub
+
+    Private Sub CloseAllDocumentsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseAllDocumentsToolStripMenuItem.Click
+        If MessageBox.Show("This will close all of the open application page?", "Workbench WebView", buttons:=MessageBoxButtons.OKCancel, icon:=MessageBoxIcon.Information) = DialogResult.OK Then
+            Call Globals.host.CloseAllDocuments()
+        End If
+    End Sub
+
+    Private Sub FormWebView2Page_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If closeDialog AndAlso MessageBox.Show("Close current app page?", "Workbench WebView", buttons:=MessageBoxButtons.OKCancel, icon:=MessageBoxIcon.Information) = DialogResult.Cancel Then
+            e.Cancel = True
+            closeDialog = False
         End If
     End Sub
 End Class
