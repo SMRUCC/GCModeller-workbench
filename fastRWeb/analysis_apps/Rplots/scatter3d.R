@@ -1,7 +1,9 @@
 require(ggplot);
+require(JSON);
 
 const run = function(ssid) {
     const session_file = `${getOption("system_tempdir")}/${ssid}/dataEmbedding.dat`;
+    const saveimage = `${getOption("system_tempdir")}/${ssid}/dataEmbedding.png`;
     const data = readRDS(session_file);
 
     data[, "class"] = "class_unknow";
@@ -23,7 +25,14 @@ const run = function(ssid) {
     + view_camera(angle = [31.5,65,125], fov = 100000)
     ;
 
-    plot(plt, size = [2400, 2000])
-    |> graphics(file = buffer("bitmap"))
-    ;  
+    bitmap(file = saveimage, size = [2400, 2000]) {
+        plot(plt);
+    }
+
+    json_encode({
+        code: 0,
+        info: "success!"
+    })
+    |> writeLines(con = buffer("text"))
+    ;
 }

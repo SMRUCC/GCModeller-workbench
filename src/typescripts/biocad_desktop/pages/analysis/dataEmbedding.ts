@@ -57,7 +57,7 @@ namespace pages {
                             vm.session_id = session_id;
 
                             $ts.appendTable(previews, "#embedding-table", null, { class: ["table", "table-sm"] });
-                            dataEmbedding.plot3DScatter();
+                            dataEmbedding.plot3DScatter(session_id);
 
                             // show table at first
                             // then run data plots
@@ -98,7 +98,7 @@ namespace pages {
                 desktop.promiseAsyncCallback<string>(result, function (success, message) {
                     if (success) {
                         // show images
-                        const img = $ts("<img>", { src: message.info });
+                        const img = $ts("<img>", { src: `/@temp/${session_id}/dataEmbedding.png` });
 
                         $ts("#Rplot_js").display(img);
                     } else {

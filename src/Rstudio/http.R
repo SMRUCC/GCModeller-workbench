@@ -19,6 +19,7 @@ const webContext as string = ?"--wwwroot" || `${dirname(@script)}/../web.R`;
 #' 
 const router = function(url) {
   const relpath as string = trim(url$path, ".");
+  const isMap_temp as boolean = startsWith(url$path, "@temp");
 
   if (relpath == "") {
     list(
@@ -29,7 +30,10 @@ const router = function(url) {
     let file = `${webContext}/${relpath}.R`;
 
     if (file.ext(relpath) != "R") {
-      list(file = `${webContext}/${relpath}`, is_script = FALSE);
+      list(
+        file = ifelse(isMap_temp, gsub(relpath, "@temp", getOption("system_tempdir")), `${webContext}/${relpath}`), 
+        is_script = FALSE
+      );
     } else {
       if (file.exists(file)) {
         list(file = file, is_script = TRUE);
