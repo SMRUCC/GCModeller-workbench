@@ -40,6 +40,26 @@
 
                         <div class="row">
                             <div class="col-12">
+
+                                <p>
+                                    The matrix file format should be:<br />
+
+                                <ol>
+                                    <li>Each row data is the data entity list</li>
+                                    <li>Each column data is the feature data vector of the data entity in rows.</li>
+                                </ol>
+
+                                For omics data that could be:<br />
+                                <ol>
+                                    <li>
+                                        Each row data should be the samples.
+                                    </li>
+                                    <li>
+                                        Each column data should be the gene features
+                                    </li>
+                                </ol>
+                                </p>
+
                                 <label for="matrix-file" class="form-label">Select Matrix:</label>
                                 <div class="input-group mb-3">
                                     <button class="btn btn-primary" type="button" id="button_open"
@@ -61,19 +81,54 @@
                     </section>
                     <section id="example-3-collapsible">
                         <h3>Analysis Result</h3>
-                        ...
+
+                        <p>
+                            The data analysis result for data embedding analysis consist with two parts:
+                            <br />
+                        <ol>
+                            <li>Rplot: interactive image plot for visualize your data result in 2D/3D view.</li>
+                            <li>Data Table: the data embedding result matrix outputs</li>
+                        </ol>
+                        </p>
+
                         <section id="example-sub-A-collapsible">
                             <h3>Rplot</h3>
-                            ...
+
+                            <div class="row">
+                                <div class="col-auto"></div>
+                            </div>
+
                         </section>
                         <section id="example-sub-B-collapsible">
                             <h3>Data Table</h3>
-                            ...
+
+                            <div class="row">
+                                <div class="col-auto"></div>
+                            </div>
+
                         </section>
                     </section>
                     <section id="example-4-collapsible">
                         <h3>Download</h3>
-                        ...
+
+                        <p>Save your analysis result files.</p>
+
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-primary">
+                                Save To Project
+                            </button>
+
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
+                                    data-mdb-toggle="dropdown" aria-expanded="false">
+                                    Download Report
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <li><a class="dropdown-item" href="#">Download Zip Archive</a></li>
+                                    <li><a class="dropdown-item" href="#">Print As PDF</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
                 </div>
                 <!-- Spied element -->
