@@ -2,7 +2,7 @@
 
 <ClassInterface(ClassInterfaceType.AutoDual)>
 <ComVisible(True)>
-Public Class MainIndex : Inherits WebApp
+Public Class MainIndex : Inherits AppIndex
 
     Public Sub New()
         MyBase.New("/index.vbhtml")

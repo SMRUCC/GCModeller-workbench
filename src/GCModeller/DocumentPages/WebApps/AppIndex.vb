@@ -9,7 +9,15 @@ Public Class AppIndex : Inherits WebApp
         MyBase.New("/applets.vbhtml")
     End Sub
 
+    Protected Sub New(path As String)
+        MyBase.New(path)
+    End Sub
+
     Public Sub openDataEmbedding()
         Call WebApp.Open(Of DataEmbedding)()
+    End Sub
+
+    Public Sub openEnrichment()
+        Call WebApp.Open(Of RunEnrichment)()
     End Sub
 End Class
