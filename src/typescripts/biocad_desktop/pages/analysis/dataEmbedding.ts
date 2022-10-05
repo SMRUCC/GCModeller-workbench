@@ -41,7 +41,7 @@ namespace pages {
             });
 
             if (Strings.Empty(filepath)) {
-                desktop.showToastMessage("The matrix data input file can not be nothing!", "Data Embedding Analysis", null, "danger");
+                desktop.showToastMessage("The matrix data input file can not be nothing!", "Data Embedding Analysis", "danger");
                 return;
             }
 
@@ -54,9 +54,9 @@ namespace pages {
 
                             // show table at first
                             // then run data plots
-                            desktop.showToastMessage("Run Data Embedding Analysis Success!", `${method} Task Success`, desktop.now(), "danger");
+                            desktop.showToastMessage("Run Data Embedding Analysis Success!", `${method} Task Success`, "success");
                         } else {
-                            desktop.showToastMessage(message.info, `${method} Task Error`, null, "danger");
+                            desktop.showToastMessage(message.info, `${method} Task Error`, "danger");
                         }
                     });
                 });

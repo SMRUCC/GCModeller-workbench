@@ -39,7 +39,7 @@ namespace pages {
 
         public run_onclick() {
             if (Strings.Empty(this.database)) {
-                desktop.showToastMessage("Please select a database at first!", "Enrichment Analysis", null, "danger");
+                desktop.showToastMessage("Please select a database at first!", "Enrichment Analysis", "danger");
             } else {
                 $ts("#busy-indicator").show();
 
@@ -47,9 +47,9 @@ namespace pages {
                 const symbols: string = $ts.value("#input_idlist");
 
                 if (Strings.Empty(type)) {
-                    desktop.showToastMessage("Please select a background for enrichment analysis at first!", "Enrichment Analysis", null, "danger");
+                    desktop.showToastMessage("Please select a background for enrichment analysis at first!", "Enrichment Analysis", "danger");
                 } else if (Strings.Empty(symbols)) {
-                    desktop.showToastMessage("No gene/protein id list to run enrichment analysis!", "Enrichment Analysis", null, "danger");
+                    desktop.showToastMessage("No gene/protein id list to run enrichment analysis!", "Enrichment Analysis", "danger");
                 } else {
                     this.runInternal(type, symbols);
                 }
@@ -126,10 +126,10 @@ namespace pages {
                             // do data plot
                             vm.plot_onclick();
 
-                            desktop.showToastMessage("Success!", title, null, "success");
+                            desktop.showToastMessage("Success!", title, "success");
                         } else {
                             // error
-                            desktop.showToastMessage(message.info, title, null, "danger");
+                            desktop.showToastMessage(message.info, title, "danger");
                         }
                     });
                 });
@@ -161,7 +161,7 @@ namespace pages {
 
                                 $ts("#busy-indicator").hide();
                             } else {
-                                desktop.showToastMessage(message.info, title, null, "danger");
+                                desktop.showToastMessage(message.info, title, "danger");
                             }
                         });
                     });

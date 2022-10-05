@@ -22,7 +22,7 @@ namespace apps {
     }
 
     async function warningMsg() {
-        desktop.showToastMessage("Please run from webview2 application!", "Web app error", null, "warning");
+        desktop.showToastMessage("Please run from webview2 application!", "Web app error", "warning");
     }
 
     export function run() {

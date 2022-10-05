@@ -2,12 +2,11 @@ namespace desktop {
 
     export function showToastMessage(msg: string,
         title: string = "Task Error",
-        subtitle: string = now(),
         level: "danger" | "success" | "warning" | "info" = "info",
         autohide: boolean = true) {
 
         $ts("#busy-indicator").hide();
-        $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
+        $ts("#toast-message").appendElement(toastHtml(msg, title, now(), level, autohide));
     }
 
     const toastIconsMD = {

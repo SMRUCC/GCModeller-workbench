@@ -41,7 +41,7 @@ namespace pages {
                     $ts("#busy-indicator").hide();
 
                     // show database summary information
-                    desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", null, "info");
+                    desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", "info");
                 });
         }
 
@@ -88,7 +88,7 @@ namespace pages {
                                     ;
 
                                 // success
-                                desktop.showToastMessage("Success!", title, null, "success");
+                                desktop.showToastMessage("Success!", title, "success");
 
                                 hookLinks = function () {
                                     for (let model of backgrounds.ToArray()) {
@@ -114,7 +114,7 @@ namespace pages {
                                 `;
                             } else {
                                 // error
-                                desktop.showToastMessage(message.info, title, null, "danger");
+                                desktop.showToastMessage(message.info, title, "danger");
                             }
 
                             $ts("#summary-info").display(sb);
@@ -176,7 +176,7 @@ namespace pages {
 
                             galleryModal.show();
                         } else {
-                            desktop.showToastMessage(message.info, "Load Model Error", null, "danger");
+                            desktop.showToastMessage(message.info, "Load Model Error", "danger");
                         }
                     })
                 })
@@ -248,10 +248,10 @@ namespace pages {
 
                             if (flag) {
                                 // success
-                                desktop.showToastMessage(message.info, title, null, "success");
+                                desktop.showToastMessage(message.info, title, "success");
                             } else {
                                 // error
-                                desktop.showToastMessage(message.info, title, null, "danger");
+                                desktop.showToastMessage(message.info, title, "danger");
                             }
 
                             $ts("#busy-indicator").hide();
