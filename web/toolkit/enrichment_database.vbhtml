@@ -7,6 +7,8 @@
 <head>
   <%= ../assets/includes/head.vbhtml %>
 
+    <link rel="stylesheet" href="/javascript/Clusterize/clusterize.css" />
+
     <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
     <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
     <meta name="web_invoke_loadModel" content="http://localhost:7452/database/loadModel">
@@ -104,12 +106,25 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">View Background Cluster</h5>
-            <button id="modal-close1" type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            <button id="modal-close1" type="button" class="btn-close" data-mdb-dismiss="modal"
+              aria-label="Close"></button>
           </div>
           <div id="background-content" class="modal-body">
-            
 
 
+            <div id="scrollArea" class="clusterize-scroll">
+              <div id="contentArea" class="clusterize-content">
+                <div class="clusterize-no-data">Loading data…</div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label for="protein_ids" class="form-label"></label>
+                <textarea class="form-control" rows="6" id="protein_ids" readonly>
+                </textarea>
+              </div>
+            </div>
 
           </div>
           <div class="modal-footer">
@@ -121,6 +136,8 @@
 
 
     <%= ../assets/includes/webapp.vbhtml %>
+
+      <script type="text/javascript" src="/javascript/Clusterize/clusterize.min.js"></script>
 
   </div>
   <!-- End your project here-->

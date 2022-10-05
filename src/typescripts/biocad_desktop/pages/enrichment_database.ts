@@ -141,8 +141,19 @@ namespace pages {
                         console.log(message);
 
                         if (flag) {
-                            var galleryModal = new bootstrap.Modal($ts('#view-background'), {
+                            const galleryModal = new bootstrap.Modal($ts('#view-background'), {
                                 keyboard: false
+                            });
+                            const clusters = message.info;
+                            const data = $from(Object.keys(clusters))
+                                .Select(function (cid) {
+                                    return `<div>${cid} [${clusters[cid].length} proteins]</div>`
+                                })
+                                .ToArray();
+                            const clusterize = new Clusterize({
+                                rows: data,
+                                scrollId: 'scrollArea',
+                                contentId: 'contentArea'
                             });
 
                             $ts("#busy-indicator").hide();
