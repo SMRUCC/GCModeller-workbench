@@ -97,9 +97,11 @@ namespace pages {
             apps.gcmodeller.sendPost($ts.url("@web_invoke_Rplot"), json).then(function (result) {
                 desktop.promiseAsyncCallback<string>(result, function (success, message) {
                     if (success) {
+                        const img_url: string = `${message.info}?refresh=${md5(desktop.now())}`;
+
                         // show images
-                        $ts("#Rplot-box").CType<HTMLAnchorElement>().href = message.info;
-                        $ts("#Rplot_js").CType<HTMLImageElement>().src = message.info;
+                        $ts("#Rplot-box").CType<HTMLAnchorElement>().href = img_url;
+                        $ts("#Rplot_js").CType<HTMLImageElement>().src = img_url;
 
                         $ts("#busy-indicator").hide();
                     } else {
