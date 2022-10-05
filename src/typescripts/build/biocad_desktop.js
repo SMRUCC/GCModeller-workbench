@@ -723,7 +723,7 @@ var pages;
             const y = keys[2];
             const z = keys[3];
             data = $from(data)
-                .Select(a => [a[name], a[x], a[y], a[z]])
+                .Select(a => [a[name], parseFloat(a[x]), parseFloat(a[y]), parseFloat(a[z])])
                 .ToArray();
             console.log("view of the data matrix for plot 3d scatter:");
             console.log(data);

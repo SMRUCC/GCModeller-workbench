@@ -77,7 +77,7 @@ namespace pages {
             const z: string = keys[3];
 
             data = $from(data)
-                .Select(a => [a[name], a[x], a[y], a[z]])
+                .Select(a => [a[name], parseFloat(a[x]), parseFloat(a[y]), parseFloat(a[z])])
                 .ToArray()
                 ;
 
