@@ -5,10 +5,10 @@
 <?vb $app = "enrichment_analysis" ?>
 
 <head>
-  <%= ../assets/includes/head.vbhtml %>
+    <%= ../assets/includes/head.vbhtml %>
 
-  <meta name="web_invoke_enrichment" content="http://localhost:7452/analysis_apps/enrichment">
-  <meta name="web_invoke_Rplot" content="http://localhost:7452/analysis_apps/enrichment_plot">
+    <meta name="web_invoke_enrichment" content="http://localhost:7452/analysis_apps/enrichment">
+    <meta name="web_invoke_Rplot" content="http://localhost:7452/analysis_apps/enrichment_plot">
 </head>
 
 <body>
@@ -24,8 +24,11 @@
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="ex-with-icons-tab-2" data-mdb-toggle="tab" href="#ex-with-icons-tabs-2" role="tab"
-          aria-controls="ex-with-icons-tabs-2" aria-selected="false"><i class="fas fa-cogs fa-fw me-2"></i>Analysis
-          Result</a>
+          aria-controls="ex-with-icons-tabs-2" aria-selected="false">
+          <i class="fas fa-cogs fa-fw me-2"></i>
+          Analysis
+          Result
+        </a>
       </li>
     </ul>
     <!-- Tabs navs -->
@@ -139,7 +142,7 @@
     <!-- Tabs content -->
 
     <%= ../assets/includes/webapp.vbhtml %>
-    
+
   </div>
   <!-- End your project here-->
 </body>
