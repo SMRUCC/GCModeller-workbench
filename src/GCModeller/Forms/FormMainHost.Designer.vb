@@ -52,6 +52,7 @@ Partial Class FormMainHost
         Me.dockPanel.ShowAutoHideContentOnHover = False
         Me.dockPanel.Size = New System.Drawing.Size(800, 405)
         Me.dockPanel.TabIndex = 0
+        Me.dockPanel.ShowDocumentIcon = True
         '
         'vsToolStripExtender1
         '
