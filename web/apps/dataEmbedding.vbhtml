@@ -23,9 +23,22 @@
                     <section id="example-1-collapsible">
                         <h3>Introduction</h3>
 
-                        <p> An embedding is a low-dimensional representation of high-dimensional data. Typically, an
-                            embedding won’t capture all information contained in the original data. A good embedding,
-                            however, will capture enough to solve the problem at hand.</p>
+                        <div class="clearfix">
+                            <img class="col-md-6 float-md-end mb-3 ms-md-3 hover-shadow hover-zoom"
+                                src="/assets/images/gallery/UMAP3d.png" style="width: 300px;">
+
+                            <p> An embedding is a low-dimensional representation of high-dimensional data. Typically, an
+                                embedding won’t capture all information contained in the original data. A good
+                                embedding,
+                                however, will capture enough to solve the problem at hand.</p>
+
+                            <p>
+                                All embeddings attempt to reduce the dimensionality of data while preserving “essential”
+                                information in the data, but every embedding does it in its own way. Here, we will go
+                                through a few popular embeddings that can be applied to a omics expression data matrix,
+                                distance or similarity matrix.
+                            </p>
+                        </div>
 
                     </section>
                     <section id="example-2-collapsible">
@@ -38,8 +51,28 @@
                                     than the columns feature numbers of your input data matrix. recommended at least
                                     result 3 dimensions of your data embedding analysis:
                                 </p>
-                                <label for="dimensions" class="form-label">Dimensions:</label>
-                                <input type="text" class="form-control" id="dimensions" value="3" />
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="dimensions" class="form-label">Dimensions:</label>
+                                        <input type="text" class="form-control" id="dimensions" value="3" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-auto">
+
+                                <p>Algorithm method to used:</p>
+
+                                <select id="algorithm" class="form-select select-input placeholder-active">
+                                    <option value="PCA">PCA</option>
+                                    <optgroup label="Nonlinear dimensionality reduction">
+                                        <option value="t-SNE">t-SNE</option>
+                                        <option value="UMAP">UMAP</option>
+                                    </optgroup>
+                                </select>
+
                             </div>
                         </div>
 
@@ -113,6 +146,10 @@
 
                         </section>
                     </section>
+                    <section id="example-5-collapsible">
+                        <h3>Reference</h3>
+
+                    </section>
                     <section id="example-4-collapsible">
                         <h3>Download</h3>
 
@@ -135,6 +172,7 @@
                             </div>
                         </div>
                     </section>
+
                 </div>
                 <!-- Spied element -->
             </div>
@@ -161,8 +199,12 @@
                             </ul>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="#example-5-collapsible">Reference</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#example-4-collapsible">Download</a>
                         </li>
+
                     </ul>
                 </div>
                 <!-- Scrollspy -->
