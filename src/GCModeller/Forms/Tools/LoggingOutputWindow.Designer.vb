@@ -35,10 +35,12 @@ Partial Class LoggingOutputWindow
         '
         'textBox1
         '
+        Me.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.textBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.textBox1.Location = New System.Drawing.Point(0, 27)
         Me.textBox1.Multiline = True
         Me.textBox1.Name = "textBox1"
+        Me.textBox1.ReadOnly = True
         Me.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.textBox1.Size = New System.Drawing.Size(820, 355)
         Me.textBox1.TabIndex = 2

@@ -15,6 +15,7 @@ Public Class FormWebView2Page
         ' Add any initialization after the InitializeComponent() call.
         AutoScaleMode = AutoScaleMode.Dpi
         DockAreas = DockAreas.Document Or DockAreas.Float
+        TabText = "Loading WebView2 App..."
     End Sub
 
     Private Sub FormWebView2Page_Load(sender As Object, e As EventArgs) Handles Me.Load
