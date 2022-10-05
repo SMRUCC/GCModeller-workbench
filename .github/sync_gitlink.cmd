@@ -1,6 +1,6 @@
 @echo off
 
-REM git remote add gitlink https://gitlink.org.cn/xieguigang/markdown2pdf.git
+REM git remote add gitlink https://gitlink.org.cn/xieguigang/GCModeller-workbench.git
 
 git pull gitlink HEAD
 git push gitlink HEAD
