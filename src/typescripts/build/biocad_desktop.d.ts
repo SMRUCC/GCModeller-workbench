@@ -45,6 +45,12 @@ declare namespace desktop {
     function showToastMessage(msg: string, title?: string, subtitle?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
 }
 declare namespace pages {
+    class dataEmbedding extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
+    }
+}
+declare namespace pages {
     class enrichment_analysis extends Bootstrap {
         private database;
         private static note_mapping;

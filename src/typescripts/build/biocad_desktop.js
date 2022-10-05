@@ -34,6 +34,7 @@ var apps;
     function run() {
         Router.AddAppHandler(new pages.enrichment_database());
         Router.AddAppHandler(new pages.enrichment_analysis());
+        Router.AddAppHandler(new pages.dataEmbedding());
         Router.RunApp();
     }
     apps.run = run;
@@ -172,6 +173,19 @@ var desktop;
         return box;
     }
 })(desktop || (desktop = {}));
+var pages;
+(function (pages) {
+    class dataEmbedding extends Bootstrap {
+        get appName() {
+            return "dataEmbedding";
+        }
+        ;
+        init() {
+            throw new Error("Method not implemented.");
+        }
+    }
+    pages.dataEmbedding = dataEmbedding;
+})(pages || (pages = {}));
 var pages;
 (function (pages) {
     class enrichment_analysis extends Bootstrap {
