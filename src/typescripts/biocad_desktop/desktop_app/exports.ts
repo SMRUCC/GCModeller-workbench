@@ -1,6 +1,10 @@
 
 namespace desktop {
 
+    export function now(): string {
+        return (new Date()).toLocaleTimeString();
+    }
+
     export async function parseResultFlag(msg: hostMsg, message: IMsg<string>) {
         const flag = await msg.result;
         const result = flag && (message.code == 0);

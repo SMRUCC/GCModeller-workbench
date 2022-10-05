@@ -1,8 +1,4 @@
-namespace desktop {
-
-    function now(): string {
-        return (new Date()).toLocaleTimeString();
-    }
+namespace desktop {   
 
     export function showToastMessage(msg: string,
         title: string = "Task Error",

@@ -21,5 +21,19 @@ namespace pages {
                     }
                 })
         }
+
+        public run_click() {
+            const session_id: string = 
+            const json = JSON.stringify({
+                file: $ts.value("#matrix-file"), 
+                ssid, dims = 3, algorithm
+            });
+
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_embedding"), json)
+                .then(async function (result) {
+
+                });
+        }
     }
 }

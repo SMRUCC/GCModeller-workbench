@@ -7,7 +7,7 @@
 <head>
     <%= ../assets/includes/head.vbhtml %>
 
-        <meta name="web_invoke_enrichment" content="http://localhost:7452/analysis_apps/enrichment">
+        <meta name="web_invoke_embedding" content="http://localhost:7452/analysis_apps\dataEmbedding">
         <meta name="web_invoke_Rplot" content="http://localhost:7452/analysis_apps/enrichment_plot">
 </head>
 

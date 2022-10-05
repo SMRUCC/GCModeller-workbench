@@ -1,6 +1,8 @@
+/// <reference path="../analysis_session.ts" />
+
 namespace pages {
 
-    export class enrichment_analysis extends Bootstrap {
+    export class enrichment_analysis extends analysis_session {
 
         private database: string;
         private static note_mapping = {
@@ -11,7 +13,6 @@ namespace pages {
             "EC": "ec_note",
             "eggNOG": "eggnog_note"
         };
-        private session_id: string;
 
         public get appName(): string {
             return "enrichment_analysis";
@@ -83,7 +84,7 @@ namespace pages {
         }
 
         private runInternal(type: string, symbols: string) {
-            const ssid: string = md5(`enrichment-${(new Date()).toLocaleTimeString("en-US")}-${type}-${symbols}`);
+            const ssid: string = super.generateSsid({ type: type, symbols: symbols });
             const vm = this;
             const json: string = JSON.stringify({
                 id: this.database,
