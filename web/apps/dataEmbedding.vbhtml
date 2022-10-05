@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?vb $title = "Just a template page" ?>
-<?vb $app = "app_name" ?>
+<?vb $title = "Data Embedding" ?>
+<?vb $app = "dataEmbedding" ?>
 
 <head>
     <%= ../assets/includes/head.vbhtml %>
