@@ -63,6 +63,10 @@ declare namespace pages {
         protected init(): void;
         private scanDatabaseList;
         private static showMetadata;
+        /**
+         * @param key a unique database hash name for query in the repository
+        */
+        private static viewModel;
         private static summaryLine;
         private static buildDbCard;
         /**

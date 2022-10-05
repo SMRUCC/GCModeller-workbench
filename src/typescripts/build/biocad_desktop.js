@@ -374,11 +374,14 @@ var pages;
                                 // success
                                 desktop.showToastMessage("Success!", title, null, "success");
                                 hookLinks = function () {
-                                    for (let name of backgrounds.Select(a => a.name).ToArray()) {
+                                    for (let model of backgrounds.ToArray()) {
+                                        const name = model.name;
                                         const id = `#model-${name}`;
                                         console.log(id);
                                         $ts(id).onclick = function () {
+                                            $ts("#busy-indicator").show();
                                             console.log(`view background model: ${name}...`);
+                                            enrichment_database.viewModel(key, name, model.info);
                                         };
                                     }
                                 };
@@ -397,6 +400,32 @@ var pages;
                             $ts("#summary-info").display(sb);
                             if (!isNullOrUndefined(hookLinks)) {
                                 hookLinks();
+                            }
+                        });
+                    });
+                });
+            });
+        }
+        /**
+         * @param key a unique database hash name for query in the repository
+        */
+        static viewModel(key, name, info) {
+            const json = JSON.stringify({
+                guid: key, xref: name
+            });
+            apps.gcmodeller.sendPost($ts.url("@web_invoke_loadModel"), json).then(function (result) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    desktop.parseMessage(result).then(function (message) {
+                        desktop.parseResultFlag(result, message).then(function (flag) {
+                            if (flag) {
+                                var galleryModal = new bootstrap.Modal($ts('#view-background'), {
+                                    keyboard: false
+                                });
+                                $ts("#busy-indicator").hide();
+                                galleryModal.show();
+                            }
+                            else {
+                                desktop.showToastMessage(message.info, "Load Model Error", null, "danger");
                             }
                         });
                     });

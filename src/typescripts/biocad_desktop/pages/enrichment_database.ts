@@ -131,7 +131,26 @@ namespace pages {
          * @param key a unique database hash name for query in the repository
         */
         private static viewModel(key: string, name: string, info: { clusters: number, unique_size: number }) {
+            const json: string = JSON.stringify({
+                guid: key, xref: name
+            });
 
+            apps.gcmodeller.sendPost($ts.url("@web_invoke_loadModel"), json).then(async function (result) {
+                desktop.parseMessage(result).then(function (message) {
+                    desktop.parseResultFlag(result, message).then(function (flag) {
+                        if (flag) {
+                            var galleryModal = new bootstrap.Modal($ts('#view-background'), {
+                                keyboard: false
+                            });
+
+                            $ts("#busy-indicator").hide();
+                            galleryModal.show();
+                        } else {
+                            desktop.showToastMessage(message.info, "Load Model Error", null, "danger");
+                        }
+                    })
+                })
+            });
         }
 
         private static summaryLine(name: string, info: { clusters: number, unique_size: number }): string {

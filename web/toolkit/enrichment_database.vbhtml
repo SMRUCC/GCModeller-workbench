@@ -16,7 +16,6 @@
   <!-- Start your project here-->
   <div class="container">
 
-
     <!-- Tabs navs -->
     <ul class="nav nav-tabs mb-3" id="ex-with-icons" role="tablist">
       <li class="nav-item" role="presentation">
