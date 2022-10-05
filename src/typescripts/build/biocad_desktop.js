@@ -80,6 +80,23 @@ var desktop;
 })(desktop || (desktop = {}));
 var desktop;
 (function (desktop) {
+    ;
+    /**
+     * the host message async callback helper
+    */
+    function promiseAsyncCallback(hostMsg, callback) {
+        return __awaiter(this, void 0, void 0, function* () {
+            desktop.parseMessage(hostMsg).then(function (message) {
+                desktop.parseResultFlag(hostMsg, message).then(function (flag) {
+                    callback(flag, message);
+                });
+            });
+        });
+    }
+    desktop.promiseAsyncCallback = promiseAsyncCallback;
+})(desktop || (desktop = {}));
+var desktop;
+(function (desktop) {
     function parseResultFlag(msg, message) {
         return __awaiter(this, void 0, void 0, function* () {
             const flag = yield msg.result;
@@ -181,7 +198,18 @@ var pages;
         }
         ;
         init() {
-            throw new Error("Method not implemented.");
+            // throw new Error("Method not implemented.");
+        }
+        button_open_click() {
+            apps.gcmodeller
+                .getFileOpen("Excel Matrix(*.csv)|*.csv")
+                .then(function (result) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    const filepath = yield result;
+                    if (!Strings.Empty(filepath)) {
+                    }
+                });
+            });
         }
     }
     pages.dataEmbedding = dataEmbedding;
@@ -264,38 +292,34 @@ var pages;
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_enrichment"), json)
                 .then(function (result) {
-                return __awaiter(this, void 0, void 0, function* () {
-                    desktop.parseMessage(result).then(function (message) {
-                        desktop.parseResultFlag(result, message).then(function (flag) {
-                            const title = flag ? "Run Enrichment Success" : "Analysis Error";
-                            const data = message.info;
-                            console.log(data);
-                            if (flag) {
-                                // success
-                                const table = $ts.csv(data, true)
-                                    .Objects()
-                                    .Where(a => a["pvalue"] < 0.05)
-                                    .Select(function (a) {
-                                    a["name"] = url(a);
-                                    return a;
-                                });
-                                $ts("#enrichment-result-table").clear();
-                                $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
-                                $ts("#ex-with-icons-tabs-1").removeClass("show").removeClass("active");
-                                $ts("#ex-with-icons-tabs-2").addClass("show").addClass("active");
-                                $ts("#ex-with-icons-tab-1").removeClass("active");
-                                $ts("#ex-with-icons-tab-2").addClass("active");
-                                vm.session_id = ssid;
-                                // do data plot
-                                vm.plot_onclick();
-                                desktop.showToastMessage("Success!", title, null, "success");
-                            }
-                            else {
-                                // error
-                                desktop.showToastMessage(message.info, title, null, "danger");
-                            }
+                desktop.promiseAsyncCallback(result, function (flag, message) {
+                    const title = flag ? "Run Enrichment Success" : "Analysis Error";
+                    const data = message.info;
+                    console.log(data);
+                    if (flag) {
+                        // success
+                        const table = $ts.csv(data, true)
+                            .Objects()
+                            .Where(a => a["pvalue"] < 0.05)
+                            .Select(function (a) {
+                            a["name"] = url(a);
+                            return a;
                         });
-                    });
+                        $ts("#enrichment-result-table").clear();
+                        $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
+                        $ts("#ex-with-icons-tabs-1").removeClass("show").removeClass("active");
+                        $ts("#ex-with-icons-tabs-2").addClass("show").addClass("active");
+                        $ts("#ex-with-icons-tab-1").removeClass("active");
+                        $ts("#ex-with-icons-tab-2").addClass("active");
+                        vm.session_id = ssid;
+                        // do data plot
+                        vm.plot_onclick();
+                        desktop.showToastMessage("Success!", title, null, "success");
+                    }
+                    else {
+                        // error
+                        desktop.showToastMessage(message.info, title, null, "danger");
+                    }
                 });
             });
         }

@@ -30,11 +30,21 @@ interface biocad_desktop {
     getUniprotXmlDatabase(): Promise<string>;
     scanDatabase(): Promise<string>;
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
+    getFileOpen(filterString: string): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
 }
 interface hostMsg {
     result: boolean;
     data: string;
+}
+declare namespace desktop {
+    interface messageCallback<T> {
+        (success: boolean, message: IMsg<T>): void;
+    }
+    /**
+     * the host message async callback helper
+    */
+    function promiseAsyncCallback<T>(hostMsg: hostMsg, callback: messageCallback<T>): Promise<void>;
 }
 declare namespace desktop {
     function parseResultFlag(msg: hostMsg, message: IMsg<string>): Promise<boolean>;
@@ -48,6 +58,7 @@ declare namespace pages {
     class dataEmbedding extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        button_open_click(): void;
     }
 }
 declare namespace pages {
