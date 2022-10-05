@@ -55,14 +55,10 @@ Public Class FormWebView2Page
             WebView21.CoreWebView2.AddHostObjectToScript("gcmodeller", backend)
         End If
 
-        WebView21.CoreWebView2.OpenDevToolsWindow()
+        ' WebView21.CoreWebView2.OpenDevToolsWindow()
         WebView21.CoreWebView2.Navigate(sourceURL)
 
-#If Not DEBUG Then
-        Call DeveloperOptions(enable:=False)
-#Else
-      
-#End If
+        Call DeveloperOptions(enable:=True)
     End Sub
 
     Private Sub WebView21_NavigationCompleted(sender As Object, e As CoreWebView2NavigationCompletedEventArgs) Handles WebView21.NavigationCompleted
