@@ -150,7 +150,9 @@
                             <h3>Data Table</h3>
                             <p>Only peeks of the top 10 rows of your data embedding result at here:</p>
                             <div class="row">
-                                <div class="col-auto"></div>
+                                <div class="col-auto" id="embedding-table">
+
+                                </div>
                             </div>
 
                         </section>

@@ -39,6 +39,7 @@ namespace pages {
                 dims: dimensions,
                 algorithm: method
             });
+            const vm = this;
 
             if (Strings.Empty(filepath)) {
                 desktop.showToastMessage("The matrix data input file can not be nothing!", "Data Embedding Analysis", "danger");
@@ -50,7 +51,14 @@ namespace pages {
                 .then(async function (result) {
                     desktop.promiseAsyncCallback<string>(result, function (success, message) {
                         if (success) {
-                            console.log(message.info);
+                            const data = $ts.csv(message.info, true)
+                                .Objects()
+                                .Take(10)
+                                ;
+
+                            vm.session_id = session_id;
+
+                            $ts.appendTable(data, "#embedding-table", null, { class: ["table", "table-sm"] });
 
                             // show table at first
                             // then run data plots

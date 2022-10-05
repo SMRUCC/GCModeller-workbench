@@ -470,6 +470,7 @@ var pages;
                 dims: dimensions,
                 algorithm: method
             });
+            const vm = this;
             if (Strings.Empty(filepath)) {
                 desktop.showToastMessage("The matrix data input file can not be nothing!", "Data Embedding Analysis", "danger");
                 return;
@@ -480,7 +481,11 @@ var pages;
                 return __awaiter(this, void 0, void 0, function* () {
                     desktop.promiseAsyncCallback(result, function (success, message) {
                         if (success) {
-                            console.log(message.info);
+                            const data = $ts.csv(message.info, true)
+                                .Objects()
+                                .Take(10);
+                            vm.session_id = session_id;
+                            $ts.appendTable(data, "#embedding-table", null, { class: ["table", "table-sm"] });
                             // show table at first
                             // then run data plots
                             desktop.showToastMessage("Run Data Embedding Analysis Success!", `${method} Task Success`, "success");
