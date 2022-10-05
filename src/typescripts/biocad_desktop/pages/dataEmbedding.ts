@@ -11,7 +11,15 @@ namespace pages {
         }
 
         public button_open_click() {
-            
+            apps.gcmodeller
+                .getFileOpen("Excel Matrix(*.csv)|*.csv")
+                .then(async function (result) {
+                    const filepath: string = await result;
+
+                    if (!Strings.Empty(filepath)) {
+
+                    }
+                })
         }
     }
 }
