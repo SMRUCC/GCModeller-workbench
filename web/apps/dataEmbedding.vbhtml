@@ -163,6 +163,13 @@
                                 </div>
                             </section>
 
+                            <br />
+                            <div class="row">
+                                <div class="col-auto">
+                                    <button id="refresh_Rplot" type="submit" class="btn btn-primary mb-3">Refresh</button>
+                                </div>
+                            </div>
+
                         </section>
                         <section id="example-sub-B-collapsible">
                             <h3>Data Table</h3>

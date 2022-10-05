@@ -100,11 +100,23 @@ namespace pages {
                         // show images
                         $ts("#Rplot-box").CType<HTMLAnchorElement>().href = message.info;
                         $ts("#Rplot_js").CType<HTMLImageElement>().src = message.info;
+
+                        $ts("#busy-indicator").hide();
                     } else {
                         desktop.showToastMessage(message.info, `Rplot Error`, "danger");
                     }
                 });
             })
+        }
+
+        public refresh_Rplot_click() {
+            $ts("#busy-indicator").show();
+
+            if (!Strings.Empty(this.session_id)) {
+                dataEmbedding.plot3DScatter(this.session_id);
+            } else {
+                desktop.showToastMessage("Data session id can not be nothing!", `Rplot Error`, "danger");
+            }
         }
     }
 }

@@ -99,6 +99,7 @@ declare namespace pages {
         button_open_click(): void;
         run_click(): void;
         private static plot3DScatter;
+        refresh_Rplot_click(): void;
     }
 }
 declare namespace pages {
