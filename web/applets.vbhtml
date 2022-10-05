@@ -42,13 +42,13 @@
                 </a>
             </div>
             <div class="col-xl-4 col-lg-6 mb-4">
-                <a href="#" onclick="" class="card ripple bg-image hover-zoom">
+                <a href="#" onclick="apps.gcmodeller.openDataEmbedding();" class="card ripple bg-image hover-zoom">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <img src="/assets/images/background.jpg" alt="" class="img-fluid rounded icon-image" />
                             <div class="ms-3">
-                                <p class="fw-bold mb-1">Fuzzy CMeans</p>
-                                <p class="text-muted mb-0">Fuzzy cmeans clustering</p>
+                                <p class="fw-bold mb-1">Data Embedding</p>
+                                <p class="text-muted mb-0">PCA/UMAP/t-SNE data embedding</p>
                             </div>
                         </div>
                     </div>

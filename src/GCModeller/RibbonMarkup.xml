@@ -206,18 +206,12 @@
         <Image MinDPI="192">Res/PictureResize_S192.bmp</Image>
       </Command.SmallImages>
     </Command>
-    <Command Name="CmdPaintDrawing" LabelTitle="Paint drawing" TooltipTitle="Insert Paint drawing (Ctrl+D)" TooltipDescription="Insert draing created in Microsoft Paint.">
+    <Command Name="CmdButtonStartPage" LabelTitle="Start Page" LabelDescription="Start Page" TooltipTitle="Start Page" TooltipDescription="Start Page">
       <Command.SmallImages>
-        <Image>Res/PaintDrawing_S096.bmp</Image>
-        <Image MinDPI="120">Res/PaintDrawing_S120.bmp</Image>
-        <Image MinDPI="144">Res/PaintDrawing_S144.bmp</Image>
-        <Image MinDPI="192">Res/PaintDrawing_S192.bmp</Image>
+        <Image MinDPI="192">Res/categories/applications-system.png</Image>
       </Command.SmallImages>
       <Command.LargeImages>
-        <Image>Res/PaintDrawing_L096.bmp</Image>
-        <Image MinDPI="120">Res/PaintDrawing_L120.bmp</Image>
-        <Image MinDPI="144">Res/PaintDrawing_L144.bmp</Image>
-        <Image MinDPI="192">Res/PaintDrawing_L192.bmp</Image>
+        <Image MinDPI="192">Res/categories/applications-system.png</Image>
       </Command.LargeImages>
     </Command>
     <Command Name="CmdViewAppTasks" LabelTitle="App Tasks" LabelDescription="App Tasks" TooltipTitle="App Tasks" TooltipDescription="App Tasks">
@@ -946,7 +940,7 @@
               <Button CommandName="CmdChangePicture" />
               <Button CommandName="CmdResizePicture" />
             </SplitButton>
-            <Button CommandName="CmdPaintDrawing" />
+            <Button CommandName="CmdButtonStartPage" />
             <Button CommandName="CmdViewAppTasks" />
             <Button CommandName="CmdInsertObject" />
           </Group>

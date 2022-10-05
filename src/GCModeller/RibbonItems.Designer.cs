@@ -79,7 +79,7 @@ namespace RibbonLib.Controls
             public const uint CmdInsertPicture = 27;
             public const uint CmdChangePicture = 29;
             public const uint CmdResizePicture = 30;
-            public const uint CmdPaintDrawing = 31;
+            public const uint CmdButtonStartPage = 31;
             public const uint CmdViewAppTasks = 32;
             public const uint CmdInsertObject = 33;
             public const uint CmdGroupEditing = 34;
@@ -187,7 +187,7 @@ namespace RibbonLib.Controls
         public RibbonButton InsertPicture { get; private set; }
         public RibbonButton ChangePicture { get; private set; }
         public RibbonButton ResizePicture { get; private set; }
-        public RibbonButton PaintDrawing { get; private set; }
+        public RibbonButton ButtonStartPage { get; private set; }
         public RibbonButton ViewAppTasks { get; private set; }
         public RibbonButton InsertObject { get; private set; }
         public RibbonGroup GroupEditing { get; private set; }
@@ -290,7 +290,7 @@ namespace RibbonLib.Controls
             InsertPicture = new RibbonButton(ribbon, Cmd.CmdInsertPicture);
             ChangePicture = new RibbonButton(ribbon, Cmd.CmdChangePicture);
             ResizePicture = new RibbonButton(ribbon, Cmd.CmdResizePicture);
-            PaintDrawing = new RibbonButton(ribbon, Cmd.CmdPaintDrawing);
+            ButtonStartPage = new RibbonButton(ribbon, Cmd.CmdButtonStartPage);
             ViewAppTasks = new RibbonButton(ribbon, Cmd.CmdViewAppTasks);
             InsertObject = new RibbonButton(ribbon, Cmd.CmdInsertObject);
             GroupEditing = new RibbonGroup(ribbon, Cmd.CmdGroupEditing);

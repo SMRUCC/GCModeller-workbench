@@ -167,7 +167,7 @@
         <Image MinDPI="192">Res/Paragraph_S192.bmp</Image>
       </Command.SmallImages>
     </Command>
-    <Command Name="CmdGroupInsert" LabelTitle="Insert">
+    <Command Name="CmdGroupWorkbenchApps" LabelTitle="Workbench Apps">
       <Command.SmallImages>
         <Image>Res/Picture_S096.bmp</Image>
         <Image MinDPI="120">Res/Picture_S120.bmp</Image>
@@ -886,11 +886,11 @@
                 <Scale Group="CmdGroupClipboard" Size="Medium" />
                 <Scale Group="CmdGroupFont" Size="Large" />
                 <Scale Group="CmdGroupParagraph" Size="Large" />
-                <Scale Group="CmdGroupInsert" Size="Large" />
+                <Scale Group="CmdGroupWorkbenchApps" Size="Large" />
                 <Scale Group="CmdGroupEditing" Size="Medium" />
               </ScalingPolicy.IdealSizes>
               <Scale Group="CmdGroupClipboard" Size="Small" />
-              <Scale Group="CmdGroupInsert" Size="Popup" />
+              <Scale Group="CmdGroupWorkbenchApps" Size="Popup" />
               <Scale Group="CmdGroupEditing" Size="Popup" />
               <Scale Group="CmdGroupParagraph" Size="Popup" />
               <Scale Group="CmdGroupClipboard" Size="Popup" />
@@ -937,7 +937,7 @@
             <ToggleButton CommandName="CmdAlignJustify" />
             <Button CommandName="CmdParagraph" />
           </Group>
-          <Group CommandName="CmdGroupInsert" SizeDefinition="FourButtons">
+          <Group CommandName="CmdGroupWorkbenchApps" SizeDefinition="FourButtons">
             <SplitButton CommandName="CmdInsertPictureMore">
               <SplitButton.ButtonItem>
                 <Button CommandName="CmdInsertPicture" />
