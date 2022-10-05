@@ -7,12 +7,12 @@ namespace pages {
         }
 
         protected init(): void {
-            $ts("#busy-indicator").show();
-
             this.scanDatabaseList();
         }
 
         private scanDatabaseList() {
+            $ts("#busy-indicator").show();
+
             apps.gcmodeller
                 .scanDatabase()
                 .then(async function (json) {
@@ -33,38 +33,7 @@ namespace pages {
                         }
 
                         $ts(`#${key}-meta`).onclick = function () {
-                            let sb = "";
-                            let json: string = JSON.stringify({
-                                guid: key
-                            });
-
-                            sb = sb + `Database Name: ${metadata.name}(${key})<br />`;
-                            sb = sb + `Note: <p>${metadata.note}</p><br />`;
-
-                            apps.gcmodeller
-                                .sendPost($ts.url("@web_invoke_inspector"), json)
-                                .then(async function (result) {
-                                    desktop.parseMessage(result).then(function (message) {
-                                        desktop.parseResultFlag(result, message).then(function (flag) {
-                                            const title = flag ? "Load Database Success" : "Load Database Error";
-                                            const data: { counts: number, proteins: string } = <any>message.info;
-                                            const protein_ids = Strings.lineTokens(data.proteins).join("<br />");
-
-                                            if (flag) {
-                                                // success
-                                                desktop.showToastMessage("Success!", title, null, "success");
-
-                                                sb = sb + `Protein Counts: ${data.counts}<br />`;
-                                                sb = sb + `Protein ID: ${protein_ids}<br />`;
-                                            } else {
-                                                // error
-                                                desktop.showToastMessage(message.info, title, null, "danger");
-                                            }
-
-                                            $ts("#summary-info").display(sb);
-                                        });
-                                    });
-                                });
+                            enrichment_database.showMetadata(key, metadata);
                         }
                     }
 
@@ -72,6 +41,41 @@ namespace pages {
 
                     // show database summary information
                     desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", null, "info");
+                });
+        }
+
+        private static showMetadata(key: string, metadata: { name: string, note: string }) {
+            let sb = "";
+            let json: string = JSON.stringify({
+                guid: key
+            });
+
+            sb = sb + `Database Name: ${metadata.name}(${key})<br />`;
+            sb = sb + `Note: <p>${metadata.note}</p><br />`;
+
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_inspector"), json)
+                .then(async function (result) {
+                    desktop.parseMessage(result).then(function (message) {
+                        desktop.parseResultFlag(result, message).then(function (flag) {
+                            const title = flag ? "Load Database Success" : "Load Database Error";
+                            const data: { counts: number, proteins: string } = <any>message.info;
+                            const protein_ids = Strings.lineTokens(data.proteins).join("<br />");
+
+                            if (flag) {
+                                // success
+                                desktop.showToastMessage("Success!", title, null, "success");
+
+                                sb = sb + `Protein Counts: ${data.counts}<br />`;
+                                sb = sb + `Protein ID: ${protein_ids}<br />`;
+                            } else {
+                                // error
+                                desktop.showToastMessage(message.info, title, null, "danger");
+                            }
+
+                            $ts("#summary-info").display(sb);
+                        });
+                    });
                 });
         }
 
