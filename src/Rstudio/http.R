@@ -30,8 +30,13 @@ const router = function(url) {
     let file = `${webContext}/${relpath}.R`;
 
     if (file.ext(relpath) != "R") {
+      const tempfile as string = ifelse(isMap_temp, gsub(relpath, "@temp", getOption("system_tempdir")), `${webContext}/${relpath}`); 
+      
+      print("non-script file:");
+      print(tempfile);
+
       list(
-        file = ifelse(isMap_temp, gsub(relpath, "@temp", getOption("system_tempdir")), `${webContext}/${relpath}`), 
+        file = tempfile, 
         is_script = FALSE
       );
     } else {

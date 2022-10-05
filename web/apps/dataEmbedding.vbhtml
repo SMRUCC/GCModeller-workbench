@@ -141,16 +141,27 @@
                         <section id="example-sub-A-collapsible">
                             <h3>Rplot</h3>
 
-                            <div class="row">
-                                <div class="col-auto">
+                            <section class="pb-4">
+                                <div class="bg-white border rounded-5">
 
-                                    <!-- Prepare a DOM with a defined width and height for ECharts -->
-                                    <div id="Rplot_js" style="width: 600px;height:400px;">
+                                    <section class="p-4 d-flex justify-content-center text-center w-100">
+                                        <div class="lightbox" data-id="lightbox-bm48lj2vb" id="lightbox">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <a href="/assets/images/empty.jpg" data-toggle="lightbox"
+                                                        data-caption="Enrichment Plot" id="Rplot-box">
+                                                        <img src="/assets/images/empty.jpg" alt="Enrichment Plot"
+                                                            class="img-fluid w-100 my-lightbox-toggle"
+                                                            style="width: 600px;" id="Rplot_js">
+                                                    </a>
+                                                </div>
 
-                                    </div>
+                                            </div>
+                                        </div>
+                                    </section>
 
                                 </div>
-                            </div>
+                            </section>
 
                         </section>
                         <section id="example-sub-B-collapsible">

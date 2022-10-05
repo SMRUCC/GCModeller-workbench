@@ -98,9 +98,8 @@ namespace pages {
                 desktop.promiseAsyncCallback<string>(result, function (success, message) {
                     if (success) {
                         // show images
-                        const img = $ts("<img>", { src: `/@temp/${session_id}/dataEmbedding.png` });
-
-                        $ts("#Rplot_js").display(img);
+                        $ts("#Rplot-box").CType<HTMLAnchorElement>().href = message.info;
+                        $ts("#Rplot_js").CType<HTMLImageElement>().src = message.info;
                     } else {
                         desktop.showToastMessage(message.info, `Rplot Error`, "danger");
                     }
