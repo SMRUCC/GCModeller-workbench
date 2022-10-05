@@ -2,58 +2,73 @@ namespace js_plot {
 
     export class scatter3d {
 
-        public plot(
-            div: string = "Rplot_js",
-            schema = [
-                { name: '', index: 0 },
-                { name: 'dim1', index: 1 },
-                { name: 'dim2', index: 2 },
-                { name: 'dim3', index: 3 }
-            ]) {
+        private config: {
+            zAxis3D: any;
+            yAxis3D: any;
+            xAxis3D: any; color: any, symbolSize: any
+        };
+        private data: [];
+        private fieldIndices: {};
+        private myChart: {};
 
-            var app = {};
+        public getMaxOnExtent() {
+            var colorMax = -Infinity;
+            var symbolSizeMax = -Infinity;
+            var data = this.data;
+
+            for (var i = 0; i < data.length; i++) {
+                var item = data[i];
+                var colorVal = item[this.fieldIndices[this.config.color]];
+                var symbolSizeVal = item[this.fieldIndices[this.config.symbolSize]];
+                colorMax = Math.max(colorVal, colorMax);
+                symbolSizeMax = Math.max(symbolSizeVal, symbolSizeMax);
+            }
+            return {
+                color: colorMax,
+                symbolSize: symbolSizeMax
+            };
+        }
+
+        private load(div, schema = [
+            { name: '', index: 0 },
+            { name: 'dim1', index: 1 },
+            { name: 'dim2', index: 2 },
+            { name: 'dim3', index: 3 }
+        ]) {
+
+            var app = { config: {}, configParameters: {} };
             var chartDom = document.getElementById(div);
-            var myChart = echarts.init(chartDom);
             var option;
             var indices = {
                 name: 0,
                 group: 1,
                 id: 16
             };
-            var data;
-            var fieldIndices = schema.reduce(function (obj, item) {
+
+            this.myChart = echarts.init(chartDom);
+            this.fieldIndices = schema.reduce(function (obj, item) {
                 obj[item.name] = item.index;
                 return obj;
             }, {});
+
             var groupCategories = [];
             var groupColors = [];
             var fieldNames = schema.map(item => item.name);
-            fieldNames = fieldNames.slice(2, fieldNames.length - 2);
-            function getMaxOnExtent(data) {
-                var colorMax = -Infinity;
-                var symbolSizeMax = -Infinity;
-                for (var i = 0; i < data.length; i++) {
-                    var item = data[i];
-                    var colorVal = item[fieldIndices[config.color]];
-                    var symbolSizeVal = item[fieldIndices[config.symbolSize]];
-                    colorMax = Math.max(colorVal, colorMax);
-                    symbolSizeMax = Math.max(symbolSizeVal, symbolSizeMax);
-                }
-                return {
-                    color: colorMax,
-                    symbolSize: symbolSizeMax
-                };
-            }
-            var config = (app.config = {
-                xAxis3D: 'protein',
-                yAxis3D: 'fiber',
-                zAxis3D: 'sodium',
-                color: 'fiber',
-                symbolSize: 'vitaminc',
+            var vm = this;
+
+            fieldNames = fieldNames.slice(1, fieldNames.length - 1);
+
+            this.config = (app.config = {
+                xAxis3D: 'dim1',
+                yAxis3D: 'dim2',
+                zAxis3D: 'dim3',
+                color: 'dim1',
+                symbolSize: 'dim2',
                 onChange: function () {
-                    var max = getMaxOnExtent(data);
+                    var max = vm.getMaxOnExtent();
+
                     if (data) {
-                        myChart.setOption({
+                        vm.myChart.setOption({
                             visualMap: [
                                 {
                                     max: max.color / 2
@@ -63,29 +78,29 @@ namespace js_plot {
                                 }
                             ],
                             xAxis3D: {
-                                name: config.xAxis3D
+                                name: vm.config.xAxis3D
                             },
                             yAxis3D: {
-                                name: config.yAxis3D
+                                name: vm.config.yAxis3D
                             },
                             zAxis3D: {
-                                name: config.zAxis3D
+                                name: vm.config.zAxis3D
                             },
                             series: {
                                 dimensions: [
-                                    config.xAxis3D,
-                                    config.yAxis3D,
-                                    config.yAxis3D,
-                                    config.color,
-                                    config.symbolSiz
+                                    vm.config.xAxis3D,
+                                    vm.config.yAxis3D,
+                                    vm.config.yAxis3D,
+                                    vm.config.color,
+                                    vm.config.symbolSize
                                 ],
                                 data: data.map(function (item, idx) {
                                     return [
-                                        item[fieldIndices[config.xAxis3D]],
-                                        item[fieldIndices[config.yAxis3D]],
-                                        item[fieldIndices[config.zAxis3D]],
-                                        item[fieldIndices[config.color]],
-                                        item[fieldIndices[config.symbolSize]],
+                                        item[vm.fieldIndices[vm.config.xAxis3D]],
+                                        item[vm.fieldIndices[vm.config.yAxis3D]],
+                                        item[vm.fieldIndices[vm.config.zAxis3D]],
+                                        item[vm.fieldIndices[vm.config.color]],
+                                        item[vm.fieldIndices[vm.config.symbolSize]],
                                         idx
                                     ];
                                 })
@@ -94,7 +109,9 @@ namespace js_plot {
                     }
                 }
             });
+
             app.configParameters = {};
+
             ['xAxis3D', 'yAxis3D', 'zAxis3D', 'color', 'symbolSize'].forEach(function (
                 fieldName
             ) {
@@ -102,110 +119,124 @@ namespace js_plot {
                     options: fieldNames
                 };
             });
-            $.getJSON(ROOT_PATH + '/data/asset/data/nutrients.json', function (_data) {
-                data = _data;
-                var max = getMaxOnExtent(data);
-                myChart.setOption({
-                    tooltip: {},
-                    visualMap: [
-                        {
-                            top: 10,
-                            calculable: true,
-                            dimension: 3,
-                            max: max.color / 2,
-                            inRange: {
-                                color: [
-                                    '#1710c0',
-                                    '#0b9df0',
-                                    '#00fea8',
-                                    '#00ff0d',
-                                    '#f5f811',
-                                    '#f09a09',
-                                    '#fe0300'
-                                ]
-                            },
-                            textStyle: {
-                                color: '#fff'
-                            }
-                        },
-                        {
-                            bottom: 10,
-                            calculable: true,
-                            dimension: 4,
-                            max: max.symbolSize / 2,
-                            inRange: {
-                                symbolSize: [10, 40]
-                            },
-                            textStyle: {
-                                color: '#fff'
-                            }
-                        }
-                    ],
-                    xAxis3D: {
-                        name: config.xAxis3D,
-                        type: 'value'
-                    },
-                    yAxis3D: {
-                        name: config.yAxis3D,
-                        type: 'value'
-                    },
-                    zAxis3D: {
-                        name: config.zAxis3D,
-                        type: 'value'
-                    },
-                    grid3D: {
-                        axisLine: {
-                            lineStyle: {
-                                color: '#fff'
-                            }
-                        },
-                        axisPointer: {
-                            lineStyle: {
-                                color: '#ffbd67'
-                            }
-                        },
-                        viewControl: {
-                            // autoRotate: true
-                            // projection: 'orthographic'
-                        }
-                    },
-                    series: [
-                        {
-                            type: 'scatter3D',
-                            dimensions: [
-                                config.xAxis3D,
-                                config.yAxis3D,
-                                config.yAxis3D,
-                                config.color,
-                                config.symbolSiz
-                            ],
-                            data: data.map(function (item, idx) {
-                                return [
-                                    item[fieldIndices[config.xAxis3D]],
-                                    item[fieldIndices[config.yAxis3D]],
-                                    item[fieldIndices[config.zAxis3D]],
-                                    item[fieldIndices[config.color]],
-                                    item[fieldIndices[config.symbolSize]],
-                                    idx
-                                ];
-                            }),
-                            symbolSize: 12,
-                            // symbol: 'triangle',
-                            itemStyle: {
-                                borderWidth: 1,
-                                borderColor: 'rgba(255,255,255,0.8)'
-                            },
-                            emphasis: {
-                                itemStyle: {
-                                    color: '#fff'
-                                }
-                            }
-                        }
-                    ]
-                });
-            });
 
-            option && myChart.setOption(option);
+            option && vm.myChart.setOption(option);
+        }
+
+        public plot(
+            _data,
+            div: string = "Rplot_js",
+            schema = [
+                { name: '', index: 0 },
+                { name: 'dim1', index: 1 },
+                { name: 'dim2', index: 2 },
+                { name: 'dim3', index: 3 }
+            ]) {
+
+            this.data = _data;
+            this.load(div, schema);
+
+            const max = this.getMaxOnExtent();
+            const vm = this;
+
+            vm.myChart.setOption({
+                tooltip: {},
+                visualMap: [
+                    {
+                        top: 10,
+                        calculable: true,
+                        dimension: 3,
+                        max: max.color / 2,
+                        inRange: {
+                            color: [
+                                '#1710c0',
+                                '#0b9df0',
+                                '#00fea8',
+                                '#00ff0d',
+                                '#f5f811',
+                                '#f09a09',
+                                '#fe0300'
+                            ]
+                        },
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    {
+                        bottom: 10,
+                        calculable: true,
+                        dimension: 4,
+                        max: max.symbolSize / 2,
+                        inRange: {
+                            symbolSize: [10, 40]
+                        },
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    }
+                ],
+                xAxis3D: {
+                    name: vm.config.xAxis3D,
+                    type: 'value'
+                },
+                yAxis3D: {
+                    name: vm.config.yAxis3D,
+                    type: 'value'
+                },
+                zAxis3D: {
+                    name: vm.config.zAxis3D,
+                    type: 'value'
+                },
+                grid3D: {
+                    axisLine: {
+                        lineStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    axisPointer: {
+                        lineStyle: {
+                            color: '#ffbd67'
+                        }
+                    },
+                    viewControl: {
+                        // autoRotate: true
+                        // projection: 'orthographic'
+                    }
+                },
+                series: [
+                    {
+                        type: 'scatter3D',
+                        dimensions: [
+                            vm.config.xAxis3D,
+                            vm.config.yAxis3D,
+                            vm.config.yAxis3D,
+                            vm.config.color,
+                            vm.config.symbolSize
+                        ],
+                        data: data.map(function (item, idx) {
+                            return [
+                                item[vm.fieldIndices[vm.config.xAxis3D]],
+                                item[vm.fieldIndices[vm.config.yAxis3D]],
+                                item[vm.fieldIndices[vm.config.zAxis3D]],
+                                item[vm.fieldIndices[vm.config.color]],
+                                item[vm.fieldIndices[vm.config.symbolSize]],
+                                idx
+                            ];
+                        }),
+                        symbolSize: 12,
+                        // symbol: 'triangle',
+                        itemStyle: {
+                            borderWidth: 1,
+                            borderColor: 'rgba(255,255,255,0.8)'
+                        },
+                        emphasis: {
+                            itemStyle: {
+                                color: '#fff'
+                            }
+                        }
+                    }
+                ]
+            });
         }
     }
 }
