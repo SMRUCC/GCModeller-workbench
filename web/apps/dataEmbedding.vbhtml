@@ -15,6 +15,8 @@
     <!-- Start your project here-->
     <div class="container">
 
+        <h1>Data Embedding Analysis</h1>
+
         <div class="row">
             <div class="col-md-8">
                 <!-- Spied element -->
@@ -55,8 +57,17 @@
                                     <div class="col-4">
                                         <label for="dimensions" class="form-label">Dimensions:</label>
                                         <input type="text" class="form-control" id="dimensions" value="3" />
+
+
                                     </div>
                                 </div>
+                                <br />
+                                <p class="note note-info">
+                                    <strong>Note:</strong> This parameter may affects the result data plot of
+                                    your data embedding matrix output: for set parameter to 2 dimension, then
+                                    analysis script just output a 2d scatter plot, and the 3d scatter plot is
+                                    visualized for the data result with at least 3 dimensions.
+                                </p>
                             </div>
                         </div>
 
@@ -149,6 +160,21 @@
                     <section id="example-5-collapsible">
                         <h3>Reference</h3>
 
+                        <ol>
+                            <li>
+                                McInnes, L, Healy, J, UMAP: Uniform Manifold Approximation and Projection for Dimension
+                                Reduction, ArXiv e-prints 1802.03426, 2018
+                            </li>
+                            <li>
+                                L.J.P. van der Maaten and G.E. Hinton. Visualizing High-Dimensional Data Using t-SNE.
+                                Journal of Machine Learning Research 9(Nov):2579-2605, 2008.
+                            </li>
+                            <li>
+                                Jolliffe, I. T. (1986). Principal Component Analysis. Springer Series in Statistics.
+                                Springer-Verlag. pp. 487. CiteSeerX 10.1.1.149.8828. doi:10.1007/b98835. ISBN
+                                978-0-387-95442-4.
+                            </li>
+                        </ol>
                     </section>
                     <section id="example-4-collapsible">
                         <h3>Download</h3>
@@ -156,7 +182,7 @@
                         <p>Save your analysis result files.</p>
 
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-info">
                                 Save To Project
                             </button>
 
