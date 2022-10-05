@@ -47,6 +47,7 @@ declare namespace desktop {
     function promiseAsyncCallback<T>(hostMsg: hostMsg, callback: messageCallback<T>): Promise<void>;
 }
 declare namespace desktop {
+    function now(): string;
     function parseResultFlag(msg: hostMsg, message: IMsg<string>): Promise<boolean>;
     function parseMessage(msg: hostMsg): Promise<IMsg<string>>;
     function processHtmlMsg(text: string | Object): string;
@@ -55,24 +56,12 @@ declare namespace desktop {
     function showToastMessage(msg: string, title?: string, subtitle?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
 }
 declare namespace pages {
-    class dataEmbedding extends Bootstrap {
-        readonly appName: string;
-        protected init(): void;
-        button_open_click(): void;
-    }
-}
-declare namespace pages {
-    class enrichment_analysis extends Bootstrap {
-        private database;
-        private static note_mapping;
-        private session_id;
-        readonly appName: string;
-        protected init(): void;
-        background_onchange(value: string): void;
-        run_onclick(): void;
-        private static term_url;
-        private runInternal;
-        plot_onclick(): void;
+    abstract class analysis_session extends Bootstrap {
+        protected session_id: string;
+        /**
+         * the unique session id generator for the R# backend
+        */
+        protected generateSsid(contents: {}): string;
     }
 }
 declare namespace pages {
@@ -93,5 +82,26 @@ declare namespace pages {
         */
         open_uniprot_onclick(): void;
         imports_onclick(): void;
+    }
+}
+declare namespace pages {
+    class dataEmbedding extends analysis_session {
+        readonly appName: string;
+        protected init(): void;
+        button_open_click(): void;
+        run_click(): void;
+    }
+}
+declare namespace pages {
+    class enrichment_analysis extends analysis_session {
+        private database;
+        private static note_mapping;
+        readonly appName: string;
+        protected init(): void;
+        background_onchange(value: string): void;
+        run_onclick(): void;
+        private static term_url;
+        private runInternal;
+        plot_onclick(): void;
     }
 }

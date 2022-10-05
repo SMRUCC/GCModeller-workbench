@@ -97,6 +97,10 @@ var desktop;
 })(desktop || (desktop = {}));
 var desktop;
 (function (desktop) {
+    function now() {
+        return (new Date()).toLocaleTimeString();
+    }
+    desktop.now = now;
     function parseResultFlag(msg, message) {
         return __awaiter(this, void 0, void 0, function* () {
             const flag = yield msg.result;
@@ -154,10 +158,7 @@ var desktop;
 })(desktop || (desktop = {}));
 var desktop;
 (function (desktop) {
-    function now() {
-        return (new Date()).toLocaleTimeString();
-    }
-    function showToastMessage(msg, title = "Task Error", subtitle = now(), level = "info", autohide = true) {
+    function showToastMessage(msg, title = "Task Error", subtitle = desktop.now(), level = "info", autohide = true) {
         $ts("#busy-indicator").hide();
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
@@ -192,177 +193,18 @@ var desktop;
 })(desktop || (desktop = {}));
 var pages;
 (function (pages) {
-    class dataEmbedding extends Bootstrap {
-        get appName() {
-            return "dataEmbedding";
-        }
-        ;
-        init() {
-            // throw new Error("Method not implemented.");
-        }
-        button_open_click() {
-            apps.gcmodeller
-                .getFileOpen("Excel Matrix(*.csv)|*.csv")
-                .then(function (result) {
-                return __awaiter(this, void 0, void 0, function* () {
-                    const filepath = yield result;
-                    if (!Strings.Empty(filepath)) {
-                    }
-                });
-            });
+    class analysis_session extends Bootstrap {
+        /**
+         * the unique session id generator for the R# backend
+        */
+        generateSsid(contents) {
+            const json = JSON.stringify(contents);
+            const contentStr = `${desktop.now()}-${json}-${this.appName}`;
+            const hash = md5(contentStr);
+            return hash;
         }
     }
-    pages.dataEmbedding = dataEmbedding;
-})(pages || (pages = {}));
-var pages;
-(function (pages) {
-    class enrichment_analysis extends Bootstrap {
-        get appName() {
-            return "enrichment_analysis";
-        }
-        ;
-        init() {
-            if ($ts.location.hasQueryArguments) {
-                this.database = $ts.location("id");
-            }
-            console.log($ts.location);
-            $ts("#busy-indicator").hide();
-        }
-        background_onchange(value) {
-            const note_id = enrichment_analysis.note_mapping[value];
-            for (let name in enrichment_analysis.note_mapping) {
-                $ts(`#${enrichment_analysis.note_mapping[name]}`).hide();
-            }
-            $ts(`#${note_id}`).show();
-        }
-        run_onclick() {
-            if (Strings.Empty(this.database)) {
-                desktop.showToastMessage("Please select a database at first!", "Enrichment Analysis", null, "danger");
-            }
-            else {
-                $ts("#busy-indicator").show();
-                const type = $ts.select.getOption("#background");
-                const symbols = $ts.value("#input_idlist");
-                if (Strings.Empty(type)) {
-                    desktop.showToastMessage("Please select a background for enrichment analysis at first!", "Enrichment Analysis", null, "danger");
-                }
-                else if (Strings.Empty(symbols)) {
-                    desktop.showToastMessage("No gene/protein id list to run enrichment analysis!", "Enrichment Analysis", null, "danger");
-                }
-                else {
-                    this.runInternal(type, symbols);
-                }
-            }
-        }
-        static term_url(type) {
-            switch (type) {
-                case "keyword":
-                    return function (term) {
-                        return `<a target="__blank" href="https://www.uniprot.org/keywords/${term[""]}">${term["name"]}</a>`;
-                    };
-                case "GO":
-                    return function (term) {
-                        return `<a target="__blank" href="http://amigo.geneontology.org/amigo/term/${term[""]}">${term["name"]}</a>`;
-                    };
-                case "Pfam":
-                    return function (term) {
-                        return `<a target="__blank" href="https://www.ebi.ac.uk/interpro/entry/pfam/${term[""]}/">${term["name"]}</a>`;
-                    };
-                case "InterPro":
-                    return function (term) {
-                        return `<a target="__blank" href="https://www.ebi.ac.uk/interpro/entry/InterPro/${term[""]}/">${term["name"]}</a>`;
-                    };
-                case "EC":
-                    return function (term) {
-                        return `<a target="__blank" href="https://www.genome.jp/dbget-bin/www_bfind_sub?mode=bfind&max_hit=1000&dbkey=enzyme&keywords=${term[""]}">${term["name"]}</a>`;
-                    };
-                default: return function (any) { return any["name"]; };
-            }
-        }
-        runInternal(type, symbols) {
-            const ssid = md5(`enrichment-${(new Date()).toLocaleTimeString("en-US")}-${type}-${symbols}`);
-            const vm = this;
-            const json = JSON.stringify({
-                id: this.database,
-                background: type,
-                symbols: Strings.lineTokens(symbols),
-                ssid: ssid
-            });
-            let url = enrichment_analysis.term_url(type);
-            apps.gcmodeller
-                .sendPost($ts.url("@web_invoke_enrichment"), json)
-                .then(function (result) {
-                desktop.promiseAsyncCallback(result, function (flag, message) {
-                    const title = flag ? "Run Enrichment Success" : "Analysis Error";
-                    const data = message.info;
-                    console.log(data);
-                    if (flag) {
-                        // success
-                        const table = $ts.csv(data, true)
-                            .Objects()
-                            .Where(a => a["pvalue"] < 0.05)
-                            .Select(function (a) {
-                            a["name"] = url(a);
-                            return a;
-                        });
-                        $ts("#enrichment-result-table").clear();
-                        $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
-                        $ts("#ex-with-icons-tabs-1").removeClass("show").removeClass("active");
-                        $ts("#ex-with-icons-tabs-2").addClass("show").addClass("active");
-                        $ts("#ex-with-icons-tab-1").removeClass("active");
-                        $ts("#ex-with-icons-tab-2").addClass("active");
-                        vm.session_id = ssid;
-                        // do data plot
-                        vm.plot_onclick();
-                        desktop.showToastMessage("Success!", title, null, "success");
-                    }
-                    else {
-                        // error
-                        desktop.showToastMessage(message.info, title, null, "danger");
-                    }
-                });
-            });
-        }
-        plot_onclick() {
-            $ts("#busy-indicator").show();
-            const json = JSON.stringify({
-                session_id: this.session_id,
-                type: "bar",
-                background: $ts.select.getOption("#background"),
-                top: 5
-            });
-            apps.gcmodeller
-                .sendPost($ts.url("@web_invoke_Rplot?base64=true"), json)
-                .then(function (result) {
-                return __awaiter(this, void 0, void 0, function* () {
-                    desktop.parseMessage(result).then(function (message) {
-                        desktop.parseResultFlag(result, message).then(function (flag) {
-                            const title = flag ? "Run Enrichment Success" : "Analysis Error";
-                            const data = message.info;
-                            console.log(data);
-                            if (flag) {
-                                $ts("#Rplot").CType().src = data;
-                                $ts("#Rplot-box").CType().href = data;
-                                $ts("#busy-indicator").hide();
-                            }
-                            else {
-                                desktop.showToastMessage(message.info, title, null, "danger");
-                            }
-                        });
-                    });
-                });
-            });
-        }
-    }
-    enrichment_analysis.note_mapping = {
-        "GO": "go_note",
-        "keyword": "uniprot_note",
-        "Pfam": "pfam_note",
-        "InterPro": "interpro_note",
-        "EC": "ec_note",
-        "eggNOG": "eggnog_note"
-    };
-    pages.enrichment_analysis = enrichment_analysis;
+    pages.analysis_session = analysis_session;
 })(pages || (pages = {}));
 var pages;
 (function (pages) {
@@ -591,5 +433,203 @@ var pages;
         }
     }
     pages.enrichment_database = enrichment_database;
+})(pages || (pages = {}));
+/// <reference path="../analysis_session.ts" />
+var pages;
+(function (pages) {
+    class dataEmbedding extends pages.analysis_session {
+        get appName() {
+            return "dataEmbedding";
+        }
+        ;
+        init() {
+            // throw new Error("Method not implemented.");
+        }
+        button_open_click() {
+            apps.gcmodeller
+                .getFileOpen("Excel Matrix(*.csv)|*.csv")
+                .then(function (result) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    const filepath = yield result;
+                    if (!Strings.Empty(filepath)) {
+                    }
+                });
+            });
+        }
+        run_click() {
+            const filepath = $ts.value("#matrix-file");
+            const dimensions = $ts.value("#dimensions");
+            const method = $ts.select.getOption("#algorithm");
+            const session_id = super.generateSsid({ file: filepath, dims: dimensions, algo: method });
+            const json = JSON.stringify({
+                file: filepath,
+                ssid: session_id,
+                dims: dimensions,
+                algorithm: method
+            });
+            if (Strings.Empty(filepath)) {
+                desktop.showToastMessage("The matrix data input file can not be nothing!", "Data Embedding Analysis", null, "danger");
+                return;
+            }
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_embedding"), json)
+                .then(function (result) {
+                return __awaiter(this, void 0, void 0, function* () {
+                });
+            });
+        }
+    }
+    pages.dataEmbedding = dataEmbedding;
+})(pages || (pages = {}));
+/// <reference path="../analysis_session.ts" />
+var pages;
+(function (pages) {
+    class enrichment_analysis extends pages.analysis_session {
+        get appName() {
+            return "enrichment_analysis";
+        }
+        ;
+        init() {
+            if ($ts.location.hasQueryArguments) {
+                this.database = $ts.location("id");
+            }
+            console.log($ts.location);
+            $ts("#busy-indicator").hide();
+        }
+        background_onchange(value) {
+            const note_id = enrichment_analysis.note_mapping[value];
+            for (let name in enrichment_analysis.note_mapping) {
+                $ts(`#${enrichment_analysis.note_mapping[name]}`).hide();
+            }
+            $ts(`#${note_id}`).show();
+        }
+        run_onclick() {
+            if (Strings.Empty(this.database)) {
+                desktop.showToastMessage("Please select a database at first!", "Enrichment Analysis", null, "danger");
+            }
+            else {
+                $ts("#busy-indicator").show();
+                const type = $ts.select.getOption("#background");
+                const symbols = $ts.value("#input_idlist");
+                if (Strings.Empty(type)) {
+                    desktop.showToastMessage("Please select a background for enrichment analysis at first!", "Enrichment Analysis", null, "danger");
+                }
+                else if (Strings.Empty(symbols)) {
+                    desktop.showToastMessage("No gene/protein id list to run enrichment analysis!", "Enrichment Analysis", null, "danger");
+                }
+                else {
+                    this.runInternal(type, symbols);
+                }
+            }
+        }
+        static term_url(type) {
+            switch (type) {
+                case "keyword":
+                    return function (term) {
+                        return `<a target="__blank" href="https://www.uniprot.org/keywords/${term[""]}">${term["name"]}</a>`;
+                    };
+                case "GO":
+                    return function (term) {
+                        return `<a target="__blank" href="http://amigo.geneontology.org/amigo/term/${term[""]}">${term["name"]}</a>`;
+                    };
+                case "Pfam":
+                    return function (term) {
+                        return `<a target="__blank" href="https://www.ebi.ac.uk/interpro/entry/pfam/${term[""]}/">${term["name"]}</a>`;
+                    };
+                case "InterPro":
+                    return function (term) {
+                        return `<a target="__blank" href="https://www.ebi.ac.uk/interpro/entry/InterPro/${term[""]}/">${term["name"]}</a>`;
+                    };
+                case "EC":
+                    return function (term) {
+                        return `<a target="__blank" href="https://www.genome.jp/dbget-bin/www_bfind_sub?mode=bfind&max_hit=1000&dbkey=enzyme&keywords=${term[""]}">${term["name"]}</a>`;
+                    };
+                default: return function (any) { return any["name"]; };
+            }
+        }
+        runInternal(type, symbols) {
+            const ssid = super.generateSsid({ type: type, symbols: symbols });
+            const vm = this;
+            const json = JSON.stringify({
+                id: this.database,
+                background: type,
+                symbols: Strings.lineTokens(symbols),
+                ssid: ssid
+            });
+            let url = enrichment_analysis.term_url(type);
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_enrichment"), json)
+                .then(function (result) {
+                desktop.promiseAsyncCallback(result, function (flag, message) {
+                    const title = flag ? "Run Enrichment Success" : "Analysis Error";
+                    const data = message.info;
+                    console.log(data);
+                    if (flag) {
+                        // success
+                        const table = $ts.csv(data, true)
+                            .Objects()
+                            .Where(a => a["pvalue"] < 0.05)
+                            .Select(function (a) {
+                            a["name"] = url(a);
+                            return a;
+                        });
+                        $ts("#enrichment-result-table").clear();
+                        $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
+                        $ts("#ex-with-icons-tabs-1").removeClass("show").removeClass("active");
+                        $ts("#ex-with-icons-tabs-2").addClass("show").addClass("active");
+                        $ts("#ex-with-icons-tab-1").removeClass("active");
+                        $ts("#ex-with-icons-tab-2").addClass("active");
+                        vm.session_id = ssid;
+                        // do data plot
+                        vm.plot_onclick();
+                        desktop.showToastMessage("Success!", title, null, "success");
+                    }
+                    else {
+                        // error
+                        desktop.showToastMessage(message.info, title, null, "danger");
+                    }
+                });
+            });
+        }
+        plot_onclick() {
+            $ts("#busy-indicator").show();
+            const json = JSON.stringify({
+                session_id: this.session_id,
+                type: "bar",
+                background: $ts.select.getOption("#background"),
+                top: 5
+            });
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_Rplot?base64=true"), json)
+                .then(function (result) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    desktop.parseMessage(result).then(function (message) {
+                        desktop.parseResultFlag(result, message).then(function (flag) {
+                            const title = flag ? "Run Enrichment Success" : "Analysis Error";
+                            const data = message.info;
+                            console.log(data);
+                            if (flag) {
+                                $ts("#Rplot").CType().src = data;
+                                $ts("#Rplot-box").CType().href = data;
+                                $ts("#busy-indicator").hide();
+                            }
+                            else {
+                                desktop.showToastMessage(message.info, title, null, "danger");
+                            }
+                        });
+                    });
+                });
+            });
+        }
+    }
+    enrichment_analysis.note_mapping = {
+        "GO": "go_note",
+        "keyword": "uniprot_note",
+        "Pfam": "pfam_note",
+        "InterPro": "interpro_note",
+        "EC": "ec_note",
+        "eggNOG": "eggnog_note"
+    };
+    pages.enrichment_analysis = enrichment_analysis;
 })(pages || (pages = {}));
 //# sourceMappingURL=biocad_desktop.js.map
