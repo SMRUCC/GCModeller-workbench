@@ -6,6 +6,6 @@ Imports System.Runtime.InteropServices
 Public Class ImportsNCBITaxonomy : Inherits WebApp
 
     Public Sub New()
-        MyBase.New("/toolkit/ncbi_taxonomy.html")
+        MyBase.New("/toolkit/ncbi_taxonomy.vbhtml")
     End Sub
 End Class

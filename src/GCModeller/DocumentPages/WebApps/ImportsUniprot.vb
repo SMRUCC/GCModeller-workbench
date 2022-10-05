@@ -7,7 +7,7 @@ Imports Microsoft.VisualBasic.Serialization.JSON
 Public Class ImportsUniprot : Inherits WebApp
 
     Public Sub New()
-        MyBase.New("/toolkit/enrichment_database.html")
+        MyBase.New("/toolkit/enrichment_database.vbhtml")
     End Sub
 
     Public Function getUniprotXmlDatabase() As String

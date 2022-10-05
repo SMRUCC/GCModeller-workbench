@@ -6,6 +6,6 @@ Imports System.Runtime.InteropServices
 Public Class RunEnrichment : Inherits WebApp
 
     Public Sub New()
-        MyBase.New("/apps/enrichment.html")
+        MyBase.New("/apps/enrichment.vbhtml")
     End Sub
 End Class
