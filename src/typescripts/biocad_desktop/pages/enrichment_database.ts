@@ -138,6 +138,8 @@ namespace pages {
             apps.gcmodeller.sendPost($ts.url("@web_invoke_loadModel"), json).then(async function (result) {
                 desktop.parseMessage(result).then(function (message) {
                     desktop.parseResultFlag(result, message).then(function (flag) {
+                        console.log(message);
+                        
                         if (flag) {
                             var galleryModal = new bootstrap.Modal($ts('#view-background'), {
                                 keyboard: false

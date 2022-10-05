@@ -417,6 +417,7 @@ var pages;
                 return __awaiter(this, void 0, void 0, function* () {
                     desktop.parseMessage(result).then(function (message) {
                         desktop.parseResultFlag(result, message).then(function (flag) {
+                            console.log(message);
                             if (flag) {
                                 var galleryModal = new bootstrap.Modal($ts('#view-background'), {
                                     keyboard: false
