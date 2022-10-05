@@ -447,13 +447,14 @@ var pages;
         }
         button_open_click() {
             const textbox = $ts("#matrix-file").CType();
-            $ts("#busy-indicator").show();
+            const busy = $ts("#busy-indicator");
+            busy.show();
             apps.gcmodeller
                 .getFileOpen("Excel Matrix(*.csv)|*.csv")
                 .then(function (result) {
                 return __awaiter(this, void 0, void 0, function* () {
                     textbox.value = yield result;
-                    $ts("#busy-indicator").hide();
+                    busy.hide();
                 });
             });
         }

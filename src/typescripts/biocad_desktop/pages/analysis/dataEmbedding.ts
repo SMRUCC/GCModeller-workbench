@@ -14,14 +14,15 @@ namespace pages {
 
         public button_open_click() {
             const textbox = $ts("#matrix-file").CType<HTMLInputElement>();
+            const busy = $ts("#busy-indicator");
 
-            $ts("#busy-indicator").show();
+            busy.show();
 
             apps.gcmodeller
                 .getFileOpen("Excel Matrix(*.csv)|*.csv")
                 .then(async function (result) {
                     textbox.value = await result;
-                    $ts("#busy-indicator").hide();
+                    busy.hide();
                 });
         }
 
