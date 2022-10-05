@@ -11,7 +11,7 @@
         <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
 </head>
 
-<body>
+<body style="font-size: 0.9em;">
     <!-- Start your project here-->
     <div class="container">
         <br />
@@ -97,7 +97,7 @@
 
                 <!-- Right -->
                 <div>
-                    <a href="" class="me-4 text-reset">
+                    <a href="https://github.com/SMRUCC/GCModeller-workbench" class="me-4 text-reset">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
@@ -130,7 +130,7 @@
                                 Products
                             </h6>
                             <p>
-                                <a href="#!" class="text-reset">R# Language</a>
+                                <a href="https://github.com/rsharp-lang" class="text-reset">R# Language</a>
                             </p>
                         </div>
                         <!-- Grid column -->
@@ -142,7 +142,7 @@
                                 Useful links
                             </h6>
                             <p>
-                                <a href="#!" class="text-reset">Open Source</a>
+                                <a href="https://github.com/SMRUCC/GCModeller" class="text-reset">Open Source</a>
                             </p>
                             <p>
                                 <a href="#!" class="text-reset">Help</a>
@@ -157,7 +157,7 @@
                             <p><i class="fas fa-home me-3"></i> GuiLin, China</p>
                             <p>
                                 <i class="fas fa-envelope me-3"></i>
-                                genomics@gcmodeller.org
+                                <a href="mailto://genomics@gcmodeller.org">genomics@gcmodeller.org</a>
                             </p>
                             <!--<p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
                             <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>-->
