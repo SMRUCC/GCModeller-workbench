@@ -8,4 +8,6 @@ Public Class DataEmbedding : Inherits WebApp
     Public Sub New()
         MyBase.New("/apps/dataEmbedding.vbhtml")
     End Sub
+
+
 End Class

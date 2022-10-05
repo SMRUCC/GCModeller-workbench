@@ -7,8 +7,11 @@ namespace pages {
         };
 
         protected init(): void {
-            throw new Error("Method not implemented.");
+            // throw new Error("Method not implemented.");
         }
 
+        public button_open_click() {
+            
+        }
     }
 }

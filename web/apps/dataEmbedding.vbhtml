@@ -39,9 +39,28 @@
                 aria-labelledby="ex-with-icons-tab-1">
 
                 <!-- Parameter content and data files at here -->
+                <div class="row">
+                    <div class="col-auto">
+                        <label for="dimensions" class="form-label">Dimensions:</label>
+                        <input type="text" class="form-control" id="dimensions" />
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-12">
+                        <label for="matrix-file" class="form-label">Select Matrix:</label>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-primary" type="button" id="button_open"
+                                data-mdb-ripple-color="dark">
+                                <i class="far fa-folder-open"></i> Select File
+                            </button>
+                            <input type="text" class="form-control" placeholder="" id="matrix-file"
+                                aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                        </div>
+                    </div>
+                </div>
 
-
+                <br />
                 <div class="row">
                     <div class="col-auto">
                         <button id="run" type="submit" class="btn btn-primary mb-3">Run</button>

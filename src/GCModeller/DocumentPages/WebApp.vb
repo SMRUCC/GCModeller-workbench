@@ -38,6 +38,20 @@ Public MustInherit Class WebApp
         Me.page = page
     End Sub
 
+    Public Function getFileOpen(Optional filterString As String = "Any File(*.*)|*.*") As String
+        Try
+            Using file As New OpenFileDialog With {.Filter = filterString}
+                If file.ShowDialog = DialogResult.OK Then
+                    Return file.FileName
+                Else
+                    Return Nothing
+                End If
+            End Using
+        Catch ex As Exception
+            Return Nothing
+        End Try
+    End Function
+
     Public Function sendPost(url As String, json As String) As Message
         Dim httpClient As New HttpClient
 
