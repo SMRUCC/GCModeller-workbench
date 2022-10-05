@@ -44,6 +44,7 @@
     <ROW Directory="fastRWeb_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="fastRWeb"/>
     <ROW Directory="gtk_Dir" Directory_Parent="fastRWeb_Dir" DefaultDir="gtk"/>
     <ROW Directory="images_Dir" Directory_Parent="assets_Dir" DefaultDir="images"/>
+    <ROW Directory="includes_Dir" Directory_Parent="assets_Dir" DefaultDir="includes"/>
     <ROW Directory="javascript_Dir" Directory_Parent="web_Dir" DefaultDir="JAVASC~1|javascript"/>
     <ROW Directory="js_1_Dir" Directory_Parent="bootstrap5_Dir" DefaultDir="js"/>
     <ROW Directory="js_Dir" Directory_Parent="bootstrap5.0.2dist_Dir" DefaultDir="js"/>
@@ -172,9 +173,10 @@
     <ROW Component="bootstrap.bundle.js" ComponentId="{B65AA785-278E-4462-AFDF-CB6426727ED1}" Directory_="js_Dir" Attributes="0" KeyPath="bootstrap.bundle.min.js" Type="0"/>
     <ROW Component="bootstrapgrid.css" ComponentId="{F42515B4-4A94-4B80-B0A5-D724E08D7521}" Directory_="css_Dir" Attributes="0" KeyPath="bootstrapgrid.min.css" Type="0"/>
     <ROW Component="enrichment.R" ComponentId="{5EB29B89-01D1-45CD-997A-E46418E83C13}" Directory_="analysis_apps_Dir" Attributes="0" KeyPath="enrichment.R" Type="0"/>
-    <ROW Component="enrichment.html" ComponentId="{A2763594-BF07-4B89-9C87-C9E3DE3739F7}" Directory_="apps_Dir" Attributes="0" KeyPath="enrichment.html" Type="0"/>
-    <ROW Component="enrichment_database.html" ComponentId="{542A01B0-6647-41E1-A048-6DE13AD15020}" Directory_="toolkit_Dir" Attributes="0" KeyPath="enrichment_database.html" Type="0"/>
+    <ROW Component="enrichment.html" ComponentId="{A2763594-BF07-4B89-9C87-C9E3DE3739F7}" Directory_="apps_Dir" Attributes="0" KeyPath="enrichment.vbhtml" Type="0"/>
+    <ROW Component="enrichment_database.html" ComponentId="{542A01B0-6647-41E1-A048-6DE13AD15020}" Directory_="toolkit_Dir" Attributes="0" KeyPath="ncbi_taxonomy.html" Type="0"/>
     <ROW Component="graphics.dll" ComponentId="{199B6718-65DF-4466-8EC8-7196CE9C5A47}" Directory_="library_Dir" Attributes="256" KeyPath="graphics.dll"/>
+    <ROW Component="head.vbhtml" ComponentId="{268CF1DA-F8BF-4288-BC3F-D5B0ED62D8F6}" Directory_="includes_Dir" Attributes="0" KeyPath="head.vbhtml" Type="0"/>
     <ROW Component="http.R" ComponentId="{A9F499DD-E457-4105-907A-23A7F8A41B4C}" Directory_="services_Dir" Attributes="0" KeyPath="http.R" Type="0"/>
     <ROW Component="imports_uniprot.R" ComponentId="{2A5AA3D6-0049-49BF-84EF-2EFE680BDD92}" Directory_="database_Dir" Attributes="0" KeyPath="imports_uniprot.R" Type="0"/>
     <ROW Component="index.html" ComponentId="{87838FD2-8223-4157-B39F-1F4BB56FB8E1}" Directory_="web_Dir" Attributes="0" KeyPath="index.html" Type="0"/>
@@ -250,7 +252,6 @@
     <ROW File="GCModeller_win32Desktop.exe.config" Component_="GCModeller_win32Desktop.exe.config" FileName="GCMODE~1.CON|GCModeller_win32Desktop.exe.config" Attributes="0" SourcePath="..\Apps\GCModeller_win32Desktop.exe.config" SelfReg="false"/>
     <ROW File="Microsoft.VisualBasic.Runtime.dll.config_1" Component_="GCModeller_win32Desktop.exe.config" FileName="MICROS~1.CON|Microsoft.VisualBasic.Runtime.dll.config" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Runtime.dll.config" SelfReg="false"/>
     <ROW File="REnv.dll.config_1" Component_="GCModeller_win32Desktop.exe.config" FileName="RENVDL~1.CON|REnv.dll.config" Attributes="0" SourcePath="..\Apps\REnv.dll.config" SelfReg="false"/>
-    <ROW File="enrichment.html" Component_="enrichment.html" FileName="ENRICH~1.HTM|enrichment.html" Attributes="0" SourcePath="..\web\apps\enrichment.html" SelfReg="false"/>
     <ROW File="index.html" Component_="index.html" FileName="INDEX~1.HTM|index.html" Attributes="0" SourcePath="..\web\index.html" SelfReg="false"/>
     <ROW File="README.md" Component_="index.html" FileName="README.md" Attributes="0" SourcePath="..\web\README.md" SelfReg="false"/>
     <ROW File="app.css" Component_="app.css" FileName="app.css" Attributes="0" SourcePath="..\web\styles\app.css" SelfReg="false"/>
@@ -349,7 +350,6 @@
     <ROW File="mdb.min.js.map" Component_="mdb.min.js" FileName="MDBMIN~1.MAP|mdb.min.js.map" Attributes="0" SourcePath="..\web\styles\bootstrap5\js\mdb.min.js.map" SelfReg="false"/>
     <ROW File="License.pdf" Component_="License.pdf" FileName="License.pdf" Attributes="0" SourcePath="..\web\styles\bootstrap5\License.pdf" SelfReg="false"/>
     <ROW File="README.txt" Component_="License.pdf" FileName="README.txt" Attributes="0" SourcePath="..\web\styles\bootstrap5\README.txt" SelfReg="false"/>
-    <ROW File="enrichment_database.html" Component_="enrichment_database.html" FileName="ENRICH~1.HTM|enrichment_database.html" Attributes="0" SourcePath="..\web\toolkit\enrichment_database.html" SelfReg="false"/>
     <ROW File="ncbi_taxonomy.html" Component_="enrichment_database.html" FileName="NCBI_T~1.HTM|ncbi_taxonomy.html" Attributes="0" SourcePath="..\web\toolkit\ncbi_taxonomy.html" SelfReg="false"/>
     <ROW File="enrichment.R" Component_="enrichment.R" FileName="ENRICH~1.R|enrichment.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\enrichment.R" SelfReg="false"/>
     <ROW File="enrichment_plot.R" Component_="enrichment.R" FileName="ENRICH~2.R|enrichment_plot.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\enrichment_plot.R" SelfReg="false"/>
@@ -359,6 +359,10 @@
     <ROW File="UniProtKeywords.tsv" Component_="UniProtKeywords.tsv" FileName="UNIPRO~1.TSV|UniProt-Keywords.tsv" Attributes="0" SourcePath="..\src\Rstudio\data\UniProt-Keywords.tsv" SelfReg="false"/>
     <ROW File="uniprot_keywords.obo" Component_="UniProtKeywords.tsv" FileName="UNIPRO~1.OBO|uniprot_keywords.obo" Attributes="0" SourcePath="..\src\Rstudio\data\uniprot_keywords.obo" SelfReg="false"/>
     <ROW File="wkhtmltopdf.exe" Component_="wkhtmltopdf.exe" FileName="WKHTML~1.EXE|wkhtmltopdf.exe" Attributes="0" SourcePath="..\dist\wkhtmltopdf.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="enrichment.vbhtml" Component_="enrichment.html" FileName="ENRICH~1.VBH|enrichment.vbhtml" Attributes="0" SourcePath="..\web\apps\enrichment.vbhtml" SelfReg="false"/>
+    <ROW File="head.vbhtml" Component_="head.vbhtml" FileName="HEAD~1.VBH|head.vbhtml" Attributes="0" SourcePath="..\web\assets\includes\head.vbhtml" SelfReg="false"/>
+    <ROW File="webapp.vbhtml" Component_="head.vbhtml" FileName="WEBAPP~1.VBH|webapp.vbhtml" Attributes="0" SourcePath="..\web\assets\includes\webapp.vbhtml" SelfReg="false"/>
+    <ROW File="enrichment_database.vbhtml" Component_="enrichment_database.html" FileName="ENRICH~1.VBH|enrichment_database.vbhtml" Attributes="0" SourcePath="..\web\toolkit\enrichment_database.vbhtml" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -548,6 +552,7 @@
     <ROW Feature_="MainFeature" Component_="imports_uniprot.R"/>
     <ROW Feature_="MainFeature" Component_="openfile.R"/>
     <ROW Feature_="MainFeature" Component_="UniProtKeywords.tsv"/>
+    <ROW Feature_="MainFeature" Component_="head.vbhtml"/>
     <ROW Feature_="MainFeature" Component_="wkhtmltopdf.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">

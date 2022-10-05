@@ -317,7 +317,7 @@ var pages;
                 .then(function (json) {
                 return __awaiter(this, void 0, void 0, function* () {
                     const jsonString = yield json;
-                    const dbList = JSON.parse(jsonString);
+                    const dbList = JSON.parse(jsonString || "[]");
                     const dbSize = Object.keys(dbList).length;
                     const cardList = $ts("#repository");
                     for (let key in dbList) {

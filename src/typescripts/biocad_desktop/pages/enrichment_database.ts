@@ -17,7 +17,7 @@ namespace pages {
                 .scanDatabase()
                 .then(async function (json) {
                     const jsonString = await json;
-                    const dbList: {} = JSON.parse(jsonString);
+                    const dbList: {} = JSON.parse(jsonString || "[]");
                     const dbSize = Object.keys(dbList).length;
                     const cardList = $ts("#repository");
 

@@ -1,22 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?vb $title = "Enrichment Database Repository" ?>
+<?vb $app = "enrichment_database" ?>
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="app" content="enrichment_database" />
-  <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
-  <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
-  <title>Enrichment Database Toolkit</title>
-  <!-- MDB icon -->
-  <link rel="shortcut icon" href="/logo.png" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
-  <!-- MDB -->
-  <link rel="stylesheet" href="/styles/bootstrap5/css/mdb.min.css" />
+  <%= ../assets/includes/head.vbhtml %>
+
+    <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
+    <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
 </head>
 
 <body>
@@ -101,37 +93,10 @@
     </div>
     <!-- Tabs content -->
 
-
-    <div id="busy-indicator" style="z-index:999999; position: absolute; left: 0; top: 0; float: left; width: 100%; height: 100%; 
-      background-color: rgba(0, 0, 0, 0.555); display: none;">
-      <div class="d-flex justify-content-center"
-        style="position: absolute; left: 50%; top: 50%; transform: translate(0, -50%); color: white;">
-
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden"></span>
-        </div>
-
-        <div>
-          &nbsp;&nbsp;&nbsp; Loading...
-        </div>
-
-      </div>
-    </div>
-
-
-    <div id="toast-message" class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-
-
-    </div>
+    <%= ../assets/includes/webapp.vbhtml %>
 
   </div>
   <!-- End your project here-->
-
-  <!-- MDB -->
-  <script type="text/javascript" src="/styles/bootstrap5/js/mdb.min.js"></script>
-  <!-- Custom scripts -->
-  <script src="/javascript/linq.min.js" type="text/javascript"></script>
-  <script src="/javascript/biocad_desktop.min.js" type="text/javascript"></script>
 </body>
 
 </html>
