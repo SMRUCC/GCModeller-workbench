@@ -146,7 +146,12 @@ namespace pages {
                             const cluster_id: string[] = Object.keys(clusters);
                             const data: IEnumerator<string> = $from(cluster_id)
                                 .Select(function (cid) {
-                                    return `<li>${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]</li>`;
+                                    return `<a 
+                                    href="#" 
+                                    onclick="pages.enrichment_database.showProteins('${clusters[cid].join(",")}')"
+                                    class="list-group-item list-group-item-action px-3 border-0 active ripple">
+                                        ${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]
+                                    </a>`;
                                 });
 
                             // console.log(clusters);
@@ -172,6 +177,10 @@ namespace pages {
                     })
                 })
             });
+        }
+
+        public static showProteins(array: string) {
+            $ts("#protein_ids").CType<HTMLTextAreaElement>().value = array.replace(/,/ig, "\n");
         }
 
         private static summaryLine(name: string, info: { clusters: number, unique_size: number }): string {

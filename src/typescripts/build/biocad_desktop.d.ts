@@ -67,6 +67,7 @@ declare namespace pages {
          * @param key a unique database hash name for query in the repository
         */
         private static viewModel;
+        static showProteins(array: string): void;
         private static summaryLine;
         private static buildDbCard;
         /**

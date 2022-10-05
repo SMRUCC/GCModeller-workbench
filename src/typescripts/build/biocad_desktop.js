@@ -427,7 +427,12 @@ var pages;
                                 const cluster_id = Object.keys(clusters);
                                 const data = $from(cluster_id)
                                     .Select(function (cid) {
-                                    return `<li>${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]</li>`;
+                                    return `<a 
+                                    href="#" 
+                                    onclick="pages.enrichment_database.showProteins('${clusters[cid].join(",")}')"
+                                    class="list-group-item list-group-item-action px-3 border-0 active ripple">
+                                        ${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]
+                                    </a>`;
                                 });
                                 // console.log(clusters);
                                 // console.log(cluster_id);
@@ -450,6 +455,9 @@ var pages;
                     });
                 });
             });
+        }
+        static showProteins(array) {
+            $ts("#protein_ids").CType().value = array.replace(/,/ig, "\n");
         }
         static summaryLine(name, info) {
             return `<li class="list-group-item d-flex justify-content-between align-items-center">
