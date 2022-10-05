@@ -28,7 +28,7 @@ var apps;
     }
     function warningMsg() {
         return __awaiter(this, void 0, void 0, function* () {
-            desktop.showToastMessage("Please run from webview2 application!", "Web app error", null, "warning");
+            desktop.showToastMessage("Please run from webview2 application!", "Web app error", "warning");
         });
     }
     function run() {
@@ -158,9 +158,9 @@ var desktop;
 })(desktop || (desktop = {}));
 var desktop;
 (function (desktop) {
-    function showToastMessage(msg, title = "Task Error", subtitle = desktop.now(), level = "info", autohide = true) {
+    function showToastMessage(msg, title = "Task Error", level = "info", autohide = true) {
         $ts("#busy-indicator").hide();
-        $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
+        $ts("#toast-message").appendElement(toastHtml(msg, title, desktop.now(), level, autohide));
     }
     desktop.showToastMessage = showToastMessage;
     const toastIconsMD = {
@@ -240,7 +240,7 @@ var pages;
                     }
                     $ts("#busy-indicator").hide();
                     // show database summary information
-                    desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", null, "info");
+                    desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", "info");
                 });
             });
         }
@@ -274,7 +274,7 @@ var pages;
                                     .Select(a => enrichment_database.summaryLine(a.name, a.info))
                                     .JoinBy("");
                                 // success
-                                desktop.showToastMessage("Success!", title, null, "success");
+                                desktop.showToastMessage("Success!", title, "success");
                                 hookLinks = function () {
                                     for (let model of backgrounds.ToArray()) {
                                         const name = model.name;
@@ -297,7 +297,7 @@ var pages;
                             }
                             else {
                                 // error
-                                desktop.showToastMessage(message.info, title, null, "danger");
+                                desktop.showToastMessage(message.info, title, "danger");
                             }
                             $ts("#summary-info").display(sb);
                             if (!isNullOrUndefined(hookLinks)) {
@@ -353,7 +353,7 @@ var pages;
                                 galleryModal.show();
                             }
                             else {
-                                desktop.showToastMessage(message.info, "Load Model Error", null, "danger");
+                                desktop.showToastMessage(message.info, "Load Model Error", "danger");
                             }
                         });
                     });
@@ -419,11 +419,11 @@ var pages;
                             const title = flag ? "Imports Task Success" : "Imports Task Error";
                             if (flag) {
                                 // success
-                                desktop.showToastMessage(message.info, title, null, "success");
+                                desktop.showToastMessage(message.info, title, "success");
                             }
                             else {
                                 // error
-                                desktop.showToastMessage(message.info, title, null, "danger");
+                                desktop.showToastMessage(message.info, title, "danger");
                             }
                             $ts("#busy-indicator").hide();
                         });
@@ -471,7 +471,7 @@ var pages;
                 algorithm: method
             });
             if (Strings.Empty(filepath)) {
-                desktop.showToastMessage("The matrix data input file can not be nothing!", "Data Embedding Analysis", null, "danger");
+                desktop.showToastMessage("The matrix data input file can not be nothing!", "Data Embedding Analysis", "danger");
                 return;
             }
             apps.gcmodeller
@@ -483,10 +483,10 @@ var pages;
                             console.log(message.info);
                             // show table at first
                             // then run data plots
-                            desktop.showToastMessage("Run Data Embedding Analysis Success!", `${method} Task Success`, desktop.now(), "danger");
+                            desktop.showToastMessage("Run Data Embedding Analysis Success!", `${method} Task Success`, "success");
                         }
                         else {
-                            desktop.showToastMessage(message.info, `${method} Task Error`, null, "danger");
+                            desktop.showToastMessage(message.info, `${method} Task Error`, "danger");
                         }
                     });
                 });
@@ -519,17 +519,17 @@ var pages;
         }
         run_onclick() {
             if (Strings.Empty(this.database)) {
-                desktop.showToastMessage("Please select a database at first!", "Enrichment Analysis", null, "danger");
+                desktop.showToastMessage("Please select a database at first!", "Enrichment Analysis", "danger");
             }
             else {
                 $ts("#busy-indicator").show();
                 const type = $ts.select.getOption("#background");
                 const symbols = $ts.value("#input_idlist");
                 if (Strings.Empty(type)) {
-                    desktop.showToastMessage("Please select a background for enrichment analysis at first!", "Enrichment Analysis", null, "danger");
+                    desktop.showToastMessage("Please select a background for enrichment analysis at first!", "Enrichment Analysis", "danger");
                 }
                 else if (Strings.Empty(symbols)) {
-                    desktop.showToastMessage("No gene/protein id list to run enrichment analysis!", "Enrichment Analysis", null, "danger");
+                    desktop.showToastMessage("No gene/protein id list to run enrichment analysis!", "Enrichment Analysis", "danger");
                 }
                 else {
                     this.runInternal(type, symbols);
@@ -596,11 +596,11 @@ var pages;
                         vm.session_id = ssid;
                         // do data plot
                         vm.plot_onclick();
-                        desktop.showToastMessage("Success!", title, null, "success");
+                        desktop.showToastMessage("Success!", title, "success");
                     }
                     else {
                         // error
-                        desktop.showToastMessage(message.info, title, null, "danger");
+                        desktop.showToastMessage(message.info, title, "danger");
                     }
                 });
             });
@@ -628,7 +628,7 @@ var pages;
                                 $ts("#busy-indicator").hide();
                             }
                             else {
-                                desktop.showToastMessage(message.info, title, null, "danger");
+                                desktop.showToastMessage(message.info, title, "danger");
                             }
                         });
                     });

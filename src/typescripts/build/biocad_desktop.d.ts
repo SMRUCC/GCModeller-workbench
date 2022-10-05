@@ -53,7 +53,7 @@ declare namespace desktop {
     function processHtmlMsg(text: string | Object): string;
 }
 declare namespace desktop {
-    function showToastMessage(msg: string, title?: string, subtitle?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
+    function showToastMessage(msg: string, title?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
 }
 declare namespace pages {
     abstract class analysis_session extends Bootstrap {
