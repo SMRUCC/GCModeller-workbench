@@ -212,6 +212,31 @@ var pages;
                 }
             }
         }
+        static term_url(type) {
+            switch (type) {
+                case "keyword":
+                    return function (term) {
+                        return `<a target="__blank" href="https://www.uniprot.org/keywords/${term[""]}">${term["name"]}</a>`;
+                    };
+                case "GO":
+                    return function (term) {
+                        return `<a target="__blank" href="http://amigo.geneontology.org/amigo/term/${term[""]}">${term["name"]}</a>`;
+                    };
+                case "Pfam":
+                    return function (term) {
+                        return `<a target="__blank" href="https://www.ebi.ac.uk/interpro/entry/pfam/${term[""]}/">${term["name"]}</a>`;
+                    };
+                case "InterPro":
+                    return function (term) {
+                        return `<a target="__blank" href="https://www.ebi.ac.uk/interpro/entry/InterPro/${term[""]}/">${term["name"]}</a>`;
+                    };
+                case "EC":
+                    return function (term) {
+                        return `<a target="__blank" href="https://www.genome.jp/dbget-bin/www_bfind_sub?mode=bfind&max_hit=1000&dbkey=enzyme&keywords=${term[""]}">${term["name"]}</a>`;
+                    };
+                default: return function (any) { return any["name"]; };
+            }
+        }
         runInternal(type, symbols) {
             const ssid = md5(`enrichment-${(new Date()).toLocaleTimeString("en-US")}-${type}-${symbols}`);
             const vm = this;
@@ -221,12 +246,7 @@ var pages;
                 symbols: Strings.lineTokens(symbols),
                 ssid: ssid
             });
-            let url = function (any) { return any["name"]; };
-            if (type == "keyword") {
-                url = function (term) {
-                    return `<a target="__blank" href="https://www.uniprot.org/keywords/${term[""]}">${term["name"]}</a>`;
-                };
-            }
+            let url = enrichment_analysis.term_url(type);
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_enrichment"), json)
                 .then(function (result) {

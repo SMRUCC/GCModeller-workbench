@@ -53,6 +53,7 @@ declare namespace pages {
         protected init(): void;
         background_onchange(value: string): void;
         run_onclick(): void;
+        private static term_url;
         private runInternal;
         plot_onclick(): void;
     }
