@@ -57,7 +57,7 @@ namespace pages {
                             vm.session_id = session_id;
 
                             $ts.appendTable(previews, "#embedding-table", null, { class: ["table", "table-sm"] });
-                            dataEmbedding.plot3DScatter(data.ToArray());
+                            dataEmbedding.plot3DScatter();
 
                             // show table at first
                             // then run data plots
@@ -69,25 +69,43 @@ namespace pages {
                 });
         }
 
-        private static plot3DScatter(data: any[]) {
-            const keys: string[] = Object.keys(data[0]);
-            const name: string = keys[0];
-            const x: string = keys[1];
-            const y: string = keys[2];
-            const z: string = keys[3];
+        // private static plot3DScatter(data: any[]) {
+        //     const keys: string[] = Object.keys(data[0]);
+        //     const name: string = keys[0];
+        //     const x: string = keys[1];
+        //     const y: string = keys[2];
+        //     const z: string = keys[3];
 
-            data = $from(data)
-                .Select(a => [a[name], parseFloat(a[x]), parseFloat(a[y]), parseFloat(a[z])])
-                .ToArray()
-                ;
-            data = [
-                ["", "dim1", "dim2", "dim3"]
-            ].concat(data);
+        //     data = $from(data)
+        //         .Select(a => [a[name], parseFloat(a[x]), parseFloat(a[y]), parseFloat(a[z])])
+        //         .ToArray()
+        //         ;
+        //     data = [
+        //         ["", "dim1", "dim2", "dim3"]
+        //     ].concat(data);
 
-            console.log("view of the data matrix for plot 3d scatter:");
-            console.log(data);
+        //     console.log("view of the data matrix for plot 3d scatter:");
+        //     console.log(data);
 
-            new js_plot.scatter3d("Rplot_js").plot(data);
+        //     new js_plot.scatter3d("Rplot_js").plot(data);
+        // }
+        private static plot3DScatter(session_id: string) {
+            const json: string = JSON.stringify({
+                ssid: session_id
+            });
+
+            apps.gcmodeller.sendPost($ts.url("@web_invoke_Rplot"), json).then(function (result) {
+                desktop.promiseAsyncCallback<string>(result, function (success, message) {
+                    if (success) {
+                        // show images
+                        const img = $ts("<img>", { src: message.info });
+
+                        $ts("#Rplot_js").display(img);
+                    } else {
+                        desktop.showToastMessage(message.info, `Rplot Error`, "danger");
+                    }
+                });
+            })
         }
     }
 }
