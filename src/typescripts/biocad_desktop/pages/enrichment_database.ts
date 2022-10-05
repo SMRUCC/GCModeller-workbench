@@ -51,8 +51,8 @@ namespace pages {
                 guid: key
             });
 
-            sb = sb + `Database Name: ${metadata.name}(${key})<br />`;
-            sb = sb + `Note: <p>${metadata.note}</p><br />`;
+            sb = sb + `<span class="badge badge-primary">Database Name</span>: ${metadata.name}(${key})<br />`;
+            sb = sb + `<span class="badge badge-primary">Note</span>: <p class="note note-light">${metadata.note}</p><br />`;
 
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_inspector"), json)
@@ -60,15 +60,39 @@ namespace pages {
                     desktop.parseMessage(result).then(function (message) {
                         desktop.parseResultFlag(result, message).then(function (flag) {
                             const title = flag ? "Load Database Success" : "Load Database Error";
-                            const data: { counts: number, proteins: string } = <any>message.info;
-                            const protein_ids = Strings.lineTokens(data.proteins).join("<br />");
+                            const data: {
+                                counts: number,
+                                summary: {
+                                    GO: { clusters: number, unique_size: number }
+                                }
+                            } = <any>message.info;
+
+                            const backgrounds = $from(Object.keys(data.summary))
+                                .Select(function (name) {
+                                    const info: { clusters: number, unique_size: number } = data.summary[name];
+                                    const pack = { name: name, info: info };
+
+                                    return pack;
+                                })
+                                .Where(a => a.info.unique_size > 0)
+                                .Where(a => a.info.unique_size / a.info.clusters > 1)
+                                ;
+                            const protein_ids: string = backgrounds
+                                .Select(a => enrichment_database.summaryLine(a.name, a.info))
+                                .JoinBy("")
+                                ;
+
+                            console.log(data);
 
                             if (flag) {
                                 // success
                                 desktop.showToastMessage("Success!", title, null, "success");
 
-                                sb = sb + `Protein Counts: ${data.counts}<br />`;
-                                sb = sb + `Protein ID: ${protein_ids}<br />`;
+                                sb = sb + `<span class="badge badge-primary">Protein Counts</span>: ${data.counts}<br />`;
+                                sb = sb + `<span class="badge badge-primary">Models</span>: ${backgrounds.Count}<br />`;
+                                sb = sb + `<span class="badge badge-primary">Backgrounds</span>: <br /><br />
+                                        ${protein_ids}
+                                `;
                             } else {
                                 // error
                                 desktop.showToastMessage(message.info, title, null, "danger");
@@ -80,10 +104,17 @@ namespace pages {
                 });
         }
 
+        private static summaryLine(name: string, info: { clusters: number, unique_size: number }): string {
+            return `<div>
+            <span class="badge rounded-pill badge-success">${name}</span>
+            ${info.clusters} / ${info.unique_size}
+            </div>`;
+        }
+
         private static buildDbCard(key: string, metadata: { name: string, note: string }): HTMLElement {
             return $ts("<div>", { class: ["card", "shadow-5"], style: "width: 300px;" }).display(` 
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="/assets/images/background.jpg" class="img-fluid"/>
+                <div class="bg-image hover-overlay ripple hover-zoom" data-mdb-ripple-color="light">
+                    <img src="/assets/images/background.jpg" class="img-fluid hover-shadow"/>
                     <a href="javascript:void(0);" id="${key}-meta">
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                     </a>

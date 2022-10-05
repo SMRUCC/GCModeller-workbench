@@ -63,6 +63,7 @@ declare namespace pages {
         protected init(): void;
         private scanDatabaseList;
         private static showMetadata;
+        private static summaryLine;
         private static buildDbCard;
         /**
          * method execute on native host side, not R server backend

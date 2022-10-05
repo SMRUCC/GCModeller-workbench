@@ -37,15 +37,20 @@
         aria-labelledby="ex-with-icons-tab-1">
 
         <div class="row">
-          <div class="col-md-8" id="repository">
+          <div class="col-md-6" id="repository">
             <!-- show repository card list -->
 
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <!-- show database metadata -->
             <p>Database Summary:</p>
-            <div id="summary-info" class="shadow-3" style="background-color: white;">
 
+            <div class="row">
+
+              <div id="summary-info" class="shadow-3 col"
+                style="background-color: white; padding-top: 10px; padding-bottom: 10px;">
+
+              </div>
             </div>
           </div>
         </div>
