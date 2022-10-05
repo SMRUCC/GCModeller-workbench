@@ -19,6 +19,10 @@ Public Class FormWebView2Page
     End Sub
 
     Private Sub FormWebView2Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If Not backend Is Nothing Then
+            Me.Icon = backend.icon
+        End If
+
         Init()
         Wait()
     End Sub

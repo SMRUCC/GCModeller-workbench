@@ -63,6 +63,26 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property applications_utilities() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("applications_utilities", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property DateAndTime_L192() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DateAndTime_L192", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property dialog_error() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("dialog_error", resourceCulture)

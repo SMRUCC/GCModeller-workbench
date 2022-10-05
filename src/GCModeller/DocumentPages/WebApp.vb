@@ -11,6 +11,12 @@ Public MustInherit Class WebApp
 
     Public Property arguments As Dictionary(Of String, String)
 
+    Public Overridable ReadOnly Property icon As Icon
+        Get
+            Return Icon.FromHandle(My.Resources.applications_utilities.GetHicon)
+        End Get
+    End Property
+
     Public Overridable ReadOnly Property url As String
         Get
             Dim baseURL As String = $"http://localhost:{Globals.webViewSvrPort}/{page.TrimStart("/"c)}"
