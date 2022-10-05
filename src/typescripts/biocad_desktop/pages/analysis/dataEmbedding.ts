@@ -13,18 +13,22 @@ namespace pages {
         }
 
         public button_open_click() {
+            $ts("#busy-indicator").show();
+
             apps.gcmodeller
                 .getFileOpen("Excel Matrix(*.csv)|*.csv")
                 .then(async function (result) {
                     const filepath: string = await result;
 
                     if (!Strings.Empty(filepath)) {
-
+                        $ts("#matrix-file").CType<HTMLInputElement>().value = filepath;
                     }
-                })
+                });
         }
 
         public run_click() {
+            $ts("#busy-indicator").show();
+
             const filepath: string = $ts.value("#matrix-file");
             const dimensions: number = $ts.value("#dimensions");
             const method: string = $ts.select.getOption("#algorithm");

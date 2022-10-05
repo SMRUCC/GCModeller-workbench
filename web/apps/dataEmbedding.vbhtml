@@ -57,8 +57,6 @@
                                     <div class="col-4">
                                         <label for="dimensions" class="form-label">Dimensions:</label>
                                         <input type="text" class="form-control" id="dimensions" value="3" />
-
-
                                     </div>
                                 </div>
                                 <br />
@@ -80,7 +78,7 @@
                                     <option value="PCA">PCA</option>
                                     <optgroup label="Nonlinear dimensionality reduction">
                                         <option value="t-SNE">t-SNE</option>
-                                        <option value="UMAP">UMAP</option>
+                                        <option value="UMAP" selected>UMAP</option>
                                     </optgroup>
                                 </select>
 
