@@ -6,7 +6,7 @@ imports "ptf" from "annotationKit";
 
 const run = function(guid, xref) {
     const db = HDS::openStream(`/etc/repository/ptf/${guid}.db`);    
-    const model = ptf::load_xref(db, xrefs);
+    const model = ptf::load_xref(db, xref);
     
     json_encode({
         code: 0, 
