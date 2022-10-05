@@ -13,7 +13,7 @@ const run = function(file, ssid, dims = 3, algorithm = ["PCA", "t-SNE", "UMAP"])
         "UMAP": run_umap
     };
     const func = embedding[[algorithm]];
-    const result = func(matrix, dims);
+    const result = func(matrix, as.integer(dims));
 
     print("View of your matrix result:");
     print(result, max.print = 6);
@@ -35,6 +35,9 @@ const run_umap = function(matrix, dims = 3) {
     )
     ;
     
+    print("result dimension labels:");    
+    print(`dim${1:dims}`);
+
     as.data.frame(manifold$umap, 
         labels = manifold$labels, 
         dimension = `dim${1:dims}`
