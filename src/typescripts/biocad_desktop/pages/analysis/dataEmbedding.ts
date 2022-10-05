@@ -69,5 +69,9 @@ namespace pages {
                     });
                 });
         }
+
+        private static plot3DScatter() {
+            
+        }
     }
 }

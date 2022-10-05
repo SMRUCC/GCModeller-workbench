@@ -142,7 +142,14 @@
                             <h3>Rplot</h3>
 
                             <div class="row">
-                                <div class="col-auto"></div>
+                                <div class="col-auto">
+
+                                    <!-- Prepare a DOM with a defined width and height for ECharts -->
+                                    <div id="Rplot_js" style="width: 600px;height:400px;">
+
+                                    </div>
+
+                                </div>
                             </div>
 
                         </section>
@@ -240,6 +247,8 @@
         <%= ../assets/includes/webapp.vbhtml %>
 
     </div>
+
+    <script type="text/javascript" src="/javascript/echarts-5.4.0/echarts.min.js"></script>
 
     <!-- End your project here-->
 </body>
