@@ -33,6 +33,7 @@ namespace pages {
                         }
 
                         $ts(`#${key}-meta`).onclick = function () {
+                            $ts("#busy-indicator").show();
                             enrichment_database.showMetadata(key, metadata);
                         }
                     }

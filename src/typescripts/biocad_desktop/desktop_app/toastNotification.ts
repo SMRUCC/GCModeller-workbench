@@ -1,8 +1,12 @@
 namespace desktop {
 
+    function now(): string {
+        return (new Date()).toLocaleTimeString();
+    }
+
     export function showToastMessage(msg: string,
         title: string = "Task Error",
-        subtitle: string = "",
+        subtitle: string = now(),
         level: "danger" | "success" | "warning" | "info" = "info",
         autohide: boolean = true) {
 

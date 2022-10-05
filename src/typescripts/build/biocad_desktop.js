@@ -136,7 +136,10 @@ var desktop;
 })(desktop || (desktop = {}));
 var desktop;
 (function (desktop) {
-    function showToastMessage(msg, title = "Task Error", subtitle = "", level = "info", autohide = true) {
+    function now() {
+        return (new Date()).toLocaleTimeString();
+    }
+    function showToastMessage(msg, title = "Task Error", subtitle = now(), level = "info", autohide = true) {
         $ts("#busy-indicator").hide();
         $ts("#toast-message").appendElement(toastHtml(msg, title, subtitle, level, autohide));
     }
@@ -329,6 +332,7 @@ var pages;
                             apps.gcmodeller.openEnrichmentPage(key, metadata.name, metadata.note);
                         };
                         $ts(`#${key}-meta`).onclick = function () {
+                            $ts("#busy-indicator").show();
                             enrichment_database.showMetadata(key, metadata);
                         };
                     }
