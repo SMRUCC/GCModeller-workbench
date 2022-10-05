@@ -104,7 +104,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">View Background Cluster</h5>
-            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            <button id="modal-close1" type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
           </div>
           <div id="background-content" class="modal-body">
             
@@ -113,7 +113,7 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+            <button id="modal-close2" type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
           </div>
         </div>
       </div>

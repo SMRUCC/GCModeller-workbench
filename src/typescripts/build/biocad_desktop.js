@@ -423,6 +423,8 @@ var pages;
                                     keyboard: false
                                 });
                                 $ts("#busy-indicator").hide();
+                                $ts("#modal-close1").onclick = () => galleryModal.hide();
+                                $ts("#modal-close2").onclick = () => galleryModal.hide();
                                 galleryModal.show();
                             }
                             else {

@@ -139,13 +139,16 @@ namespace pages {
                 desktop.parseMessage(result).then(function (message) {
                     desktop.parseResultFlag(result, message).then(function (flag) {
                         console.log(message);
-                        
+
                         if (flag) {
                             var galleryModal = new bootstrap.Modal($ts('#view-background'), {
                                 keyboard: false
                             });
 
                             $ts("#busy-indicator").hide();
+                            $ts("#modal-close1").onclick = () => galleryModal.hide();
+                            $ts("#modal-close2").onclick = () => galleryModal.hide();
+
                             galleryModal.show();
                         } else {
                             desktop.showToastMessage(message.info, "Load Model Error", null, "danger");
