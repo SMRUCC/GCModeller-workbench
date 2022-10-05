@@ -478,6 +478,17 @@ var pages;
                 .sendPost($ts.url("@web_invoke_embedding"), json)
                 .then(function (result) {
                 return __awaiter(this, void 0, void 0, function* () {
+                    desktop.promiseAsyncCallback(result, function (success, message) {
+                        if (success) {
+                            console.log(message.info);
+                            // show table at first
+                            // then run data plots
+                            desktop.showToastMessage("Run Data Embedding Analysis Success!", `${method} Task Success`, desktop.now(), "danger");
+                        }
+                        else {
+                            desktop.showToastMessage(message.info, `${method} Task Error`, null, "danger");
+                        }
+                    });
                 });
             });
         }

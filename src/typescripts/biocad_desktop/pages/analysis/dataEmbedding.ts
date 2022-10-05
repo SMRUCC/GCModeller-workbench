@@ -48,7 +48,17 @@ namespace pages {
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_embedding"), json)
                 .then(async function (result) {
+                    desktop.promiseAsyncCallback<string>(result, function (success, message) {
+                        if (success) {
+                            console.log(message.info);
 
+                            // show table at first
+                            // then run data plots
+                            desktop.showToastMessage("Run Data Embedding Analysis Success!", `${method} Task Success`, desktop.now(), "danger");
+                        } else {
+                            desktop.showToastMessage(message.info, `${method} Task Error`, null, "danger");
+                        }
+                    });
                 });
         }
     }
