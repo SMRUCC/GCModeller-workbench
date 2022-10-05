@@ -48,39 +48,64 @@
         </div>
 
         <div class="row">
-            <div class="col-2 hover-zoom">
-                <a href="#" class="card h-100" onclick="apps.gcmodeller.openApplets();">
-                    <img src="/assets/icons/applications.png" class="card-img-top" alt="Palm Springs Road" />
-                    <div class="card-body">
-                        <h5 class="card-title">Apps</h5>
-                        <p class="card-text">
-                            <!-- Run data analysis apps from gcmodeller workbench -->
-                        </p>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-4 hover-zoom">
+                            <a href="#" class="card h-100" onclick="apps.gcmodeller.openApplets();">
+                                <img src="/assets/icons/applications.png" class="card-img-top"
+                                    alt="Palm Springs Road" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Apps</h5>
+                                    <p class="card-text">
+                                        <!-- Run data analysis apps from gcmodeller workbench -->
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-4 hover-zoom">
+                            <a href="#" class="card h-100" onclick="apps.gcmodeller.openDatabaseRepository();">
+                                <img src="/assets/icons/drive-multidisk.png" class="card-img-top"
+                                    alt="Los Angeles Skyscrapers" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Repository</h5>
+                                    <p class="card-text">
+                                        <!-- Database file managements -->
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-4 hover-zoom">
+                            <a href="#" class="card h-100" onclick="apps.gcmodeller.openTaskManager();">
+                                <img src="/assets/icons/task-manager.png" class="card-img-top" alt="Skyscrapers" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Task Manager</h5>
+                                    <p class="card-text">
+                                        <!-- View the local data analysis task list. -->
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </a>
-            </div>
-            <div class="col-2 hover-zoom">
-                <a href="#" class="card h-100" onclick="apps.gcmodeller.openDatabaseRepository();">
-                    <img src="/assets/icons/drive-multidisk.png" class="card-img-top" alt="Los Angeles Skyscrapers" />
-                    <div class="card-body">
-                        <h5 class="card-title">Repository</h5>
-                        <p class="card-text">
-                            <!-- Database file managements -->
-                        </p>
+                </div>
+                <div class="col-6" style="font-size: 0.85em;">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-8">
+                            <h5>Your Favourites</h5>
+
+                            <ul id="pin-list" style="list-style: none; text-indent: 0%;">
+                                <li><i class="fas fa-thumbtack"></i> &nbsp; <a href="#"
+                                        onclick="apps.gcmodeller.openDataEmbedding();">Data Embedding Analysis</a></li>
+                                <li><i class="fas fa-thumbtack"></i> &nbsp;
+                                    <a href="#" onclick="apps.gcmodeller.openDataEmbedding();">Enrichment Analysis</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="col-2 hover-zoom">
-                <a href="#" class="card h-100" onclick="apps.gcmodeller.openTaskManager();">
-                    <img src="/assets/icons/task-manager.png" class="card-img-top" alt="Skyscrapers" />
-                    <div class="card-body">
-                        <h5 class="card-title">Task Manager</h5>
-                        <p class="card-text">
-                            <!-- View the local data analysis task list. -->
-                        </p>
-                    </div>
-                </a>
-            </div>
+
         </div>
 
 
