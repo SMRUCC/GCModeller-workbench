@@ -149,10 +149,10 @@
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <a href="/assets/images/empty.jpg" data-toggle="lightbox"
-                                                        data-caption="Enrichment Plot" id="Rplot-box">
-                                                        <img src="/assets/images/empty.jpg" alt="Enrichment Plot"
+                                                        data-caption="2d/3d scatter plot" id="Rplot-box">
+                                                        <img src="/assets/images/empty.jpg" alt="2d/3d scatter plot"
                                                             class="img-fluid w-100 my-lightbox-toggle"
-                                                            style="width: 600px;" id="Rplot_js">
+                                                            style="width: 400px;" id="Rplot_js">
                                                     </a>
                                                 </div>
 
@@ -162,8 +162,7 @@
 
                                 </div>
                             </section>
-
-                            <br />
+                 
                             <div class="row">
                                 <div class="col-auto">
                                     <button id="refresh_Rplot" type="submit" class="btn btn-primary mb-3">Refresh</button>
