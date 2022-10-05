@@ -67,7 +67,7 @@ namespace js_plot {
                 onChange: function () {
                     var max = vm.getMaxOnExtent();
 
-                    if (data) {
+                    if (vm.data) {
                         vm.myChart.setOption({
                             visualMap: [
                                 {
@@ -94,7 +94,7 @@ namespace js_plot {
                                     vm.config.color,
                                     vm.config.symbolSize
                                 ],
-                                data: data.map(function (item, idx) {
+                                data: vm.data.map(function (item, idx) {
                                     return [
                                         item[vm.fieldIndices[vm.config.xAxis3D]],
                                         item[vm.fieldIndices[vm.config.yAxis3D]],
@@ -123,6 +123,12 @@ namespace js_plot {
             option && vm.myChart.setOption(option);
         }
 
+        /**
+         * @param _data a array of js array to set as scatter plot data:
+         * 
+         *    1. first element should be the point label
+         *    2. 2/3/4 element should be the number data to the scatter 3d
+        */
         public plot(
             _data,
             div: string = "Rplot_js",
@@ -213,7 +219,7 @@ namespace js_plot {
                             vm.config.color,
                             vm.config.symbolSize
                         ],
-                        data: data.map(function (item, idx) {
+                        data: vm.data.map(function (item, idx) {
                             return [
                                 item[vm.fieldIndices[vm.config.xAxis3D]],
                                 item[vm.fieldIndices[vm.config.yAxis3D]],

@@ -51,14 +51,13 @@ namespace pages {
                 .then(async function (result) {
                     desktop.promiseAsyncCallback<string>(result, function (success, message) {
                         if (success) {
-                            const data = $ts.csv(message.info, true)
-                                .Objects()
-                                .Take(10)
-                                ;
+                            const data = $ts.csv(message.info, true).Objects();
+                            const previews = data.Take(10);
 
                             vm.session_id = session_id;
 
-                            $ts.appendTable(data, "#embedding-table", null, { class: ["table", "table-sm"] });
+                            $ts.appendTable(previews, "#embedding-table", null, { class: ["table", "table-sm"] });
+                            dataEmbedding.plot3DScatter(data.ToArray());
 
                             // show table at first
                             // then run data plots
@@ -70,8 +69,22 @@ namespace pages {
                 });
         }
 
-        private static plot3DScatter() {
-            
+        private static plot3DScatter(data: any[]) {
+            const keys: string[] = Object.keys(data[0]);
+            const name: string = keys[0];
+            const x: string = keys[1];
+            const y: string = keys[2];
+            const z: string = keys[3];
+
+            data = $from(data)
+                .Select(a => [a[name], a[x], a[y], a[z]])
+                .ToArray()
+                ;
+
+            console.log("view of the data matrix for plot 3d scatter:");
+            console.log(data);
+
+            new js_plot.scatter3d().plot(data, "Rplot_js");
         }
     }
 }

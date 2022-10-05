@@ -55,6 +55,29 @@ declare namespace desktop {
 declare namespace desktop {
     function showToastMessage(msg: string, title?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
 }
+declare namespace js_plot {
+    class scatter3d {
+        private config;
+        private data;
+        private fieldIndices;
+        private myChart;
+        getMaxOnExtent(): {
+            color: number;
+            symbolSize: number;
+        };
+        private load;
+        /**
+         * @param _data a array of js array to set as scatter plot data:
+         *
+         *    1. first element should be the point label
+         *    2. 2/3/4 element should be the number data to the scatter 3d
+        */
+        plot(_data: any, div?: string, schema?: {
+            name: string;
+            index: number;
+        }[]): void;
+    }
+}
 declare namespace pages {
     abstract class analysis_session extends Bootstrap {
         protected session_id: string;
@@ -90,6 +113,7 @@ declare namespace pages {
         protected init(): void;
         button_open_click(): void;
         run_click(): void;
+        private static plot3DScatter;
     }
 }
 declare namespace pages {
