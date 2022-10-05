@@ -57,26 +57,10 @@ declare namespace desktop {
 }
 declare namespace js_plot {
     class scatter3d {
-        private config;
-        private data;
-        private fieldIndices;
         private myChart;
-        getMaxOnExtent(): {
-            color: number;
-            symbolSize: number;
-        };
-        private load;
-        private onchange;
-        /**
-         * @param _data a array of js array to set as scatter plot data:
-         *
-         *    1. first element should be the point label
-         *    2. 2/3/4 element should be the number data to the scatter 3d
-        */
-        plot(_data: any, div?: string, schema?: {
-            name: string;
-            index: number;
-        }[]): void;
+        private option;
+        constructor(div?: string);
+        plot(data: any, symbolSize?: number): void;
     }
 }
 declare namespace pages {

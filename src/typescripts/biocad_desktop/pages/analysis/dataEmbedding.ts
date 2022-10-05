@@ -80,11 +80,14 @@ namespace pages {
                 .Select(a => [a[name], parseFloat(a[x]), parseFloat(a[y]), parseFloat(a[z])])
                 .ToArray()
                 ;
+            data = [
+                ["", "dim1", "dim2", "dim3"]
+            ].concat(data);
 
             console.log("view of the data matrix for plot 3d scatter:");
             console.log(data);
 
-            new js_plot.scatter3d().plot(data, "Rplot_js");
+            new js_plot.scatter3d("Rplot_js").plot(data);
         }
     }
 }
