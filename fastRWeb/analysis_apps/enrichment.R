@@ -29,7 +29,13 @@ const run = function(id, background, symbols, ssid = md5(`enrichment-${toString(
     |> as.data.frame()
     ;
 
-    saveRDS(result, file = session_file);
+    print(`Get ${nrow(result)} enrichment anlysis result hits!`);
+
+    if (nrow(result) == 0) {
+        stop("Sorry, no enrichment result was found!");
+    }
+
     print(result, max.print = 6);
+    saveRDS(result, file = session_file);
     write.csv(result, file = buffer("dataframe"), tsv = TRUE);
 }
