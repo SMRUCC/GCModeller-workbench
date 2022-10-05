@@ -98,7 +98,7 @@
                                 <li><i class="fas fa-thumbtack"></i> &nbsp; <a href="#"
                                         onclick="apps.gcmodeller.openDataEmbedding();">Data Embedding Analysis</a></li>
                                 <li><i class="fas fa-thumbtack"></i> &nbsp;
-                                    <a href="#" onclick="apps.gcmodeller.openDataEmbedding();">Enrichment Analysis</a>
+                                    <a href="#" onclick="apps.gcmodeller.openEnrichment();">Enrichment Analysis</a>
                                 </li>
                             </ul>
                         </div>
