@@ -54,7 +54,7 @@ Public Class FormMainHost
     End Function
 
     Public Sub CloseAllDocuments()
-        For Each form As DockContent In dockPanel.Documents
+        For Each form As DockContent In dockPanel.Documents.ToArray
             If TypeOf form Is FormWebView2Page AndAlso form.DockState = DockState.Document Then
                 Call form.Close()
             End If
