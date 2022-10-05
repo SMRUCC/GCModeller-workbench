@@ -14,7 +14,6 @@
 <body>
     <!-- Start your project here-->
     <div class="container">
-        <br />
         <div class="row">
             <div class="col-8">
                 <br />
