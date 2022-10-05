@@ -13,7 +13,6 @@ Public Class FormSplashScreen
 
     Private Sub InitLoad()
         Call Globals.Load()
-        Call Globals.host.Invoke(Sub() Globals.host.ShowMainPage())
         Call Thread.Sleep(1500)
         Call Me.Invoke(Sub() Close())
     End Sub

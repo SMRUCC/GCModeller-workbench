@@ -211,6 +211,8 @@
     <Compile Include="Application\Workbench.vb" />
     <Compile Include="Application\Globals.vb" />
     <Compile Include="DocumentPages\WebApps\AppTasks.vb" />
+    <Compile Include="DocumentPages\WebApps\AppIndex.vb" />
+    <Compile Include="DocumentPages\WebApps\MainIndex.vb" />
     <Compile Include="DocumentPages\WebApps\RunEnrichment.vb" />
     <Compile Include="DocumentPages\WebApps\ImportsNCBITaxonomy.vb" />
     <Compile Include="DocumentPages\WebApps\ImportsUniprot.vb" />
