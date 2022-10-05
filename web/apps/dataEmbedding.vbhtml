@@ -33,8 +33,13 @@
                         <!-- Parameter content and data files at here -->
                         <div class="row">
                             <div class="col-auto">
+                                <p>
+                                    Set the result dimensions of the data embedding output, this value should be smaller
+                                    than the columns feature numbers of your input data matrix. recommended at least
+                                    result 3 dimensions of your data embedding analysis:
+                                </p>
                                 <label for="dimensions" class="form-label">Dimensions:</label>
-                                <input type="text" class="form-control" id="dimensions" />
+                                <input type="text" class="form-control" id="dimensions" value="3" />
                             </div>
                         </div>
 
@@ -101,7 +106,7 @@
                         </section>
                         <section id="example-sub-B-collapsible">
                             <h3>Data Table</h3>
-
+                            <p>Only peeks of the top 10 rows of your data embedding result at here:</p>
                             <div class="row">
                                 <div class="col-auto"></div>
                             </div>
