@@ -425,18 +425,19 @@ var pages;
                                 });
                                 const clusters = message.info.clusters;
                                 const cluster_id = Object.keys(clusters);
-                                console.log(clusters);
-                                console.log(cluster_id);
                                 const data = $from(cluster_id)
                                     .Select(function (cid) {
-                                    return `<div>${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]</div>`;
-                                })
-                                    .ToArray();
-                                const clusterize = new Clusterize({
-                                    rows: data,
-                                    scrollId: 'scrollArea',
-                                    contentId: 'contentArea'
+                                    return `<li>${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]</li>`;
                                 });
+                                // console.log(clusters);
+                                // console.log(cluster_id);
+                                // console.log(data);
+                                $ts("#contentArea").clear();
+                                $ts("#contentArea").display(data.JoinBy(""));
+                                // const clusterize = new Clusterize({                                
+                                //     scrollId: 'scrollArea',
+                                //     contentId: 'contentArea'
+                                // });
                                 $ts("#busy-indicator").hide();
                                 $ts("#modal-close1").onclick = () => galleryModal.hide();
                                 $ts("#modal-close2").onclick = () => galleryModal.hide();

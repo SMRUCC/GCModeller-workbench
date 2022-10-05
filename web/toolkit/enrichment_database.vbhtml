@@ -113,9 +113,9 @@
 
 
             <div id="scrollArea" class="clusterize-scroll">
-              <div id="contentArea" class="clusterize-content">
-                <div class="clusterize-no-data">Loading data…</div>
-              </div>
+              <ol id="contentArea" class="clusterize-content">
+
+              </ol>
             </div>
 
             <div class="row">

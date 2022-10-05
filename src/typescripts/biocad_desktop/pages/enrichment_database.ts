@@ -144,18 +144,22 @@ namespace pages {
                             });
                             const clusters: {} = (<any>message.info).clusters;
                             const cluster_id: string[] = Object.keys(clusters);
-                            console.log(clusters);
-                            console.log(cluster_id);
-                            const data: string[] = $from(cluster_id)
+                            const data: IEnumerator<string> = $from(cluster_id)
                                 .Select(function (cid) {
-                                    return `<div>${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]</div>`
-                                })
-                                .ToArray();
-                            const clusterize = new Clusterize({
-                                rows: data,
-                                scrollId: 'scrollArea',
-                                contentId: 'contentArea'
-                            });
+                                    return `<li>${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]</li>`;
+                                });
+
+                            // console.log(clusters);
+                            // console.log(cluster_id);
+                            // console.log(data);
+
+                            $ts("#contentArea").clear();
+                            $ts("#contentArea").display(data.JoinBy(""));
+
+                            // const clusterize = new Clusterize({                                
+                            //     scrollId: 'scrollArea',
+                            //     contentId: 'contentArea'
+                            // });
 
                             $ts("#busy-indicator").hide();
                             $ts("#modal-close1").onclick = () => galleryModal.hide();
