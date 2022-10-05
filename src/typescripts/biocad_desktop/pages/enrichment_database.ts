@@ -92,7 +92,9 @@ namespace pages {
 
                                 hookLinks = function () {
                                     for (let name of backgrounds.Select(a => a.name).ToArray()) {
-                                        $ts(`#model-${name}`).onclick = function () {
+                                        const id: string = `#model-${name}`;
+                                        console.log(id);
+                                        $ts(id).onclick = function () {
                                             console.log(`view background model: ${name}...`);
                                         }
                                     }
@@ -112,7 +114,7 @@ namespace pages {
 
                             $ts("#summary-info").display(sb);
 
-                            if (!hookLinks) {
+                            if (!isNullOrUndefined(hookLinks)) {
                                 hookLinks();
                             }
                         });

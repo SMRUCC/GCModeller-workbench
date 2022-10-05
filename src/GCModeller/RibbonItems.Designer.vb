@@ -71,13 +71,13 @@ Namespace RibbonLib.Controls
             Public Const CmdAlignRight As UInteger = 23
             Public Const CmdAlignJustify As UInteger = 24
             Public Const CmdParagraph As UInteger = 25
-            Public Const CmdGroupInsert As UInteger = 26
+            Public Const CmdGroupWorkbenchApps As UInteger = 26
             Public Const CmdInsertPictureMore As UInteger = 28
             Public Const CmdInsertPicture As UInteger = 27
             Public Const CmdChangePicture As UInteger = 29
             Public Const CmdResizePicture As UInteger = 30
             Public Const CmdPaintDrawing As UInteger = 31
-            Public Const CmdDateAndTime As UInteger = 32
+            Public Const CmdViewAppTasks As UInteger = 32
             Public Const CmdInsertObject As UInteger = 33
             Public Const CmdGroupEditing As UInteger = 34
             Public Const CmdFind As UInteger = 35
@@ -459,10 +459,10 @@ Namespace RibbonLib.Controls
                 Return _Paragraph
             End Get
         End Property
-        Private _GroupInsert As RibbonGroup
-        Public ReadOnly Property GroupInsert As RibbonGroup
+        Private _GroupWorkbenchApps As RibbonGroup
+        Public ReadOnly Property GroupWorkbenchApps As RibbonGroup
             Get
-                Return _GroupInsert
+                Return _GroupWorkbenchApps
             End Get
         End Property
         Private _InsertPictureMore As RibbonSplitButton
@@ -495,10 +495,10 @@ Namespace RibbonLib.Controls
                 Return _PaintDrawing
             End Get
         End Property
-        Private _DateAndTime As RibbonButton
-        Public ReadOnly Property DateAndTime As RibbonButton
+        Private _ViewAppTasks As RibbonButton
+        Public ReadOnly Property ViewAppTasks As RibbonButton
             Get
-                Return _DateAndTime
+                Return _ViewAppTasks
             End Get
         End Property
         Private _InsertObject As RibbonButton
@@ -772,13 +772,13 @@ Namespace RibbonLib.Controls
             _AlignRight = New RibbonToggleButton(_ribbon, Cmd.CmdAlignRight)
             _AlignJustify = New RibbonToggleButton(_ribbon, Cmd.CmdAlignJustify)
             _Paragraph = New RibbonButton(_ribbon, Cmd.CmdParagraph)
-            _GroupInsert = New RibbonGroup(_ribbon, Cmd.CmdGroupInsert)
+            _GroupWorkbenchApps = New RibbonGroup(_ribbon, Cmd.CmdGroupWorkbenchApps)
             _InsertPictureMore = New RibbonSplitButton(_ribbon, Cmd.CmdInsertPictureMore)
             _InsertPicture = New RibbonButton(_ribbon, Cmd.CmdInsertPicture)
             _ChangePicture = New RibbonButton(_ribbon, Cmd.CmdChangePicture)
             _ResizePicture = New RibbonButton(_ribbon, Cmd.CmdResizePicture)
             _PaintDrawing = New RibbonButton(_ribbon, Cmd.CmdPaintDrawing)
-            _DateAndTime = New RibbonButton(_ribbon, Cmd.CmdDateAndTime)
+            _ViewAppTasks = New RibbonButton(_ribbon, Cmd.CmdViewAppTasks)
             _InsertObject = New RibbonButton(_ribbon, Cmd.CmdInsertObject)
             _GroupEditing = New RibbonGroup(_ribbon, Cmd.CmdGroupEditing)
             _Find = New RibbonButton(_ribbon, Cmd.CmdFind)

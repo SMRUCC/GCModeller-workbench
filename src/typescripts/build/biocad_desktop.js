@@ -375,7 +375,9 @@ var pages;
                                 desktop.showToastMessage("Success!", title, null, "success");
                                 hookLinks = function () {
                                     for (let name of backgrounds.Select(a => a.name).ToArray()) {
-                                        $ts(`#model-${name}`).onclick = function () {
+                                        const id = `#model-${name}`;
+                                        console.log(id);
+                                        $ts(id).onclick = function () {
                                             console.log(`view background model: ${name}...`);
                                         };
                                     }
@@ -393,7 +395,7 @@ var pages;
                                 desktop.showToastMessage(message.info, title, null, "danger");
                             }
                             $ts("#summary-info").display(sb);
-                            if (!hookLinks) {
+                            if (!isNullOrUndefined(hookLinks)) {
                                 hookLinks();
                             }
                         });

@@ -74,13 +74,13 @@ namespace RibbonLib.Controls
             public const uint CmdAlignRight = 23;
             public const uint CmdAlignJustify = 24;
             public const uint CmdParagraph = 25;
-            public const uint CmdGroupInsert = 26;
+            public const uint CmdGroupWorkbenchApps = 26;
             public const uint CmdInsertPictureMore = 28;
             public const uint CmdInsertPicture = 27;
             public const uint CmdChangePicture = 29;
             public const uint CmdResizePicture = 30;
             public const uint CmdPaintDrawing = 31;
-            public const uint CmdDateAndTime = 32;
+            public const uint CmdViewAppTasks = 32;
             public const uint CmdInsertObject = 33;
             public const uint CmdGroupEditing = 34;
             public const uint CmdFind = 35;
@@ -182,13 +182,13 @@ namespace RibbonLib.Controls
         public RibbonToggleButton AlignRight { get; private set; }
         public RibbonToggleButton AlignJustify { get; private set; }
         public RibbonButton Paragraph { get; private set; }
-        public RibbonGroup GroupInsert { get; private set; }
+        public RibbonGroup GroupWorkbenchApps { get; private set; }
         public RibbonSplitButton InsertPictureMore { get; private set; }
         public RibbonButton InsertPicture { get; private set; }
         public RibbonButton ChangePicture { get; private set; }
         public RibbonButton ResizePicture { get; private set; }
         public RibbonButton PaintDrawing { get; private set; }
-        public RibbonButton DateAndTime { get; private set; }
+        public RibbonButton ViewAppTasks { get; private set; }
         public RibbonButton InsertObject { get; private set; }
         public RibbonGroup GroupEditing { get; private set; }
         public RibbonButton Find { get; private set; }
@@ -285,13 +285,13 @@ namespace RibbonLib.Controls
             AlignRight = new RibbonToggleButton(ribbon, Cmd.CmdAlignRight);
             AlignJustify = new RibbonToggleButton(ribbon, Cmd.CmdAlignJustify);
             Paragraph = new RibbonButton(ribbon, Cmd.CmdParagraph);
-            GroupInsert = new RibbonGroup(ribbon, Cmd.CmdGroupInsert);
+            GroupWorkbenchApps = new RibbonGroup(ribbon, Cmd.CmdGroupWorkbenchApps);
             InsertPictureMore = new RibbonSplitButton(ribbon, Cmd.CmdInsertPictureMore);
             InsertPicture = new RibbonButton(ribbon, Cmd.CmdInsertPicture);
             ChangePicture = new RibbonButton(ribbon, Cmd.CmdChangePicture);
             ResizePicture = new RibbonButton(ribbon, Cmd.CmdResizePicture);
             PaintDrawing = new RibbonButton(ribbon, Cmd.CmdPaintDrawing);
-            DateAndTime = new RibbonButton(ribbon, Cmd.CmdDateAndTime);
+            ViewAppTasks = new RibbonButton(ribbon, Cmd.CmdViewAppTasks);
             InsertObject = new RibbonButton(ribbon, Cmd.CmdInsertObject);
             GroupEditing = new RibbonGroup(ribbon, Cmd.CmdGroupEditing);
             Find = new RibbonButton(ribbon, Cmd.CmdFind);

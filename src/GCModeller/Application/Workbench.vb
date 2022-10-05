@@ -15,6 +15,7 @@ Public Class Workbench
         AddHandler Ribbon.About.ExecuteEvent, Sub() Call New FormSplashScreen().Show()
         AddHandler Ribbon.ButtonEnrichmentDatabase.ExecuteEvent, Sub() Call WebApp.Open(Of ImportsUniprot)()
         AddHandler Ribbon.ButtonNCBITaxonomy.ExecuteEvent, Sub() Call WebApp.Open(Of ImportsNCBITaxonomy)()
+        AddHandler Ribbon.ViewAppTasks.ExecuteEvent, Sub() Call WebApp.Open(Of AppTasks)()
 
         AddHandler Ribbon.ZoomIn.ExecuteEvent, Sub() Call WebApp.SetZoomFactor(5)
         AddHandler Ribbon.ZoomOut.ExecuteEvent, Sub() Call WebApp.SetZoomFactor(-5)

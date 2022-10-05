@@ -220,7 +220,7 @@
         <Image MinDPI="192">Res/PaintDrawing_L192.bmp</Image>
       </Command.LargeImages>
     </Command>
-    <Command Name="CmdDateAndTime" LabelTitle="Date and time" TooltipTitle="Insert date and time" TooltipDescription="Click here for date and time format options">
+    <Command Name="CmdViewAppTasks" LabelTitle="App Tasks" LabelDescription="App Tasks" TooltipTitle="App Tasks" TooltipDescription="App Tasks">
       <Command.SmallImages>
         <Image>Res/DateAndTime_S096.bmp</Image>
         <Image MinDPI="120">Res/DateAndTime_S120.bmp</Image>
@@ -871,8 +871,9 @@
       <Ribbon.ContextualTabs>
         <TabGroup CommandName="cmdGroupDatabase">
           <Tab CommandName="cmdTabDatabase">
-            <Group CommandName="cmdTabGroupDatabase" SizeDefinition="OneButton">
+            <Group CommandName="cmdTabGroupDatabase" SizeDefinition="TwoButtons">
               <Button CommandName="cmdButtonEnrichmentDatabase" />
+              <Button CommandName="cmdButtonNCBITaxonomy" />
             </Group>
           </Tab>
         </TabGroup>
@@ -946,7 +947,7 @@
               <Button CommandName="CmdResizePicture" />
             </SplitButton>
             <Button CommandName="CmdPaintDrawing" />
-            <Button CommandName="CmdDateAndTime" />
+            <Button CommandName="CmdViewAppTasks" />
             <Button CommandName="CmdInsertObject" />
           </Group>
           <Group CommandName="CmdGroupEditing" SizeDefinition="ThreeButtons">
