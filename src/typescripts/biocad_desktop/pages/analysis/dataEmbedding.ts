@@ -13,17 +13,14 @@ namespace pages {
         }
 
         public button_open_click() {
+            const textbox = $ts("#matrix-file").CType<HTMLInputElement>();
+
             $ts("#busy-indicator").show();
 
             apps.gcmodeller
                 .getFileOpen("Excel Matrix(*.csv)|*.csv")
                 .then(async function (result) {
-                    const filepath: string = await result;
-
-                    if (!Strings.Empty(filepath)) {
-                        $ts("#matrix-file").CType<HTMLInputElement>().value = filepath;
-                    }
-
+                    textbox.value = await result;
                     $ts("#busy-indicator").hide();
                 });
         }

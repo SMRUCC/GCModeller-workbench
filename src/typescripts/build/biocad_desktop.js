@@ -446,15 +446,13 @@ var pages;
             // throw new Error("Method not implemented.");
         }
         button_open_click() {
+            const textbox = $ts("#matrix-file").CType();
             $ts("#busy-indicator").show();
             apps.gcmodeller
                 .getFileOpen("Excel Matrix(*.csv)|*.csv")
                 .then(function (result) {
                 return __awaiter(this, void 0, void 0, function* () {
-                    const filepath = yield result;
-                    if (!Strings.Empty(filepath)) {
-                        $ts("#matrix-file").CType().value = filepath;
-                    }
+                    textbox.value = yield result;
                     $ts("#busy-indicator").hide();
                 });
             });

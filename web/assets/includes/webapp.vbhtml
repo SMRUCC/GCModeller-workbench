@@ -1,10 +1,10 @@
 <div id="busy-indicator" style="
 z-index:999999; 
 position: absolute; 
-left: 0; 
+left: -25%; 
 top: 0; 
 float: left; 
-width: 200%;
+width: 150%;
 height: 100%; 
 background-color: rgba(0, 0, 0, 0.555); 
 display: none;">
