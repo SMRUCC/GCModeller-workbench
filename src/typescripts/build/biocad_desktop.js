@@ -390,7 +390,7 @@ var pages;
         }
         static summaryLine(name, info) {
             return `<div>
-            <span class="badge rounded-pill badge-success">${name}</span>
+            <span class="badge rounded-pill badge-success"><i class="fab fa-laravel"></i>${name}</span>
             ${info.clusters} / ${info.unique_size}
             </div>`;
         }
