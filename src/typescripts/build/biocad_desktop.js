@@ -196,7 +196,10 @@ var js_plot;
     class scatter3d {
         constructor(div = "Rplot_js") {
             this.option = {};
-            this.myChart = echarts.init(document.getElementById(div));
+            this.myChart = echarts.init(document.getElementById(div), null, {
+                renderer: 'canvas',
+                useDirtyRect: false
+            });
             this.option && this.myChart.setOption(this.option);
         }
         plot(data, symbolSize = 30) {
@@ -228,6 +231,7 @@ var js_plot;
                 ]
             };
             this.myChart.setOption(this.option);
+            window.addEventListener('resize', this.myChart.resize);
         }
     }
     js_plot.scatter3d = scatter3d;

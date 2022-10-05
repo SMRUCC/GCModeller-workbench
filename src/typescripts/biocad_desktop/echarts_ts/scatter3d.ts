@@ -6,7 +6,10 @@ namespace js_plot {
         private option = {};
 
         public constructor(div: string = "Rplot_js") {
-            this.myChart = echarts.init(document.getElementById(div));
+            this.myChart = echarts.init(document.getElementById(div), null, {
+                renderer: 'canvas',
+                useDirtyRect: false
+            });
             this.option && this.myChart.setOption(this.option);
         }
 
@@ -40,6 +43,7 @@ namespace js_plot {
             };
 
             this.myChart.setOption(this.option);
+            window.addEventListener('resize', this.myChart.resize);
         }
     }
 }
