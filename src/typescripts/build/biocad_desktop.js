@@ -357,25 +357,35 @@ var pages;
                         desktop.parseResultFlag(result, message).then(function (flag) {
                             const title = flag ? "Load Database Success" : "Load Database Error";
                             const data = message.info;
-                            const backgrounds = $from(Object.keys(data.summary))
-                                .Select(function (name) {
-                                const info = data.summary[name];
-                                const pack = { name: name, info: info };
-                                return pack;
-                            })
-                                .Where(a => a.info.unique_size > 0)
-                                .Where(a => a.info.unique_size / a.info.clusters > 1);
-                            const protein_ids = backgrounds
-                                .Select(a => enrichment_database.summaryLine(a.name, a.info))
-                                .JoinBy("");
+                            let hookLinks = null;
                             console.log(data);
                             if (flag) {
+                                const backgrounds = $from(Object.keys(data.summary))
+                                    .Select(function (name) {
+                                    const info = data.summary[name];
+                                    const pack = { name: name, info: info };
+                                    return pack;
+                                })
+                                    .Where(a => a.info.unique_size > 0)
+                                    .Where(a => a.info.unique_size / a.info.clusters > 1);
+                                const protein_ids = backgrounds
+                                    .Select(a => enrichment_database.summaryLine(a.name, a.info))
+                                    .JoinBy("");
                                 // success
                                 desktop.showToastMessage("Success!", title, null, "success");
+                                hookLinks = function () {
+                                    for (let name of backgrounds.Select(a => a.name).ToArray()) {
+                                        $ts(`#model-${name}`).onclick = function () {
+                                            console.log(`view background model: ${name}...`);
+                                        };
+                                    }
+                                };
                                 sb = sb + `<span class="badge badge-primary">Protein Counts</span>: ${data.counts}<br />`;
                                 sb = sb + `<span class="badge badge-primary">Models</span>: ${backgrounds.Count}<br />`;
                                 sb = sb + `<span class="badge badge-primary">Backgrounds</span>: <br /><br />
+                                    <ul class="list-group list-group-light">
                                         ${protein_ids}
+                                    </ul>
                                 `;
                             }
                             else {
@@ -383,16 +393,24 @@ var pages;
                                 desktop.showToastMessage(message.info, title, null, "danger");
                             }
                             $ts("#summary-info").display(sb);
+                            if (!hookLinks) {
+                                hookLinks();
+                            }
                         });
                     });
                 });
             });
         }
         static summaryLine(name, info) {
-            return `<div>
-            <span class="badge rounded-pill badge-success"><i class="fab fa-laravel"></i>${name}</span>
-            ${info.clusters} / ${info.unique_size}
-            </div>`;
+            return `<li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <span class="badge rounded-pill badge-success">                
+                                <i class="fab fa-laravel"></i>&nbsp;${name}              
+                            </span>
+                            ${info.clusters} / ${info.unique_size}
+                        </div>
+                        <a id="model-${name}" class="btn btn-link btn-rounded btn-sm" href="#" role="button">View</a>
+                    </li>`;
         }
         static buildDbCard(key, metadata) {
             return $ts("<div>", { class: ["card", "shadow-5"], style: "width: 300px;" }).display(` 

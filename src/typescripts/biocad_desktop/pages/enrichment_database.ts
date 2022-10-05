@@ -67,31 +67,43 @@ namespace pages {
                                 }
                             } = <any>message.info;
 
-                            const backgrounds = $from(Object.keys(data.summary))
-                                .Select(function (name) {
-                                    const info: { clusters: number, unique_size: number } = data.summary[name];
-                                    const pack = { name: name, info: info };
-
-                                    return pack;
-                                })
-                                .Where(a => a.info.unique_size > 0)
-                                .Where(a => a.info.unique_size / a.info.clusters > 1)
-                                ;
-                            const protein_ids: string = backgrounds
-                                .Select(a => enrichment_database.summaryLine(a.name, a.info))
-                                .JoinBy("")
-                                ;
+                            let hookLinks: Delegate.Action = null;
 
                             console.log(data);
 
                             if (flag) {
+                                const backgrounds = $from(Object.keys(data.summary))
+                                    .Select(function (name) {
+                                        const info: { clusters: number, unique_size: number } = data.summary[name];
+                                        const pack = { name: name, info: info };
+
+                                        return pack;
+                                    })
+                                    .Where(a => a.info.unique_size > 0)
+                                    .Where(a => a.info.unique_size / a.info.clusters > 1)
+                                    ;
+                                const protein_ids: string = backgrounds
+                                    .Select(a => enrichment_database.summaryLine(a.name, a.info))
+                                    .JoinBy("")
+                                    ;
+
                                 // success
                                 desktop.showToastMessage("Success!", title, null, "success");
+
+                                hookLinks = function () {
+                                    for (let name of backgrounds.Select(a => a.name).ToArray()) {
+                                        $ts(`#model-${name}`).onclick = function () {
+                                            console.log(`view background model: ${name}...`);
+                                        }
+                                    }
+                                }
 
                                 sb = sb + `<span class="badge badge-primary">Protein Counts</span>: ${data.counts}<br />`;
                                 sb = sb + `<span class="badge badge-primary">Models</span>: ${backgrounds.Count}<br />`;
                                 sb = sb + `<span class="badge badge-primary">Backgrounds</span>: <br /><br />
+                                    <ul class="list-group list-group-light">
                                         ${protein_ids}
+                                    </ul>
                                 `;
                             } else {
                                 // error
@@ -99,16 +111,25 @@ namespace pages {
                             }
 
                             $ts("#summary-info").display(sb);
+
+                            if (!hookLinks) {
+                                hookLinks();
+                            }
                         });
                     });
                 });
         }
 
         private static summaryLine(name: string, info: { clusters: number, unique_size: number }): string {
-            return `<div>
-            <span class="badge rounded-pill badge-success"><i class="fab fa-laravel"></i>${name}</span>
-            ${info.clusters} / ${info.unique_size}
-            </div>`;
+            return `<li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <span class="badge rounded-pill badge-success">                
+                                <i class="fab fa-laravel"></i>&nbsp;${name}              
+                            </span>
+                            ${info.clusters} / ${info.unique_size}
+                        </div>
+                        <a id="model-${name}" class="btn btn-link btn-rounded btn-sm" href="#" role="button">View</a>
+                    </li>`;
         }
 
         private static buildDbCard(key: string, metadata: { name: string, note: string }): HTMLElement {
