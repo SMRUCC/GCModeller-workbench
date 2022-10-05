@@ -19,13 +19,16 @@ var apps;
         }
         catch (Error) {
             return {
-                getUniprotXmlDatabase: warningMsg
+                getUniprotXmlDatabase: warningMsg,
+                scanDatabase: warningMsg,
+                openEnrichmentPage: warningMsg,
+                sendPost: warningMsg
             };
         }
     }
     function warningMsg() {
         return __awaiter(this, void 0, void 0, function* () {
-            throw new Error("Please run from webview2 application!");
+            desktop.showToastMessage("Please run from webview2 application!", "Web app error", null, "warning");
         });
     }
     function run() {
