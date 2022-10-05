@@ -138,16 +138,17 @@ namespace pages {
             apps.gcmodeller.sendPost($ts.url("@web_invoke_loadModel"), json).then(async function (result) {
                 desktop.parseMessage(result).then(function (message) {
                     desktop.parseResultFlag(result, message).then(function (flag) {
-                        console.log(message);
-
                         if (flag) {
                             const galleryModal = new bootstrap.Modal($ts('#view-background'), {
                                 keyboard: false
                             });
-                            const clusters = message.info;
-                            const data = $from(Object.keys(clusters))
+                            const clusters: {} = (<any>message.info).clusters;
+                            const cluster_id: string[] = Object.keys(clusters);
+                            console.log(clusters);
+                            console.log(cluster_id);
+                            const data: string[] = $from(cluster_id)
                                 .Select(function (cid) {
-                                    return `<div>${cid} [${clusters[cid].length} proteins]</div>`
+                                    return `<div>${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]</div>`
                                 })
                                 .ToArray();
                             const clusterize = new Clusterize({

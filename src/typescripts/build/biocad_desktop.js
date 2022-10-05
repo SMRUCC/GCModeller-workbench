@@ -419,15 +419,17 @@ var pages;
                 return __awaiter(this, void 0, void 0, function* () {
                     desktop.parseMessage(result).then(function (message) {
                         desktop.parseResultFlag(result, message).then(function (flag) {
-                            console.log(message);
                             if (flag) {
                                 const galleryModal = new bootstrap.Modal($ts('#view-background'), {
                                     keyboard: false
                                 });
-                                const clusters = message.info;
-                                const data = $from(Object.keys(clusters))
+                                const clusters = message.info.clusters;
+                                const cluster_id = Object.keys(clusters);
+                                console.log(clusters);
+                                console.log(cluster_id);
+                                const data = $from(cluster_id)
                                     .Select(function (cid) {
-                                    return `<div>${cid} [${clusters[cid].length} proteins]</div>`;
+                                    return `<div>${cid.replace(/[<]/ig, "&lt;")} [${clusters[cid].length} proteins]</div>`;
                                 })
                                     .ToArray();
                                 const clusterize = new Clusterize({
