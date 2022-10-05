@@ -455,6 +455,7 @@ var pages;
                     if (!Strings.Empty(filepath)) {
                         $ts("#matrix-file").CType().value = filepath;
                     }
+                    $ts("#busy-indicator").hide();
                 });
             });
         }

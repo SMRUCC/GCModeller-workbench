@@ -23,6 +23,8 @@ namespace pages {
                     if (!Strings.Empty(filepath)) {
                         $ts("#matrix-file").CType<HTMLInputElement>().value = filepath;
                     }
+
+                    $ts("#busy-indicator").hide();
                 });
         }
 

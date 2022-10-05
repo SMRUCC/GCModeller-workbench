@@ -4,7 +4,7 @@ position: absolute;
 left: 0; 
 top: 0; 
 float: left; 
-width: 100%;
+width: 200%;
 height: 100%; 
 background-color: rgba(0, 0, 0, 0.555); 
 display: none;">
