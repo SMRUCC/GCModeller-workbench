@@ -86,6 +86,23 @@
                         </section>
                         <section id="constants">
                             <h3>Constants</h3>
+
+
+                            <div class="row">
+                                <div class="col-auto" id="constant-list">
+
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-auto">
+                                    <button class="btn btn-success" type="button" id="add_constant">Add Constant
+                                    </button>
+                                </div>
+                            </div>
                         </section>
 
                     </section>

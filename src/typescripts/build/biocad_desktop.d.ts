@@ -123,5 +123,6 @@ declare namespace pages {
         protected init(): void;
         add_equation_click(): void;
         private equationIndexing;
+        add_constant_click(): void;
     }
 }

@@ -36,18 +36,43 @@ namespace pages {
             (<DOMEnumerator<HTMLButtonElement>><any>$ts(".del-eq")).onClick(function (btn) {
                 btn.removeAttribute("onclick");
                 odes.removeChild(btn.parentElement);
-                vm.equationIndexing();
+                vm.equationIndexing(<any>$ts(".eq-index"));
             });
 
-            vm.equationIndexing();
+            vm.equationIndexing(<any>$ts(".eq-index"));
         }
 
-        private equationIndexing() {
-            const list = <DOMEnumerator<HTMLSpanElement>><any>$ts(".eq-index");
-
+        private equationIndexing(list: DOMEnumerator<HTMLSpanElement>) {
             list.ForEach(function (span, i) {
                 span.innerText = `${i + 1}. `;
             });
+        }
+
+        public add_constant_click() {
+            const symbols = $ts("#constant-list");
+            const div = $ts("<div>", {
+                class: ["input-group", "mb-3", "const"]
+            }).display(`
+                <span class="input-group-text const-index">1. </span>
+                <input type="text" class="form-control" placeholder="put constant symbol name at here"
+                    aria-label="constant">
+                <span class="input-group-text">, constant value=</span>
+                <input type="text" class="form-control"
+                    placeholder="Constant value of current symbol" aria-label="const_val">
+                <button class="btn btn-danger del-const" type="button"> Remove
+                </button>
+            `);
+            const vm = this;
+
+            symbols.appendElement(div);
+
+            (<DOMEnumerator<HTMLButtonElement>><any>$ts(".del-const")).onClick(function (btn) {
+                btn.removeAttribute("onclick");
+                symbols.removeChild(btn.parentElement);
+                vm.equationIndexing(<any>$ts(".const-index"));
+            });
+
+            vm.equationIndexing(<any>$ts(".const-index"));
         }
     }
 }
