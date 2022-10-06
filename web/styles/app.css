@@ -13,6 +13,6 @@
 /* Styles required only for the example above */
 .scrollspy-example {
     position: relative;
-    height: 200px;
-    overflow: auto;
+    height: 100%;
+    overflow: hidden;
 }
