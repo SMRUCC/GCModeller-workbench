@@ -134,7 +134,7 @@
 
             <!-- Section: Links  -->
             <section class="">
-                <div class="container text-center text-md-start mt-5">
+                <div class="container text-center text-md-start mt-5" style="margin-bottom: 0px; margin-top: 0px;">
                     <!-- Grid row -->
                     <div class="row mt-3">
                         <!-- Grid column -->

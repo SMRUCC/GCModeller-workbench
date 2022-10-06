@@ -133,5 +133,6 @@ declare namespace pages {
         };
         private static loadContents;
         run_click(): void;
+        createPlot(): void;
     }
 }

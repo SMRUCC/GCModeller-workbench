@@ -195,6 +195,7 @@ namespace pages {
                             $ts("#plas-table").clear();
                             $ts.appendTable(previews, "#plas-table", null, { class: ["table", "table-sm"] });
                             vm.session_id = ssid;
+                            vm.createPlot();
 
                             desktop.showToastMessage("Run system simulation job done!", "Run PLAS", "success");
                         } else {
@@ -202,6 +203,33 @@ namespace pages {
                         }
 
                         $ts("#busy-indicator").hide();
+                    });
+                });
+        }
+
+        public createPlot() {
+            const json: string = JSON.stringify({
+                ssid: this.session_id
+            });
+
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_Rplot"), json)
+                .then(async function (result) {
+                    desktop.promiseAsyncCallback<string>(result, function (success, message) {
+                        if (success) {
+                            // get url
+                            const url: string = message.info;
+                            // refresh image url
+                            const img_url: string = `${url}?refresh=${md5(desktop.now())}`;
+
+                            // show images
+                            $ts("#Rplot-box").CType<HTMLAnchorElement>().href = img_url;
+                            $ts("#Rplot_js").CType<HTMLImageElement>().src = img_url;
+
+                            $ts("#busy-indicator").hide();
+                        } else {
+                            desktop.showToastMessage(message.info, "Run PLAS", "danger");
+                        }
                     });
                 });
         }
