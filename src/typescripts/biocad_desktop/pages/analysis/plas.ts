@@ -142,8 +142,14 @@ namespace pages {
                 const val = textbox.item(1);
                 const data = { target: symbol.value, value: val.value };
 
-                contents.push(data);
+                if (!Strings.Empty(data.target)) {
+                    contents.push(data);
+                }
             });
+
+            if (contents.length != list.Count) {
+                desktop.showToastMessage("Some data is leaves empty, you can removes these empty data slots.", "Check PLAS Parameters", "warning");
+            }
 
             return contents;
         }
