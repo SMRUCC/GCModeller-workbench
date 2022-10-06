@@ -33,11 +33,13 @@ namespace pages {
             const dimensions: number = $ts.value("#dimensions");
             const method: string = $ts.select.getOption("#algorithm");
             const session_id: string = super.generateSsid({ file: filepath, dims: dimensions, algo: method });
+            const z_score: boolean = $ts.value("#z-score");
             const json = JSON.stringify({
                 file: filepath,
                 ssid: session_id,
                 dims: dimensions,
-                algorithm: method
+                algorithm: method,
+                z_score: z_score
             });
             const vm = this;
 

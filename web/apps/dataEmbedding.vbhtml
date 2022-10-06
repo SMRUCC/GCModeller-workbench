@@ -59,6 +59,26 @@
                                         <input type="text" class="form-control" id="dimensions" value="3" />
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <!-- Checked checkbox -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="z-score"
+                                                checked />
+                                            <label class="form-check-label" for="z-score">Z-score transformation</label>
+                                        </div>
+
+                                        <p>
+                                            A Z-score is a numerical measurement that describes a value's relationship
+                                            to the mean of a group of values. Z-score is measured in terms of standard
+                                            deviations from the mean. If a Z-score is 0, it indicates that the data
+                                            point's score is identical to the mean score. A Z-score of 1.0 would
+                                            indicate a value that is one standard deviation from the mean. Z-scores may
+                                            be positive or negative, with a positive value indicating the score is above
+                                            the mean and a negative score indicating it is below the mean.
+                                        </p>
+                                    </div>
+                                </div>
                                 <br />
                                 <p class="note note-info">
                                     <strong>Note:</strong> This parameter may affects the result data plot of
@@ -162,10 +182,11 @@
 
                                 </div>
                             </section>
-                 
+
                             <div class="row">
                                 <div class="col-auto">
-                                    <button id="refresh_Rplot" type="submit" class="btn btn-primary mb-3">Refresh</button>
+                                    <button id="refresh_Rplot" type="submit"
+                                        class="btn btn-primary mb-3">Refresh</button>
                                 </div>
                             </div>
 

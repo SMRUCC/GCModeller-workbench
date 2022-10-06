@@ -2,11 +2,28 @@ require(JSON);
 
 imports ["dataset", "umap", "t-SNE"] from "MLkit";
 
+const processMatrix = function(file, z_score) {
+    let matrix = read.csv(file, row.names = 1, check.names = FALSE);
+
+    print("required of z-score transformation?");
+    print(z_score);
+
+    if (as.logical(z_score)) {
+        for(name in colnames(matrix)) {
+            let v = matrix[, name];
+            v = (v-mean(v))/sd(v);
+            matrix[, name] = v;
+        }
+    }
+
+    matrix;
+}
+
 #' Do data embedding with different algorithm
 #' 
-const run = function(file, ssid, dims = 3, algorithm = ["PCA", "t-SNE", "UMAP"]) {
+const run = function(file, ssid, z_score = TRUE, dims = 3, algorithm = ["PCA", "t-SNE", "UMAP"]) {
     const session_file = `${getOption("system_tempdir")}/${ssid}/dataEmbedding.dat`;
-    const matrix = read.csv(file, row.names = 1, check.names = FALSE);
+    const matrix = processMatrix(file, z_score);
     const embedding = {
         "PCA": run_pca, 
         "t-SNE": run_tsne,
