@@ -26,14 +26,26 @@
 
                         <div class="clearfix">
                             <img class="col-md-6 float-md-end mb-3 ms-md-3 hover-shadow hover-zoom"
-                            src="/assets/images/106287.webp" style="width: 200px;">
-                        <p>
-                            A true understanding of genetic and metabolic function and design is facilitated by
-                            mathematical and computational methods for analyzing biochemical systems. This hands-on
-                            reference teaches biochemists and molecular biologists the use of modern computational
-                            methods for the analysis of complex biomedical systems requiring a modest mathematical
-                            background.
-                        </p>
+                                src="/assets/images/106287.webp" style="width: 200px;">
+
+                            <figure>
+
+                                <p> A true understanding of genetic and metabolic function and design is facilitated
+                                    by mathematical and computational methods for analyzing biochemical systems.
+                                    This
+                                    hands-on reference teaches biochemists and molecular biologists the use of
+                                    modern
+                                    computational methods for the analysis of complex biomedical systems requiring a
+                                    modest
+                                    mathematical background.</p>
+
+                                <figcaption class="blockquote-footer">
+                                    <cite title="Computational Analysis of Biochemical Systems">Computational Analysis
+                                        of Biochemical Systems: A Practical Guide for Biochemists and
+                                        Molecular Biologists</cite>
+                                </figcaption>
+                            </figure>
+
                         </div>
                     </section>
                     <section id="example-2">
