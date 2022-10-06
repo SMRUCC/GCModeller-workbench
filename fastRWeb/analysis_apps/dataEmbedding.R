@@ -50,12 +50,12 @@ const run_pca = function(matrix, dims = 3) {
 }
 
 const run_tsne = function(matrix, dims = 3) {
-    const tSNE = t.SNE()
+    const tSNE = t.SNE(dimension = dims)
 	|> data(matrix)
 	|> solve(iterations = 200)	
 	;
 	
 	tSNE 
-	|> as.data.frame(row.names = tags) 
+	|> as.data.frame(row.names = rownames(matrix)) 
 	;
 }
