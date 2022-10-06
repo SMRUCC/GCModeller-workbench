@@ -168,12 +168,12 @@
                                     <section class="p-4 d-flex justify-content-center text-center w-100">
                                         <div class="lightbox" data-id="lightbox-bm48lj2vb" id="lightbox">
                                             <div class="row">
-                                                <div class="col-lg-4">
+                                                <div class="col-auto">
                                                     <a href="/assets/images/empty.jpg" data-toggle="lightbox"
                                                         data-caption="2d/3d scatter plot" id="Rplot-box">
                                                         <img src="/assets/images/empty.jpg" alt="2d/3d scatter plot"
                                                             class="img-fluid w-100 my-lightbox-toggle"
-                                                            style="width: 400px;" id="Rplot_js">
+                                                            style="max-width: 400px;" id="Rplot_js">
                                                     </a>
                                                 </div>
 
