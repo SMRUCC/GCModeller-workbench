@@ -21,6 +21,9 @@ namespace pages {
             $ts.value("#time_final", "5");
             $ts.value("#resolution", "10000");
 
+            $ts("#equations").clear();
+            $ts("#constant-list").clear();
+
             for (let eq of [
                 ["x1=beta1*(lamda1*(1+alpha1*(x4^n1)/(1+x4^n1))-x1)", -100],
                 ["x2=x1-x2", -100000],
