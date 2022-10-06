@@ -9,6 +9,7 @@
 
         <meta name="web_invoke_embedding" content="http://localhost:7452/analysis_apps/dataEmbedding">
         <meta name="web_invoke_Rplot" content="http://localhost:7452/analysis_apps/Rplots/scatter3d">
+        <meta name="web_invoke_zip" content="http://localhost:7452/analysis_apps/report/zip/dataEmbedding">
 </head>
 
 <body>

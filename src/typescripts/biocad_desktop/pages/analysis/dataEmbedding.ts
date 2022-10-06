@@ -130,7 +130,35 @@ namespace pages {
         }
 
         public download_zip_click() {
-            
+            const url: string = $ts.url("@web_invoke_zip");
+            const json: string = JSON.stringify({
+                ssid: this.session_id
+            });
+
+            $ts("#busy-indicator").show();
+
+            if (!Strings.Empty(this.session_id)) {
+                apps.gcmodeller.sendPost(url, json).then(async function (result) {
+                    desktop.promiseAsyncCallback<string>(result, function (success, message) {
+                        if (success) {
+                            const features = `
+                                height=500, width=800, top=100, left=100, toolbar=no, 
+                                menubar=no,
+                                scrollbars=no,resizable=no, location=no, 
+                                status=no`;
+
+                            // request url to download
+                            window.open(message.info, "newW", features);
+                        } else {
+                            desktop.showToastMessage(message.info, `Report Error`, "danger");
+                        }
+
+                        $ts("#busy-indicator").hide();
+                    })
+                })
+            } else {
+                desktop.showToastMessage("Data session id can not be nothing!", `Report Error`, "danger");
+            }
         }
     }
 }

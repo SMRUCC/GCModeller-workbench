@@ -100,6 +100,8 @@ declare namespace pages {
         run_click(): void;
         private static plot3DScatter;
         refresh_Rplot_click(): void;
+        save_project_click(): void;
+        download_zip_click(): void;
     }
 }
 declare namespace pages {
