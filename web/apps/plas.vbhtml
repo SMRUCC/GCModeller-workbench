@@ -46,6 +46,14 @@
                                 </figcaption>
                             </figure>
 
+                            <p>
+                                Ordinary differential requations (ODE) are the most frequently used tool for modeling
+                                continuous-time nonlinear dynamical systems, used to describe responses of a dynamical
+                                system to all possible inputs and initial conditions. Equations which do not have a
+                                solution for some valid inputs and initial conditions do not define system’s behavior
+                                completely, and, hence, are inappropriate for use in analysis and design.
+                            </p>
+
                         </div>
                     </section>
                     <section id="example-2">
@@ -187,7 +195,12 @@
                         <h3>Reference</h3>
 
                         <ol>
-
+                            <li>Voit, Eberhard O. Computational analysis of biochemical systems: a practical guide for
+                                biochemists and molecular biologists. Cambridge University Press, 2000.</li>
+                            <li>
+                                W. Johnson, A Treatise on Ordinary and Partial Differential Equations, John Wiley and
+                                Sons, 1913, in University of Michigan Historical Math Collection
+                            </li>
                         </ol>
                     </section>
                     <section id="example-5">

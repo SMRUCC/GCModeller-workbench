@@ -1,6 +1,8 @@
 .container {
     margin-top: 30px;
     margin-bottom: 60px;
+    position: relative;
+    height: 100%;
 }
 
 /* Styles required only for the example above */
