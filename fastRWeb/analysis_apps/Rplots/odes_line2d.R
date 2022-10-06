@@ -15,21 +15,22 @@ const run = function(ssid) {
     |> which(name -> name != "#time") 
     |> lapply(name -> as.numeric(data[, name]), names = name -> name)
     ;
+    const colorSet = colors("paper", n = length(symbols), character = TRUE);
 
     print("time:");
     print(time_x);
     print("S-systems output:");
     str(symbols);
 
-    const lines = sapply(names(symbols), function(name) {
+    const lines = sapply(names(symbols), function(name, i) {
         const y = symbols[[name]];
-        const sline = serial(time_x, y, name = name, color = "black");
+        const sline = serial(time_x, y, name = name, color = colorSet[i]);
 
         sline;
     });
 
     bitmap(file = session_plot, size = [2100, 1600]) {
-        plot(lines);
+        plot(lines, line = TRUE, y.format = "G2", padding = "padding: 150px 200px 200px 300px;",grid.fill = "white");
     }
 
     json_encode({
