@@ -131,5 +131,57 @@ namespace pages {
 
             return { name: const_name, val: const_val };
         }
+
+        private static loadContents(div_class) {
+            const list: DOMEnumerator<HTMLElement> = <any>$ts(`.${div_class}`);
+            const contents: {}[] = [];
+
+            list.ForEach(function (div) {
+                const textbox = div.getElementsByTagName("input");
+                const symbol = textbox.item(0);
+                const val = textbox.item(1);
+                const data = { target: symbol.value, value: val.value };
+
+                contents.push(data);
+            });
+
+            return contents;
+        }
+
+        public run_click() {
+            $ts("#busy-indicator").show();
+
+            // extract odes system
+            const odes = runPLAS.loadContents("equation");
+            const constants = runPLAS.loadContents("const");
+            const time_final = $ts.value("#time_final");
+            const resolution = $ts.value("#resolution");
+            // get session unique id
+            const ssid: string = super.generateSsid({
+                sys: odes,
+                const: constants,
+                t: time_final,
+                resolution: resolution
+            });
+            const json: string = JSON.stringify({
+                odes: odes,
+                constants: constants,
+                final_time: time_final,
+                resolution: resolution,
+                session_id: ssid
+            });
+
+            apps.gcmodeller
+                .sendPost($ts.url("@web_invoke_run_plas"), json)
+                .then(async function (result) {
+                    desktop.promiseAsyncCallback<string>(result, function (success, message) {
+                        if (success) {
+
+                        } else {
+                            desktop.showToastMessage(message.info, "Run PLAS", "danger");
+                        }
+                    });
+                });
+        }
     }
 }

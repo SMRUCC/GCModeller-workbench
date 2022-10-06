@@ -111,6 +111,17 @@
                             </div>
                         </section>
 
+                        <div class="row">
+                            <div class="col-auto">
+                                <p>
+                                    Finally, click the <code>Run</code> button to run the simulator!
+                                </p>
+
+                                <button class="btn btn-info" type="button" id="run">Run
+                                </button>
+                            </div>
+                        </div>
+
                     </section>
                     <section id="example-3">
                         <h3>Analysis Result</h3>
