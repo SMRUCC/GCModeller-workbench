@@ -1,12 +1,25 @@
 require(ggplot);
 require(JSON);
 
-const run = function(ssid) {
+imports "clustering" from "MLkit";
+
+const run = function(ssid, k = 6) {
     const session_file = `${getOption("system_tempdir")}/${ssid}/dataEmbedding.dat`;
     const saveimage = `${getOption("system_tempdir")}/${ssid}/dataEmbedding.png`;
     const data = readRDS(session_file);
 
-    data[, "class"] = "class_unknow";
+    if (k <= 0) {
+        data[, "class"] = "class_unknow";
+    } else {
+        data = as.data.frame(kmeans(data, centers = k));
+        rownames(data) = data[, "ID"];
+        data[, "ID"] = NULL;
+        data[, "class"] = `class_${data[, "Cluster"]}`;
+        data[, "Cluster"] = NULL;
+        data[, "dim1"] = as.numeric(data[, "dim1"]);
+        data[, "dim2"] = as.numeric(data[, "dim2"]);
+        data[, "dim3"] = as.numeric(data[, "dim3"]);
+    }    
 
     print("view of the matrix data:");
     print(data, max.print = 6);
