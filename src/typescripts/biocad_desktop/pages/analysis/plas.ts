@@ -29,10 +29,9 @@ namespace pages {
 
             odes.appendElement(div);
 
-            $ts(".del-eq").onclick = null;
-            $ts(".del-eq").onclick = function (btn) {
+            (<DOMEnumerator<HTMLButtonElement>><any>$ts(".del-eq")).onClick(function (btn) {
                 console.log(btn);
-            }
+            });
         }
     }
 }
