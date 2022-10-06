@@ -63,7 +63,10 @@ const run_umap = function(matrix, dims = 3) {
 }
 
 const run_pca = function(matrix, dims = 3) {
-    stop("not implemented yet!");
+    const pca = prcomp(matrix);
+    const result = as.data.frame(pca, npc = dims);
+    colnames(result) = `dim${1:dims}`;
+    result;
 }
 
 const run_tsne = function(matrix, dims = 3) {
