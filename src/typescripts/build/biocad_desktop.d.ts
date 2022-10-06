@@ -122,5 +122,6 @@ declare namespace pages {
         readonly appName: string;
         protected init(): void;
         add_equation_click(): void;
+        private equationIndexing;
     }
 }
