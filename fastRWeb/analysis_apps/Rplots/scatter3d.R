@@ -6,7 +6,8 @@ imports "clustering" from "MLkit";
 const run = function(ssid, k = 6) {
     const session_file = `${getOption("system_tempdir")}/${ssid}/dataEmbedding.dat`;
     const saveimage = `${getOption("system_tempdir")}/${ssid}/dataEmbedding.png`;
-    const data = readRDS(session_file);
+    
+    let data = readRDS(session_file);
 
     if (k <= 0) {
         data[, "class"] = "class_unknow";

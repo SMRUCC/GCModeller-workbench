@@ -94,7 +94,8 @@ namespace pages {
         // }
         private static plot3DScatter(session_id: string) {
             const json: string = JSON.stringify({
-                ssid: session_id
+                ssid: session_id,
+                k: $ts.value("#kmeans")
             });
 
             apps.gcmodeller.sendPost($ts.url("@web_invoke_Rplot"), json).then(function (result) {

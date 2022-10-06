@@ -185,6 +185,18 @@
 
                             <div class="row">
                                 <div class="col-auto">
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p>
+                                                Set class colors via kmeans cluster method for current data visualization.
+                                            </p>
+
+                                            <label for="kmeans" class="form-label">Centers of k-means:</label>
+                                            <input type="text" class="form-control" id="kmeans" value="3" />
+                                        </div>
+                                    </div>
+
                                     <button id="refresh_Rplot" type="submit"
                                         class="btn btn-primary mb-3">Refresh</button>
                                 </div>
