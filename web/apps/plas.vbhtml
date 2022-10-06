@@ -125,23 +125,71 @@
                     </section>
                     <section id="example-3">
                         <h3>Analysis Result</h3>
-                        ...
+
+                        <p>
+                            The data analysis result for the simulator output consist with two parts:
+                            <br />
+                        <ol>
+                            <li>Rplot: interactive image plot for visualize your simulator outputs in line plots.</li>
+                            <li>Data Table: the simulator time frame snapshots result matrix outputs</li>
+                        </ol>
+                        </p>
+
                         <section id="example-sub-A">
                             <h3>Rplot</h3>
                             ...
                         </section>
                         <section id="example-sub-B">
                             <h3>Data Table</h3>
-                            ...
+
+                            <p>Only peeks of the top 10 rows of your simulator output result at here:</p>
+                            <div class="row">
+                                <div class="col-auto" id="plas-table">
+
+                                </div>
+                            </div>
+
+                            <p class="note note-info">
+                                <strong>Result table format:</strong><br />
+
+                                The output table data contains data fields:
+                                <br /><br />
+                                a. The first column is the time point data that the simulator in current run.<br />
+                                b. the other data fields is depends on the symbol names of your ODEs system variables
+                                that you has configed.
+                            </p>
+
                         </section>
                     </section>
                     <section id="example-4">
                         <h3>Reference</h3>
-                        ...
+
+                        <ol>
+
+                        </ol>
                     </section>
                     <section id="example-5">
                         <h3>Download</h3>
-                        ...
+
+                        <p>Save your analysis result files.</p>
+
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-info" id="save_project">
+                                Save To Project
+                            </button>
+
+                            <div class="btn-group" role="group">
+                                <button id="download-group" type="button" class="btn btn-primary dropdown-toggle"
+                                    data-mdb-toggle="dropdown" aria-expanded="false">
+                                    Download Report
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="download-group">
+                                    <li><a class="dropdown-item" href="#" id="download_zip">Download Zip Archive</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Print As PDF</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
                 </div>
                 <!-- Spied element -->

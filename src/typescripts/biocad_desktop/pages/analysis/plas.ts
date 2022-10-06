@@ -19,7 +19,7 @@ namespace pages {
             const vm = this;
 
             $ts.value("#time_final", "5");
-            $ts.value("#resolution", "10000");
+            $ts.value("#resolution", "100");
 
             $ts("#equations").clear();
             $ts("#constant-list").clear();
@@ -155,6 +155,8 @@ namespace pages {
         }
 
         public run_click() {
+            const vm = this;
+
             $ts("#busy-indicator").show();
 
             // extract odes system
@@ -188,7 +190,12 @@ namespace pages {
                 .then(async function (result) {
                     desktop.promiseAsyncCallback<string>(result, function (success, message) {
                         if (success) {
-                            console.log(message);
+                            const previews = $ts.csv(message.info, true).Objects();
+
+                            $ts("#plas-table").clear();
+                            $ts.appendTable(previews, "#plas-table", null, { class: ["table", "table-sm"] });
+                            vm.session_id = ssid;
+
                             desktop.showToastMessage("Run system simulation job done!", "Run PLAS", "success");
                         } else {
                             desktop.showToastMessage(message.info, "Run PLAS", "danger");
