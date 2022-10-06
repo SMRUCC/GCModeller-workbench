@@ -44,7 +44,7 @@ const run = function(odes, constants, session_id, final_time = 5, resolution = 1
         |> environment(symbols = consts)
         |> environment(symbols = symbols)
         |> s.system(ssystem = ssystem)
-        |> run(ticks = final_time, resolution = 1/as.numeric(resolution))
+        |> S.system::run(ticks = final_time, resolution = 1/as.numeric(resolution))
         ;
     }
 
