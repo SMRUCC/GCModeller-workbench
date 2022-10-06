@@ -164,8 +164,8 @@ namespace pages {
                 resolution: resolution
             });
             const json: string = JSON.stringify({
-                odes: odes,
-                constants: constants,
+                odes: JSON.stringify(odes),
+                constants: JSON.stringify(constants),
                 final_time: time_final,
                 resolution: resolution,
                 session_id: ssid
