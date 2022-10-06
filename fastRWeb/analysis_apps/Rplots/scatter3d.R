@@ -9,7 +9,7 @@ const run = function(ssid, k = 6) {
     
     let data = readRDS(session_file);
 
-    if (k <= 0) {
+    if (as.integer(k) <= 0) {
         data[, "class"] = "class_unknow";
     } else {
         data = as.data.frame(kmeans(data, centers = k));

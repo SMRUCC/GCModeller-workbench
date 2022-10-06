@@ -15,6 +15,6 @@ const run = function(ssid) {
         code: 0,
         info: `/@temp/${ssid}/download.zip`
     })
-    |> writeLines(con = buffer(text))
+    |> writeLines(con = buffer("text"))
     ;
 }

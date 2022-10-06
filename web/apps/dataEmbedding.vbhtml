@@ -264,11 +264,11 @@
                             </button>
 
                             <div class="btn-group" role="group">
-                                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
+                                <button id="download-group" type="button" class="btn btn-primary dropdown-toggle"
                                     data-mdb-toggle="dropdown" aria-expanded="false">
                                     Download Report
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <ul class="dropdown-menu" aria-labelledby="download-group">
                                     <li><a class="dropdown-item" href="#" id="download_zip">Download Zip Archive</a></li>
                                     <li><a class="dropdown-item" href="#">Print As PDF</a></li>
                                 </ul>
