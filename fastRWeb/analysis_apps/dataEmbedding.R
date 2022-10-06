@@ -54,8 +54,7 @@ const run_tsne = function(matrix, dims = 3) {
 	|> data(matrix)
 	|> solve(iterations = 200)	
 	;
-	
-	tSNE 
-	|> as.data.frame(row.names = rownames(matrix)) 
-	;
+	const result = as.data.frame(tSNE);
+    colnames(result) = `dim${1:dims}`;
+    result;
 }
