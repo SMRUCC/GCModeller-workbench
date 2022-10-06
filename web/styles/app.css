@@ -1,5 +1,18 @@
 .container {
     margin-top: 30px;
     margin-bottom: 60px;
+}
+
+/* Styles required only for the example above */
+.scrollspy-collapsible {
     position: relative;
+    height: 200px;
+    overflow: auto;
+}
+
+/* Styles required only for the example above */
+.scrollspy-example {
+    position: relative;
+    height: 200px;
+    overflow: auto;
 }
