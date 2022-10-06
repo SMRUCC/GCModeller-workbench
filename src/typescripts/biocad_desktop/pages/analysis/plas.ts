@@ -21,7 +21,37 @@ namespace pages {
             $ts.value("#time_final", "5");
             $ts.value("#resolution", "10000");
 
-            
+            for (let eq of [
+                ["x1=beta1*(lamda1*(1+alpha1*(x4^n1)/(1+x4^n1))-x1)", -100],
+                ["x2=x1-x2", -100000],
+                ["x3=beta3*(lamda3*(1+alpha2*((x4/a)^n2)/(1+(x4/a)^n2))*(1/(1+x2^n3))-x3)", 0],
+                ["x4=beta4*(x3-x4)", 10]
+            ]) {
+                const textbox = vm.add_equation_click();
+
+                textbox.eq.value = eq[0].toString();
+                textbox.y0.value = eq[1].toString();
+            }
+
+            for (let constant of [
+                ["beta1", "30"],
+                ["beta3", "30"],
+                ["beta4", "1"],
+                ["lamda1", "2"],
+                ["lamda3", "2"],
+                ["alpha1", "20"],
+                ["alpha2", "20"],
+                ["alpha3", "1"],
+                ["a", "1"],
+                ["n1", "4"],
+                ["n2", "5"],
+                ["n3", "1"]
+            ]) {
+                const textbox = vm.add_constant_click();
+
+                textbox.name.value = constant[0].toString();
+                textbox.val.value = constant[1].toString();
+            }
 
             vm.equationIndexing(<any>$ts(".eq-index"));
             vm.equationIndexing(<any>$ts(".const-index"));
@@ -44,6 +74,9 @@ namespace pages {
                 </button>
             `);
             const vm = this;
+            const textbox = div.getElementsByTagName("input");
+            const ode_eq = textbox.item(0);
+            const ode_y0 = textbox.item(1);
 
             odes.appendElement(div);
 
@@ -54,6 +87,8 @@ namespace pages {
             });
 
             vm.equationIndexing(<any>$ts(".eq-index"));
+
+            return { eq: ode_eq, y0: ode_y0 };
         }
 
         private equationIndexing(list: DOMEnumerator<HTMLSpanElement>) {
@@ -77,6 +112,9 @@ namespace pages {
                 </button>
             `);
             const vm = this;
+            const textbox = div.getElementsByTagName("input");
+            const const_name = textbox.item(0);
+            const const_val = textbox.item(1);
 
             symbols.appendElement(div);
 
@@ -87,6 +125,8 @@ namespace pages {
             });
 
             vm.equationIndexing(<any>$ts(".const-index"));
+
+            return { name: const_name, val: const_val };
         }
     }
 }

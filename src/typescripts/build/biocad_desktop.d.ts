@@ -122,8 +122,14 @@ declare namespace pages {
         readonly appName: string;
         protected init(): void;
         loadDemo_click(): void;
-        add_equation_click(): void;
+        add_equation_click(): {
+            eq: HTMLInputElement;
+            y0: HTMLInputElement;
+        };
         private equationIndexing;
-        add_constant_click(): void;
+        add_constant_click(): {
+            name: HTMLInputElement;
+            val: HTMLInputElement;
+        };
     }
 }
