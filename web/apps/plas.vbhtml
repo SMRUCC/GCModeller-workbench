@@ -50,7 +50,53 @@
                     </section>
                     <section id="example-2">
                         <h3>Set Parameters</h3>
-                        ...
+                        <section id="system_parameters">
+                            <h3>System Parameters</h3>
+
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label for="time_final" class="form-label">Time Final:</label>
+                                    <input id="time_final" class="form-control" type="text" value="60"></input>
+
+                                    <label for="resolution" class="form-label">Resolution:</label>
+                                    <input id="resolution" class="form-control" type="text" value="10000"></input>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="odes_system">
+                            <h3>ODEs System</h3>
+
+                            <div class="row">
+                                <div class="col-auto" id="equations">
+
+                                    <div class="input-group mb-3 equation">
+                                        <span class="input-group-text eq-index">1. </span>
+                                        <input type="text" class="form-control" placeholder="y=f(x) at here"
+                                            aria-label="ode">
+                                        <span class="input-group-text">, y<sub>0</sub>=</span>
+                                        <input type="text" class="form-control"
+                                            placeholder="Initial value of variable y" aria-label="y0">
+                                        <button class="btn btn-danger" type="button"> Remove
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-auto" id="equations">
+                                    <button class="btn btn-success" type="button" id="add_equation">Add Equation
+                                    </button>
+                                </div>
+                            </div>
+
+                        </section>
+                        <section id="constants">
+                            <h3>Constants</h3>
+                        </section>
+
                     </section>
                     <section id="example-3">
                         <h3>Analysis Result</h3>
@@ -85,6 +131,18 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#example-2">Set Parameters</a>
+
+                            <ul class="nav flex-column ps-3">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#system_parameters">System Parameters</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#odes_system">ODEs System</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#constants">Constants</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#example-3">Analysis Result</a>
