@@ -5,6 +5,7 @@ imports "S.system" from "simulators";
 
 const run = function(odes, constants, session_id, final_time = 5, resolution = 10000) {
     const session_file as string = `${getOption("system_tempdir")}/${session_id}/plas.csv`;
+    const session_data as string = `${getOption("system_tempdir")}/${session_id}/plas.dat`;
 
     odes = json_decode(odes);
     constants = json_decode(constants);
@@ -52,10 +53,11 @@ const run = function(odes, constants, session_id, final_time = 5, resolution = 1
     print("result output is saved at location:");
     print(session_file);
 
-    json_encode({
-        code: 0,
-        info: `/@temp/${session_id}/plas.csv`
-    })
-    |> writeLines(con = buffer("text"))
-    ;
+    const data = read.csv(session_file, row.names = NULL, check.names = FALSE);
+
+    print("previews of the simulator data result:");
+    print(data, max.print = 6);
+
+    saveRDS(data, file = session_data);
+    write.csv(data, file = buffer("dataframe"), tsv = TRUE);
 }
