@@ -33,7 +33,7 @@ namespace pages {
             const dimensions: number = $ts.value("#dimensions");
             const method: string = $ts.select.getOption("#algorithm");
             const session_id: string = super.generateSsid({ file: filepath, dims: dimensions, algo: method });
-            const z_score: boolean = $ts.value("#z-score");
+            const z_score: boolean = $ts("#z-score").CType<HTMLInputElement>().checked;
             const json = JSON.stringify({
                 file: filepath,
                 ssid: session_id,
@@ -58,6 +58,7 @@ namespace pages {
 
                             vm.session_id = session_id;
 
+                            $ts("#embedding-table").clear();
                             $ts.appendTable(previews, "#embedding-table", null, { class: ["table", "table-sm"] });
                             dataEmbedding.plot3DScatter(session_id);
 
