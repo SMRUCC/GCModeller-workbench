@@ -53,7 +53,7 @@ const run = function(odes, constants, session_id, final_time = 5, resolution = 1
     print("result output is saved at location:");
     print(session_file);
 
-    const data = read.csv(session_file, row.names = NULL, check.names = FALSE);
+    const data = read.csv(session_file, row.names = NULL, check.names = FALSE, comment.char = "~");
 
     print("previews of the simulator data result:");
     print(data, max.print = 6);
