@@ -117,3 +117,10 @@ declare namespace pages {
         plot_onclick(): void;
     }
 }
+declare namespace pages {
+    class runPLAS extends analysis_session {
+        readonly appName: string;
+        protected init(): void;
+        add_equation_click(): void;
+    }
+}

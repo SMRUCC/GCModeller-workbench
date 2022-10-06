@@ -70,23 +70,14 @@
                             <div class="row">
                                 <div class="col-auto" id="equations">
 
-                                    <div class="input-group mb-3 equation">
-                                        <span class="input-group-text eq-index">1. </span>
-                                        <input type="text" class="form-control" placeholder="y=f(x) at here"
-                                            aria-label="ode">
-                                        <span class="input-group-text">, y<sub>0</sub>=</span>
-                                        <input type="text" class="form-control"
-                                            placeholder="Initial value of variable y" aria-label="y0">
-                                        <button class="btn btn-danger" type="button"> Remove
-                                        </button>
-                                    </div>
+
 
                                 </div>
                             </div>
 
 
                             <div class="row">
-                                <div class="col-auto" id="equations">
+                                <div class="col-auto">
                                     <button class="btn btn-success" type="button" id="add_equation">Add Equation
                                     </button>
                                 </div>
