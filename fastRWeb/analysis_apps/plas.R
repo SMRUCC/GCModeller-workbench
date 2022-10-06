@@ -40,7 +40,7 @@ const run = function(odes, constants, session_id, final_time = 5, resolution = 1
 
     using data.driver as snapshot(session_file, symbols = names(symbols)) {
         data.driver
-        |> kernel(S.script(session_id))
+        |> kernel(S.script(session_id), strict = FALSE)
         |> environment(symbols = consts)
         |> environment(symbols = symbols)
         |> s.system(ssystem = ssystem)
