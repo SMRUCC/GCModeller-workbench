@@ -20,4 +20,8 @@ Public Class AppIndex : Inherits WebApp
     Public Sub openEnrichment()
         Call WebApp.Open(Of RunEnrichment)()
     End Sub
+
+    Public Sub openPLAS()
+        Call WebApp.Open(Of RunPLAS)()
+    End Sub
 End Class
