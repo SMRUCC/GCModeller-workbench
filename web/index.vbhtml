@@ -30,9 +30,9 @@
                         </p>
 
                         <ul>
-                            <li><a>Create New Analysis Project</a></li>
-                            <li><a>New Virtual Cell Modelling Project</a></li>
-                            <li><a>Open Project</a></li>
+                            <li><a href="#">Create New Analysis Project</a></li>
+                            <li><a href="#">New Virtual Cell Modelling Project</a></li>
+                            <li><a href="#">Open Project</a></li>
                         </ul>
                     </div>
                 </div>
@@ -92,13 +92,16 @@
                     <div class="row">
                         <div class="col-4"></div>
                         <div class="col-8">
-                            <h5>Your Favourites</h5>
+                            <h5><i class="fas fa-star"></i>&nbsp;Favourites</h5>
 
                             <ul id="pin-list" style="list-style: none; text-indent: 0%;">
                                 <li><i class="fas fa-thumbtack"></i> &nbsp; <a href="#"
                                         onclick="apps.gcmodeller.openDataEmbedding();">Data Embedding Analysis</a></li>
                                 <li><i class="fas fa-thumbtack"></i> &nbsp;
                                     <a href="#" onclick="apps.gcmodeller.openEnrichment();">Enrichment Analysis</a>
+                                </li>
+                                <li><i class="fas fa-thumbtack"></i> &nbsp;
+                                    <a href="#" onclick="apps.gcmodeller.openPLAS();">PLAS simulator</a>
                                 </li>
                             </ul>
                         </div>
@@ -138,11 +141,12 @@
                         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                             <!-- Content -->
                             <h6 class="text-uppercase fw-bold mb-4">
-                                <i class="fas fa-gem me-3"></i>SMRUCC genomics
+                                <i class="far fa-copyright"></i>&nbsp;SMRUCC genomics
                             </h6>
                             <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                                dolor sit amet, consectetur adipisicing elit.
+                                GCModeller is an open source systems biology software which implemented by Microsoft's
+                                .NET Framework technology: written in the VisualBasic and R# language.
+                                Developed based on the sciBASC# scientific computing Framework and R# language runtime.
                             </p>
                         </div>
                         <!-- Grid column -->
