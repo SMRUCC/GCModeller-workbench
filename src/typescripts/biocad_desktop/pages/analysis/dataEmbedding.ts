@@ -153,6 +153,7 @@ namespace pages {
                             desktop.showToastMessage(message.info, `Report Error`, "danger");
                         }
 
+                        $ts("#download-group").show();
                         $ts("#busy-indicator").hide();
                     })
                 })
