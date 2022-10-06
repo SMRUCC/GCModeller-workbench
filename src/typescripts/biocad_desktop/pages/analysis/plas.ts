@@ -225,6 +225,7 @@ namespace pages {
                             // show images
                             $ts("#Rplot-box").CType<HTMLAnchorElement>().href = img_url;
                             $ts("#Rplot_js").CType<HTMLImageElement>().src = img_url;
+                            $ts.goto("#example-3");
 
                             desktop.showToastMessage("Simulator data rendering job done!", "Run PLAS", "info");
                         } else {

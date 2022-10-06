@@ -106,7 +106,7 @@ namespace pages {
                         // show images
                         $ts("#Rplot-box").CType<HTMLAnchorElement>().href = img_url;
                         $ts("#Rplot_js").CType<HTMLImageElement>().src = img_url;
-
+                        $ts.goto("#example-3-collapsible");
                         $ts("#busy-indicator").hide();
                     } else {
                         desktop.showToastMessage(message.info, `Rplot Error`, "danger");
