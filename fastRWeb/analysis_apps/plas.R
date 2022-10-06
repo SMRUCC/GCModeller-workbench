@@ -59,5 +59,5 @@ const run = function(odes, constants, session_id, final_time = 5, resolution = 1
     print(data, max.print = 6);
 
     saveRDS(data, file = session_data);
-    write.csv(data, file = buffer("dataframe"), tsv = TRUE);
+    write.csv(head(data, 10), file = buffer("dataframe"), tsv = TRUE);
 }
