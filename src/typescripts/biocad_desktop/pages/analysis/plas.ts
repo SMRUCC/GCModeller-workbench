@@ -156,6 +156,12 @@ namespace pages {
             const constants = runPLAS.loadContents("const");
             const time_final = $ts.value("#time_final");
             const resolution = $ts.value("#resolution");
+
+            if (odes.length == 0) {
+                desktop.showToastMessage("No ODEs system equations!", "Check PLAS Parameters", "danger");
+                return;
+            }
+
             // get session unique id
             const ssid: string = super.generateSsid({
                 sys: odes,
@@ -177,6 +183,7 @@ namespace pages {
                     desktop.promiseAsyncCallback<string>(result, function (success, message) {
                         if (success) {
                             console.log(message);
+                            desktop.showToastMessage("Run system simulation job done!", "Run PLAS", "success");
                         } else {
                             desktop.showToastMessage(message.info, "Run PLAS", "danger");
                         }
