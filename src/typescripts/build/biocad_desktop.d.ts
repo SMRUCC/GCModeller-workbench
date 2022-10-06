@@ -131,5 +131,7 @@ declare namespace pages {
             name: HTMLInputElement;
             val: HTMLInputElement;
         };
+        private static loadContents;
+        run_click(): void;
     }
 }

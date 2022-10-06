@@ -176,10 +176,12 @@ namespace pages {
                 .then(async function (result) {
                     desktop.promiseAsyncCallback<string>(result, function (success, message) {
                         if (success) {
-
+                            console.log(message);
                         } else {
                             desktop.showToastMessage(message.info, "Run PLAS", "danger");
                         }
+
+                        $ts("#busy-indicator").hide();
                     });
                 });
         }
