@@ -15,6 +15,20 @@ namespace pages {
             this.add_equation_click();
         }
 
+        public loadDemo_click() {
+            const vm = this;
+
+            $ts.value("#time_final", "5");
+            $ts.value("#resolution", "10000");
+
+            
+
+            vm.equationIndexing(<any>$ts(".eq-index"));
+            vm.equationIndexing(<any>$ts(".const-index"));
+
+            desktop.showToastMessage("Load 'Atkinson.txt' demo example success!", "PLAS Script", "info");
+        }
+
         public add_equation_click() {
             const odes = $ts("#equations");
             const div = $ts("<div>", {

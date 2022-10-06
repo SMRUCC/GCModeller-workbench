@@ -50,6 +50,12 @@
                     </section>
                     <section id="example-2">
                         <h3>Set Parameters</h3>
+
+                        <p>
+                            You can try this <a href="#" id="loadDemo"><i class="fas fa-file-code"></i>&nbsp;demo
+                                example</a> at here.
+                        </p>
+
                         <section id="system_parameters">
                             <h3>System Parameters</h3>
 
