@@ -124,5 +124,13 @@ namespace pages {
                 desktop.showToastMessage("Data session id can not be nothing!", `Rplot Error`, "danger");
             }
         }
+
+        public save_project_click() {
+            desktop.showToastMessage("You should run this analysis from a data analysis project", `Report Error`, "danger");
+        }
+
+        public download_zip_click() {
+            
+        }
     }
 }

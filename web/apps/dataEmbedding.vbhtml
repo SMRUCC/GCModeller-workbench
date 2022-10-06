@@ -187,9 +187,11 @@
                                 <div class="col-auto">
 
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-auto">
                                             <p>
-                                                Set class colors via kmeans cluster method for current data visualization.
+                                                You can set class colors via kmeans cluster method for current data
+                                                visualization. Set this parameter value to a negative value or zero
+                                                value means not assign cluster colors.
                                             </p>
 
                                             <label for="kmeans" class="form-label">Centers of k-means:</label>
@@ -212,6 +214,18 @@
                                 </div>
                             </div>
 
+                            <p class="note note-info">
+                                <strong>Result table format:</strong><br />
+
+                                The output table data contains data fields:
+                                <br /><br />
+                                a. The first column with no header is the row labels of your input data matrix.<br />
+                                b. <code>dim1/dim2/dim3/dim4</code> and <code>dimn</code>, the other data fields is
+                                depends on the dimensions
+                                parameter value that you has config.
+
+                            </p>
+
                         </section>
                     </section>
                     <section id="example-5-collapsible">
@@ -231,6 +245,11 @@
                                 Springer-Verlag. pp. 487. CiteSeerX 10.1.1.149.8828. doi:10.1007/b98835. ISBN
                                 978-0-387-95442-4.
                             </li>
+                            <li>
+                                Inaba, M.; Katoh, N.; Imai, H. (1994). Applications of weighted Voronoi diagrams and
+                                randomization to variance-based k-clustering. Proceedings of 10th ACM Symposium on
+                                Computational Geometry. pp. 332–339. doi:10.1145/177424.178042.
+                            </li>
                         </ol>
                     </section>
                     <section id="example-4-collapsible">
@@ -239,7 +258,7 @@
                         <p>Save your analysis result files.</p>
 
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                            <button type="button" class="btn btn-info">
+                            <button type="button" class="btn btn-info" id="save_project">
                                 Save To Project
                             </button>
 
@@ -249,7 +268,7 @@
                                     Download Report
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                    <li><a class="dropdown-item" href="#">Download Zip Archive</a></li>
+                                    <li><a class="dropdown-item" href="#" id="download_zip">Download Zip Archive</a></li>
                                     <li><a class="dropdown-item" href="#">Print As PDF</a></li>
                                 </ul>
                             </div>
