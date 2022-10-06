@@ -18,15 +18,15 @@ namespace pages {
         public loadDemo_click() {
             const vm = this;
 
-            $ts.value("#time_final", "10");
-            $ts.value("#resolution", "1000");
+            $ts.value("#time_final", "30");
+            $ts.value("#resolution", "100");
 
             $ts("#equations").clear();
             $ts("#constant-list").clear();
 
             for (let eq of [
-                ["x1=beta1*(lamda1*(1+alpha1*(x4^n1)/(1+x4^n1))-x1)", -1],
-                ["x2=x1-x2", -1],
+                ["x1=beta1*(lamda1*(1+alpha1*(x4^n1)/(1+x4^n1))-x1)", -10],
+                ["x2=x1-x2", -10],
                 ["x3=beta3*(lamda3*(1+alpha2*((x4/a)^n2)/(1+(x4/a)^n2))*(1/(1+x2^n3))-x3)", 0],
                 ["x4=beta4*(x3-x4)", 10]
             ]) {
