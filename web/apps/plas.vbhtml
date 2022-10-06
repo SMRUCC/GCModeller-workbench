@@ -15,12 +15,18 @@
     <!-- Start your project here-->
     <div class="container">
 
+        <h1>Computational Analysis Of Biochemical Systems</h1>
+
         <div class="row">
             <div class="col-md-8">
                 <!-- Spied element -->
                 <div data-mdb-spy="scroll" data-mdb-target="#scrollspy1" data-mdb-offset="0" class="scrollspy-example">
                     <section id="example-1">
                         <h3>Introduction</h3>
+
+                        <div class="clearfix">
+                            <img class="col-md-6 float-md-end mb-3 ms-md-3 hover-shadow hover-zoom"
+                            src="/assets/images/106287.webp" style="width: 200px;">
                         <p>
                             A true understanding of genetic and metabolic function and design is facilitated by
                             mathematical and computational methods for analyzing biochemical systems. This hands-on
@@ -28,6 +34,7 @@
                             methods for the analysis of complex biomedical systems requiring a modest mathematical
                             background.
                         </p>
+                        </div>
                     </section>
                     <section id="example-2">
                         <h3>Set Parameters</h3>

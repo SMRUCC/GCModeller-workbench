@@ -21,8 +21,7 @@
         <div class="row">
             <div class="col-md-8">
                 <!-- Spied element -->
-                <div data-mdb-spy="scroll" data-mdb-target="#scrollspy-collapsible" data-mdb-offset="0"
-                    class="scrollspy-example">
+                <div data-mdb-spy="scroll" data-mdb-target="#scrollspy1" data-mdb-offset="0" class="scrollspy-example">
                     <section id="example-1-collapsible">
                         <h3>Introduction</h3>
 
@@ -269,7 +268,8 @@
                                     Download Report
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="download-group">
-                                    <li><a class="dropdown-item" href="#" id="download_zip">Download Zip Archive</a></li>
+                                    <li><a class="dropdown-item" href="#" id="download_zip">Download Zip Archive</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="#">Print As PDF</a></li>
                                 </ul>
                             </div>
@@ -282,7 +282,7 @@
 
             <div class="col-md-4">
                 <!-- Scrollspy -->
-                <div id="scrollspy-collapsible" class="sticky-top">
+                <div id="scrollspy1" class="sticky-top">
                     <ul class="nav flex-column nav-pills menu-sidebar">
                         <li class="nav-item">
                             <a class="nav-link" href="#example-1-collapsible">Introduction</a>
@@ -291,7 +291,7 @@
                             <a class="nav-link" href="#example-2-collapsible">Set Parameters</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link collapsible-scrollspy" href="#example-3-collapsible">Analysis Result</a>
+                            <a class="nav-link" href="#example-3-collapsible">Analysis Result</a>
                             <ul class="nav flex-column ps-3">
                                 <li class="nav-item">
                                     <a class="nav-link" href="#example-sub-A-collapsible">Rplot</a>
