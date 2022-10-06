@@ -48,6 +48,10 @@ const run = function(odes, constants, session_id, final_time = 5, resolution = 1
         ;
     }
 
+    print("simulation job done!");
+    print("result output is saved at location:");
+    print(session_file);
+
     json_encode({
         code: 0,
         info: `/@temp/${session_id}/plas.csv`
