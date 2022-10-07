@@ -1,5 +1,12 @@
 @echo off
 
+REM compile of the typescript projects at first
+
+REM cd biocad_desktop
+REM tsc
+REM cd ..
+
+REM and then we could
 REM install the compiled typescript project into the web source folder
 SET jscompress=java -jar ./tools/closure-compiler-v20181125.jar
 SET built=./build
