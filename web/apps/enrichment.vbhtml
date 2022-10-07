@@ -15,6 +15,8 @@
   <!-- Start your project here-->
   <div class="container">
 
+<h1>Gene Set Enrichment Analysis</h1>
+
     <div class="row">
       <div class="col-md-8">
         <!-- Spied element -->
