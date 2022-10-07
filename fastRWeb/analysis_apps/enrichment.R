@@ -33,9 +33,17 @@ const run = function(id, background, symbols, ssid = md5(`enrichment-${toString(
 
     if (nrow(result) == 0) {
         stop("Sorry, no enrichment result was found!");
+    } else {
+
     }
 
     print(result, max.print = 6);
     saveRDS(result, file = session_file);
+
+    result[, "cluster"] = NULL;
+    result[, "enriched"] = NULL;
+    result[, "geneIDs"] = NULL;
+    result[, "score"] = NULL;
+
     write.csv(result, file = buffer("dataframe"), tsv = TRUE);
 }
