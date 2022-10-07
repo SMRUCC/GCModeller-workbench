@@ -19,12 +19,18 @@ namespace pages {
         };
 
         protected init(): void {
+            const vm = this;
+
             if ($ts.location.hasQueryArguments) {
                 this.database = $ts.location("id");
             }
 
             console.log($ts.location);
+
             $ts("#busy-indicator").hide();
+            $ts("#background").onchange = function () {
+                vm.background_onchange($ts.select.getOption("#background"));
+            }
         }
 
         public background_onchange(value: string) {
@@ -119,10 +125,6 @@ namespace pages {
 
                             $ts("#enrichment-result-table").clear();
                             $ts.appendTable(table, "#enrichment-result-table", null, { class: ["table", "table-sm"] });
-                            $ts("#ex-with-icons-tabs-1").removeClass("show").removeClass("active");
-                            $ts("#ex-with-icons-tabs-2").addClass("show").addClass("active");
-                            $ts("#ex-with-icons-tab-1").removeClass("active");
-                            $ts("#ex-with-icons-tab-2").addClass("active");
 
                             vm.session_id = ssid;
                             // do data plot
