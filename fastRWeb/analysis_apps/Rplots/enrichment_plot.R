@@ -2,7 +2,7 @@ require(JSON);
 require(GCModeller);
 
 imports "visualPlot" from "visualkit";
-imports ["GSEA", "UniProt"] from "gseakit";
+imports ["GSEA", "UniProt", "profiles"] from "gseakit";
 
 const run = function(session_id, type = ["bar", "bubble"], background = "", top = 5) {
     const session_file as string = `${getOption("system_tempdir")}/${session_id}/enrichment.dat`;
