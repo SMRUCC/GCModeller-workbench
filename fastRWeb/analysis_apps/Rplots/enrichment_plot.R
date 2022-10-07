@@ -36,9 +36,9 @@ const run = function(session_id, type = ["bar", "bubble"], background = "", top 
             enrich_profiles
             |> category_profiles.plot(            
                 colors = "paper",
-                title = "UniProt Keywords",
+                title = background,
                 axis.title = "-log10(p-value)",
-                size = [1200,1600],
+                size = [1900, 1600],
                 dpi = 100
             );      
         } else {
