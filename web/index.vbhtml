@@ -185,7 +185,7 @@
                             <p><i class="fas fa-home me-3"></i> GuiLin, China</p>
                             <p>
                                 <i class="fas fa-envelope me-3"></i>
-                                <a href="mailto://genomics@gcmodeller.org">genomics@gcmodeller.org</a>
+                                <a href="mailto://genomics@SMRUCC.org">genomics@SMRUCC.org</a>
                             </p>
                             <!--<p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
                             <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>-->
