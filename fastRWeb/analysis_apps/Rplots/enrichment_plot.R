@@ -28,7 +28,7 @@ const run = function(session_id, type = ["bar", "bubble"], background = "", top 
 
         enrich_profiles = UniProt::keyword_profiles(terms, keywords, top = top);
     } else {
-        stop("not implemented");
+        enrich_profiles = profiles::no_catagory_profile(terms, name = background, top = max(30, top));
     }
 
     bitmap(file = session_plot) {
