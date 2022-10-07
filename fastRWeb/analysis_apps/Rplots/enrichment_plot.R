@@ -6,6 +6,7 @@ imports ["GSEA", "UniProt"] from "gseakit";
 
 const run = function(session_id, type = ["bar", "bubble"], background = "", top = 5) {
     const session_file as string = `${getOption("system_tempdir")}/${session_id}/enrichment.dat`;
+    const session_plot as string = `${getOption("system_tempdir")}/${session_id}/enrichment_${type}.png`;
     const enrichment = readRDS(session_file);
     const terms = GSEA::to_enrichment_terms(enrichment);
 
@@ -30,18 +31,25 @@ const run = function(session_id, type = ["bar", "bubble"], background = "", top 
         stop("not implemented");
     }
 
-    if (type == "bar") {
-        enrich_profiles
-        |> category_profiles.plot(            
-            colors = "paper",
-            title = "UniProt Keywords",
-            axis.title = "-log10(p-value)",
-            size = [1200,1600],
-            dpi = 100
-        )
-        |> graphics(file = buffer("bitmap"))
-        ;        
-    } else {
-        stop("not implemented");
+    bitmap(file = session_plot) {
+        if (type == "bar") {
+            enrich_profiles
+            |> category_profiles.plot(            
+                colors = "paper",
+                title = "UniProt Keywords",
+                axis.title = "-log10(p-value)",
+                size = [1200,1600],
+                dpi = 100
+            );      
+        } else {
+            stop("not implemented");
+        }
     }
+
+    json_encode({
+        code: 0,
+        info: `/@temp/${ssid}/${basename(session_plot)}.png`
+    })
+    |> writeLines(con = buffer("text"))
+    ;
 }
