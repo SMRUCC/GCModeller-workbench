@@ -40,10 +40,13 @@ const run = function(id, background, symbols, ssid = md5(`enrichment-${toString(
     print(result, max.print = 6);
     saveRDS(result, file = session_file);
 
+    # just modify the result view
+    # not touch the raw data
     result[, "cluster"] = NULL;
     result[, "enriched"] = NULL;
     result[, "geneIDs"] = NULL;
     result[, "score"] = NULL;
 
+    # push back the result data view to the webview
     write.csv(result, file = buffer("dataframe"), tsv = TRUE);
 }
