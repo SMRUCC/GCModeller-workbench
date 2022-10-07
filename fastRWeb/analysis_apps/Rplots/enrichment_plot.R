@@ -48,7 +48,7 @@ const run = function(session_id, type = ["bar", "bubble"], background = "", top 
 
     json_encode({
         code: 0,
-        info: `/@temp/${ssid}/${basename(session_plot)}.png`
+        info: `/@temp/${session_id}/${basename(session_plot)}.png`
     })
     |> writeLines(con = buffer("text"))
     ;
