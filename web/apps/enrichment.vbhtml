@@ -70,43 +70,52 @@
                         </optgroup>
                       </select>
 
-                      <p id="go_note" style="display: block;">
-                        The Gene Ontology (GO) is a major bioinformatics initiative to unify the representation of gene
-                        and
-                        gene product attributes across all species.
-                      </p>
-                      <p id="uniprot_note" style="display: none;">UniProtKB (Universal Protein Knowledge Base) is a
-                        collection of functional information on proteins. UniProtKB entries are tagged with keywords
-                        (controlled vocabulary) that can be used to retrieve particular subsets of entries. These
-                        keyword
-                        belongs to categories and have complex structure in it self.</p>
-                      <p id="pfam_note" style="display: none;">
-                        The general purpose of the Pfam database is to provide a complete and accurate classification of
-                        protein families and domains. Originally, the rationale behind creating the database was to have
-                        a semi-automated method of curating information on known protein families to improve the
-                        efficiency
-                        of annotating genomes.
-                      </p>
-                      <p id="interpro_note" style="display: none;">
-                        InterPro provides functional analysis of proteins by classifying them into families and
-                        predicting
-                        domains and important sites. To classify proteins in this way, InterPro uses predictive models,
-                        known as signatures, provided by several different databases (referred to as member databases)
-                        that
-                        make up the InterPro consortium.
-                      </p>
-                      <p id="ec_note" style="display: none;">
-                        The Enzyme Commission number (EC number) is a numerical classification scheme for enzymes, based
-                        on
-                        the chemical reactions they catalyze. As a system of enzyme nomenclature, every EC number is
-                        associated with a recommended name for the respective enzyme.
-                      </p>
-                      <p id="eggnog_note" style="display: none;">
-                        The eggNOG database is a database of biological information hosted by the EMBL. It is based on
-                        the
-                        original idea of COGs (clusters of orthologous groups) and expands that idea to non-supervised
-                        orthologous groups constructed from numerous organisms.
-                      </p>
+                      <div class="note note-info" style="font-weight: normal; font-style: normal;">
+
+                        <p id="go_note" style="display: block;">
+                          The Gene Ontology (GO) is a major bioinformatics initiative to unify the representation of
+                          gene
+                          and
+                          gene product attributes across all species.
+                        </p>
+                        <p id="uniprot_note" style="display: none;">UniProtKB (Universal Protein Knowledge Base) is a
+                          collection of functional information on proteins. UniProtKB entries are tagged with keywords
+                          (controlled vocabulary) that can be used to retrieve particular subsets of entries. These
+                          keyword
+                          belongs to categories and have complex structure in it self.</p>
+                        <p id="pfam_note" style="display: none;">
+                          The general purpose of the Pfam database is to provide a complete and accurate classification
+                          of
+                          protein families and domains. Originally, the rationale behind creating the database was to
+                          have
+                          a semi-automated method of curating information on known protein families to improve the
+                          efficiency
+                          of annotating genomes.
+                        </p>
+                        <p id="interpro_note" style="display: none;">
+                          InterPro provides functional analysis of proteins by classifying them into families and
+                          predicting
+                          domains and important sites. To classify proteins in this way, InterPro uses predictive
+                          models,
+                          known as signatures, provided by several different databases (referred to as member databases)
+                          that
+                          make up the InterPro consortium.
+                        </p>
+                        <p id="ec_note" style="display: none;">
+                          The Enzyme Commission number (EC number) is a numerical classification scheme for enzymes,
+                          based
+                          on
+                          the chemical reactions they catalyze. As a system of enzyme nomenclature, every EC number is
+                          associated with a recommended name for the respective enzyme.
+                        </p>
+                        <p id="eggnog_note" style="display: none;">
+                          The eggNOG database is a database of biological information hosted by the EMBL. It is based on
+                          the
+                          original idea of COGs (clusters of orthologous groups) and expands that idea to non-supervised
+                          orthologous groups constructed from numerous organisms.
+                        </p>
+
+                      </div>
                     </div>
                   </section>
                 </div>
@@ -177,7 +186,15 @@
             <h3>Reference</h3>
 
             <ol>
-
+              <li>Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Paulovich A, Pomeroy SL, Golub
+                TR, Lander ES, Mesirov JP. Gene set enrichment analysis: a knowledge-based approach for interpreting
+                genome-wide expression profiles. Proc Natl Acad Sci U S A. 2005 Oct 25;102(43):15545-50. doi:
+                10.1073/pnas.0506580102. Epub 2005 Sep 30. PMID: 16199517; PMCID: PMC1239896.</li>
+              <li>
+                Mootha, V., Lindgren, C., Eriksson, KF. et al. PGC-1α-responsive genes involved in oxidative
+                phosphorylation are coordinately downregulated in human diabetes. Nat Genet 34, 267–273 (2003).
+                https://doi.org/10.1038/ng1180
+              </li>
             </ol>
           </section>
           <section id="example-5">

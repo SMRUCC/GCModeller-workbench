@@ -34,6 +34,8 @@ namespace pages {
                 $ts(`#${enrichment_analysis.note_mapping[name]}`).hide();
             }
 
+            console.log(`show about '${value} -> ${note_id}'!`);
+
             $ts(`#${note_id}`).show();
         }
 
