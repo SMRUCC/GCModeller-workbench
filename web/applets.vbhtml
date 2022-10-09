@@ -55,7 +55,7 @@
                 </a>
             </div>
             <div class="col-xl-4 col-lg-6 mb-4">
-                <a href="#" onclick="" class="card ripple bg-image hover-zoom">
+                <a href="#" onclick="apps.gcmodeller.openCMeans();" class="card ripple bg-image hover-zoom">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <img src="/assets/images/background.jpg" alt="" class="img-fluid rounded icon-image" />

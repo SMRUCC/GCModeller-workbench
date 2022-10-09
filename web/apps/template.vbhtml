@@ -21,7 +21,16 @@
                 <div data-mdb-spy="scroll" data-mdb-target="#scrollspy1" data-mdb-offset="0" class="scrollspy-example">
                     <section id="example-1">
                         <h3>Introduction</h3>
-                        ...
+
+                        <div class="clearfix">
+                            <img class="col-md-6 float-md-end mb-3 ms-md-3 hover-shadow hover-zoom"
+                                src="/assets/images/gene-set-enrichment.jpg" style="width: 300px;">
+
+                            <p>
+                                ...
+                            </p>
+                        </div>
+                        
                     </section>
                     <section id="example-2">
                         <h3>Set Parameters</h3>
