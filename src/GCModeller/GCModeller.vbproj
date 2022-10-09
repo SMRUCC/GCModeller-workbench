@@ -347,6 +347,10 @@
       <Project>{cb2e7a97-f2bb-42bd-b178-c1d5ad6d45ec}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OmicsProject\OmicsProject.vbproj">
+      <Project>{ec8c847f-4292-404a-a654-6e82ec575cf1}</Project>
+      <Name>OmicsProject</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Res\status\dialog-warning.png" />
