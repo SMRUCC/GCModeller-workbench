@@ -1,3 +1,4 @@
-Public Class OmicsType
+Public Enum OmicsType
 
-End Class
+    Transcriptomics
+End Enum
