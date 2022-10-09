@@ -24,4 +24,8 @@ Public Class AppIndex : Inherits WebApp
     Public Sub openPLAS()
         Call WebApp.Open(Of RunPLAS)()
     End Sub
+
+    Public Sub openCMeans()
+        Call WebApp.Open(Of CMeansAnalysis)()
+    End Sub
 End Class

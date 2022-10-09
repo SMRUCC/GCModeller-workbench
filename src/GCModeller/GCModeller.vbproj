@@ -212,6 +212,8 @@
     <Compile Include="Application\Globals.vb" />
     <Compile Include="DocumentPages\WebApps\AppTasks.vb" />
     <Compile Include="DocumentPages\WebApps\AppIndex.vb" />
+    <Compile Include="DocumentPages\WebApps\CMeansAnalysis.vb" />
+    <Compile Include="DocumentPages\WebApps\RunDAM.vb" />
     <Compile Include="DocumentPages\WebApps\CreateOmicsProject.vb" />
     <Compile Include="DocumentPages\WebApps\RunPLAS.vb" />
     <Compile Include="DocumentPages\WebApps\DataEmbedding.vb" />
