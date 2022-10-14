@@ -28,4 +28,8 @@ Public Class AppIndex : Inherits WebApp
     Public Sub openCMeans()
         Call WebApp.Open(Of CMeansAnalysis)()
     End Sub
+
+    Public Sub openZscore()
+        Call WebApp.Open(Of ZscoreAnalysis)()
+    End Sub
 End Class
