@@ -38,3 +38,4 @@ src/typescripts/build/biocad_desktop.js
 src/typescripts/build/biocad_desktop.js.map
 src/typescripts/build/linq.js
 src/typescripts/build/linq.js.map
+*.2
