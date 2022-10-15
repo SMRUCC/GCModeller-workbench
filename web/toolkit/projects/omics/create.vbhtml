@@ -64,10 +64,31 @@
                   <span class="stepper-head-text"> Set Sample Information </span>
                 </div>
                 <div class="stepper-content py-3">
-                  <span>
-                    Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui,
-                    non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.
-                  </span>
+                  <div class="row">
+                    <div class="col-auto">
+                      <label for="matrix-file" class="form-label">Select SampleInfo File:</label>
+                      <div class="input-group mb-3">
+                        <button class="btn btn-primary" type="button" id="button_open" data-mdb-ripple-color="dark">
+                          <i class="far fa-folder-open"></i> Select File
+                        </button>
+                        <input type="text" class="form-control" placeholder="" id="matrix-file"
+                          aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-auto">
+                      <div class="p-4 text-center border-top mobile-hidden">
+                        <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)" href="#"
+                          onclick="apps.gcmodeller.openSampleEditor();">
+                          <i class="fas fa-file-code me-md-2 pe-none"></i>
+                          <span class="d-none d-md-inline-block export-to-snippet pe-none">
+                            Edit in sample editor
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </li>
               <li id="create3" class="stepper-step">
@@ -97,12 +118,7 @@
             </a>
 
 
-            <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
-              <i class="fas fa-file-code me-md-2 pe-none"></i>
-              <span class="d-none d-md-inline-block export-to-snippet pe-none">
-                Edit in sandbox
-              </span>
-            </a>
+
 
           </div>
 
