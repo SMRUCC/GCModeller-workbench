@@ -11,38 +11,45 @@ namespace pages {
         }
 
         private scanDatabaseList() {
+            const vm = this;
+
             $ts("#busy-indicator").show();
 
             apps.gcmodeller
                 .scanDatabase()
                 .then(async function (json) {
                     const jsonString = await json;
-                    const dbList: {} = JSON.parse(jsonString || "[]");
-                    const dbSize = Object.keys(dbList).length;
-                    const cardList = $ts("#repository");
 
-                    for (let key in dbList) {
-                        const metadata: { name: string, note: string } = dbList[key];
-                        const card = enrichment_database.buildDbCard(key, metadata);
-
-                        cardList.appendElement(card);
-                        console.log(key);
-
-                        $ts(`#${key}`).onclick = function () {
-                            apps.gcmodeller.openEnrichmentPage(key, metadata.name, metadata.note);
-                        }
-
-                        $ts(`#${key}-meta`).onclick = function () {
-                            $ts("#busy-indicator").show();
-                            enrichment_database.showMetadata(key, metadata);
-                        }
-                    }
-
-                    $ts("#busy-indicator").hide();
-
-                    // show database summary information
-                    desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", "info");
+                    vm.showDatabaseList(jsonString);
                 });
+        }
+
+        private showDatabaseList(jsonString: string) {
+            const dbList: {} = JSON.parse(jsonString || "[]");
+            const dbSize = Object.keys(dbList).length;
+            const cardList = $ts("#repository");
+
+            for (let key in dbList) {
+                const metadata: { name: string, note: string } = dbList[key];
+                const card = enrichment_database.buildDbCard(key, metadata);
+
+                cardList.appendElement(card);
+                console.log(key);
+
+                $ts(`#${key}`).onclick = function () {
+                    apps.gcmodeller.openEnrichmentPage(key, metadata.name, metadata.note);
+                }
+
+                $ts(`#${key}-meta`).onclick = function () {
+                    $ts("#busy-indicator").show();
+                    enrichment_database.showMetadata(key, metadata);
+                }
+            }
+
+            $ts("#busy-indicator").hide();
+
+            // show database summary information
+            desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", "info");
         }
 
         private static showMetadata(key: string, metadata: { name: string, note: string }) {
@@ -57,74 +64,76 @@ namespace pages {
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_inspector"), json)
                 .then(async function (result) {
-                    desktop.parseMessage(result).then(function (message) {
-                        desktop.parseResultFlag(result, message).then(function (flag) {
-                            const title = flag ? "Load Database Success" : "Load Database Error";
-                            const data: {
-                                counts: number,
-                                summary: {
-                                    GO: { clusters: number, unique_size: number }
-                                }
-                            } = <any>message.info;
-
-                            let hookLinks: Delegate.Action = null;
-
-                            console.log(data);
-
-                            if (flag) {
-                                const backgrounds = $from(Object.keys(data.summary))
-                                    .Select(function (name) {
-                                        const info: { clusters: number, unique_size: number } = data.summary[name];
-                                        const pack = { name: name, info: info };
-
-                                        return pack;
-                                    })
-                                    .Where(a => a.info.unique_size > 0)
-                                    .Where(a => a.info.unique_size / a.info.clusters > 1)
-                                    ;
-                                const protein_ids: string = backgrounds
-                                    .Select(a => enrichment_database.summaryLine(a.name, a.info))
-                                    .JoinBy("")
-                                    ;
-
-                                // success
-                                desktop.showToastMessage("Success!", title, "success");
-
-                                hookLinks = function () {
-                                    for (let model of backgrounds.ToArray()) {
-                                        const name: string = model.name;
-                                        const id: string = `#model-${name}`;
-
-                                        console.log(id);
-
-                                        $ts(id).onclick = function () {
-                                            $ts("#busy-indicator").show();
-                                            console.log(`view background model: ${name}...`);
-                                            enrichment_database.viewModel(key, name, model.info);
-                                        }
-                                    }
-                                }
-
-                                sb = sb + `<span class="badge badge-primary">Protein Counts</span>: ${data.counts}<br />`;
-                                sb = sb + `<span class="badge badge-primary">Models</span>: ${backgrounds.Count}<br />`;
-                                sb = sb + `<span class="badge badge-primary">Backgrounds</span>: <br /><br />
-                                    <ul class="list-group list-group-light">
-                                        ${protein_ids}
-                                    </ul>
-                                `;
-                            } else {
-                                // error
-                                desktop.showToastMessage(message.info, title, "danger");
-                            }
-
-                            $ts("#summary-info").display(sb);
-
-                            if (!isNullOrUndefined(hookLinks)) {
-                                hookLinks();
-                            }
-                        });
+                    desktop.promiseAsyncCallback<string>(result, function (flag, message) {
+                        enrichment_database.displayDatabaseContentSummary(sb, flag, message);
                     });
                 });
+        }
+
+        private static displayDatabaseContentSummary(sb: string, flag: boolean, message: IMsg<string>) {
+            const title = flag ? "Load Database Success" : "Load Database Error";
+            const data: {
+                counts: number,
+                summary: {
+                    GO: { clusters: number, unique_size: number }
+                }
+            } = <any>message.info;
+
+            let hookLinks: Delegate.Action = null;
+
+            console.log(data);
+
+            if (flag) {
+                const backgrounds = $from(Object.keys(data.summary))
+                    .Select(function (name) {
+                        const info: { clusters: number, unique_size: number } = data.summary[name];
+                        const pack = { name: name, info: info };
+
+                        return pack;
+                    })
+                    .Where(a => a.info.unique_size > 0)
+                    .Where(a => a.info.unique_size / a.info.clusters > 1)
+                    ;
+                const protein_ids: string = backgrounds
+                    .Select(a => enrichment_database.summaryLine(a.name, a.info))
+                    .JoinBy("")
+                    ;
+
+                // success
+                desktop.showToastMessage("Success!", title, "success");
+
+                hookLinks = function () {
+                    for (let model of backgrounds.ToArray()) {
+                        const name: string = model.name;
+                        const id: string = `#model-${name}`;
+
+                        console.log(id);
+
+                        $ts(id).onclick = function () {
+                            $ts("#busy-indicator").show();
+                            console.log(`view background model: ${name}...`);
+                            enrichment_database.viewModel(key, name, model.info);
+                        }
+                    }
+                }
+
+                sb = sb + `<span class="badge badge-primary">Protein Counts</span>: ${data.counts}<br />`;
+                sb = sb + `<span class="badge badge-primary">Models</span>: ${backgrounds.Count}<br />`;
+                sb = sb + `<span class="badge badge-primary">Backgrounds</span>: <br /><br />
+                        <ul class="list-group list-group-light">
+                            ${protein_ids}
+                        </ul>
+                    `;
+            } else {
+                // error
+                desktop.showToastMessage(message.info, title, "danger");
+            }
+
+            $ts("#summary-info").display(sb);
+
+            if (!isNullOrUndefined(hookLinks)) {
+                hookLinks();
+            }
         }
 
         /**
@@ -135,18 +144,19 @@ namespace pages {
                 guid: key, xref: name
             });
 
-            apps.gcmodeller.sendPost($ts.url("@web_invoke_loadModel"), json).then(async function (result) {
-                desktop.parseMessage(result).then(function (message) {
-                    desktop.parseResultFlag(result, message).then(function (flag) {
-                        if (flag) {
-                            const galleryModal = new bootstrap.Modal($ts('#view-background'), {
-                                keyboard: false
-                            });
-                            const clusters: {} = (<any>message.info).clusters;
-                            const cluster_id: string[] = Object.keys(clusters);
-                            const data: IEnumerator<string> = $from(cluster_id)
-                                .Select(function (cid) {
-                                    return `
+            apps.gcmodeller.sendPost($ts.url("@web_invoke_loadModel"), json)
+                .then(async function (result) {
+                    desktop.parseMessage(result).then(function (message) {
+                        desktop.parseResultFlag(result, message).then(function (flag) {
+                            if (flag) {
+                                const galleryModal = new bootstrap.Modal($ts('#view-background'), {
+                                    keyboard: false
+                                });
+                                const clusters: {} = (<any>message.info).clusters;
+                                const cluster_id: string[] = Object.keys(clusters);
+                                const data: IEnumerator<string> = $from(cluster_id)
+                                    .Select(function (cid) {
+                                        return `
                                     <li>                                   
                                             <a 
                                             href="#" 
@@ -156,31 +166,31 @@ namespace pages {
                                         </a>                                     
                                     </li>                              
                                     `;
-                                });
+                                    });
 
-                            // console.log(clusters);
-                            // console.log(cluster_id);
-                            // console.log(data);
+                                // console.log(clusters);
+                                // console.log(cluster_id);
+                                // console.log(data);
 
-                            $ts("#contentArea").clear();
-                            $ts("#contentArea").display(data.JoinBy(""));
+                                $ts("#contentArea").clear();
+                                $ts("#contentArea").display(data.JoinBy(""));
 
-                            // const clusterize = new Clusterize({                                
-                            //     scrollId: 'scrollArea',
-                            //     contentId: 'contentArea'
-                            // });
+                                // const clusterize = new Clusterize({                                
+                                //     scrollId: 'scrollArea',
+                                //     contentId: 'contentArea'
+                                // });
 
-                            $ts("#busy-indicator").hide();
-                            $ts("#modal-close1").onclick = () => galleryModal.hide();
-                            $ts("#modal-close2").onclick = () => galleryModal.hide();
+                                $ts("#busy-indicator").hide();
+                                $ts("#modal-close1").onclick = () => galleryModal.hide();
+                                $ts("#modal-close2").onclick = () => galleryModal.hide();
 
-                            galleryModal.show();
-                        } else {
-                            desktop.showToastMessage(message.info, "Load Model Error", "danger");
-                        }
+                                galleryModal.show();
+                            } else {
+                                desktop.showToastMessage(message.info, "Load Model Error", "danger");
+                            }
+                        })
                     })
-                })
-            });
+                });
         }
 
         public static showProteins(array: string) {
@@ -242,20 +252,18 @@ namespace pages {
             apps.gcmodeller
                 .sendPost($ts.url("@web_invoke_imports"), json)
                 .then(async function (msg) {
-                    desktop.parseMessage(msg).then(function (message) {
-                        desktop.parseResultFlag(msg, message).then(function (flag) {
-                            const title = flag ? "Imports Task Success" : "Imports Task Error";
+                    desktop.promiseAsyncCallback<string>(msg, function (flag, message) {
+                        const title = flag ? "Imports Task Success" : "Imports Task Error";
 
-                            if (flag) {
-                                // success
-                                desktop.showToastMessage(message.info, title, "success");
-                            } else {
-                                // error
-                                desktop.showToastMessage(message.info, title, "danger");
-                            }
+                        if (flag) {
+                            // success
+                            desktop.showToastMessage(message.info, title, "success");
+                        } else {
+                            // error
+                            desktop.showToastMessage(message.info, title, "danger");
+                        }
 
-                            $ts("#busy-indicator").hide();
-                        });
+                        $ts("#busy-indicator").hide();
                     });
                 });
         }
