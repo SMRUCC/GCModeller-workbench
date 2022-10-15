@@ -43,7 +43,7 @@
                   <span class="stepper-head-icon"> 1 </span>
                   <span class="stepper-head-text"> Set Expression Matrix </span>
                 </div>
-                <div class="stepper-content py-3">
+                <div id="panel1" class="stepper-content py-3">
                   <div class="row">
                     <div class="col-auto">
                       <label for="matrix-file" class="form-label">Select Matrix File:</label>
@@ -63,7 +63,7 @@
                   <span class="stepper-head-icon"> 2 </span>
                   <span class="stepper-head-text"> Set Sample Information </span>
                 </div>
-                <div class="stepper-content py-3">
+                <div id="panel2" class="stepper-content py-3">
                   <div class="row">
                     <div class="col-auto">
                       <label for="matrix-file" class="form-label">Select SampleInfo File:</label>
@@ -96,7 +96,7 @@
                   <span class="stepper-head-icon"> 3 </span>
                   <span class="stepper-head-text"> Create Analysis Project </span>
                 </div>
-                <div class="stepper-content py-3">
+                <div id="panel3" class="stepper-content py-3">
                   <span>
                     Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui,
                     non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.
