@@ -81,7 +81,8 @@
                 w.splice(w.indexOf(i), 1);
             }
 
-            vm.frameRender(() => vm.update());
+            // vm.frameRender(() => vm.update());
+            network.defaultCallback(() => vm.update());
         }
 
         static defaultCallback(callback: FrameRequestCallback): number {
