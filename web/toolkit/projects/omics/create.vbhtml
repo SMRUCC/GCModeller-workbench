@@ -5,7 +5,7 @@
 <?vb $app = "new_omics" ?>
 
 <head>
-  <%= ../../assets/includes/head.vbhtml %>
+  <%= ../../../assets/includes/head.vbhtml %>
 
     <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
     <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
@@ -16,8 +16,102 @@
   <!-- Start your project here-->
   <div class="container">
 
+    <h1>Create New Omics Project</h1>
 
-    <%= ../../assets/includes/webapp.vbhtml %>
+
+    <!--Section: vertical stepper example-->
+    <section id="section-vertical-stepper-example">
+      <!-- Section title -->
+      <h2 class="mb-4">Vertical stepper</h2>
+      <p>Set <code>data-mdb-stepper-type="vertical"</code> to use the vertical view</p>
+      <!--Section: Demo-->
+      <section class="pb-4">
+        <div class="bg-white border rounded-5">
+
+          <section class="p-4 d-flex justify-content-center w-100">
+            <ul class="stepper" data-mdb-stepper="stepper" data-mdb-stepper-type="vertical">
+              <li class="stepper-step stepper-active">
+                <div class="stepper-head">
+                  <span class="stepper-head-icon"> 1 </span>
+                  <span class="stepper-head-text"> step1 </span>
+                </div>
+                <div class="stepper-content py-3">
+                  <span>
+                    Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui,
+                    non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.
+                  </span>
+                </div>
+              </li>
+              <li class="stepper-step">
+                <div class="stepper-head">
+                  <span class="stepper-head-icon"> 2 </span>
+                  <span class="stepper-head-text"> step2 </span>
+                </div>
+                <div class="stepper-content py-3">
+                  <span>
+                    Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui,
+                    non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.
+                  </span>
+                </div>
+              </li>
+              <li class="stepper-step">
+                <div class="stepper-head">
+                  <span class="stepper-head-icon"> 3 </span>
+                  <span class="stepper-head-text"> step3 </span>
+                </div>
+                <div class="stepper-content py-3">
+                  <span>
+                    Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui,
+                    non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+
+
+          <div class="p-4 text-center border-top mobile-hidden">
+            <a class="btn btn-link px-3" data-mdb-toggle="collapse" href="#example6" role="button" aria-expanded="false"
+              aria-controls="example6" data-ripple-color="hsl(0, 0%, 67%)">
+              <i class="fas fa-code me-md-2"></i>
+              <span class="d-none d-md-inline-block">
+                Show code
+              </span>
+            </a>
+
+
+            <a class="btn btn-link px-3 " data-ripple-color="hsl(0, 0%, 67%)">
+              <i class="fas fa-file-code me-md-2 pe-none"></i>
+              <span class="d-none d-md-inline-block export-to-snippet pe-none">
+                Edit in sandbox
+              </span>
+            </a>
+
+          </div>
+
+
+        </div>
+      </section>
+
+
+
+      <div class="row">
+        <div class="col-auto">
+          <p>Upload matrix:</p>
+
+          <label for="matrix-file" class="form-label">Select Matrix:</label>
+          <div class="input-group mb-3">
+            <button class="btn btn-primary" type="button" id="button_open" data-mdb-ripple-color="dark">
+              <i class="far fa-folder-open"></i> Select File
+            </button>
+            <input type="text" class="form-control" placeholder="" id="matrix-file"
+              aria-label="Example text with button addon" aria-describedby="button-addon1" />
+          </div>
+        </div>
+      </div>
+
+      <%= ../../../assets/includes/webapp.vbhtml %>
 
   </div>
   <!-- End your project here-->
