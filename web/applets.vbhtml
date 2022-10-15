@@ -23,7 +23,7 @@
 
             .background {
                 position: relative;
-                background-image: url("/assets/images/dna-image.jpg");
+                background-image: url("/assets/images/dna-image-blur.png");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -36,7 +36,7 @@
 
 <body class="background">
     <!-- Start your project here-->
-    <div class="container" style="background: rgba(0, 0, 0, 0.3); padding: 30px 30px 30px 30px;">
+    <div class="container" style="background: rgba(0, 0, 0, 0.6); padding: 30px 30px 30px 30px;">
 
         <h1 style="color: white;">GCModeller Analysis Applications</h1>
 <br />
