@@ -3,18 +3,13 @@
     export class network {
 
         public constructor(
-            /**
-             * 进行动画显示的画布对象
-            */
+            // 进行动画显示的画布对象
             public uCanvas: HTMLCanvasElement = document.createElement("canvas"),
             public uContext: CanvasRenderingContext2D = uCanvas.getContext("2d"),
             public f: dot = <dot>{
                 x: null, y: null, max: 20000
             },
-
-            /**
-             * ``[width, height]``
-            */
+            // ``[width, height]``
             public size: number[] = [0, 0],
             public dots: dot[] = [],
             public setting: CanvasSettings = null,

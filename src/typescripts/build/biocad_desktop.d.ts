@@ -178,28 +178,14 @@ declare namespace pages.background {
 }
 declare namespace pages.background {
     class network {
-        /**
-         * 进行动画显示的画布对象
-        */
         uCanvas: HTMLCanvasElement;
         uContext: CanvasRenderingContext2D;
         f: dot;
-        /**
-         * ``[width, height]``
-        */
         size: number[];
         dots: dot[];
         setting: CanvasSettings;
         frameRender: (callback: FrameRequestCallback) => number;
-        constructor(
-        /**
-         * 进行动画显示的画布对象
-        */
-        uCanvas?: HTMLCanvasElement, uContext?: CanvasRenderingContext2D, f?: dot, 
-        /**
-         * ``[width, height]``
-        */
-        size?: number[], dots?: dot[], setting?: CanvasSettings, frameRender?: (callback: FrameRequestCallback) => number);
+        constructor(uCanvas?: HTMLCanvasElement, uContext?: CanvasRenderingContext2D, f?: dot, size?: number[], dots?: dot[], setting?: CanvasSettings, frameRender?: (callback: FrameRequestCallback) => number);
         static getTag(tagName: string): Element;
         static getById(id: string): Element;
         /**
