@@ -151,6 +151,8 @@ declare namespace pages.analysis_project {
         expr1_onclick(): void;
         sample2_onclick(): void;
         create3_onclick(): void;
+        button_open_matrix_click(): void;
+        button_open_sampleinfo_click(): void;
     }
 }
 declare namespace pages.background {

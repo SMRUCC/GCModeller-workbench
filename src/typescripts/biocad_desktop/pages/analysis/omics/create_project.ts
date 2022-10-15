@@ -42,20 +42,26 @@ namespace pages.analysis_project {
 
         public button_open_matrix_click() {
             const textbox = $ts("#matrix-file").CType<HTMLInputElement>();
+            const vm = this;
 
             apps.gcmodeller
-                .getUniprotXmlDatabase()
+                .getFileOpen("Excel Table(*.csv)|*.csv|GCModeller HTS Matrix(*.HTS)|*.HTS")
                 .then(async function (path) {
                     textbox.value = await path;
+                    vm.check_matrix(textbox.value);
                 })
                 ;
+        }
+
+        private check_matrix(path: string) {
+
         }
 
         public button_open_sampleinfo_click() {
             const textbox = $ts("#sample-file").CType<HTMLInputElement>();
 
             apps.gcmodeller
-                .getUniprotXmlDatabase()
+                .getFileOpen("Excel Table(*.csv)|*.csv")
                 .then(async function (path) {
                     textbox.value = await path;
                 })
