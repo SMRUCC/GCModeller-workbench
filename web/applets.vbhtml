@@ -27,6 +27,8 @@
     <!-- Start your project here-->
     <div class="container">
 
+        <h1>GCModeller Analysis Applications</h1>
+
         <div class="row">
             <div class="col-xl-4 col-lg-6 mb-4">
                 <a href="#" onclick="" class="card ripple bg-image hover-zoom">
