@@ -73,6 +73,12 @@ declare namespace pages {
     }
 }
 declare namespace pages {
+    class applets extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
+    }
+}
+declare namespace pages {
     class enrichment_database extends Bootstrap {
         readonly appName: string;
         protected init(): void;
@@ -135,4 +141,86 @@ declare namespace pages {
         run_click(): void;
         createPlot(): void;
     }
+}
+declare namespace pages.background {
+    /**
+     * 画布的参数设置
+    */
+    interface CanvasSettings {
+        /**
+         * 所创建的画布对象的id
+        */
+        canvasId: string;
+        zIndex: number;
+        opacity: number;
+        color: string;
+        /**
+         * 点的数量
+        */
+        n: number;
+    }
+    /**
+     * 画布上面的一个移动的点的模型
+    */
+    interface dot {
+        /**
+         * 当前的位置``x``
+        */
+        x: number;
+        /**
+         * 当前的位置``y``
+        */
+        y: number;
+        xa: number;
+        ya: number;
+        max: number;
+    }
+}
+declare namespace pages.background {
+    class network {
+        /**
+         * 进行动画显示的画布对象
+        */
+        uCanvas: HTMLCanvasElement;
+        uContext: CanvasRenderingContext2D;
+        f: dot;
+        /**
+         * ``[width, height]``
+        */
+        size: number[];
+        dots: dot[];
+        setting: CanvasSettings;
+        frameRender: (callback: FrameRequestCallback) => number;
+        constructor(
+        /**
+         * 进行动画显示的画布对象
+        */
+        uCanvas?: HTMLCanvasElement, uContext?: CanvasRenderingContext2D, f?: dot, 
+        /**
+         * ``[width, height]``
+        */
+        size?: number[], dots?: dot[], setting?: CanvasSettings, frameRender?: (callback: FrameRequestCallback) => number);
+        static getTag(tagName: string): Element;
+        static getById(id: string): Element;
+        /**
+         * 当窗口大小发生改变的时候，画布的事件
+        */
+        canvasResize(): void;
+        /**
+         * 更新画布上面的一帧动画
+        */
+        update(): void;
+        static defaultCallback(callback: FrameRequestCallback): number;
+        /**
+         * 注册鼠标设备以及画布更新事件
+        */
+        registerDevice(): void;
+    }
+    /**
+     * 运行这个网络画布
+     *
+     * @param containerId Canvas所进行显示的目标div的id编号，如果这个编号为空值，则默认显示在整个body上面
+     * @param settings 配置参数
+    */
+    function run(containerId?: string, settings?: CanvasSettings): void;
 }
