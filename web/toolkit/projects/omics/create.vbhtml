@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?vb $title = "Create New Omics Project" ?>
-<?vb $app = "new_omics" ?>
+<?vb $app = "create_project" ?>
 
 <head>
   <%= ../../../assets/includes/head.vbhtml %>
@@ -22,30 +22,46 @@
     <!--Section: vertical stepper example-->
     <section id="section-vertical-stepper-example">
       <!-- Section title -->
-      <h2 class="mb-4">Vertical stepper</h2>
-      <p>Set <code>data-mdb-stepper-type="vertical"</code> to use the vertical view</p>
+      <h2 class="mb-4">Introduction</h2>
+      <p>
+        A omics data analysis project consist with two essential data object:
+
+      <ol>
+        <li>Expression data matrix:</li>
+        <li>Sample information:</li>
+      </ol>
+
+      </p>
       <!--Section: Demo-->
       <section class="pb-4">
         <div class="bg-white border rounded-5">
 
-          <section class="p-4 d-flex justify-content-center w-100">
+          <section class="p-4 d-flex justify-content-center w-100" style="height: 600px;">
             <ul class="stepper" data-mdb-stepper="stepper" data-mdb-stepper-type="vertical">
-              <li class="stepper-step stepper-active">
+              <li id="expr1" class="stepper-step stepper-active">
                 <div class="stepper-head">
                   <span class="stepper-head-icon"> 1 </span>
-                  <span class="stepper-head-text"> step1 </span>
+                  <span class="stepper-head-text"> Set Expression Matrix </span>
                 </div>
                 <div class="stepper-content py-3">
-                  <span>
-                    Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui,
-                    non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.
-                  </span>
+                  <div class="row">
+                    <div class="col-auto">
+                      <label for="matrix-file" class="form-label">Select Matrix File:</label>
+                      <div class="input-group mb-3">
+                        <button class="btn btn-primary" type="button" id="button_open" data-mdb-ripple-color="dark">
+                          <i class="far fa-folder-open"></i> Select File
+                        </button>
+                        <input type="text" class="form-control" placeholder="" id="matrix-file"
+                          aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </li>
-              <li class="stepper-step">
+              <li id="sample2" class="stepper-step">
                 <div class="stepper-head">
                   <span class="stepper-head-icon"> 2 </span>
-                  <span class="stepper-head-text"> step2 </span>
+                  <span class="stepper-head-text"> Set Sample Information </span>
                 </div>
                 <div class="stepper-content py-3">
                   <span>
@@ -54,10 +70,10 @@
                   </span>
                 </div>
               </li>
-              <li class="stepper-step">
+              <li id="create3" class="stepper-step">
                 <div class="stepper-head">
                   <span class="stepper-head-icon"> 3 </span>
-                  <span class="stepper-head-text"> step3 </span>
+                  <span class="stepper-head-text"> Create Analysis Project </span>
                 </div>
                 <div class="stepper-content py-3">
                   <span>
@@ -94,22 +110,6 @@
         </div>
       </section>
 
-
-
-      <div class="row">
-        <div class="col-auto">
-          <p>Upload matrix:</p>
-
-          <label for="matrix-file" class="form-label">Select Matrix:</label>
-          <div class="input-group mb-3">
-            <button class="btn btn-primary" type="button" id="button_open" data-mdb-ripple-color="dark">
-              <i class="far fa-folder-open"></i> Select File
-            </button>
-            <input type="text" class="form-control" placeholder="" id="matrix-file"
-              aria-label="Example text with button addon" aria-describedby="button-addon1" />
-          </div>
-        </div>
-      </div>
 
       <%= ../../../assets/includes/webapp.vbhtml %>
 
