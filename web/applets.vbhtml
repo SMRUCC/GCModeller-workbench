@@ -20,15 +20,26 @@
                 width: 64px;
                 height: 64px;
             }
+
+            .background {
+                position: relative;
+                background-image: url("/assets/images/dna-image.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                /* height: 100%;
+                filter: blur(8px);
+                 */
+            }
         </style>
 </head>
 
-<body>
+<body class="background">
     <!-- Start your project here-->
-    <div class="container">
+    <div class="container" style="background: rgba(0, 0, 0, 0.3); padding: 30px 30px 30px 30px;">
 
-        <h1>GCModeller Analysis Applications</h1>
-
+        <h1 style="color: white;">GCModeller Analysis Applications</h1>
+<br />
         <div class="row">
             <div class="col-xl-4 col-lg-6 mb-4">
                 <a href="#" onclick="apps.gcmodeller.openZscore();" class="card ripple bg-image hover-zoom">
