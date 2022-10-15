@@ -36,7 +36,7 @@
                 <div class="col-8">
                   <label for="matrix-file" class="form-label">Select Matrix File:</label>
                   <div class="input-group mb-3">
-                    <button class="btn btn-primary" type="button" id="button_open" data-mdb-ripple-color="dark">
+                    <button class="btn btn-primary" type="button" id="button_open_matrix" data-mdb-ripple-color="dark">
                       <i class="far fa-folder-open"></i> Select File
                     </button>
                     <input type="text" class="form-control" placeholder="" id="matrix-file"
@@ -56,10 +56,10 @@
                 <div class="col-8">
                   <label for="matrix-file" class="form-label">Select SampleInfo File:</label>
                   <div class="input-group mb-3">
-                    <button class="btn btn-primary" type="button" id="button_open" data-mdb-ripple-color="dark">
+                    <button class="btn btn-primary" type="button" id="button_open_sampleinfo" data-mdb-ripple-color="dark">
                       <i class="far fa-folder-open"></i> Select File
                     </button>
-                    <input type="text" class="form-control" placeholder="" id="matrix-file"
+                    <input type="text" class="form-control" placeholder="" id="sample-file"
                       aria-label="Example text with button addon" aria-describedby="button-addon1" />
                   </div>
                 </div>

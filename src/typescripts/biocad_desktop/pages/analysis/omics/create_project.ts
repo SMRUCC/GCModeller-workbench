@@ -39,5 +39,27 @@ namespace pages.analysis_project {
             $ts("#panel2").hide();
             $ts("#panel3").show();
         }
+
+        public button_open_matrix_click() {
+            const textbox = $ts("#matrix-file").CType<HTMLInputElement>();
+
+            apps.gcmodeller
+                .getUniprotXmlDatabase()
+                .then(async function (path) {
+                    textbox.value = await path;
+                })
+                ;
+        }
+
+        public button_open_sampleinfo_click() {
+            const textbox = $ts("#sample-file").CType<HTMLInputElement>();
+
+            apps.gcmodeller
+                .getUniprotXmlDatabase()
+                .then(async function (path) {
+                    textbox.value = await path;
+                })
+                ;
+        }
     }
 }
