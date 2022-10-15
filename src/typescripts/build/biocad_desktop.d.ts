@@ -144,6 +144,15 @@ declare namespace pages {
         createPlot(): void;
     }
 }
+declare namespace pages.analysis_project {
+    class create_project extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
+        expr1_onclick(): void;
+        sample2_onclick(): void;
+        create3_onclick(): void;
+    }
+}
 declare namespace pages.background {
     /**
      * 画布的参数设置
