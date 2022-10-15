@@ -83,7 +83,9 @@ declare namespace pages {
         readonly appName: string;
         protected init(): void;
         private scanDatabaseList;
+        private showDatabaseList;
         private static showMetadata;
+        private static displayDatabaseContentSummary;
         /**
          * @param key a unique database hash name for query in the repository
         */
