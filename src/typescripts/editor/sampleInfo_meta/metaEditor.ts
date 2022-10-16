@@ -53,7 +53,7 @@ namespace sampleinfo_editor {
             for (let id of pickers) {
                 let currentLabel = metaEditor.holdLabel(labels[id]);
 
-                colorPicker = colorPicker.fast("#" + id, colors, this.setColor(labels[id]), defaultColors[id], function () {
+                colorPicker = sampleinfo_editor.colorPicker.fast("#" + id, colors, this.setColor(labels[id]), defaultColors[id], function () {
                     currentSampleinfo = currentLabel();
                     setMoreColors();
                 });
