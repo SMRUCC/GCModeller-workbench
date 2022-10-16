@@ -1,6 +1,6 @@
 namespace sampleinfo_editor.analysis_editor {
 
-    interface analysisDesign {
+    export interface analysisDesign {
         /**
          * 比对的组别数量
         */
@@ -12,25 +12,27 @@ namespace sampleinfo_editor.analysis_editor {
         group_info: string[];
     }
 
-    interface updateDesigns { (current: analysisDesign[]): void; }
-    interface addDesign { (labels: string[]): void; }
+    export interface updateDesigns { (current: analysisDesign[]): void; }
+    export interface addDesign { (labels: string[]): void; }
 
-    $ts(biodeep.loadStyle);
+    export function init1_analysisUI() {
+        loadStyle();
+    }
 
     /**
      * @param id the container id
     */
-    function loadDesigner(id: string, groups: string[], currentDesigns: analysisDesign[], handler: updateDesigns = null) {
+    export function loadDesigner(id: string, groups: string[], currentDesigns: analysisDesign[], handler: updateDesigns = null) {
         let labelContainer: IHTMLElement;
         let designContainer: IHTMLElement;
 
-        $ts(id).clear().appendElement(biodeep.createUI(biodeep.UI_events.handlerEvent(handler)));
+        $ts(id).clear().appendElement(createUI(UI_events.handlerEvent(handler)));
 
         labelContainer = $ts("#all_groups");
         designContainer = $ts("#designs");
 
         for (let label of groups) {
-            labelContainer.appendElement(biodeep.UI_events.doLabeler(label));
+            labelContainer.appendElement(UI_events.doLabeler(label));
         }
 
         let labels: string[];
@@ -38,12 +40,12 @@ namespace sampleinfo_editor.analysis_editor {
 
         handler = isNullOrUndefined(handler) ? DoNothing : handler;
         handleUpdate = function () {
-            handler(biodeep.UI_events.getCurrentDesigns());
+            handler(UI_events.getCurrentDesigns());
         }
 
         for (let design of currentDesigns) {
             labels = design.group_info;
-            designContainer.appendElement(biodeep.analysisDesignItem(labels, designContainer, handleUpdate));
+            designContainer.appendElement(analysisDesignItem(labels, designContainer, handleUpdate));
         }
     }
 
