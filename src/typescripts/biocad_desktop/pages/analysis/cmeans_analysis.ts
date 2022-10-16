@@ -19,6 +19,7 @@ namespace pages {
                     const textbox: HTMLInputElement = <any>$ts("#matrix-file");
 
                     textbox.value = file;
+                    desktop.closeSpinner();
                 });
         }
 
