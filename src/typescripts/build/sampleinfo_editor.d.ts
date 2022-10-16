@@ -1,5 +1,43 @@
 /// <reference path="linq.d.ts" />
-declare namespace biodeep {
+declare namespace app {
+    /**
+     * This method should be call via the ``$ts`` symbol
+    */
+    function init(): void;
+}
+declare namespace sampleinfo_editor.analysis_editor {
+    interface analysisDesign {
+        /**
+         * 比对的组别数量
+        */
+        groups: number;
+        /**
+         * 比对的组别的编号
+        */
+        label: string;
+        group_info: string[];
+    }
+    interface updateDesigns {
+        (current: analysisDesign[]): void;
+    }
+    interface addDesign {
+        (labels: string[]): void;
+    }
+    function init1_analysisUI(): void;
+    /**
+     * @param id the container id
+    */
+    function loadDesigner(id: string, groups: string[], currentDesigns: analysisDesign[], handler?: updateDesigns): void;
+}
+declare namespace sampleinfo_editor.analysis_editor {
+    function loadStyle(): void;
+}
+declare namespace sampleinfo_editor.analysis_editor.UI_events {
+    function handlerEvent(handler: updateDesigns): addDesign;
+    function doLabeler(label: string): HTMLElement;
+    function getCurrentDesigns(): analysisDesign[];
+}
+declare namespace sampleinfo_editor.analysis_editor {
     class labelStack {
         private labels;
         readonly n: number;
@@ -8,158 +46,98 @@ declare namespace biodeep {
         popall(): string[];
     }
 }
-declare namespace biodeep {
+declare namespace sampleinfo_editor.analysis_editor {
     function createUI(handler: addDesign): HTMLElement;
     const labels: labelStack;
     function analysisDesignItem(labels: string[], container: HTMLElement, handleUpdate: Delegate.Action): HTMLElement;
 }
-declare namespace biodeep {
-    function loadStyle(): void;
-}
-interface analysisDesign {
+declare namespace sampleinfo_editor.colorPicker.view {
     /**
-     * 比对的组别数量
+     * 生成亮度调整选择的表格
     */
-    groups: number;
-    /**
-     * 比对的组别的编号
-    */
-    label: string;
-    group_info: string[];
+    function hslLum_top(color: string, evt: colorMapEvent): HTMLElement;
+    function hslTable(color: string, x: "hue" | "sat" | "light"): any;
 }
-interface updateDesigns {
-    (current: analysisDesign[]): void;
-}
-interface addDesign {
-    (labels: string[]): void;
-}
-/**
- * @param id the container id
-*/
-declare function loadDesigner(id: string, groups: string[], currentDesigns: analysisDesign[], handler?: updateDesigns): void;
-declare namespace biodeep.UI_events {
-    function handlerEvent(handler: updateDesigns): addDesign;
-    function doLabeler(label: string): HTMLElement;
-    function getCurrentDesigns(): analysisDesign[];
-}
-interface IsampleMeta {
-    sampleInfo: string;
-    shape: number;
-    color: string;
-    color1: string;
-    color2: string;
-}
-interface saveAction {
-    (meta: IsampleMeta[]): void;
-}
-declare namespace biodeep {
-    class metaEditor {
-        sampleMeta: IsampleMeta[];
-        constructor(sampleMeta: IsampleMeta[], div: string);
-        private static jqueryColorPickerUI;
-        private static holdLabel;
-        setColor(label: string): (color: string) => void;
-        shapeSetter(label: string, value: string): void;
-        colorSetter(label: string, value: string): void;
-    }
-    function reset(): void;
-    function setColorValue(color: TypeScript.ColorManager.w3color): void;
-}
-interface sampleInfoTableBuilder {
-    (model: biodeep.IsampleInfo[]): HTMLElement;
-}
-declare namespace biodeep {
-    interface IsampleInfo {
-        /**
-         * the unique id
-        */
-        ID: string;
-        /**
-         * the display title of the sample
-        */
-        sample_name: string;
-        /**
-         * the sample group name
-        */
-        sample_info: string;
-        /**
-         * injection order in LC-MS experiment, used for batch normalization only
-        */
-        injectionOrder: number;
-        /**
-         * the LC-MS experiment batch number
-        */
-        batch: number;
-        sample_info1?: string;
-        sample_info2?: string;
+declare namespace sampleinfo_editor.colorPicker {
+    class colorMapEvent {
+        private changeColor;
+        colorhex: string;
         color: string;
-        color1?: string;
-        color2?: string;
-        shape: number;
-        shape1?: number;
-        shape2?: number;
-        delete?: string;
+        colorObj: TypeScript.ColorManager.w3color;
+        hh: number;
+        constructor(changeColor: useColor);
+        mouseOverColor(hex: string): void;
+        mouseOutMap(): void;
+        clickColor(hex: number | string, seltop?: number, selleft?: number): void;
     }
-    function ensureSampleInfoModel(data: string[] | IEnumerator<string> | IsampleInfo[]): IsampleInfo[];
-    function as_tabular(sampleInfo: IsampleInfo[] | IEnumerator<IsampleInfo>): string;
-    function buildModels(guessInfo: NamedValue<string[]>[]): IsampleInfo[];
-    function guess_groupInfo(sampleNames: string[] | IEnumerator<string>): NamedValue<string[]>[];
 }
-declare namespace biodeep.ui {
+declare namespace sampleinfo_editor.colorPicker {
+    interface useColor {
+        (color: TypeScript.ColorManager.w3color): void;
+    }
+    class colorPicker {
+        mapPicker: colorMapEvent;
+        div: HTMLDivElement;
+        selectedColor: TypeScript.ColorManager.w3color;
+        constructor(pickDiv: string, using: useColor);
+        private createUI;
+        private createBrightnessTable;
+        private createMapPicker;
+    }
+}
+declare namespace sampleinfo_editor.colorPicker.view {
+    interface IpolyMap {
+        coords: number[];
+        color: string;
+        offsets: number[];
+    }
+    function createPolyMap(evt: colorMapEvent, container: string | IHTMLElement): void;
+    const colorMapBase64: string;
+    const poly: IpolyMap[];
+}
+declare namespace sampleinfo_editor.colorPicker {
+    /**
+     * @param setColor set color code, this lambda function argument
+     *                 requires a string parameter for accept the
+     *                 html code of the given color.
+    */
+    function fast(id: string, list: string[], setColor: Delegate.Sub, defaultColor?: string, more?: Delegate.Action): colorPickerUI;
+    function init2_colorPickUI(): void;
+}
+declare namespace sampleinfo_editor.colorPicker {
+    class colorPickerUI {
+        id: string;
+        /**
+         * the selected color displayer
+        */
+        private display;
+        private pickerMenu;
+        private container;
+        private setColor;
+        color: string;
+        constructor(id: string, defaultColor?: string);
+        hookSetColor(action: Delegate.Sub): colorPickerUI;
+        private hideOthers;
+        private hideThis;
+        private createColorItem;
+        setDisplayColor(color: string): void;
+        private static hideAll;
+        private createDisplayComponents;
+        addOptions(colors: string[]): colorPickerUI;
+        tryHandleMoreColors(handler: Delegate.Action): colorPickerUI;
+    }
+}
+declare namespace sampleinfo_editor.colorPicker {
+    const selectpicker: string;
     function doStyle(): void;
 }
-declare namespace biodeep {
-    const sampleInfoId: string;
-    const batchInfoId: string;
-    const sample1Id: string;
-    const sample2Id: string;
-    /**
-     * UI class for create sample group information
-    */
-    class sampleInfoUI {
-        container: string;
-        private tableTitles;
-        readonly model: IsampleInfo[];
-        readonly csv: string;
-        readonly hasRowSelected: boolean;
-        /**
-         * @param builder 这个参数是用于兼容tableEditor模块的
-         * @param getHeaders 设置这个参数一般是因为表头是被翻译过了的
-        */
-        constructor(container: string, sampleNames: string[] | IsampleInfo[], builder: sampleInfoTableBuilder, getHeaders?: Delegate.Func<string[]>);
-        private lastSelectedRow;
-        private trs;
-        editMode: boolean;
-        /**
-         * hook events
-        */
-        private init;
-        private displayMenu;
-        private registerContextMenu;
-        private exitEditMode;
-        private buildSampleInfo;
-        private hookDataUpdates;
-        RowClick(currenttr: HTMLTableRowElement, lock: boolean): void;
-        toggleRow(row: HTMLTableRowElement): void;
-        selectRowsBetweenIndexes(indexes: number[]): void;
-        clearAll(): void;
-        /**
-         * default method for create html table
-        */
-        private static createSampleInfotable;
-        private static createContextMenu;
-    }
-}
-declare namespace biodeep {
-    function createInputModal(id: string, title: string, description: string): void;
-}
-declare namespace uikit.table_editor {
+declare namespace sampleinfo_editor.table_editor {
     /**
      * @param filters the object field names
     */
     function fromData<T extends {}>(data: T[], divId: string, filters?: string[], opts?: editorConfig): tableEditor;
 }
-declare namespace uikit.table_editor {
+declare namespace sampleinfo_editor.table_editor {
     /**
      * 对表格之中的单行数据的编辑操作的对象
     */
@@ -218,7 +196,7 @@ declare namespace uikit.table_editor {
         confirmEdit(confirm?: boolean): void;
     }
 }
-declare namespace uikit.table_editor {
+declare namespace sampleinfo_editor.table_editor {
     interface editorConfig {
         style?: string;
         className?: string;
@@ -251,7 +229,7 @@ declare namespace uikit.table_editor {
     function defaultConfig(): editorConfig;
     function contains(opts: editorConfig, i: number): boolean;
 }
-declare namespace uikit.table_editor {
+declare namespace sampleinfo_editor.table_editor {
     class tableEditor {
         headers: string[];
         opts: editorConfig;
@@ -289,9 +267,138 @@ declare namespace uikit.table_editor {
         private createObject;
     }
 }
-declare namespace uikit.table_editor.template {
+declare namespace sampleinfo_editor.table_editor.template {
     /**
      * 定义了如何生成表格之中的行数据进行编辑操作的按钮的html用户界面
     */
     const editor_template: string;
+}
+declare namespace sampleinfo_editor {
+    /**
+     * 预设的颜色
+    */
+    const colors: string[];
+    const shapes: {};
+    let colorPickers: {};
+    let instance: metaEditor;
+    function shapeSetter(label: string, _default: string, setValue: Delegate.Sub): IHTMLElement;
+    function colorSetter(label: string, _default: string, setValue: Delegate.Sub): IHTMLElement;
+    function reset(): void;
+    let currentSampleinfo: string;
+    function setColorValue(color: TypeScript.ColorManager.w3color): void;
+    function setMoreColors(): void;
+}
+declare namespace sampleinfo_editor {
+    class metaEditor {
+        sampleMeta: IsampleMeta[];
+        constructor(sampleMeta: IsampleMeta[], div: string);
+        private static jqueryColorPickerUI;
+        private static holdLabel;
+        setColor(label: string): (color: string) => void;
+        shapeSetter(label: string, value: string): void;
+        colorSetter(label: string, value: string): void;
+    }
+}
+declare namespace sampleinfo_editor {
+    interface IsampleMeta {
+        sampleInfo: string;
+        shape: number;
+        color: string;
+        color1: string;
+        color2: string;
+    }
+    interface saveAction {
+        (meta: IsampleMeta[]): void;
+    }
+}
+declare namespace sampleinfo_editor {
+    function init0_groupUI(): void;
+    interface sampleInfoTableBuilder {
+        (model: IsampleInfo[]): HTMLElement;
+    }
+}
+declare namespace sampleinfo_editor {
+    interface IsampleInfo {
+        /**
+         * the unique id
+        */
+        ID: string;
+        /**
+         * the display title of the sample
+        */
+        sample_name: string;
+        /**
+         * the sample group name
+        */
+        sample_info: string;
+        /**
+         * injection order in LC-MS experiment, used for batch normalization only
+        */
+        injectionOrder: number;
+        /**
+         * the LC-MS experiment batch number
+        */
+        batch: number;
+        sample_info1?: string;
+        sample_info2?: string;
+        color: string;
+        color1?: string;
+        color2?: string;
+        shape: number;
+        shape1?: number;
+        shape2?: number;
+        delete?: string;
+    }
+    function ensureSampleInfoModel(data: string[] | IEnumerator<string> | IsampleInfo[]): IsampleInfo[];
+    function as_tabular(sampleInfo: IsampleInfo[] | IEnumerator<IsampleInfo>): string;
+    function buildModels(guessInfo: NamedValue<string[]>[]): IsampleInfo[];
+    function guess_groupInfo(sampleNames: string[] | IEnumerator<string>): NamedValue<string[]>[];
+}
+declare namespace sampleinfo_editor.ui {
+    function doStyle(): void;
+}
+declare namespace sampleinfo_editor.ui {
+    const sampleInfoId: string;
+    const batchInfoId: string;
+    const sample1Id: string;
+    const sample2Id: string;
+    /**
+     * UI class for create sample group information
+    */
+    class sampleInfoUI {
+        container: string;
+        private tableTitles;
+        readonly model: IsampleInfo[];
+        readonly csv: string;
+        readonly hasRowSelected: boolean;
+        /**
+         * @param builder 这个参数是用于兼容tableEditor模块的
+         * @param getHeaders 设置这个参数一般是因为表头是被翻译过了的
+        */
+        constructor(container: string, sampleNames: string[] | IsampleInfo[], builder: sampleInfoTableBuilder, getHeaders?: Delegate.Func<string[]>);
+        private lastSelectedRow;
+        private trs;
+        editMode: boolean;
+        /**
+         * hook events
+        */
+        private init;
+        private displayMenu;
+        private registerContextMenu;
+        private exitEditMode;
+        private buildSampleInfo;
+        private hookDataUpdates;
+        RowClick(currenttr: HTMLTableRowElement, lock: boolean): void;
+        toggleRow(row: HTMLTableRowElement): void;
+        selectRowsBetweenIndexes(indexes: number[]): void;
+        clearAll(): void;
+        /**
+         * default method for create html table
+        */
+        private static createSampleInfotable;
+        private static createContextMenu;
+    }
+}
+declare namespace sampleinfo_editor.ui {
+    function createInputModal(id: string, title: string, description: string): void;
 }
