@@ -152,7 +152,14 @@ declare namespace pages.analysis_project {
         sample2_onclick(): void;
         create3_onclick(): void;
         button_open_matrix_click(): void;
+        private check_matrix;
         button_open_sampleinfo_click(): void;
+    }
+}
+declare namespace pages.analysis_project {
+    class edit_sampleinfo extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
     }
 }
 declare namespace pages.background {

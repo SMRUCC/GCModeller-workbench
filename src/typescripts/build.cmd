@@ -4,6 +4,7 @@ REM compile of the typescript projects at first
 
 cd biocad_desktop
 tsc
-cd ..
+cd ../editor
+tsc
 
 pause

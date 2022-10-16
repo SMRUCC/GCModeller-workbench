@@ -67,6 +67,12 @@ SET jump=biocad_desktop_end
 CALL :exec_gcc biocad_desktop
 :biocad_desktop_end
 
+:sampleinfo_js
+SET jump=sampleinfo_end
+CALL :exec_gcc sampleinfo_editor
+:sampleinfo_end
+
+
 echo "all done!"
 pause
 
