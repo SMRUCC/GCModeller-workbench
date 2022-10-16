@@ -1,0 +1,16 @@
+{
+  "name": "linq.ts",
+  "version": "0.0.0",
+  "description": "Data sequence Linq extension for TypeScript.",
+  "main": "sampleinfo_editor.js",
+  "author": {
+    "name": "xieguigang"
+  },
+  "devDependencies": {
+    "@types/node": "^6.14.10",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "npm": "^8.19.2"
+  }
+}
