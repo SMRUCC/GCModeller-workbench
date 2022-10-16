@@ -30,31 +30,91 @@
                                 ...
                             </p>
                         </div>
-                        
+
                     </section>
                     <section id="example-2">
                         <h3>Set Parameters</h3>
+
                         ...
+
+                        <br />
+                        <div class="row">
+                            <div class="col-auto">
+                                <button id="run" type="submit" class="btn btn-primary mb-3">Run</button>
+                            </div>
+                        </div>
                     </section>
                     <section id="example-3">
                         <h3>Analysis Result</h3>
-                        ...
+
+
                         <section id="example-sub-A">
                             <h3>Rplot</h3>
-                            ...
+
+                            <section class="pb-4">
+                                <div class="bg-white border rounded-5">
+
+                                    <section class="p-4 d-flex justify-content-center text-center w-100">
+                                        <div class="lightbox" data-id="lightbox-bm48lj2vb" id="lightbox">
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <a href="/assets/images/empty.jpg" data-toggle="lightbox"
+                                                        data-caption="2d/3d scatter plot" id="Rplot-box">
+                                                        <img src="/assets/images/empty.jpg" alt="2d/3d scatter plot"
+                                                            class="img-fluid w-100 my-lightbox-toggle"
+                                                            style="max-width: 400px;" id="Rplot_js">
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                </div>
+                            </section>
+
                         </section>
                         <section id="example-sub-B">
                             <h3>Data Table</h3>
-                            ...
+
+                            <div class="row">
+                                <div class="col-auto" id="result-table">
+
+                                </div>
+                            </div>
+
                         </section>
                     </section>
                     <section id="example-4">
                         <h3>Reference</h3>
-                        ...
+
+                        <ol>
+
+                        </ol>
+
                     </section>
                     <section id="example-5">
                         <h3>Download</h3>
-                        ...
+
+                        <p>Save your analysis result files.</p>
+
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-info" id="save_project">
+                                Save To Project
+                            </button>
+
+                            <div class="btn-group" role="group">
+                                <button id="download-group" type="button" class="btn btn-primary dropdown-toggle"
+                                    data-mdb-toggle="dropdown" aria-expanded="false">
+                                    Download Report
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="download-group">
+                                    <li><a class="dropdown-item" href="#" id="download_zip">Download Zip Archive</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Print As PDF</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
                 </div>
                 <!-- Spied element -->

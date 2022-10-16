@@ -174,11 +174,46 @@
                     </section>
                     <section id="example-4">
                         <h3>Reference</h3>
-                        ...
+
+                        <ol>
+                            <li>
+                                Nueda MJ, Tarazona S and Conesa A (2014). “Next maSigPro: updating maSigPro Bioconductor
+                                package for RNA-seq time series.” Bioinformatics, 30, p. 2598-2602.
+                            </li>
+                            <li>
+                                Guo, DL., Wang, ZG., Pei, MS. et al. Transcriptome analysis reveals mechanism of early
+                                ripening in Kyoho grape with hydrogen peroxide treatment. BMC Genomics 21, 784 (2020).
+                                https://doi.org/10.1186/s12864-020-07180-y
+                            </li>
+                            <li>
+                                Wu M, Gu L (2022). TCseq: Time course sequencing data analysis. R package version
+                                1.20.0.
+                            </li>
+                        </ol>
+
                     </section>
                     <section id="example-5">
                         <h3>Download</h3>
-                        ...
+                        
+                        <p>Save your analysis result files.</p>
+
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-info" id="save_project">
+                                Save To Project
+                            </button>
+
+                            <div class="btn-group" role="group">
+                                <button id="download-group" type="button" class="btn btn-primary dropdown-toggle"
+                                    data-mdb-toggle="dropdown" aria-expanded="false">
+                                    Download Report
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="download-group">
+                                    <li><a class="dropdown-item" href="#" id="download_zip">Download Zip Archive</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Print As PDF</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
                 </div>
                 <!-- Spied element -->
