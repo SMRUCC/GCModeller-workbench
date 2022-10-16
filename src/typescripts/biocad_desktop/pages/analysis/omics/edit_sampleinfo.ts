@@ -1,3 +1,5 @@
+/// <reference path="../../../../build/sampleinfo_editor.d.ts" />
+
 namespace pages.analysis_project {
 
     export class edit_sampleinfo extends Bootstrap {
@@ -7,7 +9,7 @@ namespace pages.analysis_project {
         };
 
         protected init(): void {
-            // throw new Error("Method not implemented.");
+            app.initSampleEditor();
         }
 
     }

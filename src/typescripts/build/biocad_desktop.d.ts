@@ -1,4 +1,5 @@
 /// <reference path="linq.d.ts" />
+/// <reference path="sampleinfo_editor.d.ts" />
 declare namespace apps {
     /**
      * async proxy

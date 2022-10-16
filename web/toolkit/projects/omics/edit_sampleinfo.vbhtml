@@ -22,6 +22,8 @@
 
         <%= ../../../assets/includes/webapp.vbhtml %>
 
+        <script type="text/javascript" src="/javascript/sampleinfo_editor.min.js"></script>
+
     </div>
     <!-- End your project here-->
 </body>

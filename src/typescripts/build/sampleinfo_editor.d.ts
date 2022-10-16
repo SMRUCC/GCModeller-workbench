@@ -3,7 +3,7 @@ declare namespace app {
     /**
      * This method should be call via the ``$ts`` symbol
     */
-    function init(): void;
+    function initSampleEditor(): void;
 }
 declare namespace sampleinfo_editor.analysis_editor {
     interface analysisDesign {
