@@ -4,7 +4,7 @@ require(GCModeller);
 imports "geneExpression" from "phenotype_kit";
 imports "visualPlot" from "visualkit";
 
-const run = function(ssid) {
+const run = function(ssid, colorSet = "Jet") {
     const session_file as string = `${getOption("system_tempdir")}/${ssid}/patterns_data.dat`;
     const session_plot as string = `${getOption("system_tempdir")}/${ssid}/TCseq.png`;
     const patterns = geneExpression::readPattern(session_file);
