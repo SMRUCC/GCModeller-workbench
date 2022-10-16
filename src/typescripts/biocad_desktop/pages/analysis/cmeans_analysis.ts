@@ -66,7 +66,8 @@ namespace pages {
         }
 
         public refresh_Rplot_onclick() {
-            const json = { ssid: this.session_id };
+            const colorSet: string = $ts.select.getOption("#colorSet");
+            const json = { ssid: this.session_id, colorSet: colorSet };
 
             desktop.loading();
             apps.gcmodeller

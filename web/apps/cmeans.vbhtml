@@ -164,6 +164,10 @@
                                 </div>
                             </section>
 
+                            <p>Color Set:</p>
+
+                            <%= ../assets/includes/colorSet.vbhtml %>
+
                             <button id="refresh_Rplot" type="submit" class="btn btn-primary mb-3">Refresh</button>
 
                         </section>
