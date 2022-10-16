@@ -140,7 +140,7 @@ namespace pages {
         }
 
         public plot_onclick() {
-            $ts("#busy-indicator").show();
+            desktop.loading();
 
             const json: string = JSON.stringify({
                 session_id: this.session_id,

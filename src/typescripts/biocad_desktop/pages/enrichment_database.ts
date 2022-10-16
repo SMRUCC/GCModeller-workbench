@@ -13,7 +13,7 @@ namespace pages {
         private scanDatabaseList() {
             const vm = this;
 
-          desktop.loading();
+            desktop.loading();
 
             apps.gcmodeller
                 .scanDatabase()
@@ -41,13 +41,12 @@ namespace pages {
                 }
 
                 $ts(`#${key}-meta`).onclick = function () {
-                    $ts("#busy-indicator").show();
+                    desktop.loading();
                     enrichment_database.showMetadata(key, metadata);
                 }
             }
 
-            $ts("#busy-indicator").hide();
-
+            desktop.closeSpinner();
             // show database summary information
             desktop.showToastMessage(`Found ${dbSize} database.`, "Enrichment Database Repository", "info");
         }
@@ -65,12 +64,12 @@ namespace pages {
                 .sendPost($ts.url("@web_invoke_inspector"), json)
                 .then(async function (result) {
                     desktop.promiseAsyncCallback<string>(result, function (flag, message) {
-                        enrichment_database.displayDatabaseContentSummary(sb, flag, message);
+                        enrichment_database.displayDatabaseContentSummary(key, sb, flag, message);
                     });
                 });
         }
 
-        private static displayDatabaseContentSummary(sb: string, flag: boolean, message: IMsg<string>) {
+        private static displayDatabaseContentSummary(key: string, sb: string, flag: boolean, message: IMsg<string>) {
             const title = flag ? "Load Database Success" : "Load Database Error";
             const data: {
                 counts: number,
@@ -110,7 +109,7 @@ namespace pages {
                         console.log(id);
 
                         $ts(id).onclick = function () {
-                            $ts("#busy-indicator").show();
+                            desktop.loading();
                             console.log(`view background model: ${name}...`);
                             enrichment_database.viewModel(key, name, model.info);
                         }
@@ -240,7 +239,7 @@ namespace pages {
         }
 
         public imports_onclick() {
-            $ts("#busy-indicator").show();
+            desktop.loading();
 
             const data = {
                 file: $ts.value("#formFile"),
@@ -263,7 +262,7 @@ namespace pages {
                             desktop.showToastMessage(message.info, title, "danger");
                         }
 
-                        $ts("#busy-indicator").hide();
+                        desktop.closeSpinner();
                     });
                 });
         }

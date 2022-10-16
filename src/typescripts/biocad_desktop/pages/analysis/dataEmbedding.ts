@@ -17,7 +17,6 @@ namespace pages {
             const busy = $ts("#busy-indicator");
 
             busy.show();
-
             apps.gcmodeller
                 .getFileOpen("Excel Matrix(*.csv)|*.csv")
                 .then(async function (result) {
@@ -116,7 +115,7 @@ namespace pages {
         }
 
         public refresh_Rplot_click() {
-            $ts("#busy-indicator").show();
+            desktop.loading();
 
             if (!Strings.Empty(this.session_id)) {
                 dataEmbedding.plot3DScatter(this.session_id);
@@ -135,7 +134,7 @@ namespace pages {
                 ssid: this.session_id
             });
 
-            $ts("#busy-indicator").show();
+            desktop.loading();
 
             if (!Strings.Empty(this.session_id)) {
                 apps.gcmodeller.sendPost(url, json).then(async function (result) {

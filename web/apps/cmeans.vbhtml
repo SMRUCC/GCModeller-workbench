@@ -82,9 +82,13 @@
                                     <div class="col-4">
                                         <p>Layout:</p>
 
-                                        <p>Columns x Rows: </p> <input type="text" class="form-control" id="cols"
-                                            value="3" /> x
-                                        <input type="text" class="form-control" id="rows" value="3" />
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Columns"
+                                                aria-label="Columns" id="cols" value="3" />
+                                            <span class="input-group-text">x</span>
+                                            <input type="text" class="form-control" placeholder="Rows" aria-label="Rows"
+                                                id="rows" value="3" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
