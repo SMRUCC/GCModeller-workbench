@@ -102,6 +102,12 @@ declare namespace pages {
     }
 }
 declare namespace pages {
+    class cmeans_patterns extends analysis_session {
+        readonly appName: string;
+        protected init(): void;
+    }
+}
+declare namespace pages {
     class dataEmbedding extends analysis_session {
         readonly appName: string;
         protected init(): void;
