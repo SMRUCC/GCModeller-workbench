@@ -50,12 +50,12 @@ namespace sampleinfo_editor {
             let groupInfo: NamedValue<string[]>[];
 
             try {
-                groupInfo = biodeep.guess_groupInfo(strings);
+                groupInfo = guess_groupInfo(strings);
             } catch {
                 groupInfo = [new NamedValue<string[]>("unknown", strings)];
             }
 
-            return biodeep.buildModels(groupInfo);
+            return buildModels(groupInfo);
         } else {
             let copy = <IsampleInfo[]>data;
 

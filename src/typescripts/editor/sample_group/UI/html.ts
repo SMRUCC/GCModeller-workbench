@@ -32,7 +32,7 @@
 
         public get csv(): string {
             let table: IsampleInfo[] = this.model;
-            let text: string = biodeep.as_tabular(table);
+            let text: string = as_tabular(table);
 
             return text;
         }
@@ -51,8 +51,13 @@
          * @param builder 这个参数是用于兼容tableEditor模块的
          * @param getHeaders 设置这个参数一般是因为表头是被翻译过了的
         */
-        public constructor(public container: string, sampleNames: string[] | IsampleInfo[], builder: sampleInfoTableBuilder, getHeaders: Delegate.Func<string[]> = null) {
-            let raw: IsampleInfo[] = biodeep.ensureSampleInfoModel(sampleNames);
+        public constructor(
+            public container: string, 
+            sampleNames: string[] | IsampleInfo[], 
+            builder: sampleInfoTableBuilder, 
+            getHeaders: Delegate.Func<string[]> = null) {
+
+            let raw: IsampleInfo[] = ensureSampleInfoModel(sampleNames);
 
             if (isNullOrUndefined(builder)) {
                 builder = sampleInfoUI.createSampleInfotable;
@@ -283,7 +288,7 @@
         /**
          * default method for create html table
         */
-        private static createSampleInfotable(model: biodeep.IsampleInfo[]): HTMLElement {
+        private static createSampleInfotable(model: IsampleInfo[]): HTMLElement {
             return $ts.evalHTML.table(model, null, { id: "sampleinfo", class: ["sampleinfo", "table"] });
         }
 
