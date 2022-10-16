@@ -1,6 +1,4 @@
-﻿/// <reference path="../../build/linq.d.ts" />
-
-namespace uikit.table_editor {
+﻿namespace uikit.table_editor {
 
     /**
      * @param filters the object field names

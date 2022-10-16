@@ -1,5 +1,3 @@
-/// <reference path="../../../uikit/build/uikit.colorPicker.d.ts" />
-
 namespace biodeep {
 
     /**
