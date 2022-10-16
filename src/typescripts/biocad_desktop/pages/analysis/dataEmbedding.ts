@@ -27,12 +27,12 @@ namespace pages {
         }
 
         public run_click() {
-            $ts("#busy-indicator").show();
+            desktop.loading();
 
             const filepath: string = $ts.value("#matrix-file");
             const dimensions: number = $ts.value("#dimensions");
             const method: string = $ts.select.getOption("#algorithm");
-            const session_id: string = super.generateSsid({ file: filepath, dims: dimensions, algo: method });
+            const session_id: string = analysis_session.generateSsid({ file: filepath, dims: dimensions, algo: method });
             const z_score: boolean = $ts("#z-score").CType<HTMLInputElement>().checked;
             const json = JSON.stringify({
                 file: filepath,

@@ -157,7 +157,7 @@ namespace pages {
         public run_click() {
             const vm = this;
 
-            $ts("#busy-indicator").show();
+            desktop.loading();
 
             // extract odes system
             const odes = runPLAS.loadContents("equation");
@@ -171,7 +171,7 @@ namespace pages {
             }
 
             // get session unique id
-            const ssid: string = super.generateSsid({
+            const ssid: string = analysis_session.generateSsid({
                 sys: odes,
                 const: constants,
                 t: time_final,
@@ -202,7 +202,7 @@ namespace pages {
                             desktop.showToastMessage(message.info, "Run PLAS", "danger");
                         }
 
-                        $ts("#busy-indicator").hide();
+                        desktop.closeSpinner();
                     });
                 });
         }

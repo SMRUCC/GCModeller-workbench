@@ -13,6 +13,9 @@ namespace desktop {
         });
     }
 
+    /**
+     * show ``#busy-indicator`` loading spinner
+    */
     export function loading(message: string = "Loading...") {
         $ts("#spinner-message").display(message);
         $ts("#busy-indicator").show();

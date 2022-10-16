@@ -13,7 +13,7 @@ namespace pages {
         private scanDatabaseList() {
             const vm = this;
 
-            $ts("#busy-indicator").show();
+          desktop.loading();
 
             apps.gcmodeller
                 .scanDatabase()
