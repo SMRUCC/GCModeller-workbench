@@ -64,7 +64,7 @@
                             <div class="col-auto">
                                 <!-- Checked checkbox -->
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="z-score" checked />
+                                    <input class="form-check-input" type="checkbox" value="" name="z-score" id="z-score" checked />
                                     <label class="form-check-label" for="z-score">Z-score transformation</label>
                                 </div>
 
@@ -194,7 +194,7 @@
                     </section>
                     <section id="example-5">
                         <h3>Download</h3>
-                        
+
                         <p>Save your analysis result files.</p>
 
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">

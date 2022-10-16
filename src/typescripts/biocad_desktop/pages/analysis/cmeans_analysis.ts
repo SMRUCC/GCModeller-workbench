@@ -31,7 +31,7 @@ namespace pages {
             const rows = $ts.value("#rows");
             const cols = $ts.value("#cols");
             const algo = $ts.select.getOption("#algorithm");
-            const z = $ts.value("#z-score");
+            const z = $ts("#z-score").CType<HTMLInputElement>().checked;
             const file = $ts.value("#matrix-file");
             const json = {
                 layout: [rows, cols],

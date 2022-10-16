@@ -4,8 +4,14 @@ require(GCModeller);
 imports "geneExpression" from "phenotype_kit";
 
 const run = function(file, ssid, z_score = TRUE, algorithm = ["cmeans", "kmeans"], layout = [3,3]) {
-    const expr0 = matrixFileReader(file, z_score);
-    const patterns = expression.cmeans_pattern(expr0, dim = layout);
+    const expr0 = matrixFileReader(file, as.logical(z_score));
+    const patterns = expr0 
+    |> expression.cmeans_pattern(
+        dim = as.integer(layout),
+        fuzzification = 2,
+        threshold = 0.1
+    )
+    ;
     const session_file as string = `${getOption("system_tempdir")}/${ssid}/patterns_data.dat`;
     const session_mat as string = `${getOption("system_tempdir")}/${ssid}/patterns.csv`;
     const data = cmeans_matrix(patterns);
