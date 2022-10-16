@@ -36,10 +36,10 @@
 
 <body class="background">
     <!-- Start your project here-->
-    <div class="container" style="background: rgba(0, 0, 0, 0.6); padding: 30px 30px 30px 30px;">
+    <div class="container" style="background: rgba(0, 0, 0, 0.6); padding: 30px 30px 30px 30px; height: 100%;">
 
         <h1 style="color: white;">GCModeller Analysis Applications</h1>
-<br />
+        <br />
         <div class="row">
             <div class="col-xl-4 col-lg-6 mb-4">
                 <a href="#" onclick="apps.gcmodeller.openZscore();" class="card ripple bg-image hover-zoom">
@@ -122,6 +122,16 @@
         </div>
 
         <%= ./assets/includes/webapp.vbhtml %>
+
+
+            <footer class="text-center text-lg-start text-muted" style="font-size: 0.9em;">
+                <!-- Copyright -->
+                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05); color: white;">
+                    © 2022 Copyright:
+                    <a class="text-reset fw-bold" href="https://gcmodeller.org/">GCModeller.org</a> | 中國 · 桂林
+                </div>
+                <!-- Copyright -->
+            </footer>
 
     </div>
     <!-- End your project here-->
