@@ -169,7 +169,11 @@
                         </section>
                         <section id="example-sub-B">
                             <h3>Data Table</h3>
-                            ...
+                            <div class="row">
+                                <div class="col-auto" id="patterns-table">
+
+                                </div>
+                            </div>
                         </section>
                     </section>
                     <section id="example-4">

@@ -20,6 +20,7 @@ const run = function(ssid) {
         );
     }
 
+    # send temp file mapper url
     json_encode({
         code: 0,
         info: `/@temp/${ssid}/${basename(session_plot)}.png`

@@ -53,6 +53,13 @@ namespace pages {
                             // request image display
                             vm.session_id = json.ssid;
                             vm.refresh_Rplot_onclick();
+
+                            // show table
+                            const data = $ts.csv(message.info, true).Objects();
+                            const previews = data.Take(10);
+
+                            $ts("#patterns-table").clear();
+                            $ts.appendTable(previews, "#patterns-table", null, { class: ["table", "table-sm"] });
                         }
                     });
                 });
