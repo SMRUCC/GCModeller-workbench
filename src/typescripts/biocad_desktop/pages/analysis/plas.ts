@@ -171,7 +171,7 @@ namespace pages {
             }
 
             // get session unique id
-            const ssid: string = analysis_session.generateSsid({
+            const ssid: string = super.generateSsid({
                 sys: odes,
                 const: constants,
                 t: time_final,

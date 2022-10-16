@@ -74,8 +74,17 @@ declare namespace pages {
         protected session_id: string;
         /**
          * the unique session id generator for the R# backend
+         *
+         * this unique id is generated based on the context of:
+         *
+         *   1. current timestamp
+         *   2. current page app name
+         *   3. additionally, the analysis parameter json object string
+         *
+         * @param contents the additional context data to generate
+         *    the guid, this parameter value can be optional
         */
-        static generateSsid(contents: {}): string;
+        protected generateSsid(contents?: {}): string;
     }
 }
 declare namespace pages {
@@ -106,12 +115,18 @@ declare namespace pages {
         imports_onclick(): void;
     }
 }
-declare function parseSampleInfo(analysis_file: string, using: Delegate.Sub, err?: Delegate.Sub): void;
-declare function saveSampleInfo(table: sampleinfo_editor.IsampleInfo[], analysis_file: string, success: Delegate.Action): void;
+declare namespace omicsAnalysis {
+    const expressionMatrix: string;
+    function parseSampleInfo(analysis_file: string, using: Delegate.Sub, err?: Delegate.Sub): void;
+    function saveSampleInfo(table: sampleinfo_editor.IsampleInfo[], analysis_file: string, success: Delegate.Action): void;
+}
 declare namespace pages {
     class cmeans_patterns extends analysis_session {
         readonly appName: string;
         protected init(): void;
+        button_open_click(): void;
+        run_onclick(): void;
+        refresh_Rplot_onclick(): void;
     }
 }
 declare namespace pages {

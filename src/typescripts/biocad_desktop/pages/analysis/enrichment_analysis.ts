@@ -92,7 +92,7 @@ namespace pages {
         }
 
         private runInternal(type: string, symbols: string) {
-            const ssid: string = analysis_session.generateSsid({ type: type, symbols: symbols });
+            const ssid: string = super.generateSsid({ type: type, symbols: symbols });
             const vm = this;
             const json: string = JSON.stringify({
                 id: this.database,

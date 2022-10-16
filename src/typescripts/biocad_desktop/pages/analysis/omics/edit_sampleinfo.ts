@@ -23,7 +23,7 @@ namespace pages.analysis_project {
         public reset() {
             let vm = this;
 
-            parseSampleInfo(this.analysisFile, info => this.beginEditSampleInfo1(info), function () {
+            omicsAnalysis.parseSampleInfo(this.analysisFile, info => this.beginEditSampleInfo1(info), function () {
                 // 首先尝试自动解析
                 layer.confirm(`老师好，您目前还没有上传样本分组信息文件，是否需要进行自动解析？`, {
                     btn: ['确定', '取消']
@@ -115,7 +115,7 @@ namespace pages.analysis_project {
                 vec.push(this.sampleInfo[id]);
             }
 
-            saveSampleInfo(vec, this.analysisFile, success);
+            omicsAnalysis.saveSampleInfo(vec, this.analysisFile, success);
         }
 
         private xload_sampleInfo(sampleInfo: sampleinfo_editor.IsampleInfo[]): HTMLElement {
