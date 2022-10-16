@@ -57,6 +57,7 @@ Public MustInherit Class WebApp
 
         httpClient.DefaultRequestHeaders.Accept.Clear()
         httpClient.DefaultRequestHeaders.Accept.Add(New MediaTypeWithQualityHeaderValue("application/json"))
+        httpClient.Timeout = TimeSpan.FromDays(1)
 
         Call Workbench.LogTextOutput.WriteLine($"POST {url}")
         Call Workbench.LogTextOutput.WriteLine($"  -> payload: {json}")
