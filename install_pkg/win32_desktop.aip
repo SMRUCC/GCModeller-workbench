@@ -36,6 +36,7 @@
     <ROW Directory="SMRUCC_Dir" Directory_Parent="ProgramMenuFolder" DefaultDir="SMRUCC"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
     <ROW Directory="analysis_apps_Dir" Directory_Parent="fastRWeb_Dir" DefaultDir="ANALYS~1|analysis_apps"/>
+    <ROW Directory="analysis_project_Dir" Directory_Parent="analysis_apps_Dir" DefaultDir="ANALYS~1|analysis_project"/>
     <ROW Directory="apps_Dir" Directory_Parent="web_Dir" DefaultDir="apps"/>
     <ROW Directory="assets_Dir" Directory_Parent="web_Dir" DefaultDir="assets"/>
     <ROW Directory="bin_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="bin"/>
@@ -62,7 +63,10 @@
     <ROW Directory="native_Dir" Directory_Parent="winx64_Dir" DefaultDir="native"/>
     <ROW Directory="net6.0_1_Dir" Directory_Parent="lib_1_Dir" DefaultDir="net6.0"/>
     <ROW Directory="net6.0_Dir" Directory_Parent="lib_Dir" DefaultDir="net6.0"/>
+    <ROW Directory="omics_Dir" Directory_Parent="projects_Dir" DefaultDir="omics"/>
     <ROW Directory="packages_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="packages"/>
+    <ROW Directory="projects_Dir" Directory_Parent="toolkit_Dir" DefaultDir="projects"/>
+    <ROW Directory="report_Dir" Directory_Parent="analysis_apps_Dir" DefaultDir="report"/>
     <ROW Directory="runtimes_1_Dir" Directory_Parent="bin_Dir" DefaultDir="runtimes"/>
     <ROW Directory="runtimes_Dir" Directory_Parent="APPDIR" DefaultDir="runtimes"/>
     <ROW Directory="services_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="services"/>
@@ -73,6 +77,7 @@
     <ROW Directory="web_Dir" Directory_Parent="APPDIR" DefaultDir="webview"/>
     <ROW Directory="win_Dir" Directory_Parent="runtimes_1_Dir" DefaultDir="win"/>
     <ROW Directory="winx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win-x64"/>
+    <ROW Directory="zip_Dir" Directory_Parent="report_Dir" DefaultDir="zip"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="APPDIR" ComponentId="{586FF7A5-1099-4B16-9848-797D35FAD65E}" Directory_="APPDIR" Attributes="0"/>
@@ -130,6 +135,7 @@
     <ROW Component="Microsoft.VisualBasic.MachineLearning.dll" ComponentId="{2393B50D-A1FD-46E5-910D-C7E74D338B43}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MachineLearning.dll"/>
     <ROW Component="Microsoft.VisualBasic.MachineLearning.tSNE.dll" ComponentId="{20A731AB-F72F-46F3-9988-2EF6C513573E}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MachineLearning.tSNE.dll"/>
     <ROW Component="Microsoft.VisualBasic.Math.Core.dll" ComponentId="{B04A9F2E-9F96-4E06-B71E-E6AECE14CAFD}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Core.dll"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Core.dll_1" ComponentId="{C1467765-35BA-4D1F-9588-9E0930B95E28}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Core.dll_1"/>
     <ROW Component="Microsoft.VisualBasic.Math.DataFrame.dll" ComponentId="{F815A16F-0A32-41D9-B57A-C6D1E0C014BF}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.DataFrame.dll"/>
     <ROW Component="Microsoft.VisualBasic.Math.Lambda.dll" ComponentId="{EAC39504-C6EE-4A5F-9CDA-30BD90D070B5}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Lambda.dll"/>
     <ROW Component="Microsoft.VisualBasic.Math.ODEsSolver.dll" ComponentId="{259CFCC7-6E8F-4F39-AA30-8C9E225781DA}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.ODEsSolver.dll"/>
@@ -149,7 +155,10 @@
     <ROW Component="Microsoft.Win32.SystemEvents.dll_1" ComponentId="{7394A492-C376-4BD8-8BF0-ADF70CF2FC89}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="Microsoft.Win32.SystemEvents.dll_1"/>
     <ROW Component="Microsoft.Windows.FeatureAPI.dll" ComponentId="{0DA94794-FF84-4362-802B-BE2D171527E7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Windows.FeatureAPI.dll"/>
     <ROW Component="Microsoft.Windows.Ribbon.dll" ComponentId="{A0D9AE82-0034-49AE-BB07-F88519A805F7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Windows.Ribbon.dll"/>
+    <ROW Component="OmicsProject.dll" ComponentId="{3E4C1086-9A88-4C8C-A854-B7804129D69B}" Directory_="APPDIR" Attributes="256" KeyPath="OmicsProject.dll"/>
     <ROW Component="ProductInformation" ComponentId="{1D221E6E-1160-4C0E-A212-EE419A654BC4}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
+    <ROW Component="R.dll" ComponentId="{9F1DBFBE-E4EE-443B-8F27-EA0FDC7C03C1}" Directory_="bin_Dir" Attributes="256" KeyPath="R.dll"/>
+    <ROW Component="R.exe" ComponentId="{C2F758DF-C8C6-4DCF-94FF-437D465F92B1}" Directory_="bin_Dir" Attributes="256" KeyPath="R.exe"/>
     <ROW Component="RData.dll" ComponentId="{111D0B91-3A43-44A9-B927-B9473600EBF7}" Directory_="library_Dir" Attributes="256" KeyPath="RData.dll"/>
     <ROW Component="README.md" ComponentId="{486553F9-F42E-4B67-84F6-88E362020A8B}" Directory_="fastRWeb_Dir" Attributes="0" KeyPath="README.md_1" Type="0"/>
     <ROW Component="REnv.dll" ComponentId="{304CE16A-3BA3-46AD-9D8F-1B597F647913}" Directory_="bin_Dir" Attributes="256" KeyPath="REnv.dll"/>
@@ -165,7 +174,9 @@
     <ROW Component="Rserver.zip" ComponentId="{8AA7C4DD-9D17-431B-96BF-937B62544724}" Directory_="packages_Dir" Attributes="0" KeyPath="Rserver.zip" Type="0"/>
     <ROW Component="Rstudio.dll" ComponentId="{E1884026-420C-4608-9C82-43C5B05980AD}" Directory_="library_Dir" Attributes="256" KeyPath="Rstudio.dll"/>
     <ROW Component="SMRUCC" ComponentId="{7B56C500-B4FF-4577-B2B5-80D129CDC4C9}" Directory_="SMRUCC_Dir" Attributes="0"/>
+    <ROW Component="SMRUCC.genomics.Analysis.HTS.DataFrame.dll" ComponentId="{F53A9E6D-F821-400F-97CE-344EFFB0B660}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Analysis.HTS.DataFrame.dll"/>
     <ROW Component="SMRUCC.genomics.Core.dll" ComponentId="{57DD5ED3-82BA-43ED-B02F-8BAA34824B94}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Core.dll"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" ComponentId="{09131ECF-7956-43D6-BFA0-F424DDC90572}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll"/>
     <ROW Component="System.Buffers.dll" ComponentId="{DC788B8A-CE5F-4CCA-AC6C-CCCECDC9F56A}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
     <ROW Component="System.Composition.AttributedModel.dll" ComponentId="{F9FB9B9B-9DA5-44CE-AFCE-64E146D00F33}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.AttributedModel.dll"/>
     <ROW Component="System.Composition.AttributedModel.dll_1" ComponentId="{9324E751-4288-44E3-8ECD-793B6CEE393A}" Directory_="APPDIR" Attributes="0" KeyPath="System.Composition.AttributedModel.dll_1"/>
@@ -173,6 +184,7 @@
     <ROW Component="System.Composition.Hosting.dll" ComponentId="{10E50C71-D1DB-4086-A261-7FD750D4AC11}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.Hosting.dll"/>
     <ROW Component="System.Composition.Runtime.dll" ComponentId="{BF4C675F-342C-4C73-AB05-65A063846E5B}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.Runtime.dll"/>
     <ROW Component="System.Composition.TypedParts.dll" ComponentId="{78D96DDB-41DD-48E4-A27D-3C90A3CBD8A8}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.TypedParts.dll"/>
+    <ROW Component="System.Configuration.ConfigurationManager.dll" ComponentId="{2509EB5F-EC27-4424-841D-ACB15D158377}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Configuration.ConfigurationManager.dll"/>
     <ROW Component="System.Drawing.Common.dll" ComponentId="{564A94EC-2B2E-4F78-BA8B-40DB12B63E75}" Directory_="net6.0_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll"/>
     <ROW Component="System.Drawing.Common.dll_1" ComponentId="{D931F0C9-B193-461B-8332-B327DE4E94B6}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll_1"/>
     <ROW Component="System.Drawing.Common.dll_2" ComponentId="{ECD1A83E-151D-4ACD-807A-B059DF912056}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll_2"/>
@@ -181,7 +193,12 @@
     <ROW Component="System.Resources.Extensions.dll" ComponentId="{A50E908B-0DB6-4399-81CE-3C52CD358CE4}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Resources.Extensions.dll"/>
     <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{7160B3E9-EC66-4DB3-99E5-0F733B77D7B5}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
     <ROW Component="System.Runtime.InteropServices.APIs.dll" ComponentId="{9D97F75C-1198-4AE5-8A2B-EC6E70F9FCD8}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.InteropServices.APIs.dll"/>
+    <ROW Component="System.Security.Cryptography.ProtectedData.dll" ComponentId="{29C562CC-25E5-49D7-B509-3BB55AAB0570}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="System.Security.Cryptography.ProtectedData.dll"/>
+    <ROW Component="System.Security.Cryptography.ProtectedData.dll_1" ComponentId="{F20620DD-F1C2-40AD-8E1C-1B592390B1C7}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Security.Cryptography.ProtectedData.dll_1"/>
+    <ROW Component="System.Security.Permissions.dll" ComponentId="{E60D1807-5A01-4031-8904-722DB9F61F3D}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Security.Permissions.dll"/>
     <ROW Component="System.Text.Encoding.CodePages.dll" ComponentId="{7B96C91A-E91C-4B70-A024-7DF73F0014FC}" Directory_="APPDIR" Attributes="0" KeyPath="System.Text.Encoding.CodePages.dll"/>
+    <ROW Component="System.Windows.Extensions.dll" ComponentId="{713A0F15-B17F-4447-BFE6-6E3BE8F47836}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="System.Windows.Extensions.dll"/>
+    <ROW Component="System.Windows.Extensions.dll_1" ComponentId="{1B493E50-B164-46DB-9808-881124FFEF96}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Windows.Extensions.dll_1"/>
     <ROW Component="System.Windows.Forms.DataGridView.dll" ComponentId="{F6775744-B556-40D1-9C7E-FCA1857CF4C4}" Directory_="APPDIR" Attributes="256" KeyPath="System.Windows.Forms.DataGridView.dll"/>
     <ROW Component="System.Windows.Forms.TabControl.dll" ComponentId="{F34CDC20-532A-4B31-B61F-8ACDDCEF0C98}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Forms.TabControl.dll"/>
     <ROW Component="System.Windows.Forms.ThemeColorPicker.dll" ComponentId="{3ABF454B-D442-4555-B334-155C2D00A942}" Directory_="APPDIR" Attributes="256" KeyPath="System.Windows.Forms.ThemeColorPicker.dll"/>
@@ -199,6 +216,9 @@
     <ROW Component="bmap.min.js" ComponentId="{F31480A1-3A2E-4EFD-8487-D8E169E12449}" Directory_="extension_Dir" Attributes="0" KeyPath="bmap.min.js" Type="0"/>
     <ROW Component="bootstrap.bundle.js" ComponentId="{B65AA785-278E-4462-AFDF-CB6426727ED1}" Directory_="js_Dir" Attributes="0" KeyPath="bootstrap.bundle.min.js" Type="0"/>
     <ROW Component="bootstrapgrid.css" ComponentId="{F42515B4-4A94-4B80-B0A5-D724E08D7521}" Directory_="css_Dir" Attributes="0" KeyPath="bootstrapgrid.min.css" Type="0"/>
+    <ROW Component="check_matrix.R" ComponentId="{49A06F75-7BBF-477E-A3D0-0D21684EC2AF}" Directory_="analysis_project_Dir" Attributes="0" KeyPath="check_matrix.R" Type="0"/>
+    <ROW Component="create.vbhtml" ComponentId="{60887DFC-E487-4728-9D33-F1842A4BF4FC}" Directory_="omics_Dir" Attributes="0" KeyPath="create.vbhtml" Type="0"/>
+    <ROW Component="dataEmbedding.R" ComponentId="{513AE99A-9098-4B86-B272-68856F4A3767}" Directory_="zip_Dir" Attributes="0" KeyPath="dataEmbedding.R_1" Type="0"/>
     <ROW Component="echarts.common.min.js" ComponentId="{0572257B-572A-4A02-9B2E-1C36C705FE3E}" Directory_="echarts5.4.0_Dir" Attributes="0" KeyPath="echarts.common.min.js" Type="0"/>
     <ROW Component="enrichment.R" ComponentId="{5EB29B89-01D1-45CD-997A-E46418E83C13}" Directory_="analysis_apps_Dir" Attributes="0" KeyPath="enrichment.R" Type="0"/>
     <ROW Component="enrichment.html" ComponentId="{A2763594-BF07-4B89-9C87-C9E3DE3739F7}" Directory_="apps_Dir" Attributes="0" KeyPath="enrichment.vbhtml" Type="0"/>
@@ -367,19 +387,13 @@
     <ROW File="linq.min.js" Component_="biocad_desktop.min.js" FileName="LINQMI~1.JS|linq.min.js" Attributes="0" SourcePath="..\web\javascript\linq.min.js" SelfReg="false"/>
     <ROW File="logo.png" Component_="index.html" FileName="logo.png" Attributes="0" SourcePath="..\web\logo.png" SelfReg="false"/>
     <ROW File="mdb.dark.min.css" Component_="mdb.dark.min.css" FileName="MDBDAR~1.CSS|mdb.dark.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap5\css\mdb.dark.min.css" SelfReg="false"/>
-    <ROW File="mdb.dark.min.css.map" Component_="mdb.dark.min.css" FileName="MDBDAR~1.MAP|mdb.dark.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap5\css\mdb.dark.min.css.map" SelfReg="false"/>
     <ROW File="mdb.dark.rtl.min.css" Component_="mdb.dark.min.css" FileName="MDBDAR~2.CSS|mdb.dark.rtl.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap5\css\mdb.dark.rtl.min.css" SelfReg="false"/>
-    <ROW File="mdb.dark.rtl.min.css.map" Component_="mdb.dark.min.css" FileName="MDBDAR~2.MAP|mdb.dark.rtl.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap5\css\mdb.dark.rtl.min.css.map" SelfReg="false"/>
     <ROW File="mdb.min.css" Component_="mdb.dark.min.css" FileName="MDBMIN~1.CSS|mdb.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap5\css\mdb.min.css" SelfReg="false"/>
-    <ROW File="mdb.min.css.map" Component_="mdb.dark.min.css" FileName="MDBMIN~1.MAP|mdb.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap5\css\mdb.min.css.map" SelfReg="false"/>
     <ROW File="mdb.rtl.min.css" Component_="mdb.dark.min.css" FileName="MDBRTL~1.CSS|mdb.rtl.min.css" Attributes="0" SourcePath="..\web\styles\bootstrap5\css\mdb.rtl.min.css" SelfReg="false"/>
-    <ROW File="mdb.rtl.min.css.map" Component_="mdb.dark.min.css" FileName="MDBRTL~1.MAP|mdb.rtl.min.css.map" Attributes="0" SourcePath="..\web\styles\bootstrap5\css\mdb.rtl.min.css.map" SelfReg="false"/>
     <ROW File="mdb.min.js" Component_="mdb.min.js" FileName="MDBMIN~1.JS|mdb.min.js" Attributes="0" SourcePath="..\web\styles\bootstrap5\js\mdb.min.js" SelfReg="false"/>
-    <ROW File="mdb.min.js.map" Component_="mdb.min.js" FileName="MDBMIN~1.MAP|mdb.min.js.map" Attributes="0" SourcePath="..\web\styles\bootstrap5\js\mdb.min.js.map" SelfReg="false"/>
     <ROW File="License.pdf" Component_="License.pdf" FileName="License.pdf" Attributes="0" SourcePath="..\web\styles\bootstrap5\License.pdf" SelfReg="false"/>
     <ROW File="README.txt" Component_="License.pdf" FileName="README.txt" Attributes="0" SourcePath="..\web\styles\bootstrap5\README.txt" SelfReg="false"/>
     <ROW File="enrichment.R" Component_="enrichment.R" FileName="ENRICH~1.R|enrichment.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\enrichment.R" SelfReg="false"/>
-    <ROW File="enrichment_plot.R" Component_="enrichment.R" FileName="ENRICH~2.R|enrichment_plot.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\enrichment_plot.R" SelfReg="false"/>
     <ROW File="imports_uniprot.R" Component_="imports_uniprot.R" FileName="IMPORT~1.R|imports_uniprot.R" Attributes="0" SourcePath="..\fastRWeb\database\imports_uniprot.R" SelfReg="false"/>
     <ROW File="inspect_database.R" Component_="imports_uniprot.R" FileName="INSPEC~1.R|inspect_database.R" Attributes="0" SourcePath="..\fastRWeb\database\inspect_database.R" SelfReg="false"/>
     <ROW File="openfile.R" Component_="openfile.R" FileName="openfile.R" Attributes="0" SourcePath="..\fastRWeb\gtk\openfile.R" SelfReg="false"/>
@@ -427,6 +441,41 @@
     <ROW File="dataEmbedding.R" Component_="enrichment.R" FileName="DATAEM~1.R|dataEmbedding.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\dataEmbedding.R" SelfReg="false"/>
     <ROW File="scatter3d.R" Component_="scatter3d.R" FileName="SCATTE~1.R|scatter3d.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\Rplots\scatter3d.R" SelfReg="false"/>
     <ROW File="loadModel.R" Component_="imports_uniprot.R" FileName="LOADMO~1.R|loadModel.R" Attributes="0" SourcePath="..\fastRWeb\database\loadModel.R" SelfReg="false"/>
+    <ROW File="R.deps.json" Component_="Flute.Http.xml" FileName="R#DEPS~1.JSO|R#.deps.json" Attributes="0" SourcePath="..\Apps\Rstudio\bin\R#.deps.json" SelfReg="false"/>
+    <ROW File="R.dll" Component_="R.dll" FileName="R#.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\R#.dll" SelfReg="false"/>
+    <ROW File="R.dll.config" Component_="Flute.Http.xml" FileName="R#DLL~1.CON|R#.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\bin\R#.dll.config" SelfReg="false"/>
+    <ROW File="R.exe" Component_="R.exe" FileName="R#.exe" Attributes="0" SourcePath="..\Apps\Rstudio\bin\R#.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="R.runtimeconfig.json" Component_="Flute.Http.xml" FileName="R#RUNT~1.JSO|R#.runtimeconfig.json" Attributes="0" SourcePath="..\Apps\Rstudio\bin\R#.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="System.Security.Cryptography.ProtectedData.dll" Component_="System.Security.Cryptography.ProtectedData.dll" FileName="SYSTEM~2.DLL|System.Security.Cryptography.ProtectedData.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll" SelfReg="false"/>
+    <ROW File="System.Windows.Extensions.dll" Component_="System.Windows.Extensions.dll" FileName="SYSTEM~3.DLL|System.Windows.Extensions.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\runtimes\win\lib\net6.0\System.Windows.Extensions.dll" SelfReg="false"/>
+    <ROW File="System.Configuration.ConfigurationManager.dll" Component_="System.Configuration.ConfigurationManager.dll" FileName="SYSTEM~8.DLL|System.Configuration.ConfigurationManager.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Configuration.ConfigurationManager.dll" SelfReg="false"/>
+    <ROW File="System.Security.Cryptography.ProtectedData.dll_1" Component_="System.Security.Cryptography.ProtectedData.dll_1" FileName="SYSTEM~9.DLL|System.Security.Cryptography.ProtectedData.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Security.Cryptography.ProtectedData.dll" SelfReg="false"/>
+    <ROW File="System.Security.Permissions.dll" Component_="System.Security.Permissions.dll" FileName="SYSTE~10.DLL|System.Security.Permissions.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Security.Permissions.dll" SelfReg="false"/>
+    <ROW File="System.Windows.Extensions.dll_1" Component_="System.Windows.Extensions.dll_1" FileName="SYSTE~11.DLL|System.Windows.Extensions.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Windows.Extensions.dll" SelfReg="false"/>
+    <ROW File="cmeans.vbhtml" Component_="enrichment.html" FileName="CMEANS~1.VBH|cmeans.vbhtml" Attributes="0" SourcePath="..\web\apps\cmeans.vbhtml" SelfReg="false"/>
+    <ROW File="dam.vbhtml" Component_="enrichment.html" FileName="DAM~1.VBH|dam.vbhtml" Attributes="0" SourcePath="..\web\apps\dam.vbhtml" SelfReg="false"/>
+    <ROW File="plas.vbhtml" Component_="enrichment.html" FileName="PLAS~1.VBH|plas.vbhtml" Attributes="0" SourcePath="..\web\apps\plas.vbhtml" SelfReg="false"/>
+    <ROW File="z_score.vbhtml" Component_="enrichment.html" FileName="Z_SCOR~1.VBH|z_score.vbhtml" Attributes="0" SourcePath="..\web\apps\z_score.vbhtml" SelfReg="false"/>
+    <ROW File="webp" Component_="background.jpg" FileName="106287~1.WEB|106287.webp" Attributes="0" SourcePath="..\web\assets\images\106287.webp" SelfReg="false"/>
+    <ROW File="dnaimageblur.png" Component_="background.jpg" FileName="DNA-IM~1.PNG|dna-image-blur.png" Attributes="0" SourcePath="..\web\assets\images\dna-image-blur.png" SelfReg="false"/>
+    <ROW File="dnaimage.jpg" Component_="background.jpg" FileName="DNA-IM~1.JPG|dna-image.jpg" Attributes="0" SourcePath="..\web\assets\images\dna-image.jpg" SelfReg="false"/>
+    <ROW File="CMeans.PNG" Component_="UMAP3d.png" FileName="CMeans.PNG" Attributes="0" SourcePath="..\web\assets\images\gallery\CMeans.PNG" SelfReg="false"/>
+    <ROW File="genesetenrichment.jpg" Component_="background.jpg" FileName="GENE-S~1.JPG|gene-set-enrichment.jpg" Attributes="0" SourcePath="..\web\assets\images\gene-set-enrichment.jpg" SelfReg="false"/>
+    <ROW File="WhatIsAZScore.png" Component_="background.jpg" FileName="WHAT-I~1.PNG|What-Is-A-Z-Score.png" Attributes="0" SourcePath="..\web\assets\images\What-Is-A-Z-Score.png" SelfReg="false"/>
+    <ROW File="sampleinfo_editor.min.js" Component_="biocad_desktop.min.js" FileName="SAMPLE~1.JS|sampleinfo_editor.min.js" Attributes="0" SourcePath="..\web\javascript\sampleinfo_editor.min.js" SelfReg="false"/>
+    <ROW File="create.vbhtml" Component_="create.vbhtml" FileName="CREATE~1.VBH|create.vbhtml" Attributes="0" SourcePath="..\web\toolkit\projects\omics\create.vbhtml" SelfReg="false"/>
+    <ROW File="edit_sampleinfo.vbhtml" Component_="create.vbhtml" FileName="EDIT_S~1.VBH|edit_sampleinfo.vbhtml" Attributes="0" SourcePath="..\web\toolkit\projects\omics\edit_sampleinfo.vbhtml" SelfReg="false"/>
+    <ROW File="check_matrix.R" Component_="check_matrix.R" FileName="CHECK_~1.R|check_matrix.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\analysis_project\check_matrix.R" SelfReg="false"/>
+    <ROW File="create_project.R" Component_="check_matrix.R" FileName="CREATE~1.R|create_project.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\analysis_project\create_project.R" SelfReg="false"/>
+    <ROW File="plas.R" Component_="enrichment.R" FileName="plas.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\plas.R" SelfReg="false"/>
+    <ROW File="dataEmbedding.R_1" Component_="dataEmbedding.R" FileName="DATAEM~1.R|dataEmbedding.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\report\zip\dataEmbedding.R" SelfReg="false"/>
+    <ROW File="enrichment_plot.R_1" Component_="scatter3d.R" FileName="ENRICH~1.R|enrichment_plot.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\Rplots\enrichment_plot.R" SelfReg="false"/>
+    <ROW File="odes_line2d.R" Component_="scatter3d.R" FileName="ODES_L~1.R|odes_line2d.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\Rplots\odes_line2d.R" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Core.dll_1" Component_="Microsoft.VisualBasic.Math.Core.dll_1" FileName="MICRO~11.DLL|Microsoft.VisualBasic.Math.Core.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Math.Core.dll" SelfReg="false"/>
+    <ROW File="OmicsProject.dll" Component_="OmicsProject.dll" FileName="OMICSP~1.DLL|OmicsProject.dll" Attributes="0" SourcePath="..\Apps\OmicsProject.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Analysis.HTS.DataFrame.dll" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll" FileName="SMRUCC~2.DLL|SMRUCC.genomics.Analysis.HTS.DataFrame.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Analysis.HTS.DataFrame.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" FileName="SMRUCC~3.DLL|SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Core.dll.config_1" Component_="GCModeller_win32Desktop.exe.config" FileName="MICROS~2.CON|Microsoft.VisualBasic.Math.Core.dll.config" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Math.Core.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -640,6 +689,21 @@
     <ROW Feature_="MainFeature" Component_="bmap.min.js"/>
     <ROW Feature_="MainFeature" Component_="scatter3d.R"/>
     <ROW Feature_="MainFeature" Component_="SMRUCC"/>
+    <ROW Feature_="MainFeature" Component_="R.dll"/>
+    <ROW Feature_="MainFeature" Component_="R.exe"/>
+    <ROW Feature_="MainFeature" Component_="System.Security.Cryptography.ProtectedData.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Windows.Extensions.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Configuration.ConfigurationManager.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Security.Cryptography.ProtectedData.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Security.Permissions.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Windows.Extensions.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="create.vbhtml"/>
+    <ROW Feature_="MainFeature" Component_="check_matrix.R"/>
+    <ROW Feature_="MainFeature" Component_="dataEmbedding.R"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.Core.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="OmicsProject.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="installer.exe" SourcePath="installer.ico" Index="0"/>
