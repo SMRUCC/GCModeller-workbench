@@ -15,7 +15,7 @@ const run = function(ssid, colorSet = "Jet") {
     bitmap(file = session_plot) {
         plot(patterns,
             size           = [9000, 5000], 
-            colorSet       = "Jet", 
+            colorSet       = colorSet, 
             axis_label.cex = "font-style: normal; font-size: 14; font-family: Microsoft YaHei;"
         );
     }
