@@ -1,4 +1,4 @@
-namespace biodeep {
+namespace sampleinfo_editor.analysis_editor {
 
     export class labelStack {
 

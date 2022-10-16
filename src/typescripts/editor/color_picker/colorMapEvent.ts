@@ -1,4 +1,4 @@
-namespace uikit.color_picker {
+namespace sampleinfo_editor.colorPicker {
 
     export class colorMapEvent {
 

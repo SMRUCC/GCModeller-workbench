@@ -1,4 +1,4 @@
-namespace uikit.colorPicker {
+namespace sampleinfo_editor.colorPicker {
 
     let instances: {} = {};
 

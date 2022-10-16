@@ -1,4 +1,4 @@
-﻿namespace uikit.table_editor {
+﻿namespace sampleinfo_editor.table_editor {
 
     /**
      * 对表格之中的单行数据的编辑操作的对象

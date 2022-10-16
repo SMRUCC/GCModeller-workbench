@@ -1,4 +1,4 @@
-﻿namespace biodeep {
+﻿namespace sampleinfo_editor.ui {
 
     export function createInputModal(id: string, title: string, description: string) {
         let modalDoc = $ts("<div>", {

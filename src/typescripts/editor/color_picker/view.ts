@@ -1,4 +1,4 @@
-namespace uikit.color_picker.view {
+namespace sampleinfo_editor.colorPicker.view {
 
     export interface IpolyMap {
         coords: number[];

@@ -1,4 +1,4 @@
-namespace biodeep.ui {
+namespace sampleinfo_editor.ui {
 
     export function doStyle() {
         let htmlHead = $ts("&head");

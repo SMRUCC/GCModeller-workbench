@@ -1,4 +1,4 @@
-namespace uikit.colorPicker {
+namespace sampleinfo_editor.colorPicker {
 
     /**
      * @param setColor set color code, this lambda function argument 

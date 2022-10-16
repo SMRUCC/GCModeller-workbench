@@ -1,4 +1,4 @@
-﻿namespace uikit.color_picker {
+﻿namespace sampleinfo_editor.colorPicker {
 
     export interface useColor { (color: TypeScript.ColorManager.w3color): void; }
 

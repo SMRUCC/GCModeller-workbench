@@ -1,4 +1,4 @@
-﻿namespace uikit.table_editor {
+﻿namespace sampleinfo_editor.table_editor {
 
     /**
      * @param filters the object field names

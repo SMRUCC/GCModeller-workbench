@@ -1,4 +1,4 @@
-namespace uikit.table_editor {
+namespace sampleinfo_editor.table_editor {
 
     export interface editorConfig {
         style?: string;

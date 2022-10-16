@@ -1,4 +1,4 @@
-﻿namespace biodeep {
+﻿namespace sampleinfo_editor.ui {
 
     export const sampleInfoId: string = "input-sampleinfo";
     export const batchInfoId: string = "input-batchinfo";

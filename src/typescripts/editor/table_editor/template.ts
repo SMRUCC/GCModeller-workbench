@@ -1,4 +1,4 @@
-﻿namespace uikit.table_editor.template {
+﻿namespace sampleinfo_editor.table_editor.template {
 
     /**
      * 定义了如何生成表格之中的行数据进行编辑操作的按钮的html用户界面

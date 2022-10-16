@@ -1,4 +1,4 @@
-namespace uikit.color_picker.view {
+namespace sampleinfo_editor.colorPicker.view {
 
     const w3color = TypeScript.ColorManager.w3color;
 

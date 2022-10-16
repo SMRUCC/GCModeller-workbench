@@ -1,4 +1,4 @@
-namespace biodeep {
+namespace sampleinfo_editor {
 
     export interface IsampleInfo {
 

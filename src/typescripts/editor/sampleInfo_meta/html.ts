@@ -1,4 +1,4 @@
-namespace biodeep {
+namespace sampleinfo_editor {
 
     /**
      * 预设的颜色

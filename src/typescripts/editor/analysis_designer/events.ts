@@ -1,4 +1,4 @@
-namespace biodeep.UI_events {
+namespace sampleinfo_editor.analysis_editor.UI_events {
 
     export function handlerEvent(handler: updateDesigns): addDesign {
         let handleUpdate: Delegate.Action;

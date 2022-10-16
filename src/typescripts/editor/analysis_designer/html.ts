@@ -1,6 +1,6 @@
 /// <reference path="labelStack.ts" />
 
-namespace biodeep {
+namespace sampleinfo_editor.analysis_editor {
 
     export function createUI(handler: addDesign): HTMLElement {
         let all = $ts("<li>", { class: ["firstLi", "clearfix"] })
