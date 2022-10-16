@@ -7,7 +7,7 @@ namespace pages {
         };
 
         protected init(): void {
-            throw new Error("Method not implemented.");
+
         }
 
     }

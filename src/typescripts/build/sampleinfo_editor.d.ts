@@ -318,6 +318,12 @@ declare namespace sampleinfo_editor {
     }
 }
 declare namespace sampleinfo_editor {
+    function ensureSampleInfoModel(data: string[] | IEnumerator<string> | IsampleInfo[]): IsampleInfo[];
+    function as_tabular(sampleInfo: IsampleInfo[] | IEnumerator<IsampleInfo>): string;
+    function buildModels(guessInfo: NamedValue<string[]>[]): IsampleInfo[];
+    function guess_groupInfo(sampleNames: string[] | IEnumerator<string>): NamedValue<string[]>[];
+}
+declare namespace sampleinfo_editor {
     interface IsampleInfo {
         /**
          * the unique id
@@ -349,10 +355,6 @@ declare namespace sampleinfo_editor {
         shape2?: number;
         delete?: string;
     }
-    function ensureSampleInfoModel(data: string[] | IEnumerator<string> | IsampleInfo[]): IsampleInfo[];
-    function as_tabular(sampleInfo: IsampleInfo[] | IEnumerator<IsampleInfo>): string;
-    function buildModels(guessInfo: NamedValue<string[]>[]): IsampleInfo[];
-    function guess_groupInfo(sampleNames: string[] | IEnumerator<string>): NamedValue<string[]>[];
 }
 declare namespace sampleinfo_editor.ui {
     function doStyle(): void;

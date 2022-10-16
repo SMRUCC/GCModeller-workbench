@@ -46,6 +46,11 @@ declare namespace desktop {
      * the host message async callback helper
     */
     function promiseAsyncCallback<T>(hostMsg: hostMsg, callback: messageCallback<T>): Promise<void>;
+    /**
+     * show ``#busy-indicator`` loading spinner
+    */
+    function loading(message?: string): void;
+    function closeSpinner(): void;
 }
 declare namespace desktop {
     function now(): string;
@@ -70,7 +75,7 @@ declare namespace pages {
         /**
          * the unique session id generator for the R# backend
         */
-        protected generateSsid(contents: {}): string;
+        static generateSsid(contents: {}): string;
     }
 }
 declare namespace pages {
@@ -101,6 +106,8 @@ declare namespace pages {
         imports_onclick(): void;
     }
 }
+declare function parseSampleInfo(analysis_file: string, using: Delegate.Sub, err?: Delegate.Sub): void;
+declare function saveSampleInfo(table: sampleinfo_editor.IsampleInfo[], analysis_file: string, success: Delegate.Action): void;
 declare namespace pages {
     class cmeans_patterns extends analysis_session {
         readonly appName: string;
@@ -167,6 +174,16 @@ declare namespace pages.analysis_project {
     class edit_sampleinfo extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        reset(): void;
+        private sampleEditor;
+        private beginEditSampleInfo0;
+        private beginEditSampleInfo1;
+        private beginEditSampleInfo;
+        private editor;
+        private sampleInfo;
+        private save;
+        private xload_sampleInfo;
+        private static deleteSampleRow;
     }
 }
 declare namespace pages.background {
