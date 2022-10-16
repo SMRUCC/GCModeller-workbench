@@ -19,10 +19,23 @@
         <h1>Edit Sample Information</h1>
 
 
+        <div class="row">
+            <div class="edit_sampleinfo col-12">
+
+                <p style="margin: -20px 0 20px 0;">{$sampleinfo} <i title="{$tooltip}" class="fa fa-question-circle-o"
+                        id="open_illustrate_sample" style="width: 20px;font-size: 20px;"></i></p>
+
+                <div id="edit_sampleinfo">
+
+                </div>
+            </div>
+        </div>
+
+
 
         <%= ../../../assets/includes/webapp.vbhtml %>
 
-        <script type="text/javascript" src="/javascript/sampleinfo_editor.min.js"></script>
+            <script type="text/javascript" src="/javascript/sampleinfo_editor.min.js"></script>
 
     </div>
     <!-- End your project here-->
