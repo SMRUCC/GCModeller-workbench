@@ -12,4 +12,13 @@ namespace desktop {
             });
         });
     }
+
+    export function loading(message: string = "Loading...") {
+        $ts("#spinner-message").display(message);
+        $ts("#busy-indicator").show();
+    }
+
+    export function closeSpinner() {
+        $ts("#busy-indicator").hide();
+    }
 }

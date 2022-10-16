@@ -17,7 +17,7 @@ display: none;">
     </div>
 
     <div>
-      &nbsp;&nbsp;&nbsp; Loading...
+      &nbsp;&nbsp;&nbsp; <span id="spinner-message">Loading...</span>
     </div>
 
   </div>
