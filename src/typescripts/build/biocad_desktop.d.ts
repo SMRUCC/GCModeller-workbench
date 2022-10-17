@@ -177,6 +177,9 @@ declare namespace pages {
     class zscore_analysis extends analysis_session {
         readonly appName: string;
         protected init(): void;
+        button_open_onclick(): void;
+        run_onclick(): void;
+        refresh_Rplot_onclick(): void;
     }
 }
 declare namespace pages.analysis_project {
