@@ -7,4 +7,7 @@ SET pkg_repo=../../Apps/Rstudio/packages
 %R_HOME%/Rscript.exe --build /src ./Rserver /save %pkg_repo%/Rserver.zip --skip-src-build 
 %R_HOME%/R#.exe --install.packages %pkg_repo%/Rserver.zip
 
+%R_HOME%/Rscript.exe --build /src ./Rstudio /save %pkg_repo%/Rstudio.zip --skip-src-build 
+%R_HOME%/R#.exe --install.packages %pkg_repo%/Rstudio.zip
+
 pause
