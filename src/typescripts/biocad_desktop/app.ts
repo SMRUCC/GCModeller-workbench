@@ -34,6 +34,7 @@ namespace apps {
         Router.AddAppHandler(new pages.enrichment_database());
         Router.AddAppHandler(new pages.enrichment_analysis());
         Router.AddAppHandler(new pages.cmeans_patterns());
+        Router.AddAppHandler(new pages.zscore_analysis());
         Router.AddAppHandler(new pages.dataEmbedding());
         Router.AddAppHandler(new pages.runPLAS());
 

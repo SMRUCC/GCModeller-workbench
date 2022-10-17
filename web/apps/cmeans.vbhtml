@@ -64,7 +64,8 @@
                             <div class="col-auto">
                                 <!-- Checked checkbox -->
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="z-score" id="z-score" checked />
+                                    <input class="form-check-input" type="checkbox" value="" name="z-score" id="z-score"
+                                        checked />
                                     <label class="form-check-label" for="z-score">Z-score transformation</label>
                                 </div>
 
@@ -148,10 +149,10 @@
                                     <section class="p-4 d-flex justify-content-center text-center w-100">
                                         <div class="lightbox" data-id="lightbox-bm48lj2vb" id="lightbox">
                                             <div class="row">
-                                                <div class="col-auto" id = "example-3-collapsible">
+                                                <div class="col-auto" id="example-3-collapsible">
                                                     <a href="/assets/images/empty.jpg" data-toggle="lightbox"
-                                                        data-caption="2d/3d scatter plot" id="Rplot-box">
-                                                        <img src="/assets/images/empty.jpg" alt="2d/3d scatter plot"
+                                                        data-caption="CMeans pattern plot" id="Rplot-box">
+                                                        <img src="/assets/images/empty.jpg" alt="CMeans pattern plot"
                                                             class="img-fluid w-100 my-lightbox-toggle"
                                                             style="max-width: 400px;" id="Rplot_js">
                                                     </a>
@@ -168,7 +169,7 @@
 
                             <%= ../assets/includes/colorSet.vbhtml %>
 
-                            <button id="refresh_Rplot" type="submit" class="btn btn-primary mb-3">Refresh</button>
+                                <button id="refresh_Rplot" type="submit" class="btn btn-primary mb-3">Refresh</button>
 
                         </section>
                         <section id="example-sub-B">

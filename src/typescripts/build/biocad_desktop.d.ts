@@ -173,6 +173,12 @@ declare namespace pages {
         createPlot(): void;
     }
 }
+declare namespace pages {
+    class zscore_analysis extends analysis_session {
+        readonly appName: string;
+        protected init(): void;
+    }
+}
 declare namespace pages.analysis_project {
     class create_project extends Bootstrap {
         readonly appName: string;

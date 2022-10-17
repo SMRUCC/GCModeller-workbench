@@ -48,14 +48,65 @@
                     </section>
                     <section id="example-2">
                         <h3>Set Parameters</h3>
-                        ...
+
+                        <label for="matrix-file" class="form-label">Select Matrix:</label>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-primary" type="button" id="button_open" data-mdb-ripple-color="dark">
+                                <i class="far fa-folder-open"></i> Select File
+                            </button>
+                            <input type="text" class="form-control" placeholder="" id="matrix-file"
+                                aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                        </div>
+
+                        <br />
+                        <div class="row">
+                            <div class="col-auto">
+                                <button id="run" type="submit" class="btn btn-primary mb-3">Run</button>
+                            </div>
+                        </div>
+
                     </section>
                     <section id="example-3">
                         <h3>Analysis Result</h3>
-                        ...
+
                         <section id="example-sub-A">
                             <h3>Rplot</h3>
-                            ...
+
+                            <section id="example-sub-A">
+                                <h3>Rplot</h3>
+
+                                <section class="pb-4">
+                                    <div class="bg-white border rounded-5">
+
+                                        <section class="p-4 d-flex justify-content-center text-center w-100">
+                                            <div class="lightbox" data-id="lightbox-bm48lj2vb" id="lightbox">
+                                                <div class="row">
+                                                    <div class="col-auto" id="example-3-collapsible">
+                                                        <a href="/assets/images/empty.jpg" data-toggle="lightbox"
+                                                            data-caption="Z-score plot" id="Rplot-box">
+                                                            <img src="/assets/images/empty.jpg"
+                                                                alt="Z-score plot"
+                                                                class="img-fluid w-100 my-lightbox-toggle"
+                                                                style="max-width: 400px;" id="Rplot_js">
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                    </div>
+                                </section>
+
+                                <p>Color Set:</p>
+
+                                <%= ../assets/includes/colorSet.vbhtml %>
+
+                                    <button id="refresh_Rplot" type="submit"
+                                        class="btn btn-primary mb-3">Refresh</button>
+
+                            </section>
+
                         </section>
                         <section id="example-sub-B">
                             <h3>Data Table</h3>

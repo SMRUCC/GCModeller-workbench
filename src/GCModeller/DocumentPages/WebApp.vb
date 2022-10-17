@@ -52,7 +52,7 @@ Public MustInherit Class WebApp
         End Try
     End Function
 
-    Public Function sendPost(url As String, json As String) As Message
+    Public Async Function sendPost(url As String, json As String) As Task(Of Message)
         Dim httpClient As New HttpClient
 
         httpClient.DefaultRequestHeaders.Accept.Clear()
@@ -64,9 +64,9 @@ Public MustInherit Class WebApp
 
         Dim httpContent As New JSONContent(json)
         Dim response = httpClient.PostAsync(url, httpContent).Result
-        Dim t As Task(Of String) = response.Content.ReadAsStringAsync
+        Dim t As String = Await response.Content.ReadAsStringAsync
         Dim msg As New Message With {
-            .data = t.Result,
+            .data = t,
             .result = response.IsSuccessStatusCode
         }
 
