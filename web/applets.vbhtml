@@ -38,8 +38,28 @@
     <!-- Start your project here-->
     <div class="container" style="background: rgba(0, 0, 0, 0.6); padding: 30px 30px 30px 30px; height: 100%;">
 
-        <h1 style="color: white;">GCModeller Analysis Applications</h1>
+        <div class="row">
+            <h1 style="color: white;">GCModeller Analysis Applications</h1>
+        </div>
+
+        <div class="row" style="color: white;">
+            <div class="col-9"></div>
+            <div class="col-3" style="color: white;">
+                <div class="input-group" style="color: white;">
+                    <div class="form-outline" style="color: white;">
+                        <input type="search" id="form1" class="form-control" style="color: white;" />
+                        <label class="form-label" for="form1" style="color: white;">Search</label>
+                    </div>
+                    <button type="button" class="btn btn-primary" style="color: white;">
+                        <i class="fas fa-search" style="color: white;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <br />
+        <br />
+
         <div class="row" id="applets">
 
         </div>
