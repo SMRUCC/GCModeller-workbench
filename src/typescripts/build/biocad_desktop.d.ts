@@ -88,9 +88,24 @@ declare namespace pages {
     }
 }
 declare namespace pages {
+    interface webapp {
+        title: string;
+        desc: string;
+        /**
+         * The function name to invoke method in host app
+         *
+         * this property can be used as the unique id of the web app
+        */
+        appLink: string;
+        icon: string;
+    }
     class applets extends Bootstrap {
+        static readonly defaultIcon: string;
+        readonly appList: webapp[];
         readonly appName: string;
         protected init(): void;
+        private static showAppList;
+        private static buildElement;
     }
 }
 declare namespace pages {

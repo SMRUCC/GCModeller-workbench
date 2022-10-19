@@ -40,85 +40,8 @@
 
         <h1 style="color: white;">GCModeller Analysis Applications</h1>
         <br />
-        <div class="row">
-            <div class="col-xl-4 col-lg-6 mb-4">
-                <a href="#" onclick="apps.gcmodeller.openZscore();" class="card ripple bg-image hover-zoom">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/images/background.jpg" alt="" class="img-fluid rounded icon-image" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Z-score analysis</p>
-                                <p class="text-muted mb-0">Z-score analysis</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xl-4 col-lg-6 mb-4">
-                <a href="#" onclick="apps.gcmodeller.openDataEmbedding();" class="card ripple bg-image hover-zoom">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/images/background.jpg" alt="" class="img-fluid rounded icon-image" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Data Embedding</p>
-                                <p class="text-muted mb-0">PCA/UMAP/t-SNE data embedding</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xl-4 col-lg-6 mb-4">
-                <a href="#" onclick="apps.gcmodeller.openCMeans();" class="card ripple bg-image hover-zoom">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/images/background.jpg" alt="" class="img-fluid rounded icon-image" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Fuzzy CMeans</p>
-                                <p class="text-muted mb-0">Fuzzy cmeans clustering</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xl-4 col-lg-6 mb-4">
-                <a href="#" onclick="" class="card ripple bg-image hover-zoom">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/images/background.jpg" alt="" class="img-fluid rounded icon-image" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Fuzzy CMeans</p>
-                                <p class="text-muted mb-0">Fuzzy cmeans clustering</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xl-4 col-lg-6 mb-4">
-                <a href="#" onclick="" class="card ripple bg-image hover-zoom">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/images/background.jpg" alt="" class="img-fluid rounded icon-image" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Fuzzy CMeans</p>
-                                <p class="text-muted mb-0">Fuzzy cmeans clustering</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xl-4 col-lg-6 mb-4">
-                <a href="#" onclick="apps.gcmodeller.openPLAS();" class="card ripple bg-image hover-zoom">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/images/background.jpg" alt="" class="img-fluid rounded icon-image" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">PLAS</p>
-                                <p class="text-muted mb-0">bio-chemical system simulator</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <div class="row" id="applets">
+
         </div>
 
         <%= ./assets/includes/webapp.vbhtml %>
