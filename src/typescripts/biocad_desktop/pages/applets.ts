@@ -12,6 +12,16 @@ namespace pages {
         icon: string;
     }
 
+    export function toSearchTerm(item: webapp, i: number): pages.suggestion_list.term[] {
+        const list: pages.suggestion_list.term[] = [];
+
+        list.push(new pages.suggestion_list.term(i, item.title));
+        list.push(new pages.suggestion_list.term(i, item.appLink));
+        list.push(new pages.suggestion_list.term(i, item.desc));
+
+        return list;
+    }
+
     export class applets extends Bootstrap {
 
         static readonly defaultIcon: string = "/assets/images/background.jpg";
@@ -22,6 +32,9 @@ namespace pages {
             <webapp>{ appLink: "apps.gcmodeller.openPLAS", title: "PLAS", desc: "bio-chemical system simulator", icon: applets.defaultIcon }
         ];
 
+        private terms: pages.suggestion_list.term[] = [];
+        private suggestions: pages.suggestion_list.suggestion;
+
         public get appName(): string {
             return "applets";
         };
@@ -30,6 +43,49 @@ namespace pages {
             // throw new Error("Method not implemented.");
             pages.background.run();
             applets.showAppList(this.appList);
+
+            for (let i: number = 0; i < this.appList.length; i++) {
+                for (let item of toSearchTerm(this.appList[i], i)) {
+                    this.terms.push(item);
+                }
+            }
+
+            this.suggestions = new pages.suggestion_list.suggestion(this.terms);
+            this.hookSearchBar();
+        }
+
+        /**
+         * handling of the app search event
+        */
+        private hookSearchBar() {
+            const node = $ts("#applets");
+            const vm = this;
+            const top: number = 6;
+            const caseInsensitive: boolean = false;
+            const click = function (term: pages.suggestion_list.term) {
+                const app = vm.appList[term.id];
+                const appLink = app.appLink;
+
+                eval(`${appLink}();`);
+            }
+            const searchBar: HTMLInputElement = <any>$ts("#form1");
+            const search = (input: string) => {
+                node.clear();
+
+                for (let term of vm.suggestions.populateSuggestion(input, top, caseInsensitive)) {
+                    const applink = applets.buildElement(vm.appList[term.id]);
+                    node.appendChild(applink);
+                }
+            };
+
+            searchBar.onchange = function () {
+                if ((!searchBar.value) || (searchBar.value == "")) {
+                    // reset
+                    applets.showAppList(vm.appList);
+                } else {
+                    search(searchBar.value);
+                }
+            }
         }
 
         private static showAppList(appList: webapp[]) {
