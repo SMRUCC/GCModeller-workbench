@@ -2,12 +2,11 @@
 
 SET msbuild_logger=%CD%
 SET drive=%~d0
-SET R_HOME=%drive%\GCModeller\src\R-sharp\App\net6.0
+SET R_HOME=../Apps\Rstudio\bin
 SET Rscript="%R_HOME%/Rscript.exe"
 SET REnv="%R_HOME%/R#.exe"
-SET pkg_repo=../../../dist\bin\Rstudio\packages
+SET pkg_repo=../Apps\Rstudio\packages
 SET GCModeller_src=%drive%\GCModeller\src
-SET mzkit_src=%drive%\mzkit\Rscript\Library
 
 if "%1"=="--Rpackage" (
 	goto :jump_to_build_Rpackages
@@ -70,29 +69,15 @@ SET jump=ggplot
 CALL :exec_msbuild "%GCModeller_src%/runtime/ggplot" "./ggplot.NET5.sln"
 :ggplot
 
-SET jump=msimaging
-CALL :exec_msbuild "%mzkit_src%/MSI_app" "./MSImaging.sln"
-:msimaging
-
-SET jump=mzkit_pkg
-CALL :exec_msbuild "%mzkit_src%" "./mzkit.NET5.sln"
-:mzkit_pkg
+SET jump=Rserver
+CALL :exec_msbuild "%GCModeller_src%/workbench\win32_desktop\src\Rstudio\Rserver\src" "./http.sln"
+:Rserver
 
 REM -------- end of run msbuild -----------
 
 :jump_to_build_Rpackages
 
 cd %msbuild_logger%
-
-SET pkg=%pkg_repo%/mzkit.zip
-
-%Rscript% --build /src ../../../Rscript\Library\mzkit_app /save %pkg% --skip-src-build
-%REnv% --install.packages %pkg%
-
-SET pkg=%pkg_repo%/MSImaging.zip
-
-%Rscript% --build /src ../../../Rscript\Library\MSI_app /save %pkg% --skip-src-build
-%REnv% --install.packages %pkg%
 
 SET pkg=%pkg_repo%/REnv.zip
 
@@ -112,6 +97,16 @@ SET pkg=%pkg_repo%/markdown2pdf.zip
 SET pkg=%pkg_repo%/ggplot.zip
 
 %Rscript% --build /src %drive%\GCModeller\src\runtime\ggplot /save %pkg% --skip-src-build
+%REnv% --install.packages %pkg%
+
+SET pkg=%pkg_repo%/Rserver.zip
+
+%Rscript% --build /src %drive%\GCModeller\src\workbench\win32_desktop\src\Rstudio\Rserver /save %pkg% --skip-src-build
+%REnv% --install.packages %pkg%
+
+SET pkg=%pkg_repo%/Rstudio.zip
+
+%Rscript% --build /src %drive%\GCModeller\src\workbench\win32_desktop\src\Rstudio\Rstudio /save %pkg% --skip-src-build
 %REnv% --install.packages %pkg%
 
 pause
