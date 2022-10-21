@@ -213,17 +213,17 @@
     <Compile Include="DocumentPages\WebApps\AppTasks.vb" />
     <Compile Include="DocumentPages\WebApps\AppIndex.vb" />
     <Compile Include="DocumentPages\WebApps\Settings.vb" />
-    <Compile Include="DocumentPages\WebApps\EditSampleInfo.vb" />
+    <Compile Include="DocumentPages\WebApps\DataAnalysis\EditSampleInfo.vb" />
     <Compile Include="DocumentPages\WebApps\OmicsAnalysis\ZscoreAnalysis.vb" />
     <Compile Include="DocumentPages\WebApps\OmicsAnalysis\CMeansAnalysis.vb" />
-    <Compile Include="DocumentPages\WebApps\RunDAM.vb" />
-    <Compile Include="DocumentPages\WebApps\CreateOmicsProject.vb" />
-    <Compile Include="DocumentPages\WebApps\RunPLAS.vb" />
-    <Compile Include="DocumentPages\WebApps\DataEmbedding.vb" />
+    <Compile Include="DocumentPages\WebApps\DataAnalysis\RunDAM.vb" />
+    <Compile Include="DocumentPages\WebApps\DataAnalysis\CreateOmicsProject.vb" />
+    <Compile Include="DocumentPages\WebApps\DataAnalysis\RunPLAS.vb" />
+    <Compile Include="DocumentPages\WebApps\DataAnalysis\DataEmbedding.vb" />
     <Compile Include="DocumentPages\WebApps\MainIndex.vb" />
-    <Compile Include="DocumentPages\WebApps\RunEnrichment.vb" />
-    <Compile Include="DocumentPages\WebApps\ImportsNCBITaxonomy.vb" />
-    <Compile Include="DocumentPages\WebApps\ImportsUniprot.vb" />
+    <Compile Include="DocumentPages\WebApps\DataAnalysis\RunEnrichment.vb" />
+    <Compile Include="DocumentPages\WebApps\DataAnalysis\ImportsNCBITaxonomy.vb" />
+    <Compile Include="DocumentPages\WebApps\DataAnalysis\ImportsUniprot.vb" />
     <Compile Include="Explorer\FormDatabaseExplorer.Designer.vb">
       <DependentUpon>FormDatabaseExplorer.vb</DependentUpon>
     </Compile>
