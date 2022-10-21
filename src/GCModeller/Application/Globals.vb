@@ -19,7 +19,9 @@ Public Class Globals
     End Sub
 
     Public Shared Sub Load()
+        Call Settings.Session.Initialize()
         Call Workbench.Load()
+
         ' Call Globals.startWebServices()
         ' Call Globals.launchFastRweb()
     End Sub
