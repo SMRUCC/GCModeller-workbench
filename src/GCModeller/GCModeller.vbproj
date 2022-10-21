@@ -212,6 +212,7 @@
     <Compile Include="Application\Globals.vb" />
     <Compile Include="DocumentPages\WebApps\AppTasks.vb" />
     <Compile Include="DocumentPages\WebApps\AppIndex.vb" />
+    <Compile Include="DocumentPages\WebApps\Settings.vb" />
     <Compile Include="DocumentPages\WebApps\EditSampleInfo.vb" />
     <Compile Include="DocumentPages\WebApps\OmicsAnalysis\ZscoreAnalysis.vb" />
     <Compile Include="DocumentPages\WebApps\OmicsAnalysis\CMeansAnalysis.vb" />
