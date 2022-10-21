@@ -167,6 +167,16 @@ Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "HTS_matrix-netcore5", "..\.
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "designer-netcore5", "..\..\modules\ExperimentDesigner\designer-netcore5.vbproj", "{1EF6F5BA-9A6F-4DEE-87A9-700F8BA9F816}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Settings.Configuration", "..\..\..\Settings\Shared\Settings.Configuration\Settings.Configuration.shproj", "{E8CABDE9-5471-4EB6-8ABC-54C95D3B1512}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configurations", "configurations", "{789081A1-8CB8-4DD6-98F9-0427261FCFB0}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Settings.FileSystem", "..\..\..\Settings\Shared\Settings.FileSystem\Settings.FileSystem.shproj", "{36EE8DC2-3D23-45B7-8CE4-1942916A02AA}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RepositoryCommon", "..\..\..\Settings\Shared\RepositoryCommon\RepositoryCommon.shproj", "{9B5EF311-A718-4067-A409-417DE0F9D2AF}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "InternalApps_CLI", "..\..\..\Settings\Shared\InternalApps_CLI\InternalApps_CLI.shproj", "{3D1FB85C-C35B-4AE8-BC0A-36FCE222551E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Biodeep|Any CPU = Biodeep|Any CPU
@@ -11930,18 +11940,27 @@ Global
 		{EC8C847F-4292-404A-A654-6E82EC575CF1} = {2F1F6605-9B50-4553-A76E-68DA98B87E9A}
 		{2D08B0A5-A538-4611-B755-E9F2873A6DDF} = {1EBDD0F8-F696-49DC-B4BC-3897AA0CBA6A}
 		{1EF6F5BA-9A6F-4DEE-87A9-700F8BA9F816} = {1EBDD0F8-F696-49DC-B4BC-3897AA0CBA6A}
+		{E8CABDE9-5471-4EB6-8ABC-54C95D3B1512} = {789081A1-8CB8-4DD6-98F9-0427261FCFB0}
+		{36EE8DC2-3D23-45B7-8CE4-1942916A02AA} = {789081A1-8CB8-4DD6-98F9-0427261FCFB0}
+		{9B5EF311-A718-4067-A409-417DE0F9D2AF} = {789081A1-8CB8-4DD6-98F9-0427261FCFB0}
+		{3D1FB85C-C35B-4AE8-BC0A-36FCE222551E} = {789081A1-8CB8-4DD6-98F9-0427261FCFB0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1E8C171E-597A-438B-A8F6-0972EBCE4EFB}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\Settings\Shared\Settings.Configuration\Settings.Configuration.projitems*{23a9d8b5-f961-43ca-959a-3f570ff94296}*SharedItemsImports = 4
 		..\..\..\R-sharp\Library\shares\JsonHelper\JsonHelper.projitems*{2a6f4804-3e8a-4a6d-9c23-f05ddc6d945e}*SharedItemsImports = 5
+		..\..\..\Settings\Shared\Settings.FileSystem\Settings.FileSystem.projitems*{36ee8dc2-3d23-45b7-8ce4-1942916a02aa}*SharedItemsImports = 13
+		..\..\..\Settings\Shared\InternalApps_CLI\InternalApps_CLI.projitems*{3d1fb85c-c35b-4ae8-bc0a-36fce222551e}*SharedItemsImports = 13
 		..\..\..\R-sharp\Library\shares\dataframeHelper\dataframeHelper.projitems*{7bb43106-d512-4368-ad9e-ed7723f0facd}*SharedItemsImports = 5
+		..\..\..\Settings\Shared\RepositoryCommon\RepositoryCommon.projitems*{9b5ef311-a718-4067-a409-417de0f9d2af}*SharedItemsImports = 13
 		..\..\..\R-sharp\Library\shares\R_graphic.interop\R_graphic.interop.projitems*{a7c99cf5-39fe-4829-b07c-d325ec0e336c}*SharedItemsImports = 5
 		..\..\..\R-sharp\Library\shares\R_graphic.interop\R_graphic.interop.projitems*{a87c8133-bc8e-454b-92d2-dc05302e4d6e}*SharedItemsImports = 5
 		..\..\..\R-sharp\Library\shares\R_graphic.interop\R_graphic.interop.projitems*{b87fa192-627f-459a-adb9-e98eae9eb9da}*SharedItemsImports = 5
 		..\..\..\R-sharp\Library\shares\dataframeHelper\dataframeHelper.projitems*{c9d53ae3-e513-45b1-afc8-38a70d24e889}*SharedItemsImports = 5
 		..\..\..\R-sharp\Library\shares\JsonHelper\JsonHelper.projitems*{c9d53ae3-e513-45b1-afc8-38a70d24e889}*SharedItemsImports = 5
+		..\..\..\Settings\Shared\Settings.Configuration\Settings.Configuration.projitems*{e8cabde9-5471-4eb6-8abc-54c95d3b1512}*SharedItemsImports = 13
 		..\..\..\R-sharp\studio\Rstudio.common\Rstudio.common.projitems*{f5cb82bd-8473-4bc5-a0bd-c2001e625f4f}*SharedItemsImports = 5
 		..\..\..\R-sharp\studio\Rstudio.common\Rstudio.common.projitems*{fc3ae9f1-b355-4c19-bcb3-c72998764b8a}*SharedItemsImports = 5
 		..\..\..\runtime\sciBASIC#\www\Microsoft.VisualBasic.NETProtocol\TcpRequest\TcpRequest.projitems*{fc3ae9f1-b355-4c19-bcb3-c72998764b8a}*SharedItemsImports = 5

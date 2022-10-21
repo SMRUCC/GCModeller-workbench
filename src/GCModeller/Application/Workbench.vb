@@ -17,6 +17,7 @@ Public Class Workbench
         AddHandler Ribbon.ButtonNCBITaxonomy.ExecuteEvent, Sub() Call WebApp.Open(Of ImportsNCBITaxonomy)()
         AddHandler Ribbon.ViewAppTasks.ExecuteEvent, Sub() Call WebApp.Open(Of AppTasks)()
         AddHandler Ribbon.ButtonStartPage.ExecuteEvent, Sub() Call Globals.host.ShowMainPage()
+        AddHandler Ribbon.PageSetup.ExecuteEvent, Sub() Call WebApp.Open(Of WebApps.Settings)()
 
         AddHandler Ribbon.ZoomIn.ExecuteEvent, Sub() Call WebApp.SetZoomFactor(5)
         AddHandler Ribbon.ZoomOut.ExecuteEvent, Sub() Call WebApp.SetZoomFactor(-5)
