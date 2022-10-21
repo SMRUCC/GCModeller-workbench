@@ -10,7 +10,7 @@ imports ["http", "vbhtml"] from "RwebHost";
 const httpPort as integer  = ?"--listen"  || 80;
 [@info "A directory path that contains the R script for running in this R# web server."]
 [@type "directory"]
-const webContext as string = ?"--wwwroot" || `${dirname(@script)}/../web.R`;
+const webContext as string = ?"--wwwroot" || `${@dir}/../../web/`;
 
 #' Route url as local R script file
 #' 
@@ -23,7 +23,7 @@ const router = function(url) {
 
   if (relpath == "") {
     list(
-      file = `${webContext}/index.html`,
+      file = normalizePath(`${webContext}/index.html`),
       is_script = FALSE
     );
   } else {
@@ -36,14 +36,14 @@ const router = function(url) {
       print(tempfile);
 
       list(
-        file = tempfile, 
+        file = normalizePath(tempfile), 
         is_script = FALSE
       );
     } else {
       if (file.exists(file)) {
-        list(file = file, is_script = TRUE);
+        list(file = normalizePath(file), is_script = TRUE);
       } else {
-        list(file = `${webContext}/${relpath}/index.html`, is_script = FALSE);
+        list(file = normalizePath(`${webContext}/${relpath}/index.html`), is_script = FALSE);
       }
     }
   }  
@@ -64,11 +64,14 @@ const handleHttpGet = function(req, response) {
   print(getHttpRaw(req));
 
   if ([local$is_script] && file.exists(local$file)) {
+	print(`run script: '${local$file}'!`);
     writeLines(source(local$file), con = response);
   } else {
     if (!local$is_script) {
       if (file.ext(local$file) in ["html","htm","txt", "vbhtml"]) {
         if (file.ext(local$file) == "vbhtml") {
+		  print("Rendering html page and send content data!");
+		  
           [local$file] 
           |> vbhtml::rendering(
             wwwroot = webContext
@@ -76,9 +79,12 @@ const handleHttpGet = function(req, response) {
           |> writeLines(con = response)
           ;
         } else {
+		  print("Response a html text file!");
+		
           writeLines(readText(local$file), con = response);
         }        
       } else {
+		print(`Push file downloads: '${local$file}'!`);
         response 
         |> pushDownload(local$file)
         ;
