@@ -186,6 +186,8 @@ declare namespace pages {
         private loadSettings;
         RememberWindowStatus_onchange(): void;
         language_onchange(): void;
+        CloseAfterProjectLoad_onclick(): void;
+        ShowOnStartUp_onclick(): void;
     }
 }
 declare namespace pages {

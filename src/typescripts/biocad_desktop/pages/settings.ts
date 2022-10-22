@@ -23,7 +23,9 @@ namespace pages {
                 BlastDb: "",
                 RepositoryRoot: "",
                 RememberWindowStatus: $ts("#RememberWindowStatus").CType<HTMLInputElement>().checked,
-                Language: $ts("#language").CType<HTMLSelectElement>().selectedIndex
+                Language: $ts("#language").CType<HTMLSelectElement>().selectedIndex,
+                CloseAfterProjectLoad: $ts("#CloseAfterProjectLoad").CType<HTMLInputElement>().checked,
+                ShowOnStartUp: $ts("#ShowOnStartUp").CType<HTMLInputElement>().checked
             };
             var jsonStr: string = JSON.stringify(config);
 
@@ -32,6 +34,8 @@ namespace pages {
         //#endregion
 
         protected init(): void {
+            desktop.loading("Load configurations...");
+
             this.rawConfigs = this.GetSettings();
             this.loadSettings();
         }
@@ -40,9 +44,14 @@ namespace pages {
             var configs = await this.rawConfigs;
             var IDEconfigs = await configs.Dev2;
             var windowConfig = await IDEconfigs.IDE;
+            var startPage = await IDEconfigs.StartPage;
 
             $ts("#RememberWindowStatus").CType<HTMLInputElement>().checked = await IDEconfigs.RememberWindowStatus;
+            $ts("#CloseAfterProjectLoad").CType<HTMLInputElement>().checked = await startPage.CloseAfterProjectLoad;
+            $ts("#ShowOnStartUp").CType<HTMLInputElement>().checked = await startPage.ShowOnStartUp;
             $ts("#language").CType<HTMLSelectElement>().selectedIndex = await windowConfig.Language;
+
+            setTimeout(desktop.closeSpinner, 500);
         }
 
         public RememberWindowStatus_onchange() {
@@ -50,6 +59,14 @@ namespace pages {
         }
 
         public language_onchange() {
+            this.SaveSettings();
+        }
+
+        public CloseAfterProjectLoad_onclick() {
+            this.SaveSettings();
+        }
+
+        public ShowOnStartUp_onclick() {
             this.SaveSettings();
         }
     }

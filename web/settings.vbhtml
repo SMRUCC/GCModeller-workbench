@@ -14,11 +14,30 @@
 
         <h1>Settings</h1>
 
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="RememberWindowStatus" checked />
-            <label class="form-check-label" for="RememberWindowStatus">Remember Window Status</label>
+        <div class="row">
+            <div class="col-auto">
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="RememberWindowStatus" checked />
+                    <label class="form-check-label" for="RememberWindowStatus">Remember Window Status</label>
+                </div>
+
+            </div>
         </div>
 
+        <div class="row">
+            <div class="col-auto">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="CloseAfterProjectLoad" checked />
+                    <label class="form-check-label" for="CloseAfterProjectLoad">Close After Project Load</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="ShowOnStartUp" checked />
+                    <label class="form-check-label" for="ShowOnStartUp">Show On StartUp</label>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-auto">

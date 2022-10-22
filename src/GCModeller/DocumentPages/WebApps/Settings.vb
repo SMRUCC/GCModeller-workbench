@@ -30,6 +30,8 @@ Namespace WebApps
 
             dev2.RememberWindowStatus = configs(NameOf(dev2.RememberWindowStatus))
             dev2.IDE.Language = configs(NameOf(dev2.IDE.Language))
+            dev2.StartPage.CloseAfterProjectLoad = configs(NameOf(dev2.StartPage.CloseAfterProjectLoad))
+            dev2.StartPage.ShowOnStartUp = configs(NameOf(dev2.StartPage.ShowOnStartUp))
 
             Call Session.Finallize()
         End Sub
