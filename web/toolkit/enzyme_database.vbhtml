@@ -10,6 +10,8 @@
         <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
         <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
         <meta name="web_invoke_loadModel" content="http://localhost:7452/database/loadModel">
+
+        <link rel="stylesheet" href="/javascript/vakata-jstree-7a03954/themes/default/style.min.css" />
 </head>
 
 <body>
@@ -30,6 +32,9 @@
         </div>
 
         <%= ../assets/includes/webapp.vbhtml %>
+
+            <script type="text/javascript" src="/javascript/jquery-3.6.1.min.js"></script>
+            <script type="text/javascript" src="/javascript/vakata-jstree-7a03954/jstree.min.js"></script>
 
     </div>
     <!-- End your project here-->

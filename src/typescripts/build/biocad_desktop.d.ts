@@ -358,6 +358,9 @@ declare namespace pages.repository {
     class enzyme_database extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        buildEnzymeTree(node: {
+            id: string;
+        }, cb: (a: any[]) => void): void;
     }
 }
 declare namespace pages.suggestion_list.render {
