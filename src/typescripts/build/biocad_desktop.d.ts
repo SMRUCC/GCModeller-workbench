@@ -149,6 +149,12 @@ declare namespace pages {
         private static buildElement;
     }
 }
+declare namespace pages {
+    class data_repository extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
+    }
+}
 declare namespace omicsAnalysis {
     const expressionMatrix: string;
     function parseSampleInfo(analysis_file: string, using: Delegate.Sub, err?: Delegate.Sub): void;

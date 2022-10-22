@@ -213,6 +213,7 @@
     <Compile Include="DocumentPages\WebApps\AppTasks.vb" />
     <Compile Include="DocumentPages\WebApps\AppIndex.vb" />
     <Compile Include="DocumentPages\WebApps\DataRepository.vb" />
+    <Compile Include="DocumentPages\WebApps\Repository\EnzymeRepository.vb" />
     <Compile Include="DocumentPages\WebApps\Settings.vb" />
     <Compile Include="DocumentPages\WebApps\DataAnalysis\EditSampleInfo.vb" />
     <Compile Include="DocumentPages\WebApps\OmicsAnalysis\ZscoreAnalysis.vb" />
@@ -223,8 +224,8 @@
     <Compile Include="DocumentPages\WebApps\DataAnalysis\DataEmbedding.vb" />
     <Compile Include="DocumentPages\WebApps\MainIndex.vb" />
     <Compile Include="DocumentPages\WebApps\DataAnalysis\RunEnrichment.vb" />
-    <Compile Include="DocumentPages\WebApps\DataAnalysis\ImportsNCBITaxonomy.vb" />
-    <Compile Include="DocumentPages\WebApps\DataAnalysis\ImportsUniprot.vb" />
+    <Compile Include="DocumentPages\WebApps\Repository\ImportsNCBITaxonomy.vb" />
+    <Compile Include="DocumentPages\WebApps\Repository\ImportsUniprot.vb" />
     <Compile Include="Explorer\FormDatabaseExplorer.Designer.vb">
       <DependentUpon>FormDatabaseExplorer.vb</DependentUpon>
     </Compile>
