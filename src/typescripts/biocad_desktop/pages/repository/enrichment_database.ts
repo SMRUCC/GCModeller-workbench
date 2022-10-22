@@ -1,4 +1,4 @@
-namespace pages {
+namespace pages.repository {
 
     export class enrichment_database extends Bootstrap {
 
@@ -139,57 +139,54 @@ namespace pages {
          * @param key a unique database hash name for query in the repository
         */
         private static viewModel(key: string, name: string, info: { clusters: number, unique_size: number }) {
-            const json: string = JSON.stringify({
+            const json = {
                 guid: key, xref: name
+            };
+
+            $ts.post("@web_invoke_loadModel", json, function (message: IMsg<string>) {
+                const flag: boolean = message.code == 0;
+
+                if (flag) {
+                    const galleryModal = new bootstrap.Modal($ts('#view-background'), {
+                        keyboard: false
+                    });
+                    const clusters: {} = (<any>message.info).clusters;
+                    const cluster_id: string[] = Object.keys(clusters);
+                    const data: IEnumerator<string> = $from(cluster_id)
+                        .Select(function (cid) {
+                            return `
+                                <li>                                   
+                                    <a 
+                                        href="#" 
+                                        onclick="pages.enrichment_database.showProteins('${clusters[cid].join(",")}')">
+                                        <i class="far fa-file-code"></i>&nbsp;&nbsp;${cid.replace(/[<]/ig, "&lt;")}
+                                        [${clusters[cid].length} proteins]
+                                    </a>                                     
+                                </li>                              
+                            `;
+                        });
+
+                    // console.log(clusters);
+                    // console.log(cluster_id);
+                    // console.log(data);
+
+                    $ts("#contentArea").clear();
+                    $ts("#contentArea").display(data.JoinBy(""));
+
+                    // const clusterize = new Clusterize({                                
+                    //     scrollId: 'scrollArea',
+                    //     contentId: 'contentArea'
+                    // });
+
+                    $ts("#busy-indicator").hide();
+                    $ts("#modal-close1").onclick = () => galleryModal.hide();
+                    $ts("#modal-close2").onclick = () => galleryModal.hide();
+
+                    galleryModal.show();
+                } else {
+                    desktop.showToastMessage(message.info, "Load Model Error", "danger");
+                }
             });
-
-            apps.gcmodeller.sendPost($ts.url("@web_invoke_loadModel"), json)
-                .then(async function (result) {
-                    desktop.parseMessage(result).then(function (message) {
-                        desktop.parseResultFlag(result, message).then(function (flag) {
-                            if (flag) {
-                                const galleryModal = new bootstrap.Modal($ts('#view-background'), {
-                                    keyboard: false
-                                });
-                                const clusters: {} = (<any>message.info).clusters;
-                                const cluster_id: string[] = Object.keys(clusters);
-                                const data: IEnumerator<string> = $from(cluster_id)
-                                    .Select(function (cid) {
-                                        return `
-                                    <li>                                   
-                                            <a 
-                                            href="#" 
-                                            onclick="pages.enrichment_database.showProteins('${clusters[cid].join(",")}')">
-                                            <i class="far fa-file-code"></i>&nbsp;&nbsp;${cid.replace(/[<]/ig, "&lt;")}
-                                            [${clusters[cid].length} proteins]
-                                        </a>                                     
-                                    </li>                              
-                                    `;
-                                    });
-
-                                // console.log(clusters);
-                                // console.log(cluster_id);
-                                // console.log(data);
-
-                                $ts("#contentArea").clear();
-                                $ts("#contentArea").display(data.JoinBy(""));
-
-                                // const clusterize = new Clusterize({                                
-                                //     scrollId: 'scrollArea',
-                                //     contentId: 'contentArea'
-                                // });
-
-                                $ts("#busy-indicator").hide();
-                                $ts("#modal-close1").onclick = () => galleryModal.hide();
-                                $ts("#modal-close2").onclick = () => galleryModal.hide();
-
-                                galleryModal.show();
-                            } else {
-                                desktop.showToastMessage(message.info, "Load Model Error", "danger");
-                            }
-                        })
-                    })
-                });
         }
 
         public static showProteins(array: string) {
@@ -246,25 +243,21 @@ namespace pages {
                 name: $ts.value("#title"),
                 note: $ts.value("#description")
             };
-            const json = JSON.stringify(data);
 
-            apps.gcmodeller
-                .sendPost($ts.url("@web_invoke_imports"), json)
-                .then(async function (msg) {
-                    desktop.promiseAsyncCallback<string>(msg, function (flag, message) {
-                        const title = flag ? "Imports Task Success" : "Imports Task Error";
+            $ts.post("@web_invoke_imports", data, function (msg) {
+                const flag = msg.code == 0;
+                const title = flag ? "Imports Task Success" : "Imports Task Error";
 
-                        if (flag) {
-                            // success
-                            desktop.showToastMessage(message.info, title, "success");
-                        } else {
-                            // error
-                            desktop.showToastMessage(message.info, title, "danger");
-                        }
+                if (flag) {
+                    // success
+                    desktop.showToastMessage(<any>msg.info, title, "success");
+                } else {
+                    // error
+                    desktop.showToastMessage(<any>msg.info, title, "danger");
+                }
 
-                        desktop.closeSpinner();
-                    });
-                });
+                desktop.closeSpinner();
+            });
         }
     }
 }

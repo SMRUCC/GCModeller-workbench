@@ -149,28 +149,6 @@ declare namespace pages {
         private static buildElement;
     }
 }
-declare namespace pages {
-    class enrichment_database extends Bootstrap {
-        readonly appName: string;
-        protected init(): void;
-        private scanDatabaseList;
-        private showDatabaseList;
-        private static showMetadata;
-        private static displayDatabaseContentSummary;
-        /**
-         * @param key a unique database hash name for query in the repository
-        */
-        private static viewModel;
-        static showProteins(array: string): void;
-        private static summaryLine;
-        private static buildDbCard;
-        /**
-         * method execute on native host side, not R server backend
-        */
-        open_uniprot_onclick(): void;
-        imports_onclick(): void;
-    }
-}
 declare namespace omicsAnalysis {
     const expressionMatrix: string;
     function parseSampleInfo(analysis_file: string, using: Delegate.Sub, err?: Delegate.Sub): void;
@@ -347,6 +325,28 @@ declare namespace pages.background {
      * @param settings 配置参数
     */
     function run(containerId?: string, settings?: CanvasSettings): void;
+}
+declare namespace pages.repository {
+    class enrichment_database extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
+        private scanDatabaseList;
+        private showDatabaseList;
+        private static showMetadata;
+        private static displayDatabaseContentSummary;
+        /**
+         * @param key a unique database hash name for query in the repository
+        */
+        private static viewModel;
+        static showProteins(array: string): void;
+        private static summaryLine;
+        private static buildDbCard;
+        /**
+         * method execute on native host side, not R server backend
+        */
+        open_uniprot_onclick(): void;
+        imports_onclick(): void;
+    }
 }
 declare namespace pages.suggestion_list.render {
     /**

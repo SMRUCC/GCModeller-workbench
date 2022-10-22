@@ -32,7 +32,7 @@ namespace apps {
         Router.AddAppHandler(new pages.analysis_project.create_project());
         Router.AddAppHandler(new pages.analysis_project.edit_sampleinfo());
 
-        Router.AddAppHandler(new pages.enrichment_database());
+        Router.AddAppHandler(new pages.repository.enrichment_database());
         Router.AddAppHandler(new pages.enrichment_analysis());
         Router.AddAppHandler(new pages.cmeans_patterns());
         Router.AddAppHandler(new pages.zscore_analysis());
