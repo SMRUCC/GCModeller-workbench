@@ -53,9 +53,9 @@ REM ----===== end of function =====----
 
 cd %GCModeller_src%
 
-SET jump=renv
-CALL :exec_msbuild "%GCModeller_src%/R-sharp" "./R_system.NET5.sln"
-:renv
+REM SET jump=renv
+REM CALL :exec_msbuild "%GCModeller_src%/R-sharp" "./R_system.NET5.sln"
+REM :renv
 
 SET jump=reportKit
 CALL :exec_msbuild "%GCModeller_src%/workbench/markdown2pdf/src" "./reportKit.NET5.sln"
