@@ -354,6 +354,12 @@ declare namespace pages.repository {
         imports_onclick(): void;
     }
 }
+declare namespace pages.repository {
+    class enzyme_database extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
+    }
+}
 declare namespace pages.suggestion_list.render {
     /**
      * 将结果显示到网页上面

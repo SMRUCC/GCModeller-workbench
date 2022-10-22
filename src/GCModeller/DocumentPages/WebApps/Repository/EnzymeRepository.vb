@@ -6,6 +6,6 @@ Imports System.Runtime.InteropServices
 Public Class EnzymeRepository : Inherits WebApp
 
     Public Sub New()
-        MyBase.New("")
+        MyBase.New("/toolkit/enzyme_database.vbhtml")
     End Sub
 End Class
