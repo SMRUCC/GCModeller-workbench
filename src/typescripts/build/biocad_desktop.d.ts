@@ -185,6 +185,7 @@ declare namespace pages {
         protected init(): void;
         private loadSettings;
         RememberWindowStatus_onchange(): void;
+        language_onchange(): void;
     }
 }
 declare namespace pages {

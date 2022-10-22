@@ -23,7 +23,7 @@ namespace pages {
                 BlastDb: "",
                 RepositoryRoot: "",
                 RememberWindowStatus: $ts("#RememberWindowStatus").CType<HTMLInputElement>().checked,
-                Language: ""
+                Language: $ts("#language").CType<HTMLSelectElement>().selectedIndex
             };
             var jsonStr: string = JSON.stringify(config);
 
@@ -42,9 +42,14 @@ namespace pages {
             var windowConfig = await IDEconfigs.IDE;
 
             $ts("#RememberWindowStatus").CType<HTMLInputElement>().checked = await IDEconfigs.RememberWindowStatus;
+            $ts("#language").CType<HTMLSelectElement>().selectedIndex = await windowConfig.Language;
         }
 
         public RememberWindowStatus_onchange() {
+            this.SaveSettings();
+        }
+
+        public language_onchange() {
             this.SaveSettings();
         }
     }

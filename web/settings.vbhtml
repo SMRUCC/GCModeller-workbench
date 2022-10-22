@@ -12,9 +12,29 @@
     <!-- Start your project here-->
     <div class="container">
 
+        <h1>Settings</h1>
+
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="RememberWindowStatus" checked />
             <label class="form-check-label" for="RememberWindowStatus">Remember Window Status</label>
+        </div>
+
+
+        <div class="row">
+            <div class="col-auto">
+
+                <p>Window Language:</p>
+
+                <select id="language" class="form-select select-input placeholder-active">
+                    <option value="System" selected>Follow System</option>
+                    <optgroup label="Variant Languages">
+                        <option value="zh-CN">简体中文</option>
+                        <option value="en-US">English</option>
+                        <option value="fr-FR">Français</option>
+                    </optgroup>
+                </select>
+
+            </div>
         </div>
 
         <%= ./assets/includes/webapp.vbhtml %>
