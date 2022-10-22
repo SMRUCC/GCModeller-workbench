@@ -1,4 +1,5 @@
-﻿Imports Microsoft.VisualBasic.MIME.application.json
+﻿Imports GCModeller_win32Desktop.Settings
+Imports Microsoft.VisualBasic.MIME.application.json
 Imports Microsoft.VisualBasic.MIME.application.json.Javascript
 Imports Microsoft.VisualBasic.My.JavaScript
 
@@ -11,12 +12,26 @@ Namespace WebApps
         End Sub
 
         Public Function GetSettings() As Global.GCModeller_win32Desktop.Settings.File
-            Return Global.GCModeller_win32Desktop.Settings.Session.SettingsFile
+            Return Session.SettingsFile
         End Function
 
-        Public Function SaveSettings(config As String)
-            Dim configs As JavaScriptObject = DirectCast(config.ParseJson, JsonObject)
+        Public Sub SaveSettings(jsonStr As String)
+            Dim configs As JavaScriptObject = DirectCast(jsonStr.ParseJson, JsonObject)
+            Dim config = Session.GetSettingsFile
+            Dim dev2 = config.Dev2
 
-        End Function
+            If dev2 Is Nothing Then
+                config.Dev2 = Programs.IDE.Default
+            End If
+
+            config.BlastBin = configs(NameOf(config.BlastBin))
+            config.BlastDb = configs(NameOf(config.BlastDb))
+            config.RepositoryRoot = configs(NameOf(config.RepositoryRoot))
+
+            dev2.RememberWindowStatus = configs(NameOf(dev2.RememberWindowStatus))
+            dev2.IDE.Language = configs(NameOf(dev2.IDE.Language))
+
+            Call Session.Finallize()
+        End Sub
     End Class
 End Namespace
