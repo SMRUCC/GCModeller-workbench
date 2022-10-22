@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports GCModeller_win32Desktop.RibbonLib.Controls
+Imports GCModeller_win32Desktop.Settings
 Imports RibbonLib
 Imports RibbonLib.Interop
 Imports WeifenLuo.WinFormsUI.Docking
@@ -27,7 +28,22 @@ Public Class FormMainHost
         Call Workbench.LogTextOutput.Show(Globals.host.dockPanel)
 
         EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1)
-        ShowMainPage()
+
+        ' apply settings
+        Dim config = Session.GetSettingsFile.Dev2
+
+        If config.StartPage.ShowOnStartUp Then
+            ShowMainPage()
+        End If
+
+        If config.RememberWindowStatus Then
+            If Not config.IDE.Size.IsEmpty Then
+                Me.Size = config.IDE.Size
+            End If
+            If Not config.IDE.Location.IsEmpty Then
+                Me.Location = config.IDE.Location
+            End If
+        End If
 
         Workbench.Ribbon.GroupDatabase.ContextAvailable = ContextAvailability.Active
     End Sub
@@ -66,7 +82,7 @@ Public Class FormMainHost
     End Sub
 
     Private Sub FormMainHost_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-
+        Call My.MyApplication.SaveSession()
     End Sub
 
     Private Sub FormMainHost_Closed(sender As Object, e As EventArgs) Handles Me.Closed
