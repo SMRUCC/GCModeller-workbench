@@ -206,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Application\WebTask.vb" />
     <Compile Include="DocumentPages\Models.vb" />
     <Compile Include="DocumentPages\WebApp.vb" />
     <Compile Include="Application\Workbench.vb" />
@@ -347,9 +348,17 @@
       <Project>{cd07a55c-2513-4a44-a3fb-46b58408baca}</Project>
       <Name>biocore-netcore5</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\R-sharp\R#\Rsharp-netcore5.vbproj">
+      <Project>{6db93fbd-8d99-443b-b5ab-6cdb5b6a83af}</Project>
+      <Name>Rsharp-netcore5</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\R-sharp\studio\Rserver\Rserver.NET5.vbproj">
       <Project>{7bb43106-d512-4368-ad9e-ed7723f0facd}</Project>
       <Name>Rserver.NET5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\runtime\sciBASIC#\Data\BinaryData\HDSPack\HDSPack.vbproj">
+      <Project>{4cccbde6-15f4-481b-acd4-1b67dc632b49}</Project>
+      <Name>HDSPack</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\runtime\sciBASIC#\Data\DataFrame\dataframework-netcore5.vbproj">
       <Project>{ca0c110d-12cc-4d34-9447-3e05825d6213}</Project>

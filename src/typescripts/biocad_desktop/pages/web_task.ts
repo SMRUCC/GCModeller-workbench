@@ -7,6 +7,11 @@ namespace pages {
         status: "success" | "error" | "pending" | "cancel";
         session_id: string;
         arguments: {};
+
+        /**
+         * not empty if the status is ``error``
+        */
+        error: desktop.RSharpError;
     }
 
     export class web_task extends Bootstrap {
