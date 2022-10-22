@@ -3,9 +3,9 @@ Imports System.Runtime.InteropServices
 
 <ClassInterface(ClassInterfaceType.AutoDual)>
 <ComVisible(True)>
-Public Class CMeansAnalysis : Inherits WebApp
+Public Class DataRepository : Inherits WebApp
 
     Public Sub New()
-        MyBase.New("/apps/cmeans.vbhtml")
+        MyBase.New("/repository.vbhtml")
     End Sub
 End Class

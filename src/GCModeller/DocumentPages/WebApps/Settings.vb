@@ -1,10 +1,13 @@
-﻿Imports GCModeller_win32Desktop.Settings
+﻿Imports System.Runtime.InteropServices
+Imports GCModeller_win32Desktop.Settings
 Imports Microsoft.VisualBasic.MIME.application.json
 Imports Microsoft.VisualBasic.MIME.application.json.Javascript
 Imports Microsoft.VisualBasic.My.JavaScript
 
 Namespace WebApps
 
+    <ClassInterface(ClassInterfaceType.AutoDual)>
+    <ComVisible(True)>
     Public Class Settings : Inherits WebApp
 
         Public Sub New()

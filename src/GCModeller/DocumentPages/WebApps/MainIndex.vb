@@ -13,7 +13,7 @@ Public Class MainIndex : Inherits AppIndex
     End Sub
 
     Public Sub openDatabaseRepository()
-        Call WebApp.Open(Of ImportsUniprot)()
+        Call WebApp.Open(Of DataRepository)()
     End Sub
 
     Public Sub openTaskManager()

@@ -1,4 +1,9 @@
-﻿Public Class CreateOmicsProject : Inherits WebApp
+﻿
+Imports System.Runtime.InteropServices
+
+<ClassInterface(ClassInterfaceType.AutoDual)>
+<ComVisible(True)>
+Public Class CreateOmicsProject : Inherits WebApp
 
     Public Sub New()
         MyBase.New("/toolkit/projects/omics/create.vbhtml")
