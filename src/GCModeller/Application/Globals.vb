@@ -1,4 +1,6 @@
 ﻿Imports System.Threading
+Imports GCModeller_win32Desktop.Settings
+Imports GCModeller_win32Desktop.Settings.Programs
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports Microsoft.VisualBasic.CommandLine.InteropService.Pipeline
 Imports Microsoft.VisualBasic.Linq
@@ -19,7 +21,23 @@ Public Class Globals
     End Sub
 
     Public Shared Sub Load()
-        Call Settings.Session.Initialize()
+        ' make sure the configuration node is not empty
+        Dim configs = Session.GetSettingsFile
+
+        If configs.BlastDb.StringEmpty Then
+            configs.BlastDb = "/etc/repository/fasta/"
+        End If
+        If configs.RepositoryRoot.StringEmpty Then
+            configs.RepositoryRoot = "/etc/repository/"
+        End If
+        If configs.Dev2 Is Nothing Then
+            configs.Dev2 = IDE.Default
+        End If
+
+        If configs.Dev2.IDE Is Nothing Then configs.Dev2.IDE = IDE.IDEConfig.Default
+        If configs.Dev2.Session Is Nothing Then configs.Dev2.Session = IDE.SessionF.Default
+        If configs.Dev2.StartPage Is Nothing Then configs.Dev2.StartPage = IDE.StartPageF.Default
+
         Call Workbench.Load()
 
         ' Call Globals.startWebServices()
