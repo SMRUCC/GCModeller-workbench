@@ -27,6 +27,7 @@ namespace apps {
 
     export function run() {
         Router.AddAppHandler(new pages.applets());
+        Router.AddAppHandler(new pages.settings());
 
         Router.AddAppHandler(new pages.analysis_project.create_project());
         Router.AddAppHandler(new pages.analysis_project.edit_sampleinfo());

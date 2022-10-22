@@ -1,6 +1,6 @@
 namespace pages {
 
-    export class Settings extends Bootstrap {
+    export class settings extends Bootstrap {
 
         public get appName(): string {
             return "settings";
@@ -19,7 +19,11 @@ namespace pages {
         private SaveSettings() {
             var hostApp: any = apps.gcmodeller;
             var config = {
-
+                BlastBin: "",
+                BlastDb: "",
+                RepositoryRoot: "",
+                RememberWindowStatus: $ts("#RememberWindowStatus").CType<HTMLInputElement>().checked,
+                Language: ""
             };
             var jsonStr: string = JSON.stringify(config);
 
@@ -34,7 +38,14 @@ namespace pages {
 
         private async loadSettings() {
             var configs = await this.rawConfigs;
+            var IDEconfigs = await configs.Dev2;
+            var windowConfig = await IDEconfigs.IDE;
 
+            $ts("#RememberWindowStatus").CType<HTMLInputElement>().checked = await IDEconfigs.RememberWindowStatus;
+        }
+
+        public RememberWindowStatus_onchange() {
+            this.SaveSettings();
         }
     }
 }

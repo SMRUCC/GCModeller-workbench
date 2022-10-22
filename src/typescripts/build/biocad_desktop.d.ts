@@ -61,6 +61,40 @@ declare namespace desktop {
 declare namespace desktop {
     function showToastMessage(msg: string, title?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
 }
+declare namespace desktop {
+    interface configuration {
+        BlastBin: string;
+        BlastDb: string;
+        RepositoryRoot: string;
+        Dev2: IDEConfiguration;
+    }
+    interface IDEConfiguration {
+        StartPage: {
+            CloseAfterProjectLoad: boolean;
+            ShowOnStartUp: boolean;
+        };
+        IDE: IDEWindowConfig;
+        Session: any;
+        RememberWindowStatus: boolean;
+    }
+    interface IDEWindowConfig {
+        Location: {
+            Left: number;
+            Top: number;
+        };
+        Size: {
+            Width: number;
+            Height: number;
+        };
+        Language: languages;
+    }
+    enum languages {
+        System = 0,
+        "zh-CN" = 1,
+        "en-US" = 2,
+        "fr-FR" = 3
+    }
+}
 declare namespace js_plot {
     class scatter3d {
         private myChart;
@@ -141,6 +175,17 @@ declare namespace omicsAnalysis {
     const expressionMatrix: string;
     function parseSampleInfo(analysis_file: string, using: Delegate.Sub, err?: Delegate.Sub): void;
     function saveSampleInfo(table: sampleinfo_editor.IsampleInfo[], analysis_file: string, success: Delegate.Action): void;
+}
+declare namespace pages {
+    class settings extends Bootstrap {
+        readonly appName: string;
+        private rawConfigs;
+        private GetSettings;
+        private SaveSettings;
+        protected init(): void;
+        private loadSettings;
+        RememberWindowStatus_onchange(): void;
+    }
 }
 declare namespace pages {
     class cmeans_patterns extends analysis_session {
