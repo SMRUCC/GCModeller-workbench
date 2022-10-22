@@ -25,9 +25,10 @@
 
         <h1>Data Repository</h1>
 
-        <a href="#" onclick="apps.gcmodeller.openEnrichmentRepository();">Enrichment Data Repository</a>
-        <a href="#" onclick="apps.gcmodeller.openEnzymeRepository();">Enzyme Data Repository</a>
-
+        <ul>
+            <li><a href="#" onclick="apps.gcmodeller.openEnrichmentRepository();">Enrichment Data Repository</a></li>
+            <li><a href="#" onclick="apps.gcmodeller.openEnzymeRepository();">Enzyme Data Repository</a></li>
+        </ul>
 
         <%= ./assets/includes/webapp.vbhtml %>
     </div>

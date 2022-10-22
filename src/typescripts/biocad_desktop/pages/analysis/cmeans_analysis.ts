@@ -13,7 +13,7 @@ namespace pages {
         public button_open_click() {
             desktop.loading();
             apps.gcmodeller
-                .getFileOpen(omicsAnalysis.expressionMatrix)
+                .getFileOpen(apps.expressionMatrix)
                 .then(async function (path) {
                     const file: string = await path;
                     const textbox: HTMLInputElement = <any>$ts("#matrix-file");

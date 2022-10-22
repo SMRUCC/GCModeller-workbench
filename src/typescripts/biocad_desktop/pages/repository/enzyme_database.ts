@@ -49,5 +49,13 @@ namespace pages.repository {
                 cb(["Child"]);
             }
         }
+
+        public run_onclick() {
+
+        }
+
+        public button_open_uniprot() {
+            
+        }
     }
 }

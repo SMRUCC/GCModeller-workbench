@@ -2,6 +2,9 @@
 
 namespace apps {
 
+    export const uniprot_assembly: string = "UniProt Xml dataset(*.xml)|*.xml";
+    export const expressionMatrix: string = "Microsoft Excel(*.csv)|*.csv|GCModeller HTS Matrix(*.HTS)|*.HTS";
+
     /**
      * async proxy
     */
