@@ -1,7 +1,5 @@
 ﻿Imports System.ComponentModel
-Imports GCModeller_win32Desktop.RibbonLib.Controls
 Imports GCModeller_win32Desktop.Settings
-Imports RibbonLib
 Imports RibbonLib.Interop
 Imports WeifenLuo.WinFormsUI.Docking
 
