@@ -14,8 +14,7 @@ namespace apps {
         try {
             return (<any>window).chrome.webview.hostObjects.gcmodeller;
         } catch (Error) {
-            return <biocad_desktop>{
-                getUniprotXmlDatabase: <any>warningMsg,
+            return <biocad_desktop>{               
                 scanDatabase: <any>warningMsg,
                 openEnrichmentPage: <any>warningMsg,
 

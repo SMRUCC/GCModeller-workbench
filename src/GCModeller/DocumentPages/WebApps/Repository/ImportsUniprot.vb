@@ -10,20 +10,6 @@ Public Class ImportsUniprot : Inherits WebApp
         MyBase.New("/toolkit/enrichment_database.vbhtml")
     End Sub
 
-    Public Function getUniprotXmlDatabase() As String
-        Try
-            Using file As New OpenFileDialog With {.Filter = "UniProt Xml dataset(*.xml)|*.xml"}
-                If file.ShowDialog = DialogResult.OK Then
-                    Return file.FileName
-                Else
-                    Return Nothing
-                End If
-            End Using
-        Catch ex As Exception
-            Return Nothing
-        End Try
-    End Function
-
     Public Function scanDatabase() As String
         Dim list = "/etc/repository/".ListFiles("*.json").Where(Function(json) json.ChangeSuffix("db").FileExists()).ToArray
         Dim metadata = list _

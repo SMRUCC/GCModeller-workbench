@@ -55,7 +55,14 @@ namespace pages.repository {
         }
 
         public button_open_uniprot() {
-            
+            const textbox = $ts("#uniprot-file").CType<HTMLInputElement>();
+
+            apps.gcmodeller
+                .getFileOpen(apps.uniprot_assembly)
+                .then(async function (path) {
+                    textbox.value = await path;
+                })
+                ;
         }
     }
 }

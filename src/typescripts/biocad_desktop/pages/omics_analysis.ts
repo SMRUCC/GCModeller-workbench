@@ -1,6 +1,4 @@
-namespace omicsAnalysis {
-
-    export const expressionMatrix: string = "Microsoft Excel(*.csv)|*.csv|GCModeller HTS Matrix(*.HTS)|*.HTS";
+namespace omicsAnalysis {  
 
     export function parseSampleInfo(analysis_file: string, using: Delegate.Sub, err: Delegate.Sub = null): void {
         $ts.get(sampleInfoUrl + analysis_file, function (result: IMsg<string>) {

@@ -228,7 +228,7 @@ namespace pages.repository {
             const textbox = $ts("#formFile").CType<HTMLInputElement>();
 
             apps.gcmodeller
-                .getUniprotXmlDatabase()
+                .getFileOpen(apps.uniprot_assembly)
                 .then(async function (path) {
                     textbox.value = await path;
                 })

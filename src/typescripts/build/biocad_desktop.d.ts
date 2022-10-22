@@ -1,6 +1,8 @@
 /// <reference path="linq.d.ts" />
 /// <reference path="sampleinfo_editor.d.ts" />
 declare namespace apps {
+    const uniprot_assembly: string;
+    const expressionMatrix: string;
     /**
      * async proxy
     */
@@ -28,7 +30,6 @@ declare namespace desktop.RSharp {
     function isRSharpError(obj: {}): boolean;
 }
 interface biocad_desktop {
-    getUniprotXmlDatabase(): Promise<string>;
     scanDatabase(): Promise<string>;
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
     getEnzymeClass(): Promise<string>;
@@ -157,7 +158,6 @@ declare namespace pages {
     }
 }
 declare namespace omicsAnalysis {
-    const expressionMatrix: string;
     function parseSampleInfo(analysis_file: string, using: Delegate.Sub, err?: Delegate.Sub): void;
     function saveSampleInfo(table: sampleinfo_editor.IsampleInfo[], analysis_file: string, success: Delegate.Action): void;
 }
@@ -363,6 +363,8 @@ declare namespace pages.repository {
         buildEnzymeTree(node: {
             id: string;
         }, cb: (a: any[]) => void): void;
+        run_onclick(): void;
+        button_open_uniprot(): void;
     }
 }
 declare namespace pages.suggestion_list.render {
