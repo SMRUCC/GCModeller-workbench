@@ -31,6 +31,7 @@ interface biocad_desktop {
     getUniprotXmlDatabase(): Promise<string>;
     scanDatabase(): Promise<string>;
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
+    getEnzymeClass(): Promise<string>;
     getFileOpen(filterString: string): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
 }
@@ -358,6 +359,7 @@ declare namespace pages.repository {
     class enzyme_database extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        private loadRootNodes;
         buildEnzymeTree(node: {
             id: string;
         }, cb: (a: any[]) => void): void;
