@@ -43,3 +43,4 @@ src/typescripts/build/linq.js.map
 *.2
 src/typescripts/build/sampleinfo_editor.js
 src/Rstudio/Rstudio/REnv.zip
+src/Rstudio/EC_numbers.fasta
