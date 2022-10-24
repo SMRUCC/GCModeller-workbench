@@ -17,6 +17,8 @@
     <ProjectReference Include="..\..\..\OmicsProject\OmicsProject.vbproj" />
   </ItemGroup>
 
+  <Import Project="..\..\..\..\..\..\Settings\Shared\Settings.Configuration\Settings.Configuration.projitems" Label="Shared" />
+
 
 
 </Project>

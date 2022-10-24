@@ -1,11 +1,12 @@
 require(GCModeller);
+require(Rstudio);
 
 imports "UniProt" from "annotationKit";
 imports "uniprot" from "seqtoolkit";
 imports "bioseq.fasta" from "seqtoolkit";
 
 const run = function(uniprot) {
-	const ecNumbersDbfile as string = `/EC_numbers.db`;
+	const ecNumbersDbfile as string = `${RStudio::repository_root()}/EC_numbers.db`;
 	const ecNumbersFasta as string = `${dirname(ecNumbersDbfile)}/EC_numbers.fasta`;
 
 	using pack as UniProt::ECnumber_pack(ecNumbersDbfile, create_new = TRUE) {
