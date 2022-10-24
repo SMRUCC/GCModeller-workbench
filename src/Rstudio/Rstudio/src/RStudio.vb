@@ -1,4 +1,3 @@
-Imports System.Composition
 Imports Microsoft.VisualBasic.CommandLine.Reflection
 Imports Microsoft.VisualBasic.Scripting.MetaData
 
@@ -13,5 +12,11 @@ Public Module RStudio
     <ExportAPI("ncbi_blast_dir")>
     Public Function getBlastBinDir() As String
         Return Settings.Session.GetSettingsFile.BlastBin
+    End Function
+
+    <ExportAPI("config")>
+    Public Function config(baseDir As String) As Object
+        Call Settings.Session.Initialize(baseDir)
+        Return Nothing
     End Function
 End Module
