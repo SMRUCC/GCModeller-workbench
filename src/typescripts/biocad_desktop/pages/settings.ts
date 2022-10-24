@@ -21,7 +21,7 @@ namespace pages {
             var config = {
                 BlastBin: $ts("#ncbi_blast_folder").CType<HTMLInputElement>().value,
                 BlastDb: "",
-                RepositoryRoot: "",
+                RepositoryRoot: $ts("#repository_folder").CType<HTMLInputElement>().value,
                 RememberWindowStatus: $ts("#RememberWindowStatus").CType<HTMLInputElement>().checked,
                 Language: $ts("#language").CType<HTMLSelectElement>().selectedIndex,
                 CloseAfterProjectLoad: $ts("#CloseAfterProjectLoad").CType<HTMLInputElement>().checked,
@@ -51,6 +51,7 @@ namespace pages {
             $ts("#ShowOnStartUp").CType<HTMLInputElement>().checked = await startPage.ShowOnStartUp;
             $ts("#language").CType<HTMLSelectElement>().selectedIndex = await windowConfig.Language;
             $ts("#ncbi_blast_folder").CType<HTMLInputElement>().value = await configs.BlastBin;
+            $ts("#repository_folder").CType<HTMLInputElement>().value = await configs.RepositoryRoot;
 
             setTimeout(desktop.closeSpinner, 500);
         }
@@ -73,6 +74,24 @@ namespace pages {
 
         public open_ncbi_blast_folder_onclick() {
             const textbox: HTMLInputElement = <any>$ts("#ncbi_blast_folder");
+            const vm = this;
+
+            desktop.loading("Load configurations...");
+            apps.gcmodeller
+                .getFolderOpen()
+                .then(async function (dir) {
+                    textbox.value = await dir;
+                    desktop.closeSpinner();
+
+                    if (!Strings.Empty(textbox.value, true)) {
+                        vm.SaveSettings();
+                    }
+                })
+                ;
+        }
+
+        public open_repository_folder_onclick() {
+            const textbox: HTMLInputElement = <any>$ts("#repository_folder");
             const vm = this;
 
             desktop.loading("Load configurations...");

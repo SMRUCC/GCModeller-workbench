@@ -175,6 +175,7 @@ declare namespace pages {
         CloseAfterProjectLoad_onclick(): void;
         ShowOnStartUp_onclick(): void;
         open_ncbi_blast_folder_onclick(): void;
+        open_repository_folder_onclick(): void;
     }
 }
 declare namespace pages {

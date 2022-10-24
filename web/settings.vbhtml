@@ -71,6 +71,19 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-12">
+
+                <label for="repository_folder" class="form-label">Set repository root folder:</label>
+                <div class="input-group mb-3">
+                    <button class="btn btn-primary" type="button" id="open_repository_folder" data-mdb-ripple-color="dark">
+                        <i class="far fa-folder-open"></i> Select Folder
+                    </button>
+                    <input type="text" class="form-control" placeholder="" id="repository_folder"
+                        aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                </div>
+            </div>
+        </div>
 
         <%= ./assets/includes/webapp.vbhtml %>
     </div>
