@@ -52,6 +52,20 @@ Public MustInherit Class WebApp
         End Try
     End Function
 
+    Public Function getFolderOpen() As String
+        Try
+            Using folder As New FolderBrowserDialog
+                If folder.ShowDialog = DialogResult.OK Then
+                    Return folder.SelectedPath
+                Else
+                    Return Nothing
+                End If
+            End Using
+        Catch ex As Exception
+            Return Nothing
+        End Try
+    End Function
+
     Public Async Function sendPost(url As String, json As String) As Task(Of Message)
         Dim httpClient As New HttpClient
 

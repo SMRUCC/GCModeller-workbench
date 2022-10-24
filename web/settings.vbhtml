@@ -56,6 +56,22 @@
             </div>
         </div>
 
+
+        <div class="row">
+            <div class="col-12">
+
+                <label for="ncbi_blast_folder" class="form-label">Set NCBI blast+ program folder:</label>
+                <div class="input-group mb-3">
+                    <button class="btn btn-primary" type="button" id="open_ncbi_blast_folder" data-mdb-ripple-color="dark">
+                        <i class="far fa-folder-open"></i> Select Folder
+                    </button>
+                    <input type="text" class="form-control" placeholder="" id="ncbi_blast_folder"
+                        aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                </div>
+            </div>
+        </div>
+
+
         <%= ./assets/includes/webapp.vbhtml %>
     </div>
     <!-- End your project here-->

@@ -34,6 +34,7 @@ interface biocad_desktop {
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
     getEnzymeClass(): Promise<string>;
     getFileOpen(filterString: string): Promise<string>;
+    getFolderOpen(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
 }
 interface hostMsg {
@@ -173,6 +174,25 @@ declare namespace pages {
         language_onchange(): void;
         CloseAfterProjectLoad_onclick(): void;
         ShowOnStartUp_onclick(): void;
+        open_ncbi_blast_folder_onclick(): void;
+    }
+}
+declare namespace pages {
+    interface Task {
+        appName: string;
+        time: string;
+        title: string;
+        status: "success" | "error" | "pending" | "cancel";
+        session_id: string;
+        arguments: {};
+        /**
+         * not empty if the status is ``error``
+        */
+        error: desktop.RSharpError;
+    }
+    class web_task extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
     }
 }
 declare namespace pages {
