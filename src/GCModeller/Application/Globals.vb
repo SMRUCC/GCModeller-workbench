@@ -1,4 +1,5 @@
 ﻿Imports System.Threading
+Imports GCModeller_win32Desktop.My
 Imports GCModeller_win32Desktop.Settings
 Imports GCModeller_win32Desktop.Settings.Programs
 Imports Microsoft.VisualBasic.ApplicationServices
@@ -39,6 +40,7 @@ Public Class Globals
         If configs.Dev2.StartPage Is Nothing Then configs.Dev2.StartPage = IDE.StartPageF.Default
 
         Call Workbench.Load()
+        Call MyApplication.ConfigRStudioConfiguration()
 
         ' Call Globals.startWebServices()
         ' Call Globals.launchFastRweb()

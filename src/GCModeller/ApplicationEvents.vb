@@ -1,4 +1,6 @@
 ﻿Imports GCModeller_win32Desktop.Settings.Programs.IDE
+Imports Microsoft.VisualBasic.ApplicationServices
+Imports Rserver.RscriptCommandLine
 Imports AppSession = GCModeller_win32Desktop.Settings.Session
 
 Namespace My
@@ -20,6 +22,15 @@ Namespace My
             configs.Dev2.IDE.Location = New IDEConfig.PointF With {.Left = pos.X, .Top = pos.Y}
 
             Call AppSession.Finallize()
+        End Sub
+
+        Public Shared Sub ConfigRStudioConfiguration()
+            Dim rpath As String = $"{App.HOME}/../src/Rstudio/config.R"
+            Dim host As Rscript = Rscript.FromEnvironment($"{App.HOME}/Rstudio/bin")
+            Dim arguments As String = $"--config {AppSession.SettingsDir.CLIPath}"
+
+            Call host.SetDotNetCoreDll()
+            Call host.RunDotNetApp($"{rpath.CLIPath} {arguments}").Run()
         End Sub
     End Class
 End Namespace
