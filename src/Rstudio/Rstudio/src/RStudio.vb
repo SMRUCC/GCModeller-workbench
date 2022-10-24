@@ -9,4 +9,9 @@ Public Module RStudio
     Public Function getRepositoryRoot() As String
         Return Settings.Session.GetSettingsFile.RepositoryRoot
     End Function
+
+    <ExportAPI("ncbi_blast_dir")>
+    Public Function getBlastBinDir() As String
+        Return Settings.Session.GetSettingsFile.BlastBin
+    End Function
 End Module
