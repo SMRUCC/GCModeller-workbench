@@ -9,6 +9,8 @@ obj
 bin
 App
 
+src/Rstudio/Rstudio/assembly/
+
 packages/
 node_modules
 *.lock

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <RootNamespace>OmicsProject</RootNamespace>
@@ -6,6 +6,8 @@
     <Configurations>Debug;Release;Rsharp_app_release;mzkit;mzkit_win32;gcmodeller_desktop</Configurations>
     <RuntimeIdentifiers>win7-x64;win7-x86;win-x64;linux-x64;linux-arm64;osx-x64</RuntimeIdentifiers>
     <Platforms>AnyCPU;x64</Platforms>
+
+    <OutputPath>../../src/Rstudio/Rstudio/assembly</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
