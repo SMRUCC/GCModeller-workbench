@@ -29,3 +29,4 @@ const run = function(uniprot) {
 	# for run downstream annotation
 	makeblastdb(ecNumbersFasta, dbtype = "prot");
 }
+
