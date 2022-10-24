@@ -5,5 +5,6 @@ imports "geneExpression" from "phenotype_kit";
 imports "RStudio" from "GCModellerDesktop";
 
 const .onLoad = function() {
+    # load config repository automatically
     RStudio::config(getOption("gcmodeller.config"));
 }

@@ -24,4 +24,8 @@ const run = function(uniprot) {
 		|> write.fasta(file = ecNumbersFasta)
 		;
 	}
+
+	# create blastp database
+	# for run downstream annotation
+	makeblastdb(ecNumbersFasta, dbtype = "prot");
 }
