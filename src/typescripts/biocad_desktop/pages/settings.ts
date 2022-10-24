@@ -73,13 +73,18 @@ namespace pages {
 
         public open_ncbi_blast_folder_onclick() {
             const textbox: HTMLInputElement = <any>$ts("#ncbi_blast_folder");
+            const vm = this;
 
             desktop.loading("Load configurations...");
             apps.gcmodeller
                 .getFolderOpen()
                 .then(async function (dir) {
-                    textbox.value = dir;
+                    textbox.value = await dir;
                     desktop.closeSpinner();
+
+                    if (!Strings.Empty(textbox.value, true)) {
+                        vm.SaveSettings();
+                    }
                 })
                 ;
         }
