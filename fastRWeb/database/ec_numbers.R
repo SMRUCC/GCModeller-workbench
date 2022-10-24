@@ -8,7 +8,7 @@ imports "blast+" from "seqtoolkit";
 
 const run = function(uniprot) {
 	const ecNumbersDbfile as string = `${RStudio::repository_root()}/EC_numbers.db`;
-	const ecNumbersFasta as string = `${dirname(ecNumbersDbfile)}/EC_numbers.fasta`;
+	const ecNumbersFasta as string = `${RStudio::repository_root()}/blastdb/EC_numbers.fasta`;
 	
 	options(ncbi_blast = RStudio::ncbi_blast_dir());
 
