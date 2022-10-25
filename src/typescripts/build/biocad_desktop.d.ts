@@ -192,11 +192,14 @@ declare namespace pages {
          * not empty if the status is ``error``
         */
         error: desktop.RSharpError;
+        logtext: string;
+        url: string;
     }
     class web_task extends Bootstrap {
         readonly appName: string;
         protected init(): void;
         private loadTaskList;
+        private static getHostObject;
         private static buildTaskHtml;
     }
 }

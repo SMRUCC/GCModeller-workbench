@@ -12,6 +12,8 @@ namespace pages {
          * not empty if the status is ``error``
         */
         error: desktop.RSharpError;
+        logtext: string;
+        url: string;
     }
 
     const htmlColors = {
@@ -49,11 +51,30 @@ namespace pages {
 
             for (let task of tasklist) {
                 task = await task;
+                // get host data
+                task = await web_task.getHostObject(task);
                 html = web_task.buildTaskHtml(task);
                 list.appendElement(html);
             }
 
             return 0;
+        }
+
+        private static async getHostObject(hostObj: Task): Promise<Task> {
+            const task = <Task>{
+            };
+
+            task.appName = await hostObj.appName;
+            task.arguments = await hostObj.arguments;
+            task.error = await hostObj.error;
+            task.logtext = await hostObj.logtext;
+            task.session_id = await hostObj.session_id;
+            task.status = await hostObj.status;
+            task.time = await hostObj.time;
+            task.title = await hostObj.title;
+            task.url = await hostObj.url;
+
+            return task;
         }
 
         private static buildTaskHtml(task: Task): HTMLElement {
@@ -75,7 +96,7 @@ namespace pages {
             <td>
                 <span class="badge ${htmlColors[task.status]} rounded-pill d-inline">${task.status}</span>
             </td>
-            <td>${task.error}</td>
+            <td>${task.logtext}</td>
             <td>
                 <button type="button" class="btn btn-link btn-sm btn-rounded">
                     Cancel

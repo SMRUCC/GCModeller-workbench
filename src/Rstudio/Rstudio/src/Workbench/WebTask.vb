@@ -10,6 +10,11 @@ Public Class WebTask
     Public Property appName As String
     Public Property time As String
     Public Property title As String
+
+    ''' <summary>
+    ''' "success" | "error" | "pending" | "cancel";
+    ''' </summary>
+    ''' <returns></returns>
     Public Property status As String
     ''' <summary>
     ''' the task unique id
