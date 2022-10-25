@@ -14,7 +14,7 @@ Public Class TaskManager : Implements IDisposable
             pool = New StreamPack(file.Open(FileMode.Open, doClear:=False, [readOnly]:=False))
         Else
             pool = New StreamPack(
-                buffer:=file.Open(FileMode.Open, doClear:=False, [readOnly]:=False),
+                buffer:=file.Open(FileMode.OpenOrCreate, doClear:=False, [readOnly]:=False),
                 init_size:=1024 * 1024 * 4,
                 meta_size:=1024 * 1024 * 32,
                 [readonly]:=False
