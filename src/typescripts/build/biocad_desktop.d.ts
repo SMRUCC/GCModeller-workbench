@@ -197,6 +197,7 @@ declare namespace pages {
         readonly appName: string;
         protected init(): void;
         private loadTaskList;
+        private static buildTaskHtml;
     }
 }
 declare namespace pages {
