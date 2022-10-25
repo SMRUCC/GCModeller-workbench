@@ -19,7 +19,7 @@ Public Class AppTasks : Inherits WebApp
             .ToArray
     End Function
 
-    Public Function checkTaskList() As Boolean
+    Public Function checkTaskList() As String()
         Dim updates As New List(Of WebTask)
 
         For Each task As WebTask In TaskManager.LoadTaskList(TaskManager.taskDb)
@@ -40,6 +40,6 @@ Public Class AppTasks : Inherits WebApp
             End Using
         End If
 
-        Return updates.Any
+        Return updates.Select(Function(a) a.GetJson).ToArray
     End Function
 End Class

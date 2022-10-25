@@ -51,10 +51,11 @@ namespace pages {
 
             apps.gcmodeller
                 .checkTaskList()
-                .then(async function (flag) {
-                    const check: boolean = await flag;
+                .then(async function (list) {
+                    const check: string[] = await list;
+                    const flag: boolean = check.length > 0;
 
-                    if (check) {
+                    if (flag) {
                         // if task list has updates
                         apps.gcmodeller
                             .getTaskList()
@@ -65,6 +66,16 @@ namespace pages {
                                     console.log("task list has been updated!");
                                 });
                             });
+
+                        for (let json of check) {
+                            var taskObj: Task = JSON.parse(json);
+
+                            if (taskObj.status == "success") {
+                                desktop.showToastMessage(`Run [${taskObj.title}] success!`, "Task Manager", "success");
+                            } else if (taskObj.status == "error") {
+                                desktop.showToastMessage(`Run [${taskObj.title}] failured!`, "Task Manager", "danger");
+                            }
+                        }
                     }
                 });
         }
