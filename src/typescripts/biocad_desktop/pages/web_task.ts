@@ -4,7 +4,7 @@ namespace pages {
         appName: string;
         time: string;
         title: string;
-        status: "success" | "error" | "pending" | "cancel";
+        status: "success" | "error" | "pending" | "running" | "cancel";
         session_id: string;
         arguments: {};
 
@@ -20,7 +20,8 @@ namespace pages {
         "success": "badge-success",
         "error": "badge-danger",
         "pending": "badge-warning",
-        "cancel": "badge-default"
+        "cancel": "badge-default",
+        "running": "badge-success"
     };
 
     export class web_task extends Bootstrap {

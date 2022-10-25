@@ -16,6 +16,7 @@ Public Class Globals
 
     Public Shared ReadOnly webViewSvrPort As Integer = 19612
     Public Shared ReadOnly webView As String
+    Public Shared ReadOnly fastRwebPort As Integer = 7452
 
     Shared Sub New()
         webView = $"{App.HOME}/../web/".GetDirectoryFullPath
@@ -49,7 +50,7 @@ Public Class Globals
     Private Shared Sub launchFastRweb()
         Dim host = Rserver.RscriptCommandLine.Rserve.FromEnvironment($"{App.HOME}/Rstudio/bin")
         Dim rweb As String = $"{App.HOME}/../fastRWeb/".GetDirectoryFullPath
-        Dim commandLine As String = host.GetstartCommandLine(,, rweb:=rweb)
+        Dim commandLine As String = host.GetstartCommandLine(fastRwebPort,, rweb:=rweb)
 
         ' Rserve --start --port "7452" --tcp "3838" --rweb "E:/GCModeller/src/workbench/win32_desktop/fastRWeb/" --n_threads "8" /@set --internal_pipeline=TRUE
         fastRweb = host.CreateSlave(commandLine, workdir:=host.Path.ParentPath)
