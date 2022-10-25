@@ -74,6 +74,8 @@ namespace pages {
             task.title = await hostObj.title;
             task.url = await hostObj.url;
 
+            console.log(task);
+
             return task;
         }
 
