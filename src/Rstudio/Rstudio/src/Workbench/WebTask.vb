@@ -19,5 +19,6 @@ Public Class WebTask
     Public Property arguments As Dictionary(Of String, String)
     Public Property [error] As ExceptionData
     Public Property logtext As String
+    Public Property url As String
 
 End Class

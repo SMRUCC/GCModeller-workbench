@@ -1,6 +1,8 @@
 ﻿Imports System.Net.Http
 Imports System.Net.Http.Headers
 Imports System.Runtime.InteropServices
+Imports GCModeller
+Imports Microsoft.VisualBasic.Serialization.JSON
 Imports WeifenLuo.WinFormsUI.Docking
 
 ' 所有需要在JavaScript环境中暴露的对象
@@ -66,6 +68,46 @@ Public MustInherit Class WebApp
         End Try
     End Function
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="title"></param>
+    ''' <param name="url">
+    ''' this url should contains the url query parameter: ``rweb_background=true``.
+    ''' </param>
+    ''' <param name="json"></param>
+    ''' <returns></returns>
+    Public Async Function createTask(title As String, url As String, json As String) As Task(Of Message)
+        Dim task As New WebTask With {
+            .appName = Me.GetType.Name,
+            .arguments = json.LoadJSON(Of Dictionary(Of String, String)),
+            .status = "pending",
+            .time = Now.ToString,
+            .title = title,
+            .url = url
+        }
+        Dim queue As Message = Await sendPost(url, json)
+        Dim request_id As String = queue.data
+
+        task.session_id = request_id
+
+        Using taskMgr As New TaskManager($"{App.ProductProgramData}/web_task.db")
+            Call taskMgr.add(task)
+        End Using
+
+        Return queue
+    End Function
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="url"></param>
+    ''' <param name="json"></param>
+    ''' <returns>
+    ''' the data of the message is the text content of the web api return
+    ''' and then message result is a boolean value that indicated that
+    ''' the http response is a success status code?
+    ''' </returns>
     Public Async Function sendPost(url As String, json As String) As Task(Of Message)
         Dim httpClient As New HttpClient
 

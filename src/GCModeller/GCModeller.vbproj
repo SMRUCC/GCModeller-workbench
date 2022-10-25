@@ -375,6 +375,10 @@
       <Project>{ec8c847f-4292-404a-a654-6e82ec575cf1}</Project>
       <Name>OmicsProject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Rstudio\Rstudio\src\GCModellerDesktop.vbproj">
+      <Project>{8b3485c7-5481-405d-a915-05aad942c601}</Project>
+      <Name>GCModellerDesktop</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Res\status\dialog-warning.png" />
