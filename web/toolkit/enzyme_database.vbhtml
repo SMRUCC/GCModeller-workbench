@@ -7,10 +7,7 @@
 <head>
     <%= ../assets/includes/head.vbhtml %>
 
-        <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
-        <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
-        <meta name="web_invoke_loadModel" content="http://localhost:7452/database/loadModel">
-
+        <meta name="web_invoke_imports" content="http://localhost:7452/database/ec_numbers?rweb_background=true">
         <link rel="stylesheet" href="/javascript/vakata-jstree-7a03954/themes/default/style.min.css" />
 </head>
 
@@ -44,7 +41,7 @@
                 </div>
 
                 <button class="btn btn-primary" type="button" id="run" data-mdb-ripple-color="dark">
-                    <i class="far fa-folder-open"></i> Run
+                    <i class="far fa-folder-open"></i> Build Database
                 </button>
             </div>
         </div>
