@@ -34,6 +34,7 @@ interface biocad_desktop {
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
     getEnzymeClass(): Promise<string>;
     getTaskList(): Promise<string[]>;
+    checkTaskList(): Promise<boolean>;
     getFileOpen(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
@@ -185,7 +186,7 @@ declare namespace pages {
         appName: string;
         time: string;
         title: string;
-        status: "success" | "error" | "pending" | "cancel";
+        status: "success" | "error" | "pending" | "running" | "cancel";
         session_id: string;
         arguments: {};
         /**
@@ -198,6 +199,8 @@ declare namespace pages {
     class web_task extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        private checkList;
+        private showTaskDatalist;
         private loadTaskList;
         private static getHostObject;
         private static buildTaskHtml;

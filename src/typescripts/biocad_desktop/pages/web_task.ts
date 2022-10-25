@@ -37,16 +37,50 @@ namespace pages {
             apps.gcmodeller
                 .getTaskList()
                 .then(async function (list) {
-                    const jsonlist: string[] = await list; console.log(jsonlist);
-                    const webtasks = $from(jsonlist)
-                        .Select(json => <Task>JSON.parse(json))
-                        .ToArray()
-                        ;
+                    const jsonlist: string[] = await list;
 
-                    vm.loadTaskList(webtasks)
-                        .then(function (any) {
-                            desktop.showToastMessage(`Load ${webtasks.length} web task!`, "Task Manager", "info");
-                        });
+                    vm.showTaskDatalist(jsonlist, function () {
+                        desktop.showToastMessage(`Load ${jsonlist.length} web task!`, "Task Manager", "info");
+                        setInterval(() => vm.checkList(), 3000);
+                    });
+                });
+        }
+
+        private checkList() {
+            const vm = this;
+
+            apps.gcmodeller
+                .checkTaskList()
+                .then(async function (flag) {
+                    const check: boolean = await flag;
+
+                    if (check) {
+                        // if task list has updates
+                        apps.gcmodeller
+                            .getTaskList()
+                            .then(async function (list) {
+                                const jsonlist: string[] = await list;
+
+                                vm.showTaskDatalist(jsonlist, function () {
+                                    console.log("task list has been updated!");
+                                });
+                            });
+                    }
+                });
+        }
+
+        private showTaskDatalist(jsonlist: string[], callback: Delegate.Action = null) {
+            const webtasks = $from(jsonlist)
+                .Select(json => <Task>JSON.parse(json))
+                .ToArray()
+                ;
+            const vm = this;
+
+            vm.loadTaskList(webtasks)
+                .then(function (any) {
+                    if (!isNullOrUndefined(callback)) {
+                        callback();
+                    }
                 });
         }
 
