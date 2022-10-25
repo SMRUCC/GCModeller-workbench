@@ -90,7 +90,7 @@ Public MustInherit Class WebApp
         Dim request_id As String = queue.data
         Dim taskDb As String = $"{App.ProductProgramData}/web_task.db"
 
-        task.session_id = request_id
+        task.session_id = request_id.TrimNewLine.Trim
 
         Using taskMgr As New TaskManager(file:=taskDb)
             Call taskMgr.add(task)
