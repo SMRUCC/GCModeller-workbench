@@ -31,8 +31,14 @@ Public Class TaskManager : Implements IDisposable
     ''' <returns></returns>
     Public Shared Iterator Function LoadTaskList(file As String) As IEnumerable(Of WebTask)
         Using stream As New StreamPack(file.Open(FileMode.OpenOrCreate, doClear:=False, [readOnly]:=True), [readonly]:=True)
-            Dim files = DirectCast(stream.GetObject("/TaskPool/"), StreamGroup) _
-                .files _
+            Dim group As StreamGroup = TryCast(stream.GetObject("/TaskPool/"), StreamGroup)
+
+            If group Is Nothing Then
+                ' file is empty
+                Return
+            End If
+
+            Dim files As StreamBlock() = group.files _
                 .Where(Function(f) TypeOf f Is StreamBlock) _
                 .Select(Function(f) DirectCast(f, StreamBlock)) _
                 .ToArray
