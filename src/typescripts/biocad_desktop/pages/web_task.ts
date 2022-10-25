@@ -41,7 +41,7 @@ namespace pages {
 
                     vm.showTaskDatalist(jsonlist, function () {
                         desktop.showToastMessage(`Load ${jsonlist.length} web task!`, "Task Manager", "info");
-                        setInterval(() => vm.checkList(), 3000);
+                        setInterval(() => vm.checkList(), 6000);
                     });
                 });
         }
