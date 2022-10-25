@@ -131,6 +131,26 @@ Public MustInherit Class WebApp
         Return msg
     End Function
 
+    Public Sub jumptoTaskManager()
+        Dim hitAny As Boolean = False
+
+        For Each page As IDockContent In Globals.host.dockPanel.Documents
+            If TypeOf page Is FormWebView2Page Then
+                If TypeOf DirectCast(page, FormWebView2Page).backend Is AppTasks Then
+                    DirectCast(page, FormWebView2Page).DockState = DockState.Document
+                    DirectCast(page, FormWebView2Page).Activate()
+                    DirectCast(page, FormWebView2Page).Show(Globals.host.dockPanel)
+
+                    hitAny = True
+                End If
+            End If
+        Next
+
+        If Not hitAny Then
+            Call WebApp.Open(Of AppTasks)()
+        End If
+    End Sub
+
     Public Overrides Function ToString() As String
         Return url
     End Function

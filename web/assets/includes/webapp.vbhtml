@@ -27,6 +27,22 @@ display: none;">
 <div id="toast-message" class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
 </div>
 
+
+<section class="pb-4" id="task_submit_alert" style="display: none;">
+  <div class="bg-white border rounded-5">
+
+    <section class="text-start p-4 w-100">
+      <div class="alert alert-success" role="alert" data-mdb-color="success">
+        <i class="fas fa-check-circle me-3"></i>
+        Background task has been submit to the automation workflow system,
+        [<a href="#" onclick="apps.gcmodeller.jumptoTaskManager();">check it out at here</a>].
+      </div>
+    </section>
+
+  </div>
+</section>
+
+
 <!-- MDB -->
 <script type="text/javascript" src="/styles/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/styles/bootstrap5/js/mdb.min.js"></script>

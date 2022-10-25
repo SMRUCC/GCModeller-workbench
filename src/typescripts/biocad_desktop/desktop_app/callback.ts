@@ -24,4 +24,8 @@ namespace desktop {
     export function closeSpinner() {
         $ts("#busy-indicator").hide();
     }
+
+    export function showTaskAlert() {
+        $ts("#task_submit_alert").show();
+    }
 }

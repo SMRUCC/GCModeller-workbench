@@ -39,6 +39,7 @@ interface biocad_desktop {
     getFolderOpen(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
     createTask(title: string, url: string, json: string): Promise<hostMsg>;
+    jumptoTaskManager(): any;
 }
 interface hostMsg {
     result: boolean;
@@ -57,6 +58,7 @@ declare namespace desktop {
     */
     function loading(message?: string): void;
     function closeSpinner(): void;
+    function showTaskAlert(): void;
 }
 declare namespace desktop {
     function now(): string;

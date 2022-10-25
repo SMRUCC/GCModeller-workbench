@@ -73,6 +73,7 @@ namespace pages.repository {
                 .then(async function (msg) {
                     const task_id: string = await msg.data;
 
+                    desktop.showTaskAlert();
                     desktop.showToastMessage(`Pending a new task: ${task_id}`, title, "info");
                 })
                 ;

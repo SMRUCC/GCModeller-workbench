@@ -13,6 +13,7 @@ interface biocad_desktop {
     getFolderOpen(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
     createTask(title: string, url: string, json: string): Promise<hostMsg>;
+    jumptoTaskManager();
 }
 
 interface hostMsg {
