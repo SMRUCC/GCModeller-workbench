@@ -33,6 +33,7 @@ interface biocad_desktop {
     scanDatabase(): Promise<string>;
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
     getEnzymeClass(): Promise<string>;
+    getTaskList(): Promise<pages.Task[]>;
     getFileOpen(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
@@ -195,6 +196,7 @@ declare namespace pages {
     class web_task extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        private loadTaskList;
     }
 }
 declare namespace pages {

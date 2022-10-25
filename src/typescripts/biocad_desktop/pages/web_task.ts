@@ -21,8 +21,19 @@ namespace pages {
         };
 
         protected init(): void {
+            const vm = this;
+
             // throw new Error("Method not implemented.");
+            apps.gcmodeller
+                .getTaskList()
+                .then(async function (list) {
+                    const webtasks = await list;
+                    vm.loadTaskList(webtasks);
+                });
         }
 
+        private loadTaskList(tasklist: Task[]) {
+            console.log(tasklist);
+        }
     }
 }
