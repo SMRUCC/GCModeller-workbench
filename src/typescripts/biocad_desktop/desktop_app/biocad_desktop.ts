@@ -4,7 +4,7 @@ interface biocad_desktop {
 
     getEnzymeClass(): Promise<string>;
 
-    getTaskList(): Promise<pages.Task[]>;
+    getTaskList(): Promise<string[]>;
 
     // general functions that available
     // for all web app pages

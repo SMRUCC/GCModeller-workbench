@@ -33,7 +33,7 @@ interface biocad_desktop {
     scanDatabase(): Promise<string>;
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
     getEnzymeClass(): Promise<string>;
-    getTaskList(): Promise<pages.Task[]>;
+    getTaskList(): Promise<string[]>;
     getFileOpen(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;

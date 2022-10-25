@@ -36,7 +36,11 @@ namespace pages {
             apps.gcmodeller
                 .getTaskList()
                 .then(async function (list) {
-                    const webtasks: Task[] = await list;
+                    const jsonlist: string[] = await list; console.log(jsonlist);
+                    const webtasks = $from(jsonlist)
+                        .Select(json => <Task>JSON.parse(json))
+                        .ToArray()
+                        ;
 
                     vm.loadTaskList(webtasks)
                         .then(function (any) {
@@ -50,7 +54,7 @@ namespace pages {
             let html: HTMLElement;
 
             for (let task of tasklist) {
-                task = await task;
+                // task = await task;
                 // get host data
                 task = await web_task.getHostObject(task);
                 html = web_task.buildTaskHtml(task);
