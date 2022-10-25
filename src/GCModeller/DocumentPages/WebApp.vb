@@ -88,11 +88,10 @@ Public MustInherit Class WebApp
         }
         Dim queue As Message = Await sendPost(url, json)
         Dim request_id As String = queue.data
-        Dim taskDb As String = $"{App.ProductProgramData}/web_task.db"
 
         task.session_id = request_id.TrimNewLine.Trim
 
-        Using taskMgr As New TaskManager(file:=taskDb)
+        Using taskMgr As New TaskManager(file:=TaskManager.taskDb)
             Call taskMgr.add(task)
         End Using
 

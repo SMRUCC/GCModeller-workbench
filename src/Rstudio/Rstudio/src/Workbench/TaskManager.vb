@@ -9,6 +9,8 @@ Public Class TaskManager : Implements IDisposable
 
     Private disposedValue As Boolean
 
+    Public Shared ReadOnly taskDb As String = $"{App.ProductProgramData}/web_task.db"
+
     Sub New(file As String)
         If file.FileExists Then
             pool = New StreamPack(file.Open(FileMode.Open, doClear:=False, [readOnly]:=False))
@@ -22,6 +24,11 @@ Public Class TaskManager : Implements IDisposable
         End If
     End Sub
 
+    ''' <summary>
+    ''' populate a set of the web task data
+    ''' </summary>
+    ''' <param name="file"></param>
+    ''' <returns></returns>
     Public Shared Iterator Function LoadTaskList(file As String) As IEnumerable(Of WebTask)
         Using stream As New StreamPack(file.Open(FileMode.OpenOrCreate, doClear:=False, [readOnly]:=True), [readonly]:=True)
             Dim files = DirectCast(stream.GetObject("/TaskPool/"), StreamGroup) _
