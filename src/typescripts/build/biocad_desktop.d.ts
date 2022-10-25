@@ -36,6 +36,7 @@ interface biocad_desktop {
     getFileOpen(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
+    createTask(title: string, url: string, json: string): Promise<hostMsg>;
 }
 interface hostMsg {
     result: boolean;
@@ -384,6 +385,9 @@ declare namespace pages.repository {
         buildEnzymeTree(node: {
             id: string;
         }, cb: (a: any[]) => void): void;
+        /**
+         * Create a new background web task
+        */
         run_onclick(): void;
         button_open_uniprot(): void;
     }
