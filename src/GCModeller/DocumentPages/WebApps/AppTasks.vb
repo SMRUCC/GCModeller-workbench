@@ -24,9 +24,10 @@ Public Class AppTasks : Inherits WebApp
 
         For Each task As WebTask In TaskManager.LoadTaskList(TaskManager.taskDb)
             If task.status = "pending" OrElse task.status = "running" Then
-                Dim check = $"http://127.0.0.1:{Globals.fastRwebPort}/check_invoke?request_id={task.session_id}".GET.TrimNewLine.Trim.ParseBoolean
+                Dim check = $"http://127.0.0.1:{Globals.fastRwebPort}/check_invoke?request_id={task.session_id}".GET
+                Dim flag = check.TrimNewLine.Trim.ParseBoolean
 
-                If check Then
+                If flag Then
                     task.logtext = $"http://127.0.0.1:{Globals.fastRwebPort}/get_invoke?request_id={task.session_id}".GET
                     task.status = "success"
                     updates.Add(task)
