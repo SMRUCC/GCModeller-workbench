@@ -96,7 +96,7 @@ namespace pages {
         }
 
         private async loadTaskList(tasklist: Task[]) {
-            let list = $ts("#task_manager");
+            let list = $ts("#task_manager").clear();
             let html: HTMLElement;
 
             for (let task of tasklist) {
