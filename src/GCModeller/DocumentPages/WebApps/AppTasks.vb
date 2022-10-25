@@ -28,6 +28,7 @@ Public Class AppTasks : Inherits WebApp
 
                 If check Then
                     task.logtext = $"http://127.0.0.1:{Globals.fastRwebPort}/get_invoke?request_id={task.session_id}".GET
+                    task.status = "success"
                     updates.Add(task)
                 End If
             End If
