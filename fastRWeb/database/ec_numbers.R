@@ -27,6 +27,9 @@ const run = function(uniprot) {
 
 	# create blastp database
 	# for run downstream annotation
-	makeblastdb(ecNumbersFasta, dbtype = "prot");
+	ecNumbersFasta 
+	|> makeblastdb(dbtype = "prot")
+	|> writeLines(con = buffer("text"))
+	;
 }
 
