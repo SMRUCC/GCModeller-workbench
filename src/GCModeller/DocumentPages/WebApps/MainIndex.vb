@@ -20,6 +20,10 @@ Public Class MainIndex : Inherits AppIndex
         Call WebApp.Open(Of AppTasks)()
     End Sub
 
+    Public Sub createBioProject()
+        Call WebApp.Open(Of CreateBioProject)()
+    End Sub
+
     Public Sub createOmicsProject()
         Call WebApp.Open(Of CreateOmicsProject)()
     End Sub

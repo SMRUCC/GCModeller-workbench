@@ -31,7 +31,7 @@
 
                         <ul>
                             <li><a href="#" onclick="apps.gcmodeller.createOmicsProject();">Create New Analysis Project</a></li>
-                            <li><a href="#">New Virtual Cell Modelling Project</a></li>
+                            <li><a href="#" onclick="apps.gcmodeller.createBioProject();">New Virtual Cell Modelling Project</a></li>
                             <li><a href="#">Open Project</a></li>
                         </ul>
                     </div>

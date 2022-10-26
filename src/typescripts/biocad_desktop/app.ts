@@ -14,7 +14,7 @@ namespace apps {
         try {
             return (<any>window).chrome.webview.hostObjects.gcmodeller;
         } catch (Error) {
-            return <biocad_desktop>{               
+            return <biocad_desktop>{
                 scanDatabase: <any>warningMsg,
                 openEnrichmentPage: <any>warningMsg,
 
@@ -35,6 +35,8 @@ namespace apps {
 
         Router.AddAppHandler(new pages.analysis_project.create_project());
         Router.AddAppHandler(new pages.analysis_project.edit_sampleinfo());
+
+        Router.AddAppHandler(new pages.modeller.create_bioproject());
 
         Router.AddAppHandler(new pages.repository.enrichment_database());
         Router.AddAppHandler(new pages.repository.enzyme_database());

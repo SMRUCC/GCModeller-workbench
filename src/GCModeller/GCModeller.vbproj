@@ -213,6 +213,7 @@
     <Compile Include="DocumentPages\WebApps\AppTasks.vb" />
     <Compile Include="DocumentPages\WebApps\AppIndex.vb" />
     <Compile Include="DocumentPages\WebApps\DataRepository.vb" />
+    <Compile Include="DocumentPages\WebApps\Modeller\CreateBioProject.vb" />
     <Compile Include="DocumentPages\WebApps\Repository\EnzymeRepository.vb" />
     <Compile Include="DocumentPages\WebApps\Settings.vb" />
     <Compile Include="DocumentPages\WebApps\DataAnalysis\EditSampleInfo.vb" />
