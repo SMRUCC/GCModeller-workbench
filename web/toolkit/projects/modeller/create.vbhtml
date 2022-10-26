@@ -7,9 +7,9 @@
 <head>
   <%= ../../../assets/includes/head.vbhtml %>
 
-    <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_uniprot">
-    <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_database">
-    <meta name="web_invoke_loadModel" content="http://localhost:7452/database/loadModel">
+    <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_genbank">
+    <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_genbank">
+
 </head>
 
 <body>

@@ -372,6 +372,7 @@ declare namespace pages.modeller {
         readonly appName: string;
         protected init(): void;
         button_open_gbff_onclick(): void;
+        private viewModelSummary;
     }
 }
 declare namespace pages.repository {
