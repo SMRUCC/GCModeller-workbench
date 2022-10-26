@@ -23,6 +23,19 @@
     </div>
 
 
+    <div class="row">
+      <div class="col-8">
+        <label for="gbff-file" class="form-label">Imports NCBI GeneBank Model:</label>
+        <div class="input-group mb-3">
+          <button class="btn btn-primary" type="button" id="button_open_gbff" data-mdb-ripple-color="dark">
+            <i class="far fa-folder-open"></i> Select GBFF Assembly
+          </button>
+          <input type="text" class="form-control" placeholder="" id="gbff-file"
+            aria-label="Example text with button addon" aria-describedby="button-addon1" />
+        </div>
+      </div>
+    </div>
+
 
     <%= ../../../assets/includes/webapp.vbhtml %>
 

@@ -3,6 +3,7 @@
 declare namespace apps {
     const uniprot_assembly: string;
     const expressionMatrix: string;
+    const ncbi_genbank_assembly: string;
     /**
      * async proxy
     */
@@ -370,6 +371,7 @@ declare namespace pages.modeller {
     class create_bioproject extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        button_open_gbff_onclick(): void;
     }
 }
 declare namespace pages.repository {
