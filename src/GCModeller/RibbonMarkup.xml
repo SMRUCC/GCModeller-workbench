@@ -371,6 +371,20 @@
         <Image MinDPI="192">Res/New_L192.bmp</Image>
       </Command.LargeImages>
     </Command>
+    <Command Name="CmdNew2" LabelTitle="&amp;New" TooltipTitle="New (Ctrl+N)" TooltipDescription="Create a new document.">
+      <Command.SmallImages>
+        <Image>Res/New_S096.bmp</Image>
+        <Image MinDPI="120">Res/New_S120.bmp</Image>
+        <Image MinDPI="144">Res/New_S144.bmp</Image>
+        <Image MinDPI="192">Res/New_S192.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/New_L096.bmp</Image>
+        <Image MinDPI="120">Res/New_L120.bmp</Image>
+        <Image MinDPI="144">Res/New_L144.bmp</Image>
+        <Image MinDPI="192">Res/New_L192.bmp</Image>
+      </Command.LargeImages>
+    </Command>
     <Command Name="CmdOpen" LabelTitle="&amp;Open" TooltipTitle="Open (Ctrl+O)" TooltipDescription="Open an existing document.">
       <Command.SmallImages>
         <Image>Res/Open_S096.bmp</Image>
@@ -700,6 +714,22 @@
         <Image MinDPI="192">Res/devices/drive-multidisk.png</Image>
       </Command.LargeImages>
     </Command>
+    <Command Name="cmdButtonCreateNewOmicsProject" Id="102" LabelTitle="New Omics Analysis Project">
+      <Command.SmallImages>
+        <Image MinDPI="192">Res/New_L192.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image MinDPI="192">Res/New_L192.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="cmdButtonCreateNewModellerProject" Id="103" LabelTitle="New Virtual Cell Model">
+      <Command.SmallImages>
+        <Image MinDPI="192">Res/New_L192.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image MinDPI="192">Res/New_L192.bmp</Image>
+      </Command.LargeImages>
+    </Command>
   </Application.Commands>
   <Application.Views>
     <Ribbon Name="Ribbon">
@@ -799,7 +829,17 @@
             <RecentItems CommandName="CmdRecentItems" EnablePinning="false" />
           </ApplicationMenu.RecentItems>
           <MenuGroup>
-            <Button CommandName="CmdNew1" ApplicationModes="0,1" />
+            <SplitButton CommandName="CmdNew1" ApplicationModes="0,1">
+              <SplitButton.ButtonItem>
+                <Button CommandName="CmdNew2" />
+              </SplitButton.ButtonItem>
+              <SplitButton.MenuGroups>
+                <MenuGroup>
+                  <Button CommandName="cmdButtonCreateNewOmicsProject" />
+                  <Button CommandName="cmdButtonCreateNewModellerProject" />
+                </MenuGroup>
+              </SplitButton.MenuGroups>
+            </SplitButton>
             <Button CommandName="CmdOpen" ApplicationModes="0,1" />
             <Button CommandName="CmdSave" ApplicationModes="0,1" />
             <SplitButton CommandName="CmdSaveAsMore" ApplicationModes="0,1">
@@ -845,7 +885,6 @@
       <Ribbon.QuickAccessToolbar>
         <QuickAccessToolbar CommandName="CmdQuickAccessToolbar">
           <QuickAccessToolbar.ApplicationDefaults>
-            <Button CommandName="CmdNew1" ApplicationDefaults.IsChecked="false" />
             <Button CommandName="CmdOpen" ApplicationDefaults.IsChecked="false" />
             <Button CommandName="CmdSave" ApplicationDefaults.IsChecked="true" />
             <Button CommandName="CmdEmail" ApplicationDefaults.IsChecked="false" />

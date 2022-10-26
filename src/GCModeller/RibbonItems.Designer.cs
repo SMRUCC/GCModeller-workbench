@@ -22,6 +22,8 @@ namespace RibbonLib.Controls
             public const uint CmdApplicationMenu = 56;
             public const uint CmdRecentItems = 57;
             public const uint CmdNew1 = 58;
+            public const uint cmdButtonCreateNewOmicsProject = 102;
+            public const uint cmdButtonCreateNewModellerProject = 103;
             public const uint CmdOpen = 59;
             public const uint CmdSave = 60;
             public const uint CmdSaveAsMore = 62;
@@ -129,7 +131,9 @@ namespace RibbonLib.Controls
         public Ribbon Ribbon { get; private set; }
         public RibbonApplicationMenu ApplicationMenu { get; private set; }
         public RibbonRecentItems RecentItems { get; private set; }
-        public RibbonButton New1 { get; private set; }
+        public RibbonSplitButton New1 { get; private set; }
+        public RibbonButton ButtonCreateNewOmicsProject { get; private set; }
+        public RibbonButton ButtonCreateNewModellerProject { get; private set; }
         public RibbonButton Open { get; private set; }
         public RibbonButton Save { get; private set; }
         public RibbonSplitButton SaveAsMore { get; private set; }
@@ -232,7 +236,9 @@ namespace RibbonLib.Controls
             this.Ribbon = ribbon;
             ApplicationMenu = new RibbonApplicationMenu(ribbon, Cmd.CmdApplicationMenu);
             RecentItems = new RibbonRecentItems(ribbon, Cmd.CmdRecentItems);
-            New1 = new RibbonButton(ribbon, Cmd.CmdNew1);
+            New1 = new RibbonSplitButton(ribbon, Cmd.CmdNew1);
+            ButtonCreateNewOmicsProject = new RibbonButton(ribbon, Cmd.cmdButtonCreateNewOmicsProject);
+            ButtonCreateNewModellerProject = new RibbonButton(ribbon, Cmd.cmdButtonCreateNewModellerProject);
             Open = new RibbonButton(ribbon, Cmd.CmdOpen);
             Save = new RibbonButton(ribbon, Cmd.CmdSave);
             SaveAsMore = new RibbonSplitButton(ribbon, Cmd.CmdSaveAsMore);

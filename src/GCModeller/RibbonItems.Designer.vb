@@ -19,6 +19,8 @@ Namespace RibbonLib.Controls
             Public Const CmdApplicationMenu As UInteger = 56
             Public Const CmdRecentItems As UInteger = 57
             Public Const CmdNew1 As UInteger = 58
+            Public Const cmdButtonCreateNewOmicsProject As UInteger = 102
+            Public Const cmdButtonCreateNewModellerProject As UInteger = 103
             Public Const CmdOpen As UInteger = 59
             Public Const CmdSave As UInteger = 60
             Public Const CmdSaveAsMore As UInteger = 62
@@ -141,10 +143,22 @@ Namespace RibbonLib.Controls
                 Return _RecentItems
             End Get
         End Property
-        Private _New1 As RibbonButton
-        Public ReadOnly Property New1 As RibbonButton
+        Private _New1 As RibbonSplitButton
+        Public ReadOnly Property New1 As RibbonSplitButton
             Get
                 Return _New1
+            End Get
+        End Property
+        Private _ButtonCreateNewOmicsProject As RibbonButton
+        Public ReadOnly Property ButtonCreateNewOmicsProject As RibbonButton
+            Get
+                Return _ButtonCreateNewOmicsProject
+            End Get
+        End Property
+        Private _ButtonCreateNewModellerProject As RibbonButton
+        Public ReadOnly Property ButtonCreateNewModellerProject As RibbonButton
+            Get
+                Return _ButtonCreateNewModellerProject
             End Get
         End Property
         Private _Open As RibbonButton
@@ -719,7 +733,9 @@ Namespace RibbonLib.Controls
             _ribbon = ribbon
             _ApplicationMenu = New RibbonApplicationMenu(_ribbon, Cmd.CmdApplicationMenu)
             _RecentItems = New RibbonRecentItems(_ribbon, Cmd.CmdRecentItems)
-            _New1 = New RibbonButton(_ribbon, Cmd.CmdNew1)
+            _New1 = New RibbonSplitButton(_ribbon, Cmd.CmdNew1)
+            _ButtonCreateNewOmicsProject = New RibbonButton(_ribbon, Cmd.cmdButtonCreateNewOmicsProject)
+            _ButtonCreateNewModellerProject = New RibbonButton(_ribbon, Cmd.cmdButtonCreateNewModellerProject)
             _Open = New RibbonButton(_ribbon, Cmd.CmdOpen)
             _Save = New RibbonButton(_ribbon, Cmd.CmdSave)
             _SaveAsMore = New RibbonSplitButton(_ribbon, Cmd.CmdSaveAsMore)
