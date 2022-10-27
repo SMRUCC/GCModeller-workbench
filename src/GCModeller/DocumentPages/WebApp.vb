@@ -54,6 +54,20 @@ Public MustInherit Class WebApp
         End Try
     End Function
 
+    Public Function getFileSave(Optional filterString As String = "Any File(*.*)|*.*") As String
+        Try
+            Using file As New SaveFileDialog With {.Filter = filterString}
+                If file.ShowDialog = DialogResult.OK Then
+                    Return file.FileName
+                Else
+                    Return Nothing
+                End If
+            End Using
+        Catch ex As Exception
+            Return Nothing
+        End Try
+    End Function
+
     Public Function getFolderOpen() As String
         Try
             Using folder As New FolderBrowserDialog
