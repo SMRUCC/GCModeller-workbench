@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>RStudio</title>
+    <title>Modeller</title>
     <meta name="author" content="xie.guigang@gcmodeller.org" />
     <meta name="copyright" content="SMRUCC genomics Copyright (c) 2020" />
     <meta name="keywords" content="GCModeller; Xanthomonas; Artificial Life" />
@@ -21,36 +21,36 @@
     <meta class="foundation-mq-topbar" />
   </head>
   <body>
-    <table width="100%" summary="page for {RStudio}">
+    <table width="100%" summary="page for {Modeller}">
       <tbody>
         <tr>
-          <td>{RStudio}</td>
+          <td>{Modeller}</td>
           <td style="text-align: right;">R# Documentation</td>
         </tr>
       </tbody>
     </table>
-    <h1>RStudio</h1>
+    <h1>Modeller</h1>
     <hr />
     <p></p>
     <div id="main-wrapper">
                            <div>
-  <h2 id="repository_root">
-    <a href="./RStudio/repository_root.html">repository_root</a>
+  <h2 id="loadProject">
+    <a href="./Modeller/loadProject.html">loadProject</a>
   </h2>
   <hr />
   <p>
                       
                 
-                    <pre><p>let <code>repository_root</code> as function() -> <code>string</code> {
+                    <pre><p>let <code>loadProject</code> as function(<code>assembly</code> as any, [<code>&lt;Environment&gt;</code>]) -> <code>&lt;generic&gt; Project</code> {
     #
     # .NET API information
     #
-    # module: GCModeller.RStudio
+    # module: GCModeller.Modeller
     # LibPath: E:/GCModeller/src/workbench/win32_desktop/src/Rstudio/Rstudio/assembly/net6.0
     # library: GCModellerDesktop.dll
-    # package: "RStudio"
+    # package: "Modeller"
     #
-    return call <code>R&#35;.interop_[RStudio::getRepositoryRoot]</code>(...);
+    return call <code>R&#35;.interop_[Modeller::createProject]</code>(...);
 }</p></pre>
 
                     
@@ -59,48 +59,23 @@
 
                     <span style="font-size:0.9em; display: none"><h4>Details</h4><blockquote></blockquote></span></p>
 </div><br /><div>
-  <h2 id="ncbi_blast_dir">
-    <a href="./RStudio/ncbi_blast_dir.html">ncbi_blast_dir</a>
+  <h2 id="writeProject">
+    <a href="./Modeller/writeProject.html">writeProject</a>
   </h2>
   <hr />
   <p>
                       
                 
-                    <pre><p>let <code>ncbi_blast_dir</code> as function() -> <code>string</code> {
+                    <pre><p>let <code>writeProject</code> as function(<code>proj</code> as <generic> Project, <code>file</code> as any, [<code>&lt;Environment&gt;</code>]) -> <code>boolean</code> {
     #
     # .NET API information
     #
-    # module: GCModeller.RStudio
+    # module: GCModeller.Modeller
     # LibPath: E:/GCModeller/src/workbench/win32_desktop/src/Rstudio/Rstudio/assembly/net6.0
     # library: GCModellerDesktop.dll
-    # package: "RStudio"
+    # package: "Modeller"
     #
-    return call <code>R&#35;.interop_[RStudio::getBlastBinDir]</code>(...);
-}</p></pre>
-
-                    
-                       
-                    
-
-                    <span style="font-size:0.9em; display: none"><h4>Details</h4><blockquote></blockquote></span></p>
-</div><br /><div>
-  <h2 id="config">
-    <a href="./RStudio/config.html">config</a>
-  </h2>
-  <hr />
-  <p>
-                      
-                
-                    <pre><p>let <code>config</code> as function(<code>baseDir</code> as string) -> <code>any</code> {
-    #
-    # .NET API information
-    #
-    # module: GCModeller.RStudio
-    # LibPath: E:/GCModeller/src/workbench/win32_desktop/src/Rstudio/Rstudio/assembly/net6.0
-    # library: GCModellerDesktop.dll
-    # package: "RStudio"
-    #
-    return call <code>R&#35;.interop_[RStudio::config]</code>(...);
+    return call <code>R&#35;.interop_[Modeller::writeProject]</code>(...);
 }</p></pre>
 
                     
