@@ -1,5 +1,6 @@
 require(JSON);
 require(GCModeller);
+require(RStudio);
 
 imports "GenBank" from "seqtoolkit";
 imports "Modeller" from "GCModellerDesktop";
