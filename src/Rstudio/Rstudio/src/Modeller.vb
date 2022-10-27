@@ -28,7 +28,7 @@ Module Modeller
     <ExportAPI("writeProject")>
     <RApiReturn(GetType(Boolean))>
     Public Function writeProject(proj As Project, file As Object, Optional env As Environment = Nothing) As Object
-        Dim buffer = SMRUCC.Rsharp.GetFileStream(file, FileAccess.ReadWrite, env)
+        Dim buffer = SMRUCC.Rsharp.GetFileStream(file, FileAccess.Write, env)
 
         If buffer Like GetType(Message) Then
             Return buffer.TryCast(Of Message)
