@@ -7,7 +7,7 @@
 <head>
   <%= ../../../assets/includes/head.vbhtml %>
 
-    <meta name="web_invoke_imports" content="http://localhost:7452/database/imports_genbank">
+    <meta name="web_invoke_imports" content="http://localhost:7452/modeller/create_project">
     <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_genbank">
 
 </head>
@@ -36,6 +36,13 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-8">
+        <button class="btn btn-primary" type="button" id="create_project" data-mdb-ripple-color="dark">
+          <i class="far fa-folder-open"></i> Create Project
+        </button>
+      </div>
+    </div>
 
     <%= ../../../assets/includes/webapp.vbhtml %>
 

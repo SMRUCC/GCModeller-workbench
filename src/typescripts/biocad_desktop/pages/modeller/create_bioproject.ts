@@ -14,7 +14,7 @@ namespace pages.modeller {
             const textbox = $ts("#gbff-file").CType<HTMLInputElement>();
             const vm = this;
 
-            desktop.loading("Load genbank assembly...");
+            // desktop.loading("Load genbank assembly...");
 
             apps.gcmodeller
                 .getFileOpen(apps.ncbi_genbank_assembly)
@@ -37,6 +37,39 @@ namespace pages.modeller {
                     desktop.showToastMessage(<any>response.info, "Load GenBank Assembly Error", "danger");
                 }
             });
+        }
+
+        public create_project_onclick() {
+            const textbox = $ts("#gbff-file").CType<HTMLInputElement>();
+            const vm = this;
+
+            if (Strings.Empty(textbox.value, true)) {
+                desktop.showToastMessage("No data file is selected!", "Create Project", "danger");
+                return;
+            }
+
+            apps.gcmodeller
+                .getFileSave(apps.gcmodeller_project)
+                .then(async function (savefile) {
+                    savefile = await savefile;
+
+                    if (Strings.Empty(savefile, true)) {
+                        // cancel, do nothing
+                    } else {
+                        desktop.loading("Create project from genbank assembly...");
+
+                        $ts.post("@web_invoke_imports", {
+                            gbff: textbox.value,
+                            savefile: savefile
+                        }, function (result) {
+                            if (result.code == 0) {
+
+                            } else {
+                                desktop.showToastMessage(<any>result.info, "Create Project", "danger");
+                            }
+                        });
+                    }
+                });
         }
     }
 }

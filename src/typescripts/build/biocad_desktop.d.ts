@@ -4,6 +4,7 @@ declare namespace apps {
     const uniprot_assembly: string;
     const expressionMatrix: string;
     const ncbi_genbank_assembly: string;
+    const gcmodeller_project: string;
     /**
      * async proxy
     */
@@ -37,6 +38,7 @@ interface biocad_desktop {
     getTaskList(): Promise<string[]>;
     checkTaskList(): Promise<string[]>;
     getFileOpen(filterString: string): Promise<string>;
+    getFileSave(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
     createTask(title: string, url: string, json: string): Promise<hostMsg>;
@@ -373,6 +375,7 @@ declare namespace pages.modeller {
         protected init(): void;
         button_open_gbff_onclick(): void;
         private viewModelSummary;
+        create_project_onclick(): void;
     }
 }
 declare namespace pages.repository {

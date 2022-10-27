@@ -10,6 +10,7 @@ interface biocad_desktop {
     // general functions that available
     // for all web app pages
     getFileOpen(filterString: string): Promise<string>;
+    getFileSave(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
     createTask(title: string, url: string, json: string): Promise<hostMsg>;
