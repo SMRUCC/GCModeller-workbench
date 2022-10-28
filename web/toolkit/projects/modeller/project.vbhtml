@@ -7,8 +7,7 @@
 <head>
     <%= ../../../assets/includes/head.vbhtml %>
 
-        <meta name="web_invoke_imports" content="http://localhost:7452/modeller/create_project">
-        <meta name="web_invoke_inspector" content="http://localhost:7452/database/inspect_genbank">
+        <meta name="web_invoke_load" content="http://localhost:7452/modeller/load_project">
 
 </head>
 
@@ -22,7 +21,15 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-auto">
+                <h2>Project Task</h2>
 
+                <ul>
+                    <li><a href="#" onclick="">Enzyme Annotations</a></li>
+                </ul>
+            </div>
+        </div>
 
 
         <%= ../../../assets/includes/webapp.vbhtml %>

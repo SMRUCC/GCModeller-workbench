@@ -22,7 +22,11 @@
             </div>
         </div>
 
-
+        <div class="row">
+            <div class="col-auto">
+                <h2>Project Task</h2>
+            </div>
+        </div>
 
 
         <%= ../../../assets/includes/webapp.vbhtml %>
