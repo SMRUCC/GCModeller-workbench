@@ -18,6 +18,10 @@
         <div class="row">
             <div class="col-auto">
                 <h1>Virtual Cell Model</h1>
+
+                <p>
+                    local file: <span id="path"></span>
+                </p>
             </div>
         </div>
 

@@ -370,6 +370,12 @@ declare namespace pages.background {
     function run(containerId?: string, settings?: CanvasSettings): void;
 }
 declare namespace pages.modeller {
+    class bioproject extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
+    }
+}
+declare namespace pages.modeller {
     class create_bioproject extends Bootstrap {
         readonly appName: string;
         protected init(): void;
