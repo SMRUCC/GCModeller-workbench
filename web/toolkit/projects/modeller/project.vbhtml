@@ -30,6 +30,8 @@
                 <h2>Project Task</h2>
 
                 <ul>
+                    <!-- open blast page and then setup parameters 
+                        for project file -->
                     <li><a href="#" onclick="">Enzyme Annotations</a></li>
                 </ul>
             </div>
