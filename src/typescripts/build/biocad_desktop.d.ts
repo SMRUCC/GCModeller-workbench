@@ -371,6 +371,7 @@ declare namespace pages.background {
 }
 declare namespace pages.modeller {
     class bioproject extends Bootstrap {
+        private path;
         readonly appName: string;
         protected init(): void;
     }

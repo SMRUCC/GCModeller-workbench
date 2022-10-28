@@ -20,7 +20,7 @@
                 <h1>Virtual Cell Model</h1>
 
                 <p>
-                    local file: <span id="path"></span>
+                    local file: <code><pre id="path"></pre></code>
                 </p>
             </div>
         </div>
