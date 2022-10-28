@@ -213,14 +213,16 @@
     <Compile Include="DocumentPages\WebApps\AppTasks.vb" />
     <Compile Include="DocumentPages\WebApps\AppIndex.vb" />
     <Compile Include="DocumentPages\WebApps\DataRepository.vb" />
+    <Compile Include="DocumentPages\WebApps\Modeller\ModellerProject.vb" />
     <Compile Include="DocumentPages\WebApps\Modeller\CreateBioProject.vb" />
+    <Compile Include="DocumentPages\WebApps\Omics\OmicsProject.vb" />
     <Compile Include="DocumentPages\WebApps\Repository\EnzymeRepository.vb" />
     <Compile Include="DocumentPages\WebApps\Settings.vb" />
     <Compile Include="DocumentPages\WebApps\DataAnalysis\EditSampleInfo.vb" />
     <Compile Include="DocumentPages\WebApps\OmicsAnalysis\ZscoreAnalysis.vb" />
     <Compile Include="DocumentPages\WebApps\OmicsAnalysis\CMeansAnalysis.vb" />
     <Compile Include="DocumentPages\WebApps\DataAnalysis\RunDAM.vb" />
-    <Compile Include="DocumentPages\WebApps\DataAnalysis\CreateOmicsProject.vb" />
+    <Compile Include="DocumentPages\WebApps\Omics\CreateOmicsProject.vb" />
     <Compile Include="DocumentPages\WebApps\DataAnalysis\RunPLAS.vb" />
     <Compile Include="DocumentPages\WebApps\DataAnalysis\DataEmbedding.vb" />
     <Compile Include="DocumentPages\WebApps\MainIndex.vb" />

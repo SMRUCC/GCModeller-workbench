@@ -20,6 +20,21 @@ Public Class MainIndex : Inherits AppIndex
         Call WebApp.Open(Of AppTasks)()
     End Sub
 
+    Public Sub open_project()
+        Using file As New OpenFileDialog With {
+            .Filter = "All GCModeller Project(*.bioproj)|*.bioproj|GCModeller Cell Project(*.bioproj)|*.bioproj"
+        }
+            If file.ShowDialog = DialogResult.OK Then
+                If file.FileName.ExtensionSuffix("bioproj") Then
+                    ' virtual cell modeller project
+                    Call New ModellerProject(file.FileName).Open()
+                Else
+                    ' omics data analysis project
+                End If
+            End If
+        End Using
+    End Sub
+
     Public Sub createBioProject()
         Call WebApp.Open(Of CreateBioProject)()
     End Sub
