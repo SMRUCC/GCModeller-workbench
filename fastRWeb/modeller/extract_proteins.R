@@ -30,7 +30,7 @@ const run = function(proj, ssid) {
 	|> writeLines(con = buffer("text"))
 	;
 
-    json_encode({
+    RStudio::echo_successMsg({
         ssid: ssid,
         dataset: save_fasta,
         # blast database targets that can be used for the 
@@ -39,6 +39,5 @@ const run = function(proj, ssid) {
             ec_numbers: Rstudio::fs.ec_numbers_fasta()
         }
     })
-    |> writeLines(con = buffer("text"))
     ;
 }

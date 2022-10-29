@@ -28,6 +28,8 @@ namespace pages.modeller {
                         proj: vm.path,
                         ssid: ssid
                     }, function (result: IMsg<any>) {
+                        console.log(result);
+
                         if (result.code == 0) {
                             const query: string = result.info.dataset;
                             const project: string = vm.path;
@@ -45,6 +47,8 @@ namespace pages.modeller {
 
                             localStorage.setItem(ssid, JSON.stringify(args));
                             apps.gcmodeller.openEnzymeBlast(ssid);
+                        } else {
+                            desktop.showToastMessage(result.info, "Extract Data Error", "danger");
                         }
 
                         desktop.closeSpinner();
