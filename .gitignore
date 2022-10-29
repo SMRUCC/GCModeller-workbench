@@ -44,3 +44,4 @@ src/typescripts/build/linq.js.map
 src/typescripts/build/sampleinfo_editor.js
 src/Rstudio/Rstudio/REnv.zip
 src/Rstudio/EC_numbers.fasta
+demo/ncbi_dataset/GCF_000005845/eco.bioproj
