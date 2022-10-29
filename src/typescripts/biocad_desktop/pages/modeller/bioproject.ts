@@ -16,15 +16,19 @@ namespace pages.modeller {
         }
 
         public enzyme_anno_onclick() {
+            const vm = this;
+
             desktop.loading("Extract protein set, wait for a while...");
+            apps.gcmodeller.getNextUniqueId().then(async function (ssid) {
+                ssid = await ssid;
 
-            $ts.post("@web_invoke_extract_proteins", {
-                proj: this.path
-            }, function (result) {
-
-                
-
-            });
+                $ts.post("@web_invoke_extract_proteins", {
+                    proj: this.path,
+                    ssid: ssid
+                }, function (result) {
+                    
+                });
+            })
         }
     }
 }

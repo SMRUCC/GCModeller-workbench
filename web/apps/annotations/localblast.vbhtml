@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?vb $title = "Just a template page" ?>
-<?vb $app = "app_name" ?>
+<?vb $title = "NCBI localblast+" ?>
+<?vb $app = "localblast" ?>
 
 <head>
     <%= ../assets/includes/head.vbhtml %>
