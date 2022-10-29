@@ -41,7 +41,47 @@
                     <section id="example-2">
                         <h3>Set Parameters</h3>
 
-                        ...
+                        <div class="row">
+                            <div class="col">
+                                <label for="protocols">Protocols:</label>
+                                <select id="protocols" class="form-select">
+                                    <option selected>Single BestHit</option>
+                                    <option>Ontology Annotation</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+
+                                <label for="query-file" class="form-label">Select Query:</label>
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-primary" type="button" id="button_open_query"
+                                        data-mdb-ripple-color="dark">
+                                        <i class="far fa-folder-open"></i> Select File
+                                    </button>
+                                    <input type="text" class="form-control" placeholder="" id="query-file"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+
+                                <label for="reference-file" class="form-label">Select Reference:</label>
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-primary" type="button" id="button_open_reference"
+                                        data-mdb-ripple-color="dark">
+                                        <i class="far fa-folder-open"></i> Select File
+                                    </button>
+                                    <input type="text" class="form-control" placeholder="" id="reference-file"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                                </div>
+
+                            </div>
+                        </div>
 
                         <br />
                         <div class="row">
@@ -95,7 +135,48 @@
                         <h3>Reference</h3>
 
                         <ol>
+                            <li>Altschul, S.F., Gish, W., Miller, W., Myers, E.W. &amp; Lipman, D.J. (1990) “Basic local
+                                alignment search tool.” J. Mol. Biol. 215:403-410. PubMed</li>
 
+                            <li>Gish, W. &amp; States, D.J. (1993) “Identification of protein coding regions by database
+                                similarity search.” Nature Genet. 3:266-272. PubMed</li>
+
+                            <li>Madden, T.L., Tatusov, R.L. &amp; Zhang, J. (1996) “Applications of network BLAST
+                                server”
+                                Meth. Enzymol. 266:131-141. PubMed</li>
+
+                            <li>Altschul, S.F., Madden, T.L., Sch&auml;ffer, A.A., Zhang, J., Zhang, Z., Miller, W.
+                                &amp;
+                                Lipman, D.J. (1997) “Gapped BLAST and PSI-BLAST: a new generation of protein database
+                                search
+                                programs.” Nucleic Acids Res. 25:3389-3402. PubMed</li>
+
+                            <li>Zhang Z., Schwartz S., Wagner L., &amp; Miller W. (2000), “A greedy algorithm for
+                                aligning
+                                DNA sequences” J Comput Biol 2000; 7(1-2):203-14. PubMed</li>
+
+                            <li>Zhang, J. &amp; Madden, T.L. (1997) “PowerBLAST: A new network BLAST application for
+                                interactive or automated sequence analysis and annotation.” Genome Res. 7:649-656.
+                                PubMed</li>
+
+                            <li>Morgulis A., Coulouris G., Raytselis Y., Madden T.L., Agarwala R., &amp; Sch&auml;ffer
+                                A.A.
+                                (2008) “Database indexing for production MegaBLAST searches.” Bioinformatics
+                                15:1757-1764.
+                                PubMed</li>
+
+                            <li>Camacho C., Coulouris G., Avagyan V., Ma N., Papadopoulos J., Bealer K., &amp; Madden
+                                T.L.
+                                (2008) “BLAST+: architecture and applications.” BMC Bioinformatics 10:421. PubMed</li>
+
+                            <li>Boratyn GM, Sch&auml;ffer AA, Agarwala R, Altschul SF, Lipman DJ, &amp; Madden T.L.
+                                (2012)
+                                “Domain enhanced lookup time accelerated BLAST.” Biol Direct. 2012 Apr 17;7:12. PubMed
+                            </li>
+
+                            <li>Boratyn GM, Thierry-Mieg J, Thierry-Mieg D, Busby B, Madden T.L. (2019) “Magic-BLAST, an
+                                accurate RNA-seq aligner for long and short reads.” BMC Bioinformatics. 2019 Jul
+                                25;20(1):405. PubMed</li>
                         </ol>
 
                     </section>

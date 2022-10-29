@@ -21,7 +21,31 @@ namespace pages.annotations {
         protected init(): void {
             // throw new Error("Method not implemented.");
             // init analysis page
+            const params: string = $ts.location("params");
+            const session: string = $ts.location("session");
 
+            if (!Strings.Empty(params, true)) {
+                const args: blastParameter = JSON.parse(localStorage.getItem(params));
+
+                $ts.value("#query-file", args.query);
+                $ts.value("#reference-file", args.reference);
+
+            } else if (!Strings.Empty(session, true)) {
+                const args: blastParameter = JSON.parse(localStorage.getItem(params));
+
+                $ts.value("#query-file", args.query);
+                $ts.value("#reference-file", args.reference);
+                
+                throw new Error("Method not implemented.");
+            }
+        }
+
+        public button_open_query_onclick() {
+            desktop.winforms.openfileDialog("#query-file", apps.fasta_sequence);
+        }
+
+        public button_open_reference_onclick() {
+            desktop.winforms.openfileDialog("#reference-file", apps.fasta_sequence);
         }
     }
 }

@@ -11,16 +11,7 @@ namespace pages {
         }
 
         public button_open_click() {
-            desktop.loading();
-            apps.gcmodeller
-                .getFileOpen(apps.expressionMatrix)
-                .then(async function (path) {
-                    const file: string = await path;
-                    const textbox: HTMLInputElement = <any>$ts("#matrix-file");
-
-                    textbox.value = file;
-                    desktop.closeSpinner();
-                });
+            desktop.winforms.openfileDialog("#matrix-file", apps.expressionMatrix);
         }
 
         public run_onclick() {

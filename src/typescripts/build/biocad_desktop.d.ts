@@ -5,6 +5,7 @@ declare namespace apps {
     const expressionMatrix: string;
     const ncbi_genbank_assembly: string;
     const gcmodeller_project: string;
+    const fasta_sequence: string;
     /**
      * async proxy
     */
@@ -73,6 +74,9 @@ declare namespace desktop {
 }
 declare namespace desktop {
     function showToastMessage(msg: string, title?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
+}
+declare namespace desktop.winforms {
+    function openfileDialog(textbox_id: string, filter?: string): void;
 }
 declare namespace desktop {
     interface configuration {
@@ -290,6 +294,8 @@ declare namespace pages.annotations {
     class localblast extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        button_open_query_onclick(): void;
+        button_open_reference_onclick(): void;
     }
 }
 declare namespace pages.analysis_project {
