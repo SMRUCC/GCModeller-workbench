@@ -18,7 +18,7 @@ Public Class ModellerProject : Inherits WebApp
         arguments("proj") = path
     End Sub
 
-    Public Sub openEnzymeBlast()
-        Call New RunBlast("params:{}").Open()
+    Public Sub openEnzymeBlast(ssid As String)
+        Call New RunBlast($"params:{ssid}").Open()
     End Sub
 End Class

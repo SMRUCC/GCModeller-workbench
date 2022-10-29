@@ -27,7 +27,12 @@ const run = function(proj, ssid) {
 
     json_encode({
         ssid: ssid,
-        dataset: save_fasta
+        dataset: save_fasta,
+        # blast database targets that can be used for the 
+        # data annotation job
+        blast: {
+            ec_numbers: Rstudio::fs.ec_numbers_fasta()
+        }
     })
     |> writeLines(con = buffer("text"))
     ;

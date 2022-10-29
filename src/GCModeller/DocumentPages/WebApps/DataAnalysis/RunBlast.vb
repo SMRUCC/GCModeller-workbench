@@ -22,7 +22,9 @@ Public Class RunBlast : Inherits WebApp
         arguments = New Dictionary(Of String, String)
 
         If Not parameters.StringEmpty Then
-
+            With parameters.GetTagValue(":")
+                arguments(.Name) = .Value
+            End With
         End If
     End Sub
 End Class

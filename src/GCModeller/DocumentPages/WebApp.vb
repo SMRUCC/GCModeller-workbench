@@ -12,6 +12,11 @@ Imports WeifenLuo.WinFormsUI.Docking
 <ComVisible(True)>
 Public MustInherit Class WebApp
 
+    ''' <summary>
+    ''' additional url query parameters, the parameter value is no needs to
+    ''' do escaping, the <see cref="url"/> will do this job automatically.
+    ''' </summary>
+    ''' <returns></returns>
     Public Property arguments As Dictionary(Of String, String)
 
     Public Overridable ReadOnly Property icon As Icon

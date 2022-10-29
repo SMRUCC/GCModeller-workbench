@@ -1,4 +1,4 @@
-﻿.TH MATRIXFILEREADER 1 2022-10-29 "" "matrixFileReader"
+﻿.TH MATRIXFILEREADER 1 2022-10-29 "" "Helper for read expression matrix file"
 .SH NAME
 matrixFileReader \- matrixFileReader(file,
     <i>z.score</i> = TRUE)
@@ -7,14 +7,14 @@ matrixFileReader \- matrixFileReader(file,
     <i>z.score</i> = TRUE)\fR
 .SH OPTIONS
 .PP
-\fBfile\fB \fR\- . 
+\fBfile\fB \fR\- . the file path of the target expression matrix file, data reader is distinct from the file extension suffix name: + csv: a plain text csv table file + hts: a binary data matrix of the expression data
 .PP
 .PP
 \fBz.score\fB \fR\- TRUE. 
 .PP
 .SH FILES
 .PP
-SMRUCC/R#.declare_function.matrixFileReader at expr_matrix.R:line 2
+SMRUCC/R#.declare_function.matrixFileReader at expr_matrix.R:line 12
 .PP
 .SH COPYRIGHT
 Copyright © xieguigang, MIT Licensed 2022

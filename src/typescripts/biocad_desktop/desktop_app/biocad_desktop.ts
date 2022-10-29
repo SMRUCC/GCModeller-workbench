@@ -3,6 +3,7 @@ interface biocad_desktop {
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
 
     getEnzymeClass(): Promise<string>;
+    openEnzymeBlast(ssid: string);
 
     getTaskList(): Promise<string[]>;
     checkTaskList(): Promise<string[]>;
