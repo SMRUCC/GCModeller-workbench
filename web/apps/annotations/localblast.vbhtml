@@ -7,8 +7,7 @@
 <head>
     <%= ../../assets/includes/head.vbhtml %>
 
-        <meta name="web_invoke_enrichment" content="http://localhost:7452/analysis_apps/enrichment">
-        <meta name="web_invoke_Rplot" content="http://localhost:7452/analysis_apps/enrichment_plot">
+        <meta name="web_invoke_localblast" content="http://localhost:7452/modeller/localblast?rweb_background=true">
 </head>
 
 <body>
@@ -45,8 +44,8 @@
                             <div class="col">
                                 <label for="protocols">Protocols:</label>
                                 <select id="protocols" class="form-select">
-                                    <option selected>Single BestHit</option>
-                                    <option>Ontology Annotation</option>
+                                    <option selected value="sbh">Single BestHit</option>
+                                    <option value="ontology_annotation">Ontology Annotation</option>
                                 </select>
                             </div>
                         </div>

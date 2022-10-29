@@ -290,10 +290,12 @@ declare namespace pages.annotations {
          * save annotation result data
         */
         project: string;
+        protocol: "sbh" | "ontology_annotation";
     }
     class localblast extends Bootstrap {
         readonly appName: string;
         protected init(): void;
+        private static loadParameters;
         button_open_query_onclick(): void;
         button_open_reference_onclick(): void;
     }

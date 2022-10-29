@@ -39,7 +39,8 @@ namespace pages.modeller {
                                 reference: ec_numbers,
                                 n_threads: 2,
                                 evalue: 1e-3,
-                                project: project
+                                project: project,
+                                protocol: "ontology_annotation"
                             };
 
                             console.log("view of the annotation parameters:");
