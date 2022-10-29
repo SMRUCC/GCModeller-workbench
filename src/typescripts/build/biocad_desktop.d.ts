@@ -35,11 +35,13 @@ interface biocad_desktop {
     scanDatabase(): Promise<string>;
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
     getEnzymeClass(): Promise<string>;
+    openEnzymeBlast(ssid: string): any;
     getTaskList(): Promise<string[]>;
     checkTaskList(): Promise<string[]>;
     getFileOpen(filterString: string): Promise<string>;
     getFileSave(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
+    getNextUniqueId(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
     createTask(title: string, url: string, json: string): Promise<hostMsg>;
     jumptoTaskManager(): any;
@@ -273,6 +275,23 @@ declare namespace pages {
         refresh_Rplot_onclick(): void;
     }
 }
+declare namespace pages.annotations {
+    interface blastParameter {
+        query: string;
+        reference: string;
+        evalue: number;
+        n_threads: number;
+        /**
+         * the project target file that can be used for
+         * save annotation result data
+        */
+        project: string;
+    }
+    class localblast extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
+    }
+}
 declare namespace pages.analysis_project {
     class create_project extends Bootstrap {
         readonly appName: string;
@@ -374,6 +393,7 @@ declare namespace pages.modeller {
         private path;
         readonly appName: string;
         protected init(): void;
+        enzyme_anno_onclick(): void;
     }
 }
 declare namespace pages.modeller {
