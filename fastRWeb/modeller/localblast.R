@@ -20,6 +20,23 @@ const run = function(query, reference,
                      n_threads = 2, 
                      protocol = ["sbh", "ontology_annotation"]) {
 
+    const outputdir as string = dirname(query);
+    const blast_outfile as string = `${outputdir}/blast.txt`;
+    const blast_table as string = `${outputdir}/annotation.csv`;
+
     # run localblast at first
-    
+    options(ncbi_blast = RStudio::ncbi_blast_dir());
+
+    print("the blast result output dir location:");
+    print(outputdir);
+
+    const logging = blastp(query, reference, blast_outfile, evalue, n_threads);
+
+    if (protocol == "sbh") {
+
+    } else {
+
+    }
+
+
 }

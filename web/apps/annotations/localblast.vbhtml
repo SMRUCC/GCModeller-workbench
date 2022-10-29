@@ -85,7 +85,7 @@
                         <br />
                         <div class="row">
                             <div class="col-auto">
-                                <button id="run" type="submit" class="btn btn-primary mb-3">Run</button>
+                                <button id="run" type="submit" class="btn btn-primary mb-3">Create Task</button>
                             </div>
                         </div>
                     </section>
