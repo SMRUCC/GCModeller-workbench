@@ -4,6 +4,7 @@ Imports Microsoft.VisualBasic.Scripting.MetaData
 Imports SMRUCC.genomics.Assembly.NCBI.GenBank
 Imports SMRUCC.genomics.Model
 Imports SMRUCC.genomics.Model.BioSystems
+Imports SMRUCC.genomics.SequenceModel.FASTA
 Imports SMRUCC.Rsharp.Runtime
 Imports SMRUCC.Rsharp.Runtime.Components
 Imports SMRUCC.Rsharp.Runtime.Interop
@@ -43,6 +44,10 @@ Module Modeller
 
     <ExportAPI("extract_proteinset_fasta")>
     Public Function extractProteinSetFasta(proj As String, save As String) As Object
+        Dim buffer As Stream = proj.Open(FileMode.Open, doClear:=False, [readOnly]:=True)
+        Dim reader As New ProjectReader(buffer)
+        Dim fasta As New FastaFile(reader.GetProteinFasta)
 
+        Return fasta.Save(save)
     End Function
 End Module
