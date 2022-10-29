@@ -3,6 +3,7 @@ Imports System.Net.Http.Headers
 Imports System.Runtime.InteropServices
 Imports GCModeller
 Imports Microsoft.VisualBasic.Serialization.JSON
+Imports Microsoft.VisualBasic.ValueTypes
 Imports WeifenLuo.WinFormsUI.Docking
 
 ' 所有需要在JavaScript环境中暴露的对象
@@ -80,6 +81,14 @@ Public MustInherit Class WebApp
         Catch ex As Exception
             Return Nothing
         End Try
+    End Function
+
+    ''' <summary>
+    ''' api for generates unique id for javascript client
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function getNextUniqueId() As String
+        Return App.GetNextUniqueName($"gcmodeller_session_{App.PID}.{Now.UnixTimeStamp}.")
     End Function
 
     ''' <summary>

@@ -212,6 +212,7 @@
     <Compile Include="Application\Globals.vb" />
     <Compile Include="DocumentPages\WebApps\AppTasks.vb" />
     <Compile Include="DocumentPages\WebApps\AppIndex.vb" />
+    <Compile Include="DocumentPages\WebApps\DataAnalysis\RunBlast.vb" />
     <Compile Include="DocumentPages\WebApps\DataRepository.vb" />
     <Compile Include="DocumentPages\WebApps\Modeller\ModellerProject.vb" />
     <Compile Include="DocumentPages\WebApps\Modeller\CreateBioProject.vb" />

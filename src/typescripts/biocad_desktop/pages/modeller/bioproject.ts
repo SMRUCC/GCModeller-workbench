@@ -15,5 +15,8 @@ namespace pages.modeller {
             $ts("#path").display(this.path);
         }
 
+        public enzyme_anno_onclick() {
+            
+        }
     }
 }

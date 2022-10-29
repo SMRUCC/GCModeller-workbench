@@ -12,6 +12,7 @@ interface biocad_desktop {
     getFileOpen(filterString: string): Promise<string>;
     getFileSave(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
+    getNextUniqueId(): Promise<string>;
     sendPost(url: string, json: string): Promise<hostMsg>;
     createTask(title: string, url: string, json: string): Promise<hostMsg>;
     jumptoTaskManager();

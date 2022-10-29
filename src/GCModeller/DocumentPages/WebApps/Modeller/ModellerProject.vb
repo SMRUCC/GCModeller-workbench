@@ -17,4 +17,8 @@ Public Class ModellerProject : Inherits WebApp
         arguments = New Dictionary(Of String, String)
         arguments("proj") = path
     End Sub
+
+    Public Sub openEnzymeBlast()
+        Call New RunBlast("params:{}").Open()
+    End Sub
 End Class

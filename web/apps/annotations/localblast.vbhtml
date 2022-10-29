@@ -15,6 +15,8 @@
     <!-- Start your project here-->
     <div class="container">
 
+        <h1>NCBI localblast+</h1>
+
         <div class="row">
             <div class="col-md-8">
                 <!-- Spied element -->
@@ -24,10 +26,14 @@
 
                         <div class="clearfix">
                             <img class="col-md-6 float-md-end mb-3 ms-md-3 hover-shadow hover-zoom"
-                                src="/assets/images/gene-set-enrichment.jpg" style="width: 300px;">
+                                src="/assets/images/localblast.jpg" style="width: 300px;">
 
                             <p>
-                                ...
+                                The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity between
+                                sequences. The program compares nucleotide or protein sequences to sequence databases
+                                and calculates the statistical significance of matches. BLAST can be used to infer
+                                functional and evolutionary relationships between sequences as well as help identify
+                                members of gene families.
                             </p>
                         </div>
 
