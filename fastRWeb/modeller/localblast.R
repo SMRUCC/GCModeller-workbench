@@ -6,7 +6,7 @@ imports "GenBank" from "seqtoolkit";
 imports "Modeller" from "GCModellerDesktop";
 imports "UniProt" from "annotationKit";
 imports "uniprot" from "seqtoolkit";
-imports "bioseq.fasta" from "seqtoolkit";
+imports "annotation.workflow" from "seqtoolkit";
 imports "blast+" from "seqtoolkit";
 
 #' Run localblast search
@@ -32,11 +32,29 @@ const run = function(query, reference,
 
     const logging = blastp(query, reference, blast_outfile, evalue, n_threads);
 
-    if (protocol == "sbh") {
-
-    } else {
-
+    if (is.null(protocol)) {
+        protocol = "sbh";
     }
 
+    if (protocol == "sbh") {
+        blast_outfile 
+        |> read.blast(type = "prot", fastMode = TRUE)
+        |> blasthit.sbh()
+        |> as.vector()
+        |> write.csv(file = blast_table)
+        ;
+    } else {
+        blast_outfile 
+        |> read.blast(type = "prot", fastMode = TRUE)
+        |> blasthit.sbh()
+        |> as.vector()
+        |> write.csv(file = blast_table)
+        ;
+    }
+
+    const previews = head(read.csv(blast_table, check.names = FALSE));
+
+    print("previews of the blast search table:");
+    print(previews);
 
 }
