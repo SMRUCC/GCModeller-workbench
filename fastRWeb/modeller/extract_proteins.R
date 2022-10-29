@@ -30,7 +30,7 @@ const run = function(proj, ssid) {
 	|> writeLines(con = buffer("text"))
 	;
 
-    RStudio::echo_successMsg({
+    Rstudio::echo_successMsg({
         ssid: ssid,
         dataset: save_fasta,
         # blast database targets that can be used for the 
