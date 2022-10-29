@@ -16,7 +16,15 @@ namespace pages.modeller {
         }
 
         public enzyme_anno_onclick() {
-            
+            desktop.loading("Extract protein set, wait for a while...");
+
+            $ts.post("@web_invoke_extract_proteins", {
+                proj: this.path
+            }, function (result) {
+
+                
+
+            });
         }
     }
 }

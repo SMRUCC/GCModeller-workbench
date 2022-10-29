@@ -40,4 +40,9 @@ Module Modeller
 
         Return True
     End Function
+
+    <ExportAPI("extract_proteinset_fasta")>
+    Public Function extractProteinSetFasta(proj As String, save As String) As Object
+
+    End Function
 End Module

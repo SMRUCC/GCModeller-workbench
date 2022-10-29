@@ -8,6 +8,7 @@
     <%= ../../../assets/includes/head.vbhtml %>
 
         <meta name="web_invoke_load" content="http://localhost:7452/modeller/load_project">
+        <meta name="web_invoke_extract_proteins" content="http://localhost:7452/modeller/extract_proteins">
 
 </head>
 
