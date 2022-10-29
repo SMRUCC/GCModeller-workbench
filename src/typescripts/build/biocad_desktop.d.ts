@@ -293,11 +293,13 @@ declare namespace pages.annotations {
         protocol: "sbh" | "ontology_annotation";
     }
     class localblast extends Bootstrap {
+        private project;
         readonly appName: string;
         protected init(): void;
-        private static loadParameters;
+        private loadParameters;
         button_open_query_onclick(): void;
         button_open_reference_onclick(): void;
+        run_onclick(): void;
     }
 }
 declare namespace pages.analysis_project {
