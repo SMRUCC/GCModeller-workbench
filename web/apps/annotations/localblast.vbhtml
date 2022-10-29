@@ -5,7 +5,7 @@
 <?vb $app = "localblast" ?>
 
 <head>
-    <%= ../assets/includes/head.vbhtml %>
+    <%= ../../assets/includes/head.vbhtml %>
 
         <meta name="web_invoke_enrichment" content="http://localhost:7452/analysis_apps/enrichment">
         <meta name="web_invoke_Rplot" content="http://localhost:7452/analysis_apps/enrichment_plot">
@@ -162,7 +162,7 @@
 
 
 
-        <%= ../assets/includes/webapp.vbhtml %>
+        <%= ../../assets/includes/webapp.vbhtml %>
 
     </div>
     <!-- End your project here-->
