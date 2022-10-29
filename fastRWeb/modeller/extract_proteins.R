@@ -18,6 +18,11 @@ const run = function(proj, ssid) {
 
     options(ncbi_blast = RStudio::ncbi_blast_dir());
 
+    print("extract protein sequence set from the project file:");
+    print("and then create blastp index!");
+
+    Modeller::extract_proteinset_fasta(proj, save_fasta);
+
     # create blastp database
 	# for run downstream annotation
 	save_fasta
