@@ -2,7 +2,7 @@
 
 Imports System.Runtime.InteropServices
 Imports GCModeller
-Imports Microsoft.VisualBasic.MIME.application.json
+Imports Microsoft.VisualBasic.Serialization.JSON
 
 <ClassInterface(ClassInterfaceType.AutoDual)>
 <ComVisible(True)>
@@ -45,4 +45,22 @@ Public Class AppTasks : Inherits WebApp
 
         Return updates.Select(Function(a) a.GetJson).ToArray
     End Function
+
+    Public Sub openPage(ssid As String, taskJSON As String)
+        Dim task As WebTask = taskJSON.LoadJSON(Of WebTask)
+        Dim className As String = task.appName
+
+        Static appPages As Dictionary(Of String, Type) = GetType(AppTasks).Assembly _
+            .GetTypes _
+            .Where(Function(t) t.IsInheritsFrom(GetType(WebApp))) _
+            .ToDictionary(Function(t)
+                              Return t.Name
+                          End Function)
+
+        Dim app As Type = appPages(className)
+        Dim url_argv As String = $"session:{ssid}"
+        Dim obj As WebApp = Activator.CreateInstance(app, url_argv)
+
+        Call obj.Open()
+    End Sub
 End Class

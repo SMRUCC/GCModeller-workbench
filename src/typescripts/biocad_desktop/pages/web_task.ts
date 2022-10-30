@@ -9,7 +9,6 @@ namespace pages {
          * the web task session id
         */
         session_id: string;
-        storage_id: string;
         arguments: {};
 
         /**
@@ -102,13 +101,23 @@ namespace pages {
         private async loadTaskList(tasklist: Task[]) {
             let list = $ts("#task_manager").clear();
             let html: HTMLElement;
+            let refer_id: string = null;
+
+            const vm = this;
 
             for (let task of tasklist) {
                 // task = await task;
                 // get host data
                 task = await web_task.getHostObject(task);
-                html = web_task.buildTaskHtml(task);
+                refer_id = task.session_id.replace(/\./ig, "-");
+                html = web_task.buildTaskHtml(task, refer_id);
                 list.appendElement(html);
+
+                localStorage.setItem(task.session_id, JSON.stringify(task.arguments));
+
+                $ts(`#${refer_id}`).onclick = function () {
+                    apps.gcmodeller.openPage(task.session_id, JSON.stringify(task));
+                }
             }
 
             return 0;
@@ -133,14 +142,16 @@ namespace pages {
             return task;
         }
 
-        private static buildTaskHtml(task: Task): HTMLElement {
+        private static buildTaskHtml(task: Task, refer_id: string): HTMLElement {
             return $ts("<tr>").display(`          
             <td>
                 <div class="d-flex align-items-center">
                     <img src="/assets/images/dna-image.jpg" alt=""
                         style="width: 45px; height: 45px" class="rounded-circle" />
                     <div class="ms-3">
-                        <p class="fw-bold mb-1">${task.appName}</p>
+                        <p class="fw-bold mb-1">
+                            <a id="${refer_id}" href="#" onclick="javascript:void(0);">${task.appName}</a>
+                        </p>
                         <p class="text-muted mb-0">${task.session_id}</p>
                     </div>
                 </div>

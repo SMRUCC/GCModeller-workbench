@@ -7,6 +7,7 @@ interface biocad_desktop {
 
     getTaskList(): Promise<string[]>;
     checkTaskList(): Promise<string[]>;
+    openPage(ssid: string, taskJSON: string);
 
     // general functions that available
     // for all web app pages

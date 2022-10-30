@@ -10,8 +10,16 @@ Imports Microsoft.VisualBasic.ApplicationServices.Debugging.Diagnostics
 Public Class WebTask
 #Enable Warning BC40000 ' Type or member is obsolete
 
+    ''' <summary>
+    ''' the name reference of the app page
+    ''' </summary>
+    ''' <returns></returns>
     Public Property appName As String
     Public Property time As String
+    ''' <summary>
+    ''' the task display title
+    ''' </summary>
+    ''' <returns></returns>
     Public Property title As String
 
     ''' <summary>
@@ -28,6 +36,5 @@ Public Class WebTask
     Public Property [error] As ExceptionData
     Public Property logtext As String
     Public Property url As String
-    Public Property storage_id As String
 
 End Class

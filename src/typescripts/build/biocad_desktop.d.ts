@@ -39,6 +39,7 @@ interface biocad_desktop {
     openEnzymeBlast(ssid: string): any;
     getTaskList(): Promise<string[]>;
     checkTaskList(): Promise<string[]>;
+    openPage(ssid: string, taskJSON: string): any;
     getFileOpen(filterString: string): Promise<string>;
     getFileSave(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
@@ -198,6 +199,9 @@ declare namespace pages {
         time: string;
         title: string;
         status: "success" | "error" | "pending" | "running" | "cancel";
+        /**
+         * the web task session id
+        */
         session_id: string;
         arguments: {};
         /**
