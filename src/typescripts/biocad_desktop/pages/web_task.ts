@@ -5,7 +5,11 @@ namespace pages {
         time: string;
         title: string;
         status: "success" | "error" | "pending" | "running" | "cancel";
+        /**
+         * the web task session id
+        */
         session_id: string;
+        storage_id: string;
         arguments: {};
 
         /**

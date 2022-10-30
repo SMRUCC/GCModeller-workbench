@@ -1,6 +1,9 @@
 ﻿Imports System.Runtime.InteropServices
 Imports Microsoft.VisualBasic.ApplicationServices.Debugging.Diagnostics
 
+''' <summary>
+''' the task object is saved as json string
+''' </summary>
 #Disable Warning BC40000 ' Type or member is obsolete
 <ClassInterface(ClassInterfaceType.AutoDual)>
 <ComVisible(True)>
@@ -25,5 +28,6 @@ Public Class WebTask
     Public Property [error] As ExceptionData
     Public Property logtext As String
     Public Property url As String
+    Public Property storage_id As String
 
 End Class
