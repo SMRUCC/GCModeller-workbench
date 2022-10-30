@@ -72,7 +72,7 @@ namespace pages.annotations {
                  * save annotation result data
                 */
                 project: this.project,
-                protocol: $ts.select.getOption("protocols")
+                protocol: $ts.select.getOption("#protocols")
             };
             const title: string = "Localblast Search";
 
@@ -85,6 +85,16 @@ namespace pages.annotations {
                     desktop.showToastMessage(`Pending a new task: ${task_id}`, title, "info");
                 })
                 ;
+        }
+
+        public save_project_onclick() {
+            $ts.post("@web_invoke_save_project", {
+                proj: this.project,
+                blast_dir: $ts.value("#query-file"),
+                protocol: $ts.select.getOption("#protocols")
+            }, function (result: IMsg<string>) {
+
+            });
         }
     }
 }

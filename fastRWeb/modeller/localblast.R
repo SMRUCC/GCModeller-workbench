@@ -36,21 +36,12 @@ const run = function(query, reference,
         protocol = "sbh";
     }
 
-    if (protocol == "sbh") {
-        blast_outfile 
-        |> read.blast(type = "prot", fastMode = TRUE)
-        |> blasthit.sbh()
-        |> as.vector()
-        |> write.csv(file = blast_table)
-        ;
-    } else {
-        blast_outfile 
-        |> read.blast(type = "prot", fastMode = TRUE)
-        |> blasthit.sbh()
-        |> as.vector()
-        |> write.csv(file = blast_table)
-        ;
-    }
+    blast_outfile 
+    |> read.blast(type = "prot", fastMode = TRUE)
+    |> blasthit.sbh()
+    |> as.vector()
+    |> write.csv(file = blast_table)
+    ;
 
     const previews = head(read.csv(blast_table, check.names = FALSE));
 

@@ -1,7 +1,13 @@
 ﻿Imports System.IO
 Imports Microsoft.VisualBasic.CommandLine.Reflection
+Imports Microsoft.VisualBasic.Data.csv
+Imports Microsoft.VisualBasic.DataStorage.HDSPack
+Imports Microsoft.VisualBasic.DataStorage.HDSPack.FileSystem
 Imports Microsoft.VisualBasic.Scripting.MetaData
+Imports Microsoft.VisualBasic.Serialization.JSON
 Imports SMRUCC.genomics.Assembly.NCBI.GenBank
+Imports SMRUCC.genomics.Interops.NCBI.Extensions.LocalBLAST.Application.BBH
+Imports SMRUCC.genomics.Interops.NCBI.Extensions.LocalBLAST.BLASTOutput
 Imports SMRUCC.genomics.Model
 Imports SMRUCC.genomics.Model.BioSystems
 Imports SMRUCC.genomics.SequenceModel.FASTA
@@ -49,5 +55,31 @@ Module Modeller
         Dim fasta As New FastaFile(reader.GetProteinFasta)
 
         Return fasta.Save(save)
+    End Function
+
+    <ExportAPI("save_enzyme_annotation")>
+    Public Function saveEnzymeAnnotation(proj As String, anno As String) As Object
+        Using buffer As New StreamPack(proj)
+            Dim besthits = anno.LoadCsv(Of BestHit)
+            Dim EC_numbers = besthits _
+                .Where(Function(i)
+                           Return i.identities > 0.6 AndAlso
+                                  i.positive > 0.6 AndAlso
+                                  i.HitName <> IBlastOutput.HITS_NOT_FOUND
+                       End Function) _
+                .GroupBy(Function(i) i.QueryName) _
+                .ToDictionary(Function(a) a.Key,
+                              Function(a)
+                                  Return a _
+                                     .Select(Function(i) i.HitName.Split("|"c).First) _
+                                     .Distinct _
+                                     .ToArray
+                              End Function)
+
+            Call buffer.WriteText(anno.ReadAllText, "/workspace/enzyme_blast.csv")
+            Call buffer.WriteText(EC_numbers.GetJson, "/models/ec_numbers.json")
+        End Using
+
+        Return True
     End Function
 End Module

@@ -8,6 +8,8 @@
     <%= ../../assets/includes/head.vbhtml %>
 
         <meta name="web_invoke_localblast" content="http://localhost:7452/modeller/localblast?rweb_background=true">
+        <meta name="web_invoke_save_project" content="http://localhost:7452/modeller/save_blast">
+        
 </head>
 
 <body>
