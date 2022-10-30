@@ -32,7 +32,14 @@ namespace pages.annotations {
                 localblast.loadParameters(params);
             } else if (!Strings.Empty(session, true)) {
                 localblast.loadParameters(session);
-                throw new Error("Method not implemented.");
+
+                // task session will disable all form-controls
+                $ts("#protocols").interactive(false);
+                $ts("#button_open_query").interactive(false);
+                $ts("#query-file").interactive(false);
+                $ts("#button_open_reference").interactive(false);
+                $ts("#reference-file").interactive(false);
+                $ts("#run").interactive(false);
             }
         }
 
