@@ -304,6 +304,7 @@ declare namespace pages.annotations {
         button_open_query_onclick(): void;
         button_open_reference_onclick(): void;
         run_onclick(): void;
+        save_project_onclick(): void;
     }
 }
 declare namespace pages.analysis_project {
