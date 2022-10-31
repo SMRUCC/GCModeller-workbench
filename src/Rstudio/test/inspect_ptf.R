@@ -6,4 +6,12 @@ tree = HDS::tree(db);
 
 print(tree);
 
-writeLines(tree, con = `${@dir}/tree.txt`);
+writeLines(tree, con = `${@dir}/eco_project.txt`);
+
+
+db = HDS::openStream("E:\etc\repository\EC_numbers.db");
+tree = HDS::tree(db);
+
+print(tree);
+
+writeLines(tree, con = `${@dir}/ec_numbers.txt`);
