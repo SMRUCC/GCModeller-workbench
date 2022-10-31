@@ -44,6 +44,7 @@ namespace apps {
 
         Router.AddAppHandler(new pages.repository.enrichment_database());
         Router.AddAppHandler(new pages.repository.enzyme_database());
+        Router.AddAppHandler(new pages.repository.uniprot_database());
 
         Router.AddAppHandler(new pages.annotations.localblast());
 

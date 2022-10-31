@@ -457,6 +457,14 @@ declare namespace pages.repository {
         button_open_uniprot(): void;
     }
 }
+declare namespace pages.repository {
+    class uniprot_database extends Bootstrap {
+        readonly appName: string;
+        protected init(): void;
+        button_open_uniprot_onclick(): void;
+        run_onclick(): void;
+    }
+}
 declare namespace pages.suggestion_list.render {
     /**
      * 将结果显示到网页上面
