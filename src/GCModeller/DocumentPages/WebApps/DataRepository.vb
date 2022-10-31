@@ -16,4 +16,8 @@ Public Class DataRepository : Inherits WebApp
     Public Sub openEnzymeRepository()
         Call WebApp.Open(Of EnzymeRepository)()
     End Sub
+
+    Public Sub openUniprotRepository()
+        Call WebApp.Open(Of ImportsUniProt)()
+    End Sub
 End Class

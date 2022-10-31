@@ -28,6 +28,7 @@
         <ul>
             <li><a href="#" onclick="apps.gcmodeller.openEnrichmentRepository();">Enrichment Data Repository</a></li>
             <li><a href="#" onclick="apps.gcmodeller.openEnzymeRepository();">Enzyme Data Repository</a></li>
+            <li><a href="#" onclick="apps.gcmodeller.openUniprotRepository();">UniProt Data Repository</a></li>
         </ul>
 
         <%= ./assets/includes/webapp.vbhtml %>
