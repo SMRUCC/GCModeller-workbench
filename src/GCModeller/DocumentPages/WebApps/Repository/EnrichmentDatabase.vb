@@ -4,7 +4,7 @@ Imports Microsoft.VisualBasic.Serialization.JSON
 
 <ClassInterface(ClassInterfaceType.AutoDual)>
 <ComVisible(True)>
-Public Class ImportsUniprot : Inherits WebApp
+Public Class EnrichmentDatabase : Inherits WebApp
 
     Public Sub New()
         MyBase.New("/toolkit/enrichment_database.vbhtml")

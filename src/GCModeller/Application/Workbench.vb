@@ -13,7 +13,7 @@ Public Class Workbench
 
     Private Shared Sub addRibbonEvents()
         AddHandler Ribbon.About.ExecuteEvent, Sub() Call New FormSplashScreen().Show()
-        AddHandler Ribbon.ButtonEnrichmentDatabase.ExecuteEvent, Sub() Call WebApp.Open(Of ImportsUniprot)()
+        AddHandler Ribbon.ButtonEnrichmentDatabase.ExecuteEvent, Sub() Call WebApp.Open(Of EnrichmentDatabase)()
         AddHandler Ribbon.ButtonNCBITaxonomy.ExecuteEvent, Sub() Call WebApp.Open(Of ImportsNCBITaxonomy)()
         AddHandler Ribbon.ViewAppTasks.ExecuteEvent, Sub() Call WebApp.Open(Of AppTasks)()
         AddHandler Ribbon.ButtonStartPage.ExecuteEvent, Sub() Call Globals.host.ShowMainPage()

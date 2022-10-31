@@ -10,7 +10,7 @@ Public Class DataRepository : Inherits WebApp
     End Sub
 
     Public Sub openEnrichmentRepository()
-        Call WebApp.Open(Of ImportsUniprot)()
+        Call WebApp.Open(Of EnrichmentDatabase)()
     End Sub
 
     Public Sub openEnzymeRepository()

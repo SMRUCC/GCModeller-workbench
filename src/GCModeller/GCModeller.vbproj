@@ -229,7 +229,7 @@
     <Compile Include="DocumentPages\WebApps\MainIndex.vb" />
     <Compile Include="DocumentPages\WebApps\DataAnalysis\RunEnrichment.vb" />
     <Compile Include="DocumentPages\WebApps\Repository\ImportsNCBITaxonomy.vb" />
-    <Compile Include="DocumentPages\WebApps\Repository\ImportsUniprot.vb" />
+    <Compile Include="DocumentPages\WebApps\Repository\EnrichmentDatabase.vb" />
     <Compile Include="Explorer\FormDatabaseExplorer.Designer.vb">
       <DependentUpon>FormDatabaseExplorer.vb</DependentUpon>
     </Compile>
