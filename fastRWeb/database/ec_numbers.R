@@ -9,6 +9,7 @@ imports "blast+" from "seqtoolkit";
 const run = function(uniprot) {
 	const ecNumbersDbfile as string = `${RStudio::repository_root()}/EC_numbers.db`;
 	const ecNumbersFasta as string = Rstudio::fs.ec_numbers_fasta();
+	const subcellular_locationFasta as string = Rstudio::fs.subcellular_locations_fasta();
 	
 	options(ncbi_blast = RStudio::ncbi_blast_dir());
 
@@ -23,13 +24,28 @@ const run = function(uniprot) {
 		|> extract_fasta()
 		|> write.fasta(file = ecNumbersFasta)
 		;
+
+		pack 
+		|> extract_fasta(enzyme = FALSE)
+		|> write.fasta(file = subcellular_locationFasta)
+		;
 	}
 
 	# create blastp database
 	# for run downstream annotation
-	ecNumbersFasta 
-	|> makeblastdb(dbtype = "prot")
-	|> writeLines(con = buffer("text"))
+	[
+		ecNumbersFasta 
+		|> makeblastdb(dbtype = "prot")
+		|> writeLines(con = buffer("text"))
+		,
+
+		subcellular_locationFasta
+		|> makeblastdb(dbtype = "prot")
+		|> writeLines(con = buffer("text"))
+	]
+	|> paste("
+	
+	")
 	;
 }
 
