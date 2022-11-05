@@ -48,6 +48,8 @@ namespace apps {
 
         Router.AddAppHandler(new pages.annotations.localblast());
 
+        Router.AddAppHandler(new pages.viewer.motif_viewer());
+
         Router.AddAppHandler(new pages.enrichment_analysis());
         Router.AddAppHandler(new pages.cmeans_patterns());
         Router.AddAppHandler(new pages.zscore_analysis());
