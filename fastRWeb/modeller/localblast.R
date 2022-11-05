@@ -17,8 +17,7 @@ imports "blast+" from "seqtoolkit";
 #' 
 const run = function(query, reference, 
                      evalue = 1e-3, 
-                     n_threads = 2, 
-                     protocol = ["sbh", "ontology_annotation"]) {
+                     n_threads = 2) {
 
     const outputdir as string = dirname(query);
     const blast_outfile as string = `${outputdir}/blast.txt`;
@@ -32,10 +31,6 @@ const run = function(query, reference,
 
     const logging = blastp(query, reference, blast_outfile, evalue, n_threads);
 
-    if (is.null(protocol)) {
-        protocol = "sbh";
-    }
-
     blast_outfile 
     |> read.blast(type = "prot", fastMode = TRUE)
     |> blasthit.sbh()
@@ -48,4 +43,5 @@ const run = function(query, reference,
     print("previews of the blast search table:");
     print(previews);
 
+    write.csv(previews, file = buffer("dataframe"), tsv = TRUE);
 }
