@@ -48,6 +48,7 @@
                                 <select id="protocols" class="form-select">
                                     <option selected value="sbh">Single BestHit</option>
                                     <option value="ontology_annotation">Ontology Annotation</option>
+                                    <option value="subcellular_location">Subcellular Location Annotation</option>
                                 </select>
                             </div>
                         </div>

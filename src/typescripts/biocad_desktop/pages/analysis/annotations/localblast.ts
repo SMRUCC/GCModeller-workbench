@@ -10,7 +10,7 @@ namespace pages.annotations {
          * save annotation result data
         */
         project: string;
-        protocol: "sbh" | "ontology_annotation";
+        protocol: "sbh" | "ontology_annotation" | "subcellular_location";
     }
 
     export class localblast extends Bootstrap {
