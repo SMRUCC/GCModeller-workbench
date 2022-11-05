@@ -43,17 +43,13 @@
 
                 </div>
 
-                <script>
-                    (new GCModeller.Workbench.MotifLogo()).drawLogo("preview_1", LoadText("pwm"), 10);
-                </script>
-
             </div>
         </div>
 
 
         <%= ../assets/includes/webapp.vbhtml %>
 
-            <script src="" type="text/javascript"></script>
+            <script src="/javascript/viewer.min.js" type="text/javascript"></script>
 
     </div>
 

@@ -156,7 +156,7 @@ var viewer;
     var LoadQueryTask = /** @class */ (function () {
         function LoadQueryTask(target_id, pwm, scale, render) {
             this.target_id = target_id;
-            this.motifPWM = pwm;
+            this.motifPWM = typeof pwm == "string" ? new viewer.Pspm(pwm, null) : pwm;
             this.scaleLogo = scale;
             this.render = render;
         }

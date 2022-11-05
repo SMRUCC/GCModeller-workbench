@@ -28,7 +28,7 @@ declare namespace viewer {
         motifPWM: Pspm;
         scaleLogo: number;
         render: MotifLogo;
-        constructor(target_id: string, pwm: Pspm, scale: number, render: MotifLogo);
+        constructor(target_id: string, pwm: Pspm | string, scale: number, render: MotifLogo);
         run(): void;
         logo_1(alphabet: Alphabet, fine_text: string, pspm: Pspm): Logo;
         /**
@@ -49,7 +49,7 @@ declare namespace viewer {
          * @param pwm Motif数据文本
          * @param scale 缩放倍数
         */
-        drawLogo(div_id: string, pwm: Pspm, scale?: number): void;
+        drawLogo(div_id: string, pwm: Pspm | string, scale?: number): void;
         /**
          * draws the scale, returns the width
         */

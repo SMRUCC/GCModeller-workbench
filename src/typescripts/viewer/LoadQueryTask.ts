@@ -10,9 +10,9 @@
         public scaleLogo: number;
         public render: MotifLogo;
 
-        public constructor(target_id: string, pwm: Pspm, scale: number, render: MotifLogo) {
+        public constructor(target_id: string, pwm: Pspm | string, scale: number, render: MotifLogo) {
             this.target_id = target_id;
-            this.motifPWM = pwm;
+            this.motifPWM = typeof pwm == "string" ? new Pspm(pwm, null) : pwm;
             this.scaleLogo = scale;
             this.render = render;
         }

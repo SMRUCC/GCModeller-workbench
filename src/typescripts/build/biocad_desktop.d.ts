@@ -1,5 +1,6 @@
 /// <reference path="linq.d.ts" />
 /// <reference path="sampleinfo_editor.d.ts" />
+/// <reference path="viewer.d.ts" />
 declare namespace apps {
     const uniprot_assembly: string;
     const expressionMatrix: string;
@@ -509,5 +510,12 @@ declare namespace pages.suggestion_list {
     interface scoreTerm {
         score: number;
         term: term;
+    }
+}
+declare namespace pages.viewer {
+    class motif_viewer extends Bootstrap {
+        readonly appName: string;
+        private motifLogo;
+        protected init(): void;
     }
 }

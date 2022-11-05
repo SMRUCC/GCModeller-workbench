@@ -15,7 +15,7 @@
          * @param pwm Motif数据文本
          * @param scale 缩放倍数
         */
-        public drawLogo(div_id: string, pwm: Pspm, scale: number = 2) {
+        public drawLogo(div_id: string, pwm: Pspm | string, scale: number = 2) {
             new LoadQueryTask(div_id, pwm, scale, this).run();
         }
 
