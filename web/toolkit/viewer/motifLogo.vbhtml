@@ -5,7 +5,7 @@
 <?vb $app = "motif_viewer" ?>
 
 <head>
-    <%= ../assets/includes/head.vbhtml %>
+    <%= ../../assets/includes/head.vbhtml %>
 
         <script type="plain/text" id="pwm">
     letter-probability matrix: alength= 4 w= 20 nsites= 264 E= 8.0e-104 
@@ -47,7 +47,7 @@
         </div>
 
 
-        <%= ../assets/includes/webapp.vbhtml %>
+        <%= ../../assets/includes/webapp.vbhtml %>
 
             <script src="/javascript/viewer.min.js" type="text/javascript"></script>
 

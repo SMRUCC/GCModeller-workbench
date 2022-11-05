@@ -15,7 +15,7 @@ namespace pages.viewers {
             const model = new viewer.Pspm(data, null);
 
             this.motifLogo = new viewer.MotifLogo();
-            this.motifLogo.drawLogo("preview_1", model, 5);
+            this.motifLogo.drawLogo("preview_1", model, 2);
         }
 
     }
