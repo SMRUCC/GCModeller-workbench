@@ -6,7 +6,7 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "../dist",
-    "outFile": "../build/motifLogo.js",
+    "outFile": "../build/viewer.js",
     "declaration": true
   },
   "exclude": [
