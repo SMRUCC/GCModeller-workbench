@@ -31,7 +31,7 @@ namespace pages.modeller {
                         console.log(result);
 
                         if (result.code == 0) {
-                            vm.create_enzymeBlastTask(result, ssid);
+                            vm.create_localBlastTask(result, ssid, "ontology_annotation");
                         } else {
                             desktop.showToastMessage(result.info, "Extract Data Error", "danger");
                         }
@@ -57,7 +57,7 @@ namespace pages.modeller {
                         console.log(result);
 
                         if (result.code == 0) {
-                            vm.create_enzymeBlastTask(result, ssid);
+                            vm.create_localBlastTask(result, ssid, "subcellular_location");
                         } else {
                             desktop.showToastMessage(result.info, "Extract Data Error", "danger");
                         }
@@ -67,25 +67,29 @@ namespace pages.modeller {
                 })
         }
 
-        private create_enzymeBlastTask(result: IMsg<any>, ssid: string) {
+        private create_localBlastTask(result: IMsg<any>, ssid: string, protocol: string) {
             const vm = this;
             const query: string = result.info.dataset;
             const project: string = vm.path;
-            const ec_numbers: string = result.info.blast.ec_numbers;
+            const map_path = {
+                "ontology_annotation": x => <string>x.info.blast.ec_numbers,
+                "subcellular_location": x => <string>x.info.blast.subcellular_location
+            }
+            const reference_fasta: string = map_path[protocol](result);
             const args = <annotations.blastParameter>{
                 query: query,
-                reference: ec_numbers,
+                reference: reference_fasta,
                 n_threads: 2,
                 evalue: 1e-3,
                 project: project,
-                protocol: "ontology_annotation"
+                protocol: protocol
             };
 
             console.log("view of the annotation parameters:");
             console.log(args);
 
             localStorage.setItem(ssid, JSON.stringify(args));
-            apps.gcmodeller.openEnzymeBlast(ssid);
+            apps.gcmodeller.openLocalBlast(ssid);
         }
     }
 }

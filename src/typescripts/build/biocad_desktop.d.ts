@@ -36,7 +36,7 @@ interface biocad_desktop {
     scanDatabase(): Promise<string>;
     openEnrichmentPage(database: string, name: string, note: string): Promise<boolean>;
     getEnzymeClass(): Promise<string>;
-    openEnzymeBlast(ssid: string): any;
+    openLocalBlast(ssid: string): any;
     getTaskList(): Promise<string[]>;
     checkTaskList(): Promise<string[]>;
     openPage(ssid: string, taskJSON: string): any;
@@ -409,6 +409,8 @@ declare namespace pages.modeller {
         readonly appName: string;
         protected init(): void;
         enzyme_anno_onclick(): void;
+        subcellular_anno_onclick(): void;
+        private create_localBlastTask;
     }
 }
 declare namespace pages.modeller {
