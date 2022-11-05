@@ -34,6 +34,7 @@
                     <!-- open blast page and then setup parameters 
                         for project file -->
                     <li><a id="enzyme_anno" href="#" onclick="javascript:void(0);">Enzyme Annotations</a></li>
+                    <li><a id="subcellular_anno" href="#" onclick="javascript:void(0);">Subcellular Location Annotations</a></li>
                 </ul>
             </div>
         </div>
