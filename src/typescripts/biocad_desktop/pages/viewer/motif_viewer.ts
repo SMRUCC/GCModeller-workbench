@@ -1,6 +1,6 @@
 /// <reference path="../../../build/viewer.d.ts" />
 
-namespace pages.viewer {
+namespace pages.viewers {
 
     export class motif_viewer extends Bootstrap {
 
@@ -8,12 +8,13 @@ namespace pages.viewer {
             return "motif_viewer";
         };
 
-        private motifLogo = new globalThis.viewer.MotifLogo();
+        private motifLogo: viewer.MotifLogo;
 
         protected init(): void {
             const data: string = LoadText("pwm");
-            const model = new globalThis.viewer.Pspm(data, null);
+            const model = new viewer.Pspm(data, null);
 
+            this.motifLogo = new viewer.MotifLogo();
             this.motifLogo.drawLogo("preview_1", model, 5);
         }
 

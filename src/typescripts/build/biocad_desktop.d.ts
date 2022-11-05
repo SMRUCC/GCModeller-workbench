@@ -512,7 +512,7 @@ declare namespace pages.suggestion_list {
         term: term;
     }
 }
-declare namespace pages.viewer {
+declare namespace pages.viewers {
     class motif_viewer extends Bootstrap {
         readonly appName: string;
         private motifLogo;
