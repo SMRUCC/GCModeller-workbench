@@ -1,4 +1,4 @@
-﻿namespace GCModeller.Workbench {
+﻿namespace viewer {
 
     export class CanvasRender {
 

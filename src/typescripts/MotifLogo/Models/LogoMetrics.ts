@@ -1,4 +1,4 @@
-﻿namespace GCModeller.Workbench {
+﻿namespace viewer {
 
     /**
      * 大小与布局计算程序

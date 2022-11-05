@@ -1,4 +1,4 @@
-﻿namespace GCModeller.Workbench {
+﻿namespace viewer {
 
     export const evalueRegexp: RegExp = /^((?:[+]?[0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)|inf)$/;
 

@@ -1,4 +1,4 @@
-﻿namespace GCModeller.Workbench {
+﻿namespace viewer {
 
     export function parse_pspm_properties(str: string) {
         "use strict";

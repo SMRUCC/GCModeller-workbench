@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
+<?vb $title = "Motif Viewer" ?>
+<?vb $app = "motif_viewer" ?>
 
 <head>
-    <meta charset="UTF-8">
-    <title>GCModeller Workbench</title>
+    <%= ../assets/includes/head.vbhtml %>
 
-    <script type="plain/text" id="pwm">
+        <script type="plain/text" id="pwm">
     letter-probability matrix: alength= 4 w= 20 nsites= 264 E= 8.0e-104 
     0.007576 0.424242 0.515152 0.05303
     0.219697 0.465909 0.314394 0
@@ -28,27 +30,33 @@
     0.128788 0.443182 0.348485 0.079545
     0.181818 0.231061 0.477273 0.109848
 </script>
-
-    <script src="../vendor/linq.js"></script>
-    <script src="../vendor/motifLogo.js"></script>
 </head>
 
 <body>
-    <h1>Hello World!</h1>
-    We are using node
-    <script>document.write(process.versions.node)</script>,
-    Chrome
-    <script>document.write(process.versions.chrome)</script>,
-    and Electron
-    <script>document.write(process.versions.electron)</script>.
 
-    <div id="preview_1">
+    <div class="container-fluid container">
+
+        <div class="row">
+            <div class="col-auto">
+
+                <div id="preview_1">
+
+                </div>
+
+                <script>
+                    (new GCModeller.Workbench.MotifLogo()).drawLogo("preview_1", LoadText("pwm"), 10);
+                </script>
+
+            </div>
+        </div>
+
+
+        <%= ../assets/includes/webapp.vbhtml %>
+
+            <script src="" type="text/javascript"></script>
 
     </div>
 
-    <script>
-            (new GCModeller.Workbench.MotifLogo()).drawLogo("preview_1", LoadText("pwm"), 10);
-    </script>
 </body>
 
 </html>

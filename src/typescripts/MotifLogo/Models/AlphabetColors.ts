@@ -1,4 +1,4 @@
-﻿namespace GCModeller.Workbench.AlphabetColors {
+﻿namespace viewer.AlphabetColors {
 
     export const red: string = "rgb(204,0,0)";
     export const blue: string = "rgb(0,0,204)";

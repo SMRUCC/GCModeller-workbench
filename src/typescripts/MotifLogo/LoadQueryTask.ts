@@ -1,4 +1,4 @@
-﻿namespace GCModeller.Workbench {
+﻿namespace viewer {
 
     /**
      * Draw motif logo from this function

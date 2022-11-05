@@ -1,6 +1,6 @@
 ﻿/// <reference path="../build/linq.d.ts" />
 
-namespace GCModeller.Workbench {
+namespace viewer {
 
     /**
      * Fast string trimming implementation found at
