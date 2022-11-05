@@ -32,4 +32,8 @@ Public Class AppIndex : Inherits WebApp
     Public Sub openZscore()
         Call WebApp.Open(Of ZscoreAnalysis)()
     End Sub
+
+    Public Sub openMotifViewer()
+        Call WebApp.Open(Of MotifLogo)()
+    End Sub
 End Class
