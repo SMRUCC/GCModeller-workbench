@@ -9,6 +9,8 @@ print(tree);
 
 writeLines(tree, con = `${@dir}/eco_project.txt`);
 
+writeLines(db |> HDS::getText("/models/subcellular_location.json"), con = `${@dir}/eco_subcellularLocation.json`);
+writeLines(db |> HDS::getText("/models/ec_numbers.json"), con = `${@dir}/eco_ec_numbers.json`);
 
 db = HDS::openStream("E:\etc\repository\EC_numbers.db");
 

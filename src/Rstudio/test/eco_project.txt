@@ -1,4 +1,4 @@
-/ [3.77 MB, 4 dirs, 1 files]
+/ [37.22 MB, 4 dirs, 1 files]
 
 |-- /annotation [1.61 MB, 0 dirs, 4298 files]
     |-- /annotation/NP_414542.1.ptf [offset=1048953, size=75 B] (application/octet-stream (*.*))
@@ -4300,14 +4300,16 @@
     |-- /annotation/YP_010283921.1.ptf [offset=2655507, size=61 B] (application/octet-stream (*.*))
     |-- /annotation/NP_418820.1.ptf [offset=2655568, size=298 B] (application/octet-stream (*.*))
 
-|-- /workspace [2.07 MB, 0 dirs, 2 files]
+|-- /workspace [35.50 MB, 0 dirs, 3 files]
     |-- /workspace/protein_set.fasta [offset=2655866, size=1.42 MB] (application/octet-stream (*.*))
-    |-- /workspace/enzyme_blast.csv [offset=4127451, size=648.69 KB] (text/csv (*.csv))
+    |-- /workspace/enzyme_blast.csv [offset=47272370, size=21.18 MB] (text/csv (*.csv))
+    |-- /workspace/subcellular_location_blast.csv [offset=68500718, size=12.90 MB] (text/csv (*.csv))
 
 |-- /metadata [52.21 KB, 0 dirs, 2 files]
     |-- /metadata/count.txt [offset=4075245, size=4 B] (text/plain (*.txt))
     |-- /metadata/proteins.txt [offset=4075249, size=52.20 KB] (text/plain (*.txt))
 
-|-- /models [39.54 KB, 0 dirs, 1 files]
-    |-- /models/ec_numbers.json [offset=4776137, size=39.54 KB] (application/json (*.json))
+|-- /models [67.25 KB, 0 dirs, 2 files]
+    |-- /models/ec_numbers.json [offset=68454157, size=46.56 KB] (application/json (*.json))
+    |-- /models/subcellular_location.json [offset=81396066, size=20.69 KB] (application/json (*.json))
 |-- /metadata.xml [offset=1048579, size=374 B] (application/xml (*.xml))
