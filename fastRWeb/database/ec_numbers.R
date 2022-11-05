@@ -33,19 +33,14 @@ const run = function(uniprot) {
 
 	# create blastp database
 	# for run downstream annotation
-	[
-		ecNumbersFasta 
-		|> makeblastdb(dbtype = "prot")
-		|> writeLines(con = buffer("text"))
-		,
-
-		subcellular_locationFasta
-		|> makeblastdb(dbtype = "prot")
-		|> writeLines(con = buffer("text"))
+	[		
+		makeblastdb(ecNumbersFasta, dbtype = "prot"),
+		makeblastdb(subcellular_locationFasta, dbtype = "prot")		
 	]
 	|> paste("
 	
 	")
+	|> writeLines(con = buffer("text"))
 	;
 }
 
