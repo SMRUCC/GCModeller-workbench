@@ -29,7 +29,8 @@ namespace pages {
             <webapp>{ appLink: "apps.gcmodeller.openZscore", title: "Z-score analysis", desc: "Z-score analysis", icon: applets.defaultIcon },
             <webapp>{ appLink: "apps.gcmodeller.openDataEmbedding", title: "Data Embedding", desc: "PCA/UMAP/t-SNE data embedding", icon: applets.defaultIcon },
             <webapp>{ appLink: "apps.gcmodeller.openCMeans", title: "Fuzzy CMeans", desc: "Fuzzy cmeans clustering", icon: applets.defaultIcon },
-            <webapp>{ appLink: "apps.gcmodeller.openPLAS", title: "PLAS", desc: "bio-chemical system simulator", icon: applets.defaultIcon }
+            <webapp>{ appLink: "apps.gcmodeller.openPLAS", title: "PLAS", desc: "bio-chemical system simulator", icon: applets.defaultIcon },
+            <webapp>{ appLink: "apps.gcmodeller.openMotifViewer", title: "Motif logo", desc: "View motif matrix in web logo rendering", icon: applets.defaultIcon }
         ];
 
         private terms: pages.suggestion_list.term[] = [];
