@@ -73,6 +73,13 @@ CALL :exec_gcc sampleinfo_editor
 :sampleinfo_end
 
 
+:viewer_js
+SET jump=viewer_end
+CALL :exec_gcc viewer
+:viewer_end
+
+
+
 echo "all done!"
 pause
 
