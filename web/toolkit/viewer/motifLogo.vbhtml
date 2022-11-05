@@ -36,6 +36,8 @@
 
     <div class="container-fluid container">
 
+        <h1>View Motif Logo</h1>
+
         <div class="row">
             <div class="col-auto">
 
