@@ -59,6 +59,11 @@ Module Modeller
 
     <ExportAPI("save_enzyme_annotation")>
     Public Function saveEnzymeAnnotation(proj As String, anno As String) As Object
+        Call saveBlast(proj, anno, "/workspace/enzyme_blast.csv", "/models/ec_numbers.json")
+        Return True
+    End Function
+
+    Private Sub saveBlast(proj As String, anno As String, blast_file As String, json_file As String)
         Using buffer As New StreamPack(proj)
             Dim besthits = anno.LoadCsv(Of BestHit)
             Dim EC_numbers = besthits _
@@ -76,10 +81,14 @@ Module Modeller
                                      .ToArray
                               End Function)
 
-            Call buffer.WriteText(anno.ReadAllText, "/workspace/enzyme_blast.csv")
-            Call buffer.WriteText(EC_numbers.GetJson, "/models/ec_numbers.json")
+            Call buffer.WriteText(anno.ReadAllText, blast_file)
+            Call buffer.WriteText(EC_numbers.GetJson, json_file)
         End Using
+    End Sub
 
+    <ExportAPI("save_subcellular_location")>
+    Public Function saveSubcellularLocationAnnotation(proj As String, anno As String) As Object
+        Call saveBlast(proj, anno, "/workspace/subcellular_location_blast.csv", "/models/subcellular_location.json")
         Return True
     End Function
 End Module
