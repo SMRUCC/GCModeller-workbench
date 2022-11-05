@@ -81,6 +81,8 @@ Module Modeller
                                      .ToArray
                               End Function)
 
+            Call buffer.Delete(blast_file)
+            Call buffer.Delete(json_file)
             Call buffer.WriteText(anno.ReadAllText, blast_file)
             Call buffer.WriteText(EC_numbers.GetJson, json_file)
         End Using
