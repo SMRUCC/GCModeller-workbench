@@ -25,10 +25,7 @@ const run = function(proj, ssid) {
 
     # create blastp database
 	# for run downstream annotation
-	save_fasta
-	|> makeblastdb(dbtype = "prot")
-	|> writeLines(con = buffer("text"))
-	;
+	makeblastdb(save_fasta, dbtype = "prot");
 
     Rstudio::echo_successMsg({
         ssid: ssid,
@@ -36,7 +33,8 @@ const run = function(proj, ssid) {
         # blast database targets that can be used for the 
         # data annotation job
         blast: {
-            ec_numbers: Rstudio::fs.ec_numbers_fasta()
+            ec_numbers: Rstudio::fs.ec_numbers_fasta(),
+            subcellular_location: Rstudio::fs.subcellular_locations_fasta()
         }
     })
     ;
