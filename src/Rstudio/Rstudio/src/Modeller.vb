@@ -48,6 +48,12 @@ Module Modeller
         Return True
     End Function
 
+    <ExportAPI("readProj")>
+    Public Function loadProject(proj As String) As Object
+        Dim buffer As Stream = proj.Open(FileMode.Open, doClear:=False, [readOnly]:=True)
+        Dim reader As New ProjectReader(buffer)
+    End Function
+
     <ExportAPI("extract_proteinset_fasta")>
     Public Function extractProteinSetFasta(proj As String, save As String) As Object
         Dim buffer As Stream = proj.Open(FileMode.Open, doClear:=False, [readOnly]:=True)
