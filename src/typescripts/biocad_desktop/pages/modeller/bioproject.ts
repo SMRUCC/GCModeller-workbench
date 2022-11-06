@@ -61,7 +61,7 @@ namespace pages.modeller {
                         })
                         .ToArray();
 
-                    new js_plot.piePlot("Metabolic Annotation", "Subcellular Locations", "summary_location_pie")
+                    new js_plot.piePlot("Subcellular Locations Annotation", "Metabolic Locations", "summary_location_pie")
                         .plot("protein numbers", count2)
                         ;
                 }
