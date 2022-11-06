@@ -30,15 +30,15 @@
 
         <div class="row">
             <div class="col-4">
-                <div id="summary_pie" style="width: 400px;height:300px;">
+                <div id="summary_pie" style="width: 450px;height:400px;">
                 </div>
             </div>
             <div class="col-4">
-                <div id="summary_enzyme_pie" style="width: 400px;height:300px;">
+                <div id="summary_enzyme_pie" style="width: 450px;height:400px;">
                 </div>
             </div>
             <div class="col-4">
-                <div id="summary_location_pie" style="width: 400px;height:300px;">
+                <div id="summary_location_pie" style="width: 450px;height:400px;">
                 </div>
             </div>
         </div>
