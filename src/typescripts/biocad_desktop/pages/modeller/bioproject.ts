@@ -51,6 +51,19 @@ namespace pages.modeller {
                         .plot("protein numbers", count1)
                         ;
 
+                    const subcellular_locations: {} = summary.subcellular_locations;
+                    const count2 = $from(Object.keys(subcellular_locations))
+                        .Select(function (label) {
+                            return {
+                                name: label,
+                                value: subcellular_locations[label]
+                            }
+                        })
+                        .ToArray();
+
+                    new js_plot.piePlot("Metabolic Annotation", "Subcellular Locations", "summary_location_pie")
+                        .plot("protein numbers", count2)
+                        ;
                 }
             });
         }
