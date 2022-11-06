@@ -20,7 +20,8 @@ namespace js_plot {
                 },
                 legend: {
                     orient: 'vertical',
-                    left: 'left'
+                    left: 'left',
+                    show: false
                 },
                 series: [
                     {
