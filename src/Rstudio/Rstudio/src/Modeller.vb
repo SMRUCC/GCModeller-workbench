@@ -3,9 +3,11 @@ Imports Microsoft.VisualBasic.CommandLine.Reflection
 Imports Microsoft.VisualBasic.Data.csv
 Imports Microsoft.VisualBasic.DataStorage.HDSPack
 Imports Microsoft.VisualBasic.DataStorage.HDSPack.FileSystem
+Imports Microsoft.VisualBasic.Linq
 Imports Microsoft.VisualBasic.Scripting.MetaData
 Imports Microsoft.VisualBasic.Serialization.JSON
 Imports SMRUCC.genomics.Assembly.NCBI.GenBank
+Imports SMRUCC.genomics.ComponentModel.Annotation
 Imports SMRUCC.genomics.Interops.NCBI.Extensions.LocalBLAST.Application.BBH
 Imports SMRUCC.genomics.Interops.NCBI.Extensions.LocalBLAST.BLASTOutput
 Imports SMRUCC.genomics.Model
@@ -13,6 +15,7 @@ Imports SMRUCC.genomics.Model.BioSystems
 Imports SMRUCC.genomics.SequenceModel.FASTA
 Imports SMRUCC.Rsharp.Runtime
 Imports SMRUCC.Rsharp.Runtime.Components
+Imports SMRUCC.Rsharp.Runtime.Internal.Object
 Imports SMRUCC.Rsharp.Runtime.Interop
 
 <Package("Modeller")>
@@ -52,6 +55,30 @@ Module Modeller
     Public Function loadProject(proj As String) As Object
         Dim buffer As Stream = proj.Open(FileMode.Open, doClear:=False, [readOnly]:=True)
         Dim reader As New ProjectReader(buffer)
+        Dim enzymeClass = Enums(Of EnzymeClasses)().ToDictionary(Function(a) CInt(a).ToString)
+        Dim annoClass = reader.GetEnzymeAnnotation.Values _
+            .IteratesALL _
+            .GroupBy(Function(a) a.Split("."c).First) _
+            .ToDictionary(Function(c) enzymeClass(c.Key).Description,
+                          Function(c)
+                              Return c.Count
+                          End Function)
+        Dim locations = reader.GetLocationAnnotation.Values _
+            .IteratesALL _
+            .GroupBy(Function(a) a) _
+            .ToDictionary(Function(a) a.Key,
+                          Function(a)
+                              Return a.Count
+                          End Function)
+
+        Return New list With {
+            .slots = New Dictionary(Of String, Object) From {
+                {"total", reader.TotalProteins},
+                {"number_enzymes", reader.TotalEnzymes},
+                {"enzyme_class", annoClass},
+                {"subcellular_locations", locations}
+            }
+        }
     End Function
 
     <ExportAPI("extract_proteinset_fasta")>
