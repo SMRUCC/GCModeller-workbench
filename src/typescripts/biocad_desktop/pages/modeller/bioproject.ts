@@ -36,6 +36,21 @@ namespace pages.modeller {
                         { name: "enzymes", value: enzyme_numbers },
                         { name: "no annotation", value: no_annotation }
                     ]);
+
+                    const enzyme_annotations: {} = summary.enzyme_class;
+                    const count1 = $from(Object.keys(enzyme_annotations))
+                        .Select(function (label) {
+                            return {
+                                name: label,
+                                value: enzyme_annotations[label]
+                            }
+                        })
+                        .ToArray();
+
+                    new js_plot.piePlot("Metabolic Annotation", "Enzyme Class Counts", "summary_enzyme_pie")
+                        .plot("protein numbers", count1)
+                        ;
+
                 }
             });
         }

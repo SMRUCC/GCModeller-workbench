@@ -25,10 +25,21 @@
                     local file: <code><pre id="path"></pre></code>
                 </p>
 
-                <p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
                 <div id="summary_pie" style="width: 600px;height:400px;">
                 </div>
-                </p>
+            </div>
+            <div class="col-4">
+                <div id="summary_enzyme_pie">
+                </div>
+            </div>
+            <div class="col-4">
+                <div id="summary_location_pie">
+                </div>
             </div>
         </div>
 
