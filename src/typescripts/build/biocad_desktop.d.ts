@@ -115,9 +115,34 @@ declare namespace desktop {
     }
 }
 declare namespace js_plot {
-    class scatter3d {
-        private myChart;
-        private option;
+    abstract class echarts_ts {
+        protected myChart: {
+            setOption: (opt: {}) => void;
+            resize: () => void;
+        };
+        protected option: {};
+        constructor(div?: string);
+        protected hookChartResizeEvt(): void;
+        /**
+         * call this function to show plot after config
+         * ``myChart`` and ``option`` these two objects.
+        */
+        protected show(): void;
+    }
+}
+declare namespace js_plot {
+    class piePlot extends echarts_ts {
+        title: string;
+        subtitle: string;
+        constructor(title: string, subtitle: string, div?: string);
+        plot(name: string, data: {
+            name: string;
+            value: number;
+        }[]): void;
+    }
+}
+declare namespace js_plot {
+    class scatter3d extends echarts_ts {
         constructor(div?: string);
         plot(data: any, symbolSize?: number): void;
     }
