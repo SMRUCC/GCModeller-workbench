@@ -1,16 +1,11 @@
+///<reference path="echarts_ts.ts" />
+
 namespace js_plot {
 
-    export class scatter3d {
-
-        private myChart: {};
-        private option = {};
+    export class scatter3d extends echarts_ts {
 
         public constructor(div: string = "Rplot_js") {
-            this.myChart = echarts.init(document.getElementById(div), null, {
-                renderer: 'canvas',
-                useDirtyRect: false
-            });
-            this.option && this.myChart.setOption(this.option);
+            super(div);
         }
 
         public plot(data, symbolSize = 30) {
@@ -42,8 +37,8 @@ namespace js_plot {
                 ]
             };
 
-            this.myChart.setOption(this.option);
-            window.addEventListener('resize', this.myChart.resize);
+            this.show();
+            this.hookChartResizeEvt();
         }
     }
 }

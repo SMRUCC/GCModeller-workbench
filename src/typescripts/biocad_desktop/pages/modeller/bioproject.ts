@@ -11,8 +11,21 @@ namespace pages.modeller {
         protected init(): void {
             // throw new Error("Method not implemented.");
             this.path = decodeURIComponent($ts.location("proj"));
+            this.loadSummary(this.path);
 
             $ts("#path").display(this.path);
+        }
+
+        private loadSummary(path: string) {
+            const url: string = `@web_invoke_inspect_model?proj=${encodeURIComponent(path)}`;
+
+            $ts.get(url, function (result) {
+                if (result.code != 0) {
+                    desktop.showToastMessage("Load project file error!", "Project Reader", "danger");
+                } else {
+                    console.log(result);
+                }
+            });
         }
 
         public enzyme_anno_onclick() {

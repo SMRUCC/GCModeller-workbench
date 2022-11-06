@@ -9,6 +9,7 @@
 
         <meta name="web_invoke_load" content="http://localhost:7452/modeller/load_project">
         <meta name="web_invoke_extract_proteins" content="http://localhost:7452/modeller/extract_proteins">
+        <meta name="web_invoke_inspect_model" content="http://localhost:7452/modeller/load_summary.R">
 
 </head>
 
@@ -44,6 +45,9 @@
 
     </div>
     <!-- End your project here-->
+
+    <script src="/javascript/echarts-5.4.0/echarts.min.js"></script>
+
 </body>
 
 </html>

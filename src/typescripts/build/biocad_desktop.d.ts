@@ -409,6 +409,7 @@ declare namespace pages.modeller {
         private path;
         readonly appName: string;
         protected init(): void;
+        private loadSummary;
         enzyme_anno_onclick(): void;
         subcellular_anno_onclick(): void;
         private create_localBlastTask;
