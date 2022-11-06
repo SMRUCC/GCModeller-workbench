@@ -23,7 +23,19 @@ namespace pages.modeller {
                 if (result.code != 0) {
                     desktop.showToastMessage("Load project file error!", "Project Reader", "danger");
                 } else {
-                    console.log(result);
+                    const summary: any = result.info;
+                    const total = summary.total;
+                    const enzyme_numbers = summary.number_enzymes;
+                    const no_annotation = (total - enzyme_numbers) < 0 ? 0 : (total - enzyme_numbers);
+
+                    console.log(summary);
+
+                    // show summary pie
+                    new js_plot.piePlot("Protein Annotations", "Metabolic Annotation", "summary_pie").plot(
+                        "protein numbers", [
+                        { name: "enzymes", value: enzyme_numbers },
+                        { name: "no annotation", value: no_annotation }
+                    ]);
                 }
             });
         }

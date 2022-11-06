@@ -9,7 +9,7 @@
 
         <meta name="web_invoke_load" content="http://localhost:7452/modeller/load_project">
         <meta name="web_invoke_extract_proteins" content="http://localhost:7452/modeller/extract_proteins">
-        <meta name="web_invoke_inspect_model" content="http://localhost:7452/modeller/load_summary.R">
+        <meta name="web_invoke_inspect_model" content="http://localhost:7452/modeller/load_summary">
 
 </head>
 
@@ -24,6 +24,11 @@
                 <p>
                     local file: <code><pre id="path"></pre></code>
                 </p>
+
+                <p>
+                <div id="summary_pie" style="width: 600px;height:400px;">
+                </div>
+                </p>
             </div>
         </div>
 
@@ -35,7 +40,8 @@
                     <!-- open blast page and then setup parameters 
                         for project file -->
                     <li><a id="enzyme_anno" href="#" onclick="javascript:void(0);">Enzyme Annotations</a></li>
-                    <li><a id="subcellular_anno" href="#" onclick="javascript:void(0);">Subcellular Location Annotations</a></li>
+                    <li><a id="subcellular_anno" href="#" onclick="javascript:void(0);">Subcellular Location
+                            Annotations</a></li>
                 </ul>
             </div>
         </div>
