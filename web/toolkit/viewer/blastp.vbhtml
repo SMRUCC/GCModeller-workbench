@@ -21,12 +21,9 @@
         </div>
 
         <div class="row">
-            <div class="col-auto" id="blast_output">
-            </div>
-        </div>
-
-        <div class="row">
             <div class="col-auto">
+
+                <h3>Annotation Hits Supports</h3>
 
                 <div id="preview_1">
 
@@ -35,11 +32,15 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-auto" id="blast_output">
+            </div>
+        </div>
 
         <%= ../../assets/includes/webapp.vbhtml %>
 
             <script src="/javascript/viewer.min.js" type="text/javascript"></script>
-
+            <script src="/javascript/echarts-5.4.0/echarts.min.js" type="text/javascript"></script>
     </div>
 
 </body>
