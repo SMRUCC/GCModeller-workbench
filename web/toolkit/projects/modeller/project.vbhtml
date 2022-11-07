@@ -45,6 +45,15 @@
 
         <div class="row">
             <div class="col-auto">
+                <ul>
+                    <li><a href="#" onclick="apps.gcmodeller.openEnzymeBlastViewer();">View Enzyme Annotation</a></li>
+                    <li><a href="#" onclick="apps.gcmodeller.openSubcellularBlastViewer();">View Subcellular Location Annotation</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-auto">
                 <h2>Project Task</h2>
 
                 <ul>

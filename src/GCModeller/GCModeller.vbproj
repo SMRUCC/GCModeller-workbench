@@ -353,6 +353,10 @@
       <Project>{cd07a55c-2513-4a44-a3fb-46b58408baca}</Project>
       <Name>biocore-netcore5</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\interops\localblast\LocalBLAST\localblast.NET5.vbproj">
+      <Project>{19a065c5-17c0-4730-a53c-58ec20e70f1b}</Project>
+      <Name>localblast.NET5</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\R-sharp\R#\Rsharp-netcore5.vbproj">
       <Project>{6db93fbd-8d99-443b-b5ab-6cdb5b6a83af}</Project>
       <Name>Rsharp-netcore5</Name>
