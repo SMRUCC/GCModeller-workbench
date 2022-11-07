@@ -10,7 +10,14 @@ namespace pages.viewers {
         };
 
         public get current_id(): string {
-            return this.protein_ids[this.intptr];
+            if (isNullOrUndefined(this.protein_ids) ||
+                isNullOrUndefined(this.intptr) ||
+                (this.protein_ids.length == 0)) {
+
+                return "Missing";
+            } else {
+                return this.protein_ids[this.intptr];
+            }
         }
 
         protected init(): void {
