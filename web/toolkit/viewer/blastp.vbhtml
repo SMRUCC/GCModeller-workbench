@@ -16,6 +16,17 @@
 
         <div class="row">
             <div class="col-auto">
+                get <span id="number_proteins"></span> Proteins
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-auto" id="blast_output">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-auto">
 
                 <div id="preview_1">
 

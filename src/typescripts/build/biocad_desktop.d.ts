@@ -42,6 +42,8 @@ interface biocad_desktop {
     getTaskList(): Promise<string[]>;
     checkTaskList(): Promise<string[]>;
     openPage(ssid: string, taskJSON: string): any;
+    getProteinIDs(): Promise<string[]>;
+    getBlastp(id: string): Promise<string>;
     getFileOpen(filterString: string): Promise<string>;
     getFileSave(filterString: string): Promise<string>;
     getFolderOpen(): Promise<string>;
@@ -489,6 +491,7 @@ declare namespace pages.repository {
          * Create a new background web task
         */
         run_onclick(): void;
+        run_rhea_onclick(): void;
         button_open_rhea_onclick(): void;
         button_open_uniprot_onclick(): void;
     }
@@ -543,6 +546,14 @@ declare namespace pages.suggestion_list {
     interface scoreTerm {
         score: number;
         term: term;
+    }
+}
+declare namespace pages.viewers {
+    class view_protein_blast extends Bootstrap {
+        private protein_ids;
+        readonly appName: string;
+        protected init(): void;
+        private viewBlastp;
     }
 }
 declare namespace pages.viewers {

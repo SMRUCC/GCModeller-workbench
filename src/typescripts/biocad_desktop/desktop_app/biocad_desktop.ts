@@ -9,6 +9,10 @@ interface biocad_desktop {
     checkTaskList(): Promise<string[]>;
     openPage(ssid: string, taskJSON: string);
 
+
+    getProteinIDs(): Promise<string[]>;
+    getBlastp(id: string): Promise<string>;
+
     // general functions that available
     // for all web app pages
     getFileOpen(filterString: string): Promise<string>;
