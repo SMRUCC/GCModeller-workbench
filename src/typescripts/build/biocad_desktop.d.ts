@@ -138,6 +138,18 @@ declare namespace js_plot {
     }
 }
 declare namespace js_plot {
+    class barplot extends echarts_ts {
+        constructor(div?: string);
+        plot(data: {
+            name: string;
+            value: number;
+        }[] | IEnumerator<{
+            name: string;
+            value: number;
+        }>): void;
+    }
+}
+declare namespace js_plot {
     class piePlot extends echarts_ts {
         title: string;
         subtitle: string;

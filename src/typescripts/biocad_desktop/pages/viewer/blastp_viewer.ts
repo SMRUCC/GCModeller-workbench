@@ -56,6 +56,11 @@ namespace pages.viewers {
         private viewBlastp(id: string) {
             const show = function (data: any[]) {
                 const terms: string[] = [];
+                const no_hits = data.length == 0 || (data.length == 1 && data[0].HitName == "HITS_NOT_FOUND");
+                const scores: {} = {};
+
+                console.table(data[0].HitName);
+                console.log(no_hits);
 
                 for (let i = 0; i < data.length; i++) {
                     delete data[i].QueryName;
@@ -67,12 +72,39 @@ namespace pages.viewers {
                     delete data[i].query_length;
 
                     data[i].evalue = data[i].evalue.toString();
-                    terms.push((<string>data[i].description).split('|')[0]);
+
+                    if (!Strings.Empty(<string>data[i].description, true)) {
+                        const term_id: string = (<string>data[i].description).split('|')[0];
+
+                        terms.push(term_id);
+
+                        if (!(term_id in scores)) {
+                            scores[term_id] = 0;
+                        }
+
+                        scores[term_id] += data[i].score;
+                    }
+                }
+
+                let subtitle: string;
+
+                if (no_hits) {
+                    subtitle = `<div class="alert alert-warning" role="alert" data-mdb-color="warning" style="width: 400px;">
+                    <i class="fas fa-exclamation-triangle me-3"></i>
+                    ${id} has no hits!
+                </div>`;
+                } else {
+                    subtitle = `${id} has ${data.length} annotation hits supports`;
                 }
 
                 $ts("#blast_output").clear();
-                $ts("#protein_id").clear().display(id);
-                $ts.appendTable(data, "#blast_output", null, { class: ["table", "table-sm"] });
+                $ts("#protein_id").clear().display(subtitle);
+
+                if (!no_hits) {
+                    $ts.appendTable(data, "#blast_output", null, { class: ["table", "table-sm"] });
+                } else {
+
+                }
 
                 const hits = $from(terms)
                     .GroupBy(x => x)
@@ -86,10 +118,16 @@ namespace pages.viewers {
 
                 console.log("get hits summary:");
                 console.table(hits);
+                console.log(scores);
 
                 new js_plot.piePlot("Annotation Hits Supports", "Term Hits", "preview_1")
                     .plot("protein hits", hits)
                     ;
+                new js_plot.barplot("preview_2").plot(
+                    $from(Object.keys(scores)).Select(function (name) {
+                        return { name: name, value: Math.log(scores[name]) };
+                    })
+                );
             }
 
             apps.gcmodeller.getBlastp(id).then(async function (json) {

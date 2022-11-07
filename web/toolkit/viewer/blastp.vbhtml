@@ -32,6 +32,11 @@
                 </div>
 
             </div>
+            <div class="col-auto">
+                <div id="preview_2" style="width: 650px;height:450px;">
+
+                </div>
+            </div>
         </div>
 
         <div class="row">
