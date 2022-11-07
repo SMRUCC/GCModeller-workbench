@@ -3,10 +3,15 @@ namespace pages.viewers {
     export class view_protein_blast extends Bootstrap {
 
         private protein_ids: string[];
+        private intptr: number = 0;
 
         public get appName(): string {
             return "blastp_viewer";
         };
+
+        public get current_id(): string {
+            return this.protein_ids[this.intptr];
+        }
 
         protected init(): void {
             const vm = this;
@@ -17,9 +22,28 @@ namespace pages.viewers {
                     list = await list;
                     vm.protein_ids = list;
                     vm.viewBlastp(vm.protein_ids[0]);
+                    vm.intptr = 0;
 
                     $ts("#number_proteins").display(vm.protein_ids.length.toString());
                 });
+        }
+
+        public previous_onclick() {
+            if (this.intptr == 0) {
+                // do nothing
+            } else {
+                this.intptr--;
+                this.viewBlastp(this.current_id);
+            }
+        }
+
+        public next_onclick() {
+            if (this.intptr == this.protein_ids.length - 1) {
+                // do nothing
+            } else {
+                this.intptr++;
+                this.viewBlastp(this.current_id);
+            }
         }
 
         private viewBlastp(id: string) {
@@ -40,6 +64,7 @@ namespace pages.viewers {
                 }
 
                 $ts("#blast_output").clear();
+                $ts("#protein_id").clear().display(id);
                 $ts.appendTable(data, "#blast_output", null, { class: ["table", "table-sm"] });
 
                 const hits = $from(terms)

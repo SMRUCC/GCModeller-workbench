@@ -16,19 +16,33 @@
 
         <div class="row">
             <div class="col-auto">
-                get <span id="number_proteins"></span> Proteins
+                <div class="alert alert-success" role="alert" data-mdb-color="success">
+                    <i class="fas fa-check-circle me-3"></i>
+                    get <span id="number_proteins"></span> Proteins
+                </div>
+
             </div>
         </div>
 
         <div class="row">
             <div class="col-auto">
 
-                <h3>Annotation Hits Supports</h3>
-
-                <div id="preview_1">
+                <div id="preview_1" style="width: 450px;height:400px;">
 
                 </div>
 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <button id="previous" type="button" class="btn btn-primary mb-3">Previous</button>
+            </div>
+            <div class="col-10" style="text-align: center;">
+                <span id="protein_id"></span>
+            </div>
+            <div class="col-1">
+                <button id="next" type="button" class="btn btn-primary mb-3">Next</button>
             </div>
         </div>
 

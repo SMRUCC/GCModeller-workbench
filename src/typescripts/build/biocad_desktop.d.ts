@@ -551,8 +551,12 @@ declare namespace pages.suggestion_list {
 declare namespace pages.viewers {
     class view_protein_blast extends Bootstrap {
         private protein_ids;
+        private intptr;
         readonly appName: string;
+        readonly current_id: string;
         protected init(): void;
+        previous_onclick(): void;
+        next_onclick(): void;
         private viewBlastp;
     }
 }
