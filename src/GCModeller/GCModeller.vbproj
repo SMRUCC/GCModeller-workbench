@@ -231,6 +231,7 @@
     <Compile Include="DocumentPages\WebApps\DataAnalysis\RunEnrichment.vb" />
     <Compile Include="DocumentPages\WebApps\Repository\ImportsNCBITaxonomy.vb" />
     <Compile Include="DocumentPages\WebApps\Repository\EnrichmentDatabase.vb" />
+    <Compile Include="DocumentPages\WebApps\Viewers\BlastpViewer.vb" />
     <Compile Include="DocumentPages\WebApps\Viewers\MotifLogo.vb" />
     <Compile Include="Explorer\FormDatabaseExplorer.Designer.vb">
       <DependentUpon>FormDatabaseExplorer.vb</DependentUpon>
