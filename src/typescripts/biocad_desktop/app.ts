@@ -7,6 +7,7 @@ namespace apps {
     export const ncbi_genbank_assembly: string = "NCBI GenBank assembly(*.gbff)|*.gbff";
     export const gcmodeller_project: string = "GCModeller Cell Project(*.bioproj)|*.bioproj";
     export const fasta_sequence: string = "Fasta sequence file(*.fasta;*.fas;*.fa)|*.fasta;*.fas;*.fa";
+    export const rhea_reactions: string = "Rhea reactions data(*.txt)|*.txt";
 
     /**
      * async proxy

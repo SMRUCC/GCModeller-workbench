@@ -28,9 +28,30 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col">
+
+                <h2>Install Rhea Reactions</h2>
+
+                <label for="rhea-file" class="form-label">Select UniProt Assembly:</label>
+                <div class="input-group mb-3">
+                    <button class="btn btn-primary" type="button" id="button_open_rhea" data-mdb-ripple-color="dark">
+                        <i class="far fa-folder-open"></i> Open UniProt
+                    </button>
+                    <input type="text" class="form-control" placeholder="" id="rhea-file"
+                        aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                </div>
+
+                <button class="btn btn-primary" type="button" id="run_rhea" data-mdb-ripple-color="dark">
+                    <i class="far fa-folder-open"></i> Build Database
+                </button>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col">
+                <h2>Create Enzyme Annotation Blast Database</h2>
+
                 <label for="matrix-file" class="form-label">Select UniProt Assembly:</label>
                 <div class="input-group mb-3">
                     <button class="btn btn-primary" type="button" id="button_open_uniprot" data-mdb-ripple-color="dark">

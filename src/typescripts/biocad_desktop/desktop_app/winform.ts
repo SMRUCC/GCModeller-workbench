@@ -1,5 +1,9 @@
 namespace desktop.winforms {
 
+    /**
+     * @param textbox_id a id string of the input text box
+     *    control in format of: start with symbol ``#``.
+    */
     export function openfileDialog(textbox_id: string, filter: string = "any file(*.*)|*.*") {
         desktop.loading();
         apps.gcmodeller

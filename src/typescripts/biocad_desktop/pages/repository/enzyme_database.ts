@@ -79,15 +79,12 @@ namespace pages.repository {
                 ;
         }
 
-        public button_open_uniprot() {
-            const textbox = $ts("#uniprot-file").CType<HTMLInputElement>();
+        public button_open_rhea_onclick() {
+            desktop.winforms.openfileDialog("#rhea-file", apps.rhea_reactions);
+        }
 
-            apps.gcmodeller
-                .getFileOpen(apps.uniprot_assembly)
-                .then(async function (path) {
-                    textbox.value = await path;
-                })
-                ;
+        public button_open_uniprot_onclick() {
+            desktop.winforms.openfileDialog("#uniprot-file", apps.uniprot_assembly);
         }
     }
 }

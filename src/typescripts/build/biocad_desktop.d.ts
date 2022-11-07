@@ -7,6 +7,7 @@ declare namespace apps {
     const ncbi_genbank_assembly: string;
     const gcmodeller_project: string;
     const fasta_sequence: string;
+    const rhea_reactions: string;
     /**
      * async proxy
     */
@@ -78,6 +79,10 @@ declare namespace desktop {
     function showToastMessage(msg: string, title?: string, level?: "danger" | "success" | "warning" | "info", autohide?: boolean): void;
 }
 declare namespace desktop.winforms {
+    /**
+     * @param textbox_id a id string of the input text box
+     *    control in format of: start with symbol ``#``.
+    */
     function openfileDialog(textbox_id: string, filter?: string): void;
 }
 declare namespace desktop {
@@ -434,6 +439,7 @@ declare namespace pages.modeller {
         private path;
         readonly appName: string;
         protected init(): void;
+        private static showPiePlot;
         private loadSummary;
         enzyme_anno_onclick(): void;
         subcellular_anno_onclick(): void;
@@ -483,7 +489,8 @@ declare namespace pages.repository {
          * Create a new background web task
         */
         run_onclick(): void;
-        button_open_uniprot(): void;
+        button_open_rhea_onclick(): void;
+        button_open_uniprot_onclick(): void;
     }
 }
 declare namespace pages.repository {
