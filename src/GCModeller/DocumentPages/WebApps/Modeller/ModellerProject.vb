@@ -33,6 +33,10 @@ Public Class ModellerProject : Inherits WebApp
         Call New RunBlast($"params:{ssid}").Open()
     End Sub
 
+    Public Sub openMetabolicViewer()
+        Call New MetabolicViewer(project).Open()
+    End Sub
+
     Public Sub openEnzymeBlastViewer()
         Dim data As BestHit() = getBlastp("/workspace/enzyme_blast.csv")
         Dim app As New BlastpViewer(data)

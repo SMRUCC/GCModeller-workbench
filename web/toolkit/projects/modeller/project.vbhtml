@@ -45,9 +45,20 @@
 
         <div class="row">
             <div class="col-auto">
+                <h2>View Model</h2>
+
+                <a href="#" onclick="apps.gcmodeller.openMetabolicViewer();">View Metabolic Network</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-auto">
+                <h2>View Blast Result</h2>
+
                 <ul>
                     <li><a href="#" onclick="apps.gcmodeller.openEnzymeBlastViewer();">View Enzyme Annotation</a></li>
-                    <li><a href="#" onclick="apps.gcmodeller.openSubcellularBlastViewer();">View Subcellular Location Annotation</a></li>
+                    <li><a href="#" onclick="apps.gcmodeller.openSubcellularBlastViewer();">View Subcellular Location
+                            Annotation</a></li>
                 </ul>
             </div>
         </div>
