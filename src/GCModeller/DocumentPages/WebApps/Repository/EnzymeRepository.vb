@@ -12,12 +12,16 @@ Public Class EnzymeRepository : Inherits WebApp
     End Sub
 
     Public Function getEnzymeClass() As String
+        Return getEnzymeClassId.GetJson
+    End Function
+
+    Public Shared Function getEnzymeClassId() As Dictionary(Of String, Integer)
         Dim classList As New Dictionary(Of String, Integer)
 
         For Each name As EnzymeClasses In Enums(Of EnzymeClasses)()
             classList.Add(name.Description, CInt(name))
         Next
 
-        Return classList.GetJson
+        Return classList
     End Function
 End Class

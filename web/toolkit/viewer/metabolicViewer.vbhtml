@@ -15,11 +15,19 @@
         <h1>View Metabolic Network Model</h1>
 
         <div class="row">
-            <div class="col-auto">
+            <div class="col-3">
 
                 <ul id="compartment-list"></ul>
 
-                <div id="preview_1">
+            </div>
+
+            <div class="col-auto">
+                <div class="row">
+                    <div id="enzyme-class" class="col-auto">
+
+                    </div>
+                </div>
+                <div class="row">
 
                 </div>
 

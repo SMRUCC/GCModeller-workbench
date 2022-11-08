@@ -2,6 +2,7 @@
 Imports System.Runtime.InteropServices
 Imports Microsoft.VisualBasic.DataStorage.HDSPack
 Imports Microsoft.VisualBasic.DataStorage.HDSPack.FileSystem
+Imports Microsoft.VisualBasic.Serialization.JSON
 
 <ClassInterface(ClassInterfaceType.AutoDual)>
 <ComVisible(True)>
@@ -13,6 +14,10 @@ Public Class MetabolicViewer : Inherits WebApp
         MyBase.New("/toolkit/viewer/metabolicViewer.vbhtml")
         Me.proj = proj
     End Sub
+
+    Public Function getEnzymeClass() As String
+        Return EnzymeRepository.getEnzymeClassId.GetJson
+    End Function
 
     Public Function getMetabolicCompartments() As String()
         Using file As Stream = proj.Open(FileMode.Open, [readOnly]:=True)
