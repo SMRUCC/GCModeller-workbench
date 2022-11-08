@@ -9,6 +9,8 @@ interface biocad_desktop {
     checkTaskList(): Promise<string[]>;
     openPage(ssid: string, taskJSON: string);
 
+    getMetabolicCompartments(): Promise<string[]>;
+    getMetabolicEnzymes(compartment: string): Promise<string>;
 
     getProteinIDs(): Promise<string[]>;
     getBlastp(id: string): Promise<string>;

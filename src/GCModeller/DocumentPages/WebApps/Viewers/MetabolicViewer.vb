@@ -14,7 +14,7 @@ Public Class MetabolicViewer : Inherits WebApp
         Me.proj = proj
     End Sub
 
-    Public Function GetMetabolicCompartments() As String()
+    Public Function getMetabolicCompartments() As String()
         Using file As Stream = proj.Open(FileMode.Open, [readOnly]:=True)
             Dim buffer As New StreamPack(file, [readonly]:=True)
             Dim folder As StreamGroup = buffer.GetObject("/metabolic/")
@@ -26,7 +26,7 @@ Public Class MetabolicViewer : Inherits WebApp
         End Using
     End Function
 
-    Public Function GetMetabolicEnzymes(compartment) As String
+    Public Function getMetabolicEnzymes(compartment As String) As String
         Using file As Stream = proj.Open(FileMode.Open, [readOnly]:=True)
             Dim path As String = $"/metabolic/{compartment}.json"
             Dim json As String = New StreamPack(file, [readonly]:=True).ReadText(path)

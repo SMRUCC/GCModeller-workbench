@@ -17,6 +17,8 @@
         <div class="row">
             <div class="col-auto">
 
+                <ul id="compartment-list"></ul>
+
                 <div id="preview_1">
 
                 </div>

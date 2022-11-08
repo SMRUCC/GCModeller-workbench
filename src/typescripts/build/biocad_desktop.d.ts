@@ -42,6 +42,8 @@ interface biocad_desktop {
     getTaskList(): Promise<string[]>;
     checkTaskList(): Promise<string[]>;
     openPage(ssid: string, taskJSON: string): any;
+    getMetabolicCompartments(): Promise<string[]>;
+    getMetabolicEnzymes(compartment: string): Promise<string>;
     getProteinIDs(): Promise<string[]>;
     getBlastp(id: string): Promise<string>;
     getFileOpen(filterString: string): Promise<string>;
@@ -570,6 +572,15 @@ declare namespace pages.viewers {
         previous_onclick(): void;
         next_onclick(): void;
         private viewBlastp;
+    }
+}
+declare namespace pages.viewers {
+    class metabolic_viewer extends Bootstrap {
+        readonly appName: string;
+        private readonly compartments;
+        protected init(): void;
+        private showMetabolicNetwork;
+        private showNetworkImpl;
     }
 }
 declare namespace pages.viewers {
