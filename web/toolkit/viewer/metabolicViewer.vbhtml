@@ -23,7 +23,7 @@
 
             <div class="col-auto">
                 <div class="row">
-                    <div id="enzyme-class" class="col-auto">
+                    <div id="enzyme-class" class="col-auto" style="width: 450px;height:400px;">
 
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         <%= ../../assets/includes/webapp.vbhtml %>
 
             <script src="/javascript/viewer.min.js" type="text/javascript"></script>
-
+            <script src="/javascript/echarts-5.4.0/echarts.min.js" type="text/javascript"></script>
     </div>
 
 </body>

@@ -76,14 +76,14 @@ namespace pages.viewers {
                 apps.gcmodeller.getMetabolicEnzymes(id).then(async function (json) {
                     json = await json;
                     vm.compartments[id] = JSON.parse(json);
-                    vm.showNetworkImpl(vm.compartments[id]);
+                    vm.showNetworkImpl(id, vm.compartments[id]);
                 });
             } else {
-                this.showNetworkImpl(this.compartments[id]);
+                this.showNetworkImpl(id, this.compartments[id]);
             }
         }
 
-        private showNetworkImpl(enzymes: enzyme[]) {
+        private showNetworkImpl(compartment: string, enzymes: enzyme[]) {
             const ec_numbers: string[] = [];
             const vm = this;
 
@@ -96,7 +96,9 @@ namespace pages.viewers {
             }
 
             const count_enzymes = $from(ec_numbers)
+                .Where(str => !Strings.Empty(str, true))
                 .GroupBy(id => id.split(".")[0])
+                .Where(group => `EC${group.Key}` in vm.category_index)
                 .Select(function (group) {
                     const num: string = group.Key;
                     const tag_name: string = vm.category_index[`EC${num}`];
@@ -107,6 +109,12 @@ namespace pages.viewers {
                     }
                 })
                 .ToArray()
+                ;
+
+            console.table(count_enzymes);
+
+            new js_plot.piePlot("Metabolic Composition", `Subcellular Location: ${compartment}`, "enzyme-class")
+                .plot("Reaction Counts", count_enzymes)
                 ;
         }
     }

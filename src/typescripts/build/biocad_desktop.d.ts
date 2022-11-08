@@ -600,6 +600,7 @@ declare namespace pages.viewers {
         readonly appName: string;
         private readonly compartments;
         private readonly enzyme_class;
+        private readonly category_index;
         protected init(): void;
         private showMetabolicNetwork;
         private showNetworkImpl;
