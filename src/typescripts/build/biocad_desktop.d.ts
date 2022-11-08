@@ -174,7 +174,7 @@ declare namespace js_plot {
     }
     class graph_plot extends echarts_ts {
         constructor(div?: string);
-        plot(graph: graph): void;
+        plot(title: string, graph: graph): void;
     }
 }
 declare namespace js_plot {

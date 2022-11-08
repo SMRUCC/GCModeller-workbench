@@ -22,13 +22,13 @@ namespace js_plot {
             super(div);
         }
 
-        public plot(graph: graph) {
+        public plot(title: string, graph: graph) {
             console.log("view of the graph data:");
             console.log(graph);
 
             this.option = {
                 title: {
-                    text: 'Les Miserables',
+                    text: title,
                     subtext: 'Default layout',
                     top: 'bottom',
                     left: 'right'
@@ -44,7 +44,7 @@ namespace js_plot {
                 ],
                 series: [
                     {
-                        name: 'Les Miserables',
+                        name: title,
                         type: 'graph',
                         layout: 'force',
                         data: graph.nodes,

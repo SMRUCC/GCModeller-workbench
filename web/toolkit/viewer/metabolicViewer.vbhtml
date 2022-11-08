@@ -29,7 +29,7 @@
 
                     </div>
 
-                    <div id="container" style="height: 100%">
+                    <div id="container" style="height: 500px;">
                         <!-- the graph canvas container -->
                     </div>
                 </div>

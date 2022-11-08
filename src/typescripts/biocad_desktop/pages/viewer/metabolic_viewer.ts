@@ -83,11 +83,11 @@ namespace pages.viewers {
                     json = await json;
                     vm.compartments[id] = JSON.parse(json);
                     vm.showNetworkImpl(id, vm.compartments[id]);
-                    vm.showGraph(vm.compartments[id]);
+                    vm.showGraph(id, vm.compartments[id]);
                 });
             } else {
                 this.showNetworkImpl(id, this.compartments[id]);
-                this.showGraph(this.compartments[id]);
+                this.showGraph(id, this.compartments[id]);
             }
         }
 
@@ -142,23 +142,33 @@ namespace pages.viewers {
                 });
         }
 
-        private showGraph(enzymes: enzyme[]) {
+        private showGraph(compartment: string, enzymes: enzyme[]) {
             const nodes: {} = {};
             const links: { source: string, target: string }[] = [];
+
+            nodes[compartment] = <js_plot.graph_node>{
+                id: compartment,
+                name: compartment,
+                symbolSize: enzymes.length + 1
+            };
 
             for (let enzyme of enzymes) {
                 nodes[enzyme.protein_id] = <js_plot.graph_node>{
                     id: enzyme.protein_id,
                     name: enzyme.protein_id,
-                    symbolSize: enzyme.reactions.length
+                    symbolSize: enzyme.reactions.length + 1
                 };
+                links.push({
+                    source: compartment,
+                    target: enzyme.protein_id
+                });
 
                 for (let rxn of enzyme.reactions) {
                     if (!(rxn.entry in nodes)) {
                         nodes[rxn.entry] = <js_plot.graph_node>{
                             id: rxn.entry,
                             name: rxn.definition,
-                            symbolSize: 1
+                            symbolSize: 3
                         }
                     }
 
@@ -169,11 +179,13 @@ namespace pages.viewers {
                 }
             }
 
-            new js_plot.graph_plot("container").plot(<js_plot.graph>{
-                nodes: nodes,
-                links: links,
-                categories: []
-            });
+            new js_plot.graph_plot("container").plot(
+                `Metabolic_graph@${compartment}`,
+                <js_plot.graph>{
+                    nodes: $from(Object.keys(nodes)).Select(id => <js_plot.graph_node>nodes[id]).ToArray(),
+                    links: links,
+                    categories: []
+                });
         }
     }
 }
