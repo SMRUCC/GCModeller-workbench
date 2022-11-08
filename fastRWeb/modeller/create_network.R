@@ -2,8 +2,8 @@ require(JSON);
 require(GCModeller);
 require(RStudio);
 
-imports "enzymatic" from "vcellkit";
 imports "Modeller" from "GCModellerDesktop";
+imports "enzymatic" from "vcellkit";
 
 #' create metabolic network model based on the annotation result
 #' 

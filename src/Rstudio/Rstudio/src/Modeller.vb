@@ -30,7 +30,7 @@ Module Modeller
         Dim enzymes = reader.GetEnzymeAnnotation
         Dim compartments = reader.GetLocationAnnotation
         Dim defaultLocation As String = "Cytoplasm"
-        Dim subcellularLocations As New Dictionary(Of String, List(Of NamedValue(Of Rhea.Reaction())))
+        Dim subcellularLocations As New Dictionary(Of String, List(Of Enzyme))
 
         For Each protein In enzymes
             Dim locations = compartments.TryGetValue(protein.Key, [default]:={defaultLocation})
@@ -43,12 +43,17 @@ Module Modeller
 
             For Each tag As String In locations
                 If Not subcellularLocations.ContainsKey(tag) Then
-                    subcellularLocations.Add(tag, New List(Of NamedValue(Of Rhea.Reaction())))
+                    subcellularLocations.Add(tag, New List(Of Enzyme))
                 End If
 
-                subcellularLocations(tag).Add(New NamedValue(Of Rhea.Reaction())(protein.Key, reactions))
+                subcellularLocations(tag).Add(New Enzyme With {
+                    .protein_id = protein.Key,
+                    .reactions = reactions
+                })
             Next
         Next
+
+
 
         Return Nothing
     End Function
