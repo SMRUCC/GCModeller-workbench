@@ -176,6 +176,24 @@ namespace pages.viewers {
                         source: enzyme.protein_id,
                         target: rxn.entry
                     });
+
+                    const eq = rxn.euqation;
+                    const factors = [...eq.Reactants].concat(eq.Products);
+
+                    for (let factor of factors) {
+                        if (!(factor.ID in nodes)) {
+                            nodes[factor.ID] = <js_plot.graph_node>{
+                                id: factor.ID,
+                                name: factor.ID,
+                                symbolSize: 3
+                            };
+                        }
+
+                        links.push({
+                            source: rxn.entry,
+                            target: factor.ID
+                        })
+                    }
                 }
             }
 
