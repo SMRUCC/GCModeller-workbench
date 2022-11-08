@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports Microsoft.VisualBasic.CommandLine.Reflection
+Imports Microsoft.VisualBasic.ComponentModel.DataSourceModel
 Imports Microsoft.VisualBasic.Data.csv
 Imports Microsoft.VisualBasic.DataStorage.HDSPack
 Imports Microsoft.VisualBasic.DataStorage.HDSPack.FileSystem
@@ -28,6 +29,26 @@ Module Modeller
         Dim reader As New ProjectReader(buffer)
         Dim enzymes = reader.GetEnzymeAnnotation
         Dim compartments = reader.GetLocationAnnotation
+        Dim defaultLocation As String = "Cytoplasm"
+        Dim subcellularLocations As New Dictionary(Of String, List(Of NamedValue(Of Rhea.Reaction())))
+
+        For Each protein In enzymes
+            Dim locations = compartments.TryGetValue(protein.Key, [default]:={defaultLocation})
+            Dim reactions As Rhea.Reaction() = protein.Value _
+                .Select(Function(ec) rhea.GetByEnzymeNumber(ec)) _
+                .IteratesALL _
+                .GroupBy(Function(a) a.entry) _
+                .Select(Function(a) a.First) _
+                .ToArray
+
+            For Each tag As String In locations
+                If Not subcellularLocations.ContainsKey(tag) Then
+                    subcellularLocations.Add(tag, New List(Of NamedValue(Of Rhea.Reaction())))
+                End If
+
+                subcellularLocations(tag).Add(New NamedValue(Of Rhea.Reaction())(protein.Key, reactions))
+            Next
+        Next
 
         Return Nothing
     End Function
