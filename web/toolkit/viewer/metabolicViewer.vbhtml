@@ -17,7 +17,9 @@
         <div class="row">
             <div class="col-3">
 
-                <ul id="compartment-list"></ul>
+                <select id="compartment_list">
+
+                </select>
 
             </div>
 

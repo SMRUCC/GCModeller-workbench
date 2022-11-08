@@ -39,7 +39,7 @@ namespace pages.viewers {
 
         protected init(): void {
             const vm = this;
-            const list = $ts("#compartment-list");
+            const list = $ts("#compartment_list");
 
             apps.gcmodeller.getEnzymeClass().then(async function (json) {
                 json = await json;
@@ -57,15 +57,14 @@ namespace pages.viewers {
                 const compartment_ids: string[] = await list_ids;
 
                 for (let id of compartment_ids) {
-                    const ref: string = id.replace(/\s+/ig, "-");
-
                     vm.compartments[id] = [];
-                    list.appendElement($ts("<li>").display(`<a href="#" onclick="javascript:void(0);" id="${ref}">${id}</a>`));
-                    $ts(`#${ref}`).onclick = function () {
-                        vm.showMetabolicNetwork(id);
-                    }
+                    list.appendElement($ts("<option>", { value: id }).display(id));
                 }
             });
+        }
+
+        public compartment_list_onchange(id: string) {
+            this.showMetabolicNetwork(id);
         }
 
         private showMetabolicNetwork(id: string) {
