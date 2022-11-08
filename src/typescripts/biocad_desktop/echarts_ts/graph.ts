@@ -56,6 +56,9 @@ namespace js_plot {
                         },
                         force: {
                             repulsion: 100
+                        },
+                        lineStyle: {
+                            width: 3
                         }
                     }
                 ]

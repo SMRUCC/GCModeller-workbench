@@ -11,7 +11,7 @@ namespace pages.viewers {
         definition: string;
         entry: string;
         enzyme: string[];
-        euqation: equation;
+        equation: equation;
     }
 
     export interface equation {
@@ -130,6 +130,8 @@ namespace pages.viewers {
                 .plot("Reaction Counts", count_enzymes)
                 ;
 
+            let n = 0;
+
             $from(reactions)
                 .GroupBy(rxn => rxn.entry)
                 .ForEach(function (data) {
@@ -138,13 +140,22 @@ namespace pages.viewers {
                     const link = $ts("<a>", { id: ref_id, href: "#" }).display(rxn.definition.replace(/[<]/ig, "&lt;"));
                     const li = $ts("<li>").display(link);
 
+                    n++;
                     rxnList.appendElement(li);
                 });
+
+            $ts("#number_reactions").display(n.toString());
         }
 
         private showGraph(compartment: string, enzymes: enzyme[]) {
             const nodes: {} = {};
             const links: { source: string, target: string }[] = [];
+            const category = [
+                { name: "Enzyme Protein" },
+                { name: "Reaction" },
+                { name: "Metabolite" },
+            ];
+            const min_size = 8;
 
             // nodes[compartment] = <js_plot.graph_node>{
             //     id: compartment,
@@ -156,7 +167,8 @@ namespace pages.viewers {
                 nodes[enzyme.protein_id] = <js_plot.graph_node>{
                     id: enzyme.protein_id,
                     name: enzyme.protein_id,
-                    symbolSize: enzyme.reactions.length + 1
+                    symbolSize: enzyme.reactions.length + min_size,
+                    category: 0
                 };
                 // links.push({
                 //     source: compartment,
@@ -168,7 +180,8 @@ namespace pages.viewers {
                         nodes[rxn.entry] = <js_plot.graph_node>{
                             id: rxn.entry,
                             name: rxn.definition,
-                            symbolSize: 3
+                            symbolSize: min_size,
+                            category: 1
                         }
                     }
 
@@ -177,7 +190,7 @@ namespace pages.viewers {
                         target: rxn.entry
                     });
 
-                    const eq = rxn.euqation;
+                    const eq = rxn.equation;
                     const factors = [...eq.Reactants].concat(eq.Products);
 
                     for (let factor of factors) {
@@ -185,7 +198,8 @@ namespace pages.viewers {
                             nodes[factor.ID] = <js_plot.graph_node>{
                                 id: factor.ID,
                                 name: factor.ID,
-                                symbolSize: 3
+                                symbolSize: min_size,
+                                category: 2
                             };
                         }
 
@@ -202,7 +216,7 @@ namespace pages.viewers {
                 <js_plot.graph>{
                     nodes: $from(Object.keys(nodes)).Select(id => <js_plot.graph_node>nodes[id]).ToArray(),
                     links: links,
-                    categories: []
+                    categories: category
                 });
         }
     }

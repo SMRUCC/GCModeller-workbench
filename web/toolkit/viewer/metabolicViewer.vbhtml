@@ -14,36 +14,47 @@
 
         <h1>View Metabolic Network Model</h1>
 
+
         <div class="row">
-            <div class="col-3">
+            <div class="col-auto">
+                <h3>Select subcellular location:</h3>
 
                 <select id="compartment_list" class="form-control select-input placeholder-active active">
 
                 </select>
 
             </div>
+        </div>
 
-            <div class="col-auto">
-                <div class="row">
-                    <div id="enzyme-class" class="col-auto" style="width: 450px;height:400px;">
+        <br /><br />
 
-                    </div>
+        <div class="row">
+            <div id="enzyme-class" class="col-4" style="width: 400px;height:400px;">
 
-                    <div id="container" style="height: 500px;">
-                        <!-- the graph canvas container -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-auto">
-                        <ul id="reaction-graph-data">
+            </div>
 
-                        </ul>
-                    </div>
-                </div>
-
+            <div class="col-8" id="container" style="height: 500px;">
+                <!-- the graph canvas container -->
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="alert alert-success" role="alert" data-mdb-color="success">
+                            <i class="fas fa-check-circle me-3"></i>
+                            <span id="number_reactions"></span> enzymatic reactions is annotated!
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <ul id="reaction-graph-data">
+
+                </ul>
+            </div>
+        </div>
 
         <%= ../../assets/includes/webapp.vbhtml %>
 

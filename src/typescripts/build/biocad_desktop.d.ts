@@ -609,7 +609,7 @@ declare namespace pages.viewers {
         definition: string;
         entry: string;
         enzyme: string[];
-        euqation: equation;
+        equation: equation;
     }
     interface equation {
         Id: string;
