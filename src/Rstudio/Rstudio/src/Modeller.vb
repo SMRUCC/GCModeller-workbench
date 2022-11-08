@@ -8,6 +8,7 @@ Imports Microsoft.VisualBasic.Scripting.MetaData
 Imports Microsoft.VisualBasic.Serialization.JSON
 Imports SMRUCC.genomics.Assembly.NCBI.GenBank
 Imports SMRUCC.genomics.ComponentModel.Annotation
+Imports SMRUCC.genomics.Data
 Imports SMRUCC.genomics.Interops.NCBI.Extensions.LocalBLAST.Application.BBH
 Imports SMRUCC.genomics.Interops.NCBI.Extensions.LocalBLAST.BLASTOutput
 Imports SMRUCC.genomics.Model
@@ -20,6 +21,16 @@ Imports SMRUCC.Rsharp.Runtime.Interop
 
 <Package("Modeller")>
 Module Modeller
+
+    <ExportAPI("build_metabolic_network")>
+    Public Function buildMetabolicNetwork(proj As String, rhea As RheaNetworkReader) As Object
+        Dim buffer As Stream = proj.Open(FileMode.Open, doClear:=False, [readOnly]:=True)
+        Dim reader As New ProjectReader(buffer)
+        Dim enzymes = reader.GetEnzymeAnnotation
+        Dim compartments = reader.GetLocationAnnotation
+
+        Return Nothing
+    End Function
 
     <ExportAPI("loadProject")>
     <RApiReturn(GetType(Project))>
@@ -51,6 +62,11 @@ Module Modeller
         Return True
     End Function
 
+    ''' <summary>
+    ''' get project summary metadata
+    ''' </summary>
+    ''' <param name="proj"></param>
+    ''' <returns></returns>
     <ExportAPI("readProj")>
     Public Function loadProject(proj As String) As Object
         Dim buffer As Stream = proj.Open(FileMode.Open, doClear:=False, [readOnly]:=True)
