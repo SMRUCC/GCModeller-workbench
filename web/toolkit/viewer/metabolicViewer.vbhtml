@@ -28,7 +28,11 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-auto">
+                        <ul id="reaction-graph-data">
 
+                        </ul>
+                    </div>
                 </div>
 
             </div>

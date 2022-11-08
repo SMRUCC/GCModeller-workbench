@@ -86,12 +86,16 @@ namespace pages.viewers {
         private showNetworkImpl(compartment: string, enzymes: enzyme[]) {
             const ec_numbers: string[] = [];
             const vm = this;
+            const reactions: reaction[] = [];
+            const rxnList = $ts("#reaction-graph-data").clear();
 
             for (let enzyme of enzymes) {
                 for (let rxn of enzyme.reactions) {
                     for (let number of rxn.enzyme) {
                         ec_numbers.push(number);
                     }
+
+                    reactions.push(rxn);
                 }
             }
 
@@ -112,10 +116,22 @@ namespace pages.viewers {
                 ;
 
             console.table(count_enzymes);
+            console.log(reactions);
 
             new js_plot.piePlot("Metabolic Composition", `Subcellular Location: ${compartment}`, "enzyme-class")
                 .plot("Reaction Counts", count_enzymes)
                 ;
+
+            $from(reactions)
+                .GroupBy(rxn => rxn.entry)
+                .ForEach(function (data) {
+                    const rxn = data.First;
+                    const ref_id: string = rxn.entry.replace(":", "-");
+                    const link = $ts("<a>", { id: ref_id, href: "#" }).display(rxn.definition.replace(/[<]/ig, "&lt;"));
+                    const li = $ts("<li>").display(link);
+
+                    rxnList.appendElement(li);
+                });
         }
     }
 }
