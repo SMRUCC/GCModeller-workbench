@@ -602,7 +602,10 @@ declare namespace pages.viewers {
         private readonly enzyme_class;
         private readonly category_index;
         protected init(): void;
-        compartment_list_onchange(id: string): void;
+        /**
+         * @param id is a array when select options populated?
+        */
+        compartment_list_onchange(id: string[] | string): void;
         private showMetabolicNetwork;
         private showNetworkImpl;
     }

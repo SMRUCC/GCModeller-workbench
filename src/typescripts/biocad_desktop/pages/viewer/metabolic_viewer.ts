@@ -63,8 +63,15 @@ namespace pages.viewers {
             });
         }
 
-        public compartment_list_onchange(id: string) {
-            this.showMetabolicNetwork(id);
+        /**
+         * @param id is a array when select options populated?
+        */
+        public compartment_list_onchange(id: string[] | string) {
+            if (typeof id == "string") {
+                this.showMetabolicNetwork(id);
+            } else {
+                this.showMetabolicNetwork(id[0]);
+            }
         }
 
         private showMetabolicNetwork(id: string) {

@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-3">
 
-                <select id="compartment_list">
+                <select id="compartment_list" class="form-control select-input placeholder-active active">
 
                 </select>
 
