@@ -35,6 +35,7 @@ namespace pages.viewers {
 
         private readonly compartments: {} = {};
         private readonly enzyme_class: {} = {};
+        private readonly category_index: {} = {};
 
         protected init(): void {
             const vm = this;
@@ -47,6 +48,7 @@ namespace pages.viewers {
 
                 for (let name in classList) {
                     vm.enzyme_class[name] = classList[name];
+                    vm.category_index[`EC${classList[name]}`] = name;
                 }
 
                 console.log(vm.enzyme_class);
@@ -83,6 +85,7 @@ namespace pages.viewers {
 
         private showNetworkImpl(enzymes: enzyme[]) {
             const ec_numbers: string[] = [];
+            const vm = this;
 
             for (let enzyme of enzymes) {
                 for (let rxn of enzyme.reactions) {
@@ -92,9 +95,19 @@ namespace pages.viewers {
                 }
             }
 
-            const count_enzymes = $from(ec_numbers).GroupBy(id => id.split(".")[0]).Select(function(group) {
-                
-            });
+            const count_enzymes = $from(ec_numbers)
+                .GroupBy(id => id.split(".")[0])
+                .Select(function (group) {
+                    const num: string = group.Key;
+                    const tag_name: string = vm.category_index[`EC${num}`];
+
+                    return {
+                        name: tag_name,
+                        value: group.Count
+                    }
+                })
+                .ToArray()
+                ;
         }
     }
 }
