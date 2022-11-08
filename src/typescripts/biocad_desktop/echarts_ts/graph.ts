@@ -23,7 +23,9 @@ namespace js_plot {
         }
 
         public plot(graph: graph) {
-            this.myChart.hideLoading();
+            console.log("view of the graph data:");
+            console.log(graph);
+
             this.option = {
                 title: {
                     text: 'Les Miserables',
@@ -58,9 +60,6 @@ namespace js_plot {
                     }
                 ]
             };
-
-            console.log("view of the graph data:");
-            console.log(graph);
 
             this.show();
         }
