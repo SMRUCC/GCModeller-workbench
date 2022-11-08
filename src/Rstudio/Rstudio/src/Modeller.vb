@@ -53,7 +53,15 @@ Module Modeller
             Next
         Next
 
+        Call reader.Dispose()
 
+        Dim writer As New ProjectWriter(proj.Open(FileMode.Open))
+
+        For Each location In subcellularLocations
+            Call writer.WriteMetabolicNetwork(location.Key, location.Value)
+        Next
+
+        Call writer.Dispose()
 
         Return Nothing
     End Function
