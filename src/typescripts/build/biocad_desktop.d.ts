@@ -575,9 +575,31 @@ declare namespace pages.viewers {
     }
 }
 declare namespace pages.viewers {
+    interface enzyme {
+        protein_id: string;
+        reactions: reaction[];
+    }
+    interface reaction {
+        definition: string;
+        entry: string;
+        enzyme: string[];
+        euqation: equation;
+    }
+    interface equation {
+        Id: string;
+        reversible: boolean;
+        Reactants: CompoundFactor[];
+        Products: CompoundFactor[];
+    }
+    interface CompoundFactor {
+        Compartment: string;
+        ID: string;
+        StoiChiometry: number;
+    }
     class metabolic_viewer extends Bootstrap {
         readonly appName: string;
         private readonly compartments;
+        private readonly enzyme_class;
         protected init(): void;
         private showMetabolicNetwork;
         private showNetworkImpl;

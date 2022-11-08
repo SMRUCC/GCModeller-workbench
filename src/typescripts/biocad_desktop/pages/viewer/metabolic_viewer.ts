@@ -2,6 +2,31 @@
 
 namespace pages.viewers {
 
+    export interface enzyme {
+        protein_id: string;
+        reactions: reaction[];
+    }
+
+    export interface reaction {
+        definition: string;
+        entry: string;
+        enzyme: string[];
+        euqation: equation;
+    }
+
+    export interface equation {
+        Id: string;
+        reversible: boolean;
+        Reactants: CompoundFactor[];
+        Products: CompoundFactor[];
+    }
+
+    export interface CompoundFactor {
+        Compartment: string;
+        ID: string;
+        StoiChiometry: number;
+    }
+
     export class metabolic_viewer extends Bootstrap {
 
         public get appName(): string {
@@ -9,11 +34,23 @@ namespace pages.viewers {
         };
 
         private readonly compartments: {} = {};
+        private readonly enzyme_class: {} = {};
 
         protected init(): void {
             const vm = this;
             const list = $ts("#compartment-list");
 
+            apps.gcmodeller.getEnzymeClass().then(async function (json) {
+                json = await json;
+
+                let classList = JSON.parse(json);
+
+                for (let name in classList) {
+                    vm.enzyme_class[name] = classList[name];
+                }
+
+                console.log(vm.enzyme_class);
+            });
             apps.gcmodeller.getMetabolicCompartments().then(async function (list_ids) {
                 const compartment_ids: string[] = await list_ids;
 
@@ -26,7 +63,7 @@ namespace pages.viewers {
                         vm.showMetabolicNetwork(id);
                     }
                 }
-            })
+            });
         }
 
         private showMetabolicNetwork(id: string) {
@@ -44,8 +81,20 @@ namespace pages.viewers {
             }
         }
 
-        private showNetworkImpl(enzymes: any[]) {
-            console.log(enzymes);
+        private showNetworkImpl(enzymes: enzyme[]) {
+            const ec_numbers: string[] = [];
+
+            for (let enzyme of enzymes) {
+                for (let rxn of enzyme.reactions) {
+                    for (let number of rxn.enzyme) {
+                        ec_numbers.push(number);
+                    }
+                }
+            }
+
+            const count_enzymes = $from(ec_numbers).GroupBy(id => id.split(".")[0]).Select(function(group) {
+                
+            });
         }
     }
 }
