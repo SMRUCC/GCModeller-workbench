@@ -28,6 +28,10 @@
                     <div id="enzyme-class" class="col-auto" style="width: 450px;height:400px;">
 
                     </div>
+
+                    <div id="container" style="height: 100%">
+                        <!-- the graph canvas container -->
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-auto">

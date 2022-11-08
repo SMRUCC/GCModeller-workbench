@@ -83,9 +83,11 @@ namespace pages.viewers {
                     json = await json;
                     vm.compartments[id] = JSON.parse(json);
                     vm.showNetworkImpl(id, vm.compartments[id]);
+                    vm.showGraph(vm.compartments[id]);
                 });
             } else {
                 this.showNetworkImpl(id, this.compartments[id]);
+                this.showGraph(this.compartments[id]);
             }
         }
 
@@ -138,6 +140,40 @@ namespace pages.viewers {
 
                     rxnList.appendElement(li);
                 });
+        }
+
+        private showGraph(enzymes: enzyme[]) {
+            const nodes: {} = {};
+            const links: { source: string, target: string }[] = [];
+
+            for (let enzyme of enzymes) {
+                nodes[enzyme.protein_id] = <js_plot.graph_node>{
+                    id: enzyme.protein_id,
+                    name: enzyme.protein_id,
+                    symbolSize: enzyme.reactions.length
+                };
+
+                for (let rxn of enzyme.reactions) {
+                    if (!(rxn.entry in nodes)) {
+                        nodes[rxn.entry] = <js_plot.graph_node>{
+                            id: rxn.entry,
+                            name: rxn.definition,
+                            symbolSize: 1
+                        }
+                    }
+
+                    links.push({
+                        source: enzyme.protein_id,
+                        target: rxn.entry
+                    });
+                }
+            }
+
+            new js_plot.graph_plot("container").plot(<js_plot.graph>{
+                nodes: nodes,
+                links: links,
+                categories: []
+            });
         }
     }
 }

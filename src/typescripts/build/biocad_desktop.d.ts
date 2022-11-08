@@ -128,6 +128,7 @@ declare namespace js_plot {
         protected myChart: {
             setOption: (opt: {}) => void;
             resize: () => void;
+            hideLoading: () => void;
         };
         protected option: {};
         constructor(div?: string);
@@ -149,6 +150,31 @@ declare namespace js_plot {
             name: string;
             value: number;
         }>): void;
+    }
+}
+declare namespace js_plot {
+    interface graph {
+        categories: {
+            name: string;
+        }[];
+        nodes: graph_node[];
+        links: {
+            source: string;
+            target: string;
+        }[];
+    }
+    interface graph_node {
+        id: string;
+        name: string;
+        category: number;
+        symbolSize: number;
+        value: number;
+        x: number;
+        y: number;
+    }
+    class graph_plot extends echarts_ts {
+        constructor(div?: string);
+        plot(graph: graph): void;
     }
 }
 declare namespace js_plot {
@@ -608,6 +634,7 @@ declare namespace pages.viewers {
         compartment_list_onchange(id: string[] | string): void;
         private showMetabolicNetwork;
         private showNetworkImpl;
+        private showGraph;
     }
 }
 declare namespace pages.viewers {

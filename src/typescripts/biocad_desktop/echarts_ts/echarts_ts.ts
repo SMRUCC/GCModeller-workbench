@@ -4,7 +4,8 @@ namespace js_plot {
 
         protected myChart: {
             setOption: (opt: {}) => void,
-            resize: () => void
+            resize: () => void,
+            hideLoading: () => void
         };
         protected option = {};
 
