@@ -29,12 +29,7 @@ const run = function(file, name, note = "") {
             |> writeLines(con = buffer("text"))
             ;
         } else {
-            json_encode({
-                code: 0, 
-                info: savedb
-            }) 
-            |> writeLines(con = buffer("text"))
-            ;
+            Rstudio::echo_successMsg(savedb);
         }
     }    
 }

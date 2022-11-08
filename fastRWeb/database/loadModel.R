@@ -4,17 +4,15 @@ require(GCModeller);
 
 imports "ptf" from "annotationKit";
 
+#' load enrichment background model
+#' 
 const run = function(guid, xref) {
     const db = HDS::openStream(`/etc/repository/ptf/${guid}.db`);    
     const model = ptf::load_xref(db, xref);
     
-    json_encode({
-        code: 0, 
-        info: {
-            clusters: model
-        }
-    }) 
-    |> writeLines(con = buffer("text"))
+    Rstudio::echo_successMsg({
+        clusters: model
+    })
     ;
 }
 

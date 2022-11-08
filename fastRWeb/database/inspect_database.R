@@ -13,16 +13,11 @@ const run = function(guid) {
 
     # print(HDS::tree(db));
 
-    json_encode({
-        code: 0, 
-        info: {
-            counts: protein_counts,
-            backgrounds: xrefs,
-            summary: summary_info
-        }
-    }) 
-    |> writeLines(con = buffer("text"))
-    ;
+    Rstudio::echo_successMsg({
+        counts: protein_counts,
+        backgrounds: xrefs,
+        summary: summary_info
+    });
 }
 
 

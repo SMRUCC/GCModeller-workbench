@@ -9,12 +9,5 @@ const run = function(gbff) {
         ]);
     }
 
-
-
-    json_encode({
-        code: 0,
-        info: ""
-    })
-    |> writeLines(con = buffer("text"))
-    ;
+    Rstudio::echo_successMsg("");
 }
