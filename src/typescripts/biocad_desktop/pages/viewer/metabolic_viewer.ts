@@ -146,11 +146,11 @@ namespace pages.viewers {
             const nodes: {} = {};
             const links: { source: string, target: string }[] = [];
 
-            nodes[compartment] = <js_plot.graph_node>{
-                id: compartment,
-                name: compartment,
-                symbolSize: enzymes.length + 1
-            };
+            // nodes[compartment] = <js_plot.graph_node>{
+            //     id: compartment,
+            //     name: compartment,
+            //     symbolSize: Math.log10(enzymes.length) + 1
+            // };
 
             for (let enzyme of enzymes) {
                 nodes[enzyme.protein_id] = <js_plot.graph_node>{
@@ -158,10 +158,10 @@ namespace pages.viewers {
                     name: enzyme.protein_id,
                     symbolSize: enzyme.reactions.length + 1
                 };
-                links.push({
-                    source: compartment,
-                    target: enzyme.protein_id
-                });
+                // links.push({
+                //     source: compartment,
+                //     target: enzyme.protein_id
+                // });
 
                 for (let rxn of enzyme.reactions) {
                     if (!(rxn.entry in nodes)) {
