@@ -14,6 +14,10 @@
 
         <h1>View Metabolic Network Model</h1>
 
+	<p>
+	Metabolic networks describe the relationships between small biomolecules (metabolites) and the enzymes (proteins) that interact with them to catalyze a biochemical reaction. Metabolic networks, metabolic control and modeling of metabolic networks in genome-wide reconstructed models is a central area in systems biology
+	</p>
+
 
         <div class="row">
             <div class="col-auto">
@@ -42,7 +46,7 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-4">
-                        <div class="alert alert-success" role="alert" data-mdb-color="success">
+                        <div id="number-alert" style="display:none;" class="alert alert-success" role="alert" data-mdb-color="success">
                             <i class="fas fa-check-circle me-3"></i>
                             <span id="number_reactions"></span> enzymatic reactions is annotated!
                         </div>

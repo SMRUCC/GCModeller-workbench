@@ -144,6 +144,7 @@ namespace pages.viewers {
                     rxnList.appendElement(li);
                 });
 
+            $ts("#number-alert").show();
             $ts("#number_reactions").display(n.toString());
         }
 
