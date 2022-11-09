@@ -197,6 +197,12 @@
             </section>
             <!-- Section: Links  -->
 
+            <div class="row">
+                <div class="col-auto" style="width:100%;text-align: center;">           
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5vdm1y3dswl&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=georgia&amp;l=0&amp;s=175&amp;hi=70" async="async"></script>
+                </div>
+            </div>
+
             <!-- Copyright -->
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
                 © 2022 Copyright:
