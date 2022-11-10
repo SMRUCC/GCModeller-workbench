@@ -11,7 +11,8 @@ imports "sabiork" from "vcellkit";
 setwd(@dir);
 
 const rhea = read.rhea("../data/rhea/rhea-reactions.txt");
-const sabio_rk = sabiork::new("./sabio-rk.db");
+# const sabio_rk = sabiork::new("./sabio-rk.db");
+const sabio_rk = sabiork::open("./sabio-rk.db");
 
 for(reaction in rhea) {
 	ec_numbers = [reaction]::enzyme;
