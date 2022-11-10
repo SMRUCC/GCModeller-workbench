@@ -15,11 +15,14 @@ const sabio_rk = sabiork::new("./sabio-rk.db");
 
 for(reaction in rhea) {
 	ec_numbers = [reaction]::enzyme;
+	ec_numbers = ec_numbers[ec_numbers != ""];
 	
-	print(ec_numbers);
+	if (!is.null(ec_numbers)) {
+		print(ec_numbers);
 	
-	for(num in ec_numbers) {
-		sabiork::query(num, cache = sabio_rk);
+		for(num in ec_numbers) {
+			sabiork::query(num, cache = sabio_rk);
+		}
 	}
 }
 
