@@ -2,6 +2,7 @@ require(JSON);
 require(GCModeller);
 
 imports "enzymatic" from "vcellkit";
+imports "sabiork" from "vcellkit";
 
 setwd(@dir);
 
@@ -12,8 +13,7 @@ for(reaction in rhea) {
 	ec_numbers = [reaction]::enzymes;
 	
 	for(num in ec_numbers) {
-		url = `https://sabiork.h-its.org/sabioRestWebServices/searchKineticLaws/sbml?q=ecnumber:${num}`;
-		sabiork::query(url, cache = sabio_rk);
+		sabiork::query(num, cache = sabio_rk);
 	}
 }
 
