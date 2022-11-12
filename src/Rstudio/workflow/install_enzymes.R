@@ -9,7 +9,14 @@ imports "enzymatic" from "vcellkit";
 imports "sabiork" from "vcellkit";
 
 # parser test
-str(sabiork::parseSbml("E:\GCModeller\src\workbench\win32_desktop\demo\searchKineticLaws_sbml_q=ecnumber_5.3.1.9.xml"));
+xml = "E:\GCModeller\src\workbench\win32_desktop\demo\searchKineticLaws_sbml_q=ecnumber_5.3.1.9.xml";
+xml = sabiork::parseSbml(xml);
+
+str([[xml]::model]::listOfFunctionDefinitions);
+
+for(f in [[xml]::model]::listOfFunctionDefinitions) {
+	print([f]::expression);
+}
 
 setwd(@dir);
 
