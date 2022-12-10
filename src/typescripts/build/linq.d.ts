@@ -3390,11 +3390,21 @@ declare namespace HttpHelpers {
          * 传统的表单post格式
         */
         www: string;
+        /**
+         * ascii char bytes
+        */
+        blob: string;
+        binary: string;
     };
     interface httpCallback {
         (response: string, code: number, contentType: string): void;
     }
     function measureContentType(obj: any): string;
+    /**
+     * Receiving binary data in older browsers
+    */
+    function binaryToBlob(data: string): Blob;
+    function getBlob(url: string, callback: (Blob: any) => void): void;
     /**
      * 这个函数只会返回200成功代码的响应内容，对于其他的状态代码都会返回null
      * (这个函数是同步方式的)
@@ -3405,7 +3415,7 @@ declare namespace HttpHelpers {
      *
      * @param callback ``callback(http.responseText, http.status)``
     */
-    function GetAsyn(url: string, callback: httpCallback): void;
+    function GetAsyn(url: string, callback: httpCallback, mime_overrides?: string): void;
     function POST(url: string, postData: PostData, callback: (response: string, code: number) => void): void;
     /**
      * 使用multipart form类型的数据进行文件数据的上传操作
