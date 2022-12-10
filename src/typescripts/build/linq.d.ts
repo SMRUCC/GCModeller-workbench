@@ -3404,7 +3404,7 @@ declare namespace HttpHelpers {
      * Receiving binary data in older browsers
     */
     function binaryToBlob(data: string): Blob;
-    function getBlob(url: string, callback: (Blob: any) => void): void;
+    function getBlob(url: string, callback: (Uint8Array: any) => void): void;
     /**
      * 这个函数只会返回200成功代码的响应内容，对于其他的状态代码都会返回null
      * (这个函数是同步方式的)
