@@ -127,7 +127,7 @@ declare class LINQIterator<T> {
     /**
      * The number of elements in the data sequence.
     */
-    readonly Count: number;
+    get Count(): number;
     constructor(array: T[]);
     reset(): LINQIterator<T>;
     /**
@@ -182,7 +182,7 @@ declare class IEnumerator<T> extends LINQIterator<T> {
     /**
      * 获取序列的元素类型
     */
-    readonly ElementType: TypeScript.Reflection.TypeInfo;
+    get ElementType(): TypeScript.Reflection.TypeInfo;
     /**
      * Get the element value at a given index position
      * of this data sequence.
@@ -206,11 +206,11 @@ declare class IEnumerator<T> extends LINQIterator<T> {
     /**
      * Get the first element in this sequence
     */
-    readonly First: T;
+    get First(): T;
     /**
      * Get the last element in this sequence
     */
-    readonly Last: T;
+    get Last(): T;
     /**
      * If the sequence length is zero, then returns the default value.
     */
@@ -398,13 +398,13 @@ declare class DOMEnumerator<T extends HTMLElement> extends IEnumerator<T> {
      * @summary 这个属性名与html的节点元素对象的tagName属性名称保持一致
      * 方便进行代码的编写操作
     */
-    readonly tagName: string;
+    get tagName(): string;
     /**
      * 这个只读属性主要是针对于input输入控件组而言的
      *
      * 在假设控件组都是相同类型的情况下, 这个属性直接返回第一个元素的type值
     */
-    readonly type: string;
+    get type(): string;
     /**
      * 1. IEnumerator
      * 2. NodeListOf
@@ -507,7 +507,7 @@ declare namespace Internal.Handlers {
         /**
          * Create a linq object
         */
-        array: () => arrayEval<{}>;
+        array: () => arrayEval<unknown>;
         NodeListOf: () => DOMCollection<HTMLElement>;
         HTMLCollection: () => DOMCollection<HTMLElement>;
     };
@@ -567,11 +567,11 @@ declare class NamedValue<T> {
     /**
      * 获取得到变量值的类型定义信息
     */
-    readonly TypeOfValue: TypeScript.Reflection.TypeInfo;
+    get TypeOfValue(): TypeScript.Reflection.TypeInfo;
     /**
      * 这个之对象是否是空的？
     */
-    readonly IsEmpty: boolean;
+    get IsEmpty(): boolean;
     /**
      * @param name 变量值的名字属性
      * @param value 这个变量值
@@ -598,16 +598,16 @@ declare module Strings {
     const numericPattern: RegExp;
     const integerPattern: RegExp;
     const logical: {
-        "T": boolean;
-        "F": boolean;
-        "true": boolean;
-        "false": boolean;
-        "TRUE": boolean;
-        "FALSE": boolean;
-        "yes": boolean;
-        "no": boolean;
-        "right": boolean;
-        "wrong": boolean;
+        T: boolean;
+        F: boolean;
+        true: boolean;
+        false: boolean;
+        TRUE: boolean;
+        FALSE: boolean;
+        yes: boolean;
+        no: boolean;
+        right: boolean;
+        wrong: boolean;
     };
     function PadLeft(text: string, padLen: number, c?: string): string;
     /**
@@ -795,15 +795,15 @@ declare namespace TypeScript.Reflection {
         /**
          * 是否是js之中的基础类型？
         */
-        readonly isPrimitive: boolean;
+        get isPrimitive(): boolean;
         /**
          * 是否是一个数组集合对象？
         */
-        readonly isArray: boolean;
+        get isArray(): boolean;
         /**
          * 是否是一个枚举器集合对象？
         */
-        readonly isEnumerator: boolean;
+        get isEnumerator(): boolean;
         /**
          * 当前的对象是某种类型的数组集合对象
         */
@@ -1175,7 +1175,7 @@ declare class Dictionary<V> extends IEnumerator<MapTuple<string, V>> {
     /**
      * 返回一个被复制的当前的map对象
     */
-    readonly Object: object;
+    get Object(): object;
     /**
      * 如果键名称是空值的话，那么这个函数会自动使用caller的函数名称作为键名进行值的获取
      *
@@ -1187,11 +1187,11 @@ declare class Dictionary<V> extends IEnumerator<MapTuple<string, V>> {
     /**
      * 获取这个字典对象之中的所有的键名
     */
-    readonly Keys: IEnumerator<string>;
+    get Keys(): IEnumerator<string>;
     /**
      * 获取这个字典对象之中的所有的键值
     */
-    readonly Values: IEnumerator<V>;
+    get Values(): IEnumerator<V>;
     /**
      * 将目标对象转换为一个类型约束的映射序列集合
     */
@@ -1235,7 +1235,7 @@ declare namespace TypeScript {
         /**
          * URL查询参数
         */
-        readonly query: NamedValue<string>[];
+        get query(): NamedValue<string>[];
         /**
          * 未经过解析的查询参数的原始字符串
         */
@@ -1383,15 +1383,15 @@ declare namespace TypeScript {
         /**
          * 应用程序的开发模式：只会输出框架的警告信息
         */
-        static readonly outputWarning: boolean;
+        static get outputWarning(): boolean;
         /**
          * 框架开发调试模式：会输出所有的调试信息到终端之上
         */
-        static readonly outputEverything: boolean;
+        static get outputEverything(): boolean;
         /**
          * 生产模式：只会输出错误信息
         */
-        static readonly outputError: boolean;
+        static get outputError(): boolean;
         static warning(msg: any): void;
         /**
          * 使用这个函数显示object的时候，将不会发生样式的变化
@@ -1533,7 +1533,7 @@ declare namespace data {
         /**
          * ``[min, max]``
         */
-        readonly range: number[];
+        get range(): number[];
         /**
          * Create a new numeric range object
         */
@@ -1541,7 +1541,7 @@ declare namespace data {
         /**
          * The delta length between the max and the min value.
         */
-        readonly Length: number;
+        get Length(): number;
         /**
          * 从一个数值序列之中创建改数值序列的值范围
          *
@@ -1760,7 +1760,7 @@ declare class Group<TKey, T> extends IEnumerator<T> {
     /**
      * Group members, readonly property.
     */
-    readonly Group: T[];
+    get Group(): T[];
     constructor(key: TKey, group: T[]);
     /**
      * 创建一个键值对映射序列，这些映射都具有相同的键名
@@ -1790,8 +1790,8 @@ declare class List<T> extends IEnumerator<T> {
     Pop(): T;
 }
 declare class Matrix<T> extends IEnumerator<T[]> {
-    readonly rows: number;
-    readonly columns: number;
+    get rows(): number;
+    get columns(): number;
     /**
      * [m, n], m列n行
     */
@@ -1816,16 +1816,16 @@ declare class Pointer<T> extends IEnumerator<T> {
     /**
      * The index pointer is at the end of the data sequence?
     */
-    readonly EndRead: boolean;
+    get EndRead(): boolean;
     /**
      * Get the element value in current location i;
     */
-    readonly Current: T;
+    get Current(): T;
     /**
      * Get current index element value and then move the pointer
      * to next position.
     */
-    readonly Next: T;
+    get Next(): T;
     constructor(src: T[] | IEnumerator<T>);
     /**
      * Just move the pointer to the next position and then
@@ -2077,7 +2077,7 @@ declare namespace DOM.Events {
         private predicate;
         private triggerNo;
         private agree;
-        readonly changed: boolean;
+        get changed(): boolean;
         constructor(predicate: Delegate.Func<boolean>, triggerNo?: boolean);
     }
 }
@@ -2181,7 +2181,7 @@ declare class HTMLTsElement {
     /**
      * 可以从这里获取得到原生的``HTMLElement``对象用于操作
     */
-    readonly HTMLElement: HTMLElement;
+    get HTMLElement(): HTMLElement;
     constructor(node: HTMLElement | HTMLTsElement);
     /**
      * 这个拓展函数总是会将节点中的原来的内容清空，然后显示html函数参数
@@ -2322,7 +2322,7 @@ declare namespace TypeScript.Data {
         /**
          * 队列元素
         */
-        readonly Q: QueueItem<T>[];
+        get Q(): QueueItem<T>[];
         constructor();
         /**
          *
@@ -2518,7 +2518,7 @@ declare namespace TypeScript.ColorManager {
         black: number;
         ncol: string;
         valid: boolean;
-        static readonly emptyObject: IW3color;
+        static get emptyObject(): IW3color;
         constructor(color?: string | IW3color, elmnt?: HTMLElement);
         toRgbString(): string;
         toRgbaString(): string;
@@ -2602,7 +2602,7 @@ declare module Base64 {
     /**
      * 将base64字符串解码为字节数组->普通数组
      */
-    function bytes_decode(str: string): number[];
+    function bytes_decode(str: string, size?: number): number[];
     /**
      * 将文本转换为utf8编码的文本字符串
     */
@@ -2647,7 +2647,7 @@ declare class StringBuilder {
     /**
      * 返回得到当前的缓冲区的字符串数据长度大小
     */
-    readonly Length: number;
+    get Length(): number;
     /**
      * @param newLine 换行符的文本，默认为纯文本格式，也可以指定为html格式的换行符``<br />``
     */
@@ -2665,7 +2665,7 @@ declare class StringBuilder {
 declare namespace Internal {
     class BackgroundWorker {
         static $workers: {};
-        static readonly hasWorkerFeature: boolean;
+        static get hasWorkerFeature(): boolean;
         /**
          * 加载所给定的脚本，并创建一个后台线程
          *
@@ -2767,15 +2767,15 @@ declare abstract class Bootstrap {
      * 是否阻止用户关闭当前页面
     */
     protected hookUnload: string;
-    abstract readonly appName: string;
+    abstract get appName(): string;
     /**
      * 这个函数默认是取出url query之中的app参数字符串作为应用名称
      *
      * @returns 如果没有定义app参数，则默认是返回``/``作为名称
     */
-    protected readonly currentAppPage: string;
-    readonly appStatus: "Sleep" | "Running";
-    readonly appHookMsg: string;
+    protected get currentAppPage(): string;
+    get appStatus(): "Sleep" | "Running";
+    get appHookMsg(): string;
     constructor();
     private isCurrentAppPath;
     private isCurrentApp;
@@ -2888,7 +2888,7 @@ declare namespace Framework.Extensions {
     function extend<V>(from: V, to?: V): V;
 }
 declare namespace TypeScript {
-    function gc(): {};
+    function gc(): unknown;
 }
 declare namespace TypeScript {
     /**
@@ -3026,7 +3026,7 @@ declare namespace Internal {
     /**
      * 这个参数对象模型主要是针对创建HTML对象的
     */
-    interface TypeScriptArgument {
+    export interface TypeScriptArgument {
         /**
          * HTML节点对象的编号（通用属性）
         */
@@ -3112,10 +3112,11 @@ declare namespace Internal {
         shape?: string;
         coords?: string;
     }
-    interface IHtmlEventHandler {
+    export interface IHtmlEventHandler {
         (handler: GlobalEventHandlers, event: Event, element: HTMLElement): void;
     }
     type HtmlEventHandler = Delegate.Action | IHtmlEventHandler | string;
+    export {};
 }
 declare namespace TypeScript.Reflection.Internal {
     /**
@@ -3169,7 +3170,7 @@ declare namespace TypeScript {
         /**
          * 获取从``time``到当前时间所流逝的毫秒计数
         */
-        readonly elapsedMilisecond: number;
+        get elapsedMilisecond(): number;
     }
 }
 declare module Cookies {
@@ -3462,11 +3463,11 @@ declare namespace csv {
         /**
          * Csv文件的第一行作为header
         */
-        readonly headers: IEnumerator<string>;
+        get headers(): IEnumerator<string>;
         /**
          * 获取除了第一行作为``header``数据的剩余的所有的行数据
         */
-        readonly contents: IEnumerator<row>;
+        get contents(): IEnumerator<row>;
         /**
          * 从行序列之中构建出一个csv对象模型
         */
@@ -3564,11 +3565,11 @@ declare namespace csv {
          * 注意，你无法通过直接修改这个数组之中的元素来达到修改这个行之中的值的目的
          * 因为这个属性会返回这个行的数组值的复制对象
         */
-        readonly columns: string[];
+        get columns(): string[];
         /**
          * 这个只读属性仅用于生成csv文件
         */
-        readonly rowLine: string;
+        get rowLine(): string;
         constructor(cells: string[] | IEnumerator<string>);
         /**
          * Returns the index of the first occurrence of a value in an array.
