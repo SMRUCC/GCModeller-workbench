@@ -945,7 +945,7 @@ declare namespace Internal {
          *
          * @param div 应该是带有``#``的id查询表达式
         */
-        appendTable<T extends {}>(rows: T[] | IEnumerator<T>, div: string, headers?: string[] | IEnumerator<string> | IEnumerator<MapTuple<string, string>> | MapTuple<string, string>[], attrs?: Internal.TypeScriptArgument): void;
+        appendTable<T extends {}>(rows: T[] | IEnumerator<T>, div: string, headers?: string[] | IEnumerator<string> | IEnumerator<MapTuple<string, string>> | MapTuple<string, string>[], attrs?: Internal.TypeScriptArgument, foreachRow?: (obj: T, row: HTMLTableRowElement) => void): void;
         /**
          * 将目标序列转换为一个HTML节点元素
         */
@@ -1364,7 +1364,10 @@ declare namespace DOM {
      *    + 如果这个参数不为空值，则会显示这个参数所指定的列出来
      *    + 可以通过``map [propertyName => display title]``来控制表头的标题输出
     */
-    function CreateHTMLTableNode<T extends {}>(rows: T[] | IEnumerator<T>, headers?: string[] | IEnumerator<string> | IEnumerator<MapTuple<string, string>> | MapTuple<string, string>[], attrs?: Internal.TypeScriptArgument): HTMLTableElement;
+    function CreateHTMLTableNode<T extends {}>(rows: T[] | IEnumerator<T>, headers?: string[] | IEnumerator<string> | IEnumerator<MapTuple<string, string>> | MapTuple<string, string>[], attrs?: Internal.TypeScriptArgument, foreachRow?: stylingRow<T>): HTMLTableElement;
+    interface stylingRow<T> {
+        (obj: T, row: HTMLTableRowElement): void;
+    }
     /**
      * 向给定编号的div对象之中添加一个表格对象
      *
@@ -1372,7 +1375,7 @@ declare namespace DOM {
      * @param div 新生成的table将会被添加在这个div之中，应该是一个带有``#``符号的节点id查询表达式
      * @param attrs ``<table>``的属性值，包括id，class等
     */
-    function AddHTMLTable<T extends {}>(rows: T[] | IEnumerator<T>, div: string, headers?: string[] | IEnumerator<string> | IEnumerator<MapTuple<string, string>> | MapTuple<string, string>[], attrs?: Internal.TypeScriptArgument): void;
+    function AddHTMLTable<T extends {}>(rows: T[] | IEnumerator<T>, div: string, headers?: string[] | IEnumerator<string> | IEnumerator<MapTuple<string, string>> | MapTuple<string, string>[], attrs?: Internal.TypeScriptArgument, foreachRow?: stylingRow<T>): void;
 }
 declare namespace TypeScript {
     /**
