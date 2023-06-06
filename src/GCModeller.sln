@@ -12609,8 +12609,8 @@ Global
 		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.gcmodeller_desktop|Any CPU.Build.0 = Debug|Any CPU
 		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.gcmodeller_desktop|ARM32.ActiveCfg = Debug|Any CPU
 		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.gcmodeller_desktop|ARM32.Build.0 = Debug|Any CPU
-		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.gcmodeller_desktop|x64.ActiveCfg = Debug|x64
-		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.gcmodeller_desktop|x64.Build.0 = Debug|x64
+		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.gcmodeller_desktop|x64.ActiveCfg = gcmodeller_desktop|x64
+		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.gcmodeller_desktop|x64.Build.0 = gcmodeller_desktop|x64
 		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.gcmodeller_desktop|x86.ActiveCfg = Debug|Any CPU
 		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.gcmodeller_desktop|x86.Build.0 = Debug|Any CPU
 		{19A065C5-17C0-4730-A53C-58EC20E70F1B}.installer_x64|Any CPU.ActiveCfg = Debug|Any CPU
@@ -12777,8 +12777,8 @@ Global
 		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.gcmodeller_desktop|Any CPU.Build.0 = Debug|Any CPU
 		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.gcmodeller_desktop|ARM32.ActiveCfg = Debug|Any CPU
 		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.gcmodeller_desktop|ARM32.Build.0 = Debug|Any CPU
-		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.gcmodeller_desktop|x64.ActiveCfg = Debug|x64
-		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.gcmodeller_desktop|x64.Build.0 = Debug|x64
+		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.gcmodeller_desktop|x64.ActiveCfg = gcmodeller_desktop|x64
+		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.gcmodeller_desktop|x64.Build.0 = gcmodeller_desktop|x64
 		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.gcmodeller_desktop|x86.ActiveCfg = Debug|Any CPU
 		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.gcmodeller_desktop|x86.Build.0 = Debug|Any CPU
 		{3929A0A6-8FDE-4B5C-9C77-C388937BB43A}.installer_x64|Any CPU.ActiveCfg = Debug|Any CPU
@@ -12984,7 +12984,9 @@ Global
 		..\..\..\Settings\Shared\RepositoryCommon\RepositoryCommon.projitems*{9b5ef311-a718-4067-a409-417de0f9d2af}*SharedItemsImports = 13
 		..\..\..\R-sharp\Library\shares\R_graphic.interop\R_graphic.interop.projitems*{a7c99cf5-39fe-4829-b07c-d325ec0e336c}*SharedItemsImports = 5
 		..\..\..\R-sharp\Library\shares\R_graphic.interop\R_graphic.interop.projitems*{a87c8133-bc8e-454b-92d2-dc05302e4d6e}*SharedItemsImports = 5
+		..\..\..\R-sharp\Library\shares\symbolic\symbolic.projitems*{a87c8133-bc8e-454b-92d2-dc05302e4d6e}*SharedItemsImports = 5
 		..\..\..\R-sharp\Library\shares\R_graphic.interop\R_graphic.interop.projitems*{b87fa192-627f-459a-adb9-e98eae9eb9da}*SharedItemsImports = 5
+		..\..\..\R-sharp\Library\shares\xgboostDataSet_helper\xgboostDataSet_helper.projitems*{b87fa192-627f-459a-adb9-e98eae9eb9da}*SharedItemsImports = 5
 		..\..\..\R-sharp\Library\shares\dataframeHelper\dataframeHelper.projitems*{c9d53ae3-e513-45b1-afc8-38a70d24e889}*SharedItemsImports = 5
 		..\..\..\R-sharp\Library\shares\JsonHelper\JsonHelper.projitems*{c9d53ae3-e513-45b1-afc8-38a70d24e889}*SharedItemsImports = 5
 		..\..\..\Settings\Shared\Settings.Configuration\Settings.Configuration.projitems*{e8cabde9-5471-4eb6-8abc-54c95d3b1512}*SharedItemsImports = 13
