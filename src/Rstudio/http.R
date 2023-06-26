@@ -1,6 +1,7 @@
 require(Rserver);
 
-imports ["http", "vbhtml"] from "RwebHost";
+imports "vbhtml" from "RwebHost";
+imports "http" from "Rstudio";
 
 # title: R# web http server
 # author: xieguigang
