@@ -11,7 +11,7 @@ declare namespace Rstudio {
    /**
      * @param code default value Is ``0``.
    */
-   function echo_successMsg(data: any, code?: object): object;
+   function echo_successMsg(data: any, code?: any): object;
    module fs {
       /**
       */
@@ -26,5 +26,5 @@ declare namespace Rstudio {
    /**
      * @param z_score default value Is ``true``.
    */
-   function matrixFileReader(file: any, z_score?: boolean): object;
+   function matrixFileReader(file: any, z_score?: any): object;
 }

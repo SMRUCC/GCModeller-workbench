@@ -2,6 +2,7 @@
 
 
 
++ [build_metabolic_network](Modeller/build_metabolic_network.1) 
 + [loadProject](Modeller/loadProject.1) 
 + [writeProject](Modeller/writeProject.1) 
 + [readProj](Modeller/readProj.1) 
