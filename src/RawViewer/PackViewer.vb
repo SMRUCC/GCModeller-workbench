@@ -14,6 +14,10 @@ Public Class PackViewer : Implements IDisposable
         Me.file = file
     End Sub
 
+    Public Function GetCounts() As Dictionary(Of String, Integer)
+        Return file.
+    End Function
+
     Protected Overridable Sub Dispose(disposing As Boolean)
         If Not disposedValue Then
             If disposing Then

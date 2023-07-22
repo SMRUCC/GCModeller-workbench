@@ -19,4 +19,16 @@ Module Inspector
             Return Internal.debug.stop(New NotImplementedException, env)
         End If
     End Function
+
+    <ExportAPI("counts")>
+    Public Function counts(pack As PackViewer) As Object
+
+    End Function
+
+    <ExportAPI("load.molecule_list")>
+    Public Function LoadMoleculeList(pack As PackViewer,
+                                     Optional [module] As Object = Nothing,
+                                     Optional env As Environment = Nothing) As Object
+
+    End Function
 End Module
