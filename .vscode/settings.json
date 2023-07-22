@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "*.vbhtml": "html"
-    }
+    },
+    "r.lsp.promptToInstall": false
 }
