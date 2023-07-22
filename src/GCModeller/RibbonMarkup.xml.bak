@@ -371,8 +371,7 @@
         <Image MinDPI="192">Res/New_L192.bmp</Image>
       </Command.LargeImages>
     </Command>
-	
-	    <Command Name="CmdNew2" LabelTitle="&amp;New" TooltipTitle="New (Ctrl+N)" TooltipDescription="Create a new document.">
+    <Command Name="CmdNew2" LabelTitle="&amp;New" TooltipTitle="New (Ctrl+N)" TooltipDescription="Create a new document.">
       <Command.SmallImages>
         <Image>Res/New_S096.bmp</Image>
         <Image MinDPI="120">Res/New_S120.bmp</Image>
@@ -386,8 +385,6 @@
         <Image MinDPI="192">Res/New_L192.bmp</Image>
       </Command.LargeImages>
     </Command>
-	
-	
     <Command Name="CmdOpen" LabelTitle="&amp;Open" TooltipTitle="Open (Ctrl+O)" TooltipDescription="Open an existing document.">
       <Command.SmallImages>
         <Image>Res/Open_S096.bmp</Image>
@@ -834,7 +831,7 @@
           <MenuGroup>
             <SplitButton CommandName="CmdNew1" ApplicationModes="0,1">
               <SplitButton.ButtonItem>
-                 <Button CommandName="CmdNew2" />
+                <Button CommandName="CmdNew2" />
               </SplitButton.ButtonItem>
               <SplitButton.MenuGroups>
                 <MenuGroup>
@@ -887,7 +884,7 @@
       </Ribbon.HelpButton>
       <Ribbon.QuickAccessToolbar>
         <QuickAccessToolbar CommandName="CmdQuickAccessToolbar">
-          <QuickAccessToolbar.ApplicationDefaults>          
+          <QuickAccessToolbar.ApplicationDefaults>
             <Button CommandName="CmdOpen" ApplicationDefaults.IsChecked="false" />
             <Button CommandName="CmdSave" ApplicationDefaults.IsChecked="true" />
             <Button CommandName="CmdEmail" ApplicationDefaults.IsChecked="false" />

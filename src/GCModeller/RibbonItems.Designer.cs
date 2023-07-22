@@ -22,31 +22,32 @@ namespace RibbonLib.Controls
             public const uint CmdApplicationMenu = 56;
             public const uint CmdRecentItems = 57;
             public const uint CmdNew1 = 58;
+            public const uint CmdNew2 = 59;
             public const uint cmdButtonCreateNewOmicsProject = 102;
             public const uint cmdButtonCreateNewModellerProject = 103;
-            public const uint CmdOpen = 59;
-            public const uint CmdSave = 60;
-            public const uint CmdSaveAsMore = 62;
-            public const uint CmdSaveAs = 61;
-            public const uint CmdHeaderSave = 63;
-            public const uint CmdRichTextDocument = 64;
-            public const uint CmdOfficeOpenXMLDocument = 65;
-            public const uint CmdOpenDocumentText = 66;
-            public const uint CmdPlainTextDocument = 67;
-            public const uint CmdOtherFormats = 68;
-            public const uint CmdPrintMore = 70;
-            public const uint CmdPrint = 69;
-            public const uint CmdHeaderPrint = 71;
-            public const uint CmdQuickPrint = 72;
-            public const uint CmdPrintPreview = 73;
-            public const uint CmdPageSetup = 74;
-            public const uint CmdEmail = 75;
-            public const uint CmdAbout = 76;
-            public const uint CmdExit1 = 77;
-            public const uint CmdHelp = 90;
-            public const uint CmdQuickAccessToolbar = 87;
-            public const uint CmdUndo = 88;
-            public const uint CmdRedo = 89;
+            public const uint CmdOpen = 60;
+            public const uint CmdSave = 61;
+            public const uint CmdSaveAsMore = 63;
+            public const uint CmdSaveAs = 62;
+            public const uint CmdHeaderSave = 64;
+            public const uint CmdRichTextDocument = 65;
+            public const uint CmdOfficeOpenXMLDocument = 66;
+            public const uint CmdOpenDocumentText = 67;
+            public const uint CmdPlainTextDocument = 68;
+            public const uint CmdOtherFormats = 69;
+            public const uint CmdPrintMore = 71;
+            public const uint CmdPrint = 70;
+            public const uint CmdHeaderPrint = 72;
+            public const uint CmdQuickPrint = 73;
+            public const uint CmdPrintPreview = 74;
+            public const uint CmdPageSetup = 75;
+            public const uint CmdEmail = 76;
+            public const uint CmdAbout = 77;
+            public const uint CmdExit1 = 78;
+            public const uint CmdHelp = 91;
+            public const uint CmdQuickAccessToolbar = 88;
+            public const uint CmdUndo = 89;
+            public const uint CmdRedo = 90;
             public const uint cmdGroupDatabase = 97;
             public const uint cmdTabDatabase = 98;
             public const uint cmdTabGroupDatabase = 100;
@@ -106,21 +107,21 @@ namespace RibbonLib.Controls
             public const uint CmdCentimeters = 53;
             public const uint CmdPoints = 54;
             public const uint CmdPicas = 55;
-            public const uint CmdTabPrintPreview = 78;
-            public const uint CmdGroupPrint = 79;
-            public const uint CmdViewOnePage = 80;
-            public const uint CmdViewTwoPages = 81;
-            public const uint CmdGroupPreview = 82;
-            public const uint CmdPreviousPage = 83;
-            public const uint CmdNextPage = 84;
-            public const uint CmdGroupClose = 85;
-            public const uint CmdClosePrintPreview = 86;
-            public const uint CmdObjectProperties = 93;
-            public const uint CmdOpenObject = 94;
-            public const uint CmdLinks = 95;
-            public const uint CmdContextPopupEditText = 91;
-            public const uint CmdContextPopupEditPicture = 92;
-            public const uint CmdContextPopupObject = 96;
+            public const uint CmdTabPrintPreview = 79;
+            public const uint CmdGroupPrint = 80;
+            public const uint CmdViewOnePage = 81;
+            public const uint CmdViewTwoPages = 82;
+            public const uint CmdGroupPreview = 83;
+            public const uint CmdPreviousPage = 84;
+            public const uint CmdNextPage = 85;
+            public const uint CmdGroupClose = 86;
+            public const uint CmdClosePrintPreview = 87;
+            public const uint CmdObjectProperties = 94;
+            public const uint CmdOpenObject = 95;
+            public const uint CmdLinks = 96;
+            public const uint CmdContextPopupEditText = 92;
+            public const uint CmdContextPopupEditPicture = 93;
+            public const uint CmdContextPopupObject = 104;
         }
 
         // ContextPopup CommandName
@@ -132,6 +133,7 @@ namespace RibbonLib.Controls
         public RibbonApplicationMenu ApplicationMenu { get; private set; }
         public RibbonRecentItems RecentItems { get; private set; }
         public RibbonSplitButton New1 { get; private set; }
+        public RibbonButton New2 { get; private set; }
         public RibbonButton ButtonCreateNewOmicsProject { get; private set; }
         public RibbonButton ButtonCreateNewModellerProject { get; private set; }
         public RibbonButton Open { get; private set; }
@@ -237,6 +239,7 @@ namespace RibbonLib.Controls
             ApplicationMenu = new RibbonApplicationMenu(ribbon, Cmd.CmdApplicationMenu);
             RecentItems = new RibbonRecentItems(ribbon, Cmd.CmdRecentItems);
             New1 = new RibbonSplitButton(ribbon, Cmd.CmdNew1);
+            New2 = new RibbonButton(ribbon, Cmd.CmdNew2);
             ButtonCreateNewOmicsProject = new RibbonButton(ribbon, Cmd.cmdButtonCreateNewOmicsProject);
             ButtonCreateNewModellerProject = new RibbonButton(ribbon, Cmd.cmdButtonCreateNewModellerProject);
             Open = new RibbonButton(ribbon, Cmd.CmdOpen);
