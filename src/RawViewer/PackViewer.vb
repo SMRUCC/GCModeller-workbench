@@ -1,4 +1,5 @@
 Imports System.IO
+Imports System.Runtime.CompilerServices
 Imports SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw
 
 Public Class PackViewer : Implements IDisposable
@@ -15,7 +16,12 @@ Public Class PackViewer : Implements IDisposable
     End Sub
 
     Public Function GetCounts() As Dictionary(Of String, Integer)
-        Return file.
+        Return file.GetIdCounts
+    End Function
+
+    <MethodImpl(MethodImplOptions.AggressiveInlining)>
+    Public Function GetMoleculeIdset() As Dictionary(Of String, String())
+        Return file.GetMoleculeIdList
     End Function
 
     Protected Overridable Sub Dispose(disposing As Boolean)
