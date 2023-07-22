@@ -6,5 +6,7 @@ imports "rawXML" from "vcellkit";
 
 # the data backend R# script file for inspect the vcell data pack file
 const packfile as string = ?"--file" || stop("no result file was provided!");
+const port as integer = ?"--listen" || 19695;
+
 const view = Inspector::load(open.vcellPack(file = packfile, mode = "read"));
 
