@@ -13,6 +13,8 @@ Public Class Workbench
 
     Private Shared Sub addRibbonEvents()
         AddHandler Ribbon.About.ExecuteEvent, Sub() Call New FormSplashScreen().Show()
+        AddHandler Ribbon.Open.ExecuteEvent, Sub() Call OpenFile()
+
         AddHandler Ribbon.ButtonEnrichmentDatabase.ExecuteEvent, Sub() Call WebApp.Open(Of EnrichmentDatabase)()
         AddHandler Ribbon.ButtonNCBITaxonomy.ExecuteEvent, Sub() Call WebApp.Open(Of ImportsNCBITaxonomy)()
         AddHandler Ribbon.ViewAppTasks.ExecuteEvent, Sub() Call WebApp.Open(Of AppTasks)()
@@ -35,5 +37,20 @@ Public Class Workbench
 
                 Globals.host.ToolStripStatusLabel1.Text = msg
             End Sub)
+    End Sub
+
+    Public Shared Sub OpenFile()
+        Using file As New OpenFileDialog With {
+            .Filter = "GCModeller Virtual Cell Simulator Output(*.vcellPack)|*.vcellPack"
+        }
+            If file.ShowDialog = DialogResult.OK Then
+                Select Case file.FileName.ExtensionSuffix
+                    Case "vcellpack"
+
+                    Case Else
+                        MessageBox.Show("The file type that you specific has not been implemented yet!", "File Reader Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End Select
+            End If
+        End Using
     End Sub
 End Class
