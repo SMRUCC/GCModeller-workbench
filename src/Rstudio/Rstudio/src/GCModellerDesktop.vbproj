@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\..\GCModeller\core\Bio.Assembly\biocore-netcore5.vbproj" />
+    <ProjectReference Include="..\..\..\..\..\..\GCModeller\engine\IO\Raw\vcXML.NET5.vbproj" />
     <ProjectReference Include="..\..\..\..\..\..\GCModeller\models\ncbi-BioSystems\BioSystems.vbproj" />
     <ProjectReference Include="..\..\..\..\..\..\interops\localblast\LocalBLAST\localblast.NET5.vbproj" />
     <ProjectReference Include="..\..\..\..\..\..\R-sharp\R#\Rsharp-netcore5.vbproj" />
@@ -25,6 +26,7 @@
     <ProjectReference Include="..\..\..\..\..\..\runtime\sciBASIC#\Data\DataFrame\dataframework-netcore5.vbproj" />
     <ProjectReference Include="..\..\..\..\..\..\runtime\sciBASIC#\Microsoft.VisualBasic.Core\src\Core.vbproj" />
     <ProjectReference Include="..\..\..\OmicsProject\OmicsProject.vbproj" />
+    <ProjectReference Include="..\..\..\RawViewer\RawViewer.vbproj" />
   </ItemGroup>
 
   <Import Project="..\..\..\..\..\..\Settings\Shared\Settings.Configuration\Settings.Configuration.projitems" Label="Shared" />

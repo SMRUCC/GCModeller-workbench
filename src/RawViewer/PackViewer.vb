@@ -7,7 +7,11 @@ Public Class PackViewer : Implements IDisposable
     Dim file As Reader
 
     Sub New(file As Stream)
-        Me.file = New Reader(file)
+        Call Me.New(New Reader(file))
+    End Sub
+
+    Sub New(file As Reader)
+        Me.file = file
     End Sub
 
     Protected Overridable Sub Dispose(disposing As Boolean)
