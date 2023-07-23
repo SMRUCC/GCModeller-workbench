@@ -1,4 +1,4 @@
-imports "router" from "G:\GCModeller\src\workbench\win32_desktop\src\Rstudio\Rserver\assembly\net6.0\RwebHost.dll";
+# imports "router" from "G:\GCModeller\src\workbench\win32_desktop\src\Rstudio\Rserver\assembly\net6.0\RwebHost.dll";
 
 require(GCModeller);
 require(Rstudio);
@@ -31,7 +31,7 @@ const handleHttpGet = function(req, response) {
     print("request from the browser client:");
     str(url);
 
-    router2::handle(req, response, http);
+    router::handle(req, response, http);
 
     print("end of http processor!");
 }
