@@ -4,7 +4,7 @@ require(GCModeller);
 require(Rstudio);
 require(Rserver);
 
-imports "http" from "Rstudio";
+# imports "http" from "Rstudio";
 imports "Inspector" from "GCModellerDesktop";
 imports "rawXML" from "vcellkit";
 
@@ -31,7 +31,7 @@ const handleHttpGet = function(req, response) {
     print("request from the browser client:");
     str(url);
 
-    rounter::handle(req, response, http);
+    router2::handle(req, response, http);
 
     print("end of http processor!");
 }
