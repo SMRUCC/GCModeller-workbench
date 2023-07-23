@@ -2,7 +2,6 @@ require(GCModeller);
 require(Rstudio);
 require(Rserver);
 
-imports "vbhtml" from "RwebHost";
 imports "http" from "Rstudio";
 imports "Inspector" from "GCModellerDesktop";
 imports "rawXML" from "vcellkit";
@@ -12,6 +11,15 @@ const packfile as string  = ?"--file" || stop("no result file was provided!");
 const httpPort as integer = ?"--listen" || 19695;
 
 const view = Inspector::load(open.vcellPack(file = packfile, mode = "read"));
+const http = {
+
+  [@url "/get/count"]
+  const get_count = function(req, response) {
+    writeLines();
+  }
+
+}
+
 const handleHttpGet = function(req, response) {
     # implements the vcell data pack reader viewer code at this function
     # http get for read data
@@ -20,10 +28,11 @@ const handleHttpGet = function(req, response) {
     print("request from the browser client:");
     str(url);
 
-    
+    rounter::handle(req, response, http);
 }
 
 cat("\n\n");
+print(`background http services listen at port number: ${httpPort}.`);
 
 http::http_socket()
 |> headers(
