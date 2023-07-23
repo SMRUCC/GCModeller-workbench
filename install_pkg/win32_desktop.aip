@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="19.0" version="19.0" Modules="professional" RootPath="." Language="en" Id="{17156F04-3593-4479-85C9-C33FDE0D087E}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="19.0" version="20.7.1" Modules="professional" RootPath="." Language="en" Id="{17156F04-3593-4479-85C9-C33FDE0D087E}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="ActSyncAppComponent;CPLAppletComponent;AppXAppDetailsComponent;FixupComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_BackgroundColor" Value="lightblue" MultiBuildValue="DefaultBuild:powderblue" MsiKey="AI_BackgroundColor"/>
-    <ROW Property="AI_CURRENT_YEAR" Value="2022" ValueLocId="-"/>
+    <ROW Property="AI_PREREQ_REPAIR_ENABLED" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPCONTACT" Value="genomics@SMRUCC.org"/>
@@ -15,7 +18,7 @@
     <ROW Property="ProductCode" Value="1033:{BF509410-1F19-4B37-BE34-6A023A4464B9} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="GCModeller"/>
-    <ROW Property="ProductVersion" Value="3.25.6.663" Type="32"/>
+    <ROW Property="ProductVersion" Value="3.25.6.663" Options="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{2BF9E5FE-5AA9-4120-B330-C02B95AF707F}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -37,8 +40,10 @@
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
     <ROW Directory="analysis_apps_Dir" Directory_Parent="fastRWeb_Dir" DefaultDir="ANALYS~1|analysis_apps"/>
     <ROW Directory="analysis_project_Dir" Directory_Parent="analysis_apps_Dir" DefaultDir="ANALYS~1|analysis_project"/>
+    <ROW Directory="annotations_Dir" Directory_Parent="apps_Dir" DefaultDir="ANNOTA~1|annotations"/>
     <ROW Directory="apps_Dir" Directory_Parent="web_Dir" DefaultDir="apps"/>
     <ROW Directory="assets_Dir" Directory_Parent="web_Dir" DefaultDir="assets"/>
+    <ROW Directory="background_Dir" Directory_Parent="services_Dir" DefaultDir="BACKGR~1|background"/>
     <ROW Directory="bin_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="bin"/>
     <ROW Directory="bootstrap5.0.2dist_Dir" Directory_Parent="styles_Dir" DefaultDir="BOOTST~1.2-D|bootstrap-5.0.2-dist"/>
     <ROW Directory="bootstrap5_Dir" Directory_Parent="styles_Dir" DefaultDir="BOOTST~1|bootstrap5"/>
@@ -46,12 +51,19 @@
     <ROW Directory="css_Dir" Directory_Parent="bootstrap5.0.2dist_Dir" DefaultDir="css"/>
     <ROW Directory="data_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="data"/>
     <ROW Directory="database_Dir" Directory_Parent="fastRWeb_Dir" DefaultDir="database"/>
+    <ROW Directory="default_Dir" Directory_Parent="themes_Dir" DefaultDir="default"/>
+    <ROW Directory="defaultdark_Dir" Directory_Parent="themes_Dir" DefaultDir="DEFAUL~1|default-dark"/>
+    <ROW Directory="demo_Dir" Directory_Parent="APPDIR" DefaultDir="demo"/>
+    <ROW Directory="docs_Dir" Directory_Parent="APPDIR" DefaultDir="docs"/>
     <ROW Directory="echarts5.4.0_Dir" Directory_Parent="javascript_Dir" DefaultDir="ECHART~1.0|echarts-5.4.0"/>
+    <ROW Directory="expasy_Dir" Directory_Parent="data_Dir" DefaultDir="expasy"/>
     <ROW Directory="extension_Dir" Directory_Parent="echarts5.4.0_Dir" DefaultDir="EXTENS~1|extension"/>
     <ROW Directory="fastRWeb_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="fastRWeb"/>
     <ROW Directory="gallery_Dir" Directory_Parent="images_Dir" DefaultDir="gallery"/>
     <ROW Directory="gtk_Dir" Directory_Parent="fastRWeb_Dir" DefaultDir="gtk"/>
+    <ROW Directory="host_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="host"/>
     <ROW Directory="icons_Dir" Directory_Parent="assets_Dir" DefaultDir="icons"/>
+    <ROW Directory="images_1_Dir" Directory_Parent="APPDIR" DefaultDir="images"/>
     <ROW Directory="images_Dir" Directory_Parent="assets_Dir" DefaultDir="images"/>
     <ROW Directory="includes_Dir" Directory_Parent="assets_Dir" DefaultDir="includes"/>
     <ROW Directory="javascript_Dir" Directory_Parent="web_Dir" DefaultDir="JAVASC~1|javascript"/>
@@ -60,35 +72,66 @@
     <ROW Directory="lib_1_Dir" Directory_Parent="win_Dir" DefaultDir="lib"/>
     <ROW Directory="lib_Dir" Directory_Parent="unix_Dir" DefaultDir="lib"/>
     <ROW Directory="library_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="library"/>
+    <ROW Directory="logs_Dir" Directory_Parent="bin_Dir" DefaultDir="LOGS~1|.logs"/>
+    <ROW Directory="modeller_1_Dir" Directory_Parent="fastRWeb_Dir" DefaultDir="modeller"/>
+    <ROW Directory="modeller_Dir" Directory_Parent="projects_Dir" DefaultDir="modeller"/>
     <ROW Directory="native_Dir" Directory_Parent="winx64_Dir" DefaultDir="native"/>
+    <ROW Directory="net48_Dir" Directory_Parent="host_Dir" DefaultDir="net48"/>
     <ROW Directory="net6.0_1_Dir" Directory_Parent="lib_1_Dir" DefaultDir="net6.0"/>
+    <ROW Directory="net6.0_2_Dir" Directory_Parent="host_Dir" DefaultDir="net6.0"/>
     <ROW Directory="net6.0_Dir" Directory_Parent="lib_Dir" DefaultDir="net6.0"/>
     <ROW Directory="omics_Dir" Directory_Parent="projects_Dir" DefaultDir="omics"/>
     <ROW Directory="packages_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="packages"/>
     <ROW Directory="projects_Dir" Directory_Parent="toolkit_Dir" DefaultDir="projects"/>
     <ROW Directory="report_Dir" Directory_Parent="analysis_apps_Dir" DefaultDir="report"/>
+    <ROW Directory="rhea_Dir" Directory_Parent="data_Dir" DefaultDir="rhea"/>
     <ROW Directory="runtimes_1_Dir" Directory_Parent="bin_Dir" DefaultDir="runtimes"/>
     <ROW Directory="runtimes_Dir" Directory_Parent="APPDIR" DefaultDir="runtimes"/>
     <ROW Directory="services_Dir" Directory_Parent="Rstudio_Dir" DefaultDir="services"/>
     <ROW Directory="styles_Dir" Directory_Parent="web_Dir" DefaultDir="styles"/>
+    <ROW Directory="themes_Dir" Directory_Parent="vakatajstree7a03954_Dir" DefaultDir="themes"/>
     <ROW Directory="toolkit_Dir" Directory_Parent="web_Dir" DefaultDir="toolkit"/>
     <ROW Directory="tools_Dir" Directory_Parent="APPDIR" DefaultDir="tools"/>
     <ROW Directory="unix_Dir" Directory_Parent="runtimes_1_Dir" DefaultDir="unix"/>
+    <ROW Directory="vakatajstree7a03954_Dir" Directory_Parent="javascript_Dir" DefaultDir="VAKATA~1|vakata-jstree-7a03954"/>
+    <ROW Directory="viewer_Dir" Directory_Parent="toolkit_Dir" DefaultDir="viewer"/>
+    <ROW Directory="vscode_Dir" Directory_Parent="background_Dir" DefaultDir="VSCODE~1|.vscode"/>
     <ROW Directory="web_Dir" Directory_Parent="APPDIR" DefaultDir="webview"/>
     <ROW Directory="win_Dir" Directory_Parent="runtimes_1_Dir" DefaultDir="win"/>
     <ROW Directory="winx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win-x64"/>
     <ROW Directory="zip_Dir" Directory_Parent="report_Dir" DefaultDir="zip"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_ExePath" ComponentId="{330874D4-F6F6-4FFA-B126-C57BD4B0CB44}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
     <ROW Component="APPDIR" ComponentId="{586FF7A5-1099-4B16-9848-797D35FAD65E}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="C6F7BF650B714DC58735D62C12F214E4" ComponentId="{328345DD-FC20-4176-82BA-FE456BD034CB}" Directory_="APPDIR" Attributes="260" KeyPath="C6F7BF650B714DC58735D62C12F214E4" Options="2"/>
+    <ROW Component="FAC9C433D3044829E6669A2C6FF54E6" ComponentId="{1401DE26-BA4A-463F-9C0D-9F65B1E0E606}" Directory_="APPDIR" Attributes="260" KeyPath="FAC9C433D3044829E6669A2C6FF54E6" Options="2"/>
     <ROW Component="Flute.Http.dll" ComponentId="{108A2BEC-9B17-4899-9866-00FC4232F844}" Directory_="bin_Dir" Attributes="256" KeyPath="Flute.Http.dll"/>
     <ROW Component="Flute.Http.dll_1" ComponentId="{4A3D70F4-3D42-4F16-9387-FCD3CE0D5D2A}" Directory_="APPDIR" Attributes="256" KeyPath="Flute.Http.dll_1"/>
+    <ROW Component="Flute.Http.dll_2" ComponentId="{779A3591-8866-4044-8FCA-8DD59C9D6FDF}" Directory_="library_Dir" Attributes="256" KeyPath="Flute.Http.dll_2"/>
+    <ROW Component="Flute.Http.pdb" ComponentId="{33A5DF83-E5B1-4E95-A098-773E0BE1AA19}" Directory_="APPDIR" Attributes="0" KeyPath="Flute.Http.pdb" Type="4"/>
     <ROW Component="Flute.Http.xml" ComponentId="{C2850C1A-9335-4BF3-A4C2-3B3AE83B7EC2}" Directory_="bin_Dir" Attributes="0" KeyPath="Microsoft.VisualBasic.Runtime.dll.config" Type="0"/>
+    <ROW Component="Flute.Http.xml_1" ComponentId="{88B45876-E26D-4BC6-A577-9341FB1E01E1}" Directory_="APPDIR" Attributes="0" KeyPath="Flute.Http.xml"/>
+    <ROW Component="GCModellerDesktop.deps.json" ComponentId="{0E53B8DF-0245-4192-903B-16780BA7A04B}" Directory_="host_Dir" Attributes="0" KeyPath="GCModellerDesktop.deps.json" Type="0"/>
+    <ROW Component="GCModellerDesktop.deps.json_1" ComponentId="{E709206A-51FC-4FE1-9FE0-46604E22BD44}" Directory_="net6.0_2_Dir" Attributes="0" KeyPath="GCModellerDesktop.deps.json_1" Type="0"/>
+    <ROW Component="GCModellerDesktop.dll" ComponentId="{436FAA1E-C378-40ED-B536-2BF3928FA557}" Directory_="APPDIR" Attributes="256" KeyPath="GCModellerDesktop.dll"/>
+    <ROW Component="GCModellerDesktop.dll_1" ComponentId="{4AB83D7B-7321-4FFE-AF36-6395B1ECA6CF}" Directory_="host_Dir" Attributes="256" KeyPath="GCModellerDesktop.dll_1"/>
+    <ROW Component="GCModellerDesktop.dll_2" ComponentId="{00E27A1D-C09C-4C3A-BCEB-3A115E79E885}" Directory_="net48_Dir" Attributes="256" KeyPath="GCModellerDesktop.dll_2"/>
+    <ROW Component="GCModellerDesktop.dll_3" ComponentId="{3AB7C22D-B2D8-4497-83B9-8A3278C05B8B}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="GCModellerDesktop.dll_3"/>
+    <ROW Component="GCModellerDesktop.pdb" ComponentId="{8A65B41B-B8B7-4015-BE30-165FBDDA4464}" Directory_="APPDIR" Attributes="0" KeyPath="GCModellerDesktop.pdb" Type="4"/>
     <ROW Component="GCModeller_win32Desktop.exe" ComponentId="{79C9FD20-22B5-4632-8D97-24DCF529EE90}" Directory_="APPDIR" Attributes="256" KeyPath="GCModeller_win32Desktop.exe"/>
     <ROW Component="GCModeller_win32Desktop.exe.config" ComponentId="{4356FEB7-E4F5-4C06-9A2D-25BB894DB7CD}" Directory_="APPDIR" Attributes="0" KeyPath="GCModeller_win32Desktop.exe.config" Type="0"/>
+    <ROW Component="GCModeller_win32Desktop.pdb" ComponentId="{7A42EAA2-2503-4B77-A712-9592B0F39C47}" Directory_="APPDIR" Attributes="0" KeyPath="GCModeller_win32Desktop.pdb" Type="4"/>
+    <ROW Component="GCModeller_win32Desktop.xml" ComponentId="{60CC54C3-0CCD-47EC-9F52-3CC33D93D816}" Directory_="APPDIR" Attributes="0" KeyPath="GCModeller_win32Desktop.xml"/>
     <ROW Component="License.pdf" ComponentId="{A0356165-873E-4CD1-A5D2-D4FC94470717}" Directory_="bootstrap5_Dir" Attributes="0" KeyPath="License.pdf" Type="0"/>
     <ROW Component="MLkit.dll" ComponentId="{2A35A80F-962D-402B-A3A0-8BA4BF5DF729}" Directory_="library_Dir" Attributes="256" KeyPath="MLkit.dll"/>
     <ROW Component="Microsoft.VisualBasic.Data.BinaryData.dll" ComponentId="{4F181969-5C76-4753-8955-6026B97DA4D2}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.BinaryData.dll"/>
+    <ROW Component="Microsoft.VisualBasic.Data.BinaryData.dll_1" ComponentId="{415638A4-6C83-4508-ACDE-35F48464ACAD}" Directory_="bin_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.BinaryData.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.Data.BinaryData.dll_2" ComponentId="{FD87230B-AB04-4AD3-BCC3-9829262E797A}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.BinaryData.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.Data.BinaryData.dll_3" ComponentId="{E8692CEA-76EB-4834-8B27-1F55267CE76A}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.BinaryData.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.Data.BinaryData.dll_4" ComponentId="{1C7F1F7D-F1CD-4C7E-88AD-F45F9DDF520F}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.BinaryData.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.Data.BinaryData.dll_5" ComponentId="{DFAEA737-6431-45E9-B7F2-44F47D9B75AD}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.BinaryData.dll_5"/>
+    <ROW Component="Microsoft.VisualBasic.Data.BinaryData.pdb" ComponentId="{8E41C85F-04CC-4435-BA09-CC3811928E74}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Data.BinaryData.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.Data.Bootstrapping.Fittings.dll" ComponentId="{B3AFC172-2BC9-4291-AC9B-8F60C772EBDC}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Bootstrapping.Fittings.dll"/>
     <ROW Component="Microsoft.VisualBasic.Data.ChartPlots.Statistics.dll" ComponentId="{3DC784C0-EC52-46C2-B25C-F88EEC3D8ECB}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.ChartPlots.Statistics.dll"/>
     <ROW Component="Microsoft.VisualBasic.Data.ChartPlots.dll" ComponentId="{FD0F563C-BF12-417C-933D-D1B456A1E40A}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.ChartPlots.dll"/>
@@ -96,11 +139,24 @@
     <ROW Component="Microsoft.VisualBasic.Data.Framework.dll" ComponentId="{A3CFCA8F-E7CB-449B-9708-E9EB36E1654A}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Framework.dll"/>
     <ROW Component="Microsoft.VisualBasic.Data.Framework.dll_1" ComponentId="{FF750A3C-0D41-4E87-B571-A1C10B09F21D}" Directory_="bin_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Framework.dll_1"/>
     <ROW Component="Microsoft.VisualBasic.Data.Framework.dll_2" ComponentId="{C89159BA-AD86-421D-A630-C7F06BFDC625}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Framework.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.Data.Framework.dll_3" ComponentId="{7D0CB1EC-6BFA-46A1-8680-B0EE44421202}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Framework.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.Data.Framework.dll_4" ComponentId="{16161D36-506B-4D82-A130-B8B76D0013B7}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Framework.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.Data.Framework.dll_5" ComponentId="{6589B17C-501C-4028-BEB3-F452721296ED}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Framework.dll_5"/>
+    <ROW Component="Microsoft.VisualBasic.Data.Framework.pdb" ComponentId="{36F32BED-235B-4D70-89FA-E82A191F3849}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Data.Framework.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.Data.GraphQuery.dll" ComponentId="{F9384E7E-297C-4E10-B006-3F83A6A52ECB}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.GraphQuery.dll"/>
     <ROW Component="Microsoft.VisualBasic.Data.GraphTheory.dll" ComponentId="{4E12DEE1-94CF-4AC3-821A-A8F3E892B8E4}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.GraphTheory.dll"/>
     <ROW Component="Microsoft.VisualBasic.Data.IO.HDF5.dll" ComponentId="{F00EB7EA-750A-48C8-BE9A-400B99444762}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.IO.HDF5.dll"/>
     <ROW Component="Microsoft.VisualBasic.Data.IO.MessagePack.dll" ComponentId="{FECC686A-B179-4B1A-9E96-968FF860863A}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.IO.MessagePack.dll"/>
+    <ROW Component="Microsoft.VisualBasic.Data.IO.MessagePack.dll_1" ComponentId="{793B3DEF-1B2E-4D43-A395-40961E261B25}" Directory_="bin_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.IO.MessagePack.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.Data.IO.MessagePack.dll_2" ComponentId="{3C7584AA-2B47-4537-B01F-12488D60FDC0}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.IO.MessagePack.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.Data.IO.MessagePack.dll_3" ComponentId="{F9C28BD7-BAAA-45E1-8D3C-AB61FC75A449}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.IO.MessagePack.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.Data.IO.MessagePack.dll_4" ComponentId="{970D276A-F54B-4AE0-849B-47D575E15758}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.IO.MessagePack.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.Data.IO.MessagePack.dll_5" ComponentId="{73FF8322-E859-406B-B1DD-53865583BBEA}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.IO.MessagePack.dll_5"/>
+    <ROW Component="Microsoft.VisualBasic.Data.IO.MessagePack.pdb" ComponentId="{26052D20-588F-4513-96BA-29C5E08DD7AE}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Data.IO.MessagePack.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.Data.Storage.dll" ComponentId="{30903DDA-94CC-4F6A-B791-02DA931CD4F8}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Storage.dll"/>
+    <ROW Component="Microsoft.VisualBasic.Data.Storage.dll_1" ComponentId="{A4841FD5-9D0B-4A5C-BC13-CDDEE6181D77}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Storage.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.Data.Storage.dll_2" ComponentId="{549A723B-B4CA-4F15-A205-34813E3E862C}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Storage.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.Data.Storage.dll_3" ComponentId="{879FC61B-C25E-48F0-A592-BD632ED907A0}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.Storage.dll_3"/>
     <ROW Component="Microsoft.VisualBasic.Data.TrinityNLP.dll" ComponentId="{B2C4AF4F-673D-4944-B2BC-6E8FF59C4194}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.TrinityNLP.dll"/>
     <ROW Component="Microsoft.VisualBasic.Data.visualize.Network.IO.Extensions.dll" ComponentId="{5F9C1527-ECAA-4190-91DB-7E5BBC084301}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.visualize.Network.IO.Extensions.dll"/>
     <ROW Component="Microsoft.VisualBasic.Data.visualize.Network.Visualizer.dll" ComponentId="{79C20667-A930-4145-AEE5-69ECFD8BCE86}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.visualize.Network.Visualizer.dll"/>
@@ -108,13 +164,24 @@
     <ROW Component="Microsoft.VisualBasic.Data.visualize.dll" ComponentId="{D326EA66-C494-487F-8A44-36A91E83E8A4}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Data.visualize.dll"/>
     <ROW Component="Microsoft.VisualBasic.DataMining.BinaryTreeClustering.dll" ComponentId="{F7F132A4-4F38-4EB4-8272-BA2793B757A2}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataMining.BinaryTreeClustering.dll"/>
     <ROW Component="Microsoft.VisualBasic.DataMining.DensityQuery.dll" ComponentId="{E6C4B6BF-06AD-4065-8BC2-861DA9788AC3}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataMining.DensityQuery.dll"/>
+    <ROW Component="Microsoft.VisualBasic.DataMining.DynamicProgramming.dll" ComponentId="{DF1B2172-C7E0-47A9-948C-5C4D0F637D22}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataMining.DynamicProgramming.dll"/>
     <ROW Component="Microsoft.VisualBasic.DataMining.FeatureFrame.dll" ComponentId="{60B0B033-801D-4627-90AE-AE653AC839D3}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataMining.FeatureFrame.dll"/>
     <ROW Component="Microsoft.VisualBasic.DataMining.Framework.dll" ComponentId="{CACE61CA-1D09-4A0E-9909-ED67638E0E20}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataMining.Framework.dll"/>
     <ROW Component="Microsoft.VisualBasic.DataMining.HiddenMarkovChain.dll" ComponentId="{CDAE6A75-CAFE-4630-B4D2-C9D319C74067}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataMining.HiddenMarkovChain.dll"/>
     <ROW Component="Microsoft.VisualBasic.DataMining.HierarchicalClustering.dll" ComponentId="{EF78A58D-9F9A-47B2-8E82-57104C974D46}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataMining.HierarchicalClustering.dll"/>
     <ROW Component="Microsoft.VisualBasic.DataMining.UMAP.dll" ComponentId="{6BF4D0FE-58F2-455E-B278-A10076ED69FB}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataMining.UMAP.dll"/>
     <ROW Component="Microsoft.VisualBasic.DataStorage.HDSPack.dll" ComponentId="{BFEC4C12-B3E3-46B0-A5B5-8FC6C3860D5B}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.HDSPack.dll"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.HDSPack.dll_1" ComponentId="{DBE10FDC-A433-4E89-A7CD-DF887A12E2D1}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.HDSPack.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.HDSPack.dll_2" ComponentId="{AEDE71A0-66C0-4550-8AAE-077B289A79E1}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.HDSPack.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.HDSPack.dll_3" ComponentId="{6A0A55FB-D23C-4688-99D1-EAF5A3FBF807}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.HDSPack.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.HDSPack.dll_4" ComponentId="{FBAE1CA6-26E2-4AD6-B225-B624B13A78AD}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.HDSPack.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.HDSPack.pdb" ComponentId="{C87E1743-D226-4B85-85B8-84DF8D7B5E4F}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.DataStorage.HDSPack.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.DataStorage.netCDF.dll" ComponentId="{72C1D889-20B4-41B0-8D2F-75B08B3B75D0}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.netCDF.dll"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.netCDF.dll_1" ComponentId="{4E919599-1965-4BFE-BC41-81D6A8DDDE3C}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.netCDF.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.netCDF.dll_2" ComponentId="{B8BF7FCB-0F76-486C-91EA-0F192ECA8B39}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.netCDF.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.netCDF.dll_3" ComponentId="{53672FE0-832E-4CDC-9478-9390A8A4842A}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.netCDF.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.netCDF.dll_4" ComponentId="{DE163A89-F881-4208-A27D-4BA1321A6AB6}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DataStorage.netCDF.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.DataStorage.netCDF.pdb" ComponentId="{C7827067-FDA9-46D5-B1A7-8824392E2F5A}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.DataStorage.netCDF.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.DeepLearning.dll" ComponentId="{4C531A21-20B1-4069-B737-876D59E5779B}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.DeepLearning.dll"/>
     <ROW Component="Microsoft.VisualBasic.Imaging.PDF.dll" ComponentId="{1680EDE4-2CA3-4942-B68B-68A5E6BF8CDF}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Imaging.PDF.dll"/>
     <ROW Component="Microsoft.VisualBasic.Imaging.Physics.dll" ComponentId="{391739DE-E6E5-41F4-83F1-EFF86B96CC93}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Imaging.Physics.dll"/>
@@ -124,9 +191,22 @@
     <ROW Component="Microsoft.VisualBasic.MIME.application.json.dll" ComponentId="{744E98AF-4FD2-4FA2-BF7A-75788CFB4128}" Directory_="bin_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.json.dll"/>
     <ROW Component="Microsoft.VisualBasic.MIME.application.json.dll_1" ComponentId="{F9EBC1A0-30FB-4775-93DB-3BA87500493D}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.json.dll_1"/>
     <ROW Component="Microsoft.VisualBasic.MIME.application.json.dll_2" ComponentId="{9593B9AB-E0D2-4138-9438-2C9C803F4EA1}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.json.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.json.pdb" ComponentId="{2AF06039-7ABC-4F21-B87E-9E739383D7EF}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.MIME.application.json.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.MIME.application.json.xml" ComponentId="{558A84A5-7C5F-476E-841E-6F1E0A294B8C}" Directory_="library_Dir" Attributes="0" KeyPath="Microsoft.VisualBasic.Runtime.dll.config_2" Type="0"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.json.xml_1" ComponentId="{5F5CD223-F978-4089-8F48-3DC69B6FDD20}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.MIME.application.json.xml"/>
     <ROW Component="Microsoft.VisualBasic.MIME.application.pdf.dll" ComponentId="{4C705A38-97B5-4045-B850-2811C0A48A5A}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.pdf.dll"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.rdf_xml.dll" ComponentId="{CB22757F-7451-427A-9012-48F40068AD55}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.rdf_xml.dll"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_1" ComponentId="{8CF18965-5CD3-4EEA-96DC-E187EE4A0456}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_2" ComponentId="{DD616C2B-95C6-4036-B4E6-4BEF0C5FBB06}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_3" ComponentId="{FC1D84FC-87AD-488A-9102-92E27F24313C}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_4" ComponentId="{CF511072-8B76-4028-87FD-DBA375E660D2}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.rdf_xml.pdb" ComponentId="{5F4A09F7-A115-45F2-BC52-9D31EAC837AB}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.MIME.application.rdf_xml.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.MIME.application.xml.dll" ComponentId="{CE475A1D-2013-4A9F-8128-A3C8827413DF}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.xml.dll"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.xml.dll_1" ComponentId="{961C5079-3E2A-476E-BDE7-0F9FC9731A87}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.xml.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.xml.dll_2" ComponentId="{421B3DFD-0859-4957-A36B-98A97A37A011}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.xml.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.xml.dll_3" ComponentId="{65488767-6C38-4FE1-9F90-389CF27C2821}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.xml.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.xml.dll_4" ComponentId="{5DE1AA88-B607-481B-882A-ADA7548546E1}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.application.xml.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.MIME.application.xml.pdb" ComponentId="{14092507-8E7B-42A9-9099-E4C7F52AD4CF}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.MIME.application.xml.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.MIME.text.markdown.dll" ComponentId="{E048EBEA-AF3F-4532-8EA4-1A29AD7DDFC7}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MIME.text.markdown.dll"/>
     <ROW Component="Microsoft.VisualBasic.MachineLearning.Data.Extensions.dll" ComponentId="{E19CC5D9-A043-400F-A0E4-D7D122D6FD01}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MachineLearning.Data.Extensions.dll"/>
     <ROW Component="Microsoft.VisualBasic.MachineLearning.Debugger.dll" ComponentId="{C98265BC-6213-43F6-9316-8B90F665783D}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MachineLearning.Debugger.dll"/>
@@ -135,27 +215,59 @@
     <ROW Component="Microsoft.VisualBasic.MachineLearning.dll" ComponentId="{2393B50D-A1FD-46E5-910D-C7E74D338B43}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MachineLearning.dll"/>
     <ROW Component="Microsoft.VisualBasic.MachineLearning.tSNE.dll" ComponentId="{20A731AB-F72F-46F3-9988-2EF6C513573E}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.MachineLearning.tSNE.dll"/>
     <ROW Component="Microsoft.VisualBasic.Math.Core.dll" ComponentId="{B04A9F2E-9F96-4E06-B71E-E6AECE14CAFD}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Core.dll"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Core.dll.config" ComponentId="{03FEFF80-F3BD-474D-8305-DAC8DE09D94A}" Directory_="net48_Dir" Attributes="0" KeyPath="Microsoft.VisualBasic.Math.Core.dll.config_3" Type="0"/>
     <ROW Component="Microsoft.VisualBasic.Math.Core.dll_1" ComponentId="{C1467765-35BA-4D1F-9588-9E0930B95E28}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Core.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Core.dll_2" ComponentId="{00625FD2-131F-43BD-80B5-79D2CD8D8A7E}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Core.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Core.dll_3" ComponentId="{4ECF2FCD-868A-46E5-AE59-4A4318D695A3}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Core.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Core.dll_4" ComponentId="{FA3DE4B1-2146-472E-A766-CFDEC4778D11}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Core.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Core.pdb" ComponentId="{2C001753-489A-4FED-83E6-27A97AA8F3F9}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Math.Core.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.Math.DataFrame.dll" ComponentId="{F815A16F-0A32-41D9-B57A-C6D1E0C014BF}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.DataFrame.dll"/>
     <ROW Component="Microsoft.VisualBasic.Math.Lambda.dll" ComponentId="{EAC39504-C6EE-4A5F-9CDA-30BD90D070B5}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Lambda.dll"/>
     <ROW Component="Microsoft.VisualBasic.Math.ODEsSolver.dll" ComponentId="{259CFCC7-6E8F-4F39-AA30-8C9E225781DA}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.ODEsSolver.dll"/>
+    <ROW Component="Microsoft.VisualBasic.Math.ODEsSolver.dll_1" ComponentId="{71402B72-8A37-499E-821B-67F34ECEFB9F}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.ODEsSolver.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.Math.ODEsSolver.dll_2" ComponentId="{A16ABBA0-77F9-4273-B6A7-A8152A55ECC5}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.ODEsSolver.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.Math.ODEsSolver.dll_3" ComponentId="{96F2EF3A-2575-4903-82FC-8F6F227255DC}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.ODEsSolver.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.Math.ODEsSolver.dll_4" ComponentId="{A35A3A0E-3112-42AA-954A-1B89000456C8}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.ODEsSolver.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.Math.ODEsSolver.pdb" ComponentId="{13BFF316-8056-4B8C-A95D-1A3450D125A8}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Math.ODEsSolver.pdb" Type="4"/>
+    <ROW Component="Microsoft.VisualBasic.Math.ODEsSolver.xml" ComponentId="{BDC8CC08-536E-4A59-89E5-2D2D25388D72}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Math.ODEsSolver.xml"/>
     <ROW Component="Microsoft.VisualBasic.Math.Randomizer.dll" ComponentId="{45FC1196-11EF-4E4E-AA98-823AAF95FB82}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Randomizer.dll"/>
     <ROW Component="Microsoft.VisualBasic.Math.Statistics.ANOVA.dll" ComponentId="{EF58BF20-06E2-4A60-B5B7-C7DDA4CE3183}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Statistics.ANOVA.dll"/>
     <ROW Component="Microsoft.VisualBasic.Math.Statistics.dll" ComponentId="{DD74D3CC-EE44-4E4A-BC14-15877DF69EBD}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Statistics.dll"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Statistics.dll_1" ComponentId="{F00C1465-7589-44DF-884B-7F71132AED51}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Statistics.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Statistics.dll_2" ComponentId="{FB91843A-92DB-497F-8AD0-89DC9142ED20}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Statistics.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Statistics.dll_3" ComponentId="{1ACC60B2-E747-4BB7-A44F-A26C7A8A5389}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Statistics.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Statistics.dll_4" ComponentId="{600BA72F-C605-48A5-AF8B-AFDC1D4E51FC}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Math.Statistics.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.Math.Statistics.pdb" ComponentId="{96D74FDB-9C82-4F2E-BED7-FB29CEBC702F}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Math.Statistics.pdb" Type="4"/>
     <ROW Component="Microsoft.VisualBasic.Network.dll" ComponentId="{FC82F2FE-6CAA-4A8E-B23B-5F8C53B2F6C2}" Directory_="bin_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Network.dll"/>
     <ROW Component="Microsoft.VisualBasic.Network.dll_1" ComponentId="{7A4B7683-4C63-484E-96AF-336F90B4A102}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Network.dll_1"/>
+    <ROW Component="Microsoft.VisualBasic.Network.dll_2" ComponentId="{0121ECE5-E61B-4D0A-859F-A639126BA7B5}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Network.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.Network.pdb" ComponentId="{3800E0B9-DC92-4F53-91A5-E131E1127658}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Network.pdb" Type="4"/>
+    <ROW Component="Microsoft.VisualBasic.Network.xml" ComponentId="{F08B7990-F4A9-4AD1-884A-C9573F5F7FCA}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Network.xml"/>
     <ROW Component="Microsoft.VisualBasic.Runtime.dll" ComponentId="{BB0EE1B3-5D21-4F9E-8512-AFF2D7860D93}" Directory_="bin_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Runtime.dll"/>
     <ROW Component="Microsoft.VisualBasic.Runtime.dll_1" ComponentId="{5C681AB5-158A-4256-A69B-5C54F5F8D1D8}" Directory_="APPDIR" Attributes="256" KeyPath="Microsoft.VisualBasic.Runtime.dll_1"/>
     <ROW Component="Microsoft.VisualBasic.Runtime.dll_2" ComponentId="{4CE2CCFA-2B5C-4006-BF15-2E4C9F2D8EBE}" Directory_="library_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Runtime.dll_2"/>
+    <ROW Component="Microsoft.VisualBasic.Runtime.dll_3" ComponentId="{51BA7A1D-CB9E-4A64-AFDD-6BE369B1A64B}" Directory_="host_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Runtime.dll_3"/>
+    <ROW Component="Microsoft.VisualBasic.Runtime.dll_4" ComponentId="{6514F0AB-8ECB-444F-AF0D-9AA3E9D65B95}" Directory_="net48_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Runtime.dll_4"/>
+    <ROW Component="Microsoft.VisualBasic.Runtime.dll_5" ComponentId="{8465BE2F-75F5-428A-9D4E-33E593B7AC29}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="Microsoft.VisualBasic.Runtime.dll_5"/>
+    <ROW Component="Microsoft.VisualBasic.Runtime.pdb" ComponentId="{05430CE4-29A6-452A-BCCA-CB589819E12E}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Runtime.pdb" Type="4"/>
+    <ROW Component="Microsoft.VisualBasic.Runtime.xml" ComponentId="{46190124-C6C4-47D9-BCB6-608A8CC26B05}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.Runtime.xml"/>
     <ROW Component="Microsoft.VisualStudio.Windows.Form.dll" ComponentId="{4B623B5F-A5EB-4148-9C7A-89435AF2A7E6}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Windows.Form.dll"/>
     <ROW Component="Microsoft.Web.WebView2.Core.dll" ComponentId="{7C0037D2-2BEE-4F0C-8C8D-7197BC8026EE}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.Core.dll"/>
+    <ROW Component="Microsoft.Web.WebView2.Core.xml" ComponentId="{B0BB1194-D816-4976-B731-38F145EC8E03}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.Core.xml"/>
     <ROW Component="Microsoft.Web.WebView2.WinForms.dll" ComponentId="{A9FD0D95-3CA3-4ADF-82BC-A1CDC5C1067A}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.WinForms.dll"/>
+    <ROW Component="Microsoft.Web.WebView2.WinForms.xml" ComponentId="{05792A3B-8B8D-4B5A-931B-056CDA381F82}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.WinForms.xml"/>
     <ROW Component="Microsoft.Web.WebView2.Wpf.dll" ComponentId="{DC1A2AC1-B077-457D-877C-5CE59EC1C6C7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.Wpf.dll"/>
+    <ROW Component="Microsoft.Web.WebView2.Wpf.xml" ComponentId="{45AFAFC8-A0DD-47A5-8088-D9CCDA127D33}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.Wpf.xml"/>
     <ROW Component="Microsoft.Win32.SystemEvents.dll" ComponentId="{195CBC85-563D-42B4-B0BC-A1898896303B}" Directory_="bin_Dir" Attributes="0" KeyPath="Microsoft.Win32.SystemEvents.dll"/>
     <ROW Component="Microsoft.Win32.SystemEvents.dll_1" ComponentId="{7394A492-C376-4BD8-8BF0-ADF70CF2FC89}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="Microsoft.Win32.SystemEvents.dll_1"/>
     <ROW Component="Microsoft.Windows.FeatureAPI.dll" ComponentId="{0DA94794-FF84-4362-802B-BE2D171527E7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Windows.FeatureAPI.dll"/>
     <ROW Component="Microsoft.Windows.Ribbon.dll" ComponentId="{A0D9AE82-0034-49AE-BB07-F88519A805F7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Windows.Ribbon.dll"/>
     <ROW Component="OmicsProject.dll" ComponentId="{3E4C1086-9A88-4C8C-A854-B7804129D69B}" Directory_="APPDIR" Attributes="256" KeyPath="OmicsProject.dll"/>
+    <ROW Component="OmicsProject.dll_1" ComponentId="{1131923A-53B3-4600-A2B7-F67965E8EB8F}" Directory_="net48_Dir" Attributes="256" KeyPath="OmicsProject.dll_1"/>
+    <ROW Component="OmicsProject.dll_2" ComponentId="{37C82D4F-9D20-4167-A22C-DED4717CD315}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="OmicsProject.dll_2"/>
+    <ROW Component="OmicsProject.dll_3" ComponentId="{16B17625-AEB7-4C3A-A2BF-F6EFCAD54AC6}" Directory_="host_Dir" Attributes="256" KeyPath="OmicsProject.dll_3"/>
+    <ROW Component="OmicsProject.pdb" ComponentId="{90D2AC75-39A8-443D-A5DE-7516323AB489}" Directory_="APPDIR" Attributes="0" KeyPath="OmicsProject.pdb" Type="4"/>
+    <ROW Component="Parallel.dll" ComponentId="{A5088956-8296-46FB-9B1E-DFE803966F42}" Directory_="bin_Dir" Attributes="256" KeyPath="Parallel.dll"/>
     <ROW Component="ProductInformation" ComponentId="{1D221E6E-1160-4C0E-A212-EE419A654BC4}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
     <ROW Component="R.dll" ComponentId="{9F1DBFBE-E4EE-443B-8F27-EA0FDC7C03C1}" Directory_="bin_Dir" Attributes="256" KeyPath="R.dll"/>
     <ROW Component="R.exe" ComponentId="{C2F758DF-C8C6-4DCF-94FF-437D465F92B1}" Directory_="bin_Dir" Attributes="256" KeyPath="R.exe"/>
@@ -164,6 +276,16 @@
     <ROW Component="REnv.dll" ComponentId="{304CE16A-3BA3-46AD-9D8F-1B597F647913}" Directory_="bin_Dir" Attributes="256" KeyPath="REnv.dll"/>
     <ROW Component="REnv.dll_1" ComponentId="{56511540-5746-4AE2-9788-8EF74D9087F4}" Directory_="APPDIR" Attributes="256" KeyPath="REnv.dll_1"/>
     <ROW Component="REnv.dll_2" ComponentId="{144A1DAE-E002-4F84-AC26-A45D5FCBCD78}" Directory_="library_Dir" Attributes="256" KeyPath="REnv.dll_2"/>
+    <ROW Component="REnv.dll_3" ComponentId="{A240CEA7-32F2-44ED-B421-B7E860A037D9}" Directory_="net48_Dir" Attributes="256" KeyPath="REnv.dll_3"/>
+    <ROW Component="REnv.dll_4" ComponentId="{37E38E32-FBC4-411F-9E6C-581D43A46CEF}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="REnv.dll_4"/>
+    <ROW Component="REnv.dll_5" ComponentId="{ADCB1CC6-5888-479E-99F3-3EED65FB969E}" Directory_="host_Dir" Attributes="256" KeyPath="REnv.dll_5"/>
+    <ROW Component="REnv.pdb" ComponentId="{3CD5253B-A224-4A56-AFB8-569661D63F3B}" Directory_="APPDIR" Attributes="0" KeyPath="REnv.pdb" Type="4"/>
+    <ROW Component="REnv.xml" ComponentId="{64853DDD-7392-47FB-B09A-B00117C7CA0C}" Directory_="APPDIR" Attributes="0" KeyPath="REnv.xml"/>
+    <ROW Component="RawViewer.dll" ComponentId="{FC5ED80C-CA72-47F5-83C0-D476ECAE3D7D}" Directory_="APPDIR" Attributes="256" KeyPath="RawViewer.dll"/>
+    <ROW Component="RawViewer.dll_1" ComponentId="{0BF6432D-7965-4690-A705-151E53875075}" Directory_="net48_Dir" Attributes="256" KeyPath="RawViewer.dll_1"/>
+    <ROW Component="RawViewer.dll_2" ComponentId="{768FD01C-9E38-49B2-98E0-51EE8A280386}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="RawViewer.dll_2"/>
+    <ROW Component="RawViewer.dll_3" ComponentId="{2F7B9F4F-A9E6-408D-8FD9-C5B2A152D8B2}" Directory_="host_Dir" Attributes="256" KeyPath="RawViewer.dll_3"/>
+    <ROW Component="RawViewer.pdb" ComponentId="{CEC600B1-1794-47DB-BB81-134B3DDD0710}" Directory_="APPDIR" Attributes="0" KeyPath="RawViewer.pdb" Type="4"/>
     <ROW Component="Rlapack.dll" ComponentId="{C79B9623-4F33-460B-927C-6F2265EC63B3}" Directory_="library_Dir" Attributes="256" KeyPath="Rlapack.dll"/>
     <ROW Component="Rscript.dll" ComponentId="{11075C92-8B95-4AE3-B33F-3DF5E13F30A6}" Directory_="bin_Dir" Attributes="256" KeyPath="Rscript.dll"/>
     <ROW Component="Rscript.exe" ComponentId="{A5EF31DA-6DA6-4E34-B6B6-1C8310DD2E78}" Directory_="bin_Dir" Attributes="256" KeyPath="Rscript.exe"/>
@@ -171,32 +293,124 @@
     <ROW Component="Rserve.exe" ComponentId="{47D98200-A459-4592-9E67-B18CC802142C}" Directory_="bin_Dir" Attributes="256" KeyPath="Rserve.exe"/>
     <ROW Component="Rserver.dll" ComponentId="{09935196-EB89-4701-ABDF-D50774F75CE7}" Directory_="bin_Dir" Attributes="256" KeyPath="Rserver.dll"/>
     <ROW Component="Rserver.dll_1" ComponentId="{612950EF-A7C7-40BC-B198-FA103E675A48}" Directory_="APPDIR" Attributes="256" KeyPath="Rserver.dll_1"/>
+    <ROW Component="Rserver.pdb" ComponentId="{4237B3DB-0E33-44FB-AC02-284B497ED080}" Directory_="APPDIR" Attributes="0" KeyPath="Rserver.pdb" Type="4"/>
+    <ROW Component="Rserver.xml" ComponentId="{2D031946-842E-4B15-B16C-1D8EC5574C09}" Directory_="APPDIR" Attributes="0" KeyPath="Rserver.xml"/>
     <ROW Component="Rserver.zip" ComponentId="{8AA7C4DD-9D17-431B-96BF-937B62544724}" Directory_="packages_Dir" Attributes="0" KeyPath="Rserver.zip" Type="0"/>
     <ROW Component="Rstudio.dll" ComponentId="{E1884026-420C-4608-9C82-43C5B05980AD}" Directory_="library_Dir" Attributes="256" KeyPath="Rstudio.dll"/>
     <ROW Component="SMRUCC" ComponentId="{7B56C500-B4FF-4577-B2B5-80D129CDC4C9}" Directory_="SMRUCC_Dir" Attributes="0"/>
     <ROW Component="SMRUCC.genomics.Analysis.HTS.DataFrame.dll" ComponentId="{F53A9E6D-F821-400F-97CE-344EFFB0B660}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Analysis.HTS.DataFrame.dll"/>
+    <ROW Component="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_1" ComponentId="{CEE2B14D-A998-4CCF-BC01-52229C710776}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_1"/>
+    <ROW Component="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_2" ComponentId="{B371B332-0B37-4776-AD95-0267A52CEF71}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_2"/>
+    <ROW Component="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_3" ComponentId="{8A291065-F58D-48B9-8C55-1E25F581C30A}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_3"/>
+    <ROW Component="SMRUCC.genomics.Analysis.HTS.DataFrame.pdb" ComponentId="{E495677B-9711-4B03-B9D7-F0CDACF7E8B9}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Analysis.HTS.DataFrame.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.Analysis.HTS.DataFrame.xml" ComponentId="{235F8772-7081-49B1-B043-11A79203AEAE}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Analysis.HTS.DataFrame.xml"/>
+    <ROW Component="SMRUCC.genomics.Annotation.dll" ComponentId="{0A62769B-28FB-4C73-AE40-66664AD321EE}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Annotation.dll"/>
+    <ROW Component="SMRUCC.genomics.Annotation.dll_1" ComponentId="{9835BADA-5A7A-4F42-BD79-CFD894D103C0}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Annotation.dll_1"/>
+    <ROW Component="SMRUCC.genomics.Annotation.dll_2" ComponentId="{BD58159D-6277-48C3-9CD2-2B683B9E0DB8}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Annotation.dll_2"/>
+    <ROW Component="SMRUCC.genomics.Annotation.dll_3" ComponentId="{A76101E0-F892-4FB5-8B7C-A5E67FF5D2D2}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Annotation.dll_3"/>
+    <ROW Component="SMRUCC.genomics.Annotation.pdb" ComponentId="{D9CAEBA9-7599-4288-96E1-3534B8A99CD3}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Annotation.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.Annotation.xml" ComponentId="{1B304B48-6EAB-46DE-9E37-6B06EDFC56E5}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Annotation.xml"/>
     <ROW Component="SMRUCC.genomics.Core.dll" ComponentId="{57DD5ED3-82BA-43ED-B02F-8BAA34824B94}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Core.dll"/>
+    <ROW Component="SMRUCC.genomics.Core.dll_1" ComponentId="{57E7D1C9-6719-43C5-83E4-5D5CB7EB4FD3}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Core.dll_1"/>
+    <ROW Component="SMRUCC.genomics.Core.dll_2" ComponentId="{3E92463B-18FE-4B46-B596-2A579A069E21}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Core.dll_2"/>
+    <ROW Component="SMRUCC.genomics.Core.dll_3" ComponentId="{30B9B779-7DA3-4070-9738-1D6EE1169B52}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Core.dll_3"/>
+    <ROW Component="SMRUCC.genomics.Core.pdb" ComponentId="{08532B39-185A-4E68-9810-674D38711F68}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Core.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.Core.xml" ComponentId="{6BB63312-145D-494E-A2C8-6CB9EFC74B3A}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Core.xml"/>
+    <ROW Component="SMRUCC.genomics.Data.Repository.dll" ComponentId="{55159E46-A068-4866-871C-833D3FEA2A57}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Data.Repository.dll"/>
+    <ROW Component="SMRUCC.genomics.Data.Repository.dll_1" ComponentId="{893613B4-6CBF-4CE1-B504-94998B271B10}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Data.Repository.dll_1"/>
+    <ROW Component="SMRUCC.genomics.Data.Repository.dll_2" ComponentId="{BDD0745D-5C92-4D54-A2B9-83846CB2F3B9}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Data.Repository.dll_2"/>
+    <ROW Component="SMRUCC.genomics.Data.Repository.dll_3" ComponentId="{0539584B-42CB-48BD-85A2-461829079907}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Data.Repository.dll_3"/>
+    <ROW Component="SMRUCC.genomics.Data.Repository.pdb" ComponentId="{3D1B1A6C-EA56-4E86-B2EC-824538463735}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Data.Repository.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.Data.Repository.xml" ComponentId="{6AD3B21F-E02A-422E-BA37-1053311BD30B}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Data.Repository.xml"/>
+    <ROW Component="SMRUCC.genomics.Data.Rhea.dll" ComponentId="{2714C6B6-92C4-4D6A-87EC-6709347F2C41}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Data.Rhea.dll"/>
+    <ROW Component="SMRUCC.genomics.Data.Rhea.dll_1" ComponentId="{AB611E12-220B-47F4-9E61-029A43CDF05A}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Data.Rhea.dll_1"/>
+    <ROW Component="SMRUCC.genomics.Data.Rhea.dll_2" ComponentId="{34C0AF02-4DAF-4E3F-B8C0-BB798B55FD94}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Data.Rhea.dll_2"/>
+    <ROW Component="SMRUCC.genomics.Data.Rhea.dll_3" ComponentId="{6FE59483-9466-4753-B3C3-8C3920358480}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Data.Rhea.dll_3"/>
+    <ROW Component="SMRUCC.genomics.Data.Rhea.pdb" ComponentId="{8D64EFC6-35CB-448D-84C2-8811B3D92883}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Data.Rhea.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.Data.SABIORK.dll" ComponentId="{26D5AAB5-1027-4B37-AD34-3F0E9D5B9322}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Data.SABIORK.dll"/>
+    <ROW Component="SMRUCC.genomics.Data.SABIORK.dll_1" ComponentId="{9C352DAD-AE5D-47BC-B1F3-BD0CB09D6B32}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Data.SABIORK.dll_1"/>
+    <ROW Component="SMRUCC.genomics.Data.SABIORK.dll_2" ComponentId="{E2544DDB-DCAE-4803-AF0D-24202FCDB4F8}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Data.SABIORK.dll_2"/>
+    <ROW Component="SMRUCC.genomics.Data.SABIORK.dll_3" ComponentId="{0B95DCD4-4E4A-4936-86A1-DB853432B8A2}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Data.SABIORK.dll_3"/>
+    <ROW Component="SMRUCC.genomics.Data.SABIORK.pdb" ComponentId="{50C4FA57-8F0F-4D34-BB40-D2D7AF2B66F1}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Data.SABIORK.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" ComponentId="{53E5A08C-59B8-4DDC-992F-3EBBE3BAE939}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_1" ComponentId="{38CDA7B3-C2F4-431C-A5E5-C2A157CA531A}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_1"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_2" ComponentId="{8690214C-07A0-4F7C-91B7-9B489A5CEF37}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_2"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_3" ComponentId="{2204198D-42DD-46A1-BDEF-64789D9A11D0}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_3"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.pdb" ComponentId="{C3A63AD9-7239-4D8D-AF5B-4197D4007114}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.xml" ComponentId="{AE8D51ED-9687-47AE-84C0-8493F21BC5C5}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.xml"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" ComponentId="{26B7BBE4-192D-4BB2-A61B-B0A9890CBD29}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_1" ComponentId="{6D460AFD-4221-40E8-8C30-E735A45E2163}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_1"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_2" ComponentId="{92132774-5150-4CB8-B91C-46C1FF18178F}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_2"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_3" ComponentId="{867A92FC-F7D5-41E9-854D-D54DB670DAEA}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_3"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.pdb" ComponentId="{A73C122D-6F93-43BD-BE76-9E4F7FAD5B0E}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.xml" ComponentId="{236D9057-6931-42C5-93AA-059BF3501EAE}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.xml"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" ComponentId="{948828EC-269A-4187-A752-D715C136EC95}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_1" ComponentId="{FD907D59-AF06-4B29-9F12-150A5A02E353}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_1"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_2" ComponentId="{6D62DBF1-C94C-46EC-83CB-E198927E99F9}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_2"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_3" ComponentId="{0BCDE45E-9791-4EA5-A927-DA08480476AD}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_3"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.pdb" ComponentId="{99C23C3B-5F71-4D2B-B2EA-CFBAD27575D6}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.xml" ComponentId="{6D3F6A12-4622-4C1A-BF14-476156E83484}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.xml"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" ComponentId="{84C98989-9C67-47DC-A44E-C56BA9700C4D}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_1" ComponentId="{38EE43DC-4777-4AC0-9361-7A7CCC4E9010}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_1"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_2" ComponentId="{7B159BE8-8B09-4EBA-80D2-F340D9AE7F1B}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_2"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_3" ComponentId="{E1C39461-3FD8-490C-A6ED-08509019AA36}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_3"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Model.pdb" ComponentId="{1C70CEB3-FA72-4D76-BF4F-72932B83AF0A}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Model.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.ModellingEngine.Model.xml" ComponentId="{99467D89-D66F-46E6-8FF3-7D6812AACDB2}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.ModellingEngine.Model.xml"/>
     <ROW Component="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" ComponentId="{09131ECF-7956-43D6-BFA0-F424DDC90572}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll"/>
-    <ROW Component="System.Buffers.dll" ComponentId="{DC788B8A-CE5F-4CCA-AC6C-CCCECDC9F56A}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_1" ComponentId="{C3ECEE2E-A3B5-44AA-8A1C-94AFD3599455}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_1"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_2" ComponentId="{D6F8F114-26D4-4B09-86D9-136B65D48BDF}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_2"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_3" ComponentId="{BB77624E-A15B-4B26-8429-E815EA577788}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_3"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.pdb" ComponentId="{AD03F389-B6A5-4C27-AACE-3B086932BCA1}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.xml" ComponentId="{96F904C8-68AA-4AB6-BF62-BA89282D42F6}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.xml"/>
+    <ROW Component="SMRUCC.genomics.Interops.NCBI.Extensions.dll" ComponentId="{1722D7EE-BFDD-4EBE-9E6D-0CE1706A861B}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Interops.NCBI.Extensions.dll"/>
+    <ROW Component="SMRUCC.genomics.Interops.NCBI.Extensions.dll_1" ComponentId="{5492CC37-C842-40A2-B8B6-FDC60750E44A}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Interops.NCBI.Extensions.dll_1"/>
+    <ROW Component="SMRUCC.genomics.Interops.NCBI.Extensions.dll_2" ComponentId="{26FA0D39-105A-4CAC-A949-29F797B16C1B}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Interops.NCBI.Extensions.dll_2"/>
+    <ROW Component="SMRUCC.genomics.Interops.NCBI.Extensions.dll_3" ComponentId="{46661398-C611-4308-9293-4189984B1167}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Interops.NCBI.Extensions.dll_3"/>
+    <ROW Component="SMRUCC.genomics.Interops.NCBI.Extensions.pdb" ComponentId="{3649B240-F561-4A2C-A4D5-B77712351422}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Interops.NCBI.Extensions.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.Model.BioSystems.dll" ComponentId="{5BCDA504-0AC8-4587-A58B-D1290122562A}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Model.BioSystems.dll"/>
+    <ROW Component="SMRUCC.genomics.Model.BioSystems.dll_1" ComponentId="{483315E8-4B38-4B30-8B64-203A86177B04}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Model.BioSystems.dll_1"/>
+    <ROW Component="SMRUCC.genomics.Model.BioSystems.dll_2" ComponentId="{DC995B62-EE22-4103-975F-E011D15D282B}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Model.BioSystems.dll_2"/>
+    <ROW Component="SMRUCC.genomics.Model.BioSystems.dll_3" ComponentId="{4ABF881C-914A-491F-A0E2-688B0828719B}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Model.BioSystems.dll_3"/>
+    <ROW Component="SMRUCC.genomics.Model.BioSystems.pdb" ComponentId="{C742563A-46E1-4981-AB20-A91F2FF48ACD}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Model.BioSystems.pdb" Type="4"/>
+    <ROW Component="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" ComponentId="{988DD4B1-5B84-4B5B-89A5-1CE894BD1939}" Directory_="APPDIR" Attributes="256" KeyPath="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll"/>
+    <ROW Component="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_1" ComponentId="{9BE0C465-E927-4586-BF45-C10E9BC13184}" Directory_="net48_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_1"/>
+    <ROW Component="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_2" ComponentId="{F6565B36-BCE7-49B8-8186-144A97AE7941}" Directory_="net6.0_2_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_2"/>
+    <ROW Component="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_3" ComponentId="{7BE5E182-CE8D-413A-8F7A-49B1464B82A5}" Directory_="host_Dir" Attributes="256" KeyPath="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_3"/>
+    <ROW Component="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.pdb" ComponentId="{98DA16CA-8370-4776-BC21-E44C9BE0A8C3}" Directory_="APPDIR" Attributes="0" KeyPath="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.pdb" Type="4"/>
+    <ROW Component="System.Buffers.dll" ComponentId="{E530B903-A8CE-4A58-8D50-591605272243}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Buffers.dll"/>
+    <ROW Component="System.ComponentModel.Annotations.dll" ComponentId="{AB1C177F-A6FD-4797-BDD7-BADB2126AAD5}" Directory_="net48_Dir" Attributes="0" KeyPath="System.ComponentModel.Annotations.dll"/>
     <ROW Component="System.Composition.AttributedModel.dll" ComponentId="{F9FB9B9B-9DA5-44CE-AFCE-64E146D00F33}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.AttributedModel.dll"/>
     <ROW Component="System.Composition.AttributedModel.dll_1" ComponentId="{9324E751-4288-44E3-8ECD-793B6CEE393A}" Directory_="APPDIR" Attributes="0" KeyPath="System.Composition.AttributedModel.dll_1"/>
+    <ROW Component="System.Composition.AttributedModel.dll_2" ComponentId="{22BCFB38-10B4-4EE3-AC6A-3CAAC3104B80}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Composition.AttributedModel.dll_2"/>
     <ROW Component="System.Composition.Convention.dll" ComponentId="{81069B58-9B30-4D25-9F33-B9E9FF94B5CD}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.Convention.dll"/>
+    <ROW Component="System.Composition.Convention.dll_1" ComponentId="{AD4B6CAD-870F-4C22-9FDC-6F573436C970}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Composition.Convention.dll_1"/>
     <ROW Component="System.Composition.Hosting.dll" ComponentId="{10E50C71-D1DB-4086-A261-7FD750D4AC11}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.Hosting.dll"/>
+    <ROW Component="System.Composition.Hosting.dll_1" ComponentId="{6BC2560A-E5D5-4445-9344-7198F4EA7AA1}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Composition.Hosting.dll_1"/>
     <ROW Component="System.Composition.Runtime.dll" ComponentId="{BF4C675F-342C-4C73-AB05-65A063846E5B}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.Runtime.dll"/>
+    <ROW Component="System.Composition.Runtime.dll_1" ComponentId="{B674FB75-C96D-4EE4-A45F-5EEC9CD34016}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Composition.Runtime.dll_1"/>
     <ROW Component="System.Composition.TypedParts.dll" ComponentId="{78D96DDB-41DD-48E4-A27D-3C90A3CBD8A8}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Composition.TypedParts.dll"/>
+    <ROW Component="System.Composition.TypedParts.dll_1" ComponentId="{A5091E00-B793-4A9C-A3AA-633B3EC6E6AD}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Composition.TypedParts.dll_1"/>
     <ROW Component="System.Configuration.ConfigurationManager.dll" ComponentId="{2509EB5F-EC27-4424-841D-ACB15D158377}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Configuration.ConfigurationManager.dll"/>
     <ROW Component="System.Drawing.Common.dll" ComponentId="{564A94EC-2B2E-4F78-BA8B-40DB12B63E75}" Directory_="net6.0_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll"/>
     <ROW Component="System.Drawing.Common.dll_1" ComponentId="{D931F0C9-B193-461B-8332-B327DE4E94B6}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll_1"/>
     <ROW Component="System.Drawing.Common.dll_2" ComponentId="{ECD1A83E-151D-4ACD-807A-B059DF912056}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll_2"/>
-    <ROW Component="System.Memory.dll" ComponentId="{CF380900-F9AD-47A5-8702-B7BCBA2D581B}" Directory_="APPDIR" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Drawing.Common.dll_3" ComponentId="{31B1E500-99E1-4B0E-8BFC-951F3D9E3CE3}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Drawing.Common.dll_3"/>
+    <ROW Component="System.Memory.dll" ComponentId="{71AD859F-E946-414E-8AAD-7055CBF7B78C}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Numerics.Tensors.dll" ComponentId="{23B327AB-6F06-425D-83EA-66958356D4AD}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Numerics.Tensors.dll"/>
+    <ROW Component="System.Numerics.Tensors.dll_1" ComponentId="{F74DBAA1-21A7-46D8-8E9B-A96C6D3FD75E}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Numerics.Tensors.dll_1"/>
     <ROW Component="System.Numerics.Vectors.dll" ComponentId="{E28B0D13-B510-444B-8D68-A36EB986F778}" Directory_="APPDIR" Attributes="0" KeyPath="System.Numerics.Vectors.dll"/>
+    <ROW Component="System.Numerics.Vectors.dll_1" ComponentId="{4F5864B6-8D51-4A1E-AB3D-31592C4A3117}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Numerics.Vectors.dll_1"/>
     <ROW Component="System.Resources.Extensions.dll" ComponentId="{A50E908B-0DB6-4399-81CE-3C52CD358CE4}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Resources.Extensions.dll"/>
+    <ROW Component="System.Resources.Extensions.dll_1" ComponentId="{DAEB7B10-9914-4BAD-A0AE-351A3D84BE20}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Resources.Extensions.dll_1"/>
     <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{7160B3E9-EC66-4DB3-99E5-0F733B77D7B5}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll_1" ComponentId="{6614996B-CD4F-4BF7-A044-AA6F0CCA6E24}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll_1"/>
     <ROW Component="System.Runtime.InteropServices.APIs.dll" ComponentId="{9D97F75C-1198-4AE5-8A2B-EC6E70F9FCD8}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.InteropServices.APIs.dll"/>
     <ROW Component="System.Security.Cryptography.ProtectedData.dll" ComponentId="{29C562CC-25E5-49D7-B509-3BB55AAB0570}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="System.Security.Cryptography.ProtectedData.dll"/>
     <ROW Component="System.Security.Cryptography.ProtectedData.dll_1" ComponentId="{F20620DD-F1C2-40AD-8E1C-1B592390B1C7}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Security.Cryptography.ProtectedData.dll_1"/>
     <ROW Component="System.Security.Permissions.dll" ComponentId="{E60D1807-5A01-4031-8904-722DB9F61F3D}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Security.Permissions.dll"/>
     <ROW Component="System.Text.Encoding.CodePages.dll" ComponentId="{7B96C91A-E91C-4B70-A024-7DF73F0014FC}" Directory_="APPDIR" Attributes="0" KeyPath="System.Text.Encoding.CodePages.dll"/>
+    <ROW Component="System.Text.Encoding.CodePages.dll_1" ComponentId="{CE601ADE-3D0F-4B38-B805-645EE2F6853F}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Text.Encoding.CodePages.dll_1"/>
+    <ROW Component="System.Text.Encodings.Web.dll" ComponentId="{63EF53A5-5D4C-468F-B883-28880305D2B3}" Directory_="net48_Dir" Attributes="0" KeyPath="System.Text.Encodings.Web.dll"/>
     <ROW Component="System.Windows.Extensions.dll" ComponentId="{713A0F15-B17F-4447-BFE6-6E3BE8F47836}" Directory_="net6.0_1_Dir" Attributes="0" KeyPath="System.Windows.Extensions.dll"/>
     <ROW Component="System.Windows.Extensions.dll_1" ComponentId="{1B493E50-B164-46DB-9808-881124FFEF96}" Directory_="bin_Dir" Attributes="0" KeyPath="System.Windows.Extensions.dll_1"/>
     <ROW Component="System.Windows.Forms.DataGridView.dll" ComponentId="{F6775744-B556-40D1-9C7E-FCA1857CF4C4}" Directory_="APPDIR" Attributes="256" KeyPath="System.Windows.Forms.DataGridView.dll"/>
@@ -213,29 +427,47 @@
     <ROW Component="background.jpg" ComponentId="{76AAA590-1123-4C1C-ACAA-6139ACFD4403}" Directory_="images_Dir" Attributes="0" KeyPath="background.jpg" Type="0"/>
     <ROW Component="base.dll" ComponentId="{7F56FA48-A738-43E0-BB3B-E681C20FDBB5}" Directory_="library_Dir" Attributes="256" KeyPath="base.dll"/>
     <ROW Component="biocad_desktop.min.js" ComponentId="{8623E330-DD5E-4FC5-8615-3A7244B5A6CB}" Directory_="javascript_Dir" Attributes="0" KeyPath="biocad_desktop.min.js" Type="0"/>
+    <ROW Component="blastp.vbhtml" ComponentId="{33F68B15-65C7-4B64-9136-39644F495A90}" Directory_="viewer_Dir" Attributes="0" KeyPath="blastp.vbhtml" Type="0"/>
     <ROW Component="bmap.min.js" ComponentId="{F31480A1-3A2E-4EFD-8487-D8E169E12449}" Directory_="extension_Dir" Attributes="0" KeyPath="bmap.min.js" Type="0"/>
     <ROW Component="bootstrap.bundle.js" ComponentId="{B65AA785-278E-4462-AFDF-CB6426727ED1}" Directory_="js_Dir" Attributes="0" KeyPath="bootstrap.bundle.min.js" Type="0"/>
     <ROW Component="bootstrapgrid.css" ComponentId="{F42515B4-4A94-4B80-B0A5-D724E08D7521}" Directory_="css_Dir" Attributes="0" KeyPath="bootstrapgrid.min.css" Type="0"/>
     <ROW Component="check_matrix.R" ComponentId="{49A06F75-7BBF-477E-A3D0-0D21684EC2AF}" Directory_="analysis_project_Dir" Attributes="0" KeyPath="check_matrix.R" Type="0"/>
     <ROW Component="create.vbhtml" ComponentId="{60887DFC-E487-4728-9D33-F1842A4BF4FC}" Directory_="omics_Dir" Attributes="0" KeyPath="create.vbhtml" Type="0"/>
+    <ROW Component="create.vbhtml_1" ComponentId="{88DAF09E-DDC4-44BA-8491-3B0036B94B5A}" Directory_="modeller_Dir" Attributes="0" KeyPath="create.vbhtml_1" Type="0"/>
+    <ROW Component="create_network.R" ComponentId="{D070A957-21AC-4C85-844D-C3D4C67CB68C}" Directory_="modeller_1_Dir" Attributes="0" KeyPath="create_network.R" Type="0"/>
     <ROW Component="dataEmbedding.R" ComponentId="{513AE99A-9098-4B86-B272-68856F4A3767}" Directory_="zip_Dir" Attributes="0" KeyPath="dataEmbedding.R_1" Type="0"/>
+    <ROW Component="demo" ComponentId="{9669D0A5-443C-4A2C-99C5-6F6AF1F9D3D6}" Directory_="demo_Dir" Attributes="0"/>
+    <ROW Component="docs" ComponentId="{F62C391B-867F-4B20-B60E-86613337B8D7}" Directory_="docs_Dir" Attributes="0"/>
     <ROW Component="echarts.common.min.js" ComponentId="{0572257B-572A-4A02-9B2E-1C36C705FE3E}" Directory_="echarts5.4.0_Dir" Attributes="0" KeyPath="echarts.common.min.js" Type="0"/>
     <ROW Component="enrichment.R" ComponentId="{5EB29B89-01D1-45CD-997A-E46418E83C13}" Directory_="analysis_apps_Dir" Attributes="0" KeyPath="enrichment.R" Type="0"/>
     <ROW Component="enrichment.html" ComponentId="{A2763594-BF07-4B89-9C87-C9E3DE3739F7}" Directory_="apps_Dir" Attributes="0" KeyPath="enrichment.vbhtml" Type="0"/>
     <ROW Component="enrichment_database.html" ComponentId="{542A01B0-6647-41E1-A048-6DE13AD15020}" Directory_="toolkit_Dir" Attributes="0" KeyPath="enrichment_database.vbhtml" Type="0"/>
+    <ROW Component="enzclass.txt" ComponentId="{40EB284F-32A9-426A-B387-FB3D406928B6}" Directory_="expasy_Dir" Attributes="0" KeyPath="enzclass.txt" Type="0"/>
     <ROW Component="graphics.dll" ComponentId="{199B6718-65DF-4466-8EC8-7196CE9C5A47}" Directory_="library_Dir" Attributes="256" KeyPath="graphics.dll"/>
     <ROW Component="head.vbhtml" ComponentId="{268CF1DA-F8BF-4288-BC3F-D5B0ED62D8F6}" Directory_="includes_Dir" Attributes="0" KeyPath="head.vbhtml" Type="0"/>
     <ROW Component="http.R" ComponentId="{A9F499DD-E457-4105-907A-23A7F8A41B4C}" Directory_="services_Dir" Attributes="0" KeyPath="http.R" Type="0"/>
+    <ROW Component="images" ComponentId="{54DB9552-5D6D-4A61-9567-9AFF26342F04}" Directory_="images_1_Dir" Attributes="0"/>
     <ROW Component="imports_uniprot.R" ComponentId="{2A5AA3D6-0049-49BF-84EF-2EFE680BDD92}" Directory_="database_Dir" Attributes="0" KeyPath="imports_uniprot.R" Type="0"/>
     <ROW Component="index.html" ComponentId="{87838FD2-8223-4157-B39F-1F4BB56FB8E1}" Directory_="web_Dir" Attributes="0" KeyPath="README.md" Type="0"/>
+    <ROW Component="jstree.min.js" ComponentId="{8067F19B-C404-4DC8-8D94-B4A771E5BF6A}" Directory_="vakatajstree7a03954_Dir" Attributes="0" KeyPath="jstree.min.js" Type="0"/>
+    <ROW Component="localblast.vbhtml" ComponentId="{DF486172-90FE-4AEA-841D-A465207ADA1A}" Directory_="annotations_Dir" Attributes="0" KeyPath="localblast.vbhtml" Type="0"/>
+    <ROW Component="logs" ComponentId="{BB79C5AA-2907-4257-B4A0-56E1BBED4B02}" Directory_="logs_Dir" Attributes="0"/>
     <ROW Component="mdb.dark.min.css" ComponentId="{2F13864B-6100-4FC0-8C67-99CFF83B4C83}" Directory_="css_1_Dir" Attributes="0" KeyPath="mdb.dark.min.css" Type="0"/>
     <ROW Component="mdb.min.js" ComponentId="{9D74009F-5D7D-4C97-8F12-D43358CF30EC}" Directory_="js_1_Dir" Attributes="0" KeyPath="mdb.min.js" Type="0"/>
     <ROW Component="openfile.R" ComponentId="{670B7ABB-9F21-4D14-8044-C8A0B4646210}" Directory_="gtk_Dir" Attributes="0" KeyPath="openfile.R" Type="0"/>
+    <ROW Component="px.png" ComponentId="{31F842AB-F89D-4A58-AC97-4C83258BC48B}" Directory_="default_Dir" Attributes="0" KeyPath="px.png" Type="0"/>
+    <ROW Component="px.png_1" ComponentId="{8C4760BF-A2F6-4B54-9374-BCE72B2419BD}" Directory_="defaultdark_Dir" Attributes="0" KeyPath="px.png_2" Type="0"/>
+    <ROW Component="rheacompounds.txt" ComponentId="{1B5F059A-AFA4-4841-808D-A461A071128B}" Directory_="rhea_Dir" Attributes="0" KeyPath="rheacompounds.txt" Type="0"/>
     <ROW Component="scatter3d.R" ComponentId="{0D4F49A7-F1A5-4768-8338-C6A4EE01A4D3}" Directory_="Rplots_Dir" Attributes="0" KeyPath="scatter3d.R" Type="0"/>
+    <ROW Component="settings.json" ComponentId="{4059B853-9E8D-46E7-86D3-E409F4DA7702}" Directory_="vscode_Dir" Attributes="0" KeyPath="settings.json" Type="0"/>
+    <ROW Component="vcellPackViewer.R" ComponentId="{171931EE-C574-4484-9A49-4DB2AF49C496}" Directory_="background_Dir" Attributes="0" KeyPath="vcellPackViewer.R" Type="0"/>
     <ROW Component="webKit.dll" ComponentId="{27ED4F83-9496-4CF5-9A9B-95DB0B4664AB}" Directory_="library_Dir" Attributes="256" KeyPath="webKit.dll"/>
     <ROW Component="wkhtmltopdf.exe" ComponentId="{CB88C882-A78E-4C50-AA85-6DAB63D09DAC}" Directory_="tools_Dir" Attributes="256" KeyPath="wkhtmltopdf.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="C6F7BF650B714DC58735D62C12F214E4" Title=".NET Runtime 6.0.16 x64" Description=".NET Runtime 6.0.16 x64" Display="5" Level="1" Attributes="0"/>
+    <ROW Feature="FAC9C433D3044829E6669A2C6FF54E6" Title=".NET Desktop Runtime 6.0.16 x64" Description=".NET Desktop Runtime 6.0.16 x64" Display="3" Level="1" Attributes="0"/>
+    <ROW Feature="Feature" Title="VS_debug" Description="Description" Display="3" Level="1" Directory_="APPDIR" Attributes="0"/>
     <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
@@ -285,9 +517,7 @@
     <ROW File="REnv.dll_1" Component_="REnv.dll_1" FileName="REnv.dll" Attributes="0" SourcePath="..\Apps\REnv.dll" SelfReg="false"/>
     <ROW File="Rserver.dll_1" Component_="Rserver.dll_1" FileName="Rserver.dll" Attributes="0" SourcePath="..\Apps\Rserver.dll" SelfReg="false"/>
     <ROW File="SMRUCC.genomics.Core.dll" Component_="SMRUCC.genomics.Core.dll" FileName="SMRUCC~1.DLL|SMRUCC.genomics.Core.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Core.dll" SelfReg="false"/>
-    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\Apps\System.Buffers.dll" SelfReg="false"/>
     <ROW File="System.Composition.AttributedModel.dll_1" Component_="System.Composition.AttributedModel.dll_1" FileName="SYSTEM~2.DLL|System.Composition.AttributedModel.dll" Attributes="0" SourcePath="..\Apps\System.Composition.AttributedModel.dll" SelfReg="false"/>
-    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~3.DLL|System.Memory.dll" Attributes="0" SourcePath="..\Apps\System.Memory.dll" SelfReg="false"/>
     <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTEM~4.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="..\Apps\System.Numerics.Vectors.dll" SelfReg="false"/>
     <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTEM~5.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\Apps\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
     <ROW File="System.Runtime.InteropServices.APIs.dll" Component_="System.Runtime.InteropServices.APIs.dll" FileName="SYSTEM~6.DLL|System.Runtime.InteropServices.APIs.dll" Attributes="0" SourcePath="..\Apps\System.Runtime.InteropServices.APIs.dll" SelfReg="false"/>
@@ -476,6 +706,270 @@
     <ROW File="SMRUCC.genomics.Analysis.HTS.DataFrame.dll" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll" FileName="SMRUCC~2.DLL|SMRUCC.genomics.Analysis.HTS.DataFrame.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Analysis.HTS.DataFrame.dll" SelfReg="false"/>
     <ROW File="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" FileName="SMRUCC~3.DLL|SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" SelfReg="false"/>
     <ROW File="Microsoft.VisualBasic.Math.Core.dll.config_1" Component_="GCModeller_win32Desktop.exe.config" FileName="MICROS~2.CON|Microsoft.VisualBasic.Math.Core.dll.config" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Math.Core.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.BinaryData.dll_1" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_1" FileName="MICROS~6.DLL|Microsoft.VisualBasic.Data.BinaryData.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Microsoft.VisualBasic.Data.BinaryData.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.IO.MessagePack.dll_1" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_1" FileName="MICROS~7.DLL|Microsoft.VisualBasic.Data.IO.MessagePack.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Microsoft.VisualBasic.Data.IO.MessagePack.dll" SelfReg="false"/>
+    <ROW File="Parallel.dll" Component_="Parallel.dll" FileName="Parallel.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\Parallel.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Tensors.dll" Component_="System.Numerics.Tensors.dll" FileName="SYSTE~12.DLL|System.Numerics.Tensors.dll" Attributes="0" SourcePath="..\Apps\Rstudio\bin\System.Numerics.Tensors.dll" SelfReg="false"/>
+    <ROW File="Flute.Http.dll_2" Component_="Flute.Http.dll_2" FileName="FLUTEH~1.DLL|Flute.Http.dll" Attributes="0" SourcePath="..\Apps\Rstudio\library\Flute.Http.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataMining.DynamicProgramming.dll" Component_="Microsoft.VisualBasic.DataMining.DynamicProgramming.dll" FileName="MICRO~50.DLL|Microsoft.VisualBasic.DataMining.DynamicProgramming.dll" Attributes="0" SourcePath="..\Apps\Rstudio\library\Microsoft.VisualBasic.DataMining.DynamicProgramming.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll" FileName="MICRO~51.DLL|Microsoft.VisualBasic.MIME.application.rdf_xml.dll" Attributes="0" SourcePath="..\Apps\Rstudio\library\Microsoft.VisualBasic.MIME.application.rdf_xml.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" Component_="Microsoft.VisualBasic.MIME.application.json.xml" FileName="MICROS~5.CON|Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\library\Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Network.dll_2" Component_="Microsoft.VisualBasic.Network.dll_2" FileName="MICRO~52.DLL|Microsoft.VisualBasic.Network.dll" Attributes="0" SourcePath="..\Apps\Rstudio\library\Microsoft.VisualBasic.Network.dll" SelfReg="false"/>
+    <ROW File="localblast.vbhtml" Component_="localblast.vbhtml" FileName="LOCALB~1.VBH|localblast.vbhtml" Attributes="0" SourcePath="..\web\apps\annotations\localblast.vbhtml" SelfReg="false"/>
+    <ROW File="databasemanagementsystem.jpg" Component_="background.jpg" FileName="DATABA~1.JPG|database-management-system.jpg" Attributes="0" SourcePath="..\web\assets\images\database-management-system.jpg" SelfReg="false"/>
+    <ROW File="localblast.jpg" Component_="background.jpg" FileName="LOCALB~1.JPG|localblast.jpg" Attributes="0" SourcePath="..\web\assets\images\localblast.jpg" SelfReg="false"/>
+    <ROW File="colorSet.vbhtml" Component_="head.vbhtml" FileName="COLORS~1.VBH|colorSet.vbhtml" Attributes="0" SourcePath="..\web\assets\includes\colorSet.vbhtml" SelfReg="false"/>
+    <ROW File="jquery3.6.1.min.js" Component_="biocad_desktop.min.js" FileName="JQUERY~1.JS|jquery-3.6.1.min.js" Attributes="0" SourcePath="..\web\javascript\jquery-3.6.1.min.js" SelfReg="false"/>
+    <ROW File="jstree.min.js" Component_="jstree.min.js" FileName="JSTREE~1.JS|jstree.min.js" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\jstree.min.js" SelfReg="false"/>
+    <ROW File="LICENSEMIT" Component_="jstree.min.js" FileName="LICENS~1|LICENSE-MIT" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\LICENSE-MIT" SelfReg="false"/>
+    <ROW File="README.md_2" Component_="jstree.min.js" FileName="README.md" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\README.md" SelfReg="false"/>
+    <ROW File="px.png" Component_="px.png" FileName="32px.png" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default\32px.png" SelfReg="false"/>
+    <ROW File="px.png_1" Component_="px.png" FileName="40px.png" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default\40px.png" SelfReg="false"/>
+    <ROW File="style.css" Component_="px.png" FileName="style.css" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default\style.css" SelfReg="false"/>
+    <ROW File="style.min.css" Component_="px.png" FileName="STYLEM~1.CSS|style.min.css" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default\style.min.css" SelfReg="false"/>
+    <ROW File="throbber.gif" Component_="px.png" FileName="throbber.gif" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default\throbber.gif" SelfReg="false"/>
+    <ROW File="px.png_2" Component_="px.png_1" FileName="32px.png" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default-dark\32px.png" SelfReg="false"/>
+    <ROW File="px.png_3" Component_="px.png_1" FileName="40px.png" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default-dark\40px.png" SelfReg="false"/>
+    <ROW File="style.css_1" Component_="px.png_1" FileName="style.css" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default-dark\style.css" SelfReg="false"/>
+    <ROW File="style.min.css_1" Component_="px.png_1" FileName="STYLEM~1.CSS|style.min.css" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default-dark\style.min.css" SelfReg="false"/>
+    <ROW File="throbber.gif_1" Component_="px.png_1" FileName="throbber.gif" Attributes="0" SourcePath="..\web\javascript\vakata-jstree-7a03954\themes\default-dark\throbber.gif" SelfReg="false"/>
+    <ROW File="viewer.min.js" Component_="biocad_desktop.min.js" FileName="VIEWER~1.JS|viewer.min.js" Attributes="0" SourcePath="..\web\javascript\viewer.min.js" SelfReg="false"/>
+    <ROW File="repository.vbhtml" Component_="index.html" FileName="REPOSI~1.VBH|repository.vbhtml" Attributes="0" SourcePath="..\web\repository.vbhtml" SelfReg="false"/>
+    <ROW File="settings.vbhtml" Component_="index.html" FileName="SETTIN~1.VBH|settings.vbhtml" Attributes="0" SourcePath="..\web\settings.vbhtml" SelfReg="false"/>
+    <ROW File="enzyme_database.vbhtml" Component_="enrichment_database.html" FileName="ENZYME~1.VBH|enzyme_database.vbhtml" Attributes="0" SourcePath="..\web\toolkit\enzyme_database.vbhtml" SelfReg="false"/>
+    <ROW File="create.vbhtml_1" Component_="create.vbhtml_1" FileName="CREATE~1.VBH|create.vbhtml" Attributes="0" SourcePath="..\web\toolkit\projects\modeller\create.vbhtml" SelfReg="false"/>
+    <ROW File="project.vbhtml" Component_="create.vbhtml_1" FileName="PROJEC~1.VBH|project.vbhtml" Attributes="0" SourcePath="..\web\toolkit\projects\modeller\project.vbhtml" SelfReg="false"/>
+    <ROW File="project.vbhtml_1" Component_="create.vbhtml" FileName="PROJEC~1.VBH|project.vbhtml" Attributes="0" SourcePath="..\web\toolkit\projects\omics\project.vbhtml" SelfReg="false"/>
+    <ROW File="uniprot_database.vbhtml" Component_="enrichment_database.html" FileName="UNIPRO~1.VBH|uniprot_database.vbhtml" Attributes="0" SourcePath="..\web\toolkit\uniprot_database.vbhtml" SelfReg="false"/>
+    <ROW File="blastp.vbhtml" Component_="blastp.vbhtml" FileName="BLASTP~1.VBH|blastp.vbhtml" Attributes="0" SourcePath="..\web\toolkit\viewer\blastp.vbhtml" SelfReg="false"/>
+    <ROW File="metabolicViewer.vbhtml" Component_="blastp.vbhtml" FileName="METABO~1.VBH|metabolicViewer.vbhtml" Attributes="0" SourcePath="..\web\toolkit\viewer\metabolicViewer.vbhtml" SelfReg="false"/>
+    <ROW File="motifLogo.vbhtml" Component_="blastp.vbhtml" FileName="MOTIFL~1.VBH|motifLogo.vbhtml" Attributes="0" SourcePath="..\web\toolkit\viewer\motifLogo.vbhtml" SelfReg="false"/>
+    <ROW File="patternCMeans.R" Component_="enrichment.R" FileName="PATTER~1.R|patternCMeans.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\patternCMeans.R" SelfReg="false"/>
+    <ROW File="patterns_plot.R" Component_="scatter3d.R" FileName="PATTER~1.R|patterns_plot.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\Rplots\patterns_plot.R" SelfReg="false"/>
+    <ROW File="zscore_plot.R" Component_="scatter3d.R" FileName="ZSCORE~1.R|zscore_plot.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\Rplots\zscore_plot.R" SelfReg="false"/>
+    <ROW File="z_score.R" Component_="enrichment.R" FileName="z_score.R" Attributes="0" SourcePath="..\fastRWeb\analysis_apps\z_score.R" SelfReg="false"/>
+    <ROW File="ec_numbers.R" Component_="imports_uniprot.R" FileName="EC_NUM~1.R|ec_numbers.R" Attributes="0" SourcePath="..\fastRWeb\database\ec_numbers.R" SelfReg="false"/>
+    <ROW File="imports_rhea.R" Component_="imports_uniprot.R" FileName="IMPORT~2.R|imports_rhea.R" Attributes="0" SourcePath="..\fastRWeb\database\imports_rhea.R" SelfReg="false"/>
+    <ROW File="inspect_genbank.R" Component_="imports_uniprot.R" FileName="INSPEC~2.R|inspect_genbank.R" Attributes="0" SourcePath="..\fastRWeb\database\inspect_genbank.R" SelfReg="false"/>
+    <ROW File="create_network.R" Component_="create_network.R" FileName="CREATE~1.R|create_network.R" Attributes="0" SourcePath="..\fastRWeb\modeller\create_network.R" SelfReg="false"/>
+    <ROW File="create_project.R_1" Component_="create_network.R" FileName="CREATE~2.R|create_project.R" Attributes="0" SourcePath="..\fastRWeb\modeller\create_project.R" SelfReg="false"/>
+    <ROW File="extract_proteins.R" Component_="create_network.R" FileName="EXTRAC~1.R|extract_proteins.R" Attributes="0" SourcePath="..\fastRWeb\modeller\extract_proteins.R" SelfReg="false"/>
+    <ROW File="load_summary.R" Component_="create_network.R" FileName="LOAD_S~1.R|load_summary.R" Attributes="0" SourcePath="..\fastRWeb\modeller\load_summary.R" SelfReg="false"/>
+    <ROW File="localblast.R" Component_="create_network.R" FileName="LOCALB~1.R|localblast.R" Attributes="0" SourcePath="..\fastRWeb\modeller\localblast.R" SelfReg="false"/>
+    <ROW File="save_blast.R" Component_="create_network.R" FileName="SAVE_B~1.R|save_blast.R" Attributes="0" SourcePath="..\fastRWeb\modeller\save_blast.R" SelfReg="false"/>
+    <ROW File="enzclass.txt" Component_="enzclass.txt" FileName="enzclass.txt" Attributes="0" SourcePath="..\src\Rstudio\data\expasy\enzclass.txt" SelfReg="false"/>
+    <ROW File="enzuser.txt" Component_="enzclass.txt" FileName="enzuser.txt" Attributes="0" SourcePath="..\src\Rstudio\data\expasy\enzuser.txt" SelfReg="false"/>
+    <ROW File="enzyme.txt" Component_="enzclass.txt" FileName="enzyme.txt" Attributes="0" SourcePath="..\src\Rstudio\data\expasy\enzyme.txt" SelfReg="false"/>
+    <ROW File="rheacompounds.txt" Component_="rheacompounds.txt" FileName="RHEA-C~1.TXT|rhea-compounds.txt" Attributes="0" SourcePath="..\src\Rstudio\data\rhea\rhea-compounds.txt" SelfReg="false"/>
+    <ROW File="rheareactions.txt" Component_="rheacompounds.txt" FileName="RHEA-R~1.TXT|rhea-reactions.txt" Attributes="0" SourcePath="..\src\Rstudio\data\rhea\rhea-reactions.txt" SelfReg="false"/>
+    <ROW File="Flute.Http.pdb" Component_="Flute.Http.pdb" FileName="FLUTEH~1.PDB|Flute.Http.pdb" Attributes="0" SourcePath="..\Apps\Flute.Http.pdb" SelfReg="false"/>
+    <ROW File="Flute.Http.xml" Component_="Flute.Http.xml_1" FileName="FLUTEH~1.XML|Flute.Http.xml" Attributes="0" SourcePath="..\Apps\Flute.Http.xml" SelfReg="false"/>
+    <ROW File="GCModeller_win32Desktop.pdb" Component_="GCModeller_win32Desktop.pdb" FileName="GCMODE~1.PDB|GCModeller_win32Desktop.pdb" Attributes="0" SourcePath="..\Apps\GCModeller_win32Desktop.pdb" SelfReg="false"/>
+    <ROW File="GCModeller_win32Desktop.xml" Component_="GCModeller_win32Desktop.xml" FileName="GCMODE~1.XML|GCModeller_win32Desktop.xml" Attributes="0" SourcePath="..\Apps\GCModeller_win32Desktop.xml" SelfReg="false"/>
+    <ROW File="GCModellerDesktop.dll" Component_="GCModellerDesktop.dll" FileName="GCMODE~1.DLL|GCModellerDesktop.dll" Attributes="0" SourcePath="..\Apps\GCModellerDesktop.dll" SelfReg="false"/>
+    <ROW File="GCModellerDesktop.pdb" Component_="GCModellerDesktop.pdb" FileName="GCMODE~2.PDB|GCModellerDesktop.pdb" Attributes="0" SourcePath="..\Apps\GCModellerDesktop.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.BinaryData.dll_2" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_2" FileName="MICRO~12.DLL|Microsoft.VisualBasic.Data.BinaryData.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Data.BinaryData.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.BinaryData.pdb" Component_="Microsoft.VisualBasic.Data.BinaryData.pdb" FileName="MICROS~1.PDB|Microsoft.VisualBasic.Data.BinaryData.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Data.BinaryData.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.Framework.pdb" Component_="Microsoft.VisualBasic.Data.Framework.pdb" FileName="MICROS~2.PDB|Microsoft.VisualBasic.Data.Framework.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Data.Framework.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.IO.MessagePack.dll_2" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_2" FileName="MICRO~13.DLL|Microsoft.VisualBasic.Data.IO.MessagePack.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Data.IO.MessagePack.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.IO.MessagePack.pdb" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.pdb" FileName="MICROS~3.PDB|Microsoft.VisualBasic.Data.IO.MessagePack.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Data.IO.MessagePack.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.HDSPack.dll_1" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.dll_1" FileName="MICRO~14.DLL|Microsoft.VisualBasic.DataStorage.HDSPack.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.DataStorage.HDSPack.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.HDSPack.pdb" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.pdb" FileName="MICROS~4.PDB|Microsoft.VisualBasic.DataStorage.HDSPack.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.DataStorage.HDSPack.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.netCDF.dll_1" Component_="Microsoft.VisualBasic.DataStorage.netCDF.dll_1" FileName="MICRO~15.DLL|Microsoft.VisualBasic.DataStorage.netCDF.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.DataStorage.netCDF.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.netCDF.pdb" Component_="Microsoft.VisualBasic.DataStorage.netCDF.pdb" FileName="MICROS~5.PDB|Microsoft.VisualBasic.DataStorage.netCDF.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.DataStorage.netCDF.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Core.pdb" Component_="Microsoft.VisualBasic.Math.Core.pdb" FileName="MICROS~6.PDB|Microsoft.VisualBasic.Math.Core.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Math.Core.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.ODEsSolver.dll_1" Component_="Microsoft.VisualBasic.Math.ODEsSolver.dll_1" FileName="MICRO~16.DLL|Microsoft.VisualBasic.Math.ODEsSolver.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Math.ODEsSolver.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.ODEsSolver.pdb" Component_="Microsoft.VisualBasic.Math.ODEsSolver.pdb" FileName="MICROS~7.PDB|Microsoft.VisualBasic.Math.ODEsSolver.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Math.ODEsSolver.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.ODEsSolver.xml" Component_="Microsoft.VisualBasic.Math.ODEsSolver.xml" FileName="MICROS~1.XML|Microsoft.VisualBasic.Math.ODEsSolver.xml" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Math.ODEsSolver.xml" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Statistics.dll_1" Component_="Microsoft.VisualBasic.Math.Statistics.dll_1" FileName="MICRO~17.DLL|Microsoft.VisualBasic.Math.Statistics.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Math.Statistics.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Statistics.pdb" Component_="Microsoft.VisualBasic.Math.Statistics.pdb" FileName="MICROS~8.PDB|Microsoft.VisualBasic.Math.Statistics.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Math.Statistics.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.json.pdb" Component_="Microsoft.VisualBasic.MIME.application.json.pdb" FileName="MICROS~9.PDB|Microsoft.VisualBasic.MIME.application.json.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.MIME.application.json.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.json.xml" Component_="Microsoft.VisualBasic.MIME.application.json.xml_1" FileName="MICROS~2.XML|Microsoft.VisualBasic.MIME.application.json.xml" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.MIME.application.json.xml" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_1" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_1" FileName="MICRO~18.DLL|Microsoft.VisualBasic.MIME.application.rdf_xml.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.MIME.application.rdf_xml.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config_1" Component_="GCModeller_win32Desktop.exe.config" FileName="MICROS~3.CON|Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.pdb" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.pdb" FileName="MICRO~10.PDB|Microsoft.VisualBasic.MIME.application.rdf_xml.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.MIME.application.rdf_xml.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.xml.dll_1" Component_="Microsoft.VisualBasic.MIME.application.xml.dll_1" FileName="MICRO~19.DLL|Microsoft.VisualBasic.MIME.application.xml.dll" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.MIME.application.xml.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.xml.pdb" Component_="Microsoft.VisualBasic.MIME.application.xml.pdb" FileName="MICRO~11.PDB|Microsoft.VisualBasic.MIME.application.xml.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.MIME.application.xml.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Network.pdb" Component_="Microsoft.VisualBasic.Network.pdb" FileName="MICRO~12.PDB|Microsoft.VisualBasic.Network.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Network.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Network.xml" Component_="Microsoft.VisualBasic.Network.xml" FileName="MICROS~3.XML|Microsoft.VisualBasic.Network.xml" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Network.xml" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.pdb" Component_="Microsoft.VisualBasic.Runtime.pdb" FileName="MICRO~13.PDB|Microsoft.VisualBasic.Runtime.pdb" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Runtime.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.xml" Component_="Microsoft.VisualBasic.Runtime.xml" FileName="MICROS~4.XML|Microsoft.VisualBasic.Runtime.xml" Attributes="0" SourcePath="..\Apps\Microsoft.VisualBasic.Runtime.xml" SelfReg="false"/>
+    <ROW File="Microsoft.Web.WebView2.Core.xml" Component_="Microsoft.Web.WebView2.Core.xml" FileName="MICROS~5.XML|Microsoft.Web.WebView2.Core.xml" Attributes="0" SourcePath="..\Apps\Microsoft.Web.WebView2.Core.xml" SelfReg="false"/>
+    <ROW File="Microsoft.Web.WebView2.WinForms.xml" Component_="Microsoft.Web.WebView2.WinForms.xml" FileName="MICROS~6.XML|Microsoft.Web.WebView2.WinForms.xml" Attributes="0" SourcePath="..\Apps\Microsoft.Web.WebView2.WinForms.xml" SelfReg="false"/>
+    <ROW File="Microsoft.Web.WebView2.Wpf.xml" Component_="Microsoft.Web.WebView2.Wpf.xml" FileName="MICROS~7.XML|Microsoft.Web.WebView2.Wpf.xml" Attributes="0" SourcePath="..\Apps\Microsoft.Web.WebView2.Wpf.xml" SelfReg="false"/>
+    <ROW File="OmicsProject.pdb" Component_="OmicsProject.pdb" FileName="OMICSP~1.PDB|OmicsProject.pdb" Attributes="0" SourcePath="..\Apps\OmicsProject.pdb" SelfReg="false"/>
+    <ROW File="RawViewer.dll" Component_="RawViewer.dll" FileName="RAWVIE~1.DLL|RawViewer.dll" Attributes="0" SourcePath="..\Apps\RawViewer.dll" SelfReg="false"/>
+    <ROW File="RawViewer.pdb" Component_="RawViewer.pdb" FileName="RAWVIE~1.PDB|RawViewer.pdb" Attributes="0" SourcePath="..\Apps\RawViewer.pdb" SelfReg="false"/>
+    <ROW File="REnv.pdb" Component_="REnv.pdb" FileName="REnv.pdb" Attributes="0" SourcePath="..\Apps\REnv.pdb" SelfReg="false"/>
+    <ROW File="REnv.xml" Component_="REnv.xml" FileName="REnv.xml" Attributes="0" SourcePath="..\Apps\REnv.xml" SelfReg="false"/>
+    <ROW File="Rserver.pdb" Component_="Rserver.pdb" FileName="Rserver.pdb" Attributes="0" SourcePath="..\Apps\Rserver.pdb" SelfReg="false"/>
+    <ROW File="Rserver.xml" Component_="Rserver.xml" FileName="Rserver.xml" Attributes="0" SourcePath="..\Apps\Rserver.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Analysis.HTS.DataFrame.pdb" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.pdb" FileName="SMRUCC~1.PDB|SMRUCC.genomics.Analysis.HTS.DataFrame.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Analysis.HTS.DataFrame.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Analysis.HTS.DataFrame.xml" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.xml" FileName="SMRUCC~1.XML|SMRUCC.genomics.Analysis.HTS.DataFrame.xml" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Analysis.HTS.DataFrame.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Annotation.dll" Component_="SMRUCC.genomics.Annotation.dll" FileName="SMRUCC~4.DLL|SMRUCC.genomics.Annotation.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Annotation.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Annotation.pdb" Component_="SMRUCC.genomics.Annotation.pdb" FileName="SMRUCC~2.PDB|SMRUCC.genomics.Annotation.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Annotation.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Annotation.xml" Component_="SMRUCC.genomics.Annotation.xml" FileName="SMRUCC~2.XML|SMRUCC.genomics.Annotation.xml" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Annotation.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Core.pdb" Component_="SMRUCC.genomics.Core.pdb" FileName="SMRUCC~3.PDB|SMRUCC.genomics.Core.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Core.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Core.xml" Component_="SMRUCC.genomics.Core.xml" FileName="SMRUCC~3.XML|SMRUCC.genomics.Core.xml" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Core.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Repository.dll" Component_="SMRUCC.genomics.Data.Repository.dll" FileName="SMRUCC~5.DLL|SMRUCC.genomics.Data.Repository.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Data.Repository.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Repository.pdb" Component_="SMRUCC.genomics.Data.Repository.pdb" FileName="SMRUCC~4.PDB|SMRUCC.genomics.Data.Repository.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Data.Repository.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Repository.xml" Component_="SMRUCC.genomics.Data.Repository.xml" FileName="SMRUCC~4.XML|SMRUCC.genomics.Data.Repository.xml" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Data.Repository.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Rhea.dll" Component_="SMRUCC.genomics.Data.Rhea.dll" FileName="SMRUCC~6.DLL|SMRUCC.genomics.Data.Rhea.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Data.Rhea.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Rhea.pdb" Component_="SMRUCC.genomics.Data.Rhea.pdb" FileName="SMRUCC~5.PDB|SMRUCC.genomics.Data.Rhea.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Data.Rhea.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.SABIORK.dll" Component_="SMRUCC.genomics.Data.SABIORK.dll" FileName="SMRUCC~7.DLL|SMRUCC.genomics.Data.SABIO-RK.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Data.SABIO-RK.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.SABIORK.pdb" Component_="SMRUCC.genomics.Data.SABIORK.pdb" FileName="SMRUCC~6.PDB|SMRUCC.genomics.Data.SABIO-RK.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Data.SABIO-RK.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" FileName="SMRUCC~8.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.pdb" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.pdb" FileName="SMRUCC~7.PDB|SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.xml" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.xml" FileName="SMRUCC~5.XML|SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.xml" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" FileName="SMRUCC~9.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.pdb" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.pdb" FileName="SMRUCC~8.PDB|SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.xml" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.xml" FileName="SMRUCC~6.XML|SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.xml" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" FileName="SMRUC~10.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.pdb" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.pdb" FileName="SMRUCC~9.PDB|SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.xml" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.xml" FileName="SMRUCC~7.XML|SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.xml" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" FileName="SMRUC~11.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Model.pdb" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.pdb" FileName="SMRUC~10.PDB|SMRUCC.genomics.GCModeller.ModellingEngine.Model.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.Model.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Model.xml" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.xml" FileName="SMRUCC~8.XML|SMRUCC.genomics.GCModeller.ModellingEngine.Model.xml" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.ModellingEngine.Model.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.pdb" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.pdb" FileName="SMRUC~11.PDB|SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.xml" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.xml" FileName="SMRUCC~9.XML|SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.xml" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.xml" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Interops.NCBI.Extensions.dll" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.dll" FileName="SMRUC~12.DLL|SMRUCC.genomics.Interops.NCBI.Extensions.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Interops.NCBI.Extensions.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Interops.NCBI.Extensions.dll.config" Component_="GCModeller_win32Desktop.exe.config" FileName="SMRUCC~1.CON|SMRUCC.genomics.Interops.NCBI.Extensions.dll.config" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Interops.NCBI.Extensions.dll.config" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Interops.NCBI.Extensions.pdb" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.pdb" FileName="SMRUC~12.PDB|SMRUCC.genomics.Interops.NCBI.Extensions.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Interops.NCBI.Extensions.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.BioSystems.dll" Component_="SMRUCC.genomics.Model.BioSystems.dll" FileName="SMRUC~13.DLL|SMRUCC.genomics.Model.BioSystems.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Model.BioSystems.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.BioSystems.pdb" Component_="SMRUCC.genomics.Model.BioSystems.pdb" FileName="SMRUC~13.PDB|SMRUCC.genomics.Model.BioSystems.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Model.BioSystems.pdb" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" FileName="SMRUC~14.DLL|SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.pdb" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.pdb" FileName="SMRUC~14.PDB|SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.pdb" Attributes="0" SourcePath="..\Apps\SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.pdb" SelfReg="false"/>
+    <ROW File="GCModeller.zip" Component_="Rserver.zip" FileName="GCMODE~1.ZIP|GCModeller.zip" Attributes="0" SourcePath="..\Apps\Rstudio\packages\GCModeller.zip" SelfReg="false"/>
+    <ROW File="ggplot.zip" Component_="Rserver.zip" FileName="ggplot.zip" Attributes="0" SourcePath="..\Apps\Rstudio\packages\ggplot.zip" SelfReg="false"/>
+    <ROW File="markdown2pdf.zip" Component_="Rserver.zip" FileName="MARKDO~1.ZIP|markdown2pdf.zip" Attributes="0" SourcePath="..\Apps\Rstudio\packages\markdown2pdf.zip" SelfReg="false"/>
+    <ROW File="REnv.zip" Component_="Rserver.zip" FileName="REnv.zip" Attributes="0" SourcePath="..\Apps\Rstudio\packages\REnv.zip" SelfReg="false"/>
+    <ROW File="Rstudio.zip" Component_="Rserver.zip" FileName="Rstudio.zip" Attributes="0" SourcePath="..\Apps\Rstudio\packages\Rstudio.zip" SelfReg="false"/>
+    <ROW File="GCModellerDesktop.deps.json" Component_="GCModellerDesktop.deps.json" FileName="GCMODE~1.JSO|GCModellerDesktop.deps.json" Attributes="0" SourcePath="..\Apps\Rstudio\host\GCModellerDesktop.deps.json" SelfReg="false"/>
+    <ROW File="GCModellerDesktop.dll_1" Component_="GCModellerDesktop.dll_1" FileName="GCMODE~1.DLL|GCModellerDesktop.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\GCModellerDesktop.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.BinaryData.dll_3" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_3" FileName="MICROS~1.DLL|Microsoft.VisualBasic.Data.BinaryData.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Data.BinaryData.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.Framework.dll_3" Component_="Microsoft.VisualBasic.Data.Framework.dll_3" FileName="MICROS~2.DLL|Microsoft.VisualBasic.Data.Framework.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Data.Framework.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.IO.MessagePack.dll_3" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_3" FileName="MICROS~3.DLL|Microsoft.VisualBasic.Data.IO.MessagePack.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Data.IO.MessagePack.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.Storage.dll_1" Component_="Microsoft.VisualBasic.Data.Storage.dll_1" FileName="MICROS~4.DLL|Microsoft.VisualBasic.Data.Storage.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Data.Storage.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.HDSPack.dll_2" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.dll_2" FileName="MICROS~5.DLL|Microsoft.VisualBasic.DataStorage.HDSPack.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.DataStorage.HDSPack.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.netCDF.dll_2" Component_="Microsoft.VisualBasic.DataStorage.netCDF.dll_2" FileName="MICROS~6.DLL|Microsoft.VisualBasic.DataStorage.netCDF.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.DataStorage.netCDF.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Core.dll_2" Component_="Microsoft.VisualBasic.Math.Core.dll_2" FileName="MICROS~7.DLL|Microsoft.VisualBasic.Math.Core.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Math.Core.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Core.dll.config_2" Component_="GCModellerDesktop.deps.json" FileName="MICROS~1.CON|Microsoft.VisualBasic.Math.Core.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Math.Core.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.ODEsSolver.dll_2" Component_="Microsoft.VisualBasic.Math.ODEsSolver.dll_2" FileName="MICROS~8.DLL|Microsoft.VisualBasic.Math.ODEsSolver.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Math.ODEsSolver.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Statistics.dll_2" Component_="Microsoft.VisualBasic.Math.Statistics.dll_2" FileName="MICROS~9.DLL|Microsoft.VisualBasic.Math.Statistics.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Math.Statistics.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_2" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_2" FileName="MICRO~10.DLL|Microsoft.VisualBasic.MIME.application.rdf_xml.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.MIME.application.rdf_xml.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config_2" Component_="GCModellerDesktop.deps.json" FileName="MICROS~2.CON|Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.xml.dll_2" Component_="Microsoft.VisualBasic.MIME.application.xml.dll_2" FileName="MICRO~11.DLL|Microsoft.VisualBasic.MIME.application.xml.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.MIME.application.xml.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll_3" Component_="Microsoft.VisualBasic.Runtime.dll_3" FileName="MICRO~12.DLL|Microsoft.VisualBasic.Runtime.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Runtime.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll.config_3" Component_="GCModellerDesktop.deps.json" FileName="MICROS~3.CON|Microsoft.VisualBasic.Runtime.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\Microsoft.VisualBasic.Runtime.dll.config" SelfReg="false"/>
+    <ROW File="GCModellerDesktop.dll_2" Component_="GCModellerDesktop.dll_2" FileName="GCMODE~1.DLL|GCModellerDesktop.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\GCModellerDesktop.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.BinaryData.dll_4" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_4" FileName="MICROS~1.DLL|Microsoft.VisualBasic.Data.BinaryData.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Data.BinaryData.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.Framework.dll_4" Component_="Microsoft.VisualBasic.Data.Framework.dll_4" FileName="MICROS~2.DLL|Microsoft.VisualBasic.Data.Framework.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Data.Framework.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.IO.MessagePack.dll_4" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_4" FileName="MICROS~3.DLL|Microsoft.VisualBasic.Data.IO.MessagePack.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Data.IO.MessagePack.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.Storage.dll_2" Component_="Microsoft.VisualBasic.Data.Storage.dll_2" FileName="MICROS~4.DLL|Microsoft.VisualBasic.Data.Storage.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Data.Storage.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.HDSPack.dll_3" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.dll_3" FileName="MICROS~5.DLL|Microsoft.VisualBasic.DataStorage.HDSPack.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.DataStorage.HDSPack.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.netCDF.dll_3" Component_="Microsoft.VisualBasic.DataStorage.netCDF.dll_3" FileName="MICROS~6.DLL|Microsoft.VisualBasic.DataStorage.netCDF.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.DataStorage.netCDF.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Core.dll_3" Component_="Microsoft.VisualBasic.Math.Core.dll_3" FileName="MICROS~7.DLL|Microsoft.VisualBasic.Math.Core.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Math.Core.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Core.dll.config_3" Component_="Microsoft.VisualBasic.Math.Core.dll.config" FileName="MICROS~1.CON|Microsoft.VisualBasic.Math.Core.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Math.Core.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.ODEsSolver.dll_3" Component_="Microsoft.VisualBasic.Math.ODEsSolver.dll_3" FileName="MICROS~8.DLL|Microsoft.VisualBasic.Math.ODEsSolver.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Math.ODEsSolver.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Statistics.dll_3" Component_="Microsoft.VisualBasic.Math.Statistics.dll_3" FileName="MICROS~9.DLL|Microsoft.VisualBasic.Math.Statistics.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Math.Statistics.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_3" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_3" FileName="MICRO~10.DLL|Microsoft.VisualBasic.MIME.application.rdf_xml.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.MIME.application.rdf_xml.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config_3" Component_="Microsoft.VisualBasic.Math.Core.dll.config" FileName="MICROS~2.CON|Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.xml.dll_3" Component_="Microsoft.VisualBasic.MIME.application.xml.dll_3" FileName="MICRO~11.DLL|Microsoft.VisualBasic.MIME.application.xml.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.MIME.application.xml.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll_4" Component_="Microsoft.VisualBasic.Runtime.dll_4" FileName="MICRO~12.DLL|Microsoft.VisualBasic.Runtime.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Runtime.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll.config_4" Component_="Microsoft.VisualBasic.Math.Core.dll.config" FileName="MICROS~3.CON|Microsoft.VisualBasic.Runtime.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\Microsoft.VisualBasic.Runtime.dll.config" SelfReg="false"/>
+    <ROW File="OmicsProject.dll_1" Component_="OmicsProject.dll_1" FileName="OMICSP~1.DLL|OmicsProject.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\OmicsProject.dll" SelfReg="false"/>
+    <ROW File="RawViewer.dll_1" Component_="RawViewer.dll_1" FileName="RAWVIE~1.DLL|RawViewer.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\RawViewer.dll" SelfReg="false"/>
+    <ROW File="REnv.dll_3" Component_="REnv.dll_3" FileName="REnv.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\REnv.dll" SelfReg="false"/>
+    <ROW File="REnv.dll.config_3" Component_="Microsoft.VisualBasic.Math.Core.dll.config" FileName="RENVDL~1.CON|REnv.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\REnv.dll.config" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_1" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_1" FileName="SMRUCC~1.DLL|SMRUCC.genomics.Analysis.HTS.DataFrame.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Analysis.HTS.DataFrame.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Annotation.dll_1" Component_="SMRUCC.genomics.Annotation.dll_1" FileName="SMRUCC~2.DLL|SMRUCC.genomics.Annotation.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Annotation.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Core.dll_1" Component_="SMRUCC.genomics.Core.dll_1" FileName="SMRUCC~3.DLL|SMRUCC.genomics.Core.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Core.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Repository.dll_1" Component_="SMRUCC.genomics.Data.Repository.dll_1" FileName="SMRUCC~4.DLL|SMRUCC.genomics.Data.Repository.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Data.Repository.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Rhea.dll_1" Component_="SMRUCC.genomics.Data.Rhea.dll_1" FileName="SMRUCC~5.DLL|SMRUCC.genomics.Data.Rhea.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Data.Rhea.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.SABIORK.dll_1" Component_="SMRUCC.genomics.Data.SABIORK.dll_1" FileName="SMRUCC~6.DLL|SMRUCC.genomics.Data.SABIO-RK.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Data.SABIO-RK.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_1" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_1" FileName="SMRUCC~7.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_1" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_1" FileName="SMRUCC~8.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_1" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_1" FileName="SMRUCC~9.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_1" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_1" FileName="SMRUC~10.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_1" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_1" FileName="SMRUC~11.DLL|SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Interops.NCBI.Extensions.dll_1" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.dll_1" FileName="SMRUC~12.DLL|SMRUCC.genomics.Interops.NCBI.Extensions.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Interops.NCBI.Extensions.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Interops.NCBI.Extensions.dll.config_1" Component_="Microsoft.VisualBasic.Math.Core.dll.config" FileName="SMRUCC~1.CON|SMRUCC.genomics.Interops.NCBI.Extensions.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Interops.NCBI.Extensions.dll.config" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.BioSystems.dll_1" Component_="SMRUCC.genomics.Model.BioSystems.dll_1" FileName="SMRUC~13.DLL|SMRUCC.genomics.Model.BioSystems.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Model.BioSystems.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_1" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_1" FileName="SMRUC~14.DLL|SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.ComponentModel.Annotations.dll" Component_="System.ComponentModel.Annotations.dll" FileName="SYSTEM~2.DLL|System.ComponentModel.Annotations.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.ComponentModel.Annotations.dll" SelfReg="false"/>
+    <ROW File="System.Composition.AttributedModel.dll_2" Component_="System.Composition.AttributedModel.dll_2" FileName="SYSTEM~3.DLL|System.Composition.AttributedModel.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Composition.AttributedModel.dll" SelfReg="false"/>
+    <ROW File="System.Composition.Convention.dll_1" Component_="System.Composition.Convention.dll_1" FileName="SYSTEM~4.DLL|System.Composition.Convention.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Composition.Convention.dll" SelfReg="false"/>
+    <ROW File="System.Composition.Hosting.dll_1" Component_="System.Composition.Hosting.dll_1" FileName="SYSTEM~5.DLL|System.Composition.Hosting.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Composition.Hosting.dll" SelfReg="false"/>
+    <ROW File="System.Composition.Runtime.dll_1" Component_="System.Composition.Runtime.dll_1" FileName="SYSTEM~6.DLL|System.Composition.Runtime.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Composition.Runtime.dll" SelfReg="false"/>
+    <ROW File="System.Composition.TypedParts.dll_1" Component_="System.Composition.TypedParts.dll_1" FileName="SYSTEM~7.DLL|System.Composition.TypedParts.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Composition.TypedParts.dll" SelfReg="false"/>
+    <ROW File="System.Drawing.Common.dll_3" Component_="System.Drawing.Common.dll_3" FileName="SYSTEM~8.DLL|System.Drawing.Common.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Drawing.Common.dll" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~9.DLL|System.Memory.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Tensors.dll_1" Component_="System.Numerics.Tensors.dll_1" FileName="SYSTE~10.DLL|System.Numerics.Tensors.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Numerics.Tensors.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.dll_1" Component_="System.Numerics.Vectors.dll_1" FileName="SYSTE~11.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Numerics.Vectors.dll" SelfReg="false"/>
+    <ROW File="System.Resources.Extensions.dll_1" Component_="System.Resources.Extensions.dll_1" FileName="SYSTE~12.DLL|System.Resources.Extensions.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Resources.Extensions.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll_1" Component_="System.Runtime.CompilerServices.Unsafe.dll_1" FileName="SYSTE~13.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Text.Encoding.CodePages.dll_1" Component_="System.Text.Encoding.CodePages.dll_1" FileName="SYSTE~14.DLL|System.Text.Encoding.CodePages.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Text.Encoding.CodePages.dll" SelfReg="false"/>
+    <ROW File="System.Text.Encodings.Web.dll" Component_="System.Text.Encodings.Web.dll" FileName="SYSTE~15.DLL|System.Text.Encodings.Web.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net48\System.Text.Encodings.Web.dll" SelfReg="false"/>
+    <ROW File="GCModellerDesktop.deps.json_1" Component_="GCModellerDesktop.deps.json_1" FileName="GCMODE~1.JSO|GCModellerDesktop.deps.json" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\GCModellerDesktop.deps.json" SelfReg="false"/>
+    <ROW File="GCModellerDesktop.dll_3" Component_="GCModellerDesktop.dll_3" FileName="GCMODE~1.DLL|GCModellerDesktop.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\GCModellerDesktop.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.BinaryData.dll_5" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_5" FileName="MICROS~1.DLL|Microsoft.VisualBasic.Data.BinaryData.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Data.BinaryData.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.Framework.dll_5" Component_="Microsoft.VisualBasic.Data.Framework.dll_5" FileName="MICROS~2.DLL|Microsoft.VisualBasic.Data.Framework.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Data.Framework.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.IO.MessagePack.dll_5" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_5" FileName="MICROS~3.DLL|Microsoft.VisualBasic.Data.IO.MessagePack.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Data.IO.MessagePack.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Data.Storage.dll_3" Component_="Microsoft.VisualBasic.Data.Storage.dll_3" FileName="MICROS~4.DLL|Microsoft.VisualBasic.Data.Storage.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Data.Storage.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.HDSPack.dll_4" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.dll_4" FileName="MICROS~5.DLL|Microsoft.VisualBasic.DataStorage.HDSPack.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.DataStorage.HDSPack.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.DataStorage.netCDF.dll_4" Component_="Microsoft.VisualBasic.DataStorage.netCDF.dll_4" FileName="MICROS~6.DLL|Microsoft.VisualBasic.DataStorage.netCDF.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.DataStorage.netCDF.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Core.dll_4" Component_="Microsoft.VisualBasic.Math.Core.dll_4" FileName="MICROS~7.DLL|Microsoft.VisualBasic.Math.Core.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Math.Core.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Core.dll.config_4" Component_="GCModellerDesktop.deps.json_1" FileName="MICROS~1.CON|Microsoft.VisualBasic.Math.Core.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Math.Core.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.ODEsSolver.dll_4" Component_="Microsoft.VisualBasic.Math.ODEsSolver.dll_4" FileName="MICROS~8.DLL|Microsoft.VisualBasic.Math.ODEsSolver.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Math.ODEsSolver.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Math.Statistics.dll_4" Component_="Microsoft.VisualBasic.Math.Statistics.dll_4" FileName="MICROS~9.DLL|Microsoft.VisualBasic.Math.Statistics.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Math.Statistics.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_4" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_4" FileName="MICRO~10.DLL|Microsoft.VisualBasic.MIME.application.rdf_xml.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.MIME.application.rdf_xml.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config_4" Component_="GCModellerDesktop.deps.json_1" FileName="MICROS~2.CON|Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.MIME.application.rdf_xml.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.MIME.application.xml.dll_4" Component_="Microsoft.VisualBasic.MIME.application.xml.dll_4" FileName="MICRO~11.DLL|Microsoft.VisualBasic.MIME.application.xml.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.MIME.application.xml.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll_5" Component_="Microsoft.VisualBasic.Runtime.dll_5" FileName="MICRO~12.DLL|Microsoft.VisualBasic.Runtime.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Runtime.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualBasic.Runtime.dll.config_5" Component_="GCModellerDesktop.deps.json_1" FileName="MICROS~3.CON|Microsoft.VisualBasic.Runtime.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\Microsoft.VisualBasic.Runtime.dll.config" SelfReg="false"/>
+    <ROW File="OmicsProject.dll_2" Component_="OmicsProject.dll_2" FileName="OMICSP~1.DLL|OmicsProject.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\OmicsProject.dll" SelfReg="false"/>
+    <ROW File="RawViewer.deps.json" Component_="GCModellerDesktop.deps.json_1" FileName="RAWVIE~1.JSO|RawViewer.deps.json" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\RawViewer.deps.json" SelfReg="false"/>
+    <ROW File="RawViewer.dll_2" Component_="RawViewer.dll_2" FileName="RAWVIE~1.DLL|RawViewer.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\RawViewer.dll" SelfReg="false"/>
+    <ROW File="REnv.dll_4" Component_="REnv.dll_4" FileName="REnv.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\REnv.dll" SelfReg="false"/>
+    <ROW File="REnv.dll.config_4" Component_="GCModellerDesktop.deps.json_1" FileName="RENVDL~1.CON|REnv.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\REnv.dll.config" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_2" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_2" FileName="SMRUCC~1.DLL|SMRUCC.genomics.Analysis.HTS.DataFrame.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Analysis.HTS.DataFrame.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Annotation.dll_2" Component_="SMRUCC.genomics.Annotation.dll_2" FileName="SMRUCC~2.DLL|SMRUCC.genomics.Annotation.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Annotation.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Core.dll_2" Component_="SMRUCC.genomics.Core.dll_2" FileName="SMRUCC~3.DLL|SMRUCC.genomics.Core.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Core.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Repository.dll_2" Component_="SMRUCC.genomics.Data.Repository.dll_2" FileName="SMRUCC~4.DLL|SMRUCC.genomics.Data.Repository.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Data.Repository.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Rhea.dll_2" Component_="SMRUCC.genomics.Data.Rhea.dll_2" FileName="SMRUCC~5.DLL|SMRUCC.genomics.Data.Rhea.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Data.Rhea.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.SABIORK.dll_2" Component_="SMRUCC.genomics.Data.SABIORK.dll_2" FileName="SMRUCC~6.DLL|SMRUCC.genomics.Data.SABIO-RK.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Data.SABIO-RK.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_2" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_2" FileName="SMRUCC~7.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_2" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_2" FileName="SMRUCC~8.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_2" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_2" FileName="SMRUCC~9.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_2" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_2" FileName="SMRUC~10.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_2" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_2" FileName="SMRUC~11.DLL|SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Interops.NCBI.Extensions.dll_2" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.dll_2" FileName="SMRUC~12.DLL|SMRUCC.genomics.Interops.NCBI.Extensions.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Interops.NCBI.Extensions.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Interops.NCBI.Extensions.dll.config_2" Component_="GCModellerDesktop.deps.json_1" FileName="SMRUCC~1.CON|SMRUCC.genomics.Interops.NCBI.Extensions.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Interops.NCBI.Extensions.dll.config" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.BioSystems.dll_2" Component_="SMRUCC.genomics.Model.BioSystems.dll_2" FileName="SMRUC~13.DLL|SMRUCC.genomics.Model.BioSystems.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Model.BioSystems.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_2" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_2" FileName="SMRUC~14.DLL|SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\net6.0\SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" SelfReg="false"/>
+    <ROW File="OmicsProject.dll_3" Component_="OmicsProject.dll_3" FileName="OMICSP~1.DLL|OmicsProject.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\OmicsProject.dll" SelfReg="false"/>
+    <ROW File="RawViewer.deps.json_1" Component_="GCModellerDesktop.deps.json" FileName="RAWVIE~1.JSO|RawViewer.deps.json" Attributes="0" SourcePath="..\Apps\Rstudio\host\RawViewer.deps.json" SelfReg="false"/>
+    <ROW File="RawViewer.dll_3" Component_="RawViewer.dll_3" FileName="RAWVIE~1.DLL|RawViewer.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\RawViewer.dll" SelfReg="false"/>
+    <ROW File="REnv.dll_5" Component_="REnv.dll_5" FileName="REnv.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\REnv.dll" SelfReg="false"/>
+    <ROW File="REnv.dll.config_5" Component_="GCModellerDesktop.deps.json" FileName="RENVDL~1.CON|REnv.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\REnv.dll.config" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_3" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_3" FileName="SMRUCC~1.DLL|SMRUCC.genomics.Analysis.HTS.DataFrame.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Analysis.HTS.DataFrame.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Annotation.dll_3" Component_="SMRUCC.genomics.Annotation.dll_3" FileName="SMRUCC~2.DLL|SMRUCC.genomics.Annotation.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Annotation.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Core.dll_3" Component_="SMRUCC.genomics.Core.dll_3" FileName="SMRUCC~3.DLL|SMRUCC.genomics.Core.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Core.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Repository.dll_3" Component_="SMRUCC.genomics.Data.Repository.dll_3" FileName="SMRUCC~4.DLL|SMRUCC.genomics.Data.Repository.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Data.Repository.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.Rhea.dll_3" Component_="SMRUCC.genomics.Data.Rhea.dll_3" FileName="SMRUCC~5.DLL|SMRUCC.genomics.Data.Rhea.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Data.Rhea.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Data.SABIORK.dll_3" Component_="SMRUCC.genomics.Data.SABIORK.dll_3" FileName="SMRUCC~6.DLL|SMRUCC.genomics.Data.SABIO-RK.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Data.SABIO-RK.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_3" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_3" FileName="SMRUCC~7.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_3" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_3" FileName="SMRUCC~8.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_3" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_3" FileName="SMRUCC~9.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_3" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_3" FileName="SMRUC~10.DLL|SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_3" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_3" FileName="SMRUC~11.DLL|SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Interops.NCBI.Extensions.dll_3" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.dll_3" FileName="SMRUC~12.DLL|SMRUCC.genomics.Interops.NCBI.Extensions.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Interops.NCBI.Extensions.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Interops.NCBI.Extensions.dll.config_3" Component_="GCModellerDesktop.deps.json" FileName="SMRUCC~1.CON|SMRUCC.genomics.Interops.NCBI.Extensions.dll.config" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Interops.NCBI.Extensions.dll.config" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.BioSystems.dll_3" Component_="SMRUCC.genomics.Model.BioSystems.dll_3" FileName="SMRUC~13.DLL|SMRUCC.genomics.Model.BioSystems.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Model.BioSystems.dll" SelfReg="false"/>
+    <ROW File="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_3" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_3" FileName="SMRUC~14.DLL|SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" SelfReg="false"/>
+    <ROW File="settings.json" Component_="settings.json" FileName="SETTIN~1.JSO|settings.json" Attributes="0" SourcePath="..\src\Rstudio\background\.vscode\settings.json" SelfReg="false"/>
+    <ROW File="vcellPackViewer.R" Component_="vcellPackViewer.R" FileName="VCELLP~1.R|vcellPackViewer.R" Attributes="0" SourcePath="..\src\Rstudio\background\vcellPackViewer.R" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -492,16 +986,33 @@
     <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\FolderDlg.aip"/>
     <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\MaintenanceTypeDlg.aip"/>
     <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="PreparePrereqDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\PreparePrereqDlg.aip"/>
+    <ROW Fragment="PrerequisitesDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\PrerequisitesDlg.aip"/>
+    <ROW Fragment="ProgressPrereqDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\ProgressPrereqDlg.aip"/>
     <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;azure\fragments\SequenceDialogs.aip"/>
     <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
     <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
     <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;azure\fragments\UI.aip"/>
     <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
     <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\VerifyRemoveDlg.aip"/>
     <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\VerifyRepairDlg.aip"/>
     <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\WelcomeDlg.aip"/>
+    <ROW Fragment="WelcomePrereqDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\WelcomePrereqDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DownloadPrereq" Description="Downloading prerequisite software" DescriptionLocId="ActionText.Description.AI_DownloadPrereq" Template="[1]" TemplateLocId="ActionText.Template.AI_DownloadPrereq"/>
+    <ROW Action="AI_ExtractPrereq" Description="Extracting prerequisite software" DescriptionLocId="ActionText.Description.AI_ExtractPrereq" Template="[1]" TemplateLocId="ActionText.Template.AI_ExtractPrereq"/>
+    <ROW Action="AI_InstallPostPrerequisite" Description="Installing prerequisite software" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" Template="[1]" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
+    <ROW Action="AI_InstallPrerequisite" Description="Installing prerequisite software" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" Template="[1]" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
+    <ROW Action="AI_VerifyPrereq" Description="Verifying prerequisites" DescriptionLocId="ActionText.Description.AI_VerifyPrereq" Template="[1] was not installed correctly." TemplateLocId="ActionText.Template.AI_VerifyPrereq"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
@@ -527,24 +1038,42 @@
     <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
     <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="ExitDialog" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="101"/>
+    <ROW Dialog_="FatalError" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="102"/>
+    <ROW Dialog_="UserExit" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="101"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control_="Next" Event="NewDialog" Argument="PrerequisitesDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Back" Event="NewDialog" Argument="WelcomePrereqDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
     <ROW Directory_="SMRUCC_Dir" Component_="SMRUCC" ManualDelete="false"/>
+    <ROW Directory_="logs_Dir" Component_="logs" ManualDelete="false"/>
+    <ROW Directory_="demo_Dir" Component_="demo" ManualDelete="false"/>
+    <ROW Directory_="docs_Dir" Component_="docs" ManualDelete="false"/>
+    <ROW Directory_="images_1_Dir" Component_="images" ManualDelete="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_CleanPrereq" Type="65" Source="Prereq.dll" Target="CleanPrereq" WithoutSeq="true"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DownloadPrereq" Type="1" Source="Prereq.dll" Target="DownloadPrereq"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
     <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_ExtractPrereq" Type="65" Source="Prereq.dll" Target="ExtractPrereq"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_InstallPostPrerequisite" Type="1" Source="Prereq.dll" Target="InstallPostPrereq"/>
+    <ROW Action="AI_InstallPrerequisite" Type="1" Source="Prereq.dll" Target="InstallPrereq"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Type="65" Source="aicustact.dll" Target="PreserveInstallType"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
     <ROW Action="AI_RunFinishActions" Type="1" Source="aicustact.dll" Target="RunFinishActions" WithoutSeq="true"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_VerifyPrereq" Type="1" Source="Prereq.dll" Target="VerifyPrereq"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFiles64Folder]SMRUCC\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
@@ -590,9 +1119,7 @@
     <ROW Feature_="MainFeature" Component_="REnv.dll_1"/>
     <ROW Feature_="MainFeature" Component_="Rserver.dll_1"/>
     <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Core.dll"/>
-    <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Composition.AttributedModel.dll_1"/>
-    <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Numerics.Vectors.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Runtime.InteropServices.APIs.dll"/>
@@ -704,6 +1231,215 @@
     <ROW Feature_="MainFeature" Component_="OmicsProject.dll"/>
     <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll"/>
     <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll"/>
+    <ROW Feature_="MainFeature" Component_="logs"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Parallel.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Numerics.Tensors.dll"/>
+    <ROW Feature_="MainFeature" Component_="Flute.Http.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.DataMining.DynamicProgramming.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Network.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="localblast.vbhtml"/>
+    <ROW Feature_="MainFeature" Component_="jstree.min.js"/>
+    <ROW Feature_="MainFeature" Component_="px.png"/>
+    <ROW Feature_="MainFeature" Component_="px.png_1"/>
+    <ROW Feature_="MainFeature" Component_="create.vbhtml_1"/>
+    <ROW Feature_="MainFeature" Component_="blastp.vbhtml"/>
+    <ROW Feature_="MainFeature" Component_="create_network.R"/>
+    <ROW Feature_="MainFeature" Component_="enzclass.txt"/>
+    <ROW Feature_="MainFeature" Component_="rheacompounds.txt"/>
+    <ROW Feature_="MainFeature" Component_="GCModellerDesktop.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.DataStorage.netCDF.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.ODEsSolver.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.Statistics.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.xml.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="RawViewer.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Annotation.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.Repository.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.Rhea.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.SABIORK.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Model.BioSystems.dll"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Network.pdb"/>
+    <ROW Feature_="Feature" Component_="GCModellerDesktop.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Math.Statistics.pdb"/>
+    <ROW Feature_="Feature" Component_="Flute.Http.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.MIME.application.xml.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.MIME.application.json.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Math.Core.pdb"/>
+    <ROW Feature_="Feature" Component_="GCModeller_win32Desktop.pdb"/>
+    <ROW Feature_="Feature" Component_="RawViewer.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Data.BinaryData.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Data.Framework.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Math.ODEsSolver.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.DataStorage.netCDF.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Runtime.pdb"/>
+    <ROW Feature_="Feature" Component_="OmicsProject.pdb"/>
+    <ROW Feature_="Feature" Component_="REnv.pdb"/>
+    <ROW Feature_="Feature" Component_="Rserver.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Annotation.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Core.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Data.Repository.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Data.Rhea.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Data.SABIORK.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Model.BioSystems.pdb"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.pdb"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Math.ODEsSolver.xml"/>
+    <ROW Feature_="Feature" Component_="GCModeller_win32Desktop.xml"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.MIME.application.json.xml_1"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.xml"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.xml"/>
+    <ROW Feature_="Feature" Component_="Flute.Http.xml_1"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Network.xml"/>
+    <ROW Feature_="Feature" Component_="Microsoft.VisualBasic.Runtime.xml"/>
+    <ROW Feature_="Feature" Component_="Microsoft.Web.WebView2.Core.xml"/>
+    <ROW Feature_="Feature" Component_="Microsoft.Web.WebView2.WinForms.xml"/>
+    <ROW Feature_="Feature" Component_="Microsoft.Web.WebView2.Wpf.xml"/>
+    <ROW Feature_="Feature" Component_="REnv.xml"/>
+    <ROW Feature_="Feature" Component_="Rserver.xml"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Annotation.xml"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Core.xml"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.Data.Repository.xml"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.xml"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.xml"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.xml"/>
+    <ROW Feature_="Feature" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.xml"/>
+    <ROW Feature_="MainFeature" Component_="GCModellerDesktop.deps.json"/>
+    <ROW Feature_="MainFeature" Component_="GCModellerDesktop.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.Framework.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.Storage.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.DataStorage.netCDF.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.Core.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.ODEsSolver.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.Statistics.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.xml.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Runtime.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="GCModellerDesktop.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.Framework.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.Storage.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.DataStorage.netCDF.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.Core.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.Core.dll.config"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.ODEsSolver.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.Statistics.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.xml.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Runtime.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="OmicsProject.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="RawViewer.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="REnv.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Annotation.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Core.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.Repository.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.Rhea.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.SABIORK.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Model.BioSystems.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.ComponentModel.Annotations.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.AttributedModel.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.Convention.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.Hosting.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.Runtime.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Composition.TypedParts.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Drawing.Common.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Numerics.Tensors.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Numerics.Vectors.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Resources.Extensions.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Text.Encoding.CodePages.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Text.Encodings.Web.dll"/>
+    <ROW Feature_="MainFeature" Component_="GCModellerDesktop.deps.json_1"/>
+    <ROW Feature_="MainFeature" Component_="GCModellerDesktop.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.BinaryData.dll_5"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.Framework.dll_5"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.IO.MessagePack.dll_5"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Data.Storage.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.DataStorage.HDSPack.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.DataStorage.netCDF.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.Core.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.ODEsSolver.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Math.Statistics.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.rdf_xml.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.MIME.application.xml.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualBasic.Runtime.dll_5"/>
+    <ROW Feature_="MainFeature" Component_="OmicsProject.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="RawViewer.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="REnv.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Annotation.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Core.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.Repository.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.Rhea.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.SABIORK.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Model.BioSystems.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="OmicsProject.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="RawViewer.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="REnv.dll_5"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Analysis.HTS.DataFrame.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Annotation.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Core.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.Repository.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.Rhea.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Data.SABIORK.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.BootstrapLoader.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Dynamics.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.ModellingEngine.Model.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.GCModeller.Workbench.ExperimentDesigner.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Interops.NCBI.Extensions.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Model.BioSystems.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="demo"/>
+    <ROW Feature_="MainFeature" Component_="settings.json"/>
+    <ROW Feature_="MainFeature" Component_="vcellPackViewer.R"/>
+    <ROW Feature_="MainFeature" Component_="docs"/>
+    <ROW Feature_="MainFeature" Component_="images"/>
+    <ROW Feature_="FAC9C433D3044829E6669A2C6FF54E6" Component_="FAC9C433D3044829E6669A2C6FF54E6"/>
+    <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
+    <ROW Feature_="C6F7BF650B714DC58735D62C12F214E4" Component_="C6F7BF650B714DC58735D62C12F214E4"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="installer.exe" SourcePath="installer.ico" Index="0"/>
@@ -715,6 +1451,8 @@
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_VerifyPrereq" Sequence="1101"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
@@ -722,7 +1460,14 @@
     <ROW Action="AI_DpiContentScale" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
-    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
+    <ROW Action="AI_DownloadPrereq" Sequence="1297"/>
+    <ROW Action="AI_ExtractPrereq" Sequence="1298"/>
+    <ROW Action="AI_InstallPrerequisite" Sequence="1299"/>
+    <ROW Action="AI_InstallPostPrerequisite" Sequence="1301"/>
+    <ROW Action="AI_CleanPrereq" Sequence="1302"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
     <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
@@ -731,8 +1476,26 @@
     <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="AdvancedInstaller" Root="-1" Key="Software\Caphyon\Advanced Installer" Name="\"/>
+    <ROW Registry="C6F7BF650B714DC58735D62C12F214E4" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="C6F7BF650B714DC58735D62C12F214E4" Value="1" Component_="C6F7BF650B714DC58735D62C12F214E4"/>
+    <ROW Registry="Caphyon" Root="-1" Key="Software\Caphyon" Name="\"/>
+    <ROW Registry="FAC9C433D3044829E6669A2C6FF54E6" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="FAC9C433D3044829E6669A2C6FF54E6" Value="1" Component_="FAC9C433D3044829E6669A2C6FF54E6"/>
+    <ROW Registry="LZMA" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA" Name="\"/>
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
     <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Prereqs" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs" Name="\"/>
+    <ROW Registry="ProductCode" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]" Name="\"/>
+    <ROW Registry="ProductCode_1" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]" Name="\"/>
+    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="ProductVersion" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="\"/>
+    <ROW Registry="ProductVersion_1" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="\"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
@@ -743,8 +1506,21 @@
     <ATTRIBUTE name="UsedTheme" value="azure"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
-    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
-    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="255.255.6555.6555" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="255.255.6555.6555" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW PrereqKey="AF4EF7137AE24E488A4E128FD1B89507" DisplayName="Microsoft Edge WebView2 Runtime (web installer)" VersionMin="113.0" SetupFileUrl="Prerequisites\WebView2\MicrosoftEdgeWebview2Setup.exe" Location="0" ExactSize="0" WinNTVersions="Windows Vista x86, Windows Server 2008 x86, Windows 8 x86" WinNT64Versions="Windows Vista x64, Windows Server 2008 x64, Windows 8 x64" Operator="1" NoUiComLine="/silent /install" Options="y" TargetName="WebView2\MicrosoftEdgeWebview2Setup.exe"/>
+    <ROW PrereqKey="C6F7BF650B714DC58735D62C12F214E4" DisplayName=".NET Runtime 6.0.16 x64" VersionMin="6.0" SetupFileUrl="Prerequisites\.NET 6.0\dotnet-runtime-6.0.16-win-x64.exe" Location="0" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" WinNT64Versions="Windows Vista x64, Windows Server 2008 x64, Windows 7 RTM x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64" Operator="1" NoUiComLine="/q /norestart" Options="f" TargetName=".NET 6.0\dotnet-runtime-6.0.16-win-x64.exe" Feature="C6F7BF650B714DC58735D62C12F214E4"/>
+    <ROW PrereqKey="FAC9C433D3044829E6669A2C6FF54E6" DisplayName=".NET Desktop Runtime 6.0.16 x64" VersionMin="6.0" SetupFileUrl="Prerequisites\.NET 6.0\windowsdesktop-runtime-6.0.16-win-x64.exe" Location="0" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" WinNT64Versions="Windows Vista x64, Windows Server 2008 x64, Windows 7 RTM x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64" Operator="1" NoUiComLine="/q /norestart" Options="fx" TargetName=".NET 6.0\windowsdesktop-runtime-6.0.16-win-x64.exe" Feature="FAC9C433D3044829E6669A2C6FF54E6"/>
+    <ROW PrereqKey="FD4C18E18B37480DB80035616CB85098" DisplayName=".NET Framework 4.8.1" SetupFileUrl="Prerequisites\.NET Framework 4.8.1\ndp481-x86-x64-allos-enu.exe" Location="0" ExactSize="0" WinNTVersions="Windows Vista x86, Windows Server 2008 x86, Windows 7 x86, Windows 8 x86, Windows 8.1 x86, Windows 10 version 1507 x86, Windows 10 version 1511 x86, Windows 10 version 1607 x86, Windows 10 version 1703 x86, Windows 10 version 1709 x86, Windows 10 version 1803 x86, Windows 10 version 1809 x86, Windows 10 version 1903 x86, Windows 10 version 1909 x86, Windows 10 version 2004 x86" WinNT64Versions="Windows Vista x64, Windows Server 2008 x64, Windows 7 x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64, Windows 10 version 1607 x64, Windows Server 2016 x64, Windows 10 version 1703 x64, Windows 10 version 1709 x64, Windows 10 version 1803 x64, Windows 10 version 1809 x64, Windows Server 2019 x64, Windows 10 version 1903 x64, Windows 10 version 1909 x64, Windows 10 version 2004 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" TargetName=".NET Framework 4.8.1\ndp481-x86-x64-allos-enu.exe"/>
+    <ATTRIBUTE name="PrereqsOrder" value="FD4C18E18B37480DB80035616CB85098 AF4EF7137AE24E488A4E128FD1B89507 FAC9C433D3044829E6669A2C6FF54E6 C6F7BF650B714DC58735D62C12F214E4"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
+    <ROW SearchKey="AF4EF7137AE24E488A4E128FD1B89507pv" Prereq="AF4EF7137AE24E488A4E128FD1B89507" SearchType="2" SearchString="HKCU\Software\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}\pv" VerMin="113.0.1774.50" Order="1" Property="PreReqSearch_AF4EF7137AE24E488A4E12"/>
+    <ROW SearchKey="C6F7BF650B714DC58735D62C12F214E4Mic" Prereq="C6F7BF650B714DC58735D62C12F214E4" SearchType="12" SearchString="HKLM\SOFTWARE\dotnet\Setup\InstalledVersions\x64\sharedfx\Microsoft.NETCore.App" VerMin="6.0.16" Order="1" Property="PreReqSearch_C6F7BF650B714DC58735D6"/>
+    <ROW SearchKey="FAC9C433D3044829E6669A2C6FF54E6Micr" Prereq="FAC9C433D3044829E6669A2C6FF54E6" SearchType="14" SearchString="[ProgramFiles64Folder]dotnet\shared\Microsoft.WindowsDesktop.App" VerMin="6.0.16" Order="1" Property="PreReqSearch_FAC9C433D3044829E6669A"/>
+    <ROW SearchKey="FD4C18E18B37480DB80035616CB85098Sys" Prereq="FD4C18E18B37480DB80035616CB85098" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G533324" Order="1" Property="PreReqSearch_FD4C18E18B37480DB80035"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
     <ROW Directory_="bin_Dir" SourcePath="..\Apps\Rstudio\bin" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store|/*.pdb|/*.xml" ExcludeFlags="6" FileAddOptions="4"/>
@@ -753,5 +1529,8 @@
     <ROW Directory_="runtimes_Dir" SourcePath="..\Apps\runtimes" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
     <ROW Directory_="fastRWeb_Dir" SourcePath="..\fastRWeb" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
     <ROW Directory_="data_Dir" SourcePath="..\src\Rstudio\data" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
+    <ROW Directory_="packages_Dir" SourcePath="..\Apps\Rstudio\packages" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
+    <ROW Directory_="host_Dir" SourcePath="..\Apps\Rstudio\host" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store|/*.xml|/*.pdb" ExcludeFlags="6" FileAddOptions="4"/>
+    <ROW Directory_="background_Dir" SourcePath="..\src\Rstudio\background" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
   </COMPONENT>
 </DOCUMENT>
