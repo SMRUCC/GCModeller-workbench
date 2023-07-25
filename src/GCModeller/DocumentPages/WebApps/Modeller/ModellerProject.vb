@@ -1,16 +1,21 @@
 ﻿
 Imports System.IO
+Imports System.Runtime.CompilerServices
 Imports System.Runtime.InteropServices
 Imports Microsoft.VisualBasic.Data.csv
 Imports Microsoft.VisualBasic.DataStorage.HDSPack
 Imports Microsoft.VisualBasic.DataStorage.HDSPack.FileSystem
 Imports SMRUCC.genomics.Interops.NCBI.Extensions.LocalBLAST.Application.BBH
 
+''' <summary>
+''' view gcmodeller virtual cell project data
+''' </summary>
 <ClassInterface(ClassInterfaceType.AutoDual)>
 <ComVisible(True)>
 Public Class ModellerProject : Inherits WebApp
 
     Public ReadOnly Property project As String
+        <MethodImpl(MethodImplOptions.AggressiveInlining)>
         Get
             Return arguments("proj")
         End Get
@@ -29,10 +34,12 @@ Public Class ModellerProject : Inherits WebApp
         arguments("proj") = path
     End Sub
 
+    <MethodImpl(MethodImplOptions.AggressiveInlining)>
     Public Sub openLocalBlast(ssid As String)
         Call New RunBlast($"params:{ssid}").Open()
     End Sub
 
+    <MethodImpl(MethodImplOptions.AggressiveInlining)>
     Public Sub openMetabolicViewer()
         Call New MetabolicViewer(project).Open()
     End Sub

@@ -5,9 +5,7 @@
     <TargetFrameworks>net6.0;net48;net6.0-windows</TargetFrameworks>
     <Configurations>Debug;Release;Rsharp_app_release;mzkit;mzkit_win32;gcmodeller_desktop</Configurations>
     <RuntimeIdentifiers>win7-x64;win7-x86;win-x64;linux-x64;linux-arm64;osx-x64</RuntimeIdentifiers>
-    <Platforms>AnyCPU;x64</Platforms>
-
-    <OutputPath>../../src/Rstudio/Rstudio/assembly</OutputPath>
+    <Platforms>AnyCPU;x64</Platforms> 
 
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
   </PropertyGroup>
