@@ -66,7 +66,7 @@ http::http_socket()
   "Github"       = "https://github.com/rsharp-lang/Rserver",
   "Organization" = "R# language <https://github.com/rsharp-lang/>"
 )
-|> httpMethod("GET",  handleHttpGet)
+|> httpMethod("GET",  handleHttpGet, accessAny = TRUE)
 |> httpMethod("POST", [req, response] => writeLines("HTTP POST test success!", con = response))
 |> httpMethod("PUT", [req, response] => writeLines("HTTP PUT test success!", con = response))
 |> listen(port = httpPort)

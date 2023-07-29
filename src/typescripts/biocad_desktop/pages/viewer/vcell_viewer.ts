@@ -10,7 +10,11 @@ namespace pages.viewers {
 
         protected init(): void {
             $ts.get("@counts", function (result) {
-                console.log(result);
+                const li = $ts("#module_list");
+
+                for (let name of Object.keys(result.info)) {
+                    li.appendElement($ts("<li>", { value: name }).display(`${name} [${result.info[name]} molecules]`));
+                }
             });
         }
 

@@ -25,7 +25,13 @@
             <div class="col-auto">
                 <h3>Select subcellular location:</h3>
 
-                <select id="compartment_list" class="form-control select-input placeholder-active active">
+                <select id="module_list" class="form-control select-input placeholder-active active">
+
+                </select>
+
+                <h3>Select subcellular location:</h3>
+
+                <select id="molecules_list" class="form-control select-input placeholder-active active">
 
                 </select>
 
