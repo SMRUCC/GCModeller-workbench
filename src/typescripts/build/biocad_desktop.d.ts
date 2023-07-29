@@ -178,6 +178,15 @@ declare namespace js_plot {
     }
 }
 declare namespace js_plot {
+    class lineplot extends echarts_ts {
+        title: string;
+        subtitle: string;
+        div: string;
+        constructor(title: string, subtitle: string, div?: string);
+        plot(name: string, x: number[], y: number[]): void;
+    }
+}
+declare namespace js_plot {
     class piePlot extends echarts_ts {
         title: string;
         subtitle: string;

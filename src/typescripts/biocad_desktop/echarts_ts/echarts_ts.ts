@@ -12,6 +12,8 @@ namespace js_plot {
         public constructor(div: string = "Rplot_js") {
             const echarts: any = (<any>window).echarts;
 
+            $ts(`#${div}`).clear();
+
             this.myChart = echarts.init(document.getElementById(div), null, {
                 renderer: 'canvas',
                 useDirtyRect: false

@@ -40,8 +40,10 @@ namespace pages.viewers {
 
             $ts.get(`@vector/?m=${modu}&id=${id}`, function (result) {
                 const data = <{ size: number, vec: number[] }>result.info;
+                const tx = Array(data.size).fill().map((element, index) => index);
+                const plot = new js_plot.lineplot(`Expression of ${id}`, `From module ${modu}`, "container");
 
-                console.log(data);
+                plot.plot(id, tx, data.vec);
             });
         }
     }
