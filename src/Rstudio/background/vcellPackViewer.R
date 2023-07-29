@@ -3,6 +3,7 @@
 require(GCModeller);
 require(Rstudio);
 require(Rserver);
+require(JSON);
 
 # imports "http" from "Rstudio";
 imports "Inspector" from "GCModellerDesktop";
@@ -12,13 +13,31 @@ imports "rawXML" from "vcellkit";
 const packfile as string  = ?"--file" || stop("no result file was provided!");
 const httpPort as integer = ?"--listen" || 80;
 
+const success = function(obj) {
+  JSON::json_encode({
+    code: 0,
+    info: obj
+  });
+}
+
 const view = Inspector::load(open.vcellPack(file = packfile, mode = "read"));
 const http = router::parse({
 
   [@url "/get/count/"]
   const get_count = function(req, response) {
     print("handling get summary counts.");
-    writeLines(111, response);
+    Inspector::counts(view)
+    |> success()
+    |> writeLines(con = response)
+    ;
+  }
+
+  [@url "/get/molecule_list/"]
+  const get_molecules = function(req, response) {
+    Inspector::load.molecule_list(view)
+    |> success()
+    |> writeLines(con = response)
+    ;
   }
 
 });

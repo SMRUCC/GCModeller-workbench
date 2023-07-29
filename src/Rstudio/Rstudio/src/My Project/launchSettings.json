@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "GCModellerDesktop": {
+      "commandName": "Project"
+    },
+    "run_dll": {
+      "commandName": "Executable",
+      "executablePath": "G:\\GCModeller\\src\\workbench\\win32_desktop\\Apps\\Rstudio\\bin\\R#.exe",
+      "commandLineArgs": "\"G:\\GCModeller\\src\\workbench\\win32_desktop\\src\\Rstudio\\background\\vcellPackViewer.R\" --file \"G:\\cell-render\\test\\result.vcellPack\" --listen 83 --setdlldirectory \"G:\\GCModeller\\src\\workbench\\win32_desktop\\Apps\\Rstudio\\host\""
+    }
+  }
+}
