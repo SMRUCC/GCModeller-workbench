@@ -970,6 +970,7 @@
     <ROW File="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_3" Component_="SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll_3" FileName="SMRUC~14.DLL|SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" Attributes="0" SourcePath="..\Apps\Rstudio\host\SMRUCC.genomics.Model.SBML_v1.0_2.0.22.0__a8b9cc5dce5d8b0cc9.dll" SelfReg="false"/>
     <ROW File="settings.json" Component_="settings.json" FileName="SETTIN~1.JSO|settings.json" Attributes="0" SourcePath="..\src\Rstudio\background\.vscode\settings.json" SelfReg="false"/>
     <ROW File="vcellPackViewer.R" Component_="vcellPackViewer.R" FileName="VCELLP~1.R|vcellPackViewer.R" Attributes="0" SourcePath="..\src\Rstudio\background\vcellPackViewer.R" SelfReg="false"/>
+    <ROW File="vcellViewer.vbhtml" Component_="blastp.vbhtml" FileName="VCELLV~1.VBH|vcellViewer.vbhtml" Attributes="0" SourcePath="..\web\toolkit\viewer\vcellViewer.vbhtml" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1014,6 +1015,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="file_deleter.ps1" SourcePath="&lt;AI_SCRIPTS&gt;file_deleter.ps1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
     <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
