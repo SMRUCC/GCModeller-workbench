@@ -35,7 +35,22 @@ Module Inspector
         }
     End Function
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="pack"></param>
+    ''' <param name="[module]"></param>
+    ''' <param name="env"></param>
+    ''' <returns>
+    ''' the returns value of this function is different based on the
+    ''' parameter value <paramref name="module"/>:
+    ''' 
+    ''' 1. default null mean returns the id set of all modules
+    ''' 2. single string will generates a id character vector from this function
+    ''' 3. multiple module names will generates a subset of the all modules list
+    ''' </returns>
     <ExportAPI("load.molecule_list")>
+    <RApiReturn(GetType(String))>
     Public Function LoadMoleculeList(pack As PackViewer,
                                      <RRawVectorArgument>
                                      Optional [module] As Object = Nothing,
@@ -45,9 +60,12 @@ Module Inspector
         Dim modNames As String() = CLRVector.asCharacter([module])
 
         If modNames.IsNullOrEmpty Then
+            ' returns all
             Return New list With {
                 .slots = mols.ToDictionary(Function(a) a.Key, Function(a) CObj(a.Value))
             }
+        ElseIf modNames.Length = 1 Then
+            Return mols.TryGetValue(modNames.First)
         Else
             Return New list With {
                 .slots = modNames _
