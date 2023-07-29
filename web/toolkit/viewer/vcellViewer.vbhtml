@@ -45,7 +45,7 @@
         <br /><br />
 
         <div class="row">
-            <div class="col-8" id="container" style="height: 500px;">
+            <div class="col-12" id="container" style="height: 600px;">
                 <!-- the graph canvas container -->
             </div>
         </div>

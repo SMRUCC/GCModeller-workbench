@@ -31,7 +31,12 @@ namespace js_plot {
                     {
                         data: data,
                         type: 'line',
-                        areaStyle: {}
+                        areaStyle: {},
+                        smooth: true,
+                        markPoint: {
+                            symbol: 'none',
+                            symbolSize: 1
+                        }
                     }
                 ],
                 legend: {
