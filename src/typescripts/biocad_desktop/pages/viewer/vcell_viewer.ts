@@ -13,7 +13,7 @@ namespace pages.viewers {
                 const li = $ts("#module_list");
 
                 for (let name of Object.keys(result.info)) {
-                    li.appendElement($ts("<li>", { value: name }).display(`${name} [${result.info[name]} molecules]`));
+                    li.appendElement($ts("<option>", { value: name }).display(`${name} [${result.info[name]} molecules]`));
                 }
             });
         }
