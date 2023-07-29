@@ -8,6 +8,7 @@
     <%= ../../assets/includes/head.vbhtml %>
 
     <meta name="counts" content="http://127.0.0.1:83/get/count/" />
+    <meta name="idset" content="http://127.0.0.1:83/get/molecule_list" />
 </head>
 
 <body>

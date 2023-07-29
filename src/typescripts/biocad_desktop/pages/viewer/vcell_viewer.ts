@@ -18,5 +18,10 @@ namespace pages.viewers {
             });
         }
 
+        public module_list_onchange(value: string) {
+            $ts.get(`@idset/?set=${encodeURIComponent(value[0])}`, function (result) {
+                console.log(result);
+            });
+        }
     }
 }
