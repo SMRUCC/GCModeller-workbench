@@ -32,7 +32,17 @@ namespace pages.viewers {
         }
 
         public molecules_list_onchange(value: string[]) {
+            const id = value[0];
+            const modu = $ts.select.getOption("#module_list")
+
             console.log(value);
+            console.log(modu);
+
+            $ts.get(`@vector/?m=${modu}&id=${id}`, function (result) {
+                const data = <{ size: number, vec: number[] }>result.info;
+
+                console.log(data);
+            });
         }
     }
 }
