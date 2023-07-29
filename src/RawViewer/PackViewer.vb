@@ -1,11 +1,14 @@
 Imports System.IO
 Imports System.Runtime.CompilerServices
+Imports Microsoft.VisualBasic.Data.IO
+Imports Microsoft.VisualBasic.Serialization
 Imports SMRUCC.genomics.GCModeller.ModellingEngine.IO.Raw
 
 Public Class PackViewer : Implements IDisposable
 
     Dim disposedValue As Boolean
     Dim file As Reader
+    Dim ticks As Double()
 
     Sub New(file As Stream)
         Call Me.New(New Reader(file))
@@ -13,7 +16,24 @@ Public Class PackViewer : Implements IDisposable
 
     Sub New(file As Reader)
         Me.file = file.LoadIndex
+        Me.ticks = file.AllTimePoints.ToArray
     End Sub
+
+    Public Iterator Function GetVector(modu As String, id As String) As IEnumerable(Of Double)
+        Dim p As Integer = file(modu).IndexOf(x:=id)
+
+        If p = -1 Then
+            Return
+        End If
+
+        Dim offset As Long = p * RawStream.DblFloat
+
+        For Each time As Double In ticks
+            Dim file As BinaryDataReader = Me.file.GetFrameFile(modu, time)
+            Call file.Seek(offset, SeekOrigin.Begin)
+            Yield file.ReadDouble()
+        Next
+    End Function
 
     Public Function GetCounts() As Dictionary(Of String, Integer)
         Return file.GetIdCounts

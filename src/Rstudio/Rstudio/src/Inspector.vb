@@ -76,4 +76,10 @@ Module Inspector
             }
         End If
     End Function
+
+    <ExportAPI("load.vector")>
+    <RApiReturn(GetType(Double))>
+    Public Function Loadvector(pack As PackViewer, modu_name As String, id As String) As Object
+        Return pack.GetVector(modu_name, id).ToArray
+    End Function
 End Module
