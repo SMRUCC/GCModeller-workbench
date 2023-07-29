@@ -53,8 +53,21 @@ const http = router::parse({
     ;
   }
 
+  [@url "/get/vector/"]
+  const get_vector = function(req, response) {
+    const q = getUrl(req)$query;
+    const v = view |> load.vector(modu.name = q$m, id = q$id);
+
+    list(size = length(v), vec = v)
+    |> success()
+    |> writeLines(con = response)
+    ;
+  }
+
 });
 
+#' http request handler for inspect vcell raw data
+#' 
 const handleHttpGet = function(req, response) {
     # implements the vcell data pack reader viewer code at this function
     # http get for read data
