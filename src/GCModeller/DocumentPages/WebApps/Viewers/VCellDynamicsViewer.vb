@@ -9,7 +9,7 @@ Public Class VCellDynamicsViewer : Inherits WebApp
     Dim packfile As String
 
     Public Sub New(pack As String)
-        MyBase.New("")
+        MyBase.New("/toolkit/viewer/vcellViewer.vbhtml")
         Me.packfile = pack
     End Sub
 

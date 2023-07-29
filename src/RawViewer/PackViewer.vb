@@ -12,7 +12,7 @@ Public Class PackViewer : Implements IDisposable
     End Sub
 
     Sub New(file As Reader)
-        Me.file = file
+        Me.file = file.LoadIndex
     End Sub
 
     Public Function GetCounts() As Dictionary(Of String, Integer)
