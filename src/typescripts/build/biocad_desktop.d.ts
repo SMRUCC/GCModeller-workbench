@@ -183,7 +183,7 @@ declare namespace js_plot {
         subtitle: string;
         div: string;
         constructor(title: string, subtitle: string, div?: string);
-        plot(name: string, x: number[], y: number[]): void;
+        plot(name: string, data: number[][]): void;
     }
 }
 declare namespace js_plot {

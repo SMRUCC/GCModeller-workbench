@@ -11,7 +11,7 @@ namespace js_plot {
             super(div);
         }
 
-        public plot(name: string, x: number[], y: number[]) {
+        public plot(name: string, data: number[][]) {
             this.option = {
                 title: {
                     text: this.title,
@@ -22,15 +22,14 @@ namespace js_plot {
                     trigger: 'item'
                 },
                 xAxis: {
-                    type: 'value',
-                    data: x
+                    type: 'value'
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [
                     {
-                        data: y,
+                        data: data,
                         type: 'line',
                         areaStyle: {}
                     }
