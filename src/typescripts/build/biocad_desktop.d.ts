@@ -648,6 +648,7 @@ declare namespace pages.viewers {
     class vcell_viewer extends Bootstrap {
         get appName(): string;
         protected init(): void;
-        module_list_onchange(value: string): void;
+        module_list_onchange(value: string[]): void;
+        molecules_list_onchange(value: string[]): void;
     }
 }

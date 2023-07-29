@@ -18,10 +18,21 @@ namespace pages.viewers {
             });
         }
 
-        public module_list_onchange(value: string) {
-            $ts.get(`@idset/?set=${encodeURIComponent(value[0])}`, function (result) {
-                console.log(result);
+        public module_list_onchange(value: string[]) {
+            $ts.get<{ size: number, set: string[] }>(`@idset/?set=${encodeURIComponent(value[0])}`, function (result) {
+                const li = $ts("#molecules_list").clear();
+                const data = <{ size: number, set: string[] }>result.info;
+
+                if (data.size > 0) {
+                    for (let id of data.set) {
+                        li.appendElement($ts("<option>", { value: id }).display(id));
+                    }
+                }
             });
+        }
+
+        public molecules_list_onchange(value: string[]) {
+            console.log(value);
         }
     }
 }

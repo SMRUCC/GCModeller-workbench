@@ -34,7 +34,20 @@ const http = router::parse({
 
   [@url "/get/molecule_list/"]
   const get_molecules = function(req, response) {
-    Inspector::load.molecule_list(view)
+    const q = getUrl(req)$query;
+    const li = Inspector::load.molecule_list(view, module = q$set);
+    const res = {
+      if (length(q$set) == 1) {
+        list(
+          size = length(li),
+          set = li
+        )
+      } else {
+        li;
+      }
+    }
+    
+    res
     |> success()
     |> writeLines(con = response)
     ;
