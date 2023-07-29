@@ -46,7 +46,7 @@ Public Class Workbench
             If file.ShowDialog = DialogResult.OK Then
                 Select Case file.FileName.ExtensionSuffix
                     Case "vcellpack"
-
+                        Call New VCellDynamicsViewer(file.FileName).Open()
                     Case Else
                         MessageBox.Show("The file type that you specific has not been implemented yet!", "File Reader Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End Select

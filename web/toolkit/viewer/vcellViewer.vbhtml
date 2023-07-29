@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 
-<?vb $title = "Metabolic Model Viewer" ?>
-<?vb $app = "metabolic_viewer" ?>
+<?vb $title = "Virtual Cell Dynamics Viewer" ?>
+<?vb $app = "vcell_viewer" ?>
 
 <head>
     <%= ../../assets/includes/head.vbhtml %>
