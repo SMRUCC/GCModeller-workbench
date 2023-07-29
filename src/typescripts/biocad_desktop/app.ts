@@ -52,6 +52,7 @@ namespace apps {
         Router.AddAppHandler(new pages.viewers.motif_viewer());
         Router.AddAppHandler(new pages.viewers.view_protein_blast());
         Router.AddAppHandler(new pages.viewers.metabolic_viewer());
+        Router.AddAppHandler(new pages.viewers.vcell_viewer());
 
         Router.AddAppHandler(new pages.enrichment_analysis());
         Router.AddAppHandler(new pages.cmeans_patterns());

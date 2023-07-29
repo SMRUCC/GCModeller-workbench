@@ -230,7 +230,7 @@ declare namespace pages {
         readonly appList: webapp[];
         private terms;
         private suggestions;
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         /**
          * handling of the app search event
@@ -242,7 +242,7 @@ declare namespace pages {
 }
 declare namespace pages {
     class data_repository extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
     }
 }
@@ -252,7 +252,7 @@ declare namespace omicsAnalysis {
 }
 declare namespace pages {
     class settings extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         private rawConfigs;
         private GetSettings;
         private SaveSettings;
@@ -285,7 +285,7 @@ declare namespace pages {
         url: string;
     }
     class web_task extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         private checkList;
         private showTaskDatalist;
@@ -296,7 +296,7 @@ declare namespace pages {
 }
 declare namespace pages {
     class cmeans_patterns extends analysis_session {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         button_open_click(): void;
         run_onclick(): void;
@@ -305,7 +305,7 @@ declare namespace pages {
 }
 declare namespace pages {
     class dataEmbedding extends analysis_session {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         button_open_click(): void;
         run_click(): void;
@@ -319,7 +319,7 @@ declare namespace pages {
     class enrichment_analysis extends analysis_session {
         private database;
         private static note_mapping;
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         background_onchange(value: string): void;
         run_onclick(): void;
@@ -330,7 +330,7 @@ declare namespace pages {
 }
 declare namespace pages {
     class runPLAS extends analysis_session {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         loadDemo_click(): void;
         add_equation_click(): {
@@ -349,7 +349,7 @@ declare namespace pages {
 }
 declare namespace pages {
     class zscore_analysis extends analysis_session {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         button_open_onclick(): void;
         run_onclick(): void;
@@ -371,7 +371,7 @@ declare namespace pages.annotations {
     }
     class localblast extends Bootstrap {
         private project;
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         private loadParameters;
         button_open_query_onclick(): void;
@@ -382,7 +382,7 @@ declare namespace pages.annotations {
 }
 declare namespace pages.analysis_project {
     class create_project extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         expr1_onclick(): void;
         sample2_onclick(): void;
@@ -394,7 +394,7 @@ declare namespace pages.analysis_project {
 }
 declare namespace pages.analysis_project {
     class edit_sampleinfo extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         reset(): void;
         private sampleEditor;
@@ -479,7 +479,7 @@ declare namespace pages.background {
 declare namespace pages.modeller {
     class bioproject extends Bootstrap {
         private path;
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         private static showPiePlot;
         private loadSummary;
@@ -490,7 +490,7 @@ declare namespace pages.modeller {
 }
 declare namespace pages.modeller {
     class create_bioproject extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         button_open_gbff_onclick(): void;
         private viewModelSummary;
@@ -499,7 +499,7 @@ declare namespace pages.modeller {
 }
 declare namespace pages.repository {
     class enrichment_database extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         private scanDatabaseList;
         private showDatabaseList;
@@ -521,7 +521,7 @@ declare namespace pages.repository {
 }
 declare namespace pages.repository {
     class enzyme_database extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         private loadRootNodes;
         buildEnzymeTree(node: {
@@ -538,7 +538,7 @@ declare namespace pages.repository {
 }
 declare namespace pages.repository {
     class uniprot_database extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         protected init(): void;
         button_open_uniprot_onclick(): void;
         run_onclick(): void;
@@ -592,8 +592,8 @@ declare namespace pages.viewers {
     class view_protein_blast extends Bootstrap {
         private protein_ids;
         private intptr;
-        readonly appName: string;
-        readonly current_id: string;
+        get appName(): string;
+        get current_id(): string;
         protected init(): void;
         previous_onclick(): void;
         next_onclick(): void;
@@ -623,7 +623,7 @@ declare namespace pages.viewers {
         StoiChiometry: number;
     }
     class metabolic_viewer extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         private readonly compartments;
         private readonly enzyme_class;
         private readonly category_index;
@@ -639,8 +639,14 @@ declare namespace pages.viewers {
 }
 declare namespace pages.viewers {
     class motif_viewer extends Bootstrap {
-        readonly appName: string;
+        get appName(): string;
         private motifLogo;
+        protected init(): void;
+    }
+}
+declare namespace pages.viewers {
+    class vcell_viewer extends Bootstrap {
+        get appName(): string;
         protected init(): void;
     }
 }

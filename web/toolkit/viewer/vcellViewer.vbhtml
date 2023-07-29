@@ -6,6 +6,8 @@
 
 <head>
     <%= ../../assets/includes/head.vbhtml %>
+
+    <meta name="counts" content="http://127.0.0.1:83/get/count/" />
 </head>
 
 <body>
