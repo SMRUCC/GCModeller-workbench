@@ -12,7 +12,7 @@ namespace js_plot {
         public constructor(div: string = "Rplot_js") {
             const echarts: any = (<any>window).echarts;
 
-            $ts(`#${div}`).clear();
+            $ts(`#${div}`).clear().removeAttribute("_echarts_instance_");
 
             this.myChart = echarts.init(document.getElementById(div), null, {
                 renderer: 'canvas',
