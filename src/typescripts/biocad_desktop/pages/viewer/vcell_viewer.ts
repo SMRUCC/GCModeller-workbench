@@ -28,7 +28,7 @@ namespace pages.viewers {
 
         public module_list_onchange(value: string[]) {
             let vm = this;
-            let url: string = $ts.url(`@idset/?set=${encodeURIComponent(vm.cur_modu)}`);
+            let url: string = $ts.url(`@idset/?set=${encodeURIComponent(value[0])}`);
 
             vm.cur_modu = value[0];
             url = `http://localhost:${this.port}${url}`;
@@ -71,7 +71,7 @@ namespace pages.viewers {
 
         private get_vector(id: string, callback: (size: number, v: number[][]) => void) {
             const vm = this;
-            const url = $ts.url(`/@vector/?m=${vm.cur_modu}&id=${id}`);
+            const url = $ts.url(`@vector/?m=${vm.cur_modu}&id=${id}`);
 
             $ts.get(`http://localhost:${this.port}${url}`, function (result) {
                 const data = <{ size: number, vec: number[] }>result.info;
