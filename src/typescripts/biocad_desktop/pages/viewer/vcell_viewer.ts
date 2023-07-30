@@ -15,7 +15,9 @@ namespace pages.viewers {
         private cur_modu: string;
 
         protected init(): void {
-            $ts.get(`http://localhost:${this.port}/@counts`, function (result) {
+            const url = $ts.url("@counts");
+
+            $ts.get(`http://localhost:${this.port}${url}`, function (result) {
                 const li = $ts("#module_list");
 
                 for (let name of Object.keys(result.info)) {
@@ -26,10 +28,10 @@ namespace pages.viewers {
 
         public module_list_onchange(value: string[]) {
             let vm = this;
-            let url: string;
+            let url: string = $ts.url(`@idset/?set=${encodeURIComponent(vm.cur_modu)}`);
 
             vm.cur_modu = value[0];
-            url = `http://localhost:${this.port}/@idset/?set=${encodeURIComponent(vm.cur_modu)}`;
+            url = `http://localhost:${this.port}${url}`;
 
             $ts.get<{ size: number, set: string[] }>(url, function (result) {
                 const li = $ts("#molecules_list").clear();
@@ -69,9 +71,9 @@ namespace pages.viewers {
 
         private get_vector(id: string, callback: (size: number, v: number[][]) => void) {
             const vm = this;
-            const url = `http://localhost:${this.port}/@vector/?m=${vm.cur_modu}&id=${id}`;
+            const url = $ts.url(`/@vector/?m=${vm.cur_modu}&id=${id}`);
 
-            $ts.get(url, function (result) {
+            $ts.get(`http://localhost:${this.port}${url}`, function (result) {
                 const data = <{ size: number, vec: number[] }>result.info;
                 const v = data.vec;
                 const xy = Array(data.size).fill().map((element, index) => [index, v[index]]);
