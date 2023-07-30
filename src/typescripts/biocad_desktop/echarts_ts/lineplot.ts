@@ -60,8 +60,10 @@ namespace js_plot {
                 },
                 series: lines,
                 legend: {
+                    // Try 'horizontal'
                     orient: 'vertical',
-                    show: true
+                    right: 10,
+                    top: 'center'
                 }
             };
 
