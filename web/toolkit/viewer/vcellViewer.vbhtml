@@ -7,9 +7,11 @@
 <head>
     <%= ../../assets/includes/head.vbhtml %>
 
-        <meta name="counts" content="http://127.0.0.1:83/get/count/" />
-        <meta name="idset" content="http://127.0.0.1:83/get/molecule_list" />
-        <meta name="vector" content="http://127.0.0.1:83/get/vector" />
+    <!-- http://localhost:19612/toolkit/viewer/vcellViewer.vbhtml?service=83 -->
+
+        <meta name="counts" content="/get/count/" />
+        <meta name="idset" content="/get/molecule_list" />
+        <meta name="vector" content="/get/vector" />
 </head>
 
 <body>
@@ -38,6 +40,8 @@
                 <select id="molecules_list" class="form-control select-input placeholder-active active">
 
                 </select>
+
+                <a href="#" onclick="javascript:void(0);" id="pin">Pin Current Selection</a>
 
             </div>
         </div>

@@ -3,6 +3,7 @@
 namespace js_plot {
 
     export class lineplot extends echarts_ts {
+
         public constructor(
             public title: string,
             public subtitle: string,
@@ -11,7 +12,37 @@ namespace js_plot {
             super(div);
         }
 
-        public plot(name: string, data: number[][]) {
+        public plot(name: string, data: number[][], others: { name: string, data: number[][] }[] = null) {
+            const lines = [
+                {
+                    data: data,
+                    type: 'line',
+                    areaStyle: {},
+                    smooth: true,
+                    markPoint: {
+                        symbol: 'none',
+                        symbolSize: 1
+                    },
+                    name: name
+                }
+            ];
+
+            if (others) {
+                for (let pin of others) {
+                    lines.push({
+                        data: pin.data,
+                        type: 'line',
+                        areaStyle: {},
+                        smooth: true,
+                        markPoint: {
+                            symbol: 'none',
+                            symbolSize: 1
+                        },
+                        name: pin.name
+                    });
+                }
+            }
+
             this.option = {
                 title: {
                     text: this.title,
@@ -27,18 +58,7 @@ namespace js_plot {
                 yAxis: {
                     type: 'value'
                 },
-                series: [
-                    {
-                        data: data,
-                        type: 'line',
-                        areaStyle: {},
-                        smooth: true,
-                        markPoint: {
-                            symbol: 'none',
-                            symbolSize: 1
-                        }
-                    }
-                ],
+                series: lines,
                 legend: {
                     orient: 'vertical',
                     show: true

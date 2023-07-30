@@ -8,8 +8,14 @@ namespace pages.viewers {
             return "vcell_viewer";
         }
 
+        private port: string = $ts.location("service");
+        private pins: string[] = [];
+
+        private vectors: Dictionary<number[][]> = new Dictionary<number[][]>();
+        private cur_modu: string;
+
         protected init(): void {
-            $ts.get("@counts", function (result) {
+            $ts.get(`http://localhost:${this.port}/@counts`, function (result) {
                 const li = $ts("#module_list");
 
                 for (let name of Object.keys(result.info)) {
@@ -19,7 +25,13 @@ namespace pages.viewers {
         }
 
         public module_list_onchange(value: string[]) {
-            $ts.get<{ size: number, set: string[] }>(`@idset/?set=${encodeURIComponent(value[0])}`, function (result) {
+            let vm = this;
+            let url: string;
+
+            vm.cur_modu = value[0];
+            url = `http://localhost:${this.port}/@idset/?set=${encodeURIComponent(vm.cur_modu)}`;
+
+            $ts.get<{ size: number, set: string[] }>(url, function (result) {
                 const li = $ts("#molecules_list").clear();
                 const data = <{ size: number, set: string[] }>result.info;
 
@@ -28,24 +40,53 @@ namespace pages.viewers {
                         li.appendElement($ts("<option>", { value: id }).display(id));
                     }
                 }
+
+                vm.clear_onclick();
             });
+        }
+
+        public clear_onclick() {
+            this.pins = [];
+            this.vectors = new Dictionary<number[][]>();
         }
 
         public molecules_list_onchange(value: string[]) {
             const id = value[0];
-            const modu = $ts.select.getOption("#module_list")
+            const modu = this.cur_modu;
+            const pins = this.vectors
+                .Select(function (a) {
+                    return {
+                        name: a.key,
+                        data: a.value
+                    }
+                })
+                .ToArray();
 
-            console.log(value);
-            console.log(modu);
+            this.get_vector(value[0], function (size, v) {
+                new js_plot.lineplot(`Expression of ${id}`, `From module ${modu}`, "container").plot(id, v, pins);
+            });
+        }
 
-            $ts.get(`@vector/?m=${modu}&id=${id}`, function (result) {
+        private get_vector(id: string, callback: (size: number, v: number[][]) => void) {
+            const vm = this;
+            const url = `http://localhost:${this.port}/@vector/?m=${vm.cur_modu}&id=${id}`;
+
+            $ts.get(url, function (result) {
                 const data = <{ size: number, vec: number[] }>result.info;
                 const v = data.vec;
                 const xy = Array(data.size).fill().map((element, index) => [index, v[index]]);
-                const plot = new js_plot.lineplot(`Expression of ${id}`, `From module ${modu}`, "container");
 
-                console.log(xy);
-                plot.plot(id, xy);
+                callback(data.size, xy);
+            });
+        }
+
+        public pin_onclick() {
+            const id: string = $ts.select.getOption("#molecules_list");
+            const vm = this;
+
+            this.pins.push(id);
+            this.get_vector(id, function (_, v) {
+                vm.vectors.Add(id, v);
             });
         }
     }

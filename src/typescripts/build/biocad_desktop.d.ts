@@ -183,7 +183,10 @@ declare namespace js_plot {
         subtitle: string;
         div: string;
         constructor(title: string, subtitle: string, div?: string);
-        plot(name: string, data: number[][]): void;
+        plot(name: string, data: number[][], others?: {
+            name: string;
+            data: number[][];
+        }[]): void;
     }
 }
 declare namespace js_plot {
@@ -656,8 +659,15 @@ declare namespace pages.viewers {
 declare namespace pages.viewers {
     class vcell_viewer extends Bootstrap {
         get appName(): string;
+        private port;
+        private pins;
+        private vectors;
+        private cur_modu;
         protected init(): void;
         module_list_onchange(value: string[]): void;
+        clear_onclick(): void;
         molecules_list_onchange(value: string[]): void;
+        private get_vector;
+        pin_onclick(): void;
     }
 }
