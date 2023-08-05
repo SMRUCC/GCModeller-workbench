@@ -56,7 +56,7 @@ const http = router::parse({
   [@url "/get/reaction_list/"]
   const get_flux = function(req, response) {
     const q = getUrl(req)$query;
-    const li = Inspector::load.reaction_ids(view, module = q$id);
+    const li = Inspector::load.reaction_ids(view, id = q$id);
 
     li
     |> success()
