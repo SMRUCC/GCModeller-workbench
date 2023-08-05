@@ -21,7 +21,9 @@ namespace pages.viewers {
                 const li = $ts("#module_list");
 
                 for (let name of Object.keys(result.info)) {
-                    li.appendElement($ts("<option>", { value: name }).display(`${name} [${result.info[name]} molecules]`));
+                    if (name != "Reactions") {
+                        li.appendElement($ts("<option>", { value: name }).display(`${name} [${result.info[name]} molecules]`));
+                    }
                 }
             });
         }
@@ -54,6 +56,7 @@ namespace pages.viewers {
 
         public molecules_list_onchange(value: string[]) {
             const id = value[0];
+            const vm = this;
             const modu = this.cur_modu;
             const pins = this.vectors
                 .Select(function (a) {
@@ -67,11 +70,39 @@ namespace pages.viewers {
             this.get_vector(value[0], function (size, v) {
                 new js_plot.lineplot(`Expression of ${id}`, `From module ${modu}`, "container").plot(id, v, pins);
             });
+
+            // list all related reaction id
+            const url = $ts.url(`@reactions/?id=${id}`);
+
+            $ts.get(`http://localhost:${this.port}${url}`, function (result) {
+                let idset: string[] | string = <any>result.info;
+                let li = $ts("#reaction_list");
+
+                if (!Array.isArray(idset)) {
+                    idset = [<string>idset];
+                }
+
+                console.log("get related reaction id set:");
+                console.log(idset);
+
+                for (let id of idset) {
+                    li.appendElement($ts("<option>", { value: id }).display(id));
+                }
+            });
         }
 
-        private get_vector(id: string, callback: (size: number, v: number[][]) => void) {
+        public reaction_list_onchange(value: string[] | string) {
+            let id: string = (<string[]>value)[0];
+            let pins = [];
+
+            this.get_vector(value[0], function (size, v) {
+                new js_plot.lineplot(`Expression of ${id}`, `From module reactions`, "reaction-container").plot(id, v, pins);
+            }, "Reactions");
+        }
+
+        private get_vector(id: string, callback: (size: number, v: number[][]) => void, modu: string = null) {
             const vm = this;
-            const url = $ts.url(`@vector/?m=${vm.cur_modu}&id=${id}`);
+            const url = $ts.url(`@vector/?m=${modu || vm.cur_modu}&id=${id}`);
 
             $ts.get(`http://localhost:${this.port}${url}`, function (result) {
                 const data = <{ size: number, vec: number[] }>result.info;

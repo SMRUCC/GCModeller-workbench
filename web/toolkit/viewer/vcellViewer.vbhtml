@@ -11,6 +11,7 @@
 
         <meta name="counts" content="/get/count/" />
         <meta name="idset" content="/get/molecule_list" />
+        <meta name="reactions" content="/get/reaction_list" />
         <meta name="vector" content="/get/vector" />
 </head>
 
@@ -56,20 +57,19 @@
 
         <div class="row">
             <div class="col-12">
+                
+                <h3>View Related Reactions:</h3>
+
+                <select id="reaction_list" class="form-control select-input placeholder-active active">
+
+                </select>
+
                 <div class="row">
-                    <div class="col-4">
-                        <div id="number-alert" style="display:none;" class="alert alert-success" role="alert"
-                            data-mdb-color="success">
-                            <i class="fas fa-check-circle me-3"></i>
-                            <span id="number_reactions"></span> enzymatic reactions is annotated!
-                        </div>
+                    <div class="col-12" id="reaction-container" style="height: 600px;">
+                        <!-- the graph canvas container -->
                     </div>
                 </div>
-                <br />
 
-                <ul id="reaction-graph-data">
-
-                </ul>
             </div>
         </div>
 
