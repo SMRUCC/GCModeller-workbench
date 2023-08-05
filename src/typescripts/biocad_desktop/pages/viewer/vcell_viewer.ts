@@ -43,6 +43,8 @@ namespace pages.viewers {
                     for (let id of data.set) {
                         li.appendElement($ts("<option>", { value: id }).display(id));
                     }
+
+                    vm.molecules_list_onchange([data.set[0]]);
                 }
 
                 vm.clear_onclick();
@@ -88,6 +90,8 @@ namespace pages.viewers {
                 for (let id of idset) {
                     li.appendElement($ts("<option>", { value: id }).display(id));
                 }
+
+                vm.reaction_list_onchange(idset[0]);
             });
         }
 
