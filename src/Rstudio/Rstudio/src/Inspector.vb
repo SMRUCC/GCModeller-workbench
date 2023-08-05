@@ -82,4 +82,9 @@ Module Inspector
     Public Function Loadvector(pack As PackViewer, modu_name As String, id As String) As Object
         Return pack.GetVector(modu_name, id).ToArray
     End Function
+
+    <ExportAPI("load.reaction_ids")>
+    Public Function GetReactions(pack As PackViewer, id As String) As Object
+        Return pack.GetReactionIdSet(id)
+    End Function
 End Module
