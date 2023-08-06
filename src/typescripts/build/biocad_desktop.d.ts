@@ -666,6 +666,7 @@ declare namespace pages.viewers {
         protected init(): void;
         module_list_onchange(value: string[]): void;
         clear_onclick(): void;
+        private reaction_bind;
         molecules_list_onchange(value: string[]): void;
         reaction_list_onchange(value: string[] | string): void;
         private get_vector;

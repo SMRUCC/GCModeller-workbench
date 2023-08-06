@@ -56,6 +56,8 @@ namespace pages.viewers {
             this.vectors = new Dictionary<number[][]>();
         }
 
+        private reaction_bind: string;
+
         public molecules_list_onchange(value: string[]) {
             const id = value[0];
             const vm = this;
@@ -69,6 +71,7 @@ namespace pages.viewers {
                 })
                 .ToArray();
 
+            this.reaction_bind = id;
             this.get_vector(value[0], function (size, v) {
                 new js_plot.lineplot(`Expression of ${id}`, `From module ${modu}`, "container").plot(id, v, pins);
             });
@@ -102,6 +105,12 @@ namespace pages.viewers {
             this.get_vector(value[0], function (size, v) {
                 new js_plot.lineplot(`Expression of ${id}`, `From module reactions`, "reaction-container").plot(id, v, pins);
             }, "Reactions");
+
+            const url = $ts.url(`@graph/?id=${this.reaction_bind}&rxn=${id}`);
+
+            $ts.get(`http://localhost:${this.port}${url}`, function (result) {
+                console.log(result);
+            });
         }
 
         private get_vector(id: string, callback: (size: number, v: number[][]) => void, modu: string = null) {

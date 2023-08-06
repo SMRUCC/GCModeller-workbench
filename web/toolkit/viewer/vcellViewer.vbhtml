@@ -12,6 +12,7 @@
         <meta name="counts" content="/get/count/" />
         <meta name="idset" content="/get/molecule_list" />
         <meta name="reactions" content="/get/reaction_list" />
+        <meta name="graph" content="/get/reaction_graph" />
         <meta name="vector" content="/get/vector" />
 </head>
 
