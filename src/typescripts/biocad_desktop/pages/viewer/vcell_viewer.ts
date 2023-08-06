@@ -62,7 +62,7 @@ namespace pages.viewers {
             const id = value[0];
             const vm = this;
             const modu = this.cur_modu;
-            const pins = this.vectors
+            const pins: { name: string, data: number[][] }[] = this.vectors
                 .Select(function (a) {
                     return {
                         name: a.key,
@@ -101,6 +101,7 @@ namespace pages.viewers {
         public reaction_list_onchange(value: string[] | string) {
             let id: string = (<string[]>value)[0];
             let pins = [];
+            let vm = this;
 
             this.get_vector(value[0], function (size, v) {
                 new js_plot.lineplot(`Expression of ${id}`, `From module reactions`, "reaction-container").plot(id, v, pins);
@@ -109,8 +110,36 @@ namespace pages.viewers {
             const url = $ts.url(`@graph/?id=${this.reaction_bind}&rxn=${id}`);
 
             $ts.get(`http://localhost:${this.port}${url}`, function (result) {
-                console.log(result);
+                vm.graph = <any>result.info;
+
+                if (typeof vm.graph.reactants == "string") {
+                    vm.graph.reactants = [<any>vm.graph.reactants];
+                }
+                if (typeof vm.graph.products == "string") {
+                    vm.graph.products = [<any>vm.graph.products];
+                }
+
+                console.log(vm.graph);
             });
+        }
+
+        private graph: { "reactants": string[], "products": string[] };
+
+        public view_mass_onclick() {
+            const g = this.graph;
+            const overlaps: { name: string, data: number[][] }[] = [];
+            const idset = [...g.reactants].concat(g.products)
+
+            for (let id of idset) {
+                this.get_vector(id, function (size, v) {
+                    overlaps.push({ name: id, data: v });
+
+                    if (overlaps.length == idset.length) {
+                        // plot overlaps
+                        new js_plot.lineplot(`Metabolite overlaps`, `Reaction Flux Viewer`, "container").plot(null, null, overlaps);
+                    }
+                });
+            }
         }
 
         private get_vector(id: string, callback: (size: number, v: number[][]) => void, modu: string = null) {

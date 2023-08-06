@@ -13,8 +13,10 @@ namespace js_plot {
         }
 
         public plot(name: string, data: number[][], others: { name: string, data: number[][] }[] = null) {
-            const lines = [
-                {
+            const lines: any[] = [];
+
+            if (name && data) {
+                lines.push({
                     data: data,
                     type: 'line',
                     areaStyle: {},
@@ -24,8 +26,8 @@ namespace js_plot {
                         symbolSize: 1
                     },
                     name: name
-                }
-            ];
+                });
+            }
 
             if (others) {
                 for (let pin of others) {

@@ -669,6 +669,8 @@ declare namespace pages.viewers {
         private reaction_bind;
         molecules_list_onchange(value: string[]): void;
         reaction_list_onchange(value: string[] | string): void;
+        private graph;
+        view_mass_onclick(): void;
         private get_vector;
         pin_onclick(): void;
     }

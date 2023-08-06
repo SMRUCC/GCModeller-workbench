@@ -65,10 +65,13 @@
 
                 </select>
 
+                <a href="#" id="view_mass">View Mass Flow</a>
+
                 <div class="row">
                     <div class="col-12" id="reaction-container" style="height: 600px;">
                         <!-- the graph canvas container -->
                     </div>
+
                 </div>
 
             </div>
