@@ -87,4 +87,9 @@ Module Inspector
     Public Function GetReactions(pack As PackViewer, id As String) As Object
         Return pack.GetReactionIdSet(id)
     End Function
+
+    <ExportAPI("load.reaction_graph")>
+    Public Function getReactionGraph(pack As PackViewer, id As String, rxn As String) As Object
+        Return pack.getReactionGraph(id, rxn)
+    End Function
 End Module

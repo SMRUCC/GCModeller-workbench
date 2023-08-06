@@ -64,6 +64,19 @@ const http = router::parse({
     ;
   }
 
+  [@url "/get/reaction_graph/"]
+  const get_flux_graph = function(req, response) {
+    const q = getUrl(req)$query;
+    const li = Inspector::load.reaction_graph(view, id = q$id, rxn = q$rxn);
+
+    str(li);
+
+    li
+    |> success()
+    |> writeLines(con = response)
+    ;
+  }
+
   [@url "/get/vector/"]
   const get_vector = function(req, response) {
     const q = getUrl(req)$query;

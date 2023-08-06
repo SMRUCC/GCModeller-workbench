@@ -43,6 +43,10 @@ Public Class PackViewer : Implements IDisposable
         Return file.GetRelatedReactions(id).ToArray
     End Function
 
+    Public Function getReactionGraph(id As String, rxn As String) As Dictionary(Of String, String())
+        Return file.GetGraphData(id, rxn)
+    End Function
+
     <MethodImpl(MethodImplOptions.AggressiveInlining)>
     Public Function GetMoleculeIdset() As Dictionary(Of String, String())
         Return file.GetMoleculeIdList
