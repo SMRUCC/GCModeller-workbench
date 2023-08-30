@@ -2320,6 +2320,21 @@ declare namespace TypeScript.Data {
         method: string;
     }): number;
 }
+declare namespace OADate {
+    function DateToOADate(value: any, offset?: number): number;
+    function OADateToDate(value: number, offset?: number): Date;
+    class TDateTime extends Date {
+        constructor(...args: any[]);
+        toJSON(): number;
+        prepareOADate(value: number): number;
+    }
+    class TDate extends TDateTime {
+        prepareOADate(value: number): any;
+    }
+    class TTime extends TDateTime {
+        prepareOADate(value: number): number;
+    }
+}
 declare namespace TypeScript.Data {
     class PriorityQueue<T> extends IEnumerator<QueueItem<T>> {
         /**
