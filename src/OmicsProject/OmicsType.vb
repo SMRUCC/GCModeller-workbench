@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::ef21e9b4cf2835e52e6a76aa1f9b8fd1, G:/GCModeller/src/workbench/win32_desktop/src/OmicsProject//OmicsType.vb"
+﻿#Region "Microsoft.VisualBasic::5a90679db6196fa6b1d8cdc2843cf0b4, win32_desktop\src\OmicsProject\OmicsType.vb"
 
     ' Author:
     ' 
@@ -35,10 +35,12 @@
     ' Code Statistics:
 
     '   Total Lines: 4
-    '    Code Lines: 3
-    ' Comment Lines: 0
-    '   Blank Lines: 1
-    '     File Size: 56 B
+    '    Code Lines: 3 (75.00%)
+    ' Comment Lines: 0 (0.00%)
+    '    - Xml Docs: 0.00%
+    ' 
+    '   Blank Lines: 1 (25.00%)
+    '     File Size: 54 B
 
 
     ' Enum OmicsType
@@ -57,4 +59,3 @@ Public Enum OmicsType
 
     Transcriptomics
 End Enum
-

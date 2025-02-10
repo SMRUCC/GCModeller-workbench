@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::b9bffbfc038488bcd308e960bf847646, G:/GCModeller/src/workbench/win32_desktop/src/Rstudio/Rstudio/src//Workbench/TaskManager.vb"
+﻿#Region "Microsoft.VisualBasic::5f85ea62f7f048fcf99c9f409a3d60dd, win32_desktop\src\Rstudio\Rstudio\src\Workbench\TaskManager.vb"
 
     ' Author:
     ' 
@@ -35,10 +35,12 @@
     ' Code Statistics:
 
     '   Total Lines: 101
-    '    Code Lines: 67
-    ' Comment Lines: 16
-    '   Blank Lines: 18
-    '     File Size: 3.56 KB
+    '    Code Lines: 67 (66.34%)
+    ' Comment Lines: 16 (15.84%)
+    '    - Xml Docs: 31.25%
+    ' 
+    '   Blank Lines: 18 (17.82%)
+    '     File Size: 3.55 KB
 
 
     ' Class TaskManager
@@ -154,4 +156,3 @@ Public Class TaskManager : Implements IDisposable
         GC.SuppressFinalize(Me)
     End Sub
 End Class
-

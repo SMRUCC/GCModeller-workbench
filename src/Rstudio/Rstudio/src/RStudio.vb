@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::2e0b0dee3e920e2fd465cef4c876f9d1, G:/GCModeller/src/workbench/win32_desktop/src/Rstudio/Rstudio/src//RStudio.vb"
+﻿#Region "Microsoft.VisualBasic::21cecd609173cdee42b51b54e00fd774, win32_desktop\src\Rstudio\Rstudio\src\RStudio.vb"
 
     ' Author:
     ' 
@@ -35,10 +35,12 @@
     ' Code Statistics:
 
     '   Total Lines: 22
-    '    Code Lines: 18
-    ' Comment Lines: 0
-    '   Blank Lines: 4
-    '     File Size: 674 B
+    '    Code Lines: 18 (81.82%)
+    ' Comment Lines: 0 (0.00%)
+    '    - Xml Docs: 0.00%
+    ' 
+    '   Blank Lines: 4 (18.18%)
+    '     File Size: 672 B
 
 
     ' Module RStudio
@@ -71,4 +73,3 @@ Public Module RStudio
         Return Nothing
     End Function
 End Module
-

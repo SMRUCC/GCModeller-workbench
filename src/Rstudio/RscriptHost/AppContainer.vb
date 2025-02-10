@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::e4406240579b45a9b9de368ad812cf8d, G:/GCModeller/src/workbench/win32_desktop/src/Rstudio/RscriptHost//AppContainer.vb"
+﻿#Region "Microsoft.VisualBasic::d2f61c87ee07bdca3c5bdb4a1d080ab7, win32_desktop\src\Rstudio\RscriptHost\AppContainer.vb"
 
     ' Author:
     ' 
@@ -35,10 +35,12 @@
     ' Code Statistics:
 
     '   Total Lines: 16
-    '    Code Lines: 9
-    ' Comment Lines: 4
-    '   Blank Lines: 3
-    '     File Size: 451 B
+    '    Code Lines: 9 (56.25%)
+    ' Comment Lines: 4 (25.00%)
+    '    - Xml Docs: 100.00%
+    ' 
+    '   Blank Lines: 3 (18.75%)
+    '     File Size: 449 B
 
 
     ' Class AppContainer
@@ -67,4 +69,3 @@ Public NotInheritable Class AppContainer
         Rscript = CLI.Rscript.FromEnvironment(RStudio)
     End Sub
 End Class
-

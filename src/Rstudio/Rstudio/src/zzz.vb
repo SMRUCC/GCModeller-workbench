@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::82ab57f1c51799e89b4bfc95e4ae7607, G:/GCModeller/src/workbench/win32_desktop/src/Rstudio/Rstudio/src//zzz.vb"
+﻿#Region "Microsoft.VisualBasic::9cee0a1e186f1a1dcafabf77d8f68616, win32_desktop\src\Rstudio\Rstudio\src\zzz.vb"
 
     ' Author:
     ' 
@@ -35,10 +35,12 @@
     ' Code Statistics:
 
     '   Total Lines: 10
-    '    Code Lines: 7
-    ' Comment Lines: 0
-    '   Blank Lines: 3
-    '     File Size: 191 B
+    '    Code Lines: 7 (70.00%)
+    ' Comment Lines: 0 (0.00%)
+    '    - Xml Docs: 0.00%
+    ' 
+    '   Blank Lines: 3 (30.00%)
+    '     File Size: 189 B
 
 
     ' Class zzz
@@ -59,4 +61,3 @@ Public Class zzz
         Call Settings.Session.Initialize()
     End Sub
 End Class
-

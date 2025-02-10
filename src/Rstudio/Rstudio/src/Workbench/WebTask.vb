@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::37a80ea8d522f66d648244c22875c3a2, G:/GCModeller/src/workbench/win32_desktop/src/Rstudio/Rstudio/src//Workbench/WebTask.vb"
+﻿#Region "Microsoft.VisualBasic::9704393b99b7c1f96d93674c278a0bdf, win32_desktop\src\Rstudio\Rstudio\src\Workbench\WebTask.vb"
 
     ' Author:
     ' 
@@ -35,9 +35,11 @@
     ' Code Statistics:
 
     '   Total Lines: 40
-    '    Code Lines: 17
-    ' Comment Lines: 19
-    '   Blank Lines: 4
+    '    Code Lines: 17 (42.50%)
+    ' Comment Lines: 19 (47.50%)
+    '    - Xml Docs: 100.00%
+    ' 
+    '   Blank Lines: 4 (10.00%)
     '     File Size: 1.21 KB
 
 
@@ -90,4 +92,3 @@ Public Class WebTask
     Public Property url As String
 
 End Class
-

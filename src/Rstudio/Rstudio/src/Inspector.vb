@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::414fed3826723d883b8df7b73b0a754d, G:/GCModeller/src/workbench/win32_desktop/src/Rstudio/Rstudio/src//Inspector.vb"
+﻿#Region "Microsoft.VisualBasic::75699f6947f819cf81cd0d1b1bce4bdf, win32_desktop\src\Rstudio\Rstudio\src\Inspector.vb"
 
     ' Author:
     ' 
@@ -35,9 +35,11 @@
     ' Code Statistics:
 
     '   Total Lines: 95
-    '    Code Lines: 70
-    ' Comment Lines: 15
-    '   Blank Lines: 10
+    '    Code Lines: 70 (73.68%)
+    ' Comment Lines: 15 (15.79%)
+    '    - Xml Docs: 80.00%
+    ' 
+    '   Blank Lines: 10 (10.53%)
     '     File Size: 3.59 KB
 
 
@@ -145,4 +147,3 @@ Module Inspector
         Return pack.getReactionGraph(id, rxn)
     End Function
 End Module
-

@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::ec86bd1032cbbe8f35e3d3dbeae6b3a2, G:/GCModeller/src/workbench/win32_desktop/src/Rstudio/RscriptHost//Rscript.vb"
+﻿#Region "Microsoft.VisualBasic::7820b3f0d22e771302a9dbff306afdc9, win32_desktop\src\Rstudio\RscriptHost\Rscript.vb"
 
     ' Author:
     ' 
@@ -34,11 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 281
-    '    Code Lines: 151
-    ' Comment Lines: 102
-    '   Blank Lines: 28
-    '     File Size: 12.34 KB
+    '   Total Lines: 278
+    '    Code Lines: 151 (54.32%)
+    ' Comment Lines: 102 (36.69%)
+    '    - Xml Docs: 57.84%
+    ' 
+    '   Blank Lines: 25 (8.99%)
+    '     File Size: 12.33 KB
 
 
     ' Class Rscript
@@ -329,7 +331,3 @@ Return CLI.ToString()
 End Function
 End Class
 End Namespace
-
-
-
-

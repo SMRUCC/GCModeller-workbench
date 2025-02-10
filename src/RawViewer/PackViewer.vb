@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::f364782a82ba49e9b26020030a0d9f64, G:/GCModeller/src/workbench/win32_desktop/src/RawViewer//PackViewer.vb"
+﻿#Region "Microsoft.VisualBasic::305a3083cf0a0898b042726c3d0cb0c2, win32_desktop\src\RawViewer\PackViewer.vb"
 
     ' Author:
     ' 
@@ -35,9 +35,11 @@
     ' Code Statistics:
 
     '   Total Lines: 80
-    '    Code Lines: 54
-    ' Comment Lines: 10
-    '   Blank Lines: 16
+    '    Code Lines: 54 (67.50%)
+    ' Comment Lines: 10 (12.50%)
+    '    - Xml Docs: 0.00%
+    ' 
+    '   Blank Lines: 16 (20.00%)
     '     File Size: 2.72 KB
 
 
@@ -133,4 +135,3 @@ Public Class PackViewer : Implements IDisposable
         GC.SuppressFinalize(Me)
     End Sub
 End Class
-

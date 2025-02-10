@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::cfb7e4ab2e2abdbdbfeaf81a9c33b960, G:/GCModeller/src/workbench/win32_desktop/src/Rstudio/Rstudio/src//Modeller.vb"
+﻿#Region "Microsoft.VisualBasic::69d21f0a051bde61088d16c0438425b0, win32_desktop\src\Rstudio\Rstudio\src\Modeller.vb"
 
     ' Author:
     ' 
@@ -35,9 +35,11 @@
     ' Code Statistics:
 
     '   Total Lines: 178
-    '    Code Lines: 149
-    ' Comment Lines: 5
-    '   Blank Lines: 24
+    '    Code Lines: 149 (83.71%)
+    ' Comment Lines: 5 (2.81%)
+    '    - Xml Docs: 100.00%
+    ' 
+    '   Blank Lines: 24 (13.48%)
     '     File Size: 7.33 KB
 
 
@@ -230,4 +232,3 @@ Module Modeller
         Return True
     End Function
 End Module
-

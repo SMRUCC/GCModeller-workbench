@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::88aa2585966cb5e84de155bce9a0ef87, G:/GCModeller/src/workbench/win32_desktop/src/OmicsProject//Project.vb"
+﻿#Region "Microsoft.VisualBasic::3dc71c3d3adf3fe14efa1cab8ca56e20, win32_desktop\src\OmicsProject\Project.vb"
 
     ' Author:
     ' 
@@ -35,10 +35,12 @@
     ' Code Statistics:
 
     '   Total Lines: 11
-    '    Code Lines: 8
-    ' Comment Lines: 0
-    '   Blank Lines: 3
-    '     File Size: 317 B
+    '    Code Lines: 8 (72.73%)
+    ' Comment Lines: 0 (0.00%)
+    '    - Xml Docs: 0.00%
+    ' 
+    '   Blank Lines: 3 (27.27%)
+    '     File Size: 315 B
 
 
     ' Class Project
@@ -60,4 +62,3 @@ Public Class Project
     Public Property transformed As Matrix
 
 End Class
-
