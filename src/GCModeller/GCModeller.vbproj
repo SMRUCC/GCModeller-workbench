@@ -29,6 +29,11 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <UseWindowsForms>True</UseWindowsForms>
+    <UseWPF>True</UseWPF>
+
+    <Platforms>AnyCPU;x64</Platforms>
+    <Configurations>Debug;Release;gcmodeller_desktop</Configurations>
   </PropertyGroup>
   
 </Project>

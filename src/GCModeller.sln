@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.2.11415.280 d18.0
+VisualStudioVersion = 18.2.11415.280
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GCModeller", "GCModeller\GCModeller.vbproj", "{23A9D8B5-F961-43CA-959A-3F570FF94296}"
 EndProject
@@ -17139,8 +17139,8 @@ Global
 		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.gcmodeller_desktop|Any CPU.Build.0 = Debug|Any CPU
 		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.gcmodeller_desktop|ARM32.ActiveCfg = Debug|Any CPU
 		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.gcmodeller_desktop|ARM32.Build.0 = Debug|Any CPU
-		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.gcmodeller_desktop|x64.ActiveCfg = Debug|x64
-		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.gcmodeller_desktop|x64.Build.0 = Debug|x64
+		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.gcmodeller_desktop|x64.ActiveCfg = Rsharp_app_release|x64
+		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.gcmodeller_desktop|x64.Build.0 = Rsharp_app_release|x64
 		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.gcmodeller_desktop|x86.ActiveCfg = Debug|Any CPU
 		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.gcmodeller_desktop|x86.Build.0 = Debug|Any CPU
 		{080E7946-96CD-42BD-BEB8-B16D6FBCED06}.installer_x64|Any CPU.ActiveCfg = Debug|Any CPU
