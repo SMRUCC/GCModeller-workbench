@@ -141,9 +141,6 @@
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.Windows.Form">
-      <HintPath>..\..\dist\Microsoft.VisualStudio.Windows.Form.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.1414.0, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1414-prerelease\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
     </Reference>
@@ -153,43 +150,16 @@
     <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.1414.0, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1414-prerelease\lib\net45\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Windows.FeatureAPI">
-      <HintPath>..\..\dist\Microsoft.Windows.FeatureAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Windows.Ribbon">
-      <HintPath>..\..\dist\Microsoft.Windows.Ribbon.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.InteropServices.APIs">
-      <HintPath>..\..\dist\System.Runtime.InteropServices.APIs.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Forms.DataGridView">
-      <HintPath>..\..\dist\System.Windows.Forms.DataGridView.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Forms.TabControl">
-      <HintPath>..\..\dist\System.Windows.Forms.TabControl.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Forms.ThemeColorPicker">
-      <HintPath>..\..\dist\System.Windows.Forms.ThemeColorPicker.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Forms.TreeListView">
-      <HintPath>..\..\dist\System.Windows.Forms.TreeListView.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Notification">
-      <HintPath>..\..\dist\System.Windows.Notification.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="ThemeVS2015">
-      <HintPath>..\..\dist\ThemeVS2015.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -351,6 +321,38 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\galaxy\src\dockpanelsuite\Themes\ThemeVS2015.vbproj">
+      <Project>{763d35ad-f47a-a9eb-894e-ac4d6e87aa1e}</Project>
+      <Name>ThemeVS2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\galaxy\src\dockpanelsuite\VSDockPanel\VSDockPanel.vbproj">
+      <Project>{5e3af08d-e2c9-7e62-29d9-efd0478f85bb}</Project>
+      <Name>VSDockPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\galaxy\src\GalaxyChartLibs\GalaxyChartLibs.vbproj">
+      <Project>{7e27eeab-8100-b57e-9e38-38e060e3a1a9}</Project>
+      <Name>GalaxyChartLibs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\galaxy\src\GalaxyData\GalaxyData.vbproj">
+      <Project>{fb06e71f-ce6e-61d2-ec9e-f5717b11b2c0}</Project>
+      <Name>GalaxyData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\galaxy\src\GalaxyExcelPad\GalaxyExcelPad.vbproj">
+      <Project>{043802e6-7d4a-20bc-79a5-ac67660337e1}</Project>
+      <Name>GalaxyExcelPad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\galaxy\src\GalaxyForm\GalaxyForm.vbproj">
+      <Project>{f26a54b8-4b6c-9851-c747-03314c779435}</Project>
+      <Name>GalaxyForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\galaxy\src\GalaxyWorkbench\GalaxyWorkbench.vbproj">
+      <Project>{7bda7364-eb87-8d73-4e99-ed3c08c1ddee}</Project>
+      <Name>GalaxyWorkbench</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\galaxy\src\Microsoft.Windows.FeatureAPI\Microsoft.Windows.FeatureAPI.vbproj">
+      <Project>{3d61f3a9-a8e0-4195-9133-6fd8e4b82d54}</Project>
+      <Name>Microsoft.Windows.FeatureAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\GCModeller\core\Bio.Assembly\biocore-netcore5.vbproj">
       <Project>{cd07a55c-2513-4a44-a3fb-46b58408baca}</Project>
       <Name>biocore-netcore5</Name>
