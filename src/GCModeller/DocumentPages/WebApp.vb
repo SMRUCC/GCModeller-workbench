@@ -1,4 +1,64 @@
-﻿Imports System.Net.Http
+﻿#Region "Microsoft.VisualBasic::5bfb9c7dc6286d1865b1a7f80da6b945, win32_desktop\src\GCModeller\DocumentPages\WebApp.vb"
+
+    ' Author:
+    ' 
+    '       asuka (amethyst.asuka@gcmodeller.org)
+    '       xie (genetics@smrucc.org)
+    '       xieguigang (xie.guigang@live.com)
+    ' 
+    ' Copyright (c) 2018 GPL3 Licensed
+    ' 
+    ' 
+    ' GNU GENERAL PUBLIC LICENSE (GPL3)
+    ' 
+    ' 
+    ' This program is free software: you can redistribute it and/or modify
+    ' it under the terms of the GNU General Public License as published by
+    ' the Free Software Foundation, either version 3 of the License, or
+    ' (at your option) any later version.
+    ' 
+    ' This program is distributed in the hope that it will be useful,
+    ' but WITHOUT ANY WARRANTY; without even the implied warranty of
+    ' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    ' GNU General Public License for more details.
+    ' 
+    ' You should have received a copy of the GNU General Public License
+    ' along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+
+
+    ' /********************************************************************************/
+
+    ' Summaries:
+
+
+    ' Code Statistics:
+
+    '   Total Lines: 243
+    '    Code Lines: 171 (70.37%)
+    ' Comment Lines: 34 (13.99%)
+    '    - Xml Docs: 88.24%
+    ' 
+    '   Blank Lines: 38 (15.64%)
+    '     File Size: 8.14 KB
+
+
+    ' Class WebApp
+    ' 
+    '     Properties: arguments, icon, url
+    ' 
+    '     Constructor: (+1 Overloads) Sub New
+    ' 
+    '     Function: getCurrentPage, getFileOpen, getFileSave, getFolderOpen, getNextUniqueId
+    '               (+2 Overloads) Open, ToString
+    ' 
+    '     Sub: jumptoTaskManager, RemoveZoomFactor, SetZoomFactor
+    ' 
+    ' /********************************************************************************/
+
+#End Region
+
+Imports System.Net.Http
 Imports System.Net.Http.Headers
 Imports System.Runtime.InteropServices
 Imports GCModeller
@@ -241,3 +301,4 @@ Public MustInherit Class WebApp
     End Function
 
 End Class
+

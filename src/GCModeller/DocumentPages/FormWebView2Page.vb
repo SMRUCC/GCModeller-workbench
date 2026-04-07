@@ -1,4 +1,61 @@
-﻿Imports System.ComponentModel
+﻿#Region "Microsoft.VisualBasic::93d52ee733379d0c233683be47fc99c8, win32_desktop\src\GCModeller\DocumentPages\FormWebView2Page.vb"
+
+    ' Author:
+    ' 
+    '       asuka (amethyst.asuka@gcmodeller.org)
+    '       xie (genetics@smrucc.org)
+    '       xieguigang (xie.guigang@live.com)
+    ' 
+    ' Copyright (c) 2018 GPL3 Licensed
+    ' 
+    ' 
+    ' GNU GENERAL PUBLIC LICENSE (GPL3)
+    ' 
+    ' 
+    ' This program is free software: you can redistribute it and/or modify
+    ' it under the terms of the GNU General Public License as published by
+    ' the Free Software Foundation, either version 3 of the License, or
+    ' (at your option) any later version.
+    ' 
+    ' This program is distributed in the hope that it will be useful,
+    ' but WITHOUT ANY WARRANTY; without even the implied warranty of
+    ' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    ' GNU General Public License for more details.
+    ' 
+    ' You should have received a copy of the GNU General Public License
+    ' along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+
+
+    ' /********************************************************************************/
+
+    ' Summaries:
+
+
+    ' Code Statistics:
+
+    '   Total Lines: 109
+    '    Code Lines: 76 (69.72%)
+    ' Comment Lines: 8 (7.34%)
+    '    - Xml Docs: 62.50%
+    ' 
+    '   Blank Lines: 25 (22.94%)
+    '     File Size: 4.42 KB
+
+
+    ' Class FormWebView2Page
+    ' 
+    '     Properties: backend, sourceURL
+    ' 
+    '     Constructor: (+1 Overloads) Sub New
+    '     Sub: CloseAllDocumentsToolStripMenuItem_Click, CloseToolStripMenuItem_Click, DeveloperOptions, FormWebView2Page_Closing, FormWebView2Page_Load
+    '          ReloadToolStripMenuItem_Click, Wait, WebView21_CoreWebView2InitializationCompleted, WebView21_NavigationCompleted, WebView21_NavigationStarting
+    ' 
+    ' /********************************************************************************/
+
+#End Region
+
+Imports System.ComponentModel
 Imports Microsoft.VisualBasic.Net.Http
 Imports Microsoft.Web.WebView2.Core
 Imports WeifenLuo.WinFormsUI.Docking
