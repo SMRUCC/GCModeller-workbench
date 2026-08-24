@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::5523d5f8ee53f95d5aaee328d6c08314, win32_desktop\src\GCModeller\DocumentPages\WebApps\AppIndex.vb"
+﻿#Region "Microsoft.VisualBasic::d4634f01c4d3880ce55a76230028b1b7, win32_desktop\src\GCModeller\DocumentPages\WebApps\AppIndex.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 39
-    '    Code Lines: 29 (74.36%)
+    '   Total Lines: 38
+    '    Code Lines: 29 (76.32%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 10 (25.64%)
-    '     File Size: 865 B
+    '   Blank Lines: 9 (23.68%)
+    '     File Size: 861 B
 
 
     ' Class AppIndex
@@ -52,7 +52,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -92,4 +91,3 @@ Public Class AppIndex : Inherits WebApp
         Call WebApp.Open(Of MotifLogo)()
     End Sub
 End Class
-

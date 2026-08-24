@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::440da5f90c01069ebed03e38191ce462, win32_desktop\src\GCModeller\DocumentPages\WebApps\OmicsAnalysis\CMeansAnalysis.vb"
+﻿#Region "Microsoft.VisualBasic::39d3d185f9842d01145985bfeeddb9e3, win32_desktop\src\GCModeller\DocumentPages\WebApps\OmicsAnalysis\CMeansAnalysis.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 11
-    '    Code Lines: 8 (72.73%)
+    '   Total Lines: 10
+    '    Code Lines: 8 (80.00%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 3 (27.27%)
-    '     File Size: 249 B
+    '   Blank Lines: 2 (20.00%)
+    '     File Size: 245 B
 
 
     ' Class CMeansAnalysis
@@ -50,7 +50,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -62,4 +61,3 @@ Public Class CMeansAnalysis : Inherits WebApp
         MyBase.New("/apps/cmeans.vbhtml")
     End Sub
 End Class
-

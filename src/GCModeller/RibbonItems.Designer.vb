@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::92d41b91ec9c74ae4f3634379e7345fe, win32_desktop\src\GCModeller\RibbonItems.Designer.vb"
+﻿#Region "Microsoft.VisualBasic::10317014876326ff006706d423ed9985, win32_desktop\src\GCModeller\RibbonItems.Designer.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 0.00%
     ' 
     '   Blank Lines: 6 (0.72%)
-    '     File Size: 35.22 KB
+    '     File Size: 35.21 KB
 
 
     '     Class RibbonItems
@@ -914,4 +914,3 @@ Namespace RibbonLib.Controls
 
     End Class
 End Namespace
-

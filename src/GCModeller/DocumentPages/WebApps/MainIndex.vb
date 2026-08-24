@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::9cffc198fdaad7f331c9ee715323895c, win32_desktop\src\GCModeller\DocumentPages\WebApps\MainIndex.vb"
+﻿#Region "Microsoft.VisualBasic::df391a449d2453ee32c462f1c24312c4, win32_desktop\src\GCModeller\DocumentPages\WebApps\MainIndex.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 0.00%
     ' 
     '   Blank Lines: 8 (17.78%)
-    '     File Size: 1.32 KB
+    '     File Size: 1.31 KB
 
 
     ' Class MainIndex
@@ -98,4 +98,3 @@ Public Class MainIndex : Inherits AppIndex
         Call WebApp.Open(Of CreateOmicsProject)()
     End Sub
 End Class
-

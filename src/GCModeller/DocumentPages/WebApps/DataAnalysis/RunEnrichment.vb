@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::110b2b171a33ed66d7ac621370a2dada, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\RunEnrichment.vb"
+﻿#Region "Microsoft.VisualBasic::30d9942c2fb60e39f7b1ed92b7a8af06, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\RunEnrichment.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 11
-    '    Code Lines: 8 (72.73%)
+    '   Total Lines: 10
+    '    Code Lines: 8 (80.00%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 3 (27.27%)
-    '     File Size: 252 B
+    '   Blank Lines: 2 (20.00%)
+    '     File Size: 248 B
 
 
     ' Class RunEnrichment
@@ -50,7 +50,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -62,4 +61,3 @@ Public Class RunEnrichment : Inherits WebApp
         MyBase.New("/apps/enrichment.vbhtml")
     End Sub
 End Class
-

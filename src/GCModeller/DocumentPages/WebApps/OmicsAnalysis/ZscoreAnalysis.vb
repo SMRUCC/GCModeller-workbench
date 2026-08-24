@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::8728e47f9827947c63031acba6495a26, win32_desktop\src\GCModeller\DocumentPages\WebApps\OmicsAnalysis\ZscoreAnalysis.vb"
+﻿#Region "Microsoft.VisualBasic::05563b8a628c0e72d30a133af2dedf03, win32_desktop\src\GCModeller\DocumentPages\WebApps\OmicsAnalysis\ZscoreAnalysis.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 0.00%
     ' 
     '   Blank Lines: 2 (20.00%)
-    '     File Size: 248 B
+    '     File Size: 246 B
 
 
     ' Class ZscoreAnalysis
@@ -61,4 +61,3 @@ Public Class ZscoreAnalysis : Inherits WebApp
         MyBase.New("/apps/z_score.vbhtml")
     End Sub
 End Class
-

@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::2ecbf24b7553edbff352be8cdb43daa9, win32_desktop\src\GCModeller\Forms\Base\DocumentWindow.Designer.vb"
+﻿#Region "Microsoft.VisualBasic::4bfeebcecba2a391d48031ce0ea7f944, win32_desktop\src\GCModeller\Forms\Base\DocumentWindow.Designer.vb"
 
     ' Author:
     ' 
@@ -83,4 +83,3 @@ Partial Class DocumentWindow
         Me.Text = "Form1"
     End Sub
 End Class
-

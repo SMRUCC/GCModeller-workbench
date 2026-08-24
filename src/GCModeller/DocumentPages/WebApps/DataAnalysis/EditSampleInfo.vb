@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::825ef163a6b52c30b556621e6da6a940, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\EditSampleInfo.vb"
+﻿#Region "Microsoft.VisualBasic::ef13fc3f380798fd04071eca8866fd70, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\EditSampleInfo.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 0.00%
     ' 
     '   Blank Lines: 2 (20.00%)
-    '     File Size: 274 B
+    '     File Size: 272 B
 
 
     ' Class EditSampleInfo
@@ -61,4 +61,3 @@ Public Class EditSampleInfo : Inherits WebApp
         MyBase.New("/toolkit/projects/omics/edit_sampleinfo.vbhtml")
     End Sub
 End Class
-

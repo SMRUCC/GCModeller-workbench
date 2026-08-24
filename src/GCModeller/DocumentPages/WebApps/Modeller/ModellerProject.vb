@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::4ef5af38f1c4f22b7b6b1eaaf94c4309, win32_desktop\src\GCModeller\DocumentPages\WebApps\Modeller\ModellerProject.vb"
+﻿#Region "Microsoft.VisualBasic::d4c8f1bfbba4149a9c732118e6183198, win32_desktop\src\GCModeller\DocumentPages\WebApps\Modeller\ModellerProject.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 70
-    '    Code Lines: 48 (68.57%)
-    ' Comment Lines: 9 (12.86%)
+    '   Total Lines: 69
+    '    Code Lines: 48 (69.57%)
+    ' Comment Lines: 9 (13.04%)
     '    - Xml Docs: 88.89%
     ' 
-    '   Blank Lines: 13 (18.57%)
-    '     File Size: 2.28 KB
+    '   Blank Lines: 12 (17.39%)
+    '     File Size: 2.27 KB
 
 
     ' Class ModellerProject
@@ -56,7 +56,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.IO
 Imports System.Runtime.CompilerServices
@@ -127,4 +126,3 @@ Public Class ModellerProject : Inherits WebApp
         Call app.Open()
     End Sub
 End Class
-

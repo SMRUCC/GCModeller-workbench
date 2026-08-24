@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::837600dc52af8a266f48ec88cf97ea95, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataRepository.vb"
+﻿#Region "Microsoft.VisualBasic::7b001e4f4bdcb0b2798cc29f5206f731, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataRepository.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 23
-    '    Code Lines: 17 (73.91%)
+    '   Total Lines: 22
+    '    Code Lines: 17 (77.27%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 6 (26.09%)
-    '     File Size: 562 B
+    '   Blank Lines: 5 (22.73%)
+    '     File Size: 558 B
 
 
     ' Class DataRepository
@@ -51,7 +51,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -75,4 +74,3 @@ Public Class DataRepository : Inherits WebApp
         Call WebApp.Open(Of ImportsUniProt)()
     End Sub
 End Class
-

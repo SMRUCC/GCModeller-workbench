@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::ca867cb383ecb7a9d798d993e1711ef8, win32_desktop\src\GCModeller\DocumentPages\WebApps\Omics\CreateOmicsProject.vb"
+﻿#Region "Microsoft.VisualBasic::f9d8ff7c2eafade3f04599a38de034b8, win32_desktop\src\GCModeller\DocumentPages\WebApps\Omics\CreateOmicsProject.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 15
-    '    Code Lines: 11 (73.33%)
+    '   Total Lines: 14
+    '    Code Lines: 11 (78.57%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 4 (26.67%)
-    '     File Size: 368 B
+    '   Blank Lines: 3 (21.43%)
+    '     File Size: 364 B
 
 
     ' Class CreateOmicsProject
@@ -51,7 +51,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -67,4 +66,3 @@ Public Class CreateOmicsProject : Inherits WebApp
         Call WebApp.Open(Of EditSampleInfo)()
     End Sub
 End Class
-

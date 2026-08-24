@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::6ad5d3111b73b60fdb825d6ed6d14a81, win32_desktop\src\GCModeller\Forms\FormMainHost.Designer.vb"
+﻿#Region "Microsoft.VisualBasic::d861fb20f36454c669352fcb8a67f1c7, win32_desktop\src\GCModeller\Forms\FormMainHost.Designer.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 0.00%
     ' 
     '   Blank Lines: 7 (5.88%)
-    '     File Size: 5.47 KB
+    '     File Size: 5.46 KB
 
 
     ' Class FormMainHost
@@ -170,4 +170,3 @@ Partial Class FormMainHost
     Friend WithEvents ToolStripProgressBar1 As ToolStripProgressBar
     Friend WithEvents Ribbon1 As Global.RibbonLib.Ribbon
 End Class
-

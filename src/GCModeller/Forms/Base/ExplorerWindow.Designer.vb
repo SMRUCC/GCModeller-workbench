@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::2b73a379376032a0c0291484992e11df, win32_desktop\src\GCModeller\Forms\Base\ExplorerWindow.Designer.vb"
+﻿#Region "Microsoft.VisualBasic::b7d55ff3220dcadf4eb7c84183ec7f2c, win32_desktop\src\GCModeller\Forms\Base\ExplorerWindow.Designer.vb"
 
     ' Author:
     ' 
@@ -81,4 +81,3 @@ Partial Class ExplorerWindow
         Me.Text = "Form1"
     End Sub
 End Class
-

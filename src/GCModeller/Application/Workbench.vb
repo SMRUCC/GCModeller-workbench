@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::277a8d6f68b2ad91ae7cc5a53bab141e, win32_desktop\src\GCModeller\Application\Workbench.vb"
+﻿#Region "Microsoft.VisualBasic::779a98b810e08a2c6c7621bc144f8674, win32_desktop\src\GCModeller\Application\Workbench.vb"
 
     ' Author:
     ' 
@@ -109,4 +109,3 @@ Public Class Workbench
         End Using
     End Sub
 End Class
-

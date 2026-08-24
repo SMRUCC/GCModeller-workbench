@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::210530ccecf5537e1195ff08361d72eb, win32_desktop\src\GCModeller\Forms\Tools\LoggingOutputWindow.vb"
+﻿#Region "Microsoft.VisualBasic::613535c4f2f95409de084ce06b128816, win32_desktop\src\GCModeller\Forms\Tools\LoggingOutputWindow.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 100.00%
     ' 
     '   Blank Lines: 6 (19.35%)
-    '     File Size: 1018 B
+    '     File Size: 1016 B
 
 
     ' Class LoggingOutputWindow
@@ -83,4 +83,3 @@ Partial Public Class LoggingOutputWindow
         textBox1.Clear()
     End Sub
 End Class
-

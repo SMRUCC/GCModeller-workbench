@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::278c975c64d3bf2e6c7a5ab735e34ef3, win32_desktop\src\GCModeller\DocumentPages\WebApps\Omics\OmicsProject.vb"
+﻿#Region "Microsoft.VisualBasic::16cb76e066afe5436a49619dd6ef04a7, win32_desktop\src\GCModeller\DocumentPages\WebApps\Omics\OmicsProject.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 14
-    '    Code Lines: 10 (71.43%)
+    '   Total Lines: 13
+    '    Code Lines: 10 (76.92%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 4 (28.57%)
-    '     File Size: 333 B
+    '   Blank Lines: 3 (23.08%)
+    '     File Size: 329 B
 
 
     ' Class OmicsProject
@@ -50,7 +50,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -65,4 +64,3 @@ Public Class OmicsProject : Inherits WebApp
         arguments("proj") = path
     End Sub
 End Class
-

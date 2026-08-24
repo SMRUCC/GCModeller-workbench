@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::4d555a36ee55878b8bd11d83be82bc15, win32_desktop\src\GCModeller\Forms\Tools\LoggingOutputWindow.Designer.vb"
+﻿#Region "Microsoft.VisualBasic::c6a3e27a0c5e61e0af1ba4055dd55e80, win32_desktop\src\GCModeller\Forms\Tools\LoggingOutputWindow.Designer.vb"
 
     ' Author:
     ' 
@@ -34,12 +34,12 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 118
-    '    Code Lines: 80 (67.80%)
-    ' Comment Lines: 32 (27.12%)
+    '   Total Lines: 116
+    '    Code Lines: 80 (68.97%)
+    ' Comment Lines: 32 (27.59%)
     '    - Xml Docs: 34.38%
     ' 
-    '   Blank Lines: 6 (5.08%)
+    '   Blank Lines: 4 (3.45%)
     '     File Size: 5.37 KB
 
 
@@ -47,11 +47,9 @@
     ' 
     '     Sub: Dispose, InitializeComponent
     ' 
-    ' 
     ' /********************************************************************************/
 
 #End Region
-
 
 Partial Class LoggingOutputWindow
     ''' <summary>
@@ -169,5 +167,3 @@ Partial Class LoggingOutputWindow
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripButton2 As ToolStripButton
 End Class
-
-

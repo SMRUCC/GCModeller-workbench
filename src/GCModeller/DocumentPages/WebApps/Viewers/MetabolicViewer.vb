@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::40d5e68029c5176bd9f7b18ada89090d, win32_desktop\src\GCModeller\DocumentPages\WebApps\Viewers\MetabolicViewer.vb"
+﻿#Region "Microsoft.VisualBasic::e5a9a0ca0b96b8dc06afb854cd5e1a65, win32_desktop\src\GCModeller\DocumentPages\WebApps\Viewers\MetabolicViewer.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 94.44%
     ' 
     '   Blank Lines: 8 (13.33%)
-    '     File Size: 2.02 KB
+    '     File Size: 2.01 KB
 
 
     ' Class MetabolicViewer
@@ -112,4 +112,3 @@ Public Class MetabolicViewer : Inherits WebApp
         End Using
     End Function
 End Class
-

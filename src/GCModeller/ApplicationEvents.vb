@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::12f0de426968776326327ffe0ee3b28b, win32_desktop\src\GCModeller\ApplicationEvents.vb"
+﻿#Region "Microsoft.VisualBasic::ba74174b4abf643427f1ceba95409174, win32_desktop\src\GCModeller\ApplicationEvents.vb"
 
     ' Author:
     ' 
@@ -88,4 +88,3 @@ Namespace My
         End Sub
     End Class
 End Namespace
-

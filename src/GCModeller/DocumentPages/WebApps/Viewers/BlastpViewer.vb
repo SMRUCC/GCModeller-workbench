@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::46f8320dbed7e8586b2a72d2d223a35d, win32_desktop\src\GCModeller\DocumentPages\WebApps\Viewers\BlastpViewer.vb"
+﻿#Region "Microsoft.VisualBasic::f53bb2545e78cfeedf98cbdda7819671, win32_desktop\src\GCModeller\DocumentPages\WebApps\Viewers\BlastpViewer.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 0.00%
     ' 
     '   Blank Lines: 6 (23.08%)
-    '     File Size: 853 B
+    '     File Size: 851 B
 
 
     ' Class BlastpViewer
@@ -78,4 +78,3 @@ Public Class BlastpViewer : Inherits WebApp
         Return blastdata(id).GetJson
     End Function
 End Class
-

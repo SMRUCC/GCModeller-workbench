@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::248976087f70e01c660989f6603a15b3, win32_desktop\src\GCModeller\Forms\FormSplashScreen.Designer.vb"
+﻿#Region "Microsoft.VisualBasic::9a03b7faa0544726940f5744e1301871, win32_desktop\src\GCModeller\Forms\FormSplashScreen.Designer.vb"
 
     ' Author:
     ' 
@@ -195,4 +195,3 @@ Partial Class FormSplashScreen
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents Label5 As Label
 End Class
-

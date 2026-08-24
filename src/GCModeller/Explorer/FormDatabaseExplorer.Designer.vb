@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::c6950cd740acbd995dbcce7605897a0d, win32_desktop\src\GCModeller\Explorer\FormDatabaseExplorer.Designer.vb"
+﻿#Region "Microsoft.VisualBasic::299fc0e56647dd81667943394e745aa1, win32_desktop\src\GCModeller\Explorer\FormDatabaseExplorer.Designer.vb"
 
     ' Author:
     ' 
@@ -81,4 +81,3 @@ Partial Class FormDatabaseExplorer
         Me.Text = "Form1"
     End Sub
 End Class
-

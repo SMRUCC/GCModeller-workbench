@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::7e5e9593bd3fcad3d90b57b8313af365, win32_desktop\src\GCModeller\DocumentPages\WebApps\Repository\ImportsNCBITaxonomy.vb"
+﻿#Region "Microsoft.VisualBasic::d40c5454b308a32427f2dd106e3fb73d, win32_desktop\src\GCModeller\DocumentPages\WebApps\Repository\ImportsNCBITaxonomy.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 11
-    '    Code Lines: 8 (72.73%)
+    '   Total Lines: 10
+    '    Code Lines: 8 (80.00%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 3 (27.27%)
-    '     File Size: 264 B
+    '   Blank Lines: 2 (20.00%)
+    '     File Size: 260 B
 
 
     ' Class ImportsNCBITaxonomy
@@ -50,7 +50,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -62,4 +61,3 @@ Public Class ImportsNCBITaxonomy : Inherits WebApp
         MyBase.New("/toolkit/ncbi_taxonomy.vbhtml")
     End Sub
 End Class
-

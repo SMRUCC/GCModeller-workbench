@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::7fda1cf79acf46b8aaa5e0a9dbfb0f16, win32_desktop\src\GCModeller\DocumentPages\WebApps\Repository\EnrichmentDatabase.vb"
+﻿#Region "Microsoft.VisualBasic::82bf4c732fa42f69dedf6024ffed375e, win32_desktop\src\GCModeller\DocumentPages\WebApps\Repository\EnrichmentDatabase.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 35
-    '    Code Lines: 28 (80.00%)
+    '   Total Lines: 34
+    '    Code Lines: 28 (82.35%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 7 (20.00%)
-    '     File Size: 1.20 KB
+    '   Blank Lines: 6 (17.65%)
+    '     File Size: 1.19 KB
 
 
     ' Class EnrichmentDatabase
@@ -51,7 +51,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 Imports Microsoft.VisualBasic.Serialization.JSON
@@ -87,4 +86,3 @@ Public Class EnrichmentDatabase : Inherits WebApp
         Return app.Open
     End Function
 End Class
-

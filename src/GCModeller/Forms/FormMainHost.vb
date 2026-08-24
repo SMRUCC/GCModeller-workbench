@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::9c3a72117469aba2e82c85068dfda92d, win32_desktop\src\GCModeller\Forms\FormMainHost.vb"
+﻿#Region "Microsoft.VisualBasic::978e7a9affaf189991cecff1f8bf565e, win32_desktop\src\GCModeller\Forms\FormMainHost.vb"
 
     ' Author:
     ' 
@@ -145,4 +145,3 @@ Public Class FormMainHost
         Call App.Exit()
     End Sub
 End Class
-

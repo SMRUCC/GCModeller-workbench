@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::46aa9a35c3c391644c75dbe1efc5bc9d, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\RunBlast.vb"
+﻿#Region "Microsoft.VisualBasic::5c3f9a237d02444080000a61173b07af, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\RunBlast.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 30
-    '    Code Lines: 14 (46.67%)
-    ' Comment Lines: 11 (36.67%)
+    '   Total Lines: 29
+    '    Code Lines: 14 (48.28%)
+    ' Comment Lines: 11 (37.93%)
     '    - Xml Docs: 72.73%
     ' 
-    '   Blank Lines: 5 (16.67%)
-    '     File Size: 896 B
+    '   Blank Lines: 4 (13.79%)
+    '     File Size: 892 B
 
 
     ' Class RunBlast
@@ -50,7 +50,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -81,4 +80,3 @@ Public Class RunBlast : Inherits WebApp
         End If
     End Sub
 End Class
-

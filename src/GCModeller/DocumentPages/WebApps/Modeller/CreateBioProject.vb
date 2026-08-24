@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::4a27d23660ac219999ab571970f5a723, win32_desktop\src\GCModeller\DocumentPages\WebApps\Modeller\CreateBioProject.vb"
+﻿#Region "Microsoft.VisualBasic::e06f06c969f5abd78d1349640be8c2f6, win32_desktop\src\GCModeller\DocumentPages\WebApps\Modeller\CreateBioProject.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 0.00%
     ' 
     '   Blank Lines: 1 (16.67%)
-    '     File Size: 161 B
+    '     File Size: 159 B
 
 
     ' Class CreateBioProject
@@ -57,4 +57,3 @@ Public Class CreateBioProject : Inherits WebApp
         MyBase.New("/toolkit/projects/modeller/create.vbhtml")
     End Sub
 End Class
-

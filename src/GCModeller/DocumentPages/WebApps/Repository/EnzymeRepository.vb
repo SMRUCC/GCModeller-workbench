@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::8b0458429f44d7f50dc5b0b4db556093, win32_desktop\src\GCModeller\DocumentPages\WebApps\Repository\EnzymeRepository.vb"
+﻿#Region "Microsoft.VisualBasic::23c8ac806383d7262b0145c948a6668c, win32_desktop\src\GCModeller\DocumentPages\WebApps\Repository\EnzymeRepository.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 27
-    '    Code Lines: 20 (74.07%)
+    '   Total Lines: 26
+    '    Code Lines: 20 (76.92%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 7 (25.93%)
-    '     File Size: 808 B
+    '   Blank Lines: 6 (23.08%)
+    '     File Size: 804 B
 
 
     ' Class EnzymeRepository
@@ -51,7 +51,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 Imports Microsoft.VisualBasic.MIME.application.json
@@ -79,4 +78,3 @@ Public Class EnzymeRepository : Inherits WebApp
         Return classList
     End Function
 End Class
-

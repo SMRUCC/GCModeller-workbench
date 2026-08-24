@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::5bfb9c7dc6286d1865b1a7f80da6b945, win32_desktop\src\GCModeller\DocumentPages\WebApp.vb"
+﻿#Region "Microsoft.VisualBasic::0a8e32f01b2144bcfbaba24cdca351ac, win32_desktop\src\GCModeller\DocumentPages\WebApp.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 88.24%
     ' 
     '   Blank Lines: 38 (15.64%)
-    '     File Size: 8.14 KB
+    '     File Size: 8.13 KB
 
 
     ' Class WebApp
@@ -301,4 +301,3 @@ Public MustInherit Class WebApp
     End Function
 
 End Class
-

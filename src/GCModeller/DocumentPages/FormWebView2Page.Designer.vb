@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::43952dd12aafe9a780c5203e5f4f79a3, win32_desktop\src\GCModeller\DocumentPages\FormWebView2Page.Designer.vb"
+﻿#Region "Microsoft.VisualBasic::2c94020a8a03f26466b8b64b12183847, win32_desktop\src\GCModeller\DocumentPages\FormWebView2Page.Designer.vb"
 
     ' Author:
     ' 
@@ -153,4 +153,3 @@ Partial Class FormWebView2Page
     Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CloseAllDocumentsToolStripMenuItem As ToolStripMenuItem
 End Class
-

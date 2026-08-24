@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::4358401d15663906fa26fac000cdda59, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\DataEmbedding.vb"
+﻿#Region "Microsoft.VisualBasic::486ac925237a71d38889e736d024aa56, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\DataEmbedding.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 13
-    '    Code Lines: 8 (61.54%)
+    '   Total Lines: 12
+    '    Code Lines: 8 (66.67%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 5 (38.46%)
-    '     File Size: 259 B
+    '   Blank Lines: 4 (33.33%)
+    '     File Size: 255 B
 
 
     ' Class DataEmbedding
@@ -50,7 +50,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -64,4 +63,3 @@ Public Class DataEmbedding : Inherits WebApp
 
 
 End Class
-

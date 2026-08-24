@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::246d2392dd98d857d3913039f60ae4cb, win32_desktop\src\GCModeller\DocumentPages\WebApps\Viewers\MotifLogo.vb"
+﻿#Region "Microsoft.VisualBasic::b70f2ae214493f9e4763fe78e8e85355, win32_desktop\src\GCModeller\DocumentPages\WebApps\Viewers\MotifLogo.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 11
-    '    Code Lines: 8 (72.73%)
+    '   Total Lines: 10
+    '    Code Lines: 8 (80.00%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 3 (27.27%)
-    '     File Size: 257 B
+    '   Blank Lines: 2 (20.00%)
+    '     File Size: 253 B
 
 
     ' Class MotifLogo
@@ -50,7 +50,6 @@
     ' /********************************************************************************/
 
 #End Region
-
 
 Imports System.Runtime.InteropServices
 
@@ -62,4 +61,3 @@ Public Class MotifLogo : Inherits WebApp
         MyBase.New("/toolkit/viewer/motifLogo.vbhtml")
     End Sub
 End Class
-

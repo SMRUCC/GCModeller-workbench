@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::9fd2b0a5a9c90801abbdb411ff73f6a2, win32_desktop\src\GCModeller\DocumentPages\WebApps\Repository\ImportsUniProt.vb"
+﻿#Region "Microsoft.VisualBasic::ac198f6345e23a0a953791bbb518af12, win32_desktop\src\GCModeller\DocumentPages\WebApps\Repository\ImportsUniProt.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 0.00%
     ' 
     '   Blank Lines: 1 (16.67%)
-    '     File Size: 151 B
+    '     File Size: 149 B
 
 
     ' Class ImportsUniProt
@@ -57,4 +57,3 @@ Public Class ImportsUniProt : Inherits WebApp
         MyBase.New("/toolkit/uniprot_database.vbhtml")
     End Sub
 End Class
-

@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::0b7025b0c6a8103d24a5c0b37b5685fa, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\RunDAM.vb"
+﻿#Region "Microsoft.VisualBasic::fab395355427d0de57261a4bdfe578af, win32_desktop\src\GCModeller\DocumentPages\WebApps\DataAnalysis\RunDAM.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 100.00%
     ' 
     '   Blank Lines: 2 (15.38%)
-    '     File Size: 301 B
+    '     File Size: 299 B
 
 
     ' Class RunDAM
@@ -64,4 +64,3 @@ Public Class RunDAM : Inherits WebApp
         MyBase.New("/apps/dam.vbhtml")
     End Sub
 End Class
-

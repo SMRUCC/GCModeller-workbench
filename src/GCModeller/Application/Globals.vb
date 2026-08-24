@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::fb9086001732717bda75656face36881, win32_desktop\src\GCModeller\Application\Globals.vb"
+﻿#Region "Microsoft.VisualBasic::4718578d415070eb066d2b3fd3ce8d15, win32_desktop\src\GCModeller\Application\Globals.vb"
 
     ' Author:
     ' 
@@ -155,4 +155,3 @@ Public Class Globals
     End Sub
 
 End Class
-

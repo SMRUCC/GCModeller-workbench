@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::4455a72d51a250004e30278866770683, win32_desktop\src\GCModeller\Forms\Base\DockWindow.Designer.vb"
+﻿#Region "Microsoft.VisualBasic::73c80b7ef5cd15075bdbf13e819015d9, win32_desktop\src\GCModeller\Forms\Base\DockWindow.Designer.vb"
 
     ' Author:
     ' 
@@ -40,7 +40,7 @@
     '    - Xml Docs: 0.00%
     ' 
     '   Blank Lines: 6 (5.77%)
-    '     File Size: 5.22 KB
+    '     File Size: 5.21 KB
 
 
     ' Class DockWindow
@@ -155,4 +155,3 @@ Partial Class DockWindow
     Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
     Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
 End Class
-

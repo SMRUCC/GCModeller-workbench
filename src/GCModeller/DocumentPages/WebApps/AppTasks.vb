@@ -1,4 +1,4 @@
-﻿#Region "Microsoft.VisualBasic::28d7d9c89ba08fed1a91d7c2ce12fd3d, win32_desktop\src\GCModeller\DocumentPages\WebApps\AppTasks.vb"
+﻿#Region "Microsoft.VisualBasic::4bf5723952939ed2adce3d4bfc07a462, win32_desktop\src\GCModeller\DocumentPages\WebApps\AppTasks.vb"
 
     ' Author:
     ' 
@@ -34,13 +34,13 @@
 
     ' Code Statistics:
 
-    '   Total Lines: 66
-    '    Code Lines: 52 (78.79%)
+    '   Total Lines: 64
+    '    Code Lines: 52 (81.25%)
     ' Comment Lines: 0 (0.00%)
     '    - Xml Docs: 0.00%
     ' 
-    '   Blank Lines: 14 (21.21%)
-    '     File Size: 2.31 KB
+    '   Blank Lines: 12 (18.75%)
+    '     File Size: 2.30 KB
 
 
     ' Class AppTasks
@@ -54,8 +54,6 @@
     ' /********************************************************************************/
 
 #End Region
-
-
 
 Imports System.Runtime.InteropServices
 Imports GCModeller
@@ -121,4 +119,3 @@ Public Class AppTasks : Inherits WebApp
         Call obj.Open()
     End Sub
 End Class
-
