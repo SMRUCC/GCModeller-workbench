@@ -1,4 +1,58 @@
-﻿Imports System.Threading
+﻿#Region "Microsoft.VisualBasic::4718578d415070eb066d2b3fd3ce8d15, win32_desktop\src\GCModeller\Application\Globals.vb"
+
+    ' Author:
+    ' 
+    '       asuka (amethyst.asuka@gcmodeller.org)
+    '       xie (genetics@smrucc.org)
+    '       xieguigang (xie.guigang@live.com)
+    ' 
+    ' Copyright (c) 2018 GPL3 Licensed
+    ' 
+    ' 
+    ' GNU GENERAL PUBLIC LICENSE (GPL3)
+    ' 
+    ' 
+    ' This program is free software: you can redistribute it and/or modify
+    ' it under the terms of the GNU General Public License as published by
+    ' the Free Software Foundation, either version 3 of the License, or
+    ' (at your option) any later version.
+    ' 
+    ' This program is distributed in the hope that it will be useful,
+    ' but WITHOUT ANY WARRANTY; without even the implied warranty of
+    ' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    ' GNU General Public License for more details.
+    ' 
+    ' You should have received a copy of the GNU General Public License
+    ' along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+
+
+    ' /********************************************************************************/
+
+    ' Summaries:
+
+
+    ' Code Statistics:
+
+    '   Total Lines: 103
+    '    Code Lines: 81 (78.64%)
+    ' Comment Lines: 5 (4.85%)
+    '    - Xml Docs: 0.00%
+    ' 
+    '   Blank Lines: 17 (16.50%)
+    '     File Size: 4.36 KB
+
+
+    ' Class Globals
+    ' 
+    '     Constructor: (+1 Overloads) Sub New
+    '     Sub: launchFastRweb, Load, startWebServices
+    ' 
+    ' /********************************************************************************/
+
+#End Region
+
+Imports System.Threading
 Imports GCModeller_win32Desktop.My
 Imports GCModeller_win32Desktop.Settings
 Imports GCModeller_win32Desktop.Settings.Programs
